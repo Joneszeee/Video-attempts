@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ball Drop</title>
+<style>
+  @font-face { font-family: 'Playfair'; font-style: italic; font-weight: 900;
+    src: url('/node_modules/@fontsource/playfair-display/files/playfair-display-latin-900-italic.woff2') format('woff2'); }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+  canvas { display: block; }
+  #fin { position: absolute; left: 0; right: 0; top: 520px; text-align: center; pointer-events: none;
+    font-family: 'Playfair', serif; font-style: italic; font-weight: 900; font-size: 300px; line-height: 1;
+    color: #fff4e2; opacity: 0; letter-spacing: -4px;
+    text-shadow: 0 6px 0 rgba(120, 20, 60, 0.55), 0 0 60px rgba(255, 190, 220, 0.55); }
+  #fin span { display: inline-block; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js",
+               "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="fin"><span>F</span><span>i</span><span>n</span><span>.</span></div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

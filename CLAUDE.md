@@ -10,7 +10,10 @@ Two looks:
 
 ## When the user sends a script (or a story)
 1. Create `videos/<slug>/spec.json` (format below) and `videos/<slug>/vo.txt`.
-   - One beat per sentence or short pair of sentences in the script. 4–6 beats, 25–45s total.
+   - One beat per sentence or short pair of sentences in the script. Aim for **at least 60s: 10–14 beats** (about 230 words of VO).
+   - **Change scenes through the video.** Don't use one look for the whole thing. Move between stadium (crowd colours per club),
+     stage and studio as the story moves (a different club or era means a new stadium, a debate means the stage). Put `"cut": true` on every scene change
+     and give the new scene its own `players`. Example: `videos/messi-91`.
    - If they sent a story rather than a script, write the script first using PROMPT.md's rules.
    - Never invent stats. List anything you are not certain of and ask before rendering.
 2. Render a preview with `python3 build.py videos/<slug>/spec.json --stills 1,5,9,...`, look at the stills, and fix layout problems

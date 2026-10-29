@@ -550,7 +550,7 @@ function layoutHL(s) {
   let x = 0;
   for (const tk of parseHL(s)) {
     const w = ctx.measureText(tk.w).width, gap = tk.space ? sp : 0;
-    if (x + gap + w > HL.maxW && lines[lines.length - 1].length) { lines.push([]); x = 0; }
+    if (tk.space && x + gap + w > HL.maxW && lines[lines.length - 1].length) { lines.push([]); x = 0; }
     else x += gap;
     lines[lines.length - 1].push({ ...tk, x });
     x += w;

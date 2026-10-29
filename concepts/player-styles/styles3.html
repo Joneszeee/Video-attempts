@@ -1,0 +1,192 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: Inter; src: url(../../engine/fonts/Inter.woff2); font-weight: 100 900; }
+@font-face { font-family: Mono; src: url(../../engine/fonts/JetBrainsMono.woff2); font-weight: 100 800; }
+body { margin: 0; background: #000; }
+</style></head>
+<body><canvas id="c" width="720" height="1080"></canvas>
+<img id="bg" src="stadium_bg.png" style="display:none">
+<script>
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const W = 720, H = 1080, X = W / 2;
+const BLAU = '#1d3f9a', GRANA = '#a3133f', SKIN = '#e0a983', HAIR = '#4a2c1a';
+function rng(seed) { let s = seed >>> 0 || 1; return () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; }; }
+function rr(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+function shade(hex, k) {
+  const n = parseInt(hex.slice(1), 16), c = [n >> 16 & 255, n >> 8 & 255, n & 255];
+  return `rgb(${c.map(v => Math.max(0, Math.min(255, Math.round(k < 0 ? v * (1 + k) : v + (255 - v) * k)))).join(',')})`;
+}
+function label(title, sub) {
+  ctx.fillStyle = 'rgba(6,8,12,0.78)'; ctx.fillRect(0, H - 150, W, 150);
+  ctx.textAlign = 'left'; ctx.fillStyle = '#f4f2ec'; ctx.font = '800 44px Inter'; ctx.fillText(title, 40, H - 88);
+  ctx.fillStyle = '#9aa1ad'; ctx.font = '500 20px Mono'; ctx.fillText(sub.toUpperCase(), 40, H - 46);
+}
+function background() {
+  ctx.drawImage(document.getElementById('bg'), 0, 0, W, H);
+  ctx.font = '700 46px Inter'; ctx.fillStyle = '#f4f2ec'; ctx.textAlign = 'left';
+  const lead = 'Messi finished on '; ctx.fillText(lead, 40, 250);
+  ctx.fillStyle = '#3FE0C5'; ctx.fillText('91.', 40 + ctx.measureText(lead).width, 250);
+}
+// Shared back-view body (same proportions as the other concepts), drawn so the feet stand on the engine's pitch.
+const FEET = 800, SC = 0.6;
+function inPlayerSpace(fn) { ctx.save(); ctx.translate(X, FEET); ctx.scale(SC, SC); ctx.translate(-X, -822); fn(); ctx.restore(); }
+function parts() {
+  const P = [];
+  const add = (name, col, path, box) => P.push({ name, col, path, box });
+  for (const s of [-1, 1]) {
+    add('leg', SKIN, () => rr(X + s * 38 - 22, 680, 44, 70, 18), [X + s * 38 - 22, 680, 44, 70]);
+    add('sock', BLAU, () => rr(X + s * 38 - 23, 740, 46, 64, 14), [X + s * 38 - 23, 740, 46, 64]);
+    add('boot', '#1b1b1f', () => rr(X + s * 42 - 32, 796, 64, 26, 12), [X + s * 42 - 32, 796, 64, 26]);
+  }
+  add('shorts', BLAU, () => rr(X - 86, 612, 172, 86, 24), [X - 86, 612, 172, 86]);
+  for (const s of [-1, 1]) {
+    add('arm', SKIN, () => rr(X + s * 112 - 22, 480, 44, 150, 22), [X + s * 112 - 22, 480, 44, 150]);
+    add('sleeve', GRANA, () => rr(X + s * 106 - 30, 446, 60, 66, 24), [X + s * 106 - 30, 446, 60, 66]);
+  }
+  add('torso', GRANA, () => { ctx.beginPath(); ctx.moveTo(X - 112, 452); ctx.quadraticCurveTo(X, 430, X + 112, 452); ctx.lineTo(X + 94, 640); ctx.lineTo(X - 94, 640); ctx.closePath(); }, [X - 112, 432, 224, 208]);
+  add('neck', SKIN, () => rr(X - 22, 410, 44, 36, 12), [X - 22, 410, 44, 36]);
+  add('head', SKIN, () => { ctx.beginPath(); ctx.arc(X, 368, 62, 0, 7); }, [X - 62, 306, 124, 124]);
+  add('hair', HAIR, () => { ctx.beginPath(); ctx.arc(X, 360, 64, Math.PI * 0.92, Math.PI * 2.08); ctx.closePath(); }, [X - 64, 296, 128, 74]);
+  return P;
+}
+function stripes(p) {
+  ctx.save(); p.path(); ctx.clip();
+  for (const sx of [-74, -18, 38]) { ctx.fillStyle = BLAU; ctx.fillRect(X + sx, 420, 36, 230); }
+  ctx.restore();
+}
+function flatPlayer() {
+  for (const p of parts()) { p.path(); ctx.fillStyle = p.col; ctx.fill(); if (p.name === 'torso') stripes(p); }
+  ctx.font = '900 92px Inter'; ctx.textAlign = 'center'; ctx.fillStyle = '#fff'; ctx.fillText('10', X, 590);
+  ctx.font = '700 22px Mono'; ctx.fillText('MESSI', X, 492);
+}
+
+// ---------- 11. TV ANALYSIS PEN (telestrator over the original style) ----------
+function marker(pathFn, col, w, seed) {
+  const R = rng(seed);
+  ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.shadowColor = col; ctx.shadowBlur = 14;
+  for (let i = 0; i < 2; i++) {
+    ctx.save(); ctx.translate((R() - 0.5) * 2, (R() - 0.5) * 2);
+    pathFn(); ctx.strokeStyle = col; ctx.globalAlpha = i ? 0.55 : 0.95; ctx.lineWidth = w * (i ? 1.6 : 1); ctx.stroke(); ctx.restore();
+  }
+  ctx.restore();
+}
+function wobblyEllipse(cx, cy, rx, ry, seed, turns = 1.15) {
+  const R = rng(seed); ctx.beginPath();
+  for (let i = 0; i <= 60 * turns; i++) { const a = i / 60 * Math.PI * 2 - 1.2, k = 1 + (R() - 0.5) * 0.04 + i * 0.0012; const x = cx + Math.cos(a) * rx * k, y = cy + Math.sin(a) * ry * k; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+}
+function drawTelestrator() {
+  background();
+  marker(() => wobblyEllipse(X, FEET - 4, 120, 28, 3), '#ffe14d', 6, 1);
+  inPlayerSpace(flatPlayer);
+  marker(() => wobblyEllipse(X, FEET - 150, 125, 185, 7), '#ffe14d', 7, 2);
+  marker(() => { ctx.beginPath(); ctx.moveTo(X + 60, FEET - 20); ctx.bezierCurveTo(X + 200, FEET - 80, X + 230, 640, X + 120, 560); }, '#ff4d5e', 7, 4);
+  marker(() => { ctx.beginPath(); ctx.moveTo(X + 104, 588); ctx.lineTo(X + 120, 560); ctx.lineTo(X + 150, 572); }, '#ff4d5e', 7, 5);
+  ctx.setLineDash([2, 16]);
+  marker(() => { ctx.beginPath(); ctx.moveTo(X - 70, FEET - 10); ctx.quadraticCurveTo(X - 260, 720, X - 220, 600); }, '#ffffff', 8, 6);
+  ctx.setLineDash([]);
+  ctx.save(); ctx.translate(X - 250, 560); ctx.rotate(-0.12);
+  ctx.font = '700 40px "Comic Sans MS", Inter'; ctx.fillStyle = '#ffe14d'; ctx.shadowColor = '#ffe14d'; ctx.shadowBlur = 12;
+  ctx.fillText('91 in 2012!', 0, 0); ctx.restore();
+  label('TV analysis pen', 'Original players · pundit marker over the shot');
+}
+
+// ---------- 12. STICKER ALBUM ----------
+function silhouette() { for (const p of parts()) { p.path(); ctx.fill(); } }
+function drawSticker() {
+  background();
+  inPlayerSpace(() => {
+    ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 24; ctx.shadowOffsetX = 10; ctx.shadowOffsetY = 14;
+    ctx.fillStyle = '#fbfaf6'; ctx.strokeStyle = '#fbfaf6'; ctx.lineWidth = 46; ctx.lineJoin = 'round';
+    for (const p of parts()) { p.path(); ctx.stroke(); ctx.fill(); }
+    ctx.restore();
+    ctx.lineWidth = 46; ctx.strokeStyle = '#fbfaf6'; ctx.lineJoin = 'round';
+    for (const p of parts()) { p.path(); ctx.stroke(); }
+    flatPlayer();
+    // holographic foil on the number
+    const foil = ctx.createLinearGradient(X - 60, 520, X + 60, 600);
+    ['#ff8ad8', '#ffe27a', '#8affc1', '#7ab8ff', '#ff8ad8'].forEach((c, i) => foil.addColorStop(i / 4, c));
+    ctx.font = '900 92px Inter'; ctx.textAlign = 'center'; ctx.fillStyle = foil; ctx.fillText('10', X, 590);
+    // glossy sheen sweep
+    ctx.save(); ctx.beginPath(); for (const p of parts()) { p.path(); } ctx.restore();
+    ctx.save();
+    ctx.globalCompositeOperation = 'source-atop';
+    const sh = ctx.createLinearGradient(X - 200, 300, X + 200, 820);
+    sh.addColorStop(0.35, 'rgba(255,255,255,0)'); sh.addColorStop(0.45, 'rgba(255,255,255,0.35)'); sh.addColorStop(0.55, 'rgba(255,255,255,0)');
+    ctx.restore();
+  });
+  // sheen band across the sticker area
+  ctx.save(); ctx.globalCompositeOperation = 'soft-light';
+  const sh = ctx.createLinearGradient(220, 480, 520, 760);
+  sh.addColorStop(0.3, 'rgba(255,255,255,0)'); sh.addColorStop(0.5, 'rgba(255,255,255,0.9)'); sh.addColorStop(0.7, 'rgba(255,255,255,0)');
+  ctx.fillStyle = sh; ctx.fillRect(200, 450, 330, 380); ctx.restore();
+  // peeling corner at the right boot
+  const px = X + 66, py = FEET - 6;
+  ctx.save();
+  ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.beginPath(); ctx.moveTo(px - 30, py); ctx.lineTo(px + 6, py - 34); ctx.lineTo(px + 14, py + 6); ctx.fill();
+  const curl = ctx.createLinearGradient(px - 30, py, px + 10, py - 30); curl.addColorStop(0, '#d9d6cc'); curl.addColorStop(0.6, '#ffffff'); curl.addColorStop(1, '#bfbcb2');
+  ctx.fillStyle = curl; ctx.beginPath(); ctx.moveTo(px - 28, py + 2); ctx.quadraticCurveTo(px - 6, py - 4, px + 4, py - 30); ctx.lineTo(px - 12, py - 12); ctx.closePath(); ctx.fill();
+  ctx.restore();
+  // album-style number badge
+  ctx.save(); ctx.translate(X + 150, 560); ctx.rotate(0.08);
+  rr(-46, -30, 92, 60, 10); ctx.fillStyle = '#fbfaf6'; ctx.shadowColor = 'rgba(0,0,0,0.4)'; ctx.shadowBlur = 10; ctx.fill(); ctx.shadowBlur = 0;
+  ctx.font = '800 30px Inter'; ctx.textAlign = 'center'; ctx.fillStyle = GRANA; ctx.fillText('#091', 0, 11); ctx.restore();
+  label('Sticker album', 'Die-cut sticker · gloss · foil · peeling corner');
+}
+
+// ---------- 13. CARVED WOODEN TOY ----------
+function woodGrain(p, base, paint, seed) {
+  const [bx, by, bw, bh] = p.box, R = rng(seed);
+  ctx.save(); p.path(); ctx.clip();
+  const g = ctx.createLinearGradient(bx, 0, bx + bw, 0);
+  g.addColorStop(0, shade(base, -0.35)); g.addColorStop(0.35, shade(base, 0.12)); g.addColorStop(0.5, shade(base, 0.22)); g.addColorStop(1, shade(base, -0.45));
+  ctx.fillStyle = g; ctx.fillRect(bx - 5, by - 5, bw + 10, bh + 10);
+  ctx.strokeStyle = 'rgba(70,40,15,0.35)'; ctx.lineWidth = 1.6;
+  for (let k = 0; k < 18; k++) {
+    const x0 = bx + R() * bw; ctx.beginPath();
+    for (let y = by - 5; y < by + bh + 5; y += 6) ctx.lineTo(x0 + Math.sin(y / 18 + k) * 5 + Math.sin(y / 47) * 8, y);
+    ctx.stroke();
+  }
+  if (paint) {
+    ctx.globalAlpha = 0.82; ctx.fillStyle = paint; ctx.fillRect(bx - 5, by - 5, bw + 10, bh + 10);
+    if (p.name === 'torso') { for (const sx of [-74, -18, 38]) { ctx.fillStyle = BLAU; ctx.fillRect(X + sx, 420, 36, 230); } }
+    ctx.globalAlpha = 1;
+    const sh = ctx.createLinearGradient(bx, 0, bx + bw, 0);
+    sh.addColorStop(0, 'rgba(0,0,0,0.35)'); sh.addColorStop(0.4, 'rgba(255,255,255,0.18)'); sh.addColorStop(0.48, 'rgba(255,255,255,0.35)'); sh.addColorStop(0.56, 'rgba(255,255,255,0.05)'); sh.addColorStop(1, 'rgba(0,0,0,0.45)');
+    ctx.fillStyle = sh; ctx.fillRect(bx - 5, by - 5, bw + 10, bh + 10);
+    ctx.strokeStyle = 'rgba(70,40,15,0.18)';
+    for (let k = 0; k < 8; k++) { const x0 = bx + R() * bw; ctx.beginPath(); for (let y = by; y < by + bh; y += 6) ctx.lineTo(x0 + Math.sin(y / 18 + k) * 5, y); ctx.stroke(); }
+  }
+  ctx.restore();
+  p.path(); ctx.strokeStyle = 'rgba(40,20,5,0.4)'; ctx.lineWidth = 2; ctx.stroke();
+}
+function drawWood() {
+  background();
+  inPlayerSpace(() => {
+    ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.beginPath(); ctx.ellipse(X + 14, 836, 150, 30, 0, 0, 7); ctx.fill();
+    const base = { name: 'base', box: [X - 140, 806, 280, 44], path: () => { ctx.beginPath(); ctx.ellipse(X, 828, 140, 26, 0, 0, 7); } };
+    woodGrain(base, '#a8723f', null, 2);
+    let seed = 10;
+    const woodBase = '#c99a63';
+    for (const p of parts()) {
+      const paint = { leg: null, head: null, neck: null, arm: null }[p.name] === undefined ? p.col : null;
+      woodGrain(p, woodBase, p.name === 'hair' ? HAIR : paint, seed++);
+    }
+    ctx.font = '900 88px Inter'; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(250,240,220,0.92)'; ctx.fillText('10', X, 590);
+    ctx.font = '700 22px Mono'; ctx.fillText('MESSI', X, 492);
+    // varnish glints
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    for (const [x, y, w, h] of [[X - 30, 330, 10, 26], [X - 70, 470, 8, 60], [X - 40, 630, 8, 30]]) { rr(x, y, w, h, 4); ctx.fill(); }
+  });
+  label('Carved wooden toy', 'Painted wood · grain · varnish · turned base');
+}
+
+window.draw = async (i) => {
+  await document.fonts.load('800 40px Inter'); await document.fonts.load('700 40px Mono');
+  const img = document.getElementById('bg'); if (!img.complete) await new Promise(r => img.onload = r);
+  ctx.clearRect(0, 0, W, H); ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+  [drawTelestrator, drawSticker, drawWood][i]();
+  return cv.toDataURL('image/png').split(',')[1];
+};
+</script></body></html>

@@ -1,7 +1,12 @@
 # Theo6k reels
 
 This repo turns a football script into a finished 9:16 animated reel in the Story Gaffer style
-(see FORMAT.md). Brand: **theo6k**, accent `#3FE0C5`.
+(see FORMAT.md). Brand: **theo6k**. Accent `#3FE0C5` (teal) for stadium videos, `#E9B949` (gold)
+for theatre-stage videos (awards, "greatest ever", debates).
+
+Two looks:
+- **stadium**: 3D stadium with camera moves. Best for match and season stories. Demo: `videos/leicester`.
+- **stage**: theatre with red curtains, gold balconies and a spotlight on each player. Best for awards, comparisons and "who's the best" stories. Demo: `videos/modric`.
 
 ## When the user sends a script (or a story)
 1. Create `videos/<slug>/spec.json` (format below) and `videos/<slug>/vo.txt`.
@@ -25,17 +30,22 @@ fallback: put `"timings": [secs per beat]` in the spec).
     "kicker": "Premier League 2015/16 · The odds",   // small caps label; inherited by later beats until changed
     "headline": "August 2015. Leicester at [5000-1].", // [brackets] = accent colour; <= ~9 words, ends with a full stop
     "vo": "Spoken line for this beat",                // drives estimated timing before the real VO exists
-    "scene": { "type": "stadium", "crowd": ["#1d4fb8", "#ffffff"], "seed": 4 }, // or {"type":"studio"}; inherited
+    "scene": { "type": "stadium", "crowd": ["#1d4fb8", "#ffffff"], "seed": 4 }, // or {"type":"stage"} / {"type":"studio"}; inherited
+    "zoom": 1.1, "zoomFrom": 1.0,                     // stage only: camera push-in (instead of "camera")
     "camera": "aerial|high|stand|pitch|player|side" or { "pos": [x,y,z], "tgt": [x,y,z] },
     "camFrom": "...",   // starting camera for beat 1 or for a cut
     "cut": true,        // hard cut instead of a camera glide from the previous beat
     "move": 3,          // seconds for the camera move (default min(2.4, 80% of the beat))
     "players": [{ "name": "Vardy", "num": 9, "x": 0, "z": 0, "enter": "walk|fade", "fromZ": -4,
                   "pose": "arms_up", "trophy": true,
-                  "kit": { "shirt": "#1b4fb5", "shorts": "#fff", "socks": "#1b4fb5", "text": "#fff" },
+                  "sx": 0.5, "sy": 1610, "scale": 1,          // stage placement (fraction of width, feet y px)
+                  "ghost": true,                               // translucent "past player"
+                  "tag": 61, "tagLabel": "Goals", "tagDelay": 0.4, // gold number above the head
+                  "kit": { "shirt": "#1b4fb5", "shorts": "#fff", "socks": "#1b4fb5", "text": "#fff",
+                           "stripes": ["#a50044", "#004d98"] /* or "checks": [c1, c2] */ },
                   "skin": "#e7b593", "hair": "#4a3324" }],   // omitted = inherited, [] = none
     "confetti": true,
-    "card": { ... } or "same"   // omitted = no card
+    "card": { ... } or "same" or [ "same", { ... } ]   // omitted = no card; arrays stack cards
   }]
 }
 ```
@@ -50,6 +60,13 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
 - `vs`: `items: [{label, value, accent}]`, `label`
 - `bars`: `rows: [{name, value, accent, color}]`, `max`, `label`
 - `orb`: percent fill ball (Ballon d'Or style), `value`, `label`
+- `ballnumber`: a number built from footballs that fly in, then scatter on exit. `text`, `size`, `label` (with `{n}` counting to `count`)
+- `balls`: a row of ball icons popping in. `n`, `label`
+- `ruler`: an age or year line. `min`, `max`, `step`, `left`/`right` end labels,
+  `markers: [{value, label, accent, side: "above"|"below", len}]`, `bracket: {from, to, label, y}`, `style: "dots"` for a dotted timeline
+- `trophies`: pedestals rising from the floor. `items: [{kind: cup|worldcup|ball|boot, sx, h, size, label, text}]`, `floor`.
+  Use `h: 0` for a floating prop (e.g. a gold ball above a player's head)
+- `meter`: a vertical tube filling with balls. `value`, `max`, `markers: [{label, value}]`, `icon: {kind, label, dx}`
 
 ## Files
 - `engine/engine.js`: the canvas renderer (scenes, players, cards, text, timeline, SFX cue list)

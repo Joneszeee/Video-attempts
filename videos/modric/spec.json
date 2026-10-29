@@ -1,0 +1,65 @@
+{
+  "title": "Modric breaks the decade",
+  "brand": "theo6k",
+  "accent": "#E9B949",
+  "beats": [
+    {
+      "kicker": "Ballon d'Or · 2008–2017",
+      "headline": "Ten years. [Two names.]",
+      "vo": "From 2008 to 2017, only two men won the Ballon d'Or. Messi, five. Ronaldo, five.",
+      "scene": { "type": "stage" },
+      "zoomFrom": 1.08, "zoom": 1.0, "move": 5,
+      "players": [
+        { "name": "Messi", "num": 10, "sx": 0.3, "scale": 0.8, "enter": "fade", "tag": 5, "tagDelay": 3.2, "tagLabel": "Ballon d'Ors",
+          "kit": { "shirt": "#a50044", "stripes": ["#a50044", "#004d98"], "shorts": "#004d98", "socks": "#004d98", "text": "#ffffff" }, "skin": "#e2b08c", "hair": "#3b2618" },
+        { "name": "Ronaldo", "num": 7, "sx": 0.7, "scale": 0.8, "enter": "fade", "delay": 0.3, "tag": 5, "tagDelay": 3.6, "tagLabel": "Ballon d'Ors",
+          "kit": { "shirt": "#f2f2f2", "shorts": "#f2f2f2", "socks": "#f2f2f2", "text": "#1b2a5c" }, "skin": "#d29a72", "hair": "#1b1410" }
+      ],
+      "card": { "type": "ballnumber", "text": "10", "y": 790, "size": 400, "label": "{n} Ballon d'Ors · 2 players", "count": 10 }
+    },
+    {
+      "headline": "Then came [2018].",
+      "vo": "Then, in 2018, a midfielder from Croatia broke their grip.",
+      "zoom": 1.04,
+      "players": [
+        { "name": "Messi", "num": 10, "sx": 0.18, "scale": 0.8, "ghost": true },
+        { "name": "Ronaldo", "num": 7, "sx": 0.82, "scale": 0.8, "ghost": true },
+        { "name": "Modric", "num": 10, "sx": 0.5, "enter": "walk", "delay": 0.2,
+          "kit": { "shirt": "#e31b23", "checks": ["#e31b23", "#ffffff"], "shorts": "#ffffff", "socks": "#1b3a8c", "text": "#1b3a8c" }, "skin": "#e7b593", "hair": "#b08a5a" }
+      ],
+      "card": { "type": "ruler", "y": 780, "min": 2008, "max": 2018, "step": 2, "left": "Messi · Ronaldo",
+        "markers": [ { "value": 2018, "label": "Modrić", "accent": true, "len": 90 } ],
+        "bracket": { "from": 2008, "to": 2017, "label": "10 years", "y": 95 } }
+    },
+    {
+      "kicker": "Real Madrid · 2016–2018",
+      "headline": "Champions League: [three in a row].",
+      "vo": "First, a third Champions League in a row with Real Madrid.",
+      "zoom": 1.0,
+      "players": [
+        { "name": "Modric", "num": 10, "sx": 0.56,
+          "kit": { "shirt": "#e31b23", "checks": ["#e31b23", "#ffffff"], "shorts": "#ffffff", "socks": "#1b3a8c", "text": "#1b3a8c" }, "skin": "#e7b593", "hair": "#b08a5a" }
+      ],
+      "card": { "type": "trophies", "items": [ { "kind": "cup", "sx": 0.2, "h": 400, "size": 210, "label": "UCL 2016 · 17 · 18" } ] }
+    },
+    {
+      "kicker": "World Cup · Russia 2018",
+      "headline": "World Cup final. [Golden Ball.]",
+      "vo": "Then he dragged Croatia to the World Cup final, and won the Golden Ball.",
+      "card": [ "same", { "type": "trophies", "delay": 0.3, "items": [ { "kind": "ball", "sx": 0.85, "h": 320, "size": 190, "label": "Golden Ball" } ] } ]
+    },
+    {
+      "kicker": "Ballon d'Or · 2018",
+      "headline": "Luka Modrić. [Ballon d'Or 2018.]",
+      "vo": "Luka Modrić. The man who broke the Messi Ronaldo decade.",
+      "zoom": 1.12, "move": 4,
+      "players": [
+        { "name": "Modric", "num": 10, "sx": 0.5, "pose": "arms_up",
+          "kit": { "shirt": "#e31b23", "checks": ["#e31b23", "#ffffff"], "shorts": "#ffffff", "socks": "#1b3a8c", "text": "#1b3a8c" }, "skin": "#e7b593", "hair": "#b08a5a" }
+      ],
+      "confetti": true,
+      "confettiColors": ["#E9B949", "#fff3c4", "#ffffff", "#b77d16"],
+      "card": { "type": "trophies", "floor": 1080, "items": [ { "kind": "ball", "sx": 0.5, "h": 0, "size": 260 } ] }
+    }
+  ]
+}

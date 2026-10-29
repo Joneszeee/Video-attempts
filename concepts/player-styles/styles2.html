@@ -1,0 +1,239 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: Inter; src: url(../../engine/fonts/Inter.woff2); font-weight: 100 900; }
+@font-face { font-family: Mono; src: url(../../engine/fonts/JetBrainsMono.woff2); font-weight: 100 800; }
+body { margin: 0; background: #000; }
+</style></head>
+<body><canvas id="c" width="720" height="1080"></canvas>
+<script>
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const W = 720, H = 1080, X = W / 2;
+const BLAU = '#1d3f9a', GRANA = '#a3133f', SKIN = '#e0a983', HAIR = '#4a2c1a';
+function rng(seed) { let s = seed >>> 0 || 1; return () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; }; }
+function rr(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+function shade(hex, k) {
+  const n = parseInt(hex.slice(1), 16), c = [n >> 16 & 255, n >> 8 & 255, n & 255];
+  return `rgb(${c.map(v => Math.max(0, Math.min(255, Math.round(k < 0 ? v * (1 + k) : v + (255 - v) * k)))).join(',')})`;
+}
+function label(title, sub) {
+  ctx.fillStyle = 'rgba(6,8,12,0.75)'; ctx.fillRect(0, H - 150, W, 150);
+  ctx.textAlign = 'left'; ctx.fillStyle = '#f4f2ec'; ctx.font = '800 44px Inter'; ctx.fillText(title, 40, H - 88);
+  ctx.fillStyle = '#9aa1ad'; ctx.font = '500 20px Mono'; ctx.fillText(sub.toUpperCase(), 40, H - 46);
+}
+
+// One shared back-view body, as a list of parts; each style renders the parts its own way.
+function parts() {
+  const P = [];
+  const add = (name, col, path, box) => P.push({ name, col, path, box });
+  for (const s of [-1, 1]) {
+    add('leg', SKIN, () => rr(X + s * 38 - 22, 680, 44, 70, 18), [X + s * 38 - 22, 680, 44, 70]);
+    add('sock', BLAU, () => rr(X + s * 38 - 23, 740, 46, 64, 14), [X + s * 38 - 23, 740, 46, 64]);
+    add('boot', '#1b1b1f', () => rr(X + s * 42 - 32, 796, 64, 26, 12), [X + s * 42 - 32, 796, 64, 26]);
+  }
+  add('shorts', BLAU, () => rr(X - 86, 612, 172, 86, 24), [X - 86, 612, 172, 86]);
+  for (const s of [-1, 1]) {
+    add('arm', SKIN, () => rr(X + s * 112 - 22, 480, 44, 150, 22), [X + s * 112 - 22, 480, 44, 150]);
+    add('sleeve', GRANA, () => rr(X + s * 106 - 30, 446, 60, 66, 24), [X + s * 106 - 30, 446, 60, 66]);
+  }
+  add('torso', GRANA, () => { ctx.beginPath(); ctx.moveTo(X - 112, 452); ctx.quadraticCurveTo(X, 430, X + 112, 452); ctx.lineTo(X + 94, 640); ctx.lineTo(X - 94, 640); ctx.closePath(); }, [X - 112, 432, 224, 208]);
+  add('neck', SKIN, () => rr(X - 22, 410, 44, 36, 12), [X - 22, 410, 44, 36]);
+  add('head', SKIN, () => { ctx.beginPath(); ctx.arc(X, 368, 62, 0, 7); }, [X - 62, 306, 124, 124]);
+  add('hair', HAIR, () => { ctx.beginPath(); ctx.arc(X, 360, 64, Math.PI * 0.92, Math.PI * 2.08); ctx.closePath(); }, [X - 64, 296, 128, 74]);
+  return P;
+}
+const stripeCol = (x) => (Math.abs(Math.floor((x - (X - 112)) / 37)) % 2 ? BLAU : GRANA);
+
+// ---------- 6. NEON HOLOGRAM ----------
+function drawNeon() {
+  ctx.fillStyle = '#05030c'; ctx.fillRect(0, 0, W, H);
+  const sun = ctx.createLinearGradient(0, 180, 0, 520); sun.addColorStop(0, '#ff3fa4'); sun.addColorStop(1, '#ffb347');
+  ctx.save(); ctx.beginPath(); ctx.arc(X, 520, 230, Math.PI, 0); ctx.clip();
+  ctx.fillStyle = sun; ctx.fillRect(X - 230, 290, 460, 230);
+  ctx.fillStyle = '#05030c'; for (let y = 400, h = 4; y < 520; y += 22, h += 3) ctx.fillRect(X - 240, y, 480, h);
+  ctx.restore();
+  ctx.globalAlpha = 0.25; ctx.fillStyle = '#ff3fa4'; ctx.beginPath(); ctx.arc(X, 520, 260, Math.PI, 0); ctx.fill(); ctx.globalAlpha = 1;
+  ctx.strokeStyle = '#ff2fd0'; ctx.lineWidth = 2; ctx.shadowColor = '#ff2fd0'; ctx.shadowBlur = 12;
+  for (let i = -12; i <= 12; i++) { ctx.beginPath(); ctx.moveTo(X + i * 16, 520); ctx.lineTo(X + i * 120, H); ctx.stroke(); }
+  for (let k = 0; k < 14; k++) { const y = 520 + Math.pow(k / 13, 2) * 560; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+  ctx.fillStyle = 'rgba(5,3,12,0.6)'; ctx.fillRect(0, 520, W, 560);
+  for (const p of parts()) {
+    const c = p.name === 'torso' || p.name === 'sleeve' ? '#ff3f7a' : p.name === 'shorts' || p.name === 'sock' ? '#3fb8ff' : p.name === 'hair' ? '#b07dff' : '#7ffcff';
+    p.path(); ctx.fillStyle = 'rgba(5,3,12,0.85)'; ctx.shadowBlur = 0; ctx.fill();
+    ctx.shadowColor = c; ctx.shadowBlur = 22; ctx.strokeStyle = c; ctx.lineWidth = 4; ctx.stroke();
+    if (p.name === 'torso') {
+      ctx.save(); p.path(); ctx.clip(); ctx.strokeStyle = '#3fb8ff'; ctx.shadowColor = '#3fb8ff'; ctx.lineWidth = 3;
+      for (const sx of [-56, -18, 18, 56]) { ctx.beginPath(); ctx.moveTo(X + sx, 430); ctx.lineTo(X + sx, 650); ctx.stroke(); }
+      ctx.restore();
+    }
+  }
+  ctx.font = '900 96px Inter'; ctx.textAlign = 'center'; ctx.lineWidth = 4; ctx.strokeStyle = '#fff3a0'; ctx.shadowColor = '#ffd400'; ctx.shadowBlur = 26;
+  ctx.strokeText('10', X, 588);
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = 'rgba(127,252,255,0.06)'; for (let y = 0; y < H; y += 5) ctx.fillRect(0, y, W, 2);
+  ctx.fillStyle = 'rgba(127,252,255,0.10)'; ctx.fillRect(0, 560, W, 14); ctx.fillRect(0, 700, W, 6);
+  label('Neon hologram', 'Glowing line art · synthwave grid · glitch bands');
+}
+
+// ---------- 7. LOW-POLY ----------
+function facets(path, colFn, box, seed, step = 26, light = true) {
+  const [bx, by, bw, bh] = box, R = rng(seed), pts = [];
+  const cols = Math.ceil(bw / step) + 2, rows = Math.ceil(bh / step) + 2;
+  for (let j = 0; j < rows; j++) { pts.push([]); for (let i = 0; i < cols; i++) {
+    const edge = i === 0 || j === 0 || i === cols - 1 || j === rows - 1;
+    pts[j].push([bx - step / 2 + i * step + (edge ? 0 : (R() - 0.5) * step * 0.8), by - step / 2 + j * step + (edge ? 0 : (R() - 0.5) * step * 0.8)]);
+  } }
+  ctx.save(); path(); ctx.clip();
+  for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
+    const a = pts[j][i], b = pts[j][i + 1], c = pts[j + 1][i], d = pts[j + 1][i + 1];
+    for (const tri of [[a, b, d], [a, d, c]]) {
+      const cx = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, cy = (tri[0][1] + tri[1][1] + tri[2][1]) / 3;
+      const lit = (light ? (bx + bw - cx) / bw * 0.25 - 0.12 : 0) + (R() - 0.5) * 0.16;
+      ctx.fillStyle = shade(colFn(cx, cy), lit);
+      ctx.beginPath(); ctx.moveTo(...tri[0]); ctx.lineTo(...tri[1]); ctx.lineTo(...tri[2]); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = ctx.fillStyle; ctx.lineWidth = 1; ctx.stroke();
+    }
+  }
+  ctx.restore();
+}
+function drawLowPoly() {
+  facets(() => { ctx.beginPath(); ctx.rect(0, 0, W, 560); }, (x, y) => (y < 300 ? '#20304f' : '#2e4672'), [0, 0, W, 560], 1, 70, false);
+  facets(() => { ctx.beginPath(); ctx.rect(0, 380, W, 200); }, (x) => ['#3d5ea8', '#8a2a4a', '#d9dde6'][((Math.floor(x / 60) % 3) + 3) % 3], [0, 380, W, 200], 2, 34, false);
+  facets(() => { ctx.beginPath(); ctx.rect(0, 560, W, 520); }, () => '#3f9a4a', [0, 560, W, 520], 3, 60, false);
+  ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.moveTo(X - 110, 816); ctx.lineTo(X + 140, 806); ctx.lineTo(X + 100, 830); ctx.lineTo(X - 120, 832); ctx.fill();
+  let seed = 10;
+  for (const p of parts()) facets(p.path, p.name === 'torso' ? stripeCol : () => p.col, p.box, seed++, p.name === 'torso' ? 24 : 20);
+  ctx.font = '900 92px Inter'; ctx.textAlign = 'center'; ctx.fillStyle = '#f4efe2'; ctx.fillText('10', X, 590);
+  label('Low-poly', 'Faceted 3D · flat-shaded triangles · gem-like');
+}
+
+// ---------- 8. COMIC BOOK ----------
+function halftone(x0, y0, w, h, col, max) {
+  ctx.fillStyle = col;
+  for (let y = y0; y < y0 + h; y += 10) for (let x = x0 + ((y / 10) % 2) * 5; x < x0 + w; x += 10) {
+    const r = max * (x - x0) / w; if (r > 0.3) { ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); }
+  }
+}
+function drawComic() {
+  ctx.fillStyle = '#ffd23f'; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = '#ff6b2c';
+  for (let i = 0; i < 40; i++) { const a = i / 40 * Math.PI * 2; ctx.beginPath(); ctx.moveTo(X, 520); ctx.lineTo(X + Math.cos(a) * 1200, 520 + Math.sin(a) * 1200); ctx.lineTo(X + Math.cos(a + 0.07) * 1200, 520 + Math.sin(a + 0.07) * 1200); ctx.fill(); }
+  ctx.globalAlpha = 0.35; halftone(0, 0, W, H, '#c0392b', 3.2); ctx.globalAlpha = 1;
+  ctx.fillStyle = '#3aa64a'; ctx.beginPath(); ctx.ellipse(X, 830, 300, 70, 0, 0, 7); ctx.fill();
+  ctx.lineWidth = 7; ctx.strokeStyle = '#111'; ctx.stroke();
+  for (const p of parts()) {
+    p.path(); ctx.fillStyle = p.col; ctx.fill();
+    if (p.name === 'torso') { ctx.save(); p.path(); ctx.clip(); for (let x = X - 112; x < X + 112; x += 37) { ctx.fillStyle = stripeCol(x + 1); ctx.fillRect(x, 420, 37, 230); } ctx.restore(); }
+    ctx.save(); p.path(); ctx.clip();
+    const [bx, by, bw, bh] = p.box;
+    ctx.fillStyle = 'rgba(0,0,0,0.28)'; ctx.fillRect(bx + bw * 0.62, by - 10, bw, bh + 20);
+    halftone(bx + bw * 0.4, by, bw * 0.6, bh, 'rgba(0,0,0,0.35)', 3);
+    ctx.restore();
+    p.path(); ctx.lineWidth = 7; ctx.strokeStyle = '#111'; ctx.lineJoin = 'round'; ctx.stroke();
+  }
+  ctx.font = '900 96px Inter'; ctx.textAlign = 'center'; ctx.lineWidth = 10; ctx.strokeStyle = '#111'; ctx.strokeText('10', X, 590);
+  ctx.fillStyle = '#fff'; ctx.fillText('10', X, 590);
+  ctx.save(); ctx.translate(560, 200); ctx.rotate(-0.12);
+  ctx.fillStyle = '#fff'; ctx.strokeStyle = '#111'; ctx.lineWidth = 6;
+  ctx.beginPath(); for (let i = 0; i < 18; i++) { const a = i / 18 * Math.PI * 2, r = i % 2 ? 70 : 110; ctx.lineTo(Math.cos(a) * r * 1.3, Math.sin(a) * r * 0.8); } ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.font = '900 48px Inter'; ctx.fillStyle = '#e8222e'; ctx.fillText('91!', 0, 16);
+  ctx.restore();
+  ctx.lineWidth = 14; ctx.strokeStyle = '#111'; ctx.strokeRect(7, 7, W - 14, H - 164);
+  label('Comic book', 'Ink outlines · cel shading · halftone · speech bursts');
+}
+
+// ---------- 9. CHALKBOARD TACTICS ----------
+function chalkStroke(path, col, seed, passes = 4) {
+  const R = rng(seed);
+  for (let i = 0; i < passes; i++) {
+    ctx.save(); ctx.translate((R() - 0.5) * 3, (R() - 0.5) * 3);
+    path(); ctx.strokeStyle = col; ctx.globalAlpha = 0.35 + R() * 0.3; ctx.lineWidth = 2 + R() * 2.5;
+    ctx.setLineDash([8 + R() * 20, 2 + R() * 4]); ctx.stroke(); ctx.restore();
+  }
+  ctx.setLineDash([]); ctx.globalAlpha = 1;
+}
+function chalkFill(path, colFn, box, seed) {
+  const [bx, by, bw, bh] = box, R = rng(seed);
+  ctx.save(); path(); ctx.clip();
+  for (let k = -bh; k < bw + bh; k += 6) {
+    const x = bx + k;
+    ctx.strokeStyle = colFn(x + bh / 2); ctx.globalAlpha = 0.45 + R() * 0.25; ctx.lineWidth = 3 + R() * 2;
+    ctx.beginPath(); ctx.moveTo(x, by + bh + 4); ctx.lineTo(x + bh * 0.6, by - 4); ctx.stroke();
+  }
+  ctx.restore(); ctx.globalAlpha = 1;
+}
+function drawChalk() {
+  ctx.fillStyle = '#1f2b26'; ctx.fillRect(0, 0, W, H);
+  const R = rng(3);
+  for (let i = 0; i < 40; i++) { const g = ctx.createRadialGradient(R() * W, R() * H, 0, R() * W, R() * H, 120 + R() * 160); g.addColorStop(0, 'rgba(255,255,255,0.05)'); g.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); }
+  for (let i = 0; i < 4000; i++) { ctx.fillStyle = `rgba(255,255,255,${R() * 0.05})`; ctx.fillRect(R() * W, R() * H, 2, 2); }
+  const w = '#eef0ea';
+  chalkStroke(() => { ctx.beginPath(); ctx.rect(60, 120, W - 120, 780); }, w, 1);
+  chalkStroke(() => { ctx.beginPath(); ctx.moveTo(60, 510); ctx.lineTo(W - 60, 510); }, w, 2);
+  chalkStroke(() => { ctx.beginPath(); ctx.arc(X, 510, 80, 0, 7); }, w, 3);
+  chalkStroke(() => { ctx.beginPath(); ctx.rect(X - 150, 120, 300, 120); }, w, 4);
+  ctx.font = '700 46px Mono'; ctx.fillStyle = 'rgba(240,240,232,0.7)'; ctx.textAlign = 'center';
+  for (const [x, y, t] of [[150, 300, 'X'], [570, 290, 'X'], [200, 700, 'O'], [520, 720, 'O'], [X, 200, 'X']]) ctx.fillText(t, x, y);
+  const arrow = (x0, y0, x1, y1, cx, cy, col, s) => {
+    chalkStroke(() => { ctx.beginPath(); ctx.moveTo(x0, y0); ctx.quadraticCurveTo(cx, cy, x1, y1); }, col, s, 3);
+    const a = Math.atan2(y1 - cy, x1 - cx);
+    chalkStroke(() => { ctx.beginPath(); ctx.moveTo(x1 - Math.cos(a - 0.5) * 26, y1 - Math.sin(a - 0.5) * 26); ctx.lineTo(x1, y1); ctx.lineTo(x1 - Math.cos(a + 0.5) * 26, y1 - Math.sin(a + 0.5) * 26); }, col, s + 1, 3);
+  };
+  arrow(200, 680, X - 140, 420, 120, 520, '#ffd76a', 10);
+  arrow(X + 150, 560, X + 60, 230, 600, 380, '#ffd76a', 12);
+  ctx.save(); ctx.translate(0, 60); ctx.scale(1, 0.92);
+  let seed = 30;
+  for (const p of parts()) {
+    const fc = p.name === 'torso' ? (x) => (stripeCol(x) === BLAU ? '#7fa8ff' : '#ff7f9e') : () => ({ [SKIN]: '#f2d2b8', [BLAU]: '#7fa8ff', [GRANA]: '#ff7f9e', [HAIR]: '#c8a27a', '#1b1b1f': '#9aa0a8' }[p.col]);
+    chalkFill(p.path, fc, p.box, seed++);
+    chalkStroke(p.path, w, seed++, 3);
+  }
+  ctx.font = '900 92px Inter'; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(245,245,238,0.9)'; ctx.fillText('10', X, 590);
+  ctx.restore();
+  ctx.fillStyle = '#6b4a2b'; ctx.fillRect(0, H - 170, W, 22);
+  label('Chalkboard tactics', 'Chalk strokes · tactical arrows · Xs and Os');
+}
+
+// ---------- 10. STAINED GLASS ----------
+function glass(path, colFn, box, seed, step) {
+  const [bx, by, bw, bh] = box, R = rng(seed), pts = [];
+  const cols = Math.ceil(bw / step) + 2, rows = Math.ceil(bh / step) + 2;
+  for (let j = 0; j < rows; j++) { pts.push([]); for (let i = 0; i < cols; i++) pts[j].push([bx - step / 2 + i * step + (R() - 0.5) * step * 0.7, by - step / 2 + j * step + (R() - 0.5) * step * 0.7]); }
+  ctx.save(); path(); ctx.clip();
+  for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
+    const q = [pts[j][i], pts[j][i + 1], pts[j + 1][i + 1], pts[j + 1][i]];
+    const cx = (q[0][0] + q[2][0]) / 2, cy = (q[0][1] + q[2][1]) / 2;
+    const c = colFn(cx, cy), g = ctx.createRadialGradient(cx - step * 0.2, cy - step * 0.2, 0, cx, cy, step);
+    g.addColorStop(0, shade(c, 0.35 + R() * 0.15)); g.addColorStop(1, shade(c, -0.15 + (R() - 0.5) * 0.2));
+    ctx.fillStyle = g; ctx.beginPath(); q.forEach((p, k) => (k ? ctx.lineTo(...p) : ctx.moveTo(...p))); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = '#141414'; ctx.lineWidth = 5; ctx.stroke();
+  }
+  ctx.restore();
+  path(); ctx.strokeStyle = '#141414'; ctx.lineWidth = 9; ctx.stroke();
+}
+function drawGlass() {
+  ctx.fillStyle = '#0d0a08'; ctx.fillRect(0, 0, W, H);
+  const arch = () => { ctx.beginPath(); ctx.moveTo(70, 900); ctx.lineTo(70, 330); ctx.arc(X, 330, X - 70, Math.PI, 0); ctx.lineTo(W - 70, 900); ctx.closePath(); };
+  glass(arch, (x, y) => { const d = Math.hypot(x - X, y - 480); return d < 200 ? '#f2c14e' : d < 300 ? '#e08a2e' : ['#1f4fa8', '#2a6bc4', '#163a7a', '#7a1f4a'][Math.floor((x + y) / 90) % 4]; }, [70, 60, W - 140, 840], 1, 64);
+  ctx.save(); arch(); ctx.clip();
+  const halo = ctx.createRadialGradient(X, 420, 0, X, 420, 360); halo.addColorStop(0, 'rgba(255,240,200,0.55)'); halo.addColorStop(1, 'rgba(255,240,200,0)');
+  ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = halo; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = 'source-over';
+  ctx.restore();
+  let seed = 50;
+  for (const p of parts()) glass(p.path, p.name === 'torso' ? stripeCol : () => p.col, p.box, seed++, p.name === 'torso' ? 37 : 34);
+  ctx.font = '900 92px Inter'; ctx.textAlign = 'center'; ctx.lineWidth = 10; ctx.strokeStyle = '#141414'; ctx.strokeText('10', X, 590);
+  ctx.fillStyle = '#ffe6a0'; ctx.fillText('10', X, 590);
+  ctx.save(); ctx.beginPath(); ctx.arc(X, 368, 92, 0, 7); ctx.lineWidth = 8; ctx.strokeStyle = '#f2c14e'; ctx.shadowColor = '#ffd76a'; ctx.shadowBlur = 30; ctx.stroke(); ctx.restore();
+  arch(); ctx.lineWidth = 18; ctx.strokeStyle = '#2a211a'; ctx.stroke();
+  const shaft = ctx.createLinearGradient(0, 300, 0, H); shaft.addColorStop(0, 'rgba(255,220,150,0.12)'); shaft.addColorStop(1, 'rgba(255,220,150,0)');
+  ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = shaft; ctx.beginPath(); ctx.moveTo(200, 300); ctx.lineTo(520, 300); ctx.lineTo(720, H); ctx.lineTo(0, H); ctx.fill(); ctx.globalCompositeOperation = 'source-over';
+  label('Stained glass', 'Leaded glass · halo · light shafts · "legend" status');
+}
+
+window.draw = async (i) => {
+  await document.fonts.load('800 40px Inter'); await document.fonts.load('700 40px Mono');
+  ctx.clearRect(0, 0, W, H); ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+  [drawNeon, drawLowPoly, drawComic, drawChalk, drawGlass][i]();
+  return cv.toDataURL('image/png').split(',')[1];
+};
+</script></body></html>

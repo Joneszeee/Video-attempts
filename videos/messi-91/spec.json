@@ -1,0 +1,285 @@
+{
+ "title": "Messi's 91",
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "beats": [
+  {
+   "kicker": "Goals in a calendar year",
+   "headline": "December 2012. A [40-year] record falls.",
+   "vo": "December 2012. Lionel Messi scores his eighty-sixth goal of the calendar year, and breaks a record that had stood for forty years.",
+   "scene": {
+    "type": "stage"
+   },
+   "zoomFrom": 1.1,
+   "zoom": 1.0,
+   "move": 6,
+   "players": [
+    {
+     "name": "Messi",
+     "num": 10,
+     "sx": 0.5,
+     "scale": 0.85,
+     "kit": {
+      "shirt": "#a50044",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ],
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3b2618",
+     "enter": "walk",
+     "delay": 0.2
+    }
+   ],
+   "card": {
+    "type": "ruler",
+    "y": 800,
+    "min": 1972,
+    "max": 2012,
+    "step": 8,
+    "left": "Müller",
+    "markers": [
+     {
+      "value": 2012,
+      "label": "Messi · 86",
+      "accent": true,
+      "len": 90
+     }
+    ],
+    "bracket": {
+     "from": 1972,
+     "to": 2012,
+     "label": "40 years",
+     "y": 95
+    }
+   }
+  },
+  {
+   "headline": "The old mark: Gerd Müller, [85].",
+   "vo": "The old record belonged to Gerd Müller. Eighty-five goals in 1972.",
+   "zoom": 1.02,
+   "players": [
+    {
+     "name": "Muller",
+     "num": 9,
+     "sx": 0.26,
+     "scale": 0.7,
+     "ghost": true,
+     "tag": 85,
+     "tagLabel": "Goals · 1972",
+     "enter": "fade",
+     "tagDelay": 0.6
+    },
+    {
+     "name": "Messi",
+     "num": 10,
+     "sx": 0.5,
+     "scale": 0.85,
+     "kit": {
+      "shirt": "#a50044",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ],
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3b2618"
+    }
+   ]
+  },
+  {
+   "headline": "Messi finished on [91].",
+   "vo": "Messi finished the year on ninety-one. Seventy-nine for Barcelona, twelve for Argentina.",
+   "zoom": 1.0,
+   "players": [
+    {
+     "name": "Muller",
+     "num": 9,
+     "sx": 0.26,
+     "scale": 0.7,
+     "ghost": true,
+     "tag": 85,
+     "tagLabel": "Goals · 1972",
+     "tagDelay": -1
+    },
+    {
+     "name": "Messi",
+     "num": 10,
+     "sx": 0.5,
+     "scale": 0.85,
+     "kit": {
+      "shirt": "#a50044",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ],
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3b2618",
+     "tag": 91,
+     "tagLabel": "Goals · 2012",
+     "tagDelay": 1.6
+    }
+   ],
+   "card": {
+    "type": "ballnumber",
+    "text": "91",
+    "y": 780,
+    "size": 400,
+    "label": "79 Barcelona · 12 Argentina"
+   }
+  },
+  {
+   "kicker": "Zambia FA · December 2012",
+   "headline": "Then [Zambia] objected.",
+   "vo": "Then Zambia's FA objected. They said Godfrey Chitalu scored one hundred and seven in 1972.",
+   "cut": true,
+   "zoomFrom": 1.06,
+   "zoom": 1.0,
+   "players": [
+    {
+     "name": "Muller",
+     "num": 9,
+     "sx": 0.26,
+     "scale": 0.7,
+     "ghost": true,
+     "tag": 85,
+     "tagLabel": "Goals · 1972",
+     "tagDelay": -1
+    },
+    {
+     "name": "Messi",
+     "num": 10,
+     "sx": 0.5,
+     "scale": 0.85,
+     "kit": {
+      "shirt": "#a50044",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ],
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3b2618",
+     "tag": 91,
+     "tagLabel": "Goals · 2012",
+     "tagDelay": -1
+    },
+    {
+     "name": "Chitalu",
+     "sx": 0.74,
+     "scale": 0.7,
+     "tag": 107,
+     "tagLabel": "Claimed · 1972",
+     "kit": {
+      "shirt": "#1f8a3c",
+      "shorts": "#ffffff",
+      "socks": "#1f8a3c",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4330",
+     "hair": "#120c08",
+     "enter": "walk",
+     "delay": 0.3,
+     "tagDelay": 1.6
+    }
+   ]
+  },
+  {
+   "kicker": "FIFA · December 2012",
+   "headline": "FIFA's answer? [Can't verify it.]",
+   "vo": "Zambia had newspaper evidence. But FIFA said it couldn't verify the claim, and Guinness kept Messi's ninety-one.",
+   "players": [
+    {
+     "name": "Muller",
+     "num": 9,
+     "sx": 0.26,
+     "scale": 0.7,
+     "ghost": true,
+     "tag": 85,
+     "tagLabel": "Goals · 1972",
+     "tagDelay": -1
+    },
+    {
+     "name": "Messi",
+     "num": 10,
+     "sx": 0.5,
+     "scale": 0.85,
+     "kit": {
+      "shirt": "#a50044",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ],
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3b2618",
+     "tag": 91,
+     "tagLabel": "Goals · 2012",
+     "tagDelay": -1
+    },
+    {
+     "name": "Chitalu",
+     "sx": 0.74,
+     "scale": 0.7,
+     "tag": 107,
+     "tagLabel": "Claimed · 1972",
+     "kit": {
+      "shirt": "#1f8a3c",
+      "shorts": "#ffffff",
+      "socks": "#1f8a3c",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4330",
+     "hair": "#120c08",
+     "ghost": true,
+     "tagDelay": -1
+    }
+   ]
+  },
+  {
+   "kicker": "Goals in a calendar year",
+   "headline": "85. 91. 107. [Who really holds it?]",
+   "vo": "Müller, eighty-five. Messi, ninety-one. Chitalu, one hundred and seven. So who really holds the record?",
+   "zoom": 1.06,
+   "move": 4,
+   "card": {
+    "type": "bars",
+    "y": 850,
+    "max": 110,
+    "label": "Goals in one calendar year · 1972 / 2012",
+    "rows": [
+     {
+      "name": "Müller",
+      "value": 85
+     },
+     {
+      "name": "Messi",
+      "value": 91
+     },
+     {
+      "name": "Chitalu",
+      "value": 107,
+      "accent": true
+     }
+    ]
+   }
+  }
+ ]
+}

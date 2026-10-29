@@ -10,11 +10,10 @@ Two looks:
 
 ## When the user sends a script (or a story)
 1. Create `videos/<slug>/spec.json` (format below) and `videos/<slug>/vo.txt`.
-   - One beat per sentence or short pair of sentences in the script. Aim for **60–70s: about 11 beats, about 130 words of VO**.
-     Longer drags: the user found 1:46 boring. Every beat must add a new fact or twist. Merge explainer beats and keep lines short.
-   - **Change scenes through the video.** Don't use one look for the whole thing. Move between stadium (crowd colours per club),
-     stage and studio as the story moves (a different club or era means a new stadium, a debate means the stage). Put `"cut": true` on every scene change
-     and give the new scene its own `players`. Example: `videos/messi-91`.
+   - One beat per sentence or short pair of sentences in the script. A good target is around 60–70s (about 11 beats, about 130 words of VO).
+     The user found a 1:46 cut dragged, so keep every beat earning its place. Let the story set the exact length.
+   - Varying scenes keeps it interesting (the user didn't want one look for the whole video). Move between stadium, stage and studio as the
+     story moves, using `"cut": true` and new `players` on a scene change. Example: `videos/messi-91`.
    - If they sent a story rather than a script, write the script first using PROMPT.md's rules.
    - Never invent stats. List anything you are not certain of and ask before rendering.
 2. Render a preview with `python3 build.py videos/<slug>/spec.json --stills 1,5,9,...`, look at the stills, and fix layout problems
@@ -37,19 +36,21 @@ Two looks:
 so there must be exactly one clear pause between beats (the build fails with a clear message otherwise;
 fallback: put `"timings": [secs per beat]` in the spec).
 
-## Motion & depth: make every shot feel alive (user feedback: "smooth, more visually engaging, less flat")
-Reference: Story Gaffer's free-kick reel (a split-flap board over a blurred stadium). Apply these on every video:
-- **Something is always moving.** Every beat needs a camera move or zoom (`move`, `zoom`); a subtle sway is built in. Never hold a static frame.
-  Numbers count, flaps scramble and bars grow. Information is revealed, not just shown.
-- **Layer for depth.** A card is the subject, so blur and darken what's behind it with `"focus": 0.4–0.6`. Add out-of-focus foreground fans
-  on pitch-level stadium shots with `"fans": true`. Foreground, subject and background should read as three planes.
-- **Light sets the mood.** Use `"lights": 0.4–0.6` for sombre or dramatic beats (deaths, defeats, "but…" moments). Keep full light for celebrations.
-- **Colour has meaning.** Set `"accent"` per beat: red `#FF4D5E` for wrong, myth or loss, gold or teal for the answer or record. Only the key words are coloured.
-- **Corrections are animated.** Don't just show a new number. Strike the old one in red, then flip it (`board` rows with `from`).
-- **Move the eye on purpose.** One highlight at a time. Use `focusPath` to walk a highlight down a list in time with the VO reading it.
-- **Re-use a graphic across beats** by giving cards the same `id`. A `board` with the same id flips only the changed cells and slides its highlight,
-  instead of fading out and back in.
-- **Render at 60fps** (the default) for smooth motion.
+## How to treat references and feedback
+When the user sends a screen recording or a style note, treat it as **inspiration and a pool of ideas**, not a new rule.
+Note what's interesting in FORMAT.md, add engine features if useful, and then **choose per video** whatever suits that story.
+Don't apply every technique to every video, and don't rewrite these instructions into hard rules.
+
+## Style toolbox (ideas to pick from, not requirements)
+These came from the Story Gaffer references. Use them where they help the story:
+- **Constant small motion:** camera moves and zooms (`move`, `zoom`), built-in sway, counting numbers, scrambling flaps. Good for keeping a shot alive.
+- **Depth:** blur and darken behind a card with `focus`, and add blurred foreground fans on stadium shots with `fans`. Good when a graphic is the subject.
+- **Mood lighting:** `lights` below 1 for sombre or dramatic moments.
+- **Meaningful accent colour:** a per-beat `accent`, e.g. red for "wrong" or "myth", gold for the answer.
+- **Animated corrections:** `board` rows with `from` (red strike, then flip) instead of just showing the new number.
+- **Guided attention:** `focusPath` walks a highlight down a list in time with the VO.
+- **Continuity:** a card with the same `id` carries across beats instead of re-entering.
+- **60fps** is the default render.
 
 ## spec.json
 ```jsonc

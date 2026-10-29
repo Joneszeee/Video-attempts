@@ -44,6 +44,23 @@ def align(spec, vo_path):
     """Set each beat's duration so beat i starts just before VO line i."""
     n = len(spec['beats'])
     total = audio_duration(vo_path)
+    side = Path(str(vo_path) + '.beats.json')  # written by engine/tts.py: exact line start times
+    if side.exists():
+        line_starts = json.loads(side.read_text())['starts']
+        if len(line_starts) != n:
+            sys.exit(f'{side} has {len(line_starts)} lines but the spec has {n} beats.')
+        starts = [0.0] + [VO_DELAY + t - 0.12 for t in line_starts[1:]]
+    else:
+        starts = pause_starts(vo_path, total, n)
+    end = VO_DELAY + total + 0.6
+    for i, b in enumerate(spec['beats']):
+        b['duration'] = round((starts[i + 1] if i + 1 < n else end) - starts[i], 3)
+    spec['tail'] = 0.6
+    print('beat starts (s):', ', '.join(f'{s:.2f}' for s in starts))
+
+
+def pause_starts(vo_path, total, n):
+    """Beat starts from the n-1 longest pauses in a voiceover recorded elsewhere."""
     sil = [(s, e) for s, e in silences(vo_path) if s > 0.15 and e < total - 0.15]
     if len(sil) < n - 1:
         sil = [(s, e) for s, e in silences(vo_path, -30, 0.2) if s > 0.15 and e < total - 0.15]
@@ -51,12 +68,7 @@ def align(spec, vo_path):
         sys.exit(f'Found only {len(sil)} pauses in the voiceover but need {n - 1} (one between each beat). '
                  'Regenerate it with a longer pause between beats, or add "timings" to the spec.')
     picked = sorted(sorted(sil, key=lambda p: p[1] - p[0], reverse=True)[: n - 1])
-    starts = [0.0] + [VO_DELAY + e - 0.12 for _, e in picked]
-    end = VO_DELAY + total + 0.6
-    for i, b in enumerate(spec['beats']):
-        b['duration'] = round((starts[i + 1] if i + 1 < n else end) - starts[i], 3)
-    spec['tail'] = 0.6
-    print('beat starts (s):', ', '.join(f'{s:.2f}' for s in starts))
+    return [0.0] + [VO_DELAY + e - 0.12 for _, e in picked]
 
 
 def main():

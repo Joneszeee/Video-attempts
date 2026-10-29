@@ -6,7 +6,7 @@
   {
    "kicker": "La Liga · Betis v Barcelona",
    "headline": "Seville. Messi is on [84].",
-   "vo": "Seville, December 2012. Lionel Messi has eighty-four goals for the year. One more ties a record that has stood for forty years.",
+   "vo": "Seville, December 2012. Lionel Messi has eighty-four goals for the year, and one more ties a record that has stood for forty years.",
    "scene": {
     "type": "stadium",
     "crowd": [
@@ -40,7 +40,7 @@
   },
   {
    "headline": "16 minutes: [85]. Level with Müller.",
-   "vo": "Sixteen minutes in, he scores. Eighty-five. Level with Gerd Müller.",
+   "vo": "Sixteen minutes in, he scores. That's eighty-five, level with Gerd Müller.",
    "camera": "player",
    "move": 3,
    "players": [
@@ -86,7 +86,7 @@
   },
   {
    "headline": "25 minutes: [86]. Record broken.",
-   "vo": "Nine minutes later, Iniesta back-heels it into his path. Eighty-six. The record is his.",
+   "vo": "Nine minutes later, Iniesta back-heels it into his path, and that's eighty-six. The record is his.",
    "camera": {
     "pos": [
      0,
@@ -143,7 +143,7 @@
   {
    "kicker": "Bayern & West Germany · 1972",
    "headline": "The old mark: Müller, [85].",
-   "vo": "Müller had set it in 1972. Seventy-two goals for Bayern Munich, thirteen for West Germany.",
+   "vo": "Müller had set it back in 1972, with seventy-two goals for Bayern Munich and thirteen for West Germany.",
    "scene": {
     "type": "stadium",
     "crowd": [
@@ -210,7 +210,7 @@
   {
    "kicker": "Goals in a calendar year",
    "headline": "Messi didn't stop. [91.]",
-   "vo": "And Messi didn't stop. He finished the year on ninety-one. Seventy-nine for Barcelona, twelve for Argentina.",
+   "vo": "And Messi didn't stop there. He finished the year on ninety-one: seventy-nine for Barcelona, and twelve for Argentina.",
    "scene": {
     "type": "stage"
    },
@@ -249,7 +249,7 @@
   },
   {
    "headline": "Guinness made it [official].",
-   "vo": "Guinness made it official: the most goals ever scored in a calendar year. Case closed. Or so everyone thought.",
+   "vo": "Guinness made it official, the most goals ever scored in a calendar year. Case closed, or so everyone thought.",
    "zoom": 1.06,
    "move": 3,
    "players": [
@@ -287,7 +287,7 @@
   {
    "kicker": "Zambia FA · December 2012",
    "headline": "Then Zambia spoke up: [107].",
-   "vo": "Then Zambia's football association spoke up. Their claim: Godfrey Chitalu scored one hundred and seven goals in 1972.",
+   "vo": "Then Zambia's football association spoke up, with a claim of their own: Godfrey Chitalu scored one hundred and seven goals in 1972.",
    "scene": {
     "type": "stadium",
     "crowd": [
@@ -325,7 +325,7 @@
   {
    "kicker": "Godfrey Chitalu · 1972",
    "headline": "49 in the league. [58 more] in cups.",
-   "vo": "Forty-nine in the league for Kabwe Warriors. Fifty-eight more in cups and internationals.",
+   "vo": "Forty-nine in the league for Kabwe Warriors, and fifty-eight more in cups and internationals.",
    "cut": true,
    "camFrom": {
     "pos": [
@@ -382,7 +382,7 @@
   {
    "kicker": "The evidence",
    "headline": "The proof? [Old newspapers.]",
-   "vo": "Researchers rebuilt his year from the Times of Zambia, the Zambia Daily Mail and the national archives.",
+   "vo": "Researchers had rebuilt his year from the Times of Zambia, the Zambia Daily Mail and the national archives.",
    "scene": {
     "type": "studio",
     "glow": "#E9B949"
@@ -402,7 +402,7 @@
   {
    "kicker": "FIFA · December 2012",
    "headline": "FIFA's answer? [Can't verify it.]",
-   "vo": "FIFA's answer? It only keeps records for its own competitions, so it couldn't verify the claim.",
+   "vo": "FIFA's answer? It only keeps records for its own competitions, so it simply couldn't verify the claim.",
    "scene": {
     "type": "stage"
    },
@@ -471,7 +471,7 @@
   {
    "kicker": "27 April 1993",
    "headline": "Chitalu [never saw] the debate.",
-   "vo": "Chitalu never got to argue his case. In 1993, coaching Zambia, he died when the team's plane crashed off Gabon.",
+   "vo": "Chitalu never got the chance to argue his case. In 1993, while coaching Zambia, he died when the team's plane crashed off the coast of Gabon.",
    "zoom": 1.1,
    "move": 5,
    "players": [
@@ -496,7 +496,7 @@
   {
    "kicker": "Flamengo · 1979",
    "headline": "Then Flamengo: Zico, [89].",
-   "vo": "And Zambia weren't alone. Flamengo said Zico scored eighty-nine in 1979.",
+   "vo": "And Zambia weren't alone. Flamengo said Zico had scored eighty-nine, back in 1979.",
    "cut": true,
    "zoomFrom": 1.04,
    "zoom": 1.0,
@@ -528,7 +528,7 @@
   {
    "kicker": "Goals in a calendar year",
    "headline": "85. 89. 91. 107. [Who holds it?]",
-   "vo": "Müller, eighty-five. Zico, eighty-nine. Messi, ninety-one. Chitalu, one hundred and seven. So who really holds the record?",
+   "vo": "Müller, eighty-five. Zico, eighty-nine. Messi, ninety-one. And Chitalu, one hundred and seven. So, who really holds the record?",
    "zoom": 1.06,
    "move": 5,
    "players": [

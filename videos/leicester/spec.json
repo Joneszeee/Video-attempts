@@ -1,0 +1,62 @@
+{
+  "title": "Leicester 5000-1",
+  "brand": "theo6k",
+  "accent": "#3FE0C5",
+  "beats": [
+    {
+      "kicker": "Premier League 2015/16 · The odds",
+      "headline": "August 2015. Leicester at [5000-1].",
+      "vo": "August 2015. The bookies make Leicester City five thousand to one to win the Premier League.",
+      "scene": { "type": "stadium", "crowd": ["#1d4fb8", "#2f62d6", "#ffffff"], "seed": 4 },
+      "camFrom": "aerial",
+      "camera": { "pos": [0, 85, -135], "tgt": [0, 0, -4] },
+      "move": 7,
+      "card": { "type": "big", "value": 5000, "suffix": "-1", "label": "Odds to win the league", "pos": "center", "size": 230 }
+    },
+    {
+      "kicker": "Premier League 2014/15 · 25 December",
+      "headline": "Eight months earlier: [bottom] at Christmas.",
+      "vo": "Eight months earlier, they were bottom of the table at Christmas, and only just survived.",
+      "camera": "high",
+      "card": { "type": "big", "value": 20, "suffix": "th", "label": "Position · Christmas 2014", "pos": "center", "size": 280, "style": "accent" }
+    },
+    {
+      "kicker": "Jamie Vardy · 2015/16",
+      "headline": "Then [Jamie Vardy] happened.",
+      "vo": "Then Jamie Vardy scored in eleven Premier League games in a row. A new record.",
+      "cut": true,
+      "camFrom": { "pos": [0, 2.4, -30], "tgt": [0, 2.0, 20] },
+      "camera": "player",
+      "move": 5,
+      "players": [
+        { "name": "Vardy", "num": 9, "x": 0, "z": 0, "enter": "walk", "fromZ": -4, "kit": { "shirt": "#1b4fb5", "shorts": "#ffffff", "socks": "#1b4fb5", "text": "#ffffff" }, "skin": "#e7b593", "hair": "#4a3324" }
+      ],
+      "card": { "type": "dots", "n": 11, "label": "Scored in consecutive PL games", "caption": "Premier League record", "pos": "low", "step": 0.15 }
+    },
+    {
+      "kicker": "Premier League 2015/16 · Final table",
+      "headline": "Champions by [10 points].",
+      "vo": "In May, Leicester were champions. Ten points clear of Arsenal.",
+      "players": [
+        { "name": "Vardy", "num": 9, "x": 0, "z": 0, "pose": "arms_up", "trophy": true, "kit": { "shirt": "#1b4fb5", "shorts": "#ffffff", "socks": "#1b4fb5", "text": "#ffffff" }, "skin": "#e7b593", "hair": "#4a3324" }
+      ],
+      "camera": { "pos": [0, 1.0, -5.4], "tgt": [0, 1.6, 12] },
+      "confetti": true,
+      "card": {
+        "type": "table", "label": "Premier League 2015/16 · Final", "pos": "low", "pill": "+10",
+        "rows": [
+          { "pos": 1, "name": "Leicester", "color": "#1b4fb5", "pts": 81, "highlight": true },
+          { "pos": 2, "name": "Arsenal", "color": "#d71920", "color2": "#ffffff", "pts": 71 }
+        ]
+      }
+    },
+    {
+      "headline": "5000-1. Will we [ever] see it again?",
+      "vo": "Five thousand to one. Will we ever see it again?",
+      "confetti": true,
+      "camera": { "pos": [0, 30, -80], "tgt": [0, 0, 8] },
+      "move": 3.5,
+      "card": "same"
+    }
+  ]
+}

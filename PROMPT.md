@@ -1,5 +1,10 @@
 # Story-to-Reel master prompt
 
+> **Making a video now:** open a Claude Code session on this repo and send
+> `New video:` followed by your script (or story). CLAUDE.md tells Claude how to turn it into a spec,
+> render the animated preview and sync it to your voiceover. The prompt below is still useful for
+> writing scripts in any chat. Settings for Theo6k: BRAND_NAME = theo6k, ACCENT_COLOUR = #3FE0C5, VOICE = voiceover.
+
 How to use: paste everything inside the box into Claude (or any LLM) and replace `{{STORY}}` with your football story. That's the only input. Fill in the three settings once and leave them.
 
 ```

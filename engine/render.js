@@ -20,7 +20,7 @@ function arg(name, def) {
     process.exit(1);
   }
   const spec = JSON.parse(fs.readFileSync(specPath, 'utf8'));
-  const fps = Number(arg('--fps', spec.fps || 30));
+  const fps = Number(arg('--fps', spec.fps || 60));
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
   page.on('pageerror', e => { console.error('page error:', e.message); process.exit(1); });

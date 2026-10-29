@@ -36,7 +36,8 @@
      "big": "09",
      "bottom": "DEC"
     }
-   }
+   },
+   "focus": 0.35
   },
   {
    "headline": "16 minutes: [85]. Level with Müller.",
@@ -82,7 +83,8 @@
      "big": "16'",
      "bottom": "BETIS"
     }
-   }
+   },
+   "fans": true
   },
   {
    "headline": "25 minutes: [86]. Record broken.",
@@ -138,7 +140,8 @@
      "big": "25'",
      "bottom": "BETIS"
     }
-   }
+   },
+   "fans": true
   },
   {
    "kicker": "Bayern & West Germany · 1972",
@@ -205,7 +208,8 @@
       "accent": true
      }
     ]
-   }
+   },
+   "fans": true
   },
   {
    "kicker": "Goals in a calendar year",
@@ -293,7 +297,8 @@
     "pos": "center",
     "size": 300,
     "label": "Goals claimed · 1972"
-   }
+   },
+   "focus": 0.2
   },
   {
    "kicker": "Zambia FA's count · 1972",
@@ -350,7 +355,8 @@
       "accent": true
      }
     ]
-   }
+   },
+   "fans": true
   },
   {
    "kicker": "FIFA · December 2012",
@@ -419,7 +425,34 @@
      "tagDelay": 0.2,
      "enter": "fade"
     }
-   ]
+   ],
+   "focus": 0.6,
+   "accent": "#FF4D5E",
+   "card": {
+    "type": "board",
+    "id": "claims",
+    "y": 800,
+    "label": "Goals in a calendar year",
+    "swapAt": 1.3,
+    "rows": [
+     {
+      "name": "Chitalu",
+      "from": "~107",
+      "value": "???"
+     },
+     {
+      "name": "Messi",
+      "value": 91
+     },
+     {
+      "name": "Müller",
+      "value": 85
+     }
+    ],
+    "focus": 0,
+    "caption": "FIFA: can't verify",
+    "captionAt": 1.9
+   }
   },
   {
    "kicker": "27 April 1993",
@@ -444,7 +477,8 @@
      "enter": "fade",
      "delay": 0.3
     }
-   ]
+   ],
+   "lights": 0.45
   },
   {
    "kicker": "Flamengo · 1979",
@@ -558,30 +592,54 @@
     }
    ],
    "card": {
-    "type": "bars",
+    "type": "board",
+    "id": "final",
     "y": 820,
-    "max": 110,
-    "label": "Goals in one calendar year",
+    "label": "Goals in a calendar year",
     "rows": [
      {
-      "name": "Müller",
-      "value": 85
-     },
-     {
-      "name": "Zico",
-      "value": 89
+      "name": "Chitalu",
+      "value": "~107"
      },
      {
       "name": "Messi",
       "value": 91
      },
      {
-      "name": "Chitalu",
-      "value": 107,
-      "accent": true
+      "name": "Zico",
+      "value": "~89"
+     },
+     {
+      "name": "Müller",
+      "value": 85
      }
-    ]
-   }
+    ],
+    "focusPath": [
+     {
+      "t": 0,
+      "row": 3
+     },
+     {
+      "t": 1.3,
+      "row": 2
+     },
+     {
+      "t": 2.4,
+      "row": 1
+     },
+     {
+      "t": 3.5,
+      "row": 0
+     },
+     {
+      "t": 5.0,
+      "row": 1
+     }
+    ],
+    "caption": "Only one is in Guinness",
+    "captionAt": 5.2
+   },
+   "focus": 0.55
   }
  ]
 }

@@ -37,6 +37,20 @@ Two looks:
 so there must be exactly one clear pause between beats (the build fails with a clear message otherwise;
 fallback: put `"timings": [secs per beat]` in the spec).
 
+## Motion & depth: make every shot feel alive (user feedback: "smooth, more visually engaging, less flat")
+Reference: Story Gaffer's free-kick reel (a split-flap board over a blurred stadium). Apply these on every video:
+- **Something is always moving.** Every beat needs a camera move or zoom (`move`, `zoom`); a subtle sway is built in. Never hold a static frame.
+  Numbers count, flaps scramble and bars grow. Information is revealed, not just shown.
+- **Layer for depth.** A card is the subject, so blur and darken what's behind it with `"focus": 0.4–0.6`. Add out-of-focus foreground fans
+  on pitch-level stadium shots with `"fans": true`. Foreground, subject and background should read as three planes.
+- **Light sets the mood.** Use `"lights": 0.4–0.6` for sombre or dramatic beats (deaths, defeats, "but…" moments). Keep full light for celebrations.
+- **Colour has meaning.** Set `"accent"` per beat: red `#FF4D5E` for wrong, myth or loss, gold or teal for the answer or record. Only the key words are coloured.
+- **Corrections are animated.** Don't just show a new number. Strike the old one in red, then flip it (`board` rows with `from`).
+- **Move the eye on purpose.** One highlight at a time. Use `focusPath` to walk a highlight down a list in time with the VO reading it.
+- **Re-use a graphic across beats** by giving cards the same `id`. A `board` with the same id flips only the changed cells and slides its highlight,
+  instead of fading out and back in.
+- **Render at 60fps** (the default) for smooth motion.
+
 ## spec.json
 ```jsonc
 {
@@ -60,6 +74,11 @@ fallback: put `"timings": [secs per beat]` in the spec).
                            "stripes": ["#a50044", "#004d98"] /* or "checks": [c1, c2] */ },
                   "skin": "#e7b593", "hair": "#4a3324" }],   // omitted = inherited, [] = none
     "confetti": true,
+    "focus": 0.5,       // 0–1: blur + darken the scene behind the cards (eases between beats)
+    "lights": 0.5,      // 0–1: scene lighting; < 1 = darker, hazy, moody
+    "fans": true,       // stadium: blurred foreground crowd silhouettes
+    "accent": "#FF4D5E",// headline accent colour for this beat only
+    "sway": 1,          // camera handheld sway amount (0 = locked off)
     "card": { ... } or "same" or [ "same", { ... } ]   // omitted = no card; arrays stack cards
   }]
 }
@@ -81,6 +100,10 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
   `markers: [{value, label, accent, side: "above"|"below", len}]`, `bracket: {from, to, label, y}`, `style: "dots"` for a dotted timeline
 - `trophies`: pedestals rising from the floor. `items: [{kind: cup|worldcup|ball|boot, sx, h, size, label, text}]`, `floor`.
   Use `h: 0` for a floating prop (e.g. a gold ball above a player's head)
+- `board`: split-flap departure board, the star graphic of the free-kick reel. `rows: [{name, value, prefix, from, strike}]`, `label`,
+  `focus` (row index, gold highlight) or `focusPath: [{t, row}]` (the highlight walks in time), `caption` + `captionAt` (pill underneath),
+  `swapAt` (when corrections flip), `cols`/`vcols` (name and value widths). A row with `from` shows `from` first, then a red strike,
+  then flips to `value`. Give it an `id` to carry it across beats: changed cells flip, the highlight slides and nothing re-enters.
 - `meter`: a vertical tube filling with balls. `value`, `max`, `markers: [{label, value}]`, `icon: {kind, label, dx}`
 
 ## Files

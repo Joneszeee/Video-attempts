@@ -56,3 +56,12 @@ BEAT 4:   <Payoff: X had <A>. Y had just <B>.>       [comparison widget races]
 (BEAT 5): <Kicker line / question>                   [hold 1.5s, loop-friendly]
 CAPTION:  <Payoff stat as a sentence>. ⚽ <question to the audience>
 ```
+
+## Reference 4: the free-kick reel ("Counted goal by goal…")
+- **The star graphic is a split-flap departure board** over a blurred, darkened stadium with out-of-focus fans in the foreground.
+- **Rows:** player name on the left, number on the right. Inactive rows are grey; the active row is white with a glowing gold outline that slides between rows.
+- **Corrections:** a red strike across the old number, then it flips to the corrected one, with a small red "-2" badge. A pill caption below explains why ("TAKE OUT THE FRIENDLIES").
+- **Re-sorts:** every cell scrambles through random letters and settles into the new ranking.
+- **The headline accent changes with meaning:** red for "number is wrong", gold for the answer.
+- **The final shot:** a dark, hazy stadium with the floodlights low. The camera pushes slowly toward one player standing with the ball.
+- **Takeaway:** depth (blur plus foreground), constant small motion, and animated corrections instead of static numbers.

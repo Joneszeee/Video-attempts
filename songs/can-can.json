@@ -1,0 +1,8 @@
+{
+  "title": "Can-Can (Galop infernal)", "composer": "Offenbach",
+  "tempo": 157.9, "meter": "2/4",
+  "melody": "C5/2 | C5/8 D5 F5 E5 | D5 G5 G5/4 | G5/8 A5 E5 F5 | D5/4 D5 | D5/8 F5 E5 D5 | C5 C6 B5 A5 | G5 F5 E5 D5 | C5/2 | C5/8 D5 F5 E5 | D5 G5 G5/4 | G5/8 A5 E5 F5 | D5 G5 E5 D5 | C5/2",
+  "chords": "C C G C G G C G C C G C G C",
+  "style": "oompah",
+  "end": "chord"
+}

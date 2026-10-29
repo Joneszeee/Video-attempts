@@ -5,7 +5,8 @@ import { execFileSync, spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const BUILD = path.join(ROOT, 'build');
+const NAME = process.argv[2] || 'classic';
+const BUILD = path.join(ROOT, 'build', NAME);
 const OUT = path.join(ROOT, 'out');
 fs.mkdirSync(OUT, { recursive: true });
 const audio = path.join(BUILD, 'audio.wav');
@@ -23,7 +24,7 @@ const I = (check.match(/I:\s+(-?[\d.]+) LUFS/g) || []).pop();
 const TP = (check.match(/Peak:\s+(-?[\d.]+) dBFS/g) || []).pop();
 console.log(`audio loudness: ${I}, true ${TP}`);
 
-const out = path.join(OUT, 'ball-drop.mp4');
+const out = path.join(OUT, `${NAME}.mp4`);
 execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', video, '-i', norm, '-map', '0:v', '-map', '1:a',
   '-c:v', 'copy', '-c:a', 'aac', '-b:a', '256k', '-shortest', '-movflags', '+faststart', out]);
 console.log('final ->', out);

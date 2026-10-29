@@ -1,71 +1,83 @@
-# Ball Drop: a beat-synced 3D music video
+# Ball Drop video generator
 
-A glossy cream-and-red ball falls down a spiral tower and bounces off one object on every
-melody note: *Für Elise* in a dusk music salon, an accelerating *In the Hall of the
-Mountain King* in a crystal cave, and the *Can-Can* at a toy party. It's built with
-three.js and has no Blender and no samples: all music is note data synthesized in NumPy.
+Beat-synced 3D ball-drop music videos. A glossy ball falls down a spiral tower and
+bounces off one object on every melody note, through one or more worlds. Give it a song,
+colours and a mood, and it builds the video in the style of `out/ball-drop.mp4`
+(*Für Elise* → *Mountain King* → *Can-Can*).
 
-1080×1920 · 30 fps · ~42 s · output: `out/ball-drop.mp4`
+It uses three.js, has no Blender and no samples, and all music is synthesized in NumPy
+from note data. Output is 1080×1920 at 30 fps, with audio normalised to -14 LUFS.
 
-## Build
+## Make a video
 
 ```bash
 npm install
-npm run build          # score -> check -> synth -> render (+ mux)
+node tools/make.mjs videos/neon-jingle.json --preview   # ~1 min: checks, audio, contact sheet of stills
+node tools/make.mjs videos/neon-jingle.json             # full render -> out/neon-jingle.mp4
 ```
 
-Steps on their own:
+The full render takes about 1.6 s of wall time per frame with 3 parallel headless
+browsers (`--workers N`), so 30–45 min for a 40 s video.
 
-| step | command | output |
-|---|---|---|
-| score | `python3 tools/score.py` | `build/score.json`, the single clock |
-| check | `node tools/check.mjs` | fails the build if any rule is broken; writes `build/hits.json` |
-| synth | `python3 tools/synth.py` | `build/audio.wav` |
-| render | `node tools/render.mjs --workers 3` | `build/video.mp4`, then `out/ball-drop.mp4` |
-| mux | `node tools/mux.mjs` | two-pass loudnorm to -14 LUFS / -1 dBTP, muxed with the video |
+A video is one JSON file in `videos/`:
 
-Previews: `node tools/render.mjs --stills 3.2,12,30` writes PNGs to `build/stills/`.
-You can also serve the repo root and open `index.html?t=12.3` for a still, or
-`index.html?play` for real-time playback.
+```json
+{
+  "title": "Neon Jingle",
+  "mood": "energetic",
+  "song": "jingle-bells",
+  "scenes": [
+    {"kit": "salon", "colors": {"background": "#0b0630", "glow": "#00e5ff"}},
+    {"kit": "cave",  "colors": {"background": "#14002a", "glow": "#ff2bd6"}},
+    {"kit": "party", "colors": {"background": "#00a36c", "glow": "#e6ff3a"}}
+  ],
+  "ball": {"color": "#f2f7ff", "stripe": "#ff2bd6"},
+  "endText": "Ho ho ho."
+}
+```
 
-## How it fits together
+| input | options |
+|---|---|
+| **song** | a library name (`songs/`: fur-elise, mountain-king, can-can, ode-to-joy, twinkle, jingle-bells, greensleeves); note text (`{"melody": "E5/16 D#5 \| E5 ...", "tempo": 70, "meter": "3/8"}`, chords optional, auto-harmonized when missing); or a MIDI file (`{"midi": "midi/x.mid", "maxSeconds": 40}`, melody = top line of the best track). One `song` is split across the scenes; or give each scene its own `song` for a medley. |
+| **mood** | `playful` (the original), `dreamy`, `energetic`, `spooky`, `epic`, `chill`. Sets tempo, gravity, camera, bloom, fog, reverb, accompaniment and instruments. Fine-tune with `moodOverrides` and `tempo`. |
+| **scenes** | 1–5 worlds, each a `kit` (`salon`, `cave`, `party`) with `colors` (`background`, `glow`, optional `accent`, `objects`, `pole`, `stage`, `rim`). Optional per scene: `instrument`, `style`, `drums`, `end` (`soft`/`crash`), `gap`. |
+| **extras** | `ball` colours, `endText`, `jokes` (`googlyEyes`, `duck`, `troll`, `pins`, `ending`). |
 
-- **`tools/score.py`** writes every note (melody, accompaniment, drums) and every
-  sound-effect cue with its exact time. Picture and sound both read this file.
-- **`src/timeline.js`** is pure math shared by the browser and the checker. It:
-  - assigns each melody note an object. Repeated notes reuse the same object, so they
-    bounce in place.
-  - solves the layout backwards from the note times: the final stage is fixed at the
-    bottom, and each earlier contact point is placed by stepping back through the note
-    intervals. Each drop is a fraction of `g·dt²/2`, so every flight is a true parabola
-    under the one gravity that takes exactly the note interval.
-  - covers squash and stretch, object dip and spring-back, glow, knocked-loose objects,
-    the smoothed orbit camera, and the ending gag.
+Examples: `videos/classic.json` (the original), `videos/neon-jingle.json` (one song split
+over three neon worlds), `videos/lullaby.json` (dreamy two-scene medley) and
+`videos/midi-example.json` (from a MIDI file).
 
-  Every value is a function of `t`. There is no per-frame state, so any frame renders
-  on its own.
-- **`src/main.js` + `src/builders.js`** build the three.js scene: PBR clearcoat
-  materials, PCF soft shadows, ACES tone mapping, bloom thresholded so only lit objects
-  glow, a vignette and grain, and googly eyes that track the ball.
-- **Scene changes**: the ball knocks the last object loose and dives through a dark gap
-  into the next world. There are no crossfades.
+Working in Claude Code? Just describe the video ("Greensleeves, misty forest greens,
+spooky"). The project skill `.claude/skills/make-video` tells Claude how to turn that into
+a config, preview it and render it.
 
-## Pre-render checks (`tools/check.mjs`)
+## How it works
 
-- Every hit lands exactly on its note: the ball is at the contact point at the note time
-  (error 0), the object is at rest, the ball arrives moving down and leaves moving up,
-  and the audio has the note at that same timestamp.
-- The ball never clips anything: it is sampled at 2 kHz against every object collider,
-  the pole, support arms and props (troll, pins, balloons, candles).
-- The ball stays in frame: every frame is projected through the real camera. The only
-  exemption is the scripted roll-off at the end, where the ball deliberately leaves.
+```
+videos/x.json ─► tools/score.py ─► build/x/score.json ─┬─► tools/check.mjs  (gate)
+  songs/, midi/   music.py, moods.py   the single clock ├─► tools/synth.py   -> audio.wav
+                                                       └─► src/ (three.js) -> tools/render.mjs -> frames
+                                                            tools/mux.mjs   -> out/x.mp4 (-14 LUFS)
+```
 
-## The jokes
+- **`tools/music.py`** handles note text, chords, key detection and auto-harmony, the
+  accompaniment styles, and a minimal MIDI reader.
+- **`tools/moods.py`** holds the mood presets and kit defaults, and derives the lighting
+  from your colours (the kits' own colours reproduce the original look exactly).
+- **`tools/score.py`** places every note and effect at an exact time: the scene splits,
+  dive gaps, duck squeaks, crash and troll, and the ending gag.
+- **`src/timeline.js`** is pure math shared by browser and checker. It:
+  - solves the ball path backwards from the note times under one gravity;
+  - makes repeated notes bounce in place;
+  - makes long notes "dwell": the ball lands, rolls off the edge, and drops onto the
+    next object on the next note.
 
-- Googly eyes on books, mushrooms, jelly cubes, the duck, the troll and the bowling
-  pins all follow the ball.
-- A rubber duck takes every "sol sol sol" (G G G) in the Can-Can and squeaks.
-- A troll sleeps under the last crystal (Zzz). The final crash wakes it, and its
-  nightcap flies off.
-- A chorus line of bowling pins does the can-can on the final drum.
-- Ending: the ball rolls off, silence, *boing*, it lands, **Fin.**
+  Every value is a function of `t`.
+- **`tools/check.mjs`** must pass before anything renders:
+  - each hit lands exactly on its note;
+  - the ball never clips anything (sampled at 2 kHz);
+  - the ball stays in frame.
+
+Individual steps: `python3 tools/score.py videos/x.json`, `node tools/check.mjs x`,
+`python3 tools/synth.py x`, `node tools/render.mjs --name x [--stills 3,12]`,
+`node tools/mux.mjs x`.

@@ -1,0 +1,7 @@
+{
+  "title": "Twinkle, Twinkle, Little Star", "composer": "Traditional",
+  "tempo": 112, "meter": "4/4",
+  "melody": "C5/4 C5 G5 G5 | A5 A5 G5/2 | F5/4 F5 E5 E5 | D5 D5 C5/2 | G5/4 G5 F5 F5 | E5 E5 D5/2 | G5/4 G5 F5 F5 | E5 E5 D5/2 | C5/4 C5 G5 G5 | A5 A5 G5/2 | F5/4 F5 E5 E5 | D5 D5 C5/2",
+  "chords": "C F C G C G C G C F C C",
+  "end": "chord"
+}

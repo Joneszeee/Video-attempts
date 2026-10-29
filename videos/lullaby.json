@@ -1,0 +1,11 @@
+{
+  "title": "Lullaby",
+  "mood": "dreamy",
+  "scenes": [
+    {"kit": "salon", "song": "twinkle", "colors": {"background": "#141a3a", "glow": "#ffd9a0", "accent": "#d8c8a8"}},
+    {"kit": "party", "song": {"library": "greensleeves", "tempo": 112}, "colors": {"background": "#6a5a9e", "glow": "#ffc8e8", "objects": ["#bfe3ff", "#ffd6ec", "#e8ffd6", "#fff2b8", "#d9ccff"], "pole": "#9a8ad0"}}
+  ],
+  "ball": {"color": "#fff8ee", "stripe": "#8a7ad8"},
+  "jokes": {"troll": false},
+  "endText": "Sleep tight."
+}

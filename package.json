@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Beat-synced 3D ball-drop music video rendered with three.js",
+  "description": "Beat-synced 3D ball-drop music video generator (three.js)",
   "scripts": {
-    "score": "python3 tools/score.py",
-    "synth": "python3 tools/synth.py",
-    "check": "node tools/check.mjs",
-    "render": "node tools/render.mjs",
-    "build": "npm run score && npm run check && npm run synth && npm run render"
+    "make": "node tools/make.mjs",
+    "preview": "node tools/make.mjs --preview",
+    "classic": "node tools/make.mjs videos/classic.json"
   },
   "dependencies": {
     "@fontsource/playfair-display": "5.3.0",

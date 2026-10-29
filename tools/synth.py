@@ -15,15 +15,21 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SR = 48000
 rng = np.random.default_rng(7)
 
-score = json.load(open(os.path.join(ROOT, "build", "score.json")))
-hits_path = os.path.join(ROOT, "build", "hits.json")
+import sys
+NAME = sys.argv[1] if len(sys.argv) > 1 else "classic"
+BUILD = os.path.join(ROOT, "build", NAME)
+score = json.load(open(os.path.join(BUILD, "score.json")))
+hits_path = os.path.join(BUILD, "hits.json")
+MOOD = score.get("mood", {})
 hits = json.load(open(hits_path))["hits"] if os.path.exists(hits_path) else []
 DUR = score["duration"]
 N = int(np.ceil(DUR * SR)) + SR
 
 # three buses, one per world, each with its own room
-dry = {s: np.zeros((2, N)) for s in (1, 2, 3)}
-send = {s: np.zeros((2, N)) for s in (1, 2, 3)}
+SCENES = list(range(1, len(score["scenes"]) + 1))
+KIT = {i + 1: sc["kit"] for i, sc in enumerate(score["scenes"])}
+dry = {s: np.zeros((2, N)) for s in SCENES}
+send = {s: np.zeros((2, N)) for s in SCENES}
 fx = np.zeros((2, N))   # sound effects (go to the party room unless stated)
 
 
@@ -33,11 +39,11 @@ def mtof(m):
 
 def scene_at(t):
     secs = score["sections"]
-    if t < secs[1]["firstHit"] - 0.05:
-        return 1
-    if t < secs[2]["firstHit"] - 0.05:
-        return 2
-    return 3
+    s = 1
+    for k in range(1, len(secs)):
+        if t >= secs[k]["firstHit"] - 0.05:
+            s = k + 1
+    return s
 
 
 def place(sig, t, pan=0.0, gain=1.0, bus=None, rev=0.25):
@@ -199,7 +205,53 @@ def timpani(m, dur, vel):
     return s * vel * 0.45
 
 
-INST = {"piano": piano, "pluck": pluck, "bell": bell, "brass": brass, "bassoon": bassoon,
+def musicbox(m, dur, vel):
+    """music-box comb: bright, glassy, quick decay"""
+    f0 = mtof(m)
+    d = 1.6
+    s = partials(f0, d, [1, 0.45, 0.25, 0.12], [1, 3.0, 5.2, 7.9], [0.9, 0.3, 0.12, 0.06])
+    return s * np.minimum(1, tvec(d) / 0.0008) * vel * 0.3
+
+
+def marimba(m, dur, vel):
+    f0 = mtof(m)
+    d = 1.0
+    s = partials(f0, d, [1, 0.3, 0.12], [1, 3.93, 9.2], [0.45 * (440 / f0) ** 0.3, 0.12, 0.04])
+    t = tvec(d)
+    k = int(0.006 * SR)
+    s[:k] += lowpass(rng.standard_normal(k), 1200) * np.exp(-np.arange(k) / (0.0015 * SR)) * 0.2
+    return s * np.minimum(1, t / 0.001) * vel * 0.4
+
+
+def pad(m, dur, vel):
+    """soft detuned saw pad, slow attack"""
+    f0 = mtof(m)
+    d = dur + 0.8
+    t = tvec(d)
+    s = np.zeros_like(t)
+    for det in (-0.006, 0.0, 0.007):
+        ph = 2 * np.pi * f0 * (1 + det) * t
+        for k in range(1, 12):
+            if f0 * k > 6000:
+                break
+            s += np.sin(k * ph + det * 100) / k * np.exp(-k / 4)
+    e = env_adsr(len(t), 0.35, 0.6, 0.85, dur, 0.5)
+    return s * e * vel * 0.12
+
+
+def lead(m, dur, vel):
+    """square-ish synth lead with a little vibrato"""
+    f0 = mtof(m)
+    d = dur + 0.25
+    t = tvec(d)
+    vib = 1 + 0.004 * np.sin(2 * np.pi * 5.5 * t) * np.clip((t - 0.12) / 0.2, 0, 1)
+    ph = 2 * np.pi * f0 * np.cumsum(vib) / SR
+    s = sum(np.sin(k * ph) / k * np.exp(-(f0 * k) / 5000) for k in range(1, 16, 2))
+    return s * env_adsr(len(t), 0.008, 0.2, 0.65, dur, 0.08) * vel * 0.26
+
+
+INST = {"musicbox": musicbox, "marimba": marimba, "pad": pad, "lead": lead,
+        "piano": piano, "pluck": pluck, "bell": bell, "brass": brass, "bassoon": bassoon,
         "bass": bass, "timpani": timpani, "chord": brass, "crash": brass}
 
 # --------------------------------------------------------------- drums & effects
@@ -353,7 +405,7 @@ for nt in score["notes"]:
         m["midi"] == nt["midi"] and round(m["t"], 6) == key for m in score["melody"])
     if is_mel:
         pan = melody_pan.get(key, 0.0)
-    rev = {1: 0.28, 2: 0.42, 3: 0.18}[scene_at(nt["t"])]
+    rev = {"salon": 0.28, "cave": 0.42, "party": 0.18}[KIT[scene_at(nt["t"])]] * MOOD.get("reverb", 1.0)
     place(sig, nt["t"], pan=pan, gain=1.15 if is_mel else 1.0, rev=rev)
 
 for h in hits:
@@ -372,19 +424,19 @@ for ev in score["events"]:
     elif ty == "whoosh":
         place(whoosh(v, ev["dur"]), t, 0.0, rev=0.4)
     elif ty == "shatter":
-        place(shatter(v), t, 0.2, rev=0.5, bus=2)
+        place(shatter(v), t, 0.2, rev=0.5)
     elif ty == "troll":
-        place(troll_grunt(v), t, 0.35, rev=0.45, bus=2)
+        place(troll_grunt(v), t, 0.35, rev=0.45)
     elif ty == "squeak":
         place(squeak(v, ev.get("n", 0)), t, 0.15, rev=0.15)
     elif ty == "boing":
-        place(boing(v), t, 0.2, rev=0.25, bus=3)
+        place(boing(v), t, 0.2, rev=0.25, bus=SCENES[-1])
     elif ty == "thump":
-        place(thump(v), t, 0.0, rev=0.2, bus=3)
+        place(thump(v), t, 0.0, rev=0.2, bus=SCENES[-1])
     elif ty == "roll":
-        place(roll(v, ev["dur"]), t, 0.25, rev=0.1, bus=3)
+        place(roll(v, ev["dur"]), t, 0.25, rev=0.1, bus=SCENES[-1])
     elif ty == "fin":
-        place(fin_chime(v), t, 0.0, rev=0.5, bus=3)
+        place(fin_chime(v), t, 0.0, rev=0.5, bus=SCENES[-1])
 
 
 def room(rt60, predelay, damp, size_hz):
@@ -421,9 +473,14 @@ def convolve(x, ir):
     return out
 
 
-rooms = {1: room(1.6, 0.018, 1.0, 0.04), 2: room(3.2, 0.035, 0.6, 0.09), 3: room(1.1, 0.012, 1.4, 0.03)}
+KIT_ROOM = {"salon": (1.6, 0.018, 1.0, 0.04), "cave": (3.2, 0.035, 0.6, 0.09), "party": (1.1, 0.012, 1.4, 0.03)}
+rv = MOOD.get("reverb", 1.0)
+rooms = {}
+for s_ in SCENES:
+    rt, pd, dm, sz = KIT_ROOM[KIT[s_]]
+    rooms[s_] = room(rt * (0.75 + 0.25 * rv), pd, dm, sz)
 mix = np.zeros((2, N))
-for s in (1, 2, 3):
+for s in SCENES:
     mix += dry[s] + convolve(send[s], rooms[s])
 mix += fx
 # clear out sub-sonic rumble
@@ -439,7 +496,7 @@ mix = mix[:, : int(DUR * SR)]
 fade = int(0.4 * SR)
 mix[:, -fade:] *= np.linspace(1, 0, fade)[None, :]
 
-out = os.path.join(ROOT, "build", "audio.wav")
+out = os.path.join(BUILD, "audio.wav")
 pcm = (np.clip(mix.T, -1, 1) * 32767).astype("<i2")
 with wave.open(out, "wb") as w:
     w.setnchannels(2)

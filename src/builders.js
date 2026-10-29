@@ -18,9 +18,9 @@ export function canvasTexture(w, h, draw, srgb = true) {
   return t;
 }
 
-export function ballTexture() {
+export function ballTexture(base = '#f4e7cb', stripe = '#c21f2c') {
   return canvasTexture(1024, 512, (g, w, h) => {
-    g.fillStyle = '#f4e7cb'; g.fillRect(0, 0, w, h);
+    g.fillStyle = base; g.fillRect(0, 0, w, h);
     // faint warm mottling so the clearcoat has something to sit on
     for (let i = 0; i < 900; i++) {
       g.fillStyle = `rgba(${200 + (i % 40)}, ${170 + (i % 30)}, 120, 0.035)`;
@@ -28,8 +28,8 @@ export function ballTexture() {
       g.beginPath(); g.arc(x, y, 6 + (i % 13), 0, Math.PI * 2); g.fill();
     }
     const band = h * 0.11;
-    g.fillStyle = '#c21f2c'; g.fillRect(0, h / 2 - band / 2, w, band);
-    g.fillStyle = '#7d0f19';
+    g.fillStyle = stripe; g.fillRect(0, h / 2 - band / 2, w, band);
+    g.fillStyle = '#' + new THREE.Color(stripe).multiplyScalar(0.6).getHexString();
     g.fillRect(0, h / 2 - band / 2 - 3, w, 3); g.fillRect(0, h / 2 + band / 2, w, 3);
   });
 }
@@ -79,6 +79,13 @@ const eyeRimGeo = new THREE.TorusGeometry(1, 0.08, 6, 28);
 const eyeWhiteMat = phys({ color: 0xffffff, roughness: 0.08, clearcoat: 1, transmission: 0, ior: 1.5 });
 const pupilMat = new THREE.MeshStandardMaterial({ color: 0x050505, roughness: 0.4 });
 export const eyes = [];
+const OPT = { eyes: true };
+export function setOptions(o) { Object.assign(OPT, o); }
+// shiny metal (trims, rims, rings) in any colour, cached
+const metals = {};
+export function metal(hex) {
+  return metals[hex] || (metals[hex] = phys({ color: new THREE.Color(hex), metalness: 1, roughness: 0.22, clearcoat: 0.4 }));
+}
 export function googlyEye(size, owner) {
   const g = new THREE.Group();
   const white = new THREE.Mesh(eyeWhiteGeo, eyeWhiteMat);
@@ -95,6 +102,7 @@ export function googlyEye(size, owner) {
 }
 function eyePair(parent, owner, size, y, z, sep, opts = {}) {
   const out = [];
+  if (!OPT.eyes && !opts.always) return out;
   for (const s of [-1, 1]) {
     const { group, eye } = googlyEye(size * (s === 1 && opts.odd ? 1.25 : 1), owner);
     group.position.set(s * sep, y, z);
@@ -124,14 +132,15 @@ const GEO = {
 GEO.hex.rotateY(Math.PI / 6);
 GEO.hexBig.rotateY(Math.PI / 6);
 
-const KEY_GLOW = new THREE.Color(0xffb54a);
-const CAVE_GLOW = new THREE.Color(0x35f2ff);
-const PARTY_GLOW = new THREE.Color(0xff6ac1);
 
 function hsl(h, s, l) { return new THREE.Color().setHSL(h, s, l, THREE.SRGBColorSpace); }
 
-export function buildObject(o) {
+export function buildObject(o, pal) {
   const g = new THREE.Group();
+  const GLOW = new THREE.Color(pal.hit);
+  const KEY_GLOW = GLOW, CAVE_GLOW = GLOW, PARTY_GLOW = GLOW;
+  const trim = metal(pal.accent);
+  const objCol = (i) => new THREE.Color(pal.objects[((i % pal.objects.length) + pal.objects.length) % pal.objects.length]);
   const glow = [];   // materials whose emissive lights up on a hit
   const anim = {};   // sub-groups main.js animates
   const add = (m) => { g.add(m); return m; };
@@ -139,19 +148,18 @@ export function buildObject(o) {
   if (k === 'whiteKey') {
     const mat = M.ivory(); mat.emissive = KEY_GLOW.clone(); glow.push(mat);
     add(mesh(GEO.whiteKey, mat, 0, -0.1, 0));
-    add(mesh(GEO.whiteTrim, M.gold, 0, -0.185, 0));
-    add(mesh(GEO.frontPlate, M.gold, 0, -0.1, 0.626));
+    add(mesh(GEO.whiteTrim, trim, 0, -0.185, 0));
+    add(mesh(GEO.frontPlate, trim, 0, -0.1, 0.626));
   } else if (k === 'blackKey') {
     const mat = M.ebony(); mat.emissive = KEY_GLOW.clone(); glow.push(mat);
     add(mesh(GEO.blackKey, mat, 0, -0.13, -0.18));
-    const trim = add(mesh(new THREE.BoxGeometry(0.27, 0.03, 0.85), M.gold, 0, -0.245, -0.18));
-    trim.castShadow = false;
+    const tr = add(mesh(new THREE.BoxGeometry(0.27, 0.03, 0.85), trim, 0, -0.245, -0.18));
+    tr.castShadow = false;
   } else if (k === 'books') {
-    const covers = [0x6d1a2a, 0x1f4a3a, 0x1d2c5c, 0x5a2f6e, 0x7a4a1a];
     const hs = [0.16, 0.17, 0.15];
     let y = 0;
     hs.forEach((h, j) => {
-      const c = covers[(o.id + j) % covers.length];
+      const c = objCol(o.id + j);
       const cover = phys({ color: c, roughness: 0.55, clearcoat: 0.3, emissive: KEY_GLOW.clone() });
       glow.push(cover);
       const w = 0.68 - j * 0.02, d = 0.86 - (j % 2) * 0.04;
@@ -159,7 +167,7 @@ export function buildObject(o) {
       book.add(mesh(new RoundedBoxGeometry(w, h, d, 2, 0.02), cover, 0, 0, 0));
       book.add(mesh(new THREE.BoxGeometry(w - 0.02, h * 0.8, d - 0.05), M.paper, -0.012, 0, -0.012));
       // gold bands on the spine (+Z)
-      for (const by of [-h * 0.3, h * 0.3]) book.add(mesh(new THREE.BoxGeometry(w * 0.9, 0.012, 0.01), M.gold, 0, by, d / 2 + 0.002));
+      for (const by of [-h * 0.3, h * 0.3]) book.add(mesh(new THREE.BoxGeometry(w * 0.9, 0.012, 0.01), trim, 0, by, d / 2 + 0.002));
       book.position.set(0, y - h / 2, 0);
       book.rotation.y = j === 0 ? 0 : (j % 2 ? 0.05 : -0.04);
       g.add(book);
@@ -168,7 +176,8 @@ export function buildObject(o) {
     });
   } else if (k === 'crystal' || k === 'bigCrystal') {
     const big = k === 'bigCrystal';
-    const hue = big ? 0.48 : 0.45 + ((o.midi % 12) / 12) * 0.22;
+    const gh = GLOW.getHSL({}, THREE.SRGBColorSpace).h;
+    const hue = big ? gh : gh - 0.05 + ((o.midi % 12) / 12) * 0.2;
     const mat = phys({ color: hsl(hue, 0.7, 0.55), roughness: 0.08, metalness: 0.0, clearcoat: 1,
       transparent: true, opacity: 0.88, emissive: CAVE_GLOW.clone(), iridescence: 0.6, iridescenceIOR: 1.6,
       flatShading: true });
@@ -183,8 +192,8 @@ export function buildObject(o) {
       add(s);
     }
   } else if (k === 'mushroom') {
-    const red = o.id % 2 === 0;
-    const capMat = phys({ color: red ? 0xc4243a : 0x7d2fc0, roughness: 0.35, clearcoat: 0.8, emissive: (red ? new THREE.Color(0xff4060) : new THREE.Color(0xc070ff)) });
+    const cc = objCol(o.id);
+    const capMat = phys({ color: cc, roughness: 0.35, clearcoat: 0.8, emissive: cc.clone().lerp(new THREE.Color(1, 1, 1), 0.25) });
     glow.push(capMat);
     const cap = mesh(new THREE.SphereGeometry(0.38, 40, 16, 0, Math.PI * 2, 0, Math.PI / 2), capMat, 0, -0.18, 0);
     cap.scale.y = 0.47;
@@ -203,29 +212,27 @@ export function buildObject(o) {
   } else if (k === 'drum' || k === 'stage') {
     const s = k === 'stage' ? 0.9 / 0.33 : 1;
     const hh = k === 'stage' ? 0.25 : 0.17;
-    const colors = [0xe0283c, 0x2a4bd8, 0xf2f2f2, 0x1aa37a, 0xff9a1f];
-    const c = k === 'stage' ? 0xd81f4a : colors[o.id % colors.length];
+    const c = k === 'stage' ? new THREE.Color(pal.stage || pal.objects[0]) : objCol(o.id + 1);
     const bodyMat = phys({ color: c, roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.05, metalness: 0.1 });
     const body = mesh(GEO.drumBody, bodyMat, 0, -hh, 0);
     body.scale.set(s, hh / 0.17, s); add(body);
     const skinMat = phys({ color: 0xf6efe2, roughness: 0.55, emissive: PARTY_GLOW.clone(),
-      map: k === 'stage' ? starTexture() : null });
+      map: k === 'stage' ? starTexture(pal.hit, pal.accent) : null });
     glow.push(skinMat);
     const skin = mesh(GEO.drumSkin, skinMat, 0, -0.001, 0); skin.rotation.x = -Math.PI / 2; skin.scale.setScalar(s); add(skin);
     const bottom = mesh(GEO.drumSkin, bodyMat, 0, -2 * hh, 0); bottom.rotation.x = Math.PI / 2; bottom.scale.setScalar(s); add(bottom);
     for (const ry of [-0.025, -2 * hh + 0.02]) {
-      const rim = mesh(GEO.rim, M.gold, 0, ry, 0); rim.rotation.x = Math.PI / 2; rim.scale.set(s, s, 1); add(rim);
+      const rim = mesh(GEO.rim, trim, 0, ry, 0); rim.rotation.x = Math.PI / 2; rim.scale.set(s, s, 1); add(rim);
     }
     const nl = k === 'stage' ? 16 : 8;
     for (let j = 0; j < nl; j++) {
       const a = j / nl * Math.PI * 2;
-      const l = mesh(GEO.lug, M.gold, Math.cos(a) * 0.335 * s, -hh, Math.sin(a) * 0.335 * s);
+      const l = mesh(GEO.lug, trim, Math.cos(a) * 0.335 * s, -hh, Math.sin(a) * 0.335 * s);
       l.scale.y = hh / 0.17; add(l);
     }
     if (k === 'drum') bodyMat.emissive = PARTY_GLOW.clone(), glow.push(bodyMat);
   } else if (k === 'jelly') {
-    const cols = [0x7cff4f, 0xff8a1f, 0x3fd8ff, 0xff4fa8, 0xffe14f];
-    const c = new THREE.Color(cols[o.id % cols.length]);
+    const c = objCol(o.id);
     const mat = phys({ color: c, roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.02, transparent: true,
       opacity: 0.8, emissive: c.clone(), sheen: 0.5, sheenColor: 0xffffff });
     glow.push(mat);
@@ -252,17 +259,17 @@ export function buildObject(o) {
   return { group: g, glow, anim };
 }
 
-function starTexture() {
+function starTexture(star = '#ff4f9a', ring = '#ffcf3a') {
   return canvasTexture(512, 512, (g, w, h) => {
     g.fillStyle = '#f6efe2'; g.fillRect(0, 0, w, h);
-    g.fillStyle = '#ff4f9a';
+    g.fillStyle = star;
     g.beginPath();
     for (let i = 0; i < 10; i++) {
       const a = -Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? 70 : 170;
       g.lineTo(w / 2 + Math.cos(a) * r, h / 2 + Math.sin(a) * r);
     }
     g.fill();
-    g.strokeStyle = '#ffcf3a'; g.lineWidth = 14;
+    g.strokeStyle = ring; g.lineWidth = 14;
     g.beginPath(); g.arc(w / 2, h / 2, 220, 0, Math.PI * 2); g.stroke();
   });
 }
@@ -283,7 +290,7 @@ export function buildTroll(p) {
     const tuft = mesh(new THREE.ConeGeometry(0.03, 0.12, 8), phys({ color: 0x3a2a1a, roughness: 1 }), s * 0.05, 0.66, 0.02); tuft.rotation.z = s * 0.4; bodyG.add(tuft);
   }
   const eyesG = new THREE.Group(); eyesG.position.set(0, 0.5, 0.27); eyesG.rotation.x = -0.25; bodyG.add(eyesG);
-  const e = eyePair(eyesG, { id: -1 }, 0.075, 0, 0, 0.1, { tilt: 0.3, odd: true });
+  const e = eyePair(eyesG, { id: -1 }, 0.075, 0, 0, 0.1, { tilt: 0.3, odd: true, always: true });
   // sleepy eyelids that snap open on the crash
   const lidMat = phys({ color: 0x5f7a4c, roughness: 0.7 });
   const lids = e.map((x) => {

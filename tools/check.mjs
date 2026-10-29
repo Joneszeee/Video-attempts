@@ -8,7 +8,9 @@ import { fileURLToPath } from 'url';
 import { buildTimeline, BALL_R, POLE_R, KINDS, quat, v3 } from '../src/timeline.js';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const score = JSON.parse(fs.readFileSync(path.join(ROOT, 'build/score.json'), 'utf8'));
+const NAME = process.argv[2] || 'classic';
+const BUILD = path.join(ROOT, 'build', NAME);
+const score = JSON.parse(fs.readFileSync(path.join(BUILD, 'score.json'), 'utf8'));
 const tl = buildTimeline(score);
 const { mel, objects, props } = tl;
 const errors = [];
@@ -23,16 +25,17 @@ for (let i = 0; i < mel.length; i++) {
   const want = v3.add(tl.objectPose(o, t).pos, [0, BALL_R, 0]);
   const err = v3.len(v3.sub(p, want));
   worstPos = Math.max(worstPos, err);
-  if (err > 1e-6) fail(`hit ${i} (${mel[i].name} @ ${t.toFixed(3)}s): ball is ${err.toExponential(2)} off its contact point`);
+  if (!(err <= 1e-6)) fail(`hit ${i} (${mel[i].name} @ ${t.toFixed(3)}s): ball is ${err.toExponential(2)} off its contact point`);
   if (Math.abs(tl.dipOf(o, t)) > 1e-9) fail(`hit ${i}: object still moving at contact`);
   const before = tl.ballRaw(t - 1e-4).v[1], after = tl.ballRaw(t + 1e-4).v[1];
   if (!(before < 0)) fail(`hit ${i}: ball not descending into the hit (vy=${before.toFixed(2)})`);
-  if (i < mel.length - 1 && !(after > 0)) fail(`hit ${i}: ball does not bounce up (vy=${after.toFixed(2)})`);
+  // a long note dwells: the ball stays on the object (vy = 0) and leaves later
+  if (i < mel.length - 1 && !tl.dwell[i] && !(after > 0)) fail(`hit ${i}: ball does not bounce up (vy=${after.toFixed(2)})`);
   // the audio is rendered from the same score: the melody note must sit at this exact time
   if (!score.notes.some((n) => n.t === mel[i].t && n.midi === mel[i].midi)) fail(`hit ${i}: no audio note at ${t}`);
 }
 const repeated = mel.filter((n, i) => i > 0 && n.midi === mel[i - 1].midi && n.scene === mel[i - 1].scene).length;
-console.log(`hits: ${mel.length} bounces on ${objects.length} objects (${repeated} in place), worst contact error ${worstPos.toExponential(1)}`);
+console.log(`hits: ${mel.length} bounces on ${objects.length} objects (${repeated} in place, ${Object.keys(tl.dwell).length} long notes dwell), worst contact error ${worstPos.toExponential(1)}`);
 
 // ---------------------------------------------------------------- 2. clipping
 function sdCollider(cl, p) {
@@ -67,6 +70,7 @@ for (let k = 0; k <= score.duration * RATE; k++) {
   const t = k / RATE;
   const p = tl.ballRaw(t).p;
   if (clipFails() > 30) break;
+  if (p.some(Number.isNaN)) { fail(`ball position is NaN at t=${t.toFixed(4)}s`); break; }
   // pole
   if (p[1] < yTop) record(Math.hypot(p[0], p[2]) - POLE_R, 'pole', t);
   for (const o of objects) {
@@ -124,11 +128,11 @@ const hits = mel.map((n, i) => {
   const x = v3.dot(d, right) / (v3.dot(d, fwd) * Math.tan(cam.fov * Math.PI / 360) * (W / H));
   return { t: n.t, kind: objects[tl.hitObj[i]].kind, speed: +v3.len(tl.impact[i]).toFixed(3), x: +x.toFixed(3) };
 });
-fs.writeFileSync(path.join(ROOT, 'build/hits.json'), JSON.stringify({ hits, land: tl.ending.land }, null, 1));
+fs.writeFileSync(path.join(BUILD, 'hits.json'), JSON.stringify({ hits, land: tl.ending.land }, null, 1));
 
 // ------------------------------------------------------------------ summary
 const s = tl.sceneRange;
-console.log(`tower: salon ${s[1].top.toFixed(1)}..${s[1].bottom.toFixed(1)}, cave ${s[2].top.toFixed(1)}..${s[2].bottom.toFixed(1)}, party ${s[3].top.toFixed(1)}..${s[3].bottom.toFixed(1)}`);
+console.log('tower: ' + Object.keys(s).map((k) => `${tl.kitOf(+k)} ${s[k].top.toFixed(1)}..${s[k].bottom.toFixed(1)}`).join(', '));
 if (errors.length) {
   console.log(`\nCHECK FAILED: ${errors.length} problem(s)`);
   process.exit(1);

@@ -1,0 +1,13 @@
+{
+  "title": "Neon Jingle",
+  "mood": "energetic",
+  "song": "jingle-bells",
+  "scenes": [
+    {"kit": "salon", "colors": {"background": "#0b0630", "glow": "#00e5ff", "accent": "#c0c8ff"}},
+    {"kit": "cave",  "colors": {"background": "#14002a", "glow": "#ff2bd6"}},
+    {"kit": "party", "colors": {"background": "#00a36c", "glow": "#e6ff3a", "objects": ["#ff2bd6", "#00e5ff", "#ffffff", "#ffe600", "#7a5cff"], "pole": "#ff2bd6"}}
+  ],
+  "ball": {"color": "#f2f7ff", "stripe": "#ff2bd6"},
+  "jokes": {"duck": true},
+  "endText": "Ho ho ho."
+}

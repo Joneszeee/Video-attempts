@@ -1,0 +1,10 @@
+{
+  "title": "From a MIDI file",
+  "mood": "chill",
+  "song": {"midi": "midi/ode-to-joy-example.mid", "maxSeconds": 40},
+  "scenes": [
+    {"kit": "cave", "colors": {"background": "#20120a", "glow": "#ffb347"}},
+    {"kit": "party", "colors": {"background": "#2d6a8a", "glow": "#9ff3ff"}}
+  ],
+  "endText": "The End"
+}

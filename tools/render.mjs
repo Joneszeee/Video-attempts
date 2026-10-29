@@ -1,6 +1,6 @@
 // Renders the video with headless Chromium (Playwright) and pipes frames into ffmpeg.
-//   node tools/render.mjs                      full render -> build/video.mp4, then mux -> out/ball-drop.mp4
-//   node tools/render.mjs --stills 3.2,12,30   preview stills -> build/stills/
+//   node tools/render.mjs --name classic                    full render -> build/classic/video.mp4, then mux -> out/classic.mp4
+//   node tools/render.mjs --name classic --stills 3.2,12,30 preview stills -> build/classic/stills/
 //   node tools/render.mjs --workers 3          split the frame range across browsers
 //   node tools/render.mjs --from 100 --to 200  render a frame range only (no mux)
 import http from 'http';
@@ -13,9 +13,10 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const BUILD = path.join(ROOT, 'build');
 const args = process.argv.slice(2);
 const opt = (name, def) => { const i = args.indexOf('--' + name); return i >= 0 ? args[i + 1] : def; };
+const NAME = opt('name', 'classic');
+const BUILD = path.join(ROOT, 'build', NAME);
 const score = JSON.parse(fs.readFileSync(path.join(BUILD, 'score.json'), 'utf8'));
 const FPS = score.fps, TOTAL = Math.ceil(score.duration * FPS);
 
@@ -41,7 +42,7 @@ async function openPage(port) {
   const page = await browser.newPage({ viewport: { width: score.width, height: score.height }, deviceScaleFactor: 1 });
   page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') console.log('  [page]', m.text().slice(0, 300)); });
   page.on('pageerror', (e) => console.log('  [page error]', e.message));
-  await page.goto(`http://localhost:${port}/index.html`);
+  await page.goto(`http://localhost:${port}/index.html?score=/build/${encodeURIComponent(NAME)}/score.json`);
   await page.waitForFunction('window.ready === true', null, { timeout: 180000 });
   return { browser, page };
 }
@@ -113,6 +114,6 @@ console.log('video ->', video);
 
 if (from === 0 && to === TOTAL && !args.includes('--no-mux')) {
   const audio = path.join(BUILD, 'audio.wav');
-  if (!fs.existsSync(audio)) { console.log('no build/audio.wav yet: run `npm run synth`, then `node tools/mux.mjs`'); process.exit(0); }
-  execFileSync('node', [path.join(ROOT, 'tools/mux.mjs')], { stdio: 'inherit' });
+  if (!fs.existsSync(audio)) { console.log(`no ${audio} yet: run tools/synth.py, then tools/mux.mjs ${NAME}`); process.exit(0); }
+  execFileSync('node', [path.join(ROOT, 'tools/mux.mjs'), NAME], { stdio: 'inherit' });
 }

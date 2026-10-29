@@ -67,23 +67,18 @@ export const KINDS = {
   stage: { w: 1.8, collider: [{ shape: 'cyl', c: [0, -0.25, 0], r: 0.9, hh: 0.25 }] },
 };
 
-export const SCENES = {
-  1: { name: 'salon', bg: [0x24 / 255, 0x1a / 255, 0x3d / 255] },
-  2: { name: 'cave', bg: [0x06 / 255, 0x1a / 255, 0x1d / 255] },
-  3: { name: 'party', bg: [0xb8 / 255, 0x30 / 255, 0x6e / 255] },
-};
+// the object a kit uses when its last object is knocked loose into the next world
+const KIT_BIG = { salon: 'books', cave: 'bigCrystal', party: 'drum' };
 
-function kindFor(note, dt, scene, repeated) {
-  if (scene === 1) {
+function kindFor(note, dt, kit, repeated) {
+  if (note.tag === 'final') return 'stage';
+  if (note.tag === 'duck') return 'duck';
+  if (note.tag === 'crash') return KIT_BIG[kit];
+  if (kit === 'salon') {
     if (note.name.includes('#')) return 'blackKey';
     return dt > 0.5 ? 'books' : 'whiteKey';
   }
-  if (scene === 2) {
-    if (note.tag === 'crash') return 'bigCrystal';
-    return dt > 0.36 ? 'mushroom' : 'crystal';
-  }
-  if (note.tag === 'final') return 'stage';
-  if (note.tag === 'duck') return 'duck';
+  if (kit === 'cave') return dt > 0.36 ? 'mushroom' : 'crystal';
   if (repeated || dt > 0.3) return 'drum';
   return 'jelly';
 }
@@ -95,7 +90,9 @@ export function buildTimeline(score) {
   const mel = score.melody;
   const N = mel.length;
   const ending = score.ending;
-  const sceneOf = (i) => mel[i].scene;
+  const mood = score.mood || {};
+  const kitOf = (s) => score.scenes[s - 1].kit;
+  const nScenes = score.scenes.length;
 
   // 1. which object does each note land on? Repeated notes bounce in place.
   const objects = [];
@@ -117,12 +114,15 @@ export function buildTimeline(score) {
   for (const o of objects) {
     const first = o.hits[0];
     const dt = dtAfter(o.hits[o.hits.length - 1]);
-    const n = mel[first];
-    o.kind = kindFor(n, dt, o.scene, o.repeated);
+    // a tag on any of the object's hits decides its kind (final stage, crash, duck)
+    const tagged = o.hits.map((h) => mel[h]).find((x) => x.tag === 'final' || x.tag === 'crash');
+    const n = tagged || mel[first];
+    o.kind = kindFor(n, dt, kitOf(o.scene), o.repeated);
     o.note = n;
     o.midi = n.midi;
     o.lastInScene = (first === N - 1) || (mel[o.hits[o.hits.length - 1] + 1] || {}).scene !== o.scene;
-    o.knocked = o.lastInScene && o.scene < 3;
+    o.knocked = o.lastInScene && o.scene < nScenes;
+    if (o.knocked && o.kind !== 'duck') o.kind = KIT_BIG[kitOf(o.scene)];
   }
 
   // 2. Solve the layout backwards from the note times. The final landing point is fixed
@@ -131,6 +131,10 @@ export function buildTimeline(score) {
   // fraction of what one gravity allows in that interval (g dt^2 / 2), so every flight time
   // is exactly the note interval and every arc is a true parabola under the same g.
   const topPos = new Array(objects.length);
+  // long notes dwell instead of flying absurdly high (see below). Short enough that the
+  // original three pieces never trigger it.
+  const DWELL_DT = mood.dwell || 0.8, MAX_DROP = mood.maxDrop || 99, MAX_DIVE = 1.45 * Math.sqrt(50 / g), T_FALL = 0.34, T_HOP = 0.34;
+  const dwell = {};
   const theta = new Array(objects.length);
   const contact = new Array(N);
   const last = hitObj[N - 1];
@@ -138,18 +142,43 @@ export function buildTimeline(score) {
   topPos[last] = [RING_R, 0, 0];
   for (let i = N - 2; i >= 0; i--) {
     const a = hitObj[i], b = hitObj[i + 1];
-    if (a === b) continue;           // same object, already placed
     const dt = mel[i + 1].t - mel[i].t;
     const dive = mel[i].scene !== mel[i + 1].scene;
+    if (a === b) {                   // same object, already placed
+      if (dt > DWELL_DT) dwell[i] = { hop: T_HOP };
+      continue;
+    }
     const wa = KINDS[objects[a].kind].w, wb = KINDS[objects[b].kind].w;
     let k, sep;
     if (dive) {
       k = 0.62; sep = 1.5;
+      if (dt > MAX_DIVE) {
+        // sit on the last object while the note rings, then knock it loose and dive
+        dwell[i] = { hop: MAX_DIVE, dive: true };
+        const dropV = k * g * MAX_DIVE * MAX_DIVE / 2;
+        theta[a] = theta[b] + 2 * Math.asin(sep / (2 * RING_R));
+        topPos[a] = [RING_R * Math.cos(theta[a]), topPos[b][1] + dropV, RING_R * Math.sin(theta[a])];
+        continue;
+      }
+    } else if (dt > DWELL_DT) {
+      // a long note: the ball lands and stays while the note rings, then rolls off the
+      // edge and drops onto the next object right on the next note
+      const rollDist = wa / 2 + 0.2;     // centre past the edge by more than the radius
+      const minSep = (wa + wb) / 2 + 0.2;
+      const vEdge = Math.max(2 * rollDist / (dt - T_FALL), (minSep - rollDist) / T_FALL);
+      const tRollD = Math.min(dt - T_FALL, 2 * rollDist / vEdge);
+      sep = rollDist + vEdge * T_FALL;
+      dwell[i] = { rollDist, tRoll: tRollD, fall: T_FALL };
+      const dropD = g * T_FALL * T_FALL / 2;
+      const dThetaD = 2 * Math.asin(sep / (2 * RING_R));
+      theta[a] = theta[b] + dThetaD;
+      topPos[a] = [RING_R * Math.cos(theta[a]), topPos[b][1] + dropD, RING_R * Math.sin(theta[a])];
+      continue;
     } else {
-      k = dt > 0.42 ? 0.42 : dt > 0.25 ? 0.36 : 0.3;
+      k = (dt > 0.42 ? 0.42 : dt > 0.25 ? 0.36 : 0.3) * (mood.drop || 1);
       sep = Math.max((wa + wb) / 2 + 0.16, Math.min(dt * 2.3, 1.25));
     }
-    const drop = k * g * dt * dt / 2;
+    const drop = dive ? k * g * dt * dt / 2 : Math.min(MAX_DROP, k * g * dt * dt / 2);
     const dTheta = 2 * Math.asin(sep / (2 * RING_R));
     theta[a] = theta[b] + dTheta;    // travel goes toward decreasing theta
     topPos[a] = [RING_R * Math.cos(theta[a]), topPos[b][1] + drop, RING_R * Math.sin(theta[a])];
@@ -177,32 +206,56 @@ export function buildTimeline(score) {
   pushSeg(tRel, t0, pStart, [0, 0, 0], 'fly');
   const impact = new Array(N);
   for (let i = 0; i < N - 1; i++) {
-    const dt = mel[i + 1].t - mel[i].t;
-    const d = v3.sub(contact[i + 1], contact[i]);
-    const v0 = v3.sub(v3.mul(d, 1 / dt), v3.mul(G, dt / 2));
-    pushSeg(mel[i].t, mel[i + 1].t, contact[i], v0, 'fly', { hit: i });
+    const ta = mel[i].t, tb = mel[i + 1].t;
+    const flyFrom = (t0f, p0) => {
+      const dt = tb - t0f;
+      const v0 = v3.sub(v3.mul(v3.sub(contact[i + 1], p0), 1 / dt), v3.mul(G, dt / 2));
+      pushSeg(t0f, tb, p0, v0, 'fly', { hit: i });
+    };
+    const dw = dwell[i];
+    if (!dw) { flyFrom(ta, contact[i]); continue; }
+    if (dw.hop) {
+      // sit, then hop in place onto the same object
+      pushSeg(ta, tb - dw.hop, contact[i], [0, 0, 0], 'hold', { on: hitObj[i] });
+      flyFrom(tb - dw.hop, contact[i]);
+      continue;
+    }
+    const dirD = v3.norm([contact[i + 1][0] - contact[i][0], 0, contact[i + 1][2] - contact[i][2]]);
+    const tRollEnd = tb - dw.fall, tRollStart = tRollEnd - dw.tRoll;
+    if (tRollStart > ta + 1e-6) pushSeg(ta, tRollStart, contact[i], [0, 0, 0], 'hold', { on: hitObj[i] });
+    pushSeg(tRollStart, tRollEnd, contact[i], [0, 0, 0], 'roll', { dir: dirD, acc: 2 * dw.rollDist / (dw.tRoll ** 2), on: hitObj[i], dist: dw.rollDist });
+    flyFrom(tRollEnd, v3.add(contact[i], v3.mul(dirD, dw.rollDist)));
   }
   // ending: dead landing, sit, roll to the edge, fall, boing back up, land, Fin.
   const tF = mel[N - 1].t;
   const prevSeg = segs[segs.length - 1];
   const arriveV = v3.add(prevSeg.v0, v3.mul(G, tF - prevSeg.t0));
-  let dir = v3.norm([arriveV[0], 0, arriveV[2]]);
+  // roll off in the direction of travel (a bounce in place has no horizontal velocity)
+  let dir = Math.hypot(arriveV[0], arriveV[2]) > 0.05 ? v3.norm([arriveV[0], 0, arriveV[2]]) : null;
   const stage = objects[last];
+  if (!dir) dir = stage.ex;
   const stageR = KINDS.stage.collider[0].r;
   const rollDist = stageR + 0.12;
+  const gag = ending.rollStart !== undefined;
   const tRoll = ending.rollStart, tOff = ending.rollOff, tBoing = ending.boing, tLand = ending.land;
-  pushSeg(tF, tRoll, contact[N - 1], [0, 0, 0], 'hold', { on: last });
-  const rollA = 2 * rollDist / ((tOff - tRoll) ** 2);
-  pushSeg(tRoll, tOff, contact[N - 1], [0, 0, 0], 'roll', { dir, acc: rollA, on: last });
-  const pEdge = v3.add(contact[N - 1], v3.mul(dir, rollDist));
-  const vEdge = v3.mul(dir, rollA * (tOff - tRoll));
-  pushSeg(tOff, tBoing, pEdge, vEdge, 'fly');
-  const fall = tBoing - tOff;
-  const pBoing = v3.add(v3.add(pEdge, v3.mul(vEdge, fall)), v3.mul(G, fall * fall / 2));
-  const tr = tLand - tBoing;
-  const vBoing = v3.sub(v3.mul(v3.sub(contact[N - 1], pBoing), 1 / tr), v3.mul(G, tr / 2));
-  pushSeg(tBoing, tLand, pBoing, vBoing, 'fly', { boing: true });
-  pushSeg(tLand, 1e9, contact[N - 1], [0, 0, 0], 'hold', { on: last });
+  let landV = [0, -5, 0];
+  if (gag) {
+    pushSeg(tF, tRoll, contact[N - 1], [0, 0, 0], 'hold', { on: last });
+    const rollA = 2 * rollDist / ((tOff - tRoll) ** 2);
+    pushSeg(tRoll, tOff, contact[N - 1], [0, 0, 0], 'roll', { dir, acc: rollA, on: last });
+    const pEdge = v3.add(contact[N - 1], v3.mul(dir, rollDist));
+    const vEdge = v3.mul(dir, rollA * (tOff - tRoll));
+    pushSeg(tOff, tBoing, pEdge, vEdge, 'fly');
+    const fall = tBoing - tOff;
+    const pBoing = v3.add(v3.add(pEdge, v3.mul(vEdge, fall)), v3.mul(G, fall * fall / 2));
+    const tr = tLand - tBoing;
+    const vBoing = v3.sub(v3.mul(v3.sub(contact[N - 1], pBoing), 1 / tr), v3.mul(G, tr / 2));
+    pushSeg(tBoing, tLand, pBoing, vBoing, 'fly', { boing: true });
+    pushSeg(tLand, 1e9, contact[N - 1], [0, 0, 0], 'hold', { on: last });
+    landV = v3.add(vBoing, v3.mul(G, tr));
+  } else {
+    pushSeg(tF, 1e9, contact[N - 1], [0, 0, 0], 'hold', { on: last });
+  }
 
   // impact speeds (for squash and dip amounts)
   for (let i = 0; i < N; i++) {
@@ -210,7 +263,6 @@ export function buildTimeline(score) {
     const v = s ? v3.add(s.v0, v3.mul(G, s.t1 - s.t0)) : [0, -5, 0];
     impact[i] = v;
   }
-  const landV = v3.add(vBoing, v3.mul(G, tr));
 
   // spin: each flight rolls about (up x horizontal velocity); orientation is the product
   // of all previous segments' rotations, precomputed per segment start
@@ -228,7 +280,7 @@ export function buildTimeline(score) {
     }
     s.axis = axis; s.w = w;
     const dur = Math.min(s.t1, 1e3) - s.t0;
-    q = quat.mul(quat.axisAngle(axis, s.kind === 'roll' ? (rollDist / BALL_R) : w * dur), q);
+    q = quat.mul(quat.axisAngle(axis, s.kind === 'roll' ? ((s.dist || rollDist) / BALL_R) : w * dur), q);
   }
 
   const segAt = (t) => {
@@ -251,7 +303,7 @@ export function buildTimeline(score) {
 
   // hits of every kind, used for squash/dip: melody hits + the final landing
   const allHits = mel.map((n, i) => ({ t: n.t, obj: hitObj[i], speed: v3.len(impact[i]), i }));
-  allHits.push({ t: tLand, obj: last, speed: v3.len(landV), i: -1, land: true });
+  if (gag) allHits.push({ t: tLand, obj: last, speed: v3.len(landV), i: -1, land: true });
   const hitTimes = allHits.map((h) => h.t);
   const nearestHit = (t) => {
     let lo = 0, hi = hitTimes.length - 1;
@@ -290,11 +342,22 @@ export function buildTimeline(score) {
   const DIP_T = 0.3;
   for (const o of objects) {
     o.hitTimes = o.hits.map((i) => mel[i].t);
-    if (o.id === last) o.hitTimes = [...o.hitTimes, tLand];
+    if (o.id === last && gag) o.hitTimes = [...o.hitTimes, tLand];
     o.hitSpeed = o.hits.map((i) => v3.len(impact[i]));
-    if (o.id === last) o.hitSpeed.push(v3.len(landV));
-    o.dipT = o.hitTimes.map((t, j) => Math.min(DIP_T, j + 1 < o.hitTimes.length ? 0.85 * (o.hitTimes[j + 1] - t) : DIP_T));
-    o.tKnock = o.knocked ? o.hitTimes[o.hitTimes.length - 1] : Infinity;
+    if (o.id === last && gag) o.hitSpeed.push(v3.len(landV));
+    // the dip must be over before the ball next touches the object, and before it leaves
+    // after a dwell (it rides the dip while resting)
+    const leaveAfter = (h) => {
+      const dw = dwell[h];
+      if (!dw || h >= N - 1) return Infinity;
+      return dw.hop ? mel[h + 1].t - dw.hop : mel[h + 1].t - dw.fall - dw.tRoll;
+    };
+    o.dipT = o.hitTimes.map((t, j) => Math.min(DIP_T,
+      j + 1 < o.hitTimes.length ? 0.85 * (o.hitTimes[j + 1] - t) : DIP_T,
+      j < o.hits.length ? 0.85 * (leaveAfter(o.hits[j]) - t) : DIP_T));
+    // knocked loose when the ball leaves it (after a dwell, that is later than the hit)
+    const lastH = o.hits[o.hits.length - 1];
+    o.tKnock = o.knocked ? (dwell[lastH] && dwell[lastH].dive ? mel[lastH + 1].t - dwell[lastH].hop : o.hitTimes[o.hitTimes.length - 1]) : Infinity;
     if (o.knocked) {
       // knocked off its support: pushed down and outward (away from the ball's next
       // arc), tumbling. It shares the ball's gravity, so their separation is linear.
@@ -305,6 +368,7 @@ export function buildTimeline(score) {
   function dipOf(o, t) {
     let y = 0;
     for (let j = 0; j < o.hitTimes.length; j++) {
+      if (o.dipT[j] < 0.02) continue;     // no room for a dip before the ball moves on
       const u = (t - o.hitTimes[j]) / o.dipT[j];
       if (u <= 0 || u >= 1) continue;
       const A = clamp(0.012 * o.hitSpeed[j], 0.025, 0.11);
@@ -336,8 +400,8 @@ export function buildTimeline(score) {
   }
   // boundary between worlds = midway down each dive
   const boundaries = [];
-  for (let s = 1; s < 3; s++) boundaries.push((sceneRange[s].bottom + sceneRange[s + 1].top) / 2);
-  const sceneAtY = (y) => (y > boundaries[0] ? 1 : y > boundaries[1] ? 2 : 3);
+  for (let s = 1; s < nScenes; s++) boundaries.push((sceneRange[s].bottom + sceneRange[s + 1].top) / 2);
+  const sceneAtY = (y) => { let s = 1; for (const b of boundaries) if (y < b) s++; return s; };
 
   // 6. camera: orbits the tower at the ball's angle and follows it. Smoothed with a
   // symmetric Gaussian over precomputed tables, so it is still a pure function of t.
@@ -388,12 +452,12 @@ export function buildTimeline(score) {
     const m = 1.3;
     const y = yBall + m * Math.tanh((yb * 0.75 + yl * 0.25 - yBall) / m);
     const push = smooth((t - ending.fin + 1.2) / 3.0);
-    const dist = 6.2 - 0.8 * push;
-    const height = 1.35 - 0.3 * endK;
+    const dist = (mood.camDist || 6.2) - 0.8 * push;
+    const height = (mood.camHeight || 1.35) - 0.3 * endK;
     const pos = [Math.cos(ang) * dist, y + height, Math.sin(ang) * dist];
     const tr = RING_R * (0.8 + 0.1 * endK);
     const target = [Math.cos(angB) * tr, y - 0.3 + 0.5 * endK, Math.sin(angB) * tr];
-    return { pos, target, fov: 50 - 2 * push };
+    return { pos, target, fov: (mood.fov || 50) - 2 * push };
   }
 
   // 7. props that are not bounced on. Shared with the checker so it can prove the ball
@@ -410,26 +474,26 @@ export function buildTimeline(score) {
     props.push({ type: 'arm', scene: o.scene, obj: o.id, a: [c * r0, y, s * r0], b: [c * r1, y, s * r1], r: o.kind === 'stage' ? 0.09 : 0.035 });
   }
   // the troll naps on a ledge beside the crystal that the final crash knocks loose
-  const crashObj = objects.find((o) => o.kind === 'bigCrystal');
+  const crashObj = score.trollScene ? objects.find((o) => o.scene === score.trollScene && o.knocked) : null;
   if (crashObj) {
     const p = local(crashObj, -0.75, -1.7, -1.4);
-    props.push({ type: 'troll', scene: 2, pos: p, yaw: crashObj.yaw, tWake: crashObj.tKnock,
+    props.push({ type: 'troll', scene: crashObj.scene, pos: p, yaw: crashObj.yaw, tWake: crashObj.hitTimes[crashObj.hitTimes.length - 1],
       colliders: [{ shape: 'sphere', c: [0, 0.3, 0], r: 0.36 }, { shape: 'box', c: [0, -0.08, 0], h: [0.6, 0.08, 0.45] }] });
   }
   // a chorus line of bowling pins on the back half of the final stage
-  for (let k = 0; k < 5; k++) {
+  for (let k = 0; k < (score.jokes && score.jokes.pins === false ? 0 : 5); k++) {
     const x = -0.56 + k * 0.28;
-    props.push({ type: 'pin', scene: 3, idx: k, pos: local(stage, x, 0, -0.52), yaw: stage.yaw,
+    props.push({ type: 'pin', scene: stage.scene, idx: k, pos: local(stage, x, 0, -0.52), yaw: stage.yaw,
       colliders: [{ shape: 'cyl', c: [0, 0.22, 0], r: 0.085, hh: 0.22 }] });
   }
   // balloons bobbing outside the ring, candles floating in the salon
   objects.forEach((o, i) => {
-    if (o.scene === 3 && i % 5 === 2 && o.kind !== 'stage') {
-      props.push({ type: 'balloon', scene: 3, idx: i, pos: local(o, 0.35, 1.25 + (i % 3) * 0.3, 1.25), yaw: o.yaw,
+    if (kitOf(o.scene) === 'party' && i % 5 === 2 && o.kind !== 'stage' && !o.knocked) {
+      props.push({ type: 'balloon', scene: o.scene, idx: i, pos: local(o, 0.35, 1.25 + (i % 3) * 0.3, 1.25), yaw: o.yaw,
         colliders: [{ shape: 'sphere', c: [0, 0, 0], r: 0.3 }] });
     }
-    if (o.scene === 1 && i % 6 === 3) {
-      props.push({ type: 'candle', scene: 1, idx: i, pos: local(o, 0.2, 0.9 + (i % 2) * 0.4, 1.15), yaw: o.yaw,
+    if (kitOf(o.scene) === 'salon' && i % 6 === 3 && !o.knocked) {
+      props.push({ type: 'candle', scene: o.scene, idx: i, pos: local(o, 0.2, 0.9 + (i % 2) * 0.4, 1.15), yaw: o.yaw,
         colliders: [{ shape: 'cyl', c: [0, -0.2, 0], r: 0.09, hh: 0.24 }] });
     }
   });
@@ -438,25 +502,26 @@ export function buildTimeline(score) {
     props, local,
     score, g, objects, hitObj, contact, segs, ball, ballRaw, objectPose, dipOf, glowOf, camera,
     sceneRange, boundaries, sceneAtY, impact, allHits, stage, dir, tF, ending, mel,
-    exemptFrame: (t) => t > tOff - 0.05 && t < tLand - 0.25,
+    kitOf, nScenes, dwell,
+    exemptFrame: (t) => gag && t > tOff - 0.05 && t < tLand - 0.25,
   };
 }
 
 // colour of the backdrop at world height y: each world has its own colour; the dive
 // between two worlds passes through a dark band (a physical gap, not a crossfade)
 export function backdropAt(tl, y) {
-  const [b1, b2] = tl.boundaries;
-  const c = (s) => SCENES[s].bg;
+  const bs = tl.boundaries;
+  const c = (s) => hexToRgb(tl.score.scenes[s - 1].colors.background);
   const mix = (a, b, f) => [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f];
-  const band = (y, b, upper, lower) => {
-    const d = y - b;
-    const dark = [0.02, 0.015, 0.03];
-    if (d > 3) return null;
-    if (d < -3) return null;
-    if (d > 0) return mix(dark, upper, smooth(d / 3));
-    return mix(dark, lower, smooth(-d / 3));
-  };
-  if (y > b1 - 3 && y < b1 + 3) return band(y, b1, c(1), c(2));
-  if (y > b2 - 3 && y < b2 + 3) return band(y, b2, c(2), c(3));
-  return c(y > b1 ? 1 : y > b2 ? 2 : 3);
+  const dark = [0.02, 0.015, 0.03];
+  for (let k = 0; k < bs.length; k++) {
+    const d = y - bs[k];
+    if (Math.abs(d) < 3) return d > 0 ? mix(dark, c(k + 1), smooth(d / 3)) : mix(dark, c(k + 2), smooth(-d / 3));
+  }
+  return c(tl.sceneAtY(y));
+}
+
+export function hexToRgb(h) {
+  h = h.replace('#', '');
+  return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16) / 255);
 }

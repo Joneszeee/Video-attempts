@@ -1,0 +1,7 @@
+{
+  "title": "Ode to Joy", "composer": "Beethoven",
+  "tempo": 120, "meter": "4/4",
+  "melody": "E5/4 E5 F5 G5 | G5 F5 E5 D5 | C5 C5 D5 E5 | E5/4. D5/8 D5/2 | E5/4 E5 F5 G5 | G5 F5 E5 D5 | C5 C5 D5 E5 | D5/4. C5/8 C5/2",
+  "chords": "C G C G C G C G",
+  "end": "chord"
+}

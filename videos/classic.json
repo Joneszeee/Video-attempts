@@ -1,0 +1,12 @@
+{
+  "title": "The full prompt",
+  "mood": "playful",
+  "scenes": [
+    {"kit": "salon", "song": "fur-elise"},
+    {"kit": "cave", "song": "mountain-king", "gap": 1.42},
+    {"kit": "party", "song": "can-can", "gap": 1.30}
+  ],
+  "ball": {"color": "#f4e7cb", "stripe": "#c21f2c"},
+  "jokes": {"googlyEyes": true, "duck": "G", "troll": true, "pins": true, "ending": true},
+  "endText": "Fin."
+}

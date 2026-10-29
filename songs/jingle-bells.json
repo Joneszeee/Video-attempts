@@ -1,0 +1,8 @@
+{
+  "title": "Jingle Bells (chorus)", "composer": "Pierpont",
+  "tempo": 132, "meter": "4/4",
+  "melody": "E5/4 E5 E5/2 | E5/4 E5 E5/2 | E5/4 G5 C5/4. D5/8 | E5/1 | F5/4 F5 F5/4. F5/8 | F5/4 E5 E5 E5/8 E5 | E5/4 D5 D5 E5 | D5/2 G5/2 | E5/4 E5 E5/2 | E5/4 E5 E5/2 | E5/4 G5 C5/4. D5/8 | E5/1 | F5/4 F5 F5/4. F5/8 | F5/4 E5 E5 E5/8 E5 | G5/4 G5 F5 D5 | C5/1",
+  "chords": "C C C C F C G G C C C C F C G C",
+  "style": "oompah",
+  "end": "chord"
+}

@@ -8,12 +8,17 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { buildTimeline, backdropAt, BALL_R, POLE_R, SCENES } from './timeline.js';
-import { buildObject, buildTroll, buildPin, buildBalloon, buildCandle, ballTexture, softDotTexture, canvasTexture, stripeTex, eyes, M } from './builders.js';
+import { buildTimeline, backdropAt, hexToRgb, BALL_R, POLE_R } from './timeline.js';
+import { buildObject, buildTroll, buildPin, buildBalloon, buildCandle, ballTexture, softDotTexture, canvasTexture, stripeTex, eyes, metal, setOptions } from './builders.js';
 
-const score = await (await fetch('/build/score.json')).json();
+const params = new URLSearchParams(location.search);
+const score = await (await fetch(params.get('score') || '/build/classic/score.json')).json();
 const tl = buildTimeline(score);
 const W = score.width, H = score.height;
+const mood = score.mood;
+const NS = score.scenes.length;
+const SC = (s) => score.scenes[s - 1];
+setOptions({ eyes: score.jokes.googlyEyes !== false });
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 const smooth = (x) => { x = clamp(x, 0, 1); return x * x * (3 - 2 * x); };
 const lerp = (a, b, s) => a + (b - a) * s;
@@ -34,7 +39,7 @@ document.body.prepend(renderer.domElement);
 const scene = new THREE.Scene();
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture;
-scene.fog = new THREE.Fog(0x000000, 9, 34);
+scene.fog = new THREE.Fog(0x000000, ...mood.fog);
 const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 140);
 
 // ------------------------------------------------------------------ lighting
@@ -54,26 +59,25 @@ const rimLight = new THREE.PointLight(0xffffff, 8, 10, 1.4);
 const hitLight = new THREE.PointLight(0xffaa44, 0, 3.2, 1.8);
 scene.add(poleGlow, rimLight, hitLight);
 
-// per-world look; blended only while the camera falls through the gap between worlds
-const LOOK = {
-  1: { sky: 0xa58ad8, ground: 0x2a1426, hemi: 0.55, key: 0xffe6c4, keyI: 2.3, env: 0.55, glow: 0xffa640, glowI: 3.5, rim: 0xb28cff, rimI: 3, hit: 0xffb347, exposure: 1.0 },
-  2: { sky: 0x3ad9d0, ground: 0x02090a, hemi: 0.45, key: 0xc4f4ff, keyI: 1.7, env: 0.4, glow: 0x24e6ff, glowI: 4, rim: 0xc85cff, rimI: 3.5, hit: 0x5ff6ff, exposure: 1.0 },
-  3: { sky: 0xffc2e2, ground: 0x5a1036, hemi: 0.75, key: 0xfff4ec, keyI: 2.5, env: 0.6, glow: 0xffd24a, glowI: 3, rim: 0x7fd8ff, rimI: 3, hit: 0xff7ac8, exposure: 1.0 },
-};
+// per-world look (from the score); blended only while the camera falls through the
+// gap between worlds
+const LOOK = {};
+score.scenes.forEach((sc, i) => { LOOK[i + 1] = sc.look; });
 function lookAt(y) {
-  const [b1, b2] = tl.boundaries;
-  const wOf = (b) => smooth((b + 3 - y) / 6);    // 0 above the band, 1 below it
-  const f1 = wOf(b1), f2 = wOf(b2);
-  const w = { 1: 1 - f1, 2: f1 * (1 - f2), 3: f2 };
-  const dark = 1 - 0.55 * Math.max(Math.exp(-(((y - b1) / 2.2) ** 2)), Math.exp(-(((y - b2) / 2.2) ** 2)));
+  const bs = tl.boundaries;
+  const f = bs.map((b) => smooth((b + 3 - y) / 6));    // 0 above each band, 1 below it
+  const w = {};
+  for (let s = 1; s <= NS; s++) w[s] = (s === 1 ? 1 : f[s - 2]) * (s === NS ? 1 : 1 - f[s - 1]);
+  const dark = 1 - 0.55 * Math.max(0, ...bs.map((b) => Math.exp(-(((y - b) / 2.2) ** 2))));
   const out = {};
   for (const k of Object.keys(LOOK[1])) {
-    if (typeof LOOK[1][k] === 'number' && LOOK[1][k] > 0xff) {
+    if (typeof LOOK[1][k] === 'string') {
       const c = new THREE.Color(0, 0, 0);
-      for (const s of [1, 2, 3]) c.add(new THREE.Color(LOOK[s][k]).multiplyScalar(w[s]));
+      for (let s = 1; s <= NS; s++) c.add(new THREE.Color(LOOK[s][k]).multiplyScalar(w[s]));
       out[k] = c;
     } else {
-      out[k] = [1, 2, 3].reduce((a, s) => a + LOOK[s][k] * w[s], 0);
+      let a = 0; for (let s = 1; s <= NS; s++) a += LOOK[s][k] * w[s];
+      out[k] = a;
     }
   }
   out.dark = dark;
@@ -82,36 +86,34 @@ function lookAt(y) {
 }
 
 // ------------------------------------------------------------------ backdrop
-const sceneCol = (s) => new THREE.Color().setRGB(...SCENES[s].bg, THREE.SRGBColorSpace);
+const sceneCol = (s) => new THREE.Color().setRGB(...hexToRgb(SC(s).colors.background), THREE.SRGBColorSpace);
 const backdrop = new THREE.Mesh(
   new THREE.CylinderGeometry(60, 60, 400, 64, 1, true),
   new THREE.ShaderMaterial({
     side: THREE.BackSide, depthWrite: false, fog: false,
     uniforms: {
-      b1: { value: tl.boundaries[0] }, b2: { value: tl.boundaries[1] },
-      c1: { value: sceneCol(1) }, c2: { value: sceneCol(2) }, c3: { value: sceneCol(3) },
+      bnds: { value: [0, 1, 2, 3].map((k) => (k < tl.boundaries.length ? tl.boundaries[k] : -1e9)) },
+      cols: { value: [1, 2, 3, 4, 5].map((s) => sceneCol(Math.min(s, NS))) },
       camY: { value: 0 },
     },
     vertexShader: `varying vec3 vW; void main(){ vec4 w = modelMatrix * vec4(position,1.); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
     fragmentShader: `
-      uniform float b1, b2, camY; uniform vec3 c1, c2, c3; varying vec3 vW;
-      vec3 band(float y, float b, vec3 up, vec3 lo){
-        vec3 dark = vec3(0.004, 0.003, 0.008);
-        float d = y - b;
-        if (d > 0.) return mix(dark, up, smoothstep(0., 1., d / 3.));
-        return mix(dark, lo, smoothstep(0., 1., -d / 3.));
-      }
+      uniform float bnds[4]; uniform vec3 cols[5]; uniform float camY; varying vec3 vW;
       void main(){
         // the backdrop is read at a height that follows the view ray, compressed so
         // the world colour band you are in fills the frame
         float y = camY + (vW.y - camY) * 0.12;
-        vec3 c = y > b1 ? c1 : (y > b2 ? c2 : c3);
-        if (abs(y - b1) < 3.) c = band(y, b1, c1, c2);
-        if (abs(y - b2) < 3.) c = band(y, b2, c2, c3);
+        vec3 dark = vec3(0.004, 0.003, 0.008);
+        vec3 c = cols[0];
+        for (int k = 0; k < 4; k++) if (y < bnds[k]) c = cols[k + 1];
+        for (int k = 0; k < 4; k++) {
+          float d = y - bnds[k];
+          if (abs(d) < 3.) c = d > 0. ? mix(dark, cols[k], smoothstep(0., 1., d / 3.)) : mix(dark, cols[k + 1], smoothstep(0., 1., -d / 3.));
+        }
         float a = atan(vW.z, vW.x);
-        float cols = pow(0.5 + 0.5 * sin(a * 5. + vW.y * 0.05), 6.);
+        float stripes = pow(0.5 + 0.5 * sin(a * 5. + vW.y * 0.05), 6.);
         float vert = smoothstep(-60., 60., vW.y - camY);
-        c *= 1.15 + 0.4 * cols - 0.3 * vert;
+        c *= 1.15 + 0.4 * stripes - 0.3 * vert;
         gl_FragColor = vec4(c, 1.);
         #include <colorspace_fragment>
       }`,
@@ -122,65 +124,91 @@ backdrop.renderOrder = -1;
 scene.add(backdrop);
 
 // ------------------------------------------------------------------ pole
+// one segment per world, styled by its kit
 const yTop = tl.sceneRange[1].top + 12;
 const poleSeg = (y0, y1, mat, geo) => {
   const g = geo || new THREE.CylinderGeometry(POLE_R, POLE_R, y0 - y1, 48, Math.ceil((y0 - y1) * 2));
   const m = new THREE.Mesh(g, mat); m.position.y = (y0 + y1) / 2; m.castShadow = m.receiveShadow = true; scene.add(m); return m;
 };
-const [B1, B2] = tl.boundaries;
-const wood = new THREE.MeshPhysicalMaterial({ color: 0x3b2116, roughness: 0.45, clearcoat: 0.8, clearcoatRoughness: 0.15 });
-poleSeg(yTop, B1, wood);
-for (let y = B1 + 1.5; y < yTop; y += 1.6) {
-  const r = new THREE.Mesh(new THREE.TorusGeometry(POLE_R + 0.01, 0.035, 10, 40), M.gold);
-  r.rotation.x = Math.PI / 2; r.position.y = y; r.castShadow = true; scene.add(r);
-}
-const rockGeo = new THREE.CylinderGeometry(POLE_R, POLE_R, B1 - B2, 40, 120);
-{
-  const p = rockGeo.attributes.position;
-  for (let i = 0; i < p.count; i++) {
-    const x = p.getX(i), y = p.getY(i), z = p.getZ(i);
-    const a = Math.atan2(z, x);
-    const n = 1 + 0.12 * Math.sin(a * 3 + y * 1.7) * Math.sin(y * 0.9 + a) + 0.05 * Math.sin(a * 11 + y * 5.3);
-    p.setX(i, x * n); p.setZ(i, z * n);
+const segTop = (s) => (s === 1 ? yTop : tl.boundaries[s - 2]);
+const segBot = (s) => (s === NS ? -60 : tl.boundaries[s - 1]);
+for (let s = 1; s <= NS; s++) {
+  const { kit, colors } = SC(s);
+  const y0 = segTop(s), y1 = segBot(s);
+  if (kit === 'salon') {
+    poleSeg(y0, y1, new THREE.MeshPhysicalMaterial({ color: colors.pole, roughness: 0.45, clearcoat: 0.8, clearcoatRoughness: 0.15 }));
+    for (let y = y1 + 1.5; y < y0; y += 1.6) {
+      const r = new THREE.Mesh(new THREE.TorusGeometry(POLE_R + 0.01, 0.035, 10, 40), metal(colors.accent));
+      r.rotation.x = Math.PI / 2; r.position.y = y; r.castShadow = true; scene.add(r);
+    }
+  } else if (kit === 'cave') {
+    const rockGeo = new THREE.CylinderGeometry(POLE_R, POLE_R, y0 - y1, 40, Math.ceil((y0 - y1) * 2.5));
+    const p = rockGeo.attributes.position;
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i), y = p.getY(i), z = p.getZ(i);
+      const a = Math.atan2(z, x);
+      const n = 1 + 0.12 * Math.sin(a * 3 + y * 1.7) * Math.sin(y * 0.9 + a) + 0.05 * Math.sin(a * 11 + y * 5.3);
+      p.setX(i, x * n); p.setZ(i, z * n);
+    }
+    rockGeo.computeVertexNormals();
+    poleSeg(y0, y1, new THREE.MeshPhysicalMaterial({ color: colors.pole, roughness: 0.85, flatShading: true }), rockGeo);
+    // little glowing crystals and mushrooms on the rock column (inside r < 0.6, clear of the ball)
+    const span = Math.max(2, Math.min(y0, tl.sceneRange[s].top + 6) - Math.max(y1, tl.sceneRange[s].bottom - 6));
+    const yb = Math.max(y1, tl.sceneRange[s].bottom - 6);
+    const geo = new THREE.ConeGeometry(0.045, 0.22, 6);
+    const glow = new THREE.Color(colors.glow);
+    const mat = new THREE.MeshPhysicalMaterial({ color: glow.clone().lerp(new THREE.Color(1, 1, 1), 0.3), emissive: glow, emissiveIntensity: 1.6, roughness: 0.1 });
+    const n = Math.round(span * 4.5); const inst = new THREE.InstancedMesh(geo, mat, n);
+    const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler();
+    for (let i = 0; i < n; i++) {
+      const a = i * 2.399, y = yb + ((i * 0.618) % 1) * span;
+      e.set(Math.sin(i) * 0.5, -a, Math.PI / 2 - 0.5);
+      q.setFromEuler(e);
+      m4.compose(new THREE.Vector3(Math.cos(a) * 0.33, y, Math.sin(a) * 0.33), q, new THREE.Vector3(1, 1 + (i % 3) * 0.4, 1));
+      inst.setMatrixAt(i, m4);
+    }
+    scene.add(inst);
+    const capGeo = new THREE.SphereGeometry(0.16, 20, 10, 0, Math.PI * 2, 0, Math.PI / 2);
+    const stemGeo = new THREE.CylinderGeometry(0.035, 0.05, 0.22, 10);
+    const capCols = colors.objects.slice(0, 2);
+    for (let i = 0; i < Math.round(span * 1.1); i++) {
+      const a = i * 2.1 + 0.4, y = yb + 1 + ((i * 0.618) % 1) * (span - 2);
+      const c = new THREE.Color(capCols[i % capCols.length]);
+      const capMat = new THREE.MeshPhysicalMaterial({ color: c, roughness: 0.35, clearcoat: 0.8, emissive: c, emissiveIntensity: 0.35 });
+      const g = new THREE.Group();
+      const cap = new THREE.Mesh(capGeo, capMat); cap.scale.y = 0.6; cap.position.y = 0.11;
+      const stem = new THREE.Mesh(stemGeo, new THREE.MeshPhysicalMaterial({ color: 0xeadbc4, roughness: 0.6 }));
+      g.add(cap, stem);
+      g.position.set(Math.cos(a) * 0.42, y, Math.sin(a) * 0.42);
+      g.rotation.set(Math.sin(a) * 0.5, 0, -Math.cos(a) * 0.5);
+      g.scale.setScalar(0.8 + (i % 3) * 0.25);
+      g.traverse((m) => { if (m.isMesh) m.castShadow = true; });
+      scene.add(g);
+    }
+  } else {
+    const candy = stripeTex('#f8f2ea', colors.pole, 6, true);
+    candy.repeat.set(1, (y0 - y1) / 1.2);
+    poleSeg(y0, y1, new THREE.MeshPhysicalMaterial({ map: candy, roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.05 }));
   }
-  rockGeo.computeVertexNormals();
 }
-poleSeg(B1, B2, new THREE.MeshPhysicalMaterial({ color: 0x1d3134, roughness: 0.85, flatShading: true }), rockGeo);
-{ // little glowing crystals on the rock column (visual only, inside r < 0.5)
-  const geo = new THREE.ConeGeometry(0.045, 0.22, 6);
-  const mat = new THREE.MeshPhysicalMaterial({ color: 0x5ff, emissive: 0x22e8ff, emissiveIntensity: 1.6, roughness: 0.1 });
-  const n = 140; const inst = new THREE.InstancedMesh(geo, mat, n);
-  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler();
-  for (let i = 0; i < n; i++) {
-    const a = i * 2.399, y = B2 + 1 + ((i * 0.618) % 1) * (B1 - B2 - 2);
-    e.set(Math.sin(i) * 0.5, -a, Math.PI / 2 - 0.5);
-    q.setFromEuler(e);
-    m4.compose(new THREE.Vector3(Math.cos(a) * 0.33, y, Math.sin(a) * 0.33), q, new THREE.Vector3(1, 1 + (i % 3) * 0.4, 1));
-    inst.setMatrixAt(i, m4);
-  }
-  scene.add(inst);
-}
-const candy = stripeTex('#f8f2ea', '#e3203f', 6, true);
-candy.repeat.set(1, (B2 + 60) / 1.2);
-poleSeg(B2, -60, new THREE.MeshPhysicalMaterial({ map: candy, roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.05 }));
 
 // ------------------------------------------------------------------ objects
+const palette = (s) => ({ ...SC(s).colors, kit: SC(s).kit, hit: SC(s).look.hit });
 const objs = tl.objects.map((o) => {
-  const b = buildObject(o);
+  const b = buildObject(o, palette(o.scene));
   b.group.rotation.y = o.yaw;
   scene.add(b.group);
   return { o, ...b };
 });
 // support arms from the pole
-const armMat = {
-  1: M.gold,
-  2: new THREE.MeshPhysicalMaterial({ color: 0x24393a, roughness: 0.9 }),
-  3: new THREE.MeshPhysicalMaterial({ color: 0xfff6ee, roughness: 0.3, clearcoat: 1 }),
-};
+const armMats = {};
+const armMat = (s) => armMats[s] || (armMats[s] = SC(s).kit === 'salon' ? metal(SC(s).colors.accent)
+  : SC(s).kit === 'cave' ? new THREE.MeshPhysicalMaterial({ color: new THREE.Color(SC(s).colors.pole).multiplyScalar(1.2), roughness: 0.9 })
+    : new THREE.MeshPhysicalMaterial({ color: 0xfff6ee, roughness: 0.3, clearcoat: 1 }));
 for (const a of tl.props.filter((p) => p.type === 'arm')) {
   const A = V(a.a), B = V(a.b);
   const len = A.distanceTo(B);
-  const m = new THREE.Mesh(new THREE.CylinderGeometry(a.r, a.r, len, 12), armMat[a.scene]);
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(a.r, a.r, len, 12), armMat(a.scene));
   m.position.copy(A).add(B).multiplyScalar(0.5);
   m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), B.clone().sub(A).normalize());
   m.castShadow = m.receiveShadow = true;
@@ -211,7 +239,7 @@ for (const p of tl.props) {
     scene.add(pin.group);
     propState.push({ p, pin });
   } else if (p.type === 'balloon') {
-    const cols = [0xff3d7f, 0xffd23f, 0x3fc5ff, 0x9b5cff, 0x46e08a];
+    const cols = SC(p.scene).colors.objects;
     const b = buildBalloon(cols[p.idx % cols.length]);
     b.position.copy(V(p.pos)); b.rotation.y = p.yaw;
     b.traverse((m) => { if (m.isMesh) m.castShadow = true; });
@@ -227,11 +255,11 @@ for (const p of tl.props) {
 
 // ------------------------------------------------------------------ particles
 const dot = softDotTexture();
-function particles(scene_, n, color, size, additive, confetti) {
+function particles(scene_, n, color, size, additive, confetti, paletteHex) {
   const r = tl.sceneRange[scene_];
   const y0 = r.top + 8, y1 = r.bottom - 8;
   const pos = new Float32Array(n * 3), seed = new Float32Array(n), col = new Float32Array(n * 3);
-  const palette = [0xff3d7f, 0xffd23f, 0x3fc5ff, 0x9b5cff, 0x46e08a, 0xffffff].map((c) => new THREE.Color(c));
+  const palette = [...(paletteHex || []), '#ffffff'].map((c) => new THREE.Color(c));
   for (let i = 0; i < n; i++) {
     const a = i * 2.39996, rad = 3.4 + ((i * 0.7548) % 1) * 9;
     pos.set([Math.cos(a) * rad, y1 + ((i * 0.5698) % 1) * (y0 - y1), Math.sin(a) * rad], i * 3);
@@ -310,41 +338,20 @@ function bokeh(scene_, n, colors) {
   pts.frustumCulled = false;
   scene.add(pts);
 }
-bokeh(1, 70, [0xffb24a, 0xffd28a, 0xff8a3a, 0xc89bff]);
-bokeh(2, 70, [0x2ff0ff, 0x1a9cff, 0xb05cff, 0x3fffc0]);
-bokeh(3, 70, [0xfff3a0, 0xffffff, 0x8fe6ff, 0xffb0e0]);
-// decorative glowing mushrooms growing on the rock column (well inside the ball's path)
-{
-  const n = 36;
-  const capGeo = new THREE.SphereGeometry(0.16, 20, 10, 0, Math.PI * 2, 0, Math.PI / 2);
-  const stemGeo = new THREE.CylinderGeometry(0.035, 0.05, 0.22, 10);
-  for (let i = 0; i < n; i++) {
-    const a = i * 2.1 + 0.4, y = B2 + 2 + ((i * 0.618) % 1) * (B1 - B2 - 4);
-    const red = i % 2 === 0;
-    const capMat = new THREE.MeshPhysicalMaterial({ color: red ? 0xd0304a : 0x8a3ad0, roughness: 0.35, clearcoat: 0.8, emissive: red ? 0xff2050 : 0xa040ff, emissiveIntensity: 0.35 });
-    const g = new THREE.Group();
-    const cap = new THREE.Mesh(capGeo, capMat); cap.scale.y = 0.6; cap.position.y = 0.11;
-    const stem = new THREE.Mesh(stemGeo, new THREE.MeshPhysicalMaterial({ color: 0xeadbc4, roughness: 0.6 }));
-    g.add(cap, stem);
-    const r = 0.42;
-    g.position.set(Math.cos(a) * r, y, Math.sin(a) * r);
-    g.rotation.set(Math.sin(a) * 0.5, 0, -Math.cos(a) * 0.5);
-    g.scale.setScalar(0.8 + (i % 3) * 0.25);
-    g.traverse((m) => { if (m.isMesh) m.castShadow = true; });
-    scene.add(g);
-  }
+const partMats = [];
+for (let s = 1; s <= NS; s++) {
+  const sc = SC(s);
+  bokeh(s, 70, sc.bokeh);
+  const n = Math.round(800 * (mood.particles || 1));
+  if (sc.particles === 'confetti') partMats.push(particles(s, n, '#ffffff', 0.06, false, true, sc.colors.objects));
+  else partMats.push(particles(s, n, sc.mote, sc.particles === 'spores' ? 0.045 : 0.05, true, false));
 }
-const partMats = [
-  particles(1, 700, 0xffc46b, 0.05, true, false),
-  particles(2, 800, 0x6ff7ff, 0.045, true, false),
-  particles(3, 900, 0xffffff, 0.06, false, true),
-];
 
 // ------------------------------------------------------------------ ball
 const ballOuter = new THREE.Group();
 const ballInner = new THREE.Mesh(
   new THREE.SphereGeometry(BALL_R, 96, 64),
-  new THREE.MeshPhysicalMaterial({ map: ballTexture(), roughness: 0.28, clearcoat: 1, clearcoatRoughness: 0.03, sheen: 0.2, sheenColor: 0xffffff }),
+  new THREE.MeshPhysicalMaterial({ map: ballTexture(score.ball.color, score.ball.stripe), roughness: 0.28, clearcoat: 1, clearcoatRoughness: 0.03, sheen: 0.2, sheenColor: 0xffffff }),
 );
 ballInner.castShadow = true; ballInner.receiveShadow = true;
 ballOuter.add(ballInner);
@@ -356,21 +363,21 @@ const composer = new EffectComposer(renderer, rt);
 composer.setPixelRatio(1);
 composer.setSize(W, H);
 composer.addPass(new RenderPass(scene, camera));
-const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), 0.32, 0.38, 1.9);
+const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), ...mood.bloom);
 composer.addPass(bloom);
 composer.addPass(new OutputPass());
 const finish = new ShaderPass({
-  uniforms: { tDiffuse: { value: null }, time: { value: 0 }, aspect: { value: W / H } },
+  uniforms: { tDiffuse: { value: null }, time: { value: 0 }, aspect: { value: W / H }, vig: { value: mood.vignette }, grain: { value: mood.grain } },
   vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
   fragmentShader: `
-    uniform sampler2D tDiffuse; uniform float time, aspect; varying vec2 vUv;
+    uniform sampler2D tDiffuse; uniform float time, aspect, vig, grain; varying vec2 vUv;
     float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898, 78.233)) + time * 7.13) * 43758.5453); }
     void main(){
       vec4 c = texture2D(tDiffuse, vUv);
       vec2 d = (vUv - 0.5) * vec2(aspect, 1.0) * 1.25;
       float v = smoothstep(0.95, 0.25, length(d));
-      c.rgb *= mix(0.62, 1.0, v);
-      c.rgb += (hash(vUv * 1000.) - 0.5) * 0.018;
+      c.rgb *= mix(1.0 - vig, 1.0, v);
+      c.rgb += (hash(vUv * 1000.) - 0.5) * grain;
       gl_FragColor = c;
     }`,
 });
@@ -380,8 +387,13 @@ composer.addPass(finish);
 const tmpV = new THREE.Vector3();
 const up = new THREE.Vector3(0, 1, 0);
 const finEl = document.getElementById('fin');
+finEl.innerHTML = '';
+const endText = score.endText || '';
+for (const ch of endText) { const sp = document.createElement('span'); sp.textContent = ch === ' ' ? '\u00a0' : ch; finEl.appendChild(sp); }
+finEl.style.fontSize = `${Math.round(Math.min(300, 1250 / Math.max(1, endText.length)))}px`;
 const finSpans = [...finEl.querySelectorAll('span')];
-const beats3 = score.beats.filter((b) => b.scene === 3).map((b) => b.t);
+const beats3 = score.beats.filter((b) => b.scene === NS).map((b) => b.t);
+const landT = tl.ending.land !== undefined ? tl.ending.land : tl.ending.fin - 0.3;
 const melTimes = tl.mel.map((n) => n.t);
 const lastHitBefore = (t) => { let k = -1; for (let i = 0; i < melTimes.length && melTimes[i] <= t; i++) k = i; return k; };
 const lastHitOn = (o, t) => { let h = -Infinity; for (const x of o.hitTimes) if (x <= t) h = x; return h; };
@@ -413,7 +425,7 @@ function update(t) {
     group.position.copy(V(pose.pos));
     group.quaternion.copy(Q(pose.q));
     const gl = tl.glowOf(o, t);
-    for (const m of glow) m.emissiveIntensity = 2.6 * gl * gl;
+    for (const m of glow) m.emissiveIntensity = mood.glowPeak * gl * gl;
     const th = lastHitOn(o, t), tau = t - th;
     if (anim.wobble) {
       const a = tau >= 0 && tau < 1.2 ? 0.16 * Math.exp(-tau / 0.2) * Math.sin(tau * 34) : 0;
@@ -467,7 +479,7 @@ function update(t) {
       const tEnd = tl.ending;
       // freeze mid-pose during the silence, bow on "Fin."
       const tt = t > tEnd.rollOff && t < tEnd.boing ? tEnd.rollOff : t;
-      if (tt >= cc0 - 0.3 && tt < tEnd.land) {
+      if (beats3.length && tt >= cc0 - 0.3 && tt < landT) {
         let bi = 0; for (let i = 0; i < beats3.length; i++) if (beats3[i] <= tt) bi = i;
         const bt = beats3[bi], bl = (beats3[bi + 1] || bt + 0.38) - bt;
         const ph = clamp((tt - bt) / bl, 0, 1);
@@ -477,7 +489,7 @@ function update(t) {
         kick = (bi % 4 === k % 4 ? 1 : 0) * 0.45 * Math.sin(Math.PI * ph);
         if (tt >= tl.tF) { tilt *= 0.6; }
       }
-      if (t > tEnd.land) bow = 0.55 * smooth((t - tEnd.land - 0.25) / 0.35) * (1 - 0.3 * smooth((t - tEnd.fin - 1.2) / 0.5));
+      if (t > landT) bow = 0.55 * smooth((t - landT - 0.25) / 0.35) * (1 - 0.3 * smooth((t - tEnd.fin - 1.2) / 0.5));
       const base = V(p.pos);
       const dip = tl.dipOf(tl.stage, t);
       g.position.set(base.x, base.y + hop + dip, base.z);
@@ -569,7 +581,6 @@ update(0);
 renderer.compile(scene, camera);
 composer.render();
 
-const params = new URLSearchParams(location.search);
 if (params.has('t')) window.renderFrame(parseFloat(params.get('t')));
 if (params.has('play')) {
   const t0 = performance.now() - (parseFloat(params.get('play')) || 0) * 1000;

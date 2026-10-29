@@ -36,21 +36,36 @@ Two looks:
 so there must be exactly one clear pause between beats (the build fails with a clear message otherwise;
 fallback: put `"timings": [secs per beat]` in the spec).
 
-## How to treat references and feedback
-When the user sends a screen recording or a style note, treat it as **inspiration and a pool of ideas**, not a new rule.
-Note what's interesting in FORMAT.md, add engine features if useful, and then **choose per video** whatever suits that story.
-Don't apply every technique to every video, and don't rewrite these instructions into hard rules.
+## Visual richness: required on every video
+- **Every video must be visually rich.** Every beat shows its information through an animated data graphic, effect or transition
+  (counters, boards, tables, rulers, trophies, ball-numbers, strikes and corrections, camera moves, depth and lighting changes).
+  Never a headline over a static background.
+- **The user's references are examples, not a complete list.** Reuse the techniques below freely, but also **invent new, fitting
+  graphics and transitions** in the same style when a story calls for them. Build them into the engine as new card types or effects and document them here.
+  Aim for each video to bring at least one fresh idea, so the channel doesn't feel repetitive.
+- A new screen recording or note from the user adds to this pool of ideas. It doesn't become a rigid rule. Pick what suits each story.
 
-## Style toolbox (ideas to pick from, not requirements)
-These came from the Story Gaffer references. Use them where they help the story:
-- **Constant small motion:** camera moves and zooms (`move`, `zoom`), built-in sway, counting numbers, scrambling flaps. Good for keeping a shot alive.
-- **Depth:** blur and darken behind a card with `focus`, and add blurred foreground fans on stadium shots with `fans`. Good when a graphic is the subject.
+## Toolbox so far (reuse, combine, extend)
+- **Constant small motion:** camera moves and zooms (`move`, `zoom`), built-in sway, counting numbers, scrambling flaps.
+- **Depth:** blur and darken behind a card with `focus`, and add blurred foreground fans on stadium shots with `fans`.
 - **Mood lighting:** `lights` below 1 for sombre or dramatic moments.
 - **Meaningful accent colour:** a per-beat `accent`, e.g. red for "wrong" or "myth", gold for the answer.
-- **Animated corrections:** `board` rows with `from` (red strike, then flip) instead of just showing the new number.
+- **Animated corrections:** `board` rows with `from` (red strike, then flip).
 - **Guided attention:** `focusPath` walks a highlight down a list in time with the VO.
 - **Continuity:** a card with the same `id` carries across beats instead of re-entering.
+- **Scene variety:** stadium, stage and studio, with crowd colours per club.
 - **60fps** is the default render.
+
+Ideas not built yet (candidates for new tools):
+- A pitch map with animated shot or pass trails, or goal locations as dots.
+- A transfer-fee ticker or receipt that prints line by line.
+- A head-to-head "tale of the tape" with bars sliding in from both sides.
+- A calendar or season heatmap of goals.
+- A photo-style polaroid flashback transition for history beats.
+- A newspaper headline that spins in, for archive or claim beats.
+- A world map with a route line, for transfers or tournaments.
+- A whip-pan or zoom-through-the-number transition between scenes.
+- A slow-motion replay of a ball path with a trail.
 
 ## spec.json
 ```jsonc

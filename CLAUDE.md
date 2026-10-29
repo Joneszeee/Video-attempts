@@ -36,6 +36,23 @@ Two looks:
 so there must be exactly one clear pause between beats (the build fails with a clear message otherwise;
 fallback: put `"timings": [secs per beat]` in the spec).
 
+## Hook and end screen: required on every video
+**Viral hook (beat 1, first 1–3 seconds).** It decides whether people keep watching. Checklist:
+- **Open on the conflict, the shock or the payoff question.** Never open on scene-setting ("Seville, December 2012…" goes in beat 2).
+  Good shapes include:
+  - Two numbers that clash: "Messi's record: 91. Zambia say 107."
+  - A claim that sounds wrong: "Haaland only scores against bad teams."
+  - A stakes question: "Was the greatest season ever a fake?"
+  - A "you've been lied to" angle: "Even Messi's number is wrong."
+- **The VO's first words are the hook.** No intro and no "today we're looking at".
+- **Frame 1 is the thumbnail.** The engine shows beat 1's headline and cards fully from frame 1. For boards or counters, set the card's `delay`
+  to about -1.1 so the values are already readable on frame 1. Motion still comes from the zoom and highlight.
+- **Keep the hook to one or two lines.** It should create an open loop that the last beat pays off (end on the question or the answer).
+- Write 2–3 hook options and pick the strongest before building.
+
+**End screen.** It's automatic: about 1.8s after the last line, the final shot softly blurs and darkens and a small brand card fades in
+("theo6k · follow for more football stories"). Keep it subtle and short. Optional spec keys: `"outroText"`, `"outroDur"`, `"outro": false`.
+
 ## Visual richness: required on every video
 - **Every video must be visually rich.** Every beat shows its information through an animated data graphic, effect or transition
   (counters, boards, tables, rulers, trophies, ball-numbers, strikes and corrections, camera moves, depth and lighting changes).

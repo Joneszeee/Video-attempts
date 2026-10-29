@@ -1213,15 +1213,21 @@ window.loadSpec = async function (spec) {
       else {
         const pb = prev && c.id && prev.cards.find(x => x.obj.id === c.id);
         if (pb) c._prev = pb.obj;
-        B.cards.push({ obj: c, start: pb ? B.start : B.start + (c.delay != null ? c.delay : 0.3) });
+        // beat 1 is the hook: its cards are already in on frame 1 (the frame people see while scrolling)
+        const delay = c.delay != null ? c.delay : (i === 0 ? -0.45 : 0.3);
+        B.cards.push({ obj: c, start: pb ? B.start : B.start + delay });
       }
     }
     if (b.confetti) { B.confettiStart = prev && prev.confetti ? prev.confettiStart : B.start; }
     prev = B;
     return B;
   });
+  // short, subtle end screen after the last beat
+  S.outro = spec.outro === false ? null : { start: t, dur: spec.outroDur || 1.8 };
+  if (S.outro) t += S.outro.dur;
   S.dur = t;
   S.events = [];
+  if (S.outro) S.events.push({ t: S.outro.start, type: 'swipe' }, { t: S.outro.start + 0.45, type: 'pop' });
   S.beats.forEach((b, i) => {
     if (i > 0 && (b.cut || b.headline !== S.beats[i - 1].headline)) S.events.push({ t: Math.max(0, b.start - 0.12), type: b.cut ? 'whoosh' : 'swish' });
     for (const it of b.cards) {
@@ -1350,11 +1356,38 @@ function renderAt(t) {
   const prevB = S.beats[i - 1];
   const kChanged = !prevB || prevB.kickerText !== b.kickerText;
   const kOut = next && next.kickerText !== b.kickerText ? pr(lt, b.dur - 0.22, 0.22) : 0;
-  drawKicker(b.kickerText, (kChanged ? eOut(pr(lt, 0, 0.4)) : 1) * (1 - kOut));
-  const hChanged = !prevB || prevB.headline !== b.headline;
+  // beat 1 is the hook: kicker and headline are fully visible from frame 1
+  drawKicker(b.kickerText, (kChanged && i > 0 ? eOut(pr(lt, 0, 0.4)) : 1) * (1 - kOut));
+  const hChanged = i > 0 && prevB.headline !== b.headline;
   const hOut = next && next.headline !== b.headline ? lt - (b.dur - 0.22) : null;
   if (b.headline) drawHeadline(b.headline, hChanged ? lt : 99, hOut != null && hOut >= 0 ? hOut : null, b.accent);
+  if (S.outro && t >= S.outro.start) drawOutro(t - S.outro.start);
 
+  ctx.restore();
+}
+
+// End screen: the last shot softly blurs and darkens, and a small brand card fades in.
+function drawOutro(ot) {
+  const k = ease(pr(ot, 0, 0.6));
+  bgx.clearRect(0, 0, W / Q, H / Q);
+  bgx.filter = 'blur(2.5px)';
+  bgx.drawImage(cv, 0, 0, W / Q, H / Q);
+  bgx.filter = 'none';
+  ctx.save();
+  ctx.globalAlpha = k; ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(bgc, 0, 0, W, H);
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = `rgba(6,8,12,${0.62 * k})`; ctx.fillRect(0, 0, W, H);
+  const a = eOut(pr(ot, 0.35, 0.5)), y = H * 0.47 + (1 - a) * 24;
+  ctx.globalAlpha = a;
+  rrect(W / 2 - 44, y - 130, 88, 88, 22); ctx.fillStyle = S.accent; ctx.fill();
+  ctx.fillStyle = '#0d1016'; ctx.beginPath(); ctx.arc(W / 2, y - 86, 20, 0, 7); ctx.fill();
+  ctx.fillStyle = S.accent; ctx.beginPath(); ctx.arc(W / 2, y - 86, 7, 0, 7); ctx.fill();
+  font(800, 58, 'Inter', '-1px'); ctx.fillStyle = '#f4f2ec'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.fillText(S.spec.brand || 'theo6k', W / 2, y + 20);
+  font(500, 22, 'Mono', '6px'); ctx.fillStyle = '#9aa1ad';
+  ctx.fillText((S.spec.outroText || 'Follow for more football stories').toUpperCase(), W / 2, y + 72);
+  ctx.fillStyle = S.accent; ctx.fillRect(W / 2 - 40 * a, y + 100, 80 * a, 3);
   ctx.restore();
 }
 

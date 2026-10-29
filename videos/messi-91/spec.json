@@ -4,6 +4,67 @@
  "accent": "#E9B949",
  "beats": [
   {
+   "kicker": "Goals in a calendar year",
+   "headline": "Messi's record: [91]. Zambia say [107].",
+   "vo": "Messi's world record is ninety-one goals in a year. Zambia say their man scored one hundred and seven.",
+   "scene": {
+    "type": "stage"
+   },
+   "zoomFrom": 1.12,
+   "zoom": 1.02,
+   "move": 4,
+   "focus": 0.55,
+   "players": [
+    {
+     "name": "Messi",
+     "num": 10,
+     "sx": 0.5,
+     "scale": 0.85,
+     "kit": {
+      "shirt": "#a50044",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ],
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3b2618"
+    }
+   ],
+   "card": {
+    "type": "board",
+    "id": "hook",
+    "y": 800,
+    "label": "Goals in a calendar year",
+    "rows": [
+     {
+      "name": "Messi",
+      "value": 91
+     },
+     {
+      "name": "Chitalu",
+      "value": "~107"
+     }
+    ],
+    "focusPath": [
+     {
+      "t": 0,
+      "row": 0
+     },
+     {
+      "t": 2.6,
+      "row": 1
+     }
+    ],
+    "caption": "Who's right?",
+    "captionAt": 3.4,
+    "delay": -1.1
+   }
+  },
+  {
    "kicker": "La Liga · Betis v Barcelona",
    "headline": "Seville. Messi is on [84].",
    "vo": "Seville, December 2012. Messi has eighty-four goals for the year. One more ties a forty-year-old record.",
@@ -37,7 +98,8 @@
      "bottom": "DEC"
     }
    },
-   "focus": 0.35
+   "focus": 0.35,
+   "cut": true
   },
   {
    "headline": "16 minutes: [85]. Level with Müller.",

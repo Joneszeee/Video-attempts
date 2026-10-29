@@ -18,8 +18,17 @@ Two looks:
    - Never invent stats. List anything you are not certain of and ask before rendering.
 2. Render a preview with `python3 build.py videos/<slug>/spec.json --stills 1,5,9,...`, look at the stills, and fix layout problems
    (cards covering players, text overflow). Then run the full preview with `python3 build.py videos/<slug>/spec.json`.
-3. Send the user the preview MP4 plus `vo.txt`. They generate the voiceover elsewhere (e.g. ElevenLabs) and upload it.
-4. Run `python3 build.py videos/<slug>/spec.json --vo <upload>` to sync the beats to the voice and mix it in. Send the final MP4.
+3. Voiceover: either the user uploads their own (e.g. ElevenLabs, best quality), or generate it here with Kokoro
+   (local, free; default voice `bm_george`, British male):
+   ```
+   pip install kokoro-onnx soundfile        # once per session; the user approved this
+   # model files (about 350 MB) from github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.0 into $KOKORO_DIR:
+   #   kokoro-v1.0.onnx, voices-v1.0.bin
+   python3 engine/tts.py videos/<slug>/vo.txt videos/<slug>/out/vo.wav
+   ```
+   `tts.py` turns years into words ("1972" becomes "nineteen seventy-two") and puts a 0.8s pause between beats for the sync.
+4. Run `python3 build.py videos/<slug>/spec.json --vo <voice file> --out videos/<slug>/out/<slug>_final.mp4` to sync the beats to
+   the voice, mix it with the SFX (normalised to -14 LUFS for Instagram) and send the final MP4.
 
 `vo.txt` = the beat lines separated by `<break time="0.8s" />`. The sync step finds those pauses,
 so there must be exactly one clear pause between beats (the build fails with a clear message otherwise;

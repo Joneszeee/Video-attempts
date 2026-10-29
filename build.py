@@ -103,9 +103,9 @@ def main():
         inputs += ['-stream_loop', '-1', '-i', a.music]
         mix.append(f'[{3 if a.vo else 2}:a]volume={a.music_volume}[m]')
         labels.append('[m]')
-    mix.append(''.join(labels) + f'amix=inputs={len(labels)}:normalize=0:duration=first[a]')
+    mix.append(''.join(labels) + f'amix=inputs={len(labels)}:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11[a]')
     run(['ffmpeg', '-y', '-v', 'error', *inputs, '-filter_complex', ';'.join(mix), '-map', '0:v', '-map', '[a]',
-         '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', final])
+         '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', '-movflags', '+faststart', final])
     print('done ->', final)
 
 

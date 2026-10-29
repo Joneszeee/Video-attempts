@@ -10,7 +10,8 @@ Two looks:
 
 ## When the user sends a script (or a story)
 1. Create `videos/<slug>/spec.json` (format below) and `videos/<slug>/vo.txt`.
-   - One beat per sentence or short pair of sentences in the script. Aim for **at least 60s: 10–14 beats** (about 230 words of VO).
+   - One beat per sentence or short pair of sentences in the script. Aim for **60–70s: about 11 beats, about 130 words of VO**.
+     Longer drags: the user found 1:46 boring. Every beat must add a new fact or twist. Merge explainer beats and keep lines short.
    - **Change scenes through the video.** Don't use one look for the whole thing. Move between stadium (crowd colours per club),
      stage and studio as the story moves (a different club or era means a new stadium, a debate means the stage). Put `"cut": true` on every scene change
      and give the new scene its own `players`. Example: `videos/messi-91`.
@@ -26,11 +27,13 @@ Two looks:
    #   kokoro-v1.0.onnx, voices-v1.0.bin
    python3 engine/tts.py videos/<slug>/vo.txt videos/<slug>/out/vo.wav
    ```
-   `tts.py` turns years into words ("1972" becomes "nineteen seventy-two") and puts a 0.8s pause between beats for the sync.
+   `tts.py` turns years into words, fixes names via its `PRONOUNCE` table (add any name the voice gets wrong), puts a short gap
+   between beats (`--gap 0.45`) and writes `vo.wav.beats.json` with exact line starts, which `build.py` uses for the sync.
+   Other voices: `--voice bm_fable|am_michael|am_fenrir`, or blends like `bm_george:0.7+bm_fable:0.3`.
 4. Run `python3 build.py videos/<slug>/spec.json --vo <voice file> --out videos/<slug>/out/<slug>_final.mp4` to sync the beats to
    the voice, mix it with the SFX (normalised to -14 LUFS for Instagram) and send the final MP4.
 
-`vo.txt` = the beat lines separated by `<break time="0.8s" />`. The sync step finds those pauses,
+`vo.txt` = the beat lines separated by `<break time="0.8s" />`. For a voiceover recorded elsewhere, the sync step finds those pauses,
 so there must be exactly one clear pause between beats (the build fails with a clear message otherwise;
 fallback: put `"timings": [secs per beat]` in the spec).
 

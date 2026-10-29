@@ -1,25 +1,21 @@
-Seville, December 2012. Lionel Messi has eighty-four goals for the year, and one more ties a record that has stood for forty years.
-<break time="0.8s" />
-Sixteen minutes in, he scores. That's eighty-five, level with Gerd Müller.
-<break time="0.8s" />
-Nine minutes later, Iniesta back-heels it into his path, and that's eighty-six. The record is his.
-<break time="0.8s" />
-Müller had set it back in 1972, with seventy-two goals for Bayern Munich and thirteen for West Germany.
-<break time="0.8s" />
-And Messi didn't stop there. He finished the year on ninety-one: seventy-nine for Barcelona, and twelve for Argentina.
-<break time="0.8s" />
-Guinness made it official, the most goals ever scored in a calendar year. Case closed, or so everyone thought.
-<break time="0.8s" />
-Then Zambia's football association spoke up, with a claim of their own: Godfrey Chitalu scored one hundred and seven goals in 1972.
-<break time="0.8s" />
-Forty-nine in the league for Kabwe Warriors, and fifty-eight more in cups and internationals.
-<break time="0.8s" />
-Researchers had rebuilt his year from the Times of Zambia, the Zambia Daily Mail and the national archives.
-<break time="0.8s" />
-FIFA's answer? It only keeps records for its own competitions, so it simply couldn't verify the claim.
-<break time="0.8s" />
-Chitalu never got the chance to argue his case. In 1993, while coaching Zambia, he died when the team's plane crashed off the coast of Gabon.
-<break time="0.8s" />
-And Zambia weren't alone. Flamengo said Zico had scored eighty-nine, back in 1979.
-<break time="0.8s" />
-Müller, eighty-five. Zico, eighty-nine. Messi, ninety-one. And Chitalu, one hundred and seven. So, who really holds the record?
+Seville, December 2012. Messi has eighty-four goals for the year. One more ties a forty-year-old record.
+<break time="0.3s" />
+Sixteen minutes in: eighty-five, level with Gerd Müller.
+<break time="0.3s" />
+Nine minutes later: eighty-six. The record is his.
+<break time="0.3s" />
+Müller's eighty-five had stood since 1972.
+<break time="0.3s" />
+Messi finished the year on ninety-one, and Guinness made it official.
+<break time="0.3s" />
+Then Zambia spoke up. Their claim: Godfrey Chitalu scored one hundred and seven in 1972.
+<break time="0.3s" />
+Forty-nine in the league, fifty-eight in cups, all rebuilt from old newspapers and archives.
+<break time="0.3s" />
+FIFA's answer? It couldn't verify it.
+<break time="0.3s" />
+Chitalu never got to argue his case. He died in 1993, coaching Zambia, when the team's plane crashed off Gabon.
+<break time="0.3s" />
+And Flamengo say Zico scored eighty-nine in 1979.
+<break time="0.3s" />
+Eighty-five. Eighty-nine. Ninety-one. One hundred and seven. So who really holds the record?

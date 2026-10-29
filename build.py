@@ -115,8 +115,17 @@ def main():
         inputs += ['-stream_loop', '-1', '-i', a.music]
         mix.append(f'[{3 if a.vo else 2}:a]volume={a.music_volume}[m]')
         labels.append('[m]')
-    mix.append(''.join(labels) + f'amix=inputs={len(labels)}:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11[a]')
-    run(['ffmpeg', '-y', '-v', 'error', *inputs, '-filter_complex', ';'.join(mix), '-map', '0:v', '-map', '[a]',
+    mix.append(''.join(labels) + f'amix=inputs={len(labels)}:normalize=0:duration=first[a]')
+    mixed = outdir / 'mix.wav'
+    run(['ffmpeg', '-y', '-v', 'error', *inputs, '-filter_complex', ';'.join(mix), '-map', '[a]', '-ar', '48000', mixed])
+    # One fixed gain to reach -14 LUFS (Instagram). Dynamic loudnorm pumped the background noise up in pauses.
+    err = subprocess.run(['ffmpeg', '-i', str(mixed), '-af', 'loudnorm=I=-14:print_format=json', '-f', 'null', '-'],
+                         capture_output=True, text=True).stderr
+    measured = float(json.loads(err[err.rindex('{'):err.rindex('}') + 1])['input_i'])
+    gain = -14 - measured
+    print(f'loudness {measured:.1f} LUFS, gain {gain:+.1f} dB')
+    run(['ffmpeg', '-y', '-v', 'error', '-i', silent, '-i', mixed, '-filter_complex',
+         f'[1:a]volume={gain:.2f}dB,alimiter=limit=0.89:level=false[a]', '-map', '0:v', '-map', '[a]',
          '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', '-movflags', '+faststart', final])
     print('done ->', final)
 

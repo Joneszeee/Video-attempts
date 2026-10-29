@@ -72,8 +72,9 @@ def crowd(dur=4.0, gain=0.35):
     return x / (np.abs(x).max() + 1e-9) * swell * gain
 
 
-def bed(n, gain=0.05):
-    x = lowpass(rng.standard_normal(n), 700)
+def bed(n, gain=0.012):
+    # very quiet low rumble only; higher cutoffs read as hiss/static
+    x = lowpass(lowpass(rng.standard_normal(n), 220), 220)
     return x / (np.abs(x).max() + 1e-9) * gain
 
 

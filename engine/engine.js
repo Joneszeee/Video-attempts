@@ -4,7 +4,7 @@
 
 const W = 1080, H = 1920, FOC = 1150, CY = H * 0.56, NEAR = 0.6;
 const cv = document.getElementById('c');
-const ctx = cv.getContext('2d');
+let ctx = cv.getContext('2d');
 const S = { spec: null, beats: [], dur: 0, events: [], accent: '#3FE0C5' };
 
 // ---------- math ----------
@@ -1245,14 +1245,17 @@ function beatIdx(t) {
 }
 
 // ---------- frame ----------
-const bgc = document.createElement('canvas');
-bgc.width = W; bgc.height = H;
+// Blur is done on a quarter-size copy and scaled back up: far cheaper than a full-size canvas filter.
+const Q = 4, bgc = document.createElement('canvas');
+bgc.width = W / Q; bgc.height = H / Q;
+const bgx = bgc.getContext('2d');
 // Out-of-focus fans in the foreground: gives stadium shots depth.
 function drawFans(t, scene) {
   const R = rng(77), cols = scene.crowd || ['#1d4fb8'];
-  ctx.save();
-  ctx.filter = 'blur(7px)';
-  ctx.globalAlpha = 0.92;
+  bgx.clearRect(0, 0, W / Q, H / Q);
+  bgx.save(); bgx.scale(1 / Q, 1 / Q);
+  const main = ctx;
+  ctx = bgx; // draw the fans at quarter size, then upscale: they come out soft
   for (let row = 0; row < 3; row++) {
     const base = H * (0.9 + row * 0.05), r = 44 + row * 14, n = 8 - row;
     for (let k = 0; k < n + 1; k++) {
@@ -1266,6 +1269,10 @@ function drawFans(t, scene) {
       ctx.beginPath(); ctx.arc(x, y, r, Math.PI * 1.15, Math.PI * 1.85); ctx.stroke();
     }
   }
+  bgx.restore();
+  ctx = main;
+  ctx.save(); ctx.globalAlpha = 0.95; ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(bgc, 0, 0, W, H);
   ctx.restore();
 }
 function renderAt(t) {
@@ -1297,10 +1304,15 @@ function renderAt(t) {
     ctx.fillStyle = hz; ctx.fillRect(0, 0, W, H);
   }
   if (focus > 0.01) {
-    bgc.getContext('2d').drawImage(cv, 0, 0);
-    ctx.filter = `blur(${(focus * 10).toFixed(1)}px) brightness(${(1 - focus * 0.45).toFixed(3)})`;
-    ctx.drawImage(bgc, 0, 0);
-    ctx.filter = 'none';
+    bgx.clearRect(0, 0, W / Q, H / Q);
+    bgx.filter = `blur(${(focus * 2.5).toFixed(2)}px)`;
+    bgx.drawImage(cv, 0, 0, W / Q, H / Q);
+    bgx.filter = 'none';
+    ctx.save(); ctx.imageSmoothingQuality = 'high';
+    ctx.globalAlpha = Math.min(1, focus * 2.5);
+    ctx.drawImage(bgc, 0, 0, W, H);
+    ctx.restore();
+    ctx.fillStyle = `rgba(0,0,0,${(focus * 0.45).toFixed(3)})`; ctx.fillRect(0, 0, W, H);
   }
   if (b.confetti) drawConfetti(t - b.confettiStart, b.confettiColors || [S.accent, '#ffffff', ...(scene.crowd || [])], 11);
 

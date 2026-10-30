@@ -29,6 +29,9 @@ Two looks:
    `tts.py` turns years into words, fixes names via its `PRONOUNCE` table (add any name the voice gets wrong), puts a short gap
    between beats (`--gap 0.45`) and writes `vo.wav.beats.json` with exact line starts, which `build.py` uses for the sync.
    Other voices: `--voice bm_fable|am_michael|am_fenrir`, or blends like `bm_george:0.7+bm_fable:0.3`.
+   **Kokoro sounds flat and robotic (user feedback), so use it only for previews.** For finals, prefer ElevenLabs v3: write
+   `videos/<slug>/vo_elevenlabs.md` with an [emotion] tag and a delivery note per line (example: `videos/messi-91/vo_elevenlabs.md`).
+   The user uploads one clip per line (`01.mp3` …), and `build.py --vo <folder>` trims and joins them and syncs exactly.
 4. Run `python3 build.py videos/<slug>/spec.json --vo <voice file> --out videos/<slug>/out/<slug>_final.mp4` to sync the beats to
    the voice, mix it with the SFX (normalised to -14 LUFS for Instagram) and send the final MP4.
 

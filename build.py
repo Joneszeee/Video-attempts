@@ -40,6 +40,30 @@ def silences(path, noise_db=-35, min_len=0.3):
     return list(zip(starts, ends))
 
 
+def join_clips(folder, gap=0.45, sr=48000):
+    """A folder of per-line voice clips (01.mp3, 02.mp3, ...) -> one vo.wav plus exact line starts."""
+    import numpy as np
+    files = sorted((f for f in Path(folder).iterdir() if f.suffix.lower() in ('.mp3', '.wav', '.m4a', '.aac', '.ogg', '.flac')),
+                   key=lambda f: [int(t) if t.isdigit() else t for t in re.split(r'(\d+)', f.name)])
+    parts, starts, t = [], [], 0.0
+    for f in files:
+        raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(f), '-af',
+                              'silenceremove=start_periods=1:start_threshold=-45dB,areverse,'
+                              'silenceremove=start_periods=1:start_threshold=-45dB,areverse',
+                              '-ac', '1', '-ar', str(sr), '-f', 'f32le', '-'], capture_output=True, check=True).stdout
+        a = np.frombuffer(raw, dtype=np.float32)
+        starts.append(t)
+        parts += [a, np.zeros(int(gap * sr), dtype=np.float32)]
+        t += len(a) / sr + gap
+        print(f'  {f.name}: {len(a) / sr:.2f}s')
+    out = Path(folder) / 'vo_joined.wav'
+    pcm = np.concatenate(parts[:-1])
+    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-f', 'f32le', '-ar', str(sr), '-ac', '1', '-i', '-', str(out)],
+                   input=pcm.tobytes(), check=True)
+    Path(str(out) + '.beats.json').write_text(json.dumps({'starts': starts}))
+    return out
+
+
 def align(spec, vo_path):
     """Set each beat's duration so beat i starts just before VO line i."""
     n = len(spec['beats'])
@@ -89,6 +113,8 @@ def main():
         for b, d in zip(spec['beats'], spec['timings']):
             b['duration'] = d
     elif a.vo:
+        if Path(a.vo).is_dir():  # one clip per beat, e.g. from ElevenLabs
+            a.vo = str(join_clips(a.vo))
         align(spec, a.vo)
     resolved = outdir / 'resolved.json'
     resolved.write_text(json.dumps(spec, indent=1))

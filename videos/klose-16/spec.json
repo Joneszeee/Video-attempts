@@ -94,7 +94,9 @@
      "tagLabel": "Ronaldo",
      "tagDelay": 1.6
     }
-   ]
+   ],
+   "transition": "polaroid",
+   "polaroidLabel": "Germany 2006"
   },
   {
    "kicker": "Brazil 2014",
@@ -301,7 +303,7 @@
     ]
    },
    "camera": "player",
-   "move": 3,
+   "move": 1.8,
    "fans": true,
    "focus": 0,
    "players": [
@@ -316,7 +318,7 @@
      },
      "skin": "#e7b593",
      "hair": "#3a2a1c",
-     "x": 0,
+     "x": -1.0,
      "z": 0,
      "enter": "walk",
      "fromZ": -3
@@ -342,47 +344,58 @@
      }
     },
     {
+     "type": "ballpath",
+     "delay": 1.9,
+     "points": [
+      [
+       330,
+       1300
+      ],
+      [
+       420,
+       980
+      ],
+      [
+       548,
+       1068
+      ]
+     ],
+     "dur": 1.3,
+     "r": 20,
+     "rEnd": 7
+    },
+    {
      "type": "pen",
-     "delay": 1.4,
+     "delay": 3.1,
      "strokes": [
       {
        "kind": "ellipse",
-       "cx": 540,
+       "cx": 290,
        "cy": 1090,
-       "rx": 200,
+       "rx": 190,
        "ry": 300,
        "t": 0,
-       "dur": 0.7
+       "dur": 0.6
       },
       {
-       "kind": "arrow",
-       "points": [
-        [
-         860,
-         760
-        ],
-        [
-         930,
-         900
-        ],
-        [
-         760,
-         980
-        ]
-       ],
+       "kind": "ellipse",
+       "cx": 548,
+       "cy": 1068,
+       "rx": 70,
+       "ry": 40,
        "color": "#ff4d5e",
-       "t": 0.7,
-       "dur": 0.5
+       "t": 0.5,
+       "dur": 0.4
       },
       {
        "kind": "text",
        "text": "RECORD",
-       "x": 700,
-       "y": 740,
+       "x": 600,
+       "y": 960,
        "size": 58,
        "color": "#ff4d5e",
-       "t": 0.7,
-       "dur": 0.5
+       "t": 0.8,
+       "dur": 0.4
       }
      ]
     }
@@ -504,27 +517,39 @@
    "lights": 0.55,
    "focus": 0.5,
    "accent": "#FF4D5E",
-   "card": {
-    "type": "board",
-    "id": "score",
-    "y": 880,
-    "label": "Full time",
-    "rows": [
-     {
-      "name": "Brazil",
-      "value": 1
-     },
-     {
-      "name": "Germany",
-      "value": 7
-     }
-    ],
-    "cols": 8,
-    "vcols": 2,
-    "focus": 0,
-    "caption": "Heaviest World Cup defeat",
-    "captionAt": 1.2
-   }
+   "card": [
+    {
+     "type": "board",
+     "id": "score",
+     "y": 880,
+     "label": "Full time",
+     "rows": [
+      {
+       "name": "Brazil",
+       "value": 1
+      },
+      {
+       "name": "Germany",
+       "value": 7
+      }
+     ],
+     "cols": 8,
+     "vcols": 2,
+     "focus": 0,
+     "caption": "Heaviest World Cup defeat",
+     "captionAt": 1.2
+    },
+    {
+     "type": "newspaper",
+     "delay": 1.5,
+     "y": 1060,
+     "masthead": "THE FINAL WHISTLE",
+     "dateline": "Wednesday 9 July 2014 · Semi-final",
+     "headline": "7–1",
+     "color": "#b3121f",
+     "sub": "Brazil's darkest night"
+    }
+   ]
   },
   {
    "kicker": "The record-breaker",

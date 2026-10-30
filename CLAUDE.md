@@ -36,8 +36,11 @@ Two looks:
    Kokoro read of the same script: `python3 engine/tts.py vo.txt out/vo.wav` (reference), then
    `python3 engine/align_vo.py <their file> out/vo.wav`. This writes `<their file>.beats.json` (MFCC + DTW, snapped to pauses),
    which `build.py --vo <their file>` uses automatically.
-4. Run `python3 build.py videos/<slug>/spec.json --vo <voice file> --out videos/<slug>/out/<slug>_final.mp4` to sync the beats to
-   the voice, mix it with the SFX (normalised to -14 LUFS for Instagram) and send the final MP4.
+   **Never send the user a video with an AI voice of ours (user instruction).** They voice every script themselves in ElevenLabs.
+   Deliver `vo_elevenlabs.md` plus a preview with **SFX only**: `build.py --vo out/vo.wav --mute-vo` uses the Kokoro read just for
+   timing (and as the alignment reference later) and leaves it out of the mix.
+4. When their voiceover arrives, run `python3 build.py videos/<slug>/spec.json --vo <voice file> --out videos/<slug>/out/<slug>_final.mp4`
+   to sync the beats to the voice, mix it with the SFX (normalised to -14 LUFS for Instagram) and send the final MP4.
 
 `vo.txt` = the beat lines separated by `<break time="0.8s" />`. For a voiceover recorded elsewhere, the sync step finds those pauses,
 so there must be exactly one clear pause between beats (the build fails with a clear message otherwise;
@@ -81,16 +84,27 @@ fallback: put `"timings": [secs per beat]` in the spec).
 - **TV analysis pen** (`pen` card): circles, arrows and handwritten notes that draw themselves over the original players. Example: `videos/klose-16`.
 - **60fps** is the default render.
 
-Ideas not built yet (candidates for new tools):
+Built so far from the idea list (reuse them):
+- **Polaroid flashback:** set `"transition": "polaroid", "polaroidLabel": "Germany 2006"` on a beat. The scene starts as a sepia instant photo and grows to full frame.
+- **Newspaper spin-in:** the `newspaper` card. `headline`, `sub` ("\n" for lines), `dateline`, `color`, `masthead`. Keep the masthead **fictional**.
+- **Slow-motion ball path:** the `ballpath` card. `points` (3: start, control, end), `dur`, `r`/`rEnd`. The ball slows near the end, leaves a trail and the net flashes.
+
+**Idea backlog: don't forget it (user asked).** Every video should use at least one backlog item, or invent a new one, and build it into the engine:
 - A pitch map with animated shot or pass trails, or goal locations as dots.
 - A transfer-fee ticker or receipt that prints line by line.
 - A head-to-head "tale of the tape" with bars sliding in from both sides.
 - A calendar or season heatmap of goals.
-- A photo-style polaroid flashback transition for history beats.
-- A newspaper headline that spins in, for archive or claim beats.
 - A world map with a route line, for transfers or tournaments.
 - A whip-pan or zoom-through-the-number transition between scenes.
-- A slow-motion replay of a ball path with a trail.
+- A rewind / VHS-scrub transition for "let's go back" moments.
+- A scoreboard clock that fast-forwards through a match, with events popping on the timeline.
+- A shirt-number morph: one shirt number flips into another (for heirs to a number, e.g. 7s and 10s).
+- A trophy-cabinet shelf that fills as honours are listed.
+- Penalty-shootout dots: ✓ and ✗ circles filling for each kick.
+- Formation chalk-lines: a 4-4-2 drawn on the pitch that rearranges into a new shape.
+- A stopwatch or speed-gun readout for fastest goals or sprints.
+- A league-table climb: a club's row sliding up the table week by week.
+- A paper ticket or matchday-programme reveal for historic games.
 
 ## spec.json
 ```jsonc

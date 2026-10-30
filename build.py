@@ -100,6 +100,7 @@ def main():
     ap.add_argument('spec')
     ap.add_argument('--vo')
     ap.add_argument('--music')
+    ap.add_argument('--mute-vo', action='store_true', help='use the voice only for timing; mix SFX only (previews)')
     ap.add_argument('--music-volume', type=float, default=0.14)
     ap.add_argument('--stills')
     ap.add_argument('--out')
@@ -132,14 +133,14 @@ def main():
     inputs = ['-i', silent, '-i', sfx]
     mix = ['[1:a]volume=0.55[s]']
     labels = ['[s]']
-    if a.vo:
+    if a.vo and not a.mute_vo:
         inputs += ['-i', a.vo]
         d = int(VO_DELAY * 1000)
         mix.append(f'[2:a]adelay={d}|{d},volume=1.0[v]')
         labels.append('[v]')
     if a.music:
         inputs += ['-stream_loop', '-1', '-i', a.music]
-        mix.append(f'[{3 if a.vo else 2}:a]volume={a.music_volume}[m]')
+        mix.append(f'[{3 if a.vo and not a.mute_vo else 2}:a]volume={a.music_volume}[m]')
         labels.append('[m]')
     mix.append(''.join(labels) + f'amix=inputs={len(labels)}:normalize=0:duration=first[a]')
     mixed = outdir / 'mix.wav'

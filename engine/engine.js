@@ -1216,6 +1216,67 @@ CARDS.pen = function (c, ct) {
   }
 };
 CARDS.pen.noSlide = true;
+
+// Newspaper front page that spins in (archive / reaction beats). Masthead is fictional: never imitate a real paper.
+CARDS.newspaper = function (c, ct, cx, cy) {
+  const k = eOut(pr(ct, 0, 0.9));
+  if (k <= 0) return;
+  const w = c.w || 760, h = c.h || 980;
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.rotate(lerp(-Math.PI * 4, c.tilt != null ? c.tilt : -0.05, k));
+  ctx.scale(lerp(0.05, 1, k), lerp(0.05, 1, k));
+  ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16;
+  ctx.fillStyle = '#f1ece0'; ctx.fillRect(-w / 2, -h / 2, w, h);
+  ctx.shadowColor = 'transparent';
+  const R = rng(9);
+  for (let i = 0; i < 900; i++) { ctx.fillStyle = `rgba(90,70,40,${R() * 0.06})`; ctx.fillRect(-w / 2 + R() * w, -h / 2 + R() * h, 2, 2); }
+  const serif = 'Liberation Serif, DejaVu Serif, serif';
+  ctx.fillStyle = '#16130e'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.font = `700 64px ${serif}`; ctx.fillText(c.masthead || 'THE FINAL WHISTLE', 0, -h / 2 + 90);
+  ctx.fillRect(-w / 2 + 30, -h / 2 + 110, w - 60, 4);
+  ctx.font = `500 20px Mono`; ctx.fillText((c.dateline || '').toUpperCase(), 0, -h / 2 + 140);
+  ctx.fillRect(-w / 2 + 30, -h / 2 + 156, w - 60, 2);
+  ctx.font = `900 ${c.size || 300}px Inter`; ctx.fillStyle = c.color || '#16130e'; ctx.fillText(c.headline || '', 0, -h / 2 + 170 + (c.size || 300) * 0.82);
+  ctx.fillStyle = '#16130e'; ctx.font = `700 54px ${serif}`;
+  const subY = -h / 2 + 200 + (c.size || 300) * 0.82 + 40;
+  String(c.sub || '').split('\n').forEach((l, i) => ctx.fillText(l, 0, subY + i * 60));
+  ctx.fillStyle = 'rgba(22,19,14,0.35)';
+  const top = subY + 60 * String(c.sub || '').split('\n').length + 10;
+  for (let col = 0; col < 3; col++) for (let y = top; y < h / 2 - 40; y += 18) {
+    const x0 = -w / 2 + 40 + col * (w - 80) / 3;
+    ctx.fillRect(x0, y, (w - 80) / 3 - 24 - (R() < 0.15 ? 60 : 0), 7);
+  }
+  ctx.restore();
+};
+CARDS.newspaper.noSlide = true;
+
+// Slow-motion ball path: the ball races along a curve, slows to a crawl near the end, leaves a trail, then the net flashes.
+CARDS.ballpath = function (c, ct) {
+  const P = c.points, dur = c.dur || 1.6, k0 = pr(ct, 0, dur);
+  if (k0 <= 0) return;
+  const slow = u => (u < 0.55 ? u / 0.55 * 0.8 : 0.8 + 0.2 * eOut((u - 0.55) / 0.45));
+  const at = u => { const a = P[0], b = P[1], d = P[2]; return [(1 - u) ** 2 * a[0] + 2 * (1 - u) * u * b[0] + u * u * d[0], (1 - u) ** 2 * a[1] + 2 * (1 - u) * u * b[1] + u * u * d[1]]; };
+  const u = slow(k0), r0 = c.r || 18, r1 = c.rEnd || 8;
+  ctx.save();
+  ctx.lineCap = 'round';
+  for (let i = 0; i < 40; i++) {
+    const v = Math.max(0, u - i * 0.012), p = at(v), q = at(Math.max(0, v - 0.012));
+    ctx.strokeStyle = `rgba(255,255,255,${0.5 * (1 - i / 40)})`; ctx.lineWidth = lerp(r0, r1, v) * 1.1 * (1 - i / 40);
+    ctx.beginPath(); ctx.moveTo(...q); ctx.lineTo(...p); ctx.stroke();
+  }
+  for (let g = 3; g >= 1; g--) { const p = at(Math.max(0, u - g * 0.03)); ctx.globalAlpha = 0.18 * (4 - g); drawBall(p[0], p[1], lerp(r0, r1, u)); }
+  ctx.globalAlpha = 1;
+  const p = at(u); drawBall(p[0], p[1], lerp(r0, r1, u));
+  const fk = pr(ct, dur, 0.5);
+  if (fk > 0 && fk < 1) {
+    const e = P[2], g = ctx.createRadialGradient(e[0], e[1], 0, e[0], e[1], 160 * fk + 20);
+    g.addColorStop(0, `rgba(255,255,255,${0.8 * (1 - fk)})`); g.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = g; ctx.fillRect(e[0] - 200, e[1] - 200, 400, 400);
+  }
+  ctx.restore();
+};
+CARDS.ballpath.noSlide = true;
 CARDS.ballnumber.selfExit = true;
 CARDS.trophies.noSlide = true;
 CARDS.meter.noSlide = true;
@@ -1246,6 +1307,8 @@ function cardEvents(c) {
       (c.focusPath || []).slice(1).forEach(p => ev.push({ t: p.t, type: 'swipe' }));
       break;
     }
+    case 'newspaper': ev.push({ t: 0, type: 'whoosh' }, { t: 0.9, type: 'impact' }); break;
+    case 'ballpath': ev.push({ t: 0, type: 'swish' }, { t: c.dur || 1.6, type: 'crowd' }); break;
     case 'pen': c.strokes.forEach(s => ev.push({ t: s.t || 0, type: 'swipe' })); break;
     case 'balls': for (let i = 0; i < c.n; i++) ev.push({ t: 0.3 + i * (c.step || 0.12), type: 'pop' }); break;
     case 'ruler': (c.markers || []).forEach((m, i) => ev.push({ t: 0.8 + i * 0.5, type: 'pop' })); if (c.bracket) ev.push({ t: 0.8 + (c.markers || []).length * 0.5, type: 'swipe' }); break;
@@ -1328,6 +1391,34 @@ function beatIdx(t) {
 const Q = 4, bgc = document.createElement('canvas');
 bgc.width = W / Q; bgc.height = H / Q;
 const bgx = bgc.getContext('2d');
+// Polaroid flashback: the new scene starts as a tilted, sepia instant photo and grows to fill the frame.
+const fullc = document.createElement('canvas');
+fullc.width = W; fullc.height = H;
+function polaroid(lt, label) {
+  const k = ease(pr(lt, 0.25, 0.9));
+  if (k >= 1) return;
+  const fx = fullc.getContext('2d');
+  fx.clearRect(0, 0, W, H); fx.drawImage(cv, 0, 0);
+  ctx.fillStyle = '#0b0c10'; ctx.fillRect(0, 0, W, H);
+  const s = lerp(0.6, 1.0, k), pw = W * s, ph = H * 0.72 * s + (H * 0.28 * s) * k;
+  ctx.save();
+  ctx.translate(W / 2, H * 0.5); ctx.rotate(lerp(-0.09, 0, k));
+  const bw = lerp(30, 0, k), bb = lerp(150, 0, k);
+  ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 50;
+  ctx.fillStyle = '#f6f3ea'; ctx.fillRect(-pw / 2 - bw, -ph / 2 - bw, pw + bw * 2, ph + bw + bb);
+  ctx.shadowBlur = 0;
+  ctx.filter = `sepia(${((1 - k) * 0.85).toFixed(2)}) contrast(${(1 + (1 - k) * 0.1).toFixed(2)})`;
+  const sh = Math.min(H, W * ph / pw);
+  ctx.drawImage(fullc, 0, (H - sh) / 2, W, sh, -pw / 2, -ph / 2, pw, ph);
+  ctx.filter = 'none';
+  if (label && k < 0.6) {
+    ctx.globalAlpha = 1 - k / 0.6;
+    font(400, 72, 'Marker', '1px'); ctx.fillStyle = '#2b2b33'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(label, 0, ph / 2 + bb / 2);
+  }
+  ctx.restore();
+}
+
 // Out-of-focus fans in the foreground: gives stadium shots depth.
 function drawFans(t, scene) {
   const R = rng(77), cols = scene.crowd || ['#1d4fb8'];
@@ -1370,6 +1461,7 @@ function renderAt(t) {
     drawPlayers(cam, t - b.playersStart, b.playersArr);
   }
   if (scene.type === 'stadium' && b.fans) drawFans(t, scene);
+  if (b.transition === 'polaroid' && lt < 1.2) polaroid(lt, b.polaroidLabel);
   const blend = (key, def) => {
     const p = S.beats[i - 1], cur = b[key] != null ? b[key] : def;
     const from = p && !b.cut && p[key] != null ? p[key] : (p && !b.cut ? def : cur);

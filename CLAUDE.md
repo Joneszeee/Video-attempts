@@ -78,6 +78,7 @@ fallback: put `"timings": [secs per beat]` in the spec).
 - **Guided attention:** `focusPath` walks a highlight down a list in time with the VO.
 - **Continuity:** a card with the same `id` carries across beats instead of re-entering.
 - **Scene variety:** stadium, stage and studio, with crowd colours per club.
+- **TV analysis pen** (`pen` card): circles, arrows and handwritten notes that draw themselves over the original players. Example: `videos/klose-16`.
 - **60fps** is the default render.
 
 Ideas not built yet (candidates for new tools):
@@ -144,6 +145,9 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
   `focus` (row index, gold highlight) or `focusPath: [{t, row}]` (the highlight walks in time), `caption` + `captionAt` (pill underneath),
   `swapAt` (when corrections flip), `cols`/`vcols` (name and value widths). A row with `from` shows `from` first, then a red strike,
   then flips to `value`. Give it an `id` to carry it across beats: changed cells flip, the highlight slides and nothing re-enters.
+- `pen`: TV-analysis marker drawn live over the shot (the user liked this look). `strokes: [{kind: ellipse|arrow|line|x|text, t, dur, color, width, ...}]`
+  in screen px. Ellipse: `cx, cy, rx, ry`. Arrow and line: `points` (3 points make a curve). X: `cx, cy, r`. Text: `text, x, y, size, rot` (Permanent Marker font).
+  `dashed: true` gives a run line. With the `player` camera the hero stands at x≈540 with feet at y≈1325 and head at y≈860.
 - `meter`: a vertical tube filling with balls. `value`, `max`, `markers: [{label, value}]`, `icon: {kind, label, dx}`
 
 ## Files

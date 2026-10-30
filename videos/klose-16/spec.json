@@ -1,0 +1,803 @@
+{
+ "title": "Klose 16",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "beats": [
+  {
+   "kicker": "World Cup all-time goals",
+   "headline": "Ronaldo watched his record [fall].",
+   "vo": "Ronaldo watched his own World Cup record fall. In Brazil. During a seven-one.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f7d117",
+     "#f7d117",
+     "#0a7a3e",
+     "#1d4fa3"
+    ],
+    "seed": 14
+   },
+   "camFrom": "aerial",
+   "camera": "high",
+   "move": 7,
+   "focus": 0.5,
+   "players": [],
+   "card": {
+    "type": "board",
+    "id": "race",
+    "y": 820,
+    "delay": -1.1,
+    "label": "World Cup goals · July 2014",
+    "rows": [
+     {
+      "name": "Ronaldo",
+      "value": 15
+     },
+     {
+      "name": "Klose",
+      "value": 15
+     }
+    ],
+    "focusPath": [
+     {
+      "t": 0,
+      "row": 0
+     },
+     {
+      "t": 2.8,
+      "row": 1
+     }
+    ],
+    "caption": "Belo Horizonte · 2014",
+    "captionAt": 3.4
+   }
+  },
+  {
+   "kicker": "World Cup 2006",
+   "headline": "2006: Ronaldo, [15].",
+   "vo": "In 2006, against Ghana, Ronaldo scored his fifteenth World Cup goal, and passed Gerd Müller.",
+   "scene": {
+    "type": "stage"
+   },
+   "cut": true,
+   "zoomFrom": 1.08,
+   "zoom": 1.0,
+   "move": 5,
+   "accent": "#E9B949",
+   "players": [
+    {
+     "name": "Muller",
+     "num": 13,
+     "ghost": true,
+     "sx": 0.27,
+     "scale": 0.72,
+     "tag": 14,
+     "tagLabel": "Müller",
+     "tagDelay": 0.3
+    },
+    {
+     "name": "Ronaldo",
+     "num": 9,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#1d4fa3",
+      "socks": "#ffffff",
+      "text": "#0a7a3e",
+      "sleeves": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#1a120c",
+     "sx": 0.6,
+     "scale": 0.88,
+     "enter": "walk",
+     "tag": 15,
+     "tagLabel": "Ronaldo",
+     "tagDelay": 1.6
+    }
+   ]
+  },
+  {
+   "kicker": "Brazil 2014",
+   "headline": "His rival: [Klose], on 14.",
+   "vo": "Before Brazil 2014, he said he'd be cheering against one man. Miroslav Klose, on fourteen.",
+   "zoom": 1.04,
+   "accent": "#E9B949",
+   "players": [
+    {
+     "name": "Ronaldo",
+     "num": 9,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#1d4fa3",
+      "socks": "#ffffff",
+      "text": "#0a7a3e",
+      "sleeves": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#1a120c",
+     "sx": 0.3,
+     "scale": 0.8,
+     "tag": 15,
+     "tagDelay": -1
+    },
+    {
+     "name": "Klose",
+     "num": 11,
+     "kit": {
+      "shirt": "#f4f4f4",
+      "shorts": "#f4f4f4",
+      "socks": "#f4f4f4",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1c",
+     "sx": 0.7,
+     "scale": 0.88,
+     "enter": "walk",
+     "tag": 14,
+     "tagLabel": "Klose",
+     "tagDelay": 1.4
+    }
+   ]
+  },
+  {
+   "kicker": "Germany v Ghana · 21 June 2014",
+   "headline": "Ghana, again. Klose: [15].",
+   "vo": "Then, against Ghana of all teams, Klose came off the bench and scored with his first touch. Fifteen.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f4",
+     "#e03a3e",
+     "#f7d117",
+     "#0a7a3e"
+    ],
+    "seed": 27
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     2.4,
+     -30
+    ],
+    "tgt": [
+     0,
+     2.0,
+     20
+    ]
+   },
+   "camera": "player",
+   "move": 4,
+   "fans": true,
+   "players": [
+    {
+     "name": "Klose",
+     "num": 11,
+     "kit": {
+      "shirt": "#f4f4f4",
+      "shorts": "#f4f4f4",
+      "socks": "#f4f4f4",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1c",
+     "x": 0,
+     "z": 0,
+     "enter": "walk",
+     "fromZ": -4
+    }
+   ],
+   "card": [
+    {
+     "type": "flip",
+     "pos": "low",
+     "label": "Klose · World Cup goals",
+     "groups": [
+      {
+       "label": "Goals",
+       "value": 15,
+       "from": 14,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "SUB",
+      "big": "1st",
+      "bottom": "TOUCH"
+     }
+    },
+    {
+     "type": "pen",
+     "delay": 2.2,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 540,
+       "cy": 1330,
+       "rx": 175,
+       "ry": 42,
+       "t": 0,
+       "dur": 0.6
+      },
+      {
+       "kind": "text",
+       "text": "1st touch!",
+       "x": 640,
+       "y": 930,
+       "size": 62,
+       "t": 0.6,
+       "dur": 0.6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kicker": "Semi-final · 8 July 2014",
+   "headline": "Semi-final. Brazil v [Germany].",
+   "vo": "Seventeen days later, the semi-final. Brazil against Germany, in Belo Horizonte.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f7d117",
+     "#f7d117",
+     "#0a7a3e",
+     "#1d4fa3"
+    ],
+    "seed": 14
+   },
+   "cut": true,
+   "camFrom": "aerial",
+   "camera": {
+    "pos": [
+     0,
+     60,
+     -110
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "move": 5,
+   "players": [],
+   "focus": 0.35,
+   "card": {
+    "type": "board",
+    "id": "score",
+    "y": 880,
+    "label": "Semi-final · Belo Horizonte",
+    "rows": [
+     {
+      "name": "Brazil",
+      "value": 0
+     },
+     {
+      "name": "Germany",
+      "value": 0
+     }
+    ],
+    "cols": 8,
+    "vcols": 2
+   }
+  },
+  {
+   "kicker": "23rd minute",
+   "headline": "23 minutes: Klose, [16].",
+   "vo": "Twenty-three minutes in, Klose scores. Sixteen. The record is his.",
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     2.4,
+     -30
+    ],
+    "tgt": [
+     0,
+     2.0,
+     20
+    ]
+   },
+   "camera": "player",
+   "move": 3,
+   "fans": true,
+   "focus": 0,
+   "players": [
+    {
+     "name": "Klose",
+     "num": 11,
+     "kit": {
+      "shirt": "#f4f4f4",
+      "shorts": "#f4f4f4",
+      "socks": "#f4f4f4",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1c",
+     "x": 0,
+     "z": 0,
+     "enter": "walk",
+     "fromZ": -3
+    }
+   ],
+   "card": [
+    {
+     "type": "flip",
+     "pos": "low",
+     "label": "Klose · World Cup goals",
+     "groups": [
+      {
+       "label": "Goals",
+       "value": 16,
+       "from": 15,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "MIN",
+      "big": "23'",
+      "bottom": "BRA"
+     }
+    },
+    {
+     "type": "pen",
+     "delay": 1.4,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 540,
+       "cy": 1090,
+       "rx": 200,
+       "ry": 300,
+       "t": 0,
+       "dur": 0.7
+      },
+      {
+       "kind": "arrow",
+       "points": [
+        [
+         860,
+         760
+        ],
+        [
+         930,
+         900
+        ],
+        [
+         760,
+         980
+        ]
+       ],
+       "color": "#ff4d5e",
+       "t": 0.7,
+       "dur": 0.5
+      },
+      {
+       "kind": "text",
+       "text": "RECORD",
+       "x": 700,
+       "y": 740,
+       "size": 58,
+       "color": "#ff4d5e",
+       "t": 0.7,
+       "dur": 0.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kicker": "In the commentary booth",
+   "headline": "Ronaldo was [in the stadium].",
+   "vo": "And Ronaldo was in the stadium, working as a TV commentator.",
+   "scene": {
+    "type": "stage"
+   },
+   "cut": true,
+   "zoomFrom": 1.02,
+   "zoom": 1.12,
+   "move": 4,
+   "lights": 0.5,
+   "accent": "#E9B949",
+   "players": [
+    {
+     "name": "Ronaldo",
+     "num": 9,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#1d4fa3",
+      "socks": "#ffffff",
+      "text": "#0a7a3e",
+      "sleeves": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#1a120c",
+     "sx": 0.5,
+     "scale": 0.88,
+     "enter": "fade",
+     "tag": 15,
+     "tagLabel": "Ronaldo",
+     "tagDelay": 0.4
+    }
+   ]
+  },
+  {
+   "kicker": "Brazil v Germany · first half",
+   "headline": "Four goals. [Six minutes.]",
+   "vo": "Then it got worse. Four German goals in six minutes. Five-nil after twenty-nine.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f7d117",
+     "#f7d117",
+     "#0a7a3e",
+     "#1d4fa3"
+    ],
+    "seed": 14
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     55,
+     -100
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     40,
+     -80
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 5,
+   "players": [],
+   "focus": 0.45,
+   "accent": "#FF4D5E",
+   "card": [
+    {
+     "type": "board",
+     "id": "score",
+     "y": 880,
+     "label": "29 minutes played",
+     "rows": [
+      {
+       "name": "Brazil",
+       "value": 0
+      },
+      {
+       "name": "Germany",
+       "value": 5
+      }
+     ],
+     "cols": 8,
+     "vcols": 2,
+     "focus": 1
+    },
+    {
+     "type": "balls",
+     "n": 5,
+     "r": 30,
+     "step": 0.2,
+     "y": 1250,
+     "delay": 0.9,
+     "label": "5 goals · 29 minutes"
+    }
+   ]
+  },
+  {
+   "kicker": "Full time",
+   "headline": "Final score: [7–1].",
+   "vo": "It ended seven-one. Brazil's heaviest ever World Cup defeat.",
+   "lights": 0.55,
+   "focus": 0.5,
+   "accent": "#FF4D5E",
+   "card": {
+    "type": "board",
+    "id": "score",
+    "y": 880,
+    "label": "Full time",
+    "rows": [
+     {
+      "name": "Brazil",
+      "value": 1
+     },
+     {
+      "name": "Germany",
+      "value": 7
+     }
+    ],
+    "cols": 8,
+    "vcols": 2,
+    "focus": 0,
+    "caption": "Heaviest World Cup defeat",
+    "captionAt": 1.2
+   }
+  },
+  {
+   "kicker": "The record-breaker",
+   "headline": "No [somersault].",
+   "vo": "And Klose? He didn't even do his famous somersault.",
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     2.4,
+     -26
+    ],
+    "tgt": [
+     0,
+     2.0,
+     20
+    ]
+   },
+   "camera": "player",
+   "move": 3,
+   "fans": true,
+   "lights": 0.8,
+   "focus": 0,
+   "players": [
+    {
+     "name": "Klose",
+     "num": 11,
+     "kit": {
+      "shirt": "#f4f4f4",
+      "shorts": "#f4f4f4",
+      "socks": "#f4f4f4",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1c",
+     "x": 0,
+     "z": 0
+    }
+   ],
+   "card": {
+    "type": "pen",
+    "delay": 0.6,
+    "strokes": [
+     {
+      "kind": "arrow",
+      "points": [
+       [
+        690,
+        1060
+       ],
+       [
+        900,
+        760
+       ],
+       [
+        700,
+        700
+       ]
+      ],
+      "dashed": true,
+      "t": 0,
+      "dur": 0.8
+     },
+     {
+      "kind": "x",
+      "cx": 820,
+      "cy": 800,
+      "r": 62,
+      "color": "#ff4d5e",
+      "t": 0.9,
+      "dur": 0.5
+     },
+     {
+      "kind": "text",
+      "text": "no flip",
+      "x": 700,
+      "y": 1180,
+      "size": 64,
+      "t": 1.3,
+      "dur": 0.5
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "World Cup final · 13 July 2014",
+   "headline": "Champions. Record held: [12 years].",
+   "vo": "Five days later, Germany were world champions. And Klose's sixteen stood for twelve years.",
+   "scene": {
+    "type": "stage"
+   },
+   "cut": true,
+   "zoomFrom": 1.0,
+   "zoom": 1.08,
+   "move": 5,
+   "accent": "#E9B949",
+   "confetti": true,
+   "confettiColors": [
+    "#E9B949",
+    "#fff3c4",
+    "#ffffff",
+    "#b77d16"
+   ],
+   "players": [
+    {
+     "name": "Klose",
+     "num": 11,
+     "kit": {
+      "shirt": "#f4f4f4",
+      "shorts": "#f4f4f4",
+      "socks": "#f4f4f4",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1c",
+     "sx": 0.5,
+     "scale": 0.88,
+     "pose": "arms_up",
+     "tag": 16,
+     "tagLabel": "2002 – 2014",
+     "tagDelay": 1.2
+    }
+   ],
+   "card": {
+    "type": "ruler",
+    "y": 720,
+    "min": 2014,
+    "max": 2026,
+    "step": 2,
+    "left": "Klose 16",
+    "markers": [
+     {
+      "value": 2026,
+      "label": "Beaten",
+      "accent": true,
+      "len": 90
+     }
+    ],
+    "bracket": {
+     "from": 2014,
+     "to": 2026,
+     "label": "12 years",
+     "y": 95
+    }
+   }
+  },
+  {
+   "kicker": "World Cup 2026",
+   "headline": "2026: Mbappé [22]. Messi 21.",
+   "vo": "Then, this summer, Messi and Mbappé blew past it. Mbappé now has twenty-two. Can anyone ever catch him?",
+   "zoom": 1.02,
+   "accent": "#E9B949",
+   "focus": 0.5,
+   "players": [
+    {
+     "name": "Ronaldo",
+     "num": 9,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#1d4fa3",
+      "socks": "#ffffff",
+      "text": "#0a7a3e",
+      "sleeves": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#1a120c",
+     "sx": 0.22,
+     "scale": 0.6,
+     "ghost": true,
+     "tag": 15,
+     "tagDelay": -1
+    },
+    {
+     "name": "Klose",
+     "num": 11,
+     "kit": {
+      "shirt": "#f4f4f4",
+      "shorts": "#f4f4f4",
+      "socks": "#f4f4f4",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1c",
+     "sx": 0.41,
+     "scale": 0.6,
+     "ghost": true,
+     "tag": 16,
+     "tagDelay": -1
+    },
+    {
+     "name": "Messi",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ],
+      "shorts": "#111111",
+      "socks": "#ffffff",
+      "text": "#111111"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3b2618",
+     "sx": 0.59,
+     "scale": 0.6,
+     "enter": "fade",
+     "tag": 21,
+     "tagDelay": 0.6
+    },
+    {
+     "name": "Mbappe",
+     "num": 10,
+     "kit": {
+      "shirt": "#1b2a5c",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#7a4a2e",
+     "hair": "#140d08",
+     "sx": 0.78,
+     "scale": 0.6,
+     "enter": "fade",
+     "delay": 0.3,
+     "tag": 22,
+     "tagDelay": 0.9
+    }
+   ],
+   "card": {
+    "type": "board",
+    "id": "race",
+    "y": 800,
+    "label": "World Cup goals · all time",
+    "rows": [
+     {
+      "name": "Mbappé",
+      "value": 22
+     },
+     {
+      "name": "Messi",
+      "value": 21
+     },
+     {
+      "name": "Klose",
+      "value": 16
+     },
+     {
+      "name": "Ronaldo",
+      "value": 15
+     }
+    ],
+    "focusPath": [
+     {
+      "t": 0,
+      "row": 3
+     },
+     {
+      "t": 1.0,
+      "row": 2
+     },
+     {
+      "t": 2.2,
+      "row": 1
+     },
+     {
+      "t": 3.2,
+      "row": 0
+     }
+    ],
+    "caption": "Can anyone catch him?",
+    "captionAt": 4.2
+   }
+  }
+ ]
+}

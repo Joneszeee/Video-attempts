@@ -1144,6 +1144,78 @@ CARDS.board = function (c, ct, cx, cy) {
     }
   }
 };
+// TV-analysis pen: marker strokes that draw themselves on over the shot (screen px, 1080x1920).
+// strokes: [{kind: ellipse|arrow|line|x|text, t, dur, color, width, ...}]
+function penPoints(s) {
+  const R = rng(s.seed || 7), pts = [];
+  if (s.kind === 'ellipse') {
+    const turns = s.turns || 1.12, a0 = s.start != null ? s.start : -1.9;
+    for (let i = 0; i <= 80 * turns; i++) {
+      const a = a0 + i / 80 * Math.PI * 2, k = 1 + (R() - 0.5) * 0.03 + i * 0.0009;
+      pts.push([s.cx + Math.cos(a) * s.rx * k, s.cy + Math.sin(a) * s.ry * k]);
+    }
+  } else if (s.kind === 'x') {
+    const r = s.r || 60;
+    return [[[s.cx - r, s.cy - r], [s.cx + r, s.cy + r]], [[s.cx + r, s.cy - r], [s.cx - r, s.cy + r]]];
+  } else {
+    const P = s.points, n = 40;
+    for (let i = 0; i < P.length - 1; i++) {
+      for (let j = 0; j < n; j++) {
+        const u = j / n;
+        if (P.length === 3) {
+          const t = (i + u) / 2, a = P[0], b = P[1], c = P[2];
+          pts.push([(1 - t) ** 2 * a[0] + 2 * (1 - t) * t * b[0] + t * t * c[0], (1 - t) ** 2 * a[1] + 2 * (1 - t) * t * b[1] + t * t * c[1]]);
+        } else pts.push([lerp(P[i][0], P[i + 1][0], u), lerp(P[i][1], P[i + 1][1], u)]);
+      }
+      if (P.length === 3) break;
+    }
+    pts.push(P[P.length - 1]);
+  }
+  return [pts];
+}
+function markerPath(pts, k, col, w, dash) {
+  const m = Math.max(2, Math.floor(pts.length * k));
+  for (const [pass, a, lw] of [[0, 0.5, w * 1.8], [1, 0.95, w]]) {
+    ctx.save();
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = col; ctx.globalAlpha *= a; ctx.lineWidth = lw;
+    if (pass === 0) { ctx.shadowColor = col; ctx.shadowBlur = 18; }
+    if (dash) ctx.setLineDash(dash);
+    ctx.beginPath(); for (let i = 0; i < m; i++) i ? ctx.lineTo(...pts[i]) : ctx.moveTo(...pts[i]); ctx.stroke();
+    ctx.restore();
+  }
+  return pts[m - 1];
+}
+CARDS.pen = function (c, ct) {
+  for (const s of c.strokes) {
+    const k = eOut(pr(ct, s.t || 0, s.dur || 0.6));
+    if (k <= 0) continue;
+    const col = s.color || '#ffe14d', w = s.width || 9;
+    if (s.kind === 'text') {
+      ctx.save();
+      ctx.translate(s.x, s.y); ctx.rotate(s.rot || -0.08);
+      font(400, s.size || 64, 'Marker', '1px'); ctx.textAlign = s.align || 'left'; ctx.textBaseline = 'alphabetic';
+      const tw = ctx.measureText(s.text).width, x0 = s.align === 'center' ? -tw / 2 : 0;
+      ctx.beginPath(); ctx.rect(x0 - 10, -(s.size || 64) * 1.2, (tw + 20) * k, (s.size || 64) * 1.6); ctx.clip();
+      ctx.lineJoin = 'round'; ctx.lineWidth = (s.size || 64) * 0.18; ctx.strokeStyle = 'rgba(8,10,14,0.85)'; ctx.strokeText(s.text, 0, 0);
+      ctx.shadowColor = col; ctx.shadowBlur = 16; ctx.fillStyle = col; ctx.fillText(s.text, 0, 0);
+      ctx.restore();
+      continue;
+    }
+    const paths = penPoints(s);
+    if (s.kind === 'x') {
+      markerPath(paths[0], Math.min(1, k * 2), col, w);
+      if (k > 0.5) markerPath(paths[1], (k - 0.5) * 2, col, w);
+      continue;
+    }
+    const tip = markerPath(paths[0], k, col, w, s.dashed ? [2, w * 2.4] : null);
+    if (s.kind === 'arrow' && k > 0.97) {
+      const p = paths[0], a = p[p.length - 1], b = p[p.length - 6];
+      const ang = Math.atan2(a[1] - b[1], a[0] - b[0]), L = w * 4.2;
+      markerPath([[a[0] - Math.cos(ang - 0.55) * L, a[1] - Math.sin(ang - 0.55) * L], a, [a[0] - Math.cos(ang + 0.55) * L, a[1] - Math.sin(ang + 0.55) * L]], 1, col, w);
+    }
+  }
+};
+CARDS.pen.noSlide = true;
 CARDS.ballnumber.selfExit = true;
 CARDS.trophies.noSlide = true;
 CARDS.meter.noSlide = true;
@@ -1174,6 +1246,7 @@ function cardEvents(c) {
       (c.focusPath || []).slice(1).forEach(p => ev.push({ t: p.t, type: 'swipe' }));
       break;
     }
+    case 'pen': c.strokes.forEach(s => ev.push({ t: s.t || 0, type: 'swipe' })); break;
     case 'balls': for (let i = 0; i < c.n; i++) ev.push({ t: 0.3 + i * (c.step || 0.12), type: 'pop' }); break;
     case 'ruler': (c.markers || []).forEach((m, i) => ev.push({ t: 0.8 + i * 0.5, type: 'pop' })); if (c.bracket) ev.push({ t: 0.8 + (c.markers || []).length * 0.5, type: 'swipe' }); break;
     case 'trophies': c.items.forEach((it, i) => ev.push({ t: 0.9 + i * 0.5, type: 'impact' })); break;
@@ -1194,7 +1267,7 @@ window.loadSpec = async function (spec) {
   S.spec = spec;
   S.accent = spec.accent || S.accent;
   await Promise.all([document.fonts.load('700 80px Inter'), document.fonts.load('800 80px Inter'),
-    document.fonts.load('500 24px Mono'), document.fonts.load('700 24px Mono')]);
+    document.fonts.load('500 24px Mono'), document.fonts.load('700 24px Mono'), document.fonts.load('40px Marker')]);
   let t = 0, prev = null;
   S.beats = spec.beats.map((b, i) => {
     const B = { ...b };

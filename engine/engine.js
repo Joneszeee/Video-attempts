@@ -373,7 +373,7 @@ function drawStage(t, b, zoom, plt) {
     }
   }
   ctx.globalCompositeOperation = 'source-over';
-  for (const o of ps) drawPlayer(o.x, o.y, o.u, o.p, plt, o.walk, o.a);
+  for (const o of ps) { drawPlayer(o.x, o.y, o.u, o.p, plt, o.walk, o.a); S.anchors[b.playersArr.indexOf(o.p)] = { x: o.x, y: o.y, u: o.u }; }
 
   for (const side of [-1, 1]) {
     for (let i = 0; i < 6; i++) {
@@ -389,6 +389,51 @@ function drawStage(t, b, zoom, plt) {
     ctx.lineWidth = 4; ctx.strokeStyle = goldGrad(x, x + 120); ctx.stroke();
   }
   ctx.restore();
+}
+
+// ---------- commentary booth ----------
+// A broadcast booth high in the stand: blurred stadium through the window, desk, monitors, ON AIR light.
+function drawBooth(t, b, plt) {
+  const scene = b.sceneObj;
+  const cam = mkCam([Math.sin(t * 0.3) * 1.5, 24, -78 + t * 0.05], [0, 0, 18]);
+  drawSky(scene); drawPitch(cam, scene); drawStadium(cam, t, b.world);
+  bgx.clearRect(0, 0, W / Q, H / Q); bgx.filter = 'blur(2px)'; bgx.drawImage(cv, 0, 0, W / Q, H / Q); bgx.filter = 'none';
+  ctx.save(); ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bgc, 0, 0, W, H); ctx.restore();
+  ctx.fillStyle = 'rgba(10,12,18,0.25)'; ctx.fillRect(0, 0, W, H);
+  const sh = ctx.createLinearGradient(0, 300, W, 1100);
+  sh.addColorStop(0.35, 'rgba(255,255,255,0)'); sh.addColorStop(0.42, 'rgba(255,255,255,0.07)'); sh.addColorStop(0.5, 'rgba(255,255,255,0)');
+  ctx.fillStyle = sh; ctx.fillRect(0, 0, W, H);
+  // window frame + wall
+  ctx.fillStyle = '#14161c';
+  ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(70, 560, W - 140, 760); ctx.fill('evenodd');
+  ctx.fillRect(W / 2 - 9, 560, 18, 760);
+  ctx.fillStyle = 'rgba(255,255,255,0.06)'; ctx.fillRect(70, 560, W - 140, 4);
+  // ON AIR light
+  const on = 0.75 + 0.25 * Math.sin(t * 3);
+  ctx.save(); rrect(W - 330, 600, 220, 64, 12); ctx.fillStyle = `rgba(200,20,30,${on})`; ctx.shadowColor = '#ff2a3a'; ctx.shadowBlur = 30 * on; ctx.fill(); ctx.restore();
+  font(800, 34, 'Inter', '4px'); ctx.fillStyle = '#ffe8e8'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('ON AIR', W - 220, 633);
+  // commentator(s) behind the desk
+  for (const [k, p] of b.playersArr.entries()) {
+    const x = (p.sx != null ? p.sx : 0.5) * W, y = 1880, u = 980 * (p.scale || 1);
+    drawPlayer(x, y, u, p, plt, 0, 1);
+    S.anchors[k] = { x, y, u };
+  }
+  // desk
+  let g = ctx.createLinearGradient(0, 1430, 0, 1500); g.addColorStop(0, '#3a3d46'); g.addColorStop(1, '#23252c');
+  ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(-40, 1500); ctx.lineTo(110, 1430); ctx.lineTo(W - 110, 1430); ctx.lineTo(W + 40, 1500); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = '#17181d'; ctx.fillRect(0, 1500, W, H - 1500);
+  const lamp = ctx.createRadialGradient(W / 2, 1460, 0, W / 2, 1460, 520); lamp.addColorStop(0, 'rgba(255,214,150,0.18)'); lamp.addColorStop(1, 'rgba(255,214,150,0)');
+  ctx.fillStyle = lamp; ctx.fillRect(0, 1100, W, 820);
+  // monitors
+  for (const [mx, lines] of [[90, scene.screenLeft || ['BRA 0–2 GER', "23'"]], [W - 370, scene.screenRight || ['LIVE', 'WORLD CUP · SEMI-FINAL']]]) {
+    rrect(mx, 1250, 280, 180, 10); ctx.fillStyle = '#0d0e12'; ctx.fill();
+    const sg = ctx.createLinearGradient(0, 1262, 0, 1418); sg.addColorStop(0, '#1d3b66'); sg.addColorStop(1, '#0f1d33');
+    ctx.fillStyle = sg; ctx.fillRect(mx + 12, 1262, 256, 156);
+    ctx.fillStyle = '#e8f1ff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    font(800, 40, 'Inter', '1px'); ctx.fillText(lines[0], mx + 140, 1320);
+    font(600, 20, 'Mono', '3px'); ctx.fillStyle = '#9fb7d8'; ctx.fillText(lines[1], mx + 140, 1376);
+    ctx.fillStyle = '#0d0e12'; ctx.fillRect(mx + 125, 1430, 30, 14);
+  }
 }
 
 // ---------- players ----------
@@ -436,9 +481,10 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
   for (const side of [-1, 1]) {
     ctx.save();
     ctx.translate(side * u * 0.15, -u * 0.8);
-    ctx.rotate(armsUp ? side * 0.25 + Math.PI : side * 0.12);
+    ctx.rotate(armsUp ? side * 0.25 + Math.PI : p.pose === 'keeper' ? side * 0.95 : side * 0.12);
     ctx.fillStyle = k.sleeves || shirt; rrect(-u * 0.04, 0, u * 0.08, u * 0.1, u * 0.02); ctx.fill();
     ctx.fillStyle = skin; rrect(-u * 0.03, u * 0.09, u * 0.06, u * 0.2, u * 0.03); ctx.fill();
+    if (p.gloves) { ctx.fillStyle = p.gloves; ctx.beginPath(); ctx.arc(0, u * 0.3, u * 0.042, 0, 7); ctx.fill(); }
     ctx.restore();
   }
   ctx.fillStyle = shirt;
@@ -459,14 +505,27 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     ctx.restore();
   }
   ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(-u * 0.135, -u * 0.56, u * 0.27, u * 0.03);
-  if (u > 50) {
+  if (u > 50 && p.front) {
+    ctx.fillStyle = txt; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    if (p.num != null) { font(800, u * 0.07, 'Inter', '0px'); ctx.fillText(String(p.num), u * 0.06, -u * 0.7); }
+  } else if (u > 50) {
     ctx.fillStyle = txt; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
     if (p.name) { font(700, Math.max(6, u * 0.034), 'Mono', `${u * 0.004}px`); ctx.fillText(p.name.toUpperCase(), 0, -u * 0.745); }
     if (p.num != null) { font(800, u * 0.12, 'Inter', '0px'); ctx.fillText(String(p.num), 0, -u * 0.6); }
   }
   ctx.fillStyle = skin; ctx.fillRect(-u * 0.025, -u * 0.87, u * 0.05, u * 0.06);
   ctx.beginPath(); ctx.arc(0, -u * 0.91, u * 0.062, 0, 7); ctx.fill();
-  ctx.fillStyle = hair; ctx.beginPath(); ctx.arc(0, -u * 0.918, u * 0.06, Math.PI * 0.92, Math.PI * 2.08); ctx.fill();
+  ctx.fillStyle = hair; ctx.beginPath();
+  if (p.front) ctx.arc(0, -u * 0.925, u * 0.062, Math.PI * 1.05, Math.PI * 1.95);
+  else ctx.arc(0, -u * 0.918, u * 0.06, Math.PI * 0.92, Math.PI * 2.08);
+  ctx.fill();
+  if (p.headset) {
+    ctx.strokeStyle = '#1c1d22'; ctx.lineWidth = u * 0.016; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.arc(0, -u * 0.915, u * 0.072, Math.PI * 1.08, Math.PI * 1.92); ctx.stroke();
+    ctx.fillStyle = '#26272d';
+    for (const sd of [-1, 1]) { rrect(sd * u * 0.07 - u * 0.022, -u * 0.94, u * 0.044, u * 0.06, u * 0.015); ctx.fill(); }
+    ctx.lineWidth = u * 0.008; ctx.beginPath(); ctx.moveTo(u * 0.07, -u * 0.89); ctx.quadraticCurveTo(u * 0.12, -u * 0.86, u * 0.1, -u * 0.83); ctx.stroke();
+  }
   if (armsUp && p.trophy) drawTrophy(0, -u * 1.2, u);
   if (p.tag != null) {
     const kt = pr(t, p.tagDelay != null ? p.tagDelay : 0.4, 0.4);
@@ -506,9 +565,10 @@ function drawPlayers(cam, lt, players) {
   }
   list.sort((a, b) => b.q[2] - a.q[2]);
   for (const o of list) {
-    const s = proj(o.q);
+    const s = proj(o.q), u = FOC * 1.85 / o.q[2];
     const alpha = o.p.enter === 'fade' ? eOut(pr(lt, o.p.delay || 0, 0.5)) : 1;
-    drawPlayer(s[0], s[1], FOC * 1.85 / o.q[2], o.p, lt, o.walk, alpha);
+    drawPlayer(s[0], s[1], u, o.p, lt, o.walk, alpha);
+    S.anchors[players.indexOf(o.p)] = { x: s[0], y: s[1], u };
   }
 }
 
@@ -1185,8 +1245,21 @@ function markerPath(pts, k, col, w, dash) {
   }
   return pts[m - 1];
 }
+function anchorStroke(s, a) {
+  const P = ([dx, dy]) => [a.x + dx * a.u, a.y + dy * a.u];
+  const o = { ...s };
+  if (s.cx != null) [o.cx, o.cy] = P([s.cx, s.cy]);
+  if (s.rx != null) { o.rx = s.rx * a.u; o.ry = s.ry * a.u; }
+  if (s.r != null) o.r = s.r * a.u;
+  if (s.points) o.points = s.points.map(P);
+  if (s.x != null) [o.x, o.y] = P([s.x, s.y]);
+  return o;
+}
 CARDS.pen = function (c, ct) {
-  for (const s of c.strokes) {
+  const a = c.anchor != null ? S.anchors[c.anchor] : null;
+  if (c.anchor != null && !a) return;
+  for (const s0 of c.strokes) {
+    const s = a ? anchorStroke(s0, a) : s0;
     const k = eOut(pr(ct, s.t || 0, s.dur || 0.6));
     if (k <= 0) continue;
     const col = s.color || '#ffe14d', w = s.width || 9;
@@ -1253,11 +1326,19 @@ CARDS.newspaper.noSlide = true;
 
 // Slow-motion ball path: the ball races along a curve, slows to a crawl near the end, leaves a trail, then the net flashes.
 CARDS.ballpath = function (c, ct) {
-  const P = c.points, dur = c.dur || 1.6, k0 = pr(ct, 0, dur);
-  if (k0 <= 0) return;
+  const dur = c.dur || 1.6, k0 = pr(ct, 0, dur);
+  if (k0 <= 0 || (c.world && !S.cam)) return;
+  if (k0 >= 1 && c.flash === false && c.hide !== false) return;
+  let P = c.points, r0 = c.r || 18, r1 = c.rEnd || 8;
+  if (c.world) {
+    const q = c.points.map(p => toCam(S.cam, p));
+    if (q.some(v => v[2] < NEAR)) return;
+    P = q.map(proj);
+    r0 = Math.max(4, FOC * 0.11 / q[0][2]); r1 = Math.max(3, FOC * 0.11 / q[2][2]);
+  }
   const slow = u => (u < 0.55 ? u / 0.55 * 0.8 : 0.8 + 0.2 * eOut((u - 0.55) / 0.45));
   const at = u => { const a = P[0], b = P[1], d = P[2]; return [(1 - u) ** 2 * a[0] + 2 * (1 - u) * u * b[0] + u * u * d[0], (1 - u) ** 2 * a[1] + 2 * (1 - u) * u * b[1] + u * u * d[1]]; };
-  const u = slow(k0), r0 = c.r || 18, r1 = c.rEnd || 8;
+  const u = c.slowmo === false ? k0 : slow(k0);
   ctx.save();
   ctx.lineCap = 'round';
   for (let i = 0; i < 40; i++) {
@@ -1269,7 +1350,7 @@ CARDS.ballpath = function (c, ct) {
   ctx.globalAlpha = 1;
   const p = at(u); drawBall(p[0], p[1], lerp(r0, r1, u));
   const fk = pr(ct, dur, 0.5);
-  if (fk > 0 && fk < 1) {
+  if (c.flash !== false && fk > 0 && fk < 1) {
     const e = P[2], g = ctx.createRadialGradient(e[0], e[1], 0, e[0], e[1], 160 * fk + 20);
     g.addColorStop(0, `rgba(255,255,255,${0.8 * (1 - fk)})`); g.addColorStop(1, 'rgba(255,255,255,0)');
     ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = g; ctx.fillRect(e[0] - 200, e[1] - 200, 400, 400);
@@ -1308,7 +1389,7 @@ function cardEvents(c) {
       break;
     }
     case 'newspaper': ev.push({ t: 0, type: 'whoosh' }, { t: 0.9, type: 'impact' }); break;
-    case 'ballpath': ev.push({ t: 0, type: 'swish' }, { t: c.dur || 1.6, type: 'crowd' }); break;
+    case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'pen': c.strokes.forEach(s => ev.push({ t: s.t || 0, type: 'swipe' })); break;
     case 'balls': for (let i = 0; i < c.n; i++) ev.push({ t: 0.3 + i * (c.step || 0.12), type: 'pop' }); break;
     case 'ruler': (c.markers || []).forEach((m, i) => ev.push({ t: 0.8 + i * 0.5, type: 'pop' })); if (c.bracket) ev.push({ t: 0.8 + (c.markers || []).length * 0.5, type: 'swipe' }); break;
@@ -1338,7 +1419,7 @@ window.loadSpec = async function (spec) {
     if (i === spec.beats.length - 1) B.dur += spec.tail != null ? spec.tail : 0.8;
     B.start = t; t += B.dur;
     B.sceneObj = b.scene || (prev ? prev.sceneObj : { type: 'stadium' });
-    B.world = B.sceneObj.type === 'stadium' ? buildWorld(B.sceneObj) : null;
+    B.world = B.sceneObj.type === 'stadium' || B.sceneObj.type === 'booth' ? buildWorld(B.sceneObj) : null;
     if (B.sceneObj.type === 'stage') buildStage(B.sceneObj);
     if (b.players === undefined && prev) { B.playersArr = prev.playersArr; B.playersStart = prev.playersStart; }
     else { B.playersArr = b.players || []; B.playersStart = B.start; }
@@ -1451,10 +1532,13 @@ function renderAt(t) {
   ctx.save();
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.globalAlpha = 1;
+  S.anchors = []; S.cam = null;
   if (scene.type === 'stage') drawStage(t, b, stageCamAt(i, lt), t - b.playersStart);
+  else if (scene.type === 'booth') drawBooth(t, b, t - b.playersStart);
   else if (scene.type === 'studio') drawStudio(t, scene);
   else {
     const c = camInBeat(i, lt), cam = mkCam(c.pos, c.tgt);
+    S.cam = cam;
     drawSky(scene);
     drawPitch(cam, scene);
     drawStadium(cam, t, b.world);

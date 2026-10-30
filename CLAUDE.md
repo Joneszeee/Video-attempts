@@ -81,6 +81,10 @@ fallback: put `"timings": [secs per beat]` in the spec).
 - **Guided attention:** `focusPath` walks a highlight down a list in time with the VO.
 - **Continuity:** a card with the same `id` carries across beats instead of re-entering.
 - **Scene variety:** stadium, stage and studio, with crowd colours per club.
+- **Commentary booth scene:** `{"type": "booth", "crowd": [...], "screenLeft": ["BRA 0–2 GER", "23'"], "screenRight": [...]}`. Blurred stadium through the
+  window, desk, monitors, ON AIR light. Players stand behind the desk (`sx`, `scale`, `"headset": true`). Good for pundits, managers, reactions.
+- **Goalkeeper:** a player with `"front": true, "pose": "keeper", "gloves": "#fff"` (faces the camera, arms out).
+- **Use the theatre stage sparingly** (user: it felt overused). Prefer stadiums, booth and studio; at most 1–2 stage beats per video.
 - **TV analysis pen** (`pen` card): circles, arrows and handwritten notes that draw themselves over the original players. Example: `videos/klose-16`.
 - **60fps** is the default render.
 
@@ -162,6 +166,10 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
 - `pen`: TV-analysis marker drawn live over the shot (the user liked this look). `strokes: [{kind: ellipse|arrow|line|x|text, t, dur, color, width, ...}]`
   in screen px. Ellipse: `cx, cy, rx, ry`. Arrow and line: `points` (3 points make a curve). X: `cx, cy, r`. Text: `text, x, y, size, rot` (Permanent Marker font).
   `dashed: true` gives a run line. With the `player` camera the hero stands at x≈540 with feet at y≈1325 and head at y≈860.
+- `pen` with `"anchor": 0` pins the strokes to a player (index in `players`). Coordinates are then in player-heights from the feet
+  (`cx: 0, cy: 0` = feet, `cy: -1` = top of head, `rx: 0.36` ≈ shoulder width). Use this so marks follow the player and always fit.
+- `ballpath` with `"world": true` takes points in pitch metres `[x, y, z]` (stadium scenes) and projects them through the live camera.
+  `flash: false` = saved or not a goal (the ball disappears at the end); `slowmo: false` gives constant speed. Chain several for save → rebound → goal.
 - `meter`: a vertical tube filling with balls. `value`, `max`, `markers: [{label, value}]`, `icon: {kind, label, dx}`
 
 ## Files

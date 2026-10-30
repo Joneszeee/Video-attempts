@@ -57,24 +57,19 @@
    "headline": "2006: Ronaldo, [15].",
    "vo": "In 2006, against Ghana, Ronaldo scored his fifteenth World Cup goal, and passed Gerd Müller.",
    "scene": {
-    "type": "stage"
+    "type": "stadium",
+    "crowd": [
+     "#f7d117",
+     "#e03a3e",
+     "#0a7a3e",
+     "#ffffff"
+    ],
+    "seed": 61
    },
    "cut": true,
-   "zoomFrom": 1.08,
-   "zoom": 1.0,
    "move": 5,
    "accent": "#E9B949",
    "players": [
-    {
-     "name": "Muller",
-     "num": 13,
-     "ghost": true,
-     "sx": 0.27,
-     "scale": 0.72,
-     "tag": 14,
-     "tagLabel": "Müller",
-     "tagDelay": 0.3
-    },
     {
      "name": "Ronaldo",
      "num": 9,
@@ -87,22 +82,56 @@
      },
      "skin": "#8a5a3c",
      "hair": "#1a120c",
-     "sx": 0.6,
-     "scale": 0.88,
-     "enter": "walk",
+     "x": 0.45,
+     "z": 0,
      "tag": 15,
      "tagLabel": "Ronaldo",
      "tagDelay": 1.6
+    },
+    {
+     "name": "Muller",
+     "num": 13,
+     "ghost": true,
+     "x": -1.6,
+     "z": 3,
+     "tag": 14,
+     "tagLabel": "Müller",
+     "tagDelay": 0.4
     }
    ],
    "transition": "polaroid",
-   "polaroidLabel": "Germany 2006"
+   "polaroidLabel": "Germany 2006",
+   "camFrom": {
+    "pos": [
+     0,
+     1.4,
+     -7.5
+    ],
+    "tgt": [
+     0,
+     1.8,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.1,
+     -5.6
+    ],
+    "tgt": [
+     0,
+     1.6,
+     12
+    ]
+   },
+   "fans": true
   },
   {
    "kicker": "Brazil 2014",
    "headline": "His rival: [Klose], on 14.",
    "vo": "Before Brazil 2014, he said he'd be cheering against one man. Miroslav Klose, on fourteen.",
-   "zoom": 1.04,
+   "zoom": 1.02,
    "accent": "#E9B949",
    "players": [
     {
@@ -140,7 +169,13 @@
      "tagLabel": "Klose",
      "tagDelay": 1.4
     }
-   ]
+   ],
+   "scene": {
+    "type": "stage"
+   },
+   "cut": true,
+   "zoomFrom": 1.08,
+   "move": 4
   },
   {
    "kicker": "Germany v Ghana · 21 June 2014",
@@ -211,23 +246,24 @@
     },
     {
      "type": "pen",
+     "anchor": 0,
      "delay": 2.2,
      "strokes": [
       {
        "kind": "ellipse",
-       "cx": 540,
-       "cy": 1330,
-       "rx": 175,
-       "ry": 42,
+       "cx": 0,
+       "cy": 0,
+       "rx": 0.36,
+       "ry": 0.08,
        "t": 0,
        "dur": 0.6
       },
       {
        "kind": "text",
        "text": "1st touch!",
-       "x": 640,
-       "y": 930,
-       "size": 62,
+       "x": 0.22,
+       "y": -1.04,
+       "size": 58,
        "t": 0.6,
        "dur": 0.6
       }
@@ -292,18 +328,29 @@
    "cut": true,
    "camFrom": {
     "pos": [
-     0,
-     2.4,
-     -30
+     0.8,
+     1.7,
+     36
     ],
     "tgt": [
-     0,
-     2.0,
-     20
+     -0.4,
+     1.0,
+     60
     ]
    },
-   "camera": "player",
-   "move": 1.8,
+   "camera": {
+    "pos": [
+     0.9,
+     1.6,
+     39.6
+    ],
+    "tgt": [
+     -0.4,
+     1.0,
+     60
+    ]
+   },
+   "move": 2.0,
    "fans": true,
    "focus": 0,
    "players": [
@@ -318,10 +365,27 @@
      },
      "skin": "#e7b593",
      "hair": "#3a2a1c",
-     "x": -1.0,
-     "z": 0,
+     "x": 0.7,
+     "z": 46.6,
      "enter": "walk",
-     "fromZ": -3
+     "fromZ": 45.2,
+     "walkDur": 1.2
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "pose": "keeper",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#f7d117"
+     },
+     "skin": "#e2b08c",
+     "hair": "#1a120c",
+     "x": -0.2,
+     "z": 51.9
     }
    ],
    "card": [
@@ -345,74 +409,138 @@
     },
     {
      "type": "ballpath",
-     "delay": 1.9,
+     "world": true,
+     "delay": 1.3,
+     "dur": 0.6,
+     "flash": false,
      "points": [
       [
-       330,
-       1300
+       0.75,
+       0.11,
+       46.9
       ],
       [
-       420,
-       980
+       0.4,
+       0.9,
+       49.5
       ],
       [
-       548,
-       1068
+       -0.15,
+       0.9,
+       51.6
       ]
-     ],
-     "dur": 1.3,
-     "r": 20,
-     "rEnd": 7
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 1.9,
+     "dur": 0.45,
+     "flash": false,
+     "slowmo": false,
+     "points": [
+      [
+       -0.15,
+       0.9,
+       51.6
+      ],
+      [
+       0.5,
+       0.5,
+       49.5
+      ],
+      [
+       0.75,
+       0.11,
+       47.6
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 2.35,
+     "dur": 1.0,
+     "points": [
+      [
+       0.75,
+       0.11,
+       47.6
+      ],
+      [
+       1.6,
+       0.4,
+       50.5
+      ],
+      [
+       2.6,
+       0.5,
+       53.0
+      ]
+     ]
     },
     {
      "type": "pen",
-     "delay": 3.1,
+     "anchor": 0,
+     "delay": 3.4,
      "strokes": [
       {
        "kind": "ellipse",
-       "cx": 290,
-       "cy": 1090,
-       "rx": 190,
-       "ry": 300,
+       "cx": 0,
+       "cy": -0.5,
+       "rx": 0.45,
+       "ry": 0.62,
        "t": 0,
-       "dur": 0.6
-      },
-      {
-       "kind": "ellipse",
-       "cx": 548,
-       "cy": 1068,
-       "rx": 70,
-       "ry": 40,
-       "color": "#ff4d5e",
-       "t": 0.5,
-       "dur": 0.4
+       "dur": 0.5
       },
       {
        "kind": "text",
        "text": "RECORD",
-       "x": 600,
-       "y": 960,
+       "x": 0.3,
+       "y": -1.12,
        "size": 58,
        "color": "#ff4d5e",
-       "t": 0.8,
+       "t": 0.4,
        "dur": 0.4
       }
      ]
     }
-   ]
+   ],
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f7d117",
+     "#f7d117",
+     "#0a7a3e",
+     "#1d4fa3"
+    ],
+    "seed": 14
+   }
   },
   {
    "kicker": "In the commentary booth",
    "headline": "Ronaldo was [in the stadium].",
    "vo": "And Ronaldo was in the stadium, working as a TV commentator.",
    "scene": {
-    "type": "stage"
+    "type": "booth",
+    "crowd": [
+     "#f7d117",
+     "#f7d117",
+     "#0a7a3e",
+     "#1d4fa3"
+    ],
+    "seed": 14,
+    "screenLeft": [
+     "BRA 0–2 GER",
+     "23'"
+    ],
+    "screenRight": [
+     "LIVE",
+     "WORLD CUP · SEMI-FINAL"
+    ]
    },
    "cut": true,
-   "zoomFrom": 1.02,
-   "zoom": 1.12,
-   "move": 4,
-   "lights": 0.5,
+   "lights": 1,
    "accent": "#E9B949",
    "players": [
     {
@@ -428,11 +556,8 @@
      "skin": "#8a5a3c",
      "hair": "#1a120c",
      "sx": 0.5,
-     "scale": 0.88,
-     "enter": "fade",
-     "tag": 15,
-     "tagLabel": "Ronaldo",
-     "tagDelay": 0.4
+     "headset": true,
+     "scale": 0.85
     }
    ]
   },
@@ -569,7 +694,7 @@
     ]
    },
    "camera": "player",
-   "move": 3,
+   "move": 1.4,
    "fans": true,
    "lights": 0.8,
    "focus": 0,
@@ -591,22 +716,23 @@
    ],
    "card": {
     "type": "pen",
+    "anchor": 0,
     "delay": 0.6,
     "strokes": [
      {
       "kind": "arrow",
       "points": [
        [
-        690,
-        1060
+        0.15,
+        -0.3
        ],
        [
-        900,
-        760
+        0.62,
+        -1.05
        ],
        [
-        700,
-        700
+        0.18,
+        -1.2
        ]
       ],
       "dashed": true,
@@ -615,9 +741,9 @@
      },
      {
       "kind": "x",
-      "cx": 820,
-      "cy": 800,
-      "r": 62,
+      "cx": 0.42,
+      "cy": -0.98,
+      "r": 0.13,
       "color": "#ff4d5e",
       "t": 0.9,
       "dur": 0.5
@@ -625,9 +751,9 @@
      {
       "kind": "text",
       "text": "no flip",
-      "x": 700,
-      "y": 1180,
-      "size": 64,
+      "x": 0.2,
+      "y": -0.32,
+      "size": 62,
       "t": 1.3,
       "dur": 0.5
      }
@@ -639,12 +765,17 @@
    "headline": "Champions. Record held: [12 years].",
    "vo": "Five days later, Germany were world champions. And Klose's sixteen stood for twelve years.",
    "scene": {
-    "type": "stage"
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f4",
+     "#f4f4f4",
+     "#75aadb",
+     "#111111"
+    ],
+    "seed": 88
    },
    "cut": true,
-   "zoomFrom": 1.0,
-   "zoom": 1.08,
-   "move": 5,
+   "move": 4,
    "accent": "#E9B949",
    "confetti": true,
    "confettiColors": [
@@ -665,17 +796,15 @@
      },
      "skin": "#e7b593",
      "hair": "#3a2a1c",
-     "sx": 0.5,
-     "scale": 0.88,
+     "x": 0,
+     "z": 0,
      "pose": "arms_up",
-     "tag": 16,
-     "tagLabel": "2002 – 2014",
-     "tagDelay": 1.2
+     "trophy": true
     }
    ],
    "card": {
     "type": "ruler",
-    "y": 720,
+    "y": 640,
     "min": 2014,
     "max": 2026,
     "step": 2,
@@ -694,13 +823,38 @@
      "label": "12 years",
      "y": 95
     }
-   }
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.2,
+     -7
+    ],
+    "tgt": [
+     0,
+     1.8,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.0,
+     -5.4
+    ],
+    "tgt": [
+     0,
+     1.6,
+     12
+    ]
+   },
+   "fans": true
   },
   {
    "kicker": "World Cup 2026",
    "headline": "2026: Mbappé [22]. Messi 21.",
    "vo": "Then, this summer, Messi and Mbappé blew past it. Mbappé now has twenty-two. Can anyone ever catch him?",
-   "zoom": 1.02,
+   "zoom": 1.0,
    "accent": "#E9B949",
    "focus": 0.5,
    "players": [
@@ -822,7 +976,12 @@
     ],
     "caption": "Can anyone catch him?",
     "captionAt": 4.2
-   }
+   },
+   "scene": {
+    "type": "stage"
+   },
+   "cut": true,
+   "zoomFrom": 1.06
   }
  ]
 }

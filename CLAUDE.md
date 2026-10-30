@@ -32,6 +32,10 @@ Two looks:
    **Kokoro sounds flat and robotic (user feedback), so use it only for previews.** For finals, prefer ElevenLabs v3: write
    `videos/<slug>/vo_elevenlabs.md` with an [emotion] tag and a delivery note per line (example: `videos/messi-91/vo_elevenlabs.md`).
    The user uploads one clip per line (`01.mp3` …), and `build.py --vo <folder>` trims and joins them and syncs exactly.
+   **If they upload one single file** (ElevenLabs pauses inside lines too, so pause detection is unreliable), align it against the
+   Kokoro read of the same script: `python3 engine/tts.py vo.txt out/vo.wav` (reference), then
+   `python3 engine/align_vo.py <their file> out/vo.wav`. This writes `<their file>.beats.json` (MFCC + DTW, snapped to pauses),
+   which `build.py --vo <their file>` uses automatically.
 4. Run `python3 build.py videos/<slug>/spec.json --vo <voice file> --out videos/<slug>/out/<slug>_final.mp4` to sync the beats to
    the voice, mix it with the SFX (normalised to -14 LUFS for Instagram) and send the final MP4.
 

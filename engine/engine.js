@@ -208,14 +208,23 @@ function drawPitch(cam, scene) {
     const spot = e - 11 * s, ang = Math.acos(5.5 / 9.15);
     const base = s > 0 ? -Math.PI / 2 : Math.PI / 2;
     path3(cam, arcPts(0, spot, 9.15, base - ang, base + ang, 20), w, L);
-    // goal frame and net
-    const gz = e + 1.8 * s;
-    path3(cam, [[-3.66, 0, e], [-3.66, 2.44, e], [3.66, 2.44, e], [3.66, 0, e]], 0.16, '#ffffff');
-    const net = 'rgba(255,255,255,0.35)';
-    path3(cam, [[-3.66, 2.44, e], [-3.66, 2.0, gz], [-3.66, 0, gz]], 0.05, net);
-    path3(cam, [[3.66, 2.44, e], [3.66, 2.0, gz], [3.66, 0, gz]], 0.05, net);
-    path3(cam, [[-3.66, 2.0, gz], [3.66, 2.0, gz]], 0.05, net);
-    for (let x = -3; x <= 3; x += 1.2) path3(cam, [[x, 2.44, e], [x, 2.0, gz], [x, 0, gz]], 0.03, net);
+  }
+}
+// Goals are drawn after the stands, so the stand behind never paints over the crossbar.
+function drawGoals(cam) {
+  for (const s of [-1, 1]) {
+    const e = 52.5 * s, gz = e + 2.0 * s, net = 'rgba(255,255,255,0.42)';
+    fillPoly3(cam, [[-3.66, 0, e], [-3.66, 2.44, e], [-3.66, 2.1, gz], [-3.66, 0, gz]], 'rgba(255,255,255,0.06)');
+    fillPoly3(cam, [[3.66, 0, e], [3.66, 2.44, e], [3.66, 2.1, gz], [3.66, 0, gz]], 'rgba(255,255,255,0.06)');
+    fillPoly3(cam, [[-3.66, 2.1, gz], [3.66, 2.1, gz], [3.66, 0, gz], [-3.66, 0, gz]], 'rgba(255,255,255,0.08)');
+    for (let x = -3.66; x <= 3.67; x += 0.61) path3(cam, [[x, 2.44, e], [x, 2.1, gz], [x, 0, gz]], 0.025, net);
+    for (let y = 0.3; y < 2.2; y += 0.3) {
+      path3(cam, [[-3.66, y, gz], [3.66, y, gz]], 0.025, net);
+      path3(cam, [[-3.66, y * 1.16, e], [-3.66, y, gz]], 0.025, net);
+      path3(cam, [[3.66, y * 1.16, e], [3.66, y, gz]], 0.025, net);
+    }
+    for (let z = 0.5; z < 2.0; z += 0.5) path3(cam, [[-3.66, 2.44 - z * 0.17, e + z * s], [3.66, 2.44 - z * 0.17, e + z * s]], 0.025, net);
+    path3(cam, [[-3.66, 0, e], [-3.66, 2.44, e], [3.66, 2.44, e], [3.66, 0, e]], 0.17, '#ffffff');
   }
 }
 
@@ -351,6 +360,8 @@ function drawStage(t, b, zoom, plt) {
   ctx.fillStyle = goldGrad(0, W); ctx.fillRect(-300, FLOOR_Y - 5, W + 600, 7);
 
   const ps = stagePlayers(plt, b.playersArr);
+  for (const o of ps) S.anchors[b.playersArr.indexOf(o.p)] = { x: o.x, y: o.y, u: o.u };
+  drawUnderPens();
   ctx.globalCompositeOperation = 'lighter';
   for (const o of ps) {
     if (o.p.ghost || o.p.spot === false) continue;
@@ -396,7 +407,7 @@ function drawStage(t, b, zoom, plt) {
 function drawBooth(t, b, plt) {
   const scene = b.sceneObj;
   const cam = mkCam([Math.sin(t * 0.3) * 1.5, 24, -78 + t * 0.05], [0, 0, 18]);
-  drawSky(scene); drawPitch(cam, scene); drawStadium(cam, t, b.world);
+  drawSky(scene); drawPitch(cam, scene); drawStadium(cam, t, b.world); drawGoals(cam);
   bgx.clearRect(0, 0, W / Q, H / Q); bgx.filter = 'blur(2px)'; bgx.drawImage(cv, 0, 0, W / Q, H / Q); bgx.filter = 'none';
   ctx.save(); ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bgc, 0, 0, W, H); ctx.restore();
   ctx.fillStyle = 'rgba(10,12,18,0.25)'; ctx.fillRect(0, 0, W, H);
@@ -413,6 +424,7 @@ function drawBooth(t, b, plt) {
   ctx.save(); rrect(W - 330, 600, 220, 64, 12); ctx.fillStyle = `rgba(200,20,30,${on})`; ctx.shadowColor = '#ff2a3a'; ctx.shadowBlur = 30 * on; ctx.fill(); ctx.restore();
   font(800, 34, 'Inter', '4px'); ctx.fillStyle = '#ffe8e8'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('ON AIR', W - 220, 633);
   // commentator(s) behind the desk
+  drawUnderPens();
   for (const [k, p] of b.playersArr.entries()) {
     const x = (p.sx != null ? p.sx : 0.5) * W, y = 1880, u = 980 * (p.scale || 1);
     drawPlayer(x, y, u, p, plt, 0, 1);
@@ -430,8 +442,9 @@ function drawBooth(t, b, plt) {
     const sg = ctx.createLinearGradient(0, 1262, 0, 1418); sg.addColorStop(0, '#1d3b66'); sg.addColorStop(1, '#0f1d33');
     ctx.fillStyle = sg; ctx.fillRect(mx + 12, 1262, 256, 156);
     ctx.fillStyle = '#e8f1ff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    font(800, 40, 'Inter', '1px'); ctx.fillText(lines[0], mx + 140, 1320);
-    font(600, 20, 'Mono', '3px'); ctx.fillStyle = '#9fb7d8'; ctx.fillText(lines[1], mx + 140, 1376);
+    const fit = (txt, w, sz, fam, ls) => { let z = sz; do { font(fam === 'Mono' ? 600 : 800, z, fam, ls); z -= 1; } while (ctx.measureText(txt).width > w && z > 10); };
+    fit(lines[0], 230, 40, 'Inter', '0px'); ctx.fillText(lines[0], mx + 140, 1322);
+    fit(lines[1], 232, 20, 'Mono', '2px'); ctx.fillStyle = '#9fb7d8'; ctx.fillText(lines[1], mx + 140, 1378);
     ctx.fillStyle = '#0d0e12'; ctx.fillRect(mx + 125, 1430, 30, 14);
   }
 }
@@ -564,6 +577,11 @@ function drawPlayers(cam, lt, players) {
     list.push({ p, q, walk });
   }
   list.sort((a, b) => b.q[2] - a.q[2]);
+  for (const o of list) {
+    const s = proj(o.q);
+    S.anchors[players.indexOf(o.p)] = { x: s[0], y: s[1], u: FOC * 1.85 / o.q[2] };
+  }
+  drawUnderPens();
   for (const o of list) {
     const s = proj(o.q), u = FOC * 1.85 / o.q[2];
     const alpha = o.p.enter === 'fade' ? eOut(pr(lt, o.p.delay || 0, 0.5)) : 1;
@@ -1204,6 +1222,19 @@ CARDS.board = function (c, ct, cx, cy) {
     }
   }
 };
+// Draws pen strokes marked layer "under" (e.g. a ring on the grass) before the players, so legs and cards sit on top.
+function drawUnderPens() {
+  const b = S.cur;
+  if (!b) return;
+  for (const it of b.cards) {
+    if (it.obj.type !== 'pen' || !it.obj.strokes.some(s => s.layer === 'under')) continue;
+    const ct = S.t - it.start;
+    if (ct < 0) continue;
+    ctx.save();
+    it.obj._under = true; CARDS.pen(it.obj, ct); it.obj._under = false;
+    ctx.restore();
+  }
+}
 // TV-analysis pen: marker strokes that draw themselves on over the shot (screen px, 1080x1920).
 // strokes: [{kind: ellipse|arrow|line|x|text, t, dur, color, width, ...}]
 function penPoints(s) {
@@ -1259,6 +1290,7 @@ CARDS.pen = function (c, ct) {
   const a = c.anchor != null ? S.anchors[c.anchor] : null;
   if (c.anchor != null && !a) return;
   for (const s0 of c.strokes) {
+    if ((s0.layer === 'under') !== !!c._under) continue;
     const s = a ? anchorStroke(s0, a) : s0;
     const k = eOut(pr(ct, s.t || 0, s.dur || 0.6));
     if (k <= 0) continue;
@@ -1532,7 +1564,7 @@ function renderAt(t) {
   ctx.save();
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.globalAlpha = 1;
-  S.anchors = []; S.cam = null;
+  S.anchors = []; S.cam = null; S.cur = b; S.t = t;
   if (scene.type === 'stage') drawStage(t, b, stageCamAt(i, lt), t - b.playersStart);
   else if (scene.type === 'booth') drawBooth(t, b, t - b.playersStart);
   else if (scene.type === 'studio') drawStudio(t, scene);
@@ -1542,6 +1574,7 @@ function renderAt(t) {
     drawSky(scene);
     drawPitch(cam, scene);
     drawStadium(cam, t, b.world);
+    drawGoals(cam);
     drawPlayers(cam, t - b.playersStart, b.playersArr);
   }
   if (scene.type === 'stadium' && b.fans) drawFans(t, scene);

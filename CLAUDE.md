@@ -168,6 +168,8 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
   `dashed: true` gives a run line. With the `player` camera the hero stands at x≈540 with feet at y≈1325 and head at y≈860.
 - `pen` with `"anchor": 0` pins the strokes to a player (index in `players`). Coordinates are then in player-heights from the feet
   (`cx: 0, cy: 0` = feet, `cy: -1` = top of head, `rx: 0.36` ≈ shoulder width). Use this so marks follow the player and always fit.
+- `pen` strokes with `"layer": "under"` are drawn on the pitch **behind players and cards** (user wants circles and rings under the player's
+  feet or behind his body, not on top of him). Use `under` for rings and circles around players. Text, arrows and Xs stay on top.
 - `ballpath` with `"world": true` takes points in pitch metres `[x, y, z]` (stadium scenes) and projects them through the live camera.
   `flash: false` = saved or not a goal (the ball disappears at the end); `slowmo: false` gives constant speed. Chain several for save → rebound → goal.
 - `meter`: a vertical tube filling with balls. `value`, `max`, `markers: [{label, value}]`, `icon: {kind, label, dx}`

@@ -56,8 +56,9 @@ def resolve(spec, beat_starts, speech):
         rel = lambda phrase: round(s0 + frac_of(b.get('vo', ''), phrase) * (s1 - s0) - beat_starts[i], 3)
         _resolve_beat(b, rel)
         for sh in b.get('shots', []):
-            sh['_t'] = rel(sh['at'])
-            _resolve_beat(sh, rel)
+            # inside a shot, phrases resolve relative to the shot's start, and plain numbers already are
+            sh['_t'] = t0 = rel(sh['at'])
+            _resolve_beat(sh, lambda phrase, t0=t0: round(rel(phrase) - t0, 3))
         out.extend(_split(b))
     spec['beats'] = out
 
@@ -81,6 +82,12 @@ def _resolve_beat(b, rel):
         if c.get('type') == 'receipt' and isinstance(c.get('totalAt'), str):
             n = len(c.get('lines', [])) + 1
             c['step'] = round(max(0.15, (rel(c.pop('totalAt')) - base - 0.2) / n), 3)
+        if c.get('type') == 'rain':
+            for g in c['groups']:
+                if 'at' in g:
+                    g['t'] = round(max(0, rel(g.pop('at')) - base), 3)
+            if isinstance(c.get('emptyAt'), str):
+                c['emptyT'] = round(max(0, rel(c.pop('emptyAt')) - base), 3)
         if c.get('type') == 'pen':
             base = c.get('delay', 0.3)
             for s in c['strokes']:
@@ -93,25 +100,12 @@ def _resolve_beat(b, rel):
             p['tagDelay'] = rel(p.pop('tagAt'))
         if 'actionAt' in p:  # e.g. the kick starts so the strike lands on the word: use "lag" to shift
             p['actionDelay'] = round(rel(p.pop('actionAt')) + p.pop('actionLag', 0), 3)
-    for key in ('punch', 'shake'):
+    if isinstance(b.get('freezeAt'), str):
+        b['freeze'] = round(rel(b.pop('freezeAt')) + b.pop('freezeLag', 0), 3)
+    for key in ('punch', 'shake', 'speedlines'):
         for fx in b.get(key) or []:
             if 'at' in fx:
                 fx['t'] = round(rel(fx.pop('at')) + fx.pop('lag', 0), 3)
-
-
-def _shift(b, dt):
-    """Make a shot's times relative to the shot's own start."""
-    for c in _cards(b):
-        if 'delay' in c:
-            c['delay'] = round(c['delay'] - dt, 3)
-    for p in b.get('players') or []:
-        for k in ('delay', 'tagDelay', 'actionDelay'):
-            if k in p:
-                p[k] = round(p[k] - dt, 3)
-    for key in ('punch', 'shake'):
-        for fx in b.get(key) or []:
-            if 't' in fx:
-                fx['t'] = round(fx['t'] - dt, 3)
 
 
 def _split(b):
@@ -131,7 +125,8 @@ def _split(b):
         nb.setdefault('card', 'same' if prev.get('card') else None)
         nb['vo'] = ''
         nb['duration'] = round(cuts[k + 1] - cuts[k], 3)
-        _shift(nb, sh['_t'])
+        if 'accent' in prev and 'accent' not in sh and 'headline' not in sh:  # same headline keeps its accent
+            nb['accent'] = prev['accent']
         parts.append(nb)
         prev = nb
     return parts

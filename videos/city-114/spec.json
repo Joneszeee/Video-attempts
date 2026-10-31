@@ -18,16 +18,55 @@
     ],
     "seed": 19
    },
-   "camFrom": "aerial",
-   "camera": "high",
-   "move": 7,
-   "focus": 0.5,
-   "players": [],
+   "camFrom": {
+    "pos": [
+     0,
+     1.25,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.15,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.15,
+     -4.4
+    ],
+    "tgt": [
+     0,
+     1.05,
+     12
+    ]
+   },
+   "move": 4,
+   "focus": 0,
+   "players": [
+    {
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "name": "City",
+     "num": 9,
+     "x": 0,
+     "z": 0,
+     "front": true,
+     "chest": true
+    }
+   ],
    "card": [
     {
      "type": "board",
      "id": "table",
-     "y": 760,
+     "y": 1530,
      "delay": -1.1,
      "label": "Premier League · after 8 games",
      "rows": [
@@ -52,15 +91,144 @@
        "row": 0
       }
      ]
-    },
+    }
+   ],
+   "speedlines": [
     {
-     "type": "stamp",
-     "text": "GUILTY",
-     "sub": "114 of 115 charges",
-     "y": 1180,
-     "rot": -0.14,
-     "size": 130,
-     "at": "guilty"
+     "t": 0,
+     "dur": 2.2
+    }
+   ],
+   "shots": [
+    {
+     "at": "They've also",
+     "cut": true,
+     "camFrom": {
+      "pos": [
+       0.2,
+       1.8,
+       34.4
+      ],
+      "tgt": [
+       0.4,
+       1.3,
+       60
+      ]
+     },
+     "camera": {
+      "pos": [
+       0.3,
+       1.6,
+       35.2
+      ],
+      "tgt": [
+       0.5,
+       1.2,
+       60
+      ]
+     },
+     "move": 4,
+     "fans": true,
+     "players": [
+      {
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#e2b08c",
+       "hair": "#2a1a10",
+       "name": "",
+       "num": 9,
+       "x": 0.45,
+       "z": 40.1,
+       "action": "kick",
+       "actionDelay": 0.05,
+       "actionDur": 1.3,
+       "after": "celebrate"
+      },
+      {
+       "name": "Keeper",
+       "front": true,
+       "x": 0.4,
+       "z": 52.0,
+       "action": "dive",
+       "dir": -1,
+       "actionDelay": 0.62,
+       "before": "ready",
+       "gloves": "#f2f2f2",
+       "kit": {
+        "shirt": "#2b2f3a",
+        "shorts": "#2b2f3a",
+        "socks": "#2b2f3a",
+        "text": "#f7d117"
+       },
+       "skin": "#d9a37c",
+       "hair": "#1a120c"
+      }
+     ],
+     "punch": [
+      {
+       "t": 0.2,
+       "amount": 0.3,
+       "dur": 1.4,
+       "anchor": 0
+      }
+     ],
+     "shake": [
+      {
+       "t": 1.55,
+       "amount": 22
+      }
+     ],
+     "freezeAt": "guilty",
+     "freezeLag": 0.1,
+     "card": [
+      {
+       "type": "ball",
+       "delay": 0,
+       "point": [
+        0.62,
+        0.11,
+        40.5
+       ],
+       "until": 0.6
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "delay": 0.6,
+       "dur": 0.95,
+       "points": [
+        [
+         0.62,
+         0.11,
+         40.5
+        ],
+        [
+         1.6,
+         1.4,
+         47
+        ],
+        [
+         2.9,
+         1.6,
+         53.0
+        ]
+       ]
+      },
+      {
+       "type": "stamp",
+       "text": "GUILTY",
+       "sub": "114 of 115 charges",
+       "y": 1180,
+       "rot": -0.14,
+       "size": 130,
+       "at": "guilty",
+       "lag": 0.15
+      }
+     ]
     }
    ]
   },
@@ -69,8 +237,14 @@
    "headline": "29 September: the [verdict].",
    "vo": "On the twenty-ninth of September, an independent commission finally ruled on a case dating back to February 2023.",
    "scene": {
-    "type": "studio",
-    "glow": "#6cabdd"
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
    },
    "cut": true,
    "players": [],
@@ -137,116 +311,231 @@
       }
      }
     }
-   ]
+   ],
+   "camFrom": "stand",
+   "camera": {
+    "pos": [
+     0,
+     22,
+     -60
+    ],
+    "tgt": [
+     0,
+     2,
+     20
+    ]
+   },
+   "move": 8,
+   "lights": 0.4,
+   "focus": 0.45
   },
   {
    "kicker": "The commission's finding",
    "headline": "[£830m] in disguised funding.",
    "accent": "#FF4D5E",
    "vo": "The key finding: sham sponsorship deals inflated City's income by eight hundred and thirty million pounds, over nine seasons.",
-   "card": {
-    "type": "receipt",
-    "y": 1000,
-    "step": 0.55,
-    "title": "Sponsorship",
-    "sub": "Man City · 2009/10 – 2017/18",
-    "lines": [
-     [
-      "Deals declared",
-      "FULL VALUE"
+   "card": [
+    {
+     "type": "vehicle",
+     "kind": "van",
+     "label": "SPONSOR",
+     "color": "#e9edf2",
+     "stripe": "#6cabdd",
+     "labelColor": "#1c2c5b",
+     "length": 7,
+     "from": [
+      -26,
+      0,
+      3
      ],
-     [
-      "Paid by sponsors",
-      "ONLY PART"
+     "to": [
+      0,
+      0,
+      3
      ],
-     [
-      "Topped up by owners",
-      "THE REST",
-      true
+     "dur": 1.4,
+     "at": "The key"
+    },
+    {
+     "type": "stamp",
+     "text": "SHAM",
+     "y": 1080,
+     "rot": -0.12,
+     "size": 150,
+     "at": "sham",
+     "lag": 0.2
+    }
+   ],
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     2.6,
+     -12
+    ],
+    "tgt": [
+     0,
+     1.8,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     2.3,
+     -10
+    ],
+    "tgt": [
+     0,
+     1.6,
+     20
+    ]
+   },
+   "move": 5,
+   "players": [],
+   "lights": 0.85,
+   "fans": true,
+   "shots": [
+    {
+     "at": "inflated",
+     "focus": 0.5,
+     "lights": 0.6,
+     "card": [
+      {
+       "type": "vehicle",
+       "kind": "van",
+       "label": "SPONSOR",
+       "color": "#e9edf2",
+       "stripe": "#6cabdd",
+       "labelColor": "#1c2c5b",
+       "length": 7,
+       "from": [
+        -26,
+        0,
+        3
+       ],
+       "to": [
+        0,
+        0,
+        3
+       ],
+       "dur": 1.4,
+       "at": "The key"
+      },
+      {
+       "type": "receipt",
+       "y": 1010,
+       "title": "Sponsorship",
+       "sub": "Man City · 2009/10 – 2017/18",
+       "lines": [
+        [
+         "Deals declared",
+         "FULL VALUE"
+        ],
+        [
+         "Paid by sponsors",
+         "ONLY PART"
+        ],
+        [
+         "Topped up by owners",
+         "THE REST",
+         true
+        ]
+       ],
+       "total": [
+        "Revenue inflated",
+        "£830M"
+       ],
+       "delay": 0,
+       "totalAt": "eight hundred"
+      }
      ]
-    ],
-    "total": [
-     "Revenue inflated",
-     "£830M"
-    ],
-    "at": "sham",
-    "totalAt": "eight hundred"
-   }
+    }
+   ]
   },
   {
    "kicker": "The charges",
    "headline": "Proven: [114] of 115.",
    "accent": "#FF4D5E",
    "vo": "Every single financial charge was proven. So were thirty-four of the thirty-five for failing to cooperate.",
-   "card": [
-    {
-     "type": "vs",
-     "y": 650,
-     "label": "Charges proven",
-     "items": [
-      {
-       "label": "Financial",
-       "value": 80,
-       "suffix": "/80",
-       "accent": true
-      },
-      {
-       "label": "Cooperation",
-       "value": 34,
-       "suffix": "/35"
-      }
-     ],
-     "size": 104,
-     "colW": 400,
-     "at": "financial"
-    },
-    {
-     "type": "dots",
-     "y": 1180,
-     "label": "Failure to cooperate",
-     "caption": "1 not proven",
-     "states": [
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "hit",
-      "miss"
-     ],
-     "step": 0.03,
-     "counter": false,
-     "at": "thirty-four"
-    }
-   ]
+   "card": {
+    "type": "rain",
+    "icon": "doc",
+    "y": 1020,
+    "cols": 10,
+    "cell": 62,
+    "delay": 0,
+    "groups": [
+     {
+      "n": 80,
+      "color": "#f1c453",
+      "at": "Every single",
+      "dur": 2.0
+     },
+     {
+      "n": 34,
+      "color": "#FF4D5E",
+      "at": "thirty-four",
+      "dur": 1.2
+     }
+    ],
+    "empty": 1,
+    "emptyAt": "thirty-five",
+    "emptyLabel": "Not proven",
+    "label": "Charges proven",
+    "counterGap": 120,
+    "counterSize": 110
+   },
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     30,
+     -80
+    ],
+    "tgt": [
+     0,
+     0,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     24,
+     -70
+    ],
+    "tgt": [
+     0,
+     0,
+     20
+    ]
+   },
+   "move": 7,
+   "lights": 0.3,
+   "focus": 0.3,
+   "players": [],
+   "fans": false
   },
   {
    "kicker": "Man City's response",
@@ -289,10 +578,12 @@
      },
      "skin": "#e2b08c",
      "hair": "#2a1a10",
+     "name": "City",
+     "num": 9,
      "x": 0,
      "z": 0,
-     "name": "",
-     "num": null
+     "front": true,
+     "chest": true
     }
    ],
    "card": [
@@ -392,8 +683,90 @@
       "cols": 8,
       "vcols": 7,
       "focus": 2
+     }
+    }
+   ],
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.9,
+     -5
+    ],
+    "tgt": [
+     0,
+     1.4,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -3.5
+    ],
+    "tgt": [
+     0,
+     1.4,
+     20
+    ]
+   },
+   "move": 4,
+   "lights": 0.9,
+   "focus": 0.2,
+   "confetti": true,
+   "confettiColors": [
+    "#6cabdd",
+    "#ffffff",
+    "#1c2c5b"
+   ],
+   "players": [
+    {
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
      },
-     "lights": 0.45
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "name": "",
+     "num": 9,
+     "x": -1.6,
+     "z": 4,
+     "action": "celebrate"
+    },
+    {
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "name": "",
+     "num": 17,
+     "x": 0.5,
+     "z": 6.5,
+     "action": "celebrate",
+     "actionDelay": 0.3
+    },
+    {
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "name": "",
+     "num": 47,
+     "x": 2.0,
+     "z": 4.8,
+     "action": "celebrate",
+     "actionDelay": 0.15
     }
    ]
   },
@@ -402,13 +775,18 @@
    "headline": "Record deduction: [10 points].",
    "vo": "For context, the biggest points deduction in Premier League history is ten. Everton, later cut to six.",
    "scene": {
-    "type": "studio",
-    "glow": "#6cabdd"
+    "type": "stadium",
+    "crowd": [
+     "#003399",
+     "#003399",
+     "#ffffff"
+    ],
+    "seed": 7
    },
    "cut": true,
    "players": [],
-   "focus": 0,
-   "lights": 1,
+   "focus": 0.45,
+   "lights": 0.75,
    "card": {
     "type": "board",
     "at": "biggest",
@@ -435,34 +813,78 @@
     "swapAt": "cut to six",
     "caption": "Record: 10 points",
     "captionAt": "ten"
-   }
+   },
+   "camFrom": "high",
+   "camera": "stand",
+   "move": 6,
+   "confetti": false
   },
   {
    "kicker": "The reports",
    "headline": "Reported: [40–50] points.",
    "accent": "#FF4D5E",
    "vo": "Reports suggest City could be hit with forty to fifty.",
-   "card": {
-    "type": "vs",
-    "y": 900,
-    "size": 150,
-    "label": "Reported deduction (points)",
-    "items": [
-     {
-      "label": "Low",
-      "value": 40,
-      "prefix": "−"
-     },
-     {
-      "label": "High",
-      "value": 50,
-      "prefix": "−",
-      "accent": true
-     }
+   "card": [
+    {
+     "type": "flytext",
+     "text": "−40",
+     "size": 330,
+     "endScale": 0.75,
+     "y": 860,
+     "dir": -1,
+     "at": "forty"
+    },
+    {
+     "type": "flytext",
+     "text": "−50",
+     "size": 330,
+     "endScale": 0.75,
+     "y": 1230,
+     "dir": 1,
+     "color": "#FF4D5E",
+     "at": "fifty"
+    }
+   ],
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
     ],
-    "colW": 400,
-    "at": "forty"
-   }
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     8,
+     -40
+    ],
+    "tgt": [
+     0,
+     2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     5,
+     -30
+    ],
+    "tgt": [
+     0,
+     2,
+     20
+    ]
+   },
+   "move": 4,
+   "lights": 0.55,
+   "focus": 0.3,
+   "players": [],
+   "fans": true
   },
   {
    "kicker": "Opta supercomputer",
@@ -556,27 +978,93 @@
     "seed": 19
    },
    "cut": true,
-   "camFrom": "high",
-   "camera": {
+   "camFrom": {
     "pos": [
      0,
-     40,
-     -80
+     2.4,
+     -16
     ],
     "tgt": [
      0,
-     0,
-     10
+     1.6,
+     20
     ]
    },
-   "move": 4,
-   "players": [],
-   "focus": 0.5,
-   "lights": 0.7,
+   "camera": {
+    "pos": [
+     0,
+     3.2,
+     -20
+    ],
+    "tgt": [
+     0,
+     1.6,
+     20
+    ]
+   },
+   "move": 5,
+   "players": [
+    {
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "name": "",
+     "num": 9,
+     "x": -2.5,
+     "z": 26,
+     "enter": "walk",
+     "fromZ": 4,
+     "fromX": -2,
+     "walkDur": 6
+    },
+    {
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "name": "",
+     "num": 17,
+     "x": 0.5,
+     "z": 28,
+     "enter": "walk",
+     "fromZ": 6,
+     "fromX": 0.3,
+     "walkDur": 6.3
+    },
+    {
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "name": "",
+     "num": 47,
+     "x": 3,
+     "z": 25,
+     "enter": "walk",
+     "fromZ": 3,
+     "fromX": 2.6,
+     "walkDur": 5.8
+    }
+   ],
+   "focus": 0.25,
+   "lights": 0.5,
    "card": {
     "type": "board",
     "id": "table2",
-    "y": 760,
+    "y": 700,
     "label": "Premier League · after 8 games",
     "rows": [
      {
@@ -600,7 +1088,8 @@
     "caption": "Bottom of the table",
     "captionAt": "bottom",
     "at": "Take forty"
-   }
+   },
+   "fans": false
   },
   {
    "kicker": "Your call",

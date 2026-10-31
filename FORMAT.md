@@ -65,3 +65,15 @@ CAPTION:  <Payoff stat as a sentence>. ⚽ <question to the audience>
 - **The headline accent changes with meaning:** red for "number is wrong", gold for the answer.
 - **The final shot:** a dark, hazy stadium with the floodlights low. The camera pushes slowly toward one player standing with the ball.
 - **Takeaway:** depth (blur plus foreground), constant small motion, and animated corrections instead of static numbers.
+
+## Reference 5: "Ronaldo only scores against minnows" / "Mourinho just parks the bus" (screen recording, Oct 2026)
+- **Literal visual metaphors.** "Parks the bus" → an actual bus drives onto the pitch, with speed lines, and parks in front of goal; a tilted
+  "PARKED." tag lands on it. "Minnows" → Ronaldo shoots into a row of small goals, each labelled with a minnow nation.
+- **Hero intro.** It opens on a close-up of the player facing camera (name and number on the chest), with radial speed lines, then pulls wide.
+- **Giant fly-through words.** A huge opponent name ("LUXEMBOURG", "ANDORRA") whips across the frame with a glow and a white flash, then
+  shrinks into a small label over the goal it belongs to.
+- **Rain-in counter.** In a dark, empty stadium, balls rain from the top into a grid while one big number underneath counts up
+  (0 → 37 → 73 → 113 "goals for Portugal"). It's simple, readable and satisfying.
+- **Tilted tag-stamps** ("MINNOWS?", "PARKED."): a dark fill, a gold border and a slight rotation.
+- **Clean framing.** The headline is at the top, there's one graphic, and the lights go down for data moments. The action happens in the stadium; it's not a slideshow.
+- Built from it: `vehicle`, `rain`, `flytext`, beat `speedlines`, beat `freeze`, and the `chest` hero player (see CLAUDE.md).

@@ -73,7 +73,7 @@ else (e.g. Ronaldo and Klose on screen while he talked about Gerd Müller). So:
   `card.at`, pen `stroke.at`, player `at` (entrance) and `tagAt` (number pop), board `focusPath[].at`, `captionAt`/`swapAt` as a phrase,
   receipt `totalAt`. Use them in place of hand-tuned `delay` and `t` values.
 - **Several shots per line.** A long line gets `"shots": [{"at": "phrase", ...}]` to cut or move the camera, swap players or bring in a new card
-  mid-sentence. Aim for **a visible change every 2–3 seconds** at most.
+  mid-sentence. Inside a shot, plain numbers (`delay`, `actionDelay`, punch `t`) count from the shot's start. Aim for **a visible change every 2–3 seconds** at most.
 - **Motion matches the emotion** of each line (see the [tag] in `vo_elevenlabs.md`): excited or triumphant means fast moves, pops, confetti and slams.
   Tense means a slow push-in, darker lights and a held highlight. Sombre means low `lights`, slow drift and fewer elements. Dry or deadpan means a hard cut
   and a single clean graphic.
@@ -124,6 +124,19 @@ Built so far from the idea list (reuse them):
 - **Polaroid flashback:** set `"transition": "polaroid", "polaroidLabel": "Germany 2006"` on a beat. The scene starts as a sepia instant photo and grows to full frame.
 - **Newspaper spin-in:** the `newspaper` card. `headline`, `sub` ("\n" for lines), `dateline`, `color`, `masthead`. Keep the masthead **fictional**.
 - **Slow-motion ball path:** the `ballpath` card. `points` (3: start, control, end), `dur`, `r`/`rEnd`. The ball slows near the end, leaves a trail and the net flashes.
+
+- **Literal metaphors (from the reference creator, see FORMAT.md Reference 5):** when the script uses an image ("parks the bus", "minnows",
+  "sham sponsor"), show it literally in the stadium. Example: `videos/city-114` beat 3, where a SPONSOR van drives on and gets stamped SHAM.
+- **Vehicle:** the `vehicle` card. `kind: bus|van`, `from`/`to` pitch points `[x,0,z]`, `dur`, `color`, `stripe`, `label`, `labelColor`, `length`.
+  It drives in with speed lines and spinning wheels, brakes with a small rock, and is depth-sorted with the players.
+- **Rain-in counter:** the `rain` card. `groups: [{n, color, at|t, dur}]` rain into a grid (`cols`, `cell`) while a big counter below counts what has
+  landed. `icon: ball|doc|dot`, `empty` (outlined slots) + `emptyAt` + `emptyLabel` (pulse a missing one), `label`, `suffix`.
+- **Fly-through word:** the `flytext` card. A giant word whips across with a motion trail and settles (`endScale`, `dir: -1|1`, `color`, `size`),
+  or `settle: false` to pass straight through, or `mode: "through"` to zoom past the camera (a transition).
+- **Speed lines:** beat `"speedlines": [{"at": "...", "dur": 1.2}]`: radial streaks for a hero intro or a big moment.
+- **Freeze frame:** beat or shot `"freezeAt": "guilty"` (+ `freezeLag`). The scene stops, the colour drains to grey and there's a white flash with an impact, while cards
+  (a stamp, a number) keep animating on top. Good for "and then it all stopped" turns.
+- **Hero close-up:** a player with `"front": true, "chest": true` shows name and big number on the chest. Use a camera about 4m in front at chest height.
 
 **Idea backlog: don't forget it (user asked).** Every video should use at least one backlog item, or invent a new one, and build it into the engine:
 - A pitch map with animated shot or pass trails, or goal locations as dots.

@@ -675,7 +675,11 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     ctx.restore();
   }
   ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(-u * 0.135, -u * 0.56, u * 0.27, u * 0.03);
-  if (u > 50 && p.front) {
+  if (u > 50 && p.front && p.chest) {   // hero shot from the front: name and big number on the chest
+    ctx.fillStyle = txt; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    if (p.name) { font(800, u * 0.04, 'Inter', `${u * 0.003}px`); ctx.fillText(p.name.toUpperCase(), 0, -u * 0.735); }
+    if (p.num != null) { font(800, u * 0.12, 'Inter', '0px'); ctx.fillText(String(p.num), 0, -u * 0.6); }
+  } else if (u > 50 && p.front) {
     ctx.fillStyle = txt; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
     if (p.num != null) { font(800, u * 0.07, 'Inter', '0px'); ctx.fillText(String(p.num), u * 0.06, -u * 0.7); }
   } else if (u > 50) {
@@ -743,10 +747,10 @@ function drawPlayers(cam, lt, players) {
   // balls in the world (resting ball, shots) are drawn in depth order with the players, so they pass behind or in front correctly
   for (const it of S.cur ? S.cur.cards : []) {
     const c = it.obj, ct = S.t - it.start;
-    if (ct < 0 || !(c.type === 'ball' || (c.type === 'ballpath' && c.world))) continue;
+    if (ct < 0 || !(c.type === 'ball' || c.type === 'vehicle' || (c.type === 'ballpath' && c.world))) continue;
     if (c.type === 'ball' && c.until != null && ct >= c.until) continue;
     if (c.type === 'ballpath' && ct >= (c.dur || 1.6) && c.flash === false) continue;
-    const q = toCam(cam, c.type === 'ball' ? c.point : ballWorld(c, ct));
+    const q = toCam(cam, c.type === 'ball' ? c.point : c.type === 'vehicle' ? vehicleWorld(c, ct) : ballWorld(c, ct));
     if (q[2] < NEAR) continue;
     list.push({ q, ball: c, ct });
   }
@@ -1637,6 +1641,194 @@ CARDS.ball = function (c, ct) {
   drawBall(s[0], s[1], Math.max(3, FOC * 0.11 / q[2]));
 };
 CARDS.ball.noSlide = true;
+
+// ---------- ideas from the reference creator (literal visual metaphors, rain-in counters, fly-through words) ----------
+// A vehicle (bus, van) that drives onto the pitch and parks: "parks the bus", a sponsor's van, a money truck.
+// from/to are pitch points [x, 0, z]; drawn side-on, depth-sorted with the players.
+function vehicleWorld(c, ct) {
+  const k = eOut(pr(ct, 0, c.dur || 1.6));
+  return lerp3(c.from || c.to, c.to, k);
+}
+CARDS.vehicle = function (c, ct) {
+  if (!S.cam) return;
+  const p = vehicleWorld(c, ct), q = toCam(S.cam, p);
+  if (q[2] < NEAR + 1) return;
+  const s = proj(q), m = FOC / q[2];               // pixels per metre at that depth
+  const a = proj(toCam(S.cam, c.from || c.to)), b = proj(toCam(S.cam, c.to));
+  const dir = (b[0] - a[0]) >= 0 ? 1 : -1;         // which way it faces on screen
+  const kind = c.kind || 'bus', L = (c.length || (kind === 'bus' ? 11 : 6.2)) * m, Hh = (kind === 'bus' ? 3.1 : 2.5) * m;
+  const dur = c.dur || 1.6, moving = ct < dur, speed = moving ? 1 - pr(ct, 0, dur) : 0;
+  const brake = ct > dur ? Math.exp(-(ct - dur) * 6) * Math.sin((ct - dur) * 18) * 0.035 : 0;
+  const col = c.color || '#1d2440', stripe = c.stripe || '#f1c453';
+  ctx.save();
+  ctx.translate(s[0], s[1]);
+  ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.beginPath(); ctx.ellipse(0, 0, L * 0.55, m * 0.5, 0, 0, 7); ctx.fill();
+  // speed lines behind it while it moves
+  if (speed > 0.05) {
+    ctx.strokeStyle = `rgba(255,255,255,${0.5 * speed})`; ctx.lineCap = 'round';
+    const R = rng(5);
+    for (let i = 0; i < 9; i++) {
+      const yy = -Hh * (0.1 + R() * 0.85), len = L * (0.4 + R() * 0.8) * speed, x0 = -dir * (L * 0.55 + R() * L * 0.2);
+      ctx.lineWidth = Math.max(2, m * 0.08); ctx.beginPath(); ctx.moveTo(x0, yy); ctx.lineTo(x0 - dir * len, yy); ctx.stroke();
+    }
+  }
+  ctx.rotate(dir * brake + Math.sin(ct * 30) * 0.004 * speed);
+  ctx.scale(dir, 1);
+  const bounce = moving ? Math.sin(ct * 22) * m * 0.03 : 0;
+  ctx.translate(0, bounce);
+  // body
+  const x0 = -L / 2, wr = m * 0.5;
+  ctx.fillStyle = col; rrect(x0, -Hh - wr * 0.6, L, Hh, m * 0.35); ctx.fill();
+  ctx.fillStyle = shade(col, -0.35); ctx.fillRect(x0, -wr * 0.6 - m * 0.35, L, m * 0.35);
+  ctx.fillStyle = stripe; ctx.fillRect(x0, -Hh * 0.38 - wr * 0.6, L, m * 0.16);
+  // windows
+  const winY = -Hh - wr * 0.6 + m * 0.3, winH = Hh * (kind === 'bus' ? 0.36 : 0.32);
+  if (kind === 'bus') {
+    const n = 6, ww = (L - m * 1.4) / n;
+    for (let i = 0; i < n; i++) { ctx.fillStyle = 'rgba(140,170,210,0.55)'; rrect(x0 + m * 0.4 + i * ww, winY, ww - m * 0.18, winH, m * 0.12); ctx.fill(); }
+    ctx.fillStyle = 'rgba(190,215,240,0.75)'; rrect(L / 2 - m * 0.95, winY, m * 0.75, winH * 1.5, m * 0.15); ctx.fill();
+  } else {
+    ctx.fillStyle = 'rgba(190,215,240,0.75)'; rrect(L / 2 - m * 1.4, winY, m * 1.1, winH, m * 0.2); ctx.fill();
+  }
+  ctx.fillStyle = '#ffe9a8'; ctx.beginPath(); ctx.arc(L / 2 - m * 0.12, -wr * 0.6 - m * 0.75, m * 0.14, 0, 7); ctx.fill();
+  // side label
+  if (c.label) {
+    ctx.save(); ctx.scale(dir, 1);
+    font(800, Math.max(8, m * (kind === 'bus' ? 0.55 : 0.6)), 'Inter', `${m * 0.04}px`);
+    ctx.fillStyle = c.labelColor || '#ffffff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    const ly = kind === 'bus' ? -Hh * 0.62 - wr * 0.6 : -Hh * 0.5 - wr * 0.6, lx = dir * (kind === 'bus' ? 0 : -m * 0.8);
+    ctx.fillText(c.label, lx, ly + (kind === 'bus' ? m * 0.55 : 0));
+    ctx.restore();
+  }
+  // wheels, spinning while it moves
+  const spin = ct < dur ? (c.from ? Math.hypot(...sub(p, c.from)) : 0) / 0.5 : (c.from ? Math.hypot(...sub(c.to, c.from)) / 0.5 : 0);
+  for (const wx of [x0 + L * 0.2, x0 + L * 0.8]) {
+    ctx.fillStyle = '#111318'; ctx.beginPath(); ctx.arc(wx, -wr * 0.6 + bounce * -1, wr, 0, 7); ctx.fill();
+    ctx.fillStyle = '#9aa1ad'; ctx.beginPath(); ctx.arc(wx, -wr * 0.6, wr * 0.45, 0, 7); ctx.fill();
+    ctx.strokeStyle = '#3a3f4a'; ctx.lineWidth = Math.max(1, wr * 0.12);
+    for (let j = 0; j < 3; j++) { const an = spin + j * 2.094; ctx.beginPath(); ctx.moveTo(wx, -wr * 0.6); ctx.lineTo(wx + Math.cos(an) * wr * 0.45, -wr * 0.6 + Math.sin(an) * wr * 0.45); ctx.stroke(); }
+  }
+  ctx.restore();
+};
+CARDS.vehicle.noSlide = true;
+
+// Icons rain down into a grid while a counter below counts them (the reference's "0 → 37 → 73 → 113 goals").
+// groups: [{n, color, t|at, dur}], empty: unfilled slots (outlined, pulse at emptyT/emptyAt), icon: ball|doc|dot, counter label.
+function rainLayout(c) {
+  const n = c.groups.reduce((s, g) => s + g.n, 0) + (c.empty || 0), cols = c.cols || 12, cell = c.cell || 62;
+  return { n, cols, cell, rows: Math.ceil(n / cols) };
+}
+function rainIcon(kind, x, y, r, col) {
+  if (kind === 'ball') { drawBall(x, y, r); return; }
+  if (kind === 'doc') {
+    ctx.fillStyle = col; rrect(x - r * 0.78, y - r, r * 1.56, r * 2, r * 0.18); ctx.fill();
+    ctx.fillStyle = 'rgba(0,0,0,0.28)';
+    for (let i = 0; i < 3; i++) ctx.fillRect(x - r * 0.5, y - r * 0.5 + i * r * 0.42, r * (i === 2 ? 0.6 : 1.0), r * 0.14);
+    return;
+  }
+  ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.beginPath(); ctx.arc(x - r * 0.3, y - r * 0.3, r * 0.35, 0, 7); ctx.fill();
+}
+CARDS.rain = function (c, ct, cx, cy) {
+  const { cols, cell, rows } = rainLayout(c), gw = cols * cell, top = cy - rows * cell / 2, r = cell * 0.36;
+  const slot = i => [cx - gw / 2 + (i % cols + 0.5) * cell, top + (Math.floor(i / cols) + 0.5) * cell];
+  let idx = 0, landed = 0;
+  const R = rng(c.seed || 9);
+  // empty slots first (outlines), so filled icons sit on top
+  const total = c.groups.reduce((s, g) => s + g.n, 0);
+  for (let i = 0; i < total + (c.empty || 0); i++) {
+    const [x, y] = slot(i);
+    ctx.strokeStyle = 'rgba(255,255,255,0.13)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.stroke();
+  }
+  for (const g of c.groups) {
+    const t0 = g.t || 0, d = g.dur || 1.6;
+    for (let j = 0; j < g.n; j++, idx++) {
+      const land = t0 + (g.n > 1 ? j / (g.n - 1) : 0) * d + 0.45, f = pr(ct, land - 0.45, 0.45);
+      R(); const sx = (R() - 0.5) * 600;
+      if (f <= 0) continue;
+      const [x, y] = slot(idx);
+      if (f >= 1) landed++;
+      const yy = f < 1 ? lerp(top - 900 - R() * 200, y, f * f) : y - Math.max(0, Math.sin(Math.min(1, (ct - land) / 0.25) * Math.PI)) * cell * 0.15;
+      const xx = f < 1 ? lerp(x + sx, x, f) : x;
+      ctx.globalAlpha = Math.min(1, f * 3);
+      rainIcon(c.icon || 'dot', xx, yy, r, g.color || S.accent);
+      ctx.globalAlpha = 1;
+    }
+  }
+  if (c.empty) {
+    const pk = c.emptyT != null ? pr(ct, c.emptyT, 0.4) : 0;
+    for (let i = total; i < total + c.empty; i++) {
+      const [x, y] = slot(i);
+      if (pk > 0) {
+        ctx.strokeStyle = c.emptyColor || '#ffffff'; ctx.lineWidth = 4;
+        ctx.globalAlpha = 0.6 + 0.4 * Math.sin(ct * 8);
+        ctx.beginPath(); ctx.arc(x, y, r * (1 + 0.4 * eBack(pk)), 0, 7); ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+    }
+    if (pk > 0 && c.emptyLabel) {
+      const [x, y] = slot(total + c.empty - 1);
+      ctx.globalAlpha = pk; font(700, 26, 'Mono', '3px'); ctx.fillStyle = c.emptyColor || '#ffffff'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      ctx.fillText(c.emptyLabel.toUpperCase(), x - r * 1.8, y + cell); ctx.globalAlpha = 1;
+    }
+  }
+  // counter
+  const by = top + rows * cell + (c.counterGap || 130);
+  font(800, c.counterSize || 120, 'Inter', '-3px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = '#f4f2ec'; ctx.fillText(String(landed) + (c.suffix || ''), cx, by);
+  if (c.label) { font(600, 24, 'Mono', '6px'); ctx.fillStyle = '#9aa1ad'; ctx.fillText(c.label.toUpperCase(), cx, by + 48); }
+};
+CARDS.rain.noSlide = true;
+
+// A giant word whips across the screen (with a motion trail and a flash), then settles as a label or flies past the camera.
+// mode: "sweep" (default; settle: true keeps it at the end size) or "through" (zooms toward the camera and out: a transition).
+CARDS.flytext = function (c, ct, cx, cy) {
+  const d = c.dur || 0.7, size = c.size || 300, col = c.color || '#ffffff';
+  font(900, size, 'Inter', '-4px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  const tw = ctx.measureText(c.text).width;
+  const draw = (x, sc, a, blur) => {
+    ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, cy); ctx.scale(sc, sc);
+    if (c.outline !== false) { ctx.lineWidth = 14; ctx.strokeStyle = 'rgba(8,10,15,0.85)'; ctx.lineJoin = 'round'; ctx.strokeText(c.text, 0, 0); }
+    ctx.shadowColor = rgba(col, 0.6); ctx.shadowBlur = blur; ctx.fillStyle = col; ctx.fillText(c.text, 0, 0);
+    ctx.restore();
+  };
+  if (c.mode === 'through') {
+    const k = pr(ct, 0, d); if (k <= 0 || k >= 1) return;
+    const sc = 0.3 * Math.pow(30, k * k);
+    draw(cx, sc, 1 - pr(k, 0.6, 0.4), 20);
+    return;
+  }
+  const end = c.endScale != null ? c.endScale : 0.38, dir = c.dir || -1;
+  const k = pr(ct, 0, d), e = eOut(k);
+  const x0 = cx - dir * (W / 2 + tw / 2 + 40), x1 = c.settle === false ? cx + dir * (W / 2 + tw / 2 + 40) : cx;
+  const x = lerp(x0, x1, c.settle === false ? k : e), sc = c.settle === false ? 1 : lerp(1, end, ease(pr(ct, d * 0.35, d * 0.65)));
+  if (k < 1) for (let g = 4; g >= 1; g--) draw(x - dir * g * 70 * (1 - e), sc, 0.12 * (5 - g), 0);
+  if (c.settle === false && k >= 1) return;
+  draw(x, sc, 1, k < 1 ? 40 : 18);
+  const fk = pr(ct, d, 0.45);
+  if (c.settle !== false && fk > 0 && fk < 1) {   // sparkle burst as it lands
+    const R = rng(21); ctx.fillStyle = `rgba(255,255,255,${1 - fk})`;
+    for (let i = 0; i < 40; i++) { const an = R() * 6.28, rr = (60 + R() * 260) * eOut(fk) * end * 2; ctx.fillRect(cx + Math.cos(an) * rr, cy + Math.sin(an) * rr * 0.5, 4, 4); }
+  }
+};
+CARDS.flytext.noSlide = true;
+
+// Radial speed lines (hero intro, big moments). Beat key: "speedlines": [{t|at, dur}]
+function drawSpeedlines(b, lt) {
+  for (const sl of b.speedlines || []) {
+    const r = lt - (sl.t || 0), d = sl.dur || 1.2;
+    if (r < 0 || r > d) continue;
+    const a = (1 - r / d) * (sl.amount || 1), R = rng(31), cx = W / 2, cy = sl.y || H * 0.6;
+    ctx.save(); ctx.lineCap = 'round';
+    for (let i = 0; i < 70; i++) {
+      const an = R() * 6.28, ph = R(), sp = 0.6 + R();
+      const u = ((ph + r * sp * 1.6) % 1), r0 = 380 + u * 900, len = 120 + R() * 260;
+      ctx.strokeStyle = `rgba(255,255,255,${0.35 * a * (1 - u)})`; ctx.lineWidth = 2 + R() * 3;
+      ctx.beginPath(); ctx.moveTo(cx + Math.cos(an) * r0, cy + Math.sin(an) * r0); ctx.lineTo(cx + Math.cos(an) * (r0 + len), cy + Math.sin(an) * (r0 + len)); ctx.stroke();
+    }
+    ctx.restore();
+  }
+}
 CARDS.ballnumber.selfExit = true;
 CARDS.trophies.noSlide = true;
 CARDS.meter.noSlide = true;
@@ -1671,6 +1863,13 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'vehicle': ev.push({ t: 0, type: 'whoosh' }, { t: (c.dur || 1.6) - 0.1, type: 'impact' }); break;
+    case 'flytext': ev.push({ t: 0, type: 'whoosh' }); if (c.mode !== 'through' && c.settle !== false) ev.push({ t: c.dur || 0.7, type: 'impact' }); break;
+    case 'rain': {
+      for (const g of c.groups) for (let j = 0; j < g.n; j += Math.max(1, Math.ceil(g.n / 30))) ev.push({ t: (g.t || 0) + (g.n > 1 ? j / (g.n - 1) : 0) * (g.dur || 1.6) + 0.45, type: 'tick' });
+      if (c.emptyT != null) ev.push({ t: c.emptyT, type: 'pop' });
+      break;
+    }
     case 'pen': c.strokes.forEach(s => ev.push({ t: s.t || 0, type: 'swipe' })); break;
     case 'balls': for (let i = 0; i < c.n; i++) ev.push({ t: 0.3 + i * (c.step || 0.12), type: 'pop' }); break;
     case 'ruler': (c.markers || []).forEach((m, i) => ev.push({ t: 0.8 + i * 0.5, type: 'pop' })); if (c.bracket) ev.push({ t: 0.8 + (c.markers || []).length * 0.5, type: 'swipe' }); break;
@@ -1744,6 +1943,7 @@ window.loadSpec = async function (spec) {
       }
     }
     for (const p of b.punch || []) S.events.push({ t: b.start + p.t, type: 'whoosh' });
+    if (b.freeze != null) S.events.push({ t: b.start + b.freeze, type: 'impact' });
     for (const p of b.playersArr || []) if (p.action === 'kick' && p.actionDelay != null && b.playersStart === b.start) S.events.push({ t: b.start + p.actionDelay + 0.42 * (p.actionDur || 1), type: 'pop' });
   });
   S.events = S.events.filter(e => e.t < S.dur);
@@ -1851,20 +2051,32 @@ function renderAt(t) {
   ctx.save();
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.globalAlpha = 1;
-  S.anchors = []; S.cam = null; S.cur = b; S.t = t;
-  if (scene.type === 'stage') drawStage(t, b, stageCamAt(i, lt), t - b.playersStart);
-  else if (scene.type === 'booth') drawBooth(t, b, t - b.playersStart);
-  else if (scene.type === 'studio') drawStudio(t, scene);
+  // freeze frame: from b.freeze (s into the beat) the scene stops (camera, players, ball, crowd) while cards keep animating
+  const fz = b.freeze != null && lt > b.freeze ? b.freeze : null;
+  const ts = fz != null ? b.start + fz : t, lts = fz != null ? fz : lt;
+  S.anchors = []; S.cam = null; S.cur = b; S.t = ts;
+  if (scene.type === 'stage') drawStage(ts, b, stageCamAt(i, lts), ts - b.playersStart);
+  else if (scene.type === 'booth') drawBooth(ts, b, ts - b.playersStart);
+  else if (scene.type === 'studio') drawStudio(ts, scene);
   else {
-    const c = camInBeat(i, lt), cam = mkCam(c.pos, c.tgt);
+    const c = camInBeat(i, lts), cam = mkCam(c.pos, c.tgt);
     S.cam = cam;
     drawSky(scene);
     drawPitch(cam, scene);
-    drawStadium(cam, t, b.world);
+    drawStadium(cam, ts, b.world);
     drawGoals(cam);
-    drawPlayers(cam, t - b.playersStart, b.playersArr);
+    drawPlayers(cam, ts - b.playersStart, b.playersArr);
   }
-  if (b.punch || b.shake) cameraFX(b, lt);
+  if (b.punch || b.shake) cameraFX(b, lts);
+  S.t = t;
+  if (b.freeze != null && lt > b.freeze) {   // drain the colour and flash white, like a paused broadcast
+    const k = pr(lt, b.freeze, 0.3), fx = fullc.getContext('2d');
+    fx.clearRect(0, 0, W, H); fx.drawImage(cv, 0, 0);
+    ctx.save(); ctx.globalAlpha = k; ctx.filter = 'grayscale(1) contrast(1.15) brightness(0.8)'; ctx.drawImage(fullc, 0, 0); ctx.restore();
+    const fl = 1 - pr(lt, b.freeze, 0.35);
+    if (fl > 0) { ctx.fillStyle = `rgba(255,255,255,${0.55 * fl})`; ctx.fillRect(0, 0, W, H); }
+  }
+  if (b.speedlines) drawSpeedlines(b, lt);
   if (scene.type === 'stadium' && b.fans) drawFans(t, scene);
   if (b.transition === 'polaroid' && lt < 1.2) polaroid(lt, b.polaroidLabel);
   const blend = (key, def) => {
@@ -1906,7 +2118,7 @@ function renderAt(t) {
     const ct = t - it.start;
     if (ct < 0) continue;
     const fn = CARDS[it.obj.type];
-    if (it.obj.type === 'ball' || (it.obj.type === 'ballpath' && it.obj.world)) continue; // drawn with the players
+    if (it.obj.type === 'ball' || it.obj.type === 'vehicle' || (it.obj.type === 'ballpath' && it.obj.world)) continue; // drawn with the players
     const cont = next && it.obj.id && next.cards.some(n => n.obj.id === it.obj.id);
     const leaving = next && !next.cards.includes(it) && !cont;
     const ek = leaving ? pr(lt, b.dur - 0.45, 0.45) : 0;

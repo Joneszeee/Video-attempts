@@ -68,7 +68,7 @@
      "id": "table",
      "y": 1530,
      "delay": -1.1,
-     "label": "Premier League · after 8 games",
+     "label": "Premier League table",
      "rows": [
       {
        "name": "Man City",
@@ -77,10 +77,6 @@
       {
        "name": "Arsenal",
        "value": 21
-      },
-      {
-       "name": "Brighton",
-       "value": 16
       }
      ],
      "cols": 9,
@@ -1065,15 +1061,11 @@
     "type": "board",
     "id": "table2",
     "y": 700,
-    "label": "Premier League · after 8 games",
+    "label": "Premier League table",
     "rows": [
      {
       "name": "Arsenal",
       "value": 21
-     },
-     {
-      "name": "Brighton",
-      "value": 16
      },
      {
       "name": "Man City",
@@ -1083,7 +1075,7 @@
     ],
     "cols": 9,
     "vcols": 3,
-    "focus": 2,
+    "focus": 1,
     "swapAt": "minus nineteen",
     "caption": "Bottom of the table",
     "captionAt": "bottom",

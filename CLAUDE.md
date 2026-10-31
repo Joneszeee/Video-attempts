@@ -80,6 +80,21 @@ else (e.g. Ronaldo and Klose on screen while he talked about Gerd Müller). So:
 - **Voice speed:** the user's ElevenLabs narrator reads slightly too slowly. Set `"voSpeed": 1.08` in every spec; `build.py` speeds up the
   uploaded voice (pitch unchanged) before syncing. The user doesn't need to change ElevenLabs settings.
 
+## Animate, don't slideshow (user direction)
+The user wants videos that look like a cartoon match, not numbers on a grey background. Show the story happening:
+- **Players act.** Give players an `action`: `"kick"` (run-up, plant, wind-up, strike, follow-through; contact at 42% of `actionDur`),
+  `"dive"` (keeper; `"dir": 1|-1`, `"before": "ready"`), `"celebrate"` and `"run"` (loops), plus `"idle"`. Use `actionDelay`, or `actionAt` + `actionLag`
+  to land the strike on a word, and `"after": "celebrate"` for what follows. A player walking in (`enter: "walk"`) runs with arms pumping.
+- **The camera reacts.** Use beat `"punch": [{"at": "...", "amount": 0.3, "dur": 1.5, "anchor": 0}]` for a quick zoom on the moment of action,
+  and `"shake": [{"at": "...", "amount": 20}]` on impacts.
+- **The ball is real.** A `ball` card (`point`, `until`) rests on the pitch, and `ballpath` with `world: true` is the shot. Both are depth-sorted
+  with the players, so they pass behind or in front correctly. A goal (`flash` on) bulges the net where it hits and makes the crowd jump.
+- **Shots must read correctly.** A goal must clearly beat the keeper (send him the wrong way, or past his fingertips); a save puts the ball into
+  his gloves (`flash: false`). The ball must never pass "through" a player.
+- **Prefer scenes over plain graphics.** Show events happening in the stadium, booth or another place, and use cards to support the action rather than replace it.
+  Avoid beats that are only a graphic on the grey studio background.
+- Example: `videos/_test-action` (strike, punch-in, wrong-way dive, net bulge, crowd jump, celebration).
+
 ## Visual richness: required on every video
 - **Every video must be visually rich.** Every beat shows its information through an animated data graphic, effect or transition
   (counters, boards, tables, rulers, trophies, ball-numbers, strikes and corrections, camera moves, depth and lighting changes).

@@ -736,13 +736,24 @@ function drawPlayers(cam, lt, players) {
     if (q[2] < NEAR + 0.5) continue;
     list.push({ p, q, walk });
   }
-  list.sort((a, b) => b.q[2] - a.q[2]);
   for (const o of list) {
     const s = proj(o.q);
     S.anchors[players.indexOf(o.p)] = { x: s[0], y: s[1], u: FOC * 1.85 / o.q[2] };
   }
+  // balls in the world (resting ball, shots) are drawn in depth order with the players, so they pass behind or in front correctly
+  for (const it of S.cur ? S.cur.cards : []) {
+    const c = it.obj, ct = S.t - it.start;
+    if (ct < 0 || !(c.type === 'ball' || (c.type === 'ballpath' && c.world))) continue;
+    if (c.type === 'ball' && c.until != null && ct >= c.until) continue;
+    if (c.type === 'ballpath' && ct >= (c.dur || 1.6) && c.flash === false) continue;
+    const q = toCam(cam, c.type === 'ball' ? c.point : ballWorld(c, ct));
+    if (q[2] < NEAR) continue;
+    list.push({ q, ball: c, ct });
+  }
+  list.sort((a, b) => b.q[2] - a.q[2]);
   drawUnderPens();
   for (const o of list) {
+    if (o.ball) { ctx.save(); CARDS[o.ball.type](o.ball, o.ct, W / 2, 0, 0); ctx.restore(); continue; }
     const s = proj(o.q), u = FOC * 1.85 / o.q[2];
     const alpha = o.p.enter === 'fade' ? eOut(pr(lt, o.p.delay || 0, 0.5)) : 1;
     drawPlayer(s[0], s[1], u, o.p, lt, o.walk, alpha);
@@ -1577,6 +1588,11 @@ CARDS.newspaper = function (c, ct, cx, cy) {
 };
 CARDS.newspaper.noSlide = true;
 
+const ballSlow = u => (u < 0.55 ? u / 0.55 * 0.8 : 0.8 + 0.2 * eOut((u - 0.55) / 0.45));
+function ballWorld(c, ct) {
+  const k0 = pr(ct, 0, c.dur || 1.6), u = c.slowmo === false ? k0 : ballSlow(k0), [a, b, d] = c.points;
+  return [0, 1, 2].map(i => (1 - u) ** 2 * a[i] + 2 * (1 - u) * u * b[i] + u * u * d[i]);
+}
 // Slow-motion ball path: the ball races along a curve, slows to a crawl near the end, leaves a trail, then the net flashes.
 CARDS.ballpath = function (c, ct) {
   const dur = c.dur || 1.6, k0 = pr(ct, 0, dur);
@@ -1589,7 +1605,7 @@ CARDS.ballpath = function (c, ct) {
     P = q.map(proj);
     r0 = Math.max(4, FOC * 0.11 / q[0][2]); r1 = Math.max(3, FOC * 0.11 / q[2][2]);
   }
-  const slow = u => (u < 0.55 ? u / 0.55 * 0.8 : 0.8 + 0.2 * eOut((u - 0.55) / 0.45));
+  const slow = ballSlow;
   const at = u => { const a = P[0], b = P[1], d = P[2]; return [(1 - u) ** 2 * a[0] + 2 * (1 - u) * u * b[0] + u * u * d[0], (1 - u) ** 2 * a[1] + 2 * (1 - u) * u * b[1] + u * u * d[1]]; };
   const u = c.slowmo === false ? k0 : slow(k0);
   ctx.save();
@@ -1890,6 +1906,7 @@ function renderAt(t) {
     const ct = t - it.start;
     if (ct < 0) continue;
     const fn = CARDS[it.obj.type];
+    if (it.obj.type === 'ball' || (it.obj.type === 'ballpath' && it.obj.world)) continue; // drawn with the players
     const cont = next && it.obj.id && next.cards.some(n => n.obj.id === it.obj.id);
     const leaving = next && !next.cards.includes(it) && !cont;
     const ek = leaving ? pr(lt, b.dur - 0.45, 0.45) : 0;

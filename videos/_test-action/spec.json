@@ -1,14 +1,142 @@
-{"brand":"theo6k","accent":"#3FE0C5","outro":false,"tail":0.3,"beats":[
- {"kicker":"Engine test","headline":"Strike. Dive. [Goal.]","vo":"","duration":5.2,
-  "scene":{"type":"stadium","crowd":["#6cabdd","#6cabdd","#ffffff","#1c2c5b"],"seed":19},
-  "camFrom":{"pos":[0.2,1.8,33.2],"tgt":[0.4,1.3,60]},"camera":{"pos":[0.3,1.6,34.6],"tgt":[0.5,1.2,60]},"move":5,"fans":true,
-  "players":[
-    {"name":"","num":10,"x":0.45,"z":40.1,"enter":"walk","fromZ":37.6,"fromX":0.1,"walkDur":1.15,"action":"kick","actionDelay":1.1,"actionDur":1.4,"after":"celebrate",
-     "kit":{"shirt":"#6cabdd","shorts":"#ffffff","socks":"#6cabdd","text":"#1c2c5b"},"skin":"#e2b08c","hair":"#2a1a10"},
-    {"name":"Keeper","front":true,"x":0.1,"z":52.0,"action":"dive","dir":1,"actionDelay":1.62,"before":"ready","gloves":"#f2f2f2",
-     "kit":{"shirt":"#2b2f3a","shorts":"#2b2f3a","socks":"#2b2f3a","text":"#f7d117"},"skin":"#d9a37c","hair":"#1a120c"}],
-  "punch":[{"t":1.2,"amount":0.32,"dur":1.5,"anchor":0}],
-  "shake":[{"t":2.55,"amount":22}],
-  "card":[{"type":"ball","delay":0,"point":[0.62,0.11,40.5],"until":1.52},
-          {"type":"ballpath","world":true,"delay":1.52,"dur":1.0,"points":[[0.62,0.11,40.5],[1.9,1.2,47],[2.75,0.95,53.0]]}]}
-]}
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "tail": 0.3,
+ "beats": [
+  {
+   "kicker": "Engine test",
+   "headline": "Strike. Dive. [Goal.]",
+   "vo": "",
+   "duration": 5.2,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "camFrom": {
+    "pos": [
+     0.2,
+     1.8,
+     33.2
+    ],
+    "tgt": [
+     0.4,
+     1.3,
+     60
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.3,
+     1.6,
+     34.6
+    ],
+    "tgt": [
+     0.5,
+     1.2,
+     60
+    ]
+   },
+   "move": 5,
+   "fans": true,
+   "players": [
+    {
+     "name": "",
+     "num": 10,
+     "x": 0.45,
+     "z": 40.1,
+     "enter": "walk",
+     "fromZ": 37.6,
+     "fromX": 0.1,
+     "walkDur": 1.15,
+     "action": "kick",
+     "actionDelay": 1.1,
+     "actionDur": 1.4,
+     "after": "celebrate",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10"
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.4,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 1.62,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#f7d117"
+     },
+     "skin": "#d9a37c",
+     "hair": "#1a120c"
+    }
+   ],
+   "punch": [
+    {
+     "t": 1.2,
+     "amount": 0.32,
+     "dur": 1.5,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "t": 2.55,
+     "amount": 22
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.62,
+      0.11,
+      40.5
+     ],
+     "until": 1.52
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 1.52,
+     "dur": 1.0,
+     "points": [
+      [
+       0.62,
+       0.11,
+       40.5
+      ],
+      [
+       1.6,
+       1.4,
+       47
+      ],
+      [
+       2.9,
+       1.6,
+       53.0
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

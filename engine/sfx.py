@@ -101,7 +101,7 @@ def main():
         s = cache[e['type']]
         i = int(e['t'] * SR)
         j = min(n, i + len(s))
-        if i >= n:
+        if i >= n or i < 0:  # cues before frame 1 (cards already on screen in the hook) are skipped
             continue
         pan = 0.5 if e['type'] != 'tick' else 0.5 + rng.uniform(-0.15, 0.15)
         out[i:j, 0] += s[: j - i] * (1 - pan) * 2 * 0.7

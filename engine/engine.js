@@ -1560,13 +1560,13 @@ CARDS.stamp.noSlide = true;
 
 // Newspaper front page that spins in (archive / reaction beats). Masthead is fictional: never imitate a real paper.
 CARDS.newspaper = function (c, ct, cx, cy) {
-  const k = eOut(pr(ct, 0, 0.9));
+  const k = eOut(pr(ct, 0, c.spin || 1.4)), sc = c.scale || 1;   // spin: seconds to spin in (user: 0.9 was too quick)
   if (k <= 0) return;
   const w = c.w || 760, h = c.h || 980;
   ctx.save();
   ctx.translate(cx, cy);
-  ctx.rotate(lerp(-Math.PI * 4, c.tilt != null ? c.tilt : -0.05, k));
-  ctx.scale(lerp(0.05, 1, k), lerp(0.05, 1, k));
+  ctx.rotate(lerp(-Math.PI * (c.turns || 3), c.tilt != null ? c.tilt : -0.05, k));
+  ctx.scale(lerp(0.05, sc, k), lerp(0.05, sc, k));
   ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16;
   ctx.fillStyle = '#f1ece0'; ctx.fillRect(-w / 2, -h / 2, w, h);
   ctx.shadowColor = 'transparent';
@@ -1859,7 +1859,7 @@ function cardEvents(c) {
       (c.focusPath || []).slice(1).forEach(p => ev.push({ t: p.t, type: 'swipe' }));
       break;
     }
-    case 'newspaper': ev.push({ t: 0, type: 'whoosh' }, { t: 0.9, type: 'impact' }); break;
+    case 'newspaper': ev.push({ t: 0, type: 'whoosh' }, { t: c.spin || 1.4, type: 'impact' }); break;
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
@@ -1909,6 +1909,8 @@ window.loadSpec = async function (spec) {
       if (c === 'same') { if (prev) B.cards.push(...prev.cards); }
       else {
         const pb = prev && c.id && prev.cards.find(x => x.obj.id === c.id);
+        // same id, not a board: it simply stays on screen as it was (boards flip their changed cells instead)
+        if (pb && c.type !== 'board') { B.cards.push(pb); continue; }
         if (pb) c._prev = pb.obj;
         // beat 1 is the hook: its cards are already in on frame 1 (the frame people see while scrolling)
         const delay = c.delay != null ? c.delay : (i === 0 ? -0.45 : 0.3);

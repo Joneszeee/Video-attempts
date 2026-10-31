@@ -248,7 +248,6 @@
     {
      "type": "flip",
      "at": "twenty-ninth",
-     "pos": "mid",
      "label": "Verdict day",
      "groups": [
       {
@@ -261,51 +260,63 @@
       "top": "TUE",
       "big": "29",
       "bottom": "SEP"
-     }
+     },
+     "y": 640
     },
     {
      "type": "newspaper",
-     "at": "ruled",
-     "y": 1060,
+     "at": "independent commission",
+     "y": 1110,
      "masthead": "THE FINAL WHISTLE",
      "dateline": "Tuesday 29 September 2026",
      "headline": "GUILTY",
      "size": 190,
      "color": "#b3121f",
-     "sub": "114 of 115 charges proven"
+     "sub": "114 of 115 charges proven",
+     "id": "paper",
+     "scale": 0.68,
+     "spin": 1.4
     }
    ],
    "shots": [
     {
      "at": "dating back",
-     "card": {
-      "type": "ruler",
-      "y": 900,
-      "min": 2023,
-      "max": 2027,
-      "step": 1,
-      "delay": 0,
-      "markers": [
-       {
-        "value": 2023.1,
-        "label": "Feb 2023 · charged",
-        "len": 90
-       },
-       {
-        "value": 2026.75,
-        "label": "Sep 2026 · verdict",
-        "accent": true,
-        "len": 90,
-        "side": "below"
+     "card": [
+      {
+       "type": "newspaper",
+       "id": "paper"
+      },
+      {
+       "type": "ruler",
+       "y": 1660,
+       "min": 2022,
+       "max": 2028,
+       "step": 1,
+       "delay": 0,
+       "markers": [
+        {
+         "value": 2023.1,
+         "label": "Feb 2023 · charged",
+         "len": 90
+        },
+        {
+         "value": 2026.75,
+         "label": "Sep 2026 · verdict",
+         "accent": true,
+         "len": 90,
+         "side": "below"
+        }
+       ],
+       "bracket": {
+        "from": 2023.1,
+        "to": 2026.75,
+        "label": "3 years 7 months",
+        "y": -60
        }
-      ],
-      "bracket": {
-       "from": 2023.1,
-       "to": 2026.75,
-       "label": "3 years 7 months",
-       "y": -60
       }
-     }
+     ],
+     "focus": 0.45,
+     "lights": 0.4
     }
    ],
    "camFrom": "stand",

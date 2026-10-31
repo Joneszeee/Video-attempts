@@ -125,6 +125,8 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
 Built so far from the idea list (reuse them):
 - **Polaroid flashback:** set `"transition": "polaroid", "polaroidLabel": "Germany 2006"` on a beat. The scene starts as a sepia instant photo and grows to full frame.
 - **Newspaper spin-in:** the `newspaper` card. `headline`, `sub` ("\n" for lines), `dateline`, `color`, `masthead`. Keep the masthead **fictional**.
+  `spin` (seconds, default 1.4; the user found 0.9 too quick), `turns`, `scale`. Give it time on screen: bring it in early and keep it
+  across a shot with the same `id` (any non-board card with the same `id` simply stays as it was).
 - **Slow-motion ball path:** the `ballpath` card. `points` (3: start, control, end), `dur`, `r`/`rEnd`. The ball slows near the end, leaves a trail and the net flashes.
 
 - **Literal metaphors (from the reference creator, see FORMAT.md Reference 5):** when the script uses an image ("parks the bus", "minnows",

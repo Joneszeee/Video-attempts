@@ -95,7 +95,6 @@ Built so far from the idea list (reuse them):
 
 **Idea backlog: don't forget it (user asked).** Every video should use at least one backlog item, or invent a new one, and build it into the engine:
 - A pitch map with animated shot or pass trails, or goal locations as dots.
-- A transfer-fee ticker or receipt that prints line by line.
 - A head-to-head "tale of the tape" with bars sliding in from both sides.
 - A calendar or season heatmap of goals.
 - A world map with a route line, for transfers or tournaments.
@@ -172,6 +171,9 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
   feet or behind his body, not on top of him). Use `under` for rings and circles around players. Text, arrows and Xs stay on top.
 - `ballpath` with `"world": true` takes points in pitch metres `[x, y, z]` (stadium scenes) and projects them through the live camera.
   `flash: false` = saved or not a goal (the ball disappears at the end); `slowmo: false` gives constant speed. Chain several for save → rebound → goal.
+- `receipt`: a thermal receipt that prints line by line (money stories). `title`, `sub`, `lines: [[label, value, accent?]]`, `total: [label, value]`, `step`.
+- `stamp`: a rubber stamp that slams down with a shake ("GUILTY", "APPEALED"). `text`, `sub`, `rot`, `size`, `color`, `dx`.
+- `vs` also takes `size` (number size) and `colW` (column width) so wide values like "80/80" don't collide.
 - `meter`: a vertical tube filling with balls. `value`, `max`, `markers: [{label, value}]`, `icon: {kind, label, dx}`
 
 ## Files

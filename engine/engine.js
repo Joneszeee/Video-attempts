@@ -768,12 +768,12 @@ const CARDS = {
     }
   },
   vs(c, ct, cx, cy) {
-    const n = c.items.length, colW = 280, bw = colW * n + 60, bh = 330;
+    const n = c.items.length, colW = c.colW || 280, bw = colW * n + 60, bh = 330;
     cardBox(cx, cy, bw, bh, c.label);
     c.items.forEach((it, i) => {
       const x = cx - (colW * n) / 2 + colW * (i + 0.5);
       const v = countVal(it, ct, 0.35 + i * 0.3, 1.2);
-      font(800, 140, 'Inter', '-3px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+      font(800, c.size || 140, 'Inter', '-3px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
       ctx.fillStyle = it.accent ? S.accent : '#f4f2ec';
       ctx.fillText(fmt(v, it), x, cy + 62);
       font(500, 21, 'Mono', '5px'); ctx.fillStyle = '#8d94a1';
@@ -1322,6 +1322,67 @@ CARDS.pen = function (c, ct) {
 };
 CARDS.pen.noSlide = true;
 
+// Receipt that prints line by line (money stories). lines: [[label, value, accent?]], total: [label, value].
+CARDS.receipt = function (c, ct, cx, cy) {
+  const w = c.w || 640, lh = 64, lines = c.lines || [], step = c.step || 0.45;
+  const fullH = 210 + lines.length * lh + (c.total ? 130 : 0) + 120;
+  const shown = Math.min(lines.length + (c.total ? 1 : 0) + 1, (ct - 0.2) / step + 1);
+  const h = Math.max(150, Math.min(fullH, 200 + Math.max(0, shown) * lh + (shown > lines.length ? 140 : 0)));
+  const top = cy - fullH / 2;
+  ctx.save();
+  ctx.translate(cx, top); ctx.rotate(c.tilt != null ? c.tilt : -0.025);
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 12;
+  ctx.fillStyle = '#f6f3ec';
+  ctx.beginPath(); ctx.moveTo(-w / 2, 0); ctx.lineTo(w / 2, 0); ctx.lineTo(w / 2, h);
+  for (let x = w / 2; x > -w / 2; x -= 20) { ctx.lineTo(x - 10, h + 12); ctx.lineTo(x - 20, h); }
+  ctx.closePath(); ctx.fill();
+  ctx.shadowColor = 'transparent';
+  ctx.beginPath(); ctx.rect(-w / 2, 0, w, h); ctx.clip();
+  const ink = '#1d1c1a';
+  ctx.fillStyle = ink; ctx.textBaseline = 'alphabetic';
+  font(800, 40, 'Mono', '2px'); ctx.textAlign = 'center'; ctx.fillText((c.title || 'RECEIPT').toUpperCase(), 0, 76);
+  font(500, 20, 'Mono', '2px'); ctx.fillText((c.sub || '').toUpperCase(), 0, 112);
+  const dash = y => { ctx.setLineDash([8, 7]); ctx.strokeStyle = 'rgba(29,28,26,0.6)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-w / 2 + 30, y); ctx.lineTo(w / 2 - 30, y); ctx.stroke(); ctx.setLineDash([]); };
+  dash(140);
+  lines.forEach((ln, i) => {
+    const y = 200 + i * lh;
+    if (i + 1 > shown) return;
+    font(600, 26, 'Mono', '1px'); ctx.textAlign = 'left'; ctx.fillStyle = ink; ctx.fillText(String(ln[0]).toUpperCase(), -w / 2 + 34, y);
+    font(800, 30, 'Mono', '1px'); ctx.textAlign = 'right'; ctx.fillStyle = ln[2] ? '#c41e2e' : ink; ctx.fillText(String(ln[1]), w / 2 - 34, y);
+  });
+  if (c.total && shown > lines.length) {
+    const y = 200 + lines.length * lh + 10;
+    dash(y - 30);
+    font(800, 30, 'Mono', '2px'); ctx.textAlign = 'left'; ctx.fillStyle = ink; ctx.fillText(String(c.total[0]).toUpperCase(), -w / 2 + 34, y + 30);
+    font(900, 56, 'Inter', '0px'); ctx.textAlign = 'right'; ctx.fillStyle = '#c41e2e'; ctx.fillText(String(c.total[1]), w / 2 - 34, y + 40);
+    for (let i = 0, x = -w / 2 + 60; x < w / 2 - 60; i++) { const bw = 2 + ((i * 7) % 5); ctx.fillStyle = ink; ctx.fillRect(x, y + 80, bw, 50); x += bw + 3 + ((i * 3) % 4); }
+  }
+  ctx.restore();
+};
+CARDS.receipt.noSlide = true;
+
+// Rubber stamp that slams down over the frame ("GUILTY", "APPEALED").
+CARDS.stamp = function (c, ct, cx, cy) {
+  const k = pr(ct, 0, 0.18);
+  if (k <= 0) return;
+  const sc = lerp(2.6, 1, eOut(k)), shake = k >= 1 ? Math.max(0, 1 - (ct - 0.18) / 0.25) * 8 * Math.sin(ct * 90) : 0;
+  const col = c.color || '#d6283b', size = c.size || 120;
+  ctx.save();
+  ctx.translate(cx + (c.dx || 0) + shake, cy + shake * 0.5); ctx.rotate(c.rot != null ? c.rot : -0.16); ctx.scale(sc, sc);
+  ctx.globalAlpha *= Math.min(1, k * 1.6) * 0.92;
+  font(900, size, 'Inter', '6px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  const tw = ctx.measureText(c.text).width + 70, th = size * 1.25;
+  ctx.strokeStyle = col; ctx.lineWidth = 10; rrect(-tw / 2, -th / 2, tw, th, 18); ctx.stroke();
+  ctx.lineWidth = 3; rrect(-tw / 2 + 14, -th / 2 + 14, tw - 28, th - 28, 10); ctx.stroke();
+  ctx.fillStyle = col; ctx.fillText(c.text, 0, 6);
+  if (c.sub) { font(800, size * 0.22, 'Mono', '4px'); ctx.fillText(c.sub.toUpperCase(), 0, th / 2 + size * 0.28); }
+  ctx.globalCompositeOperation = 'destination-out';
+  const R = rng(13);
+  for (let i = 0; i < 260; i++) { ctx.fillStyle = `rgba(0,0,0,${0.3 + R() * 0.5})`; ctx.beginPath(); ctx.arc((R() - 0.5) * tw, (R() - 0.5) * th, 1 + R() * 3, 0, 7); ctx.fill(); }
+  ctx.restore();
+};
+CARDS.stamp.noSlide = true;
+
 // Newspaper front page that spins in (archive / reaction beats). Masthead is fictional: never imitate a real paper.
 CARDS.newspaper = function (c, ct, cx, cy) {
   const k = eOut(pr(ct, 0, 0.9));
@@ -1422,6 +1483,8 @@ function cardEvents(c) {
     }
     case 'newspaper': ev.push({ t: 0, type: 'whoosh' }, { t: 0.9, type: 'impact' }); break;
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
+    case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
+    case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'pen': c.strokes.forEach(s => ev.push({ t: s.t || 0, type: 'swipe' })); break;
     case 'balls': for (let i = 0; i < c.n; i++) ev.push({ t: 0.3 + i * (c.step || 0.12), type: 'pop' }); break;
     case 'ruler': (c.markers || []).forEach((m, i) => ev.push({ t: 0.8 + i * 0.5, type: 'pop' })); if (c.bracket) ev.push({ t: 0.8 + (c.markers || []).length * 0.5, type: 'swipe' }); break;

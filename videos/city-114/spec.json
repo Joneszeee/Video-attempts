@@ -1,0 +1,584 @@
+{
+ "title": "City 114",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "beats": [
+  {
+   "kicker": "Premier League · 2026/27",
+   "headline": "Top of the league. Guilty on [114] charges.",
+   "accent": "#FF4D5E",
+   "vo": "Man City are top of the Premier League. They've also just been found guilty on one hundred and fourteen charges.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "camFrom": "aerial",
+   "camera": "high",
+   "move": 7,
+   "focus": 0.5,
+   "players": [],
+   "card": [
+    {
+     "type": "board",
+     "id": "table",
+     "y": 760,
+     "delay": -1.1,
+     "label": "Premier League · after 8 games",
+     "rows": [
+      {
+       "name": "Man City",
+       "value": 21
+      },
+      {
+       "name": "Arsenal",
+       "value": 21
+      },
+      {
+       "name": "Brighton",
+       "value": 16
+      }
+     ],
+     "focus": 0,
+     "cols": 9,
+     "vcols": 3
+    },
+    {
+     "type": "stamp",
+     "text": "GUILTY",
+     "sub": "114 of 115 charges",
+     "y": 1180,
+     "delay": -1.0,
+     "rot": -0.14,
+     "size": 130
+    }
+   ]
+  },
+  {
+   "kicker": "Premier League v Man City",
+   "headline": "29 September: the [verdict].",
+   "vo": "On the twenty-ninth of September, an independent commission finally ruled on a case dating back to February 2023.",
+   "scene": {
+    "type": "studio",
+    "glow": "#6cabdd"
+   },
+   "cut": true,
+   "players": [],
+   "card": {
+    "type": "newspaper",
+    "delay": 0.2,
+    "y": 1020,
+    "masthead": "THE FINAL WHISTLE",
+    "dateline": "Tuesday 29 September 2026",
+    "headline": "GUILTY",
+    "size": 190,
+    "color": "#b3121f",
+    "sub": "114 of 115 charges proven"
+   }
+  },
+  {
+   "kicker": "The commission's finding",
+   "headline": "[£830m] in disguised funding.",
+   "accent": "#FF4D5E",
+   "vo": "The key finding: sham sponsorship deals inflated City's income by eight hundred and thirty million pounds, over nine seasons.",
+   "card": {
+    "type": "receipt",
+    "y": 1000,
+    "step": 0.55,
+    "title": "Sponsorship",
+    "sub": "Man City · 2009/10 – 2017/18",
+    "lines": [
+     [
+      "Deals declared",
+      "FULL VALUE"
+     ],
+     [
+      "Paid by sponsors",
+      "ONLY PART"
+     ],
+     [
+      "Topped up by owners",
+      "THE REST",
+      true
+     ]
+    ],
+    "total": [
+     "Revenue inflated",
+     "£830M"
+    ]
+   }
+  },
+  {
+   "kicker": "The charges",
+   "headline": "Proven: [114] of 115.",
+   "accent": "#FF4D5E",
+   "vo": "Every single financial charge was proven. So were thirty-four of the thirty-five for failing to cooperate.",
+   "card": [
+    {
+     "type": "vs",
+     "y": 650,
+     "label": "Charges proven",
+     "items": [
+      {
+       "label": "Financial",
+       "value": 80,
+       "suffix": "/80",
+       "accent": true
+      },
+      {
+       "label": "Cooperation",
+       "value": 34,
+       "suffix": "/35"
+      }
+     ],
+     "size": 104,
+     "colW": 400
+    },
+    {
+     "type": "dots",
+     "y": 1180,
+     "delay": 1.4,
+     "label": "Failure to cooperate",
+     "caption": "1 not proven",
+     "states": [
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "miss"
+     ],
+     "step": 0.05,
+     "counter": false
+    }
+   ]
+  },
+  {
+   "kicker": "Man City's response",
+   "headline": "City's answer: [appeal].",
+   "vo": "City deny any wrongdoing. On the first of October they appealed, claiming clear material errors of law, principle and fact.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.4,
+     -8
+    ],
+    "tgt": [
+     0,
+     1.8,
+     12
+    ]
+   },
+   "camera": "player",
+   "move": 4,
+   "lights": 0.6,
+   "focus": 0.15,
+   "players": [
+    {
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 0,
+     "name": "",
+     "num": null
+    }
+   ],
+   "card": {
+    "type": "board",
+    "id": "case",
+    "y": 640,
+    "label": "Premier League v Man City",
+    "rows": [
+     {
+      "name": "Verdict",
+      "value": "GUILTY"
+     },
+     {
+      "name": "Appeal",
+      "value": "1 OCT"
+     },
+     {
+      "name": "Sanction",
+      "value": "???"
+     }
+    ],
+    "cols": 8,
+    "vcols": 6,
+    "focusPath": [
+     {
+      "t": 0,
+      "row": 0
+     },
+     {
+      "t": 2.4,
+      "row": 1
+     }
+    ],
+    "caption": "'Errors of law, principle and fact'",
+    "captionAt": 3.0
+   }
+  },
+  {
+   "headline": "Punishment: [on hold].",
+   "vo": "And until that appeal is decided, there is no punishment at all.",
+   "card": {
+    "type": "board",
+    "id": "case",
+    "y": 640,
+    "label": "Premier League v Man City",
+    "rows": [
+     {
+      "name": "Verdict",
+      "value": "GUILTY"
+     },
+     {
+      "name": "Appeal",
+      "value": "1 OCT"
+     },
+     {
+      "name": "Sanction",
+      "value": "ON HOLD"
+     }
+    ],
+    "cols": 8,
+    "vcols": 7,
+    "focus": 2
+   }
+  },
+  {
+   "kicker": "For context",
+   "headline": "Record deduction: [10 points].",
+   "vo": "For context, the biggest points deduction in Premier League history is ten. Everton, later cut to six.",
+   "scene": {
+    "type": "studio",
+    "glow": "#6cabdd"
+   },
+   "cut": true,
+   "players": [],
+   "focus": 0,
+   "lights": 1,
+   "card": {
+    "type": "bars",
+    "y": 900,
+    "max": 12,
+    "label": "Biggest Premier League deductions",
+    "rows": [
+     {
+      "name": "Everton",
+      "value": 10,
+      "accent": true
+     },
+     {
+      "name": "Forest",
+      "value": 4
+     },
+     {
+      "name": "Boro",
+      "value": 3
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "The reports",
+   "headline": "Reported: [40–50] points.",
+   "accent": "#FF4D5E",
+   "vo": "Reports suggest City could be hit with forty to fifty.",
+   "card": {
+    "type": "vs",
+    "y": 900,
+    "size": 150,
+    "label": "Reported deduction (points)",
+    "items": [
+     {
+      "label": "Low",
+      "value": 40,
+      "prefix": "−"
+     },
+     {
+      "label": "High",
+      "value": 50,
+      "prefix": "−",
+      "accent": true
+     }
+    ],
+    "colW": 400
+   }
+  },
+  {
+   "kicker": "Opta supercomputer",
+   "headline": "Opta: [−40] is a coin flip.",
+   "vo": "Opta's supercomputer ran it. Minus twenty, City stay up. Minus forty, relegation is more likely than not. Minus seventy-four, they go down every time.",
+   "scene": {
+    "type": "booth",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19,
+    "screenLeft": [
+     "−40 PTS",
+     "RELEGATION 50%+"
+    ],
+    "screenRight": [
+     "OPTA",
+     "100,000 SIMULATIONS"
+    ]
+   },
+   "cut": true,
+   "players": [
+    {
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "headset": true,
+     "sx": 0.5,
+     "scale": 0.85
+    }
+   ],
+   "card": {
+    "type": "board",
+    "id": "risk",
+    "y": 760,
+    "label": "City relegation risk",
+    "rows": [
+     {
+      "name": "−20 pts",
+      "value": "<5%"
+     },
+     {
+      "name": "−40 pts",
+      "value": "50%+"
+     },
+     {
+      "name": "−74 pts",
+      "value": "100%"
+     }
+    ],
+    "cols": 8,
+    "vcols": 4,
+    "focusPath": [
+     {
+      "t": 0,
+      "row": 0
+     },
+     {
+      "t": 2.4,
+      "row": 1
+     },
+     {
+      "t": 4.6,
+      "row": 2
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "If −40 happened today",
+   "headline": "Leaders today. [−19] tomorrow?",
+   "accent": "#FF4D5E",
+   "vo": "Take forty off today, and the league leaders would be bottom, on minus nineteen.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": "high",
+   "camera": {
+    "pos": [
+     0,
+     40,
+     -80
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 4,
+   "players": [],
+   "focus": 0.5,
+   "lights": 0.7,
+   "card": {
+    "type": "board",
+    "id": "table2",
+    "y": 760,
+    "label": "Premier League · after 8 games",
+    "rows": [
+     {
+      "name": "Arsenal",
+      "value": 21
+     },
+     {
+      "name": "Brighton",
+      "value": 16
+     },
+     {
+      "name": "Man City",
+      "from": "21",
+      "value": "-19"
+     }
+    ],
+    "cols": 9,
+    "vcols": 3,
+    "focus": 2,
+    "swapAt": 1.6,
+    "caption": "Bottom of the table",
+    "captionAt": 2.4
+   }
+  },
+  {
+   "kicker": "Your call",
+   "headline": "What should the [punishment] be?",
+   "vo": "So what should the punishment be? Points, titles, or relegation? Tell me in the comments.",
+   "camera": {
+    "pos": [
+     0,
+     1.4,
+     -9
+    ],
+    "tgt": [
+     0,
+     1.8,
+     12
+    ]
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     2.4,
+     -26
+    ],
+    "tgt": [
+     0,
+     2,
+     20
+    ]
+   },
+   "move": 3,
+   "lights": 0.5,
+   "focus": 0.45,
+   "players": [
+    {
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 0,
+     "name": "",
+     "num": null,
+     "ghost": true
+    }
+   ],
+   "card": {
+    "type": "board",
+    "id": "vote",
+    "y": 760,
+    "label": "The punishment",
+    "rows": [
+     {
+      "name": "Points",
+      "value": "?"
+     },
+     {
+      "name": "Titles",
+      "value": "?"
+     },
+     {
+      "name": "Relegation",
+      "value": "?"
+     }
+    ],
+    "cols": 10,
+    "vcols": 2,
+    "focusPath": [
+     {
+      "t": 1.2,
+      "row": 0
+     },
+     {
+      "t": 1.9,
+      "row": 1
+     },
+     {
+      "t": 2.6,
+      "row": 2
+     }
+    ],
+    "caption": "Comment below",
+    "captionAt": 3.4
+   }
+  }
+ ]
+}

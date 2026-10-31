@@ -70,7 +70,7 @@ def _cards(b):
 def _resolve_beat(b, rel):
     for c in _cards(b):
         if 'at' in c:
-            c['delay'] = rel(c.pop('at'))
+            c['delay'] = round(rel(c.pop('at')) + c.pop('lag', 0), 3)
         base = c.get('delay', 0.3)
         for fp in c.get('focusPath') or []:
             if 'at' in fp:
@@ -91,6 +91,12 @@ def _resolve_beat(b, rel):
             p['delay'] = rel(p.pop('at'))
         if 'tagAt' in p:
             p['tagDelay'] = rel(p.pop('tagAt'))
+        if 'actionAt' in p:  # e.g. the kick starts so the strike lands on the word: use "lag" to shift
+            p['actionDelay'] = round(rel(p.pop('actionAt')) + p.pop('actionLag', 0), 3)
+    for key in ('punch', 'shake'):
+        for fx in b.get(key) or []:
+            if 'at' in fx:
+                fx['t'] = round(rel(fx.pop('at')) + fx.pop('lag', 0), 3)
 
 
 def _shift(b, dt):
@@ -99,9 +105,13 @@ def _shift(b, dt):
         if 'delay' in c:
             c['delay'] = round(c['delay'] - dt, 3)
     for p in b.get('players') or []:
-        for k in ('delay', 'tagDelay'):
+        for k in ('delay', 'tagDelay', 'actionDelay'):
             if k in p:
                 p[k] = round(p[k] - dt, 3)
+    for key in ('punch', 'shake'):
+        for fx in b.get(key) or []:
+            if 't' in fx:
+                fx['t'] = round(fx['t'] - dt, 3)
 
 
 def _split(b):

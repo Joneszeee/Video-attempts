@@ -211,15 +211,38 @@ function drawPitch(cam, scene) {
   }
 }
 // Goals are drawn after the stands, so the stand behind never paints over the crossbar.
+function netBulge(x, y, side) {
+  let b = 0;
+  for (const g of S.goals || []) {
+    if (Math.sign(g.p[2]) !== side) continue;
+    const dt = S.t - g.t;
+    if (dt < 0 || dt > 1.6) continue;
+    const amp = 0.9 * Math.exp(-dt * 3) * (1 + 0.25 * Math.sin(dt * 18));
+    b += amp * Math.exp(-((x - g.p[0]) ** 2 + (y - g.p[1]) ** 2) / 1.6);
+  }
+  return b;
+}
+function crowdJump() {
+  let j = 0;
+  for (const g of S.goals || []) { const dt = S.t - g.t; if (dt > 0 && dt < 3) j = Math.max(j, Math.min(1, dt * 4) * (1 - dt / 3)); }
+  return j;
+}
 function drawGoals(cam) {
   for (const s of [-1, 1]) {
     const e = 52.5 * s, gz = e + 2.0 * s, net = 'rgba(255,255,255,0.42)';
+    const bz = (x, y) => gz + s * netBulge(x, y, s);
     fillPoly3(cam, [[-3.66, 0, e], [-3.66, 2.44, e], [-3.66, 2.1, gz], [-3.66, 0, gz]], 'rgba(255,255,255,0.06)');
     fillPoly3(cam, [[3.66, 0, e], [3.66, 2.44, e], [3.66, 2.1, gz], [3.66, 0, gz]], 'rgba(255,255,255,0.06)');
     fillPoly3(cam, [[-3.66, 2.1, gz], [3.66, 2.1, gz], [3.66, 0, gz], [-3.66, 0, gz]], 'rgba(255,255,255,0.08)');
-    for (let x = -3.66; x <= 3.67; x += 0.61) path3(cam, [[x, 2.44, e], [x, 2.1, gz], [x, 0, gz]], 0.025, net);
+    for (let x = -3.66; x <= 3.67; x += 0.61) {
+      const pts = [[x, 2.44, e]];
+      for (let y = 2.1; y >= -0.01; y -= 0.3) pts.push([x, Math.max(0, y), bz(x, y)]);
+      path3(cam, pts, 0.025, net);
+    }
     for (let y = 0.3; y < 2.2; y += 0.3) {
-      path3(cam, [[-3.66, y, gz], [3.66, y, gz]], 0.025, net);
+      const pts = [];
+      for (let x = -3.66; x <= 3.67; x += 0.61) pts.push([x, y, bz(x, y)]);
+      path3(cam, pts, 0.025, net);
       path3(cam, [[-3.66, y * 1.16, e], [-3.66, y, gz]], 0.025, net);
       path3(cam, [[3.66, y * 1.16, e], [3.66, y, gz]], 0.025, net);
     }
@@ -229,6 +252,7 @@ function drawGoals(cam) {
 }
 
 function drawStadium(cam, t, world) {
+  const jump = crowdJump();
   const segs = world.segs.map(s => ({ s, d: toCam(cam, s.mid)[2] })).filter(o => o.d > -45).sort((a, b) => b.d - a.d);
   for (const { s } of segs) {
     fillPoly3(cam, s.quad, '#1a1f2c');
@@ -240,6 +264,7 @@ function drawStadium(cam, t, world) {
       const w = clamp(FOC * d.sz / q[2], 1.1, 9);
       let col = d.col;
       if (d.fl >= 0 && Math.pow(Math.max(0, Math.sin(t * 2.3 + d.fl)), 40) > 0.3) col = '#ffffff';
+      if (jump > 0) sp[1] -= jump * w * 1.6 * Math.abs(Math.sin(t * 9 + d.sz * 40));
       ctx.fillStyle = col;
       ctx.fillRect(sp[0] - w / 2, sp[1] - w * 1.3, w, Math.max(w * 1.3, 1.1));
     }
@@ -469,6 +494,128 @@ function drawTrophy(x, y, u) {
   ctx.fillRect(x - w * 0.32, y + w * 0.25, w * 0.64, w * 0.32);
 }
 
+
+// ---------- animated rig: jointed players with actions ----------
+// Pose angles: 0 = limb points straight down, positive = towards screen-right. Legs are [angle, fold] where fold (0..1)
+// bends the knee back (foot lifts behind, seen from behind). Arms are [angle, elbow bend]. hy = hip lift (u), px = shift (u),
+// rot = whole-body rotation around the hip, lean = torso lean.
+const P0 = { rot: 0, px: 0, hy: 0, lean: 0, L: [-0.06, 0], R: [0.06, 0], AL: [-0.16, 0.25], AR: [0.16, 0.25] };
+const ACTIONS = {
+  kick: { dur: 1.0, contact: 0.42, keys: [
+    [0.0, { L: [-0.06, 0], R: [0.06, 0], AL: [-0.25, 0.3], AR: [0.25, 0.3] }],
+    [0.25, { L: [-0.04, 0], R: [0.38, 0.95], AL: [-0.95, 0.2], AR: [0.55, 0.45], lean: 0.12, hy: 0.01 }],
+    [0.42, { L: [-0.04, 0.05], R: [-0.35, 0.05], AL: [-1.15, 0.1], AR: [0.9, 0.3], lean: -0.08 }],
+    [0.62, { L: [-0.02, 0.12], R: [-0.95, 0.15], AL: [-1.3, 0.05], AR: [1.05, 0.2], lean: -0.18, hy: -0.035 }],
+    [1.0, { L: [-0.06, 0], R: [-0.08, 0.05], AL: [-0.3, 0.3], AR: [0.3, 0.3], lean: -0.04 }]] },
+  dive: { dur: 0.95, keys: [
+    [0.0, { L: [-0.25, 0.25], R: [0.25, 0.25], AL: [-0.9, 0.4], AR: [0.9, 0.4], hy: 0.05 }],
+    [0.16, { L: [-0.3, 0.35], R: [0.3, 0.35], AL: [-1.0, 0.4], AR: [1.0, 0.4], hy: 0.08, rot: 0.12 }],
+    [0.45, { L: [-0.15, 0.15], R: [0.3, 0.4], AL: [Math.PI - 0.2, 0], AR: [Math.PI + 0.15, 0], hy: -0.22, rot: 1.25, px: 0.55 }],
+    [0.7, { L: [-0.1, 0.2], R: [0.35, 0.5], AL: [Math.PI - 0.1, 0], AR: [Math.PI + 0.2, 0], hy: 0.12, rot: 1.5, px: 0.78 }],
+    [1.0, { L: [-0.05, 0.3], R: [0.3, 0.5], AL: [Math.PI - 0.3, 0.2], AR: [Math.PI + 0.1, 0.2], hy: 0.4, rot: 1.56, px: 0.86 }]] },
+};
+function mixPose(a, b, k) {
+  const o = {};
+  for (const key of Object.keys(P0)) {
+    const x = a[key] != null ? a[key] : P0[key], y = b[key] != null ? b[key] : P0[key];
+    o[key] = Array.isArray(x) ? [lerp(x[0], y[0], k), lerp(x[1], y[1], k)] : lerp(x, y, k);
+  }
+  return o;
+}
+function keyPose(keys, f) {
+  for (let i = 1; i < keys.length; i++) if (f <= keys[i][0]) return mixPose(keys[i - 1][1], keys[i][1], ease((f - keys[i - 1][0]) / (keys[i][0] - keys[i - 1][0])));
+  return mixPose(keys[keys.length - 1][1], keys[keys.length - 1][1], 0);
+}
+function loopPose(name, t) {
+  if (name === 'run') {
+    const ph = t / 0.5 * Math.PI * 2, s = Math.sin(ph);
+    return { ...P0, L: [-0.08 + 0.05 * s, Math.max(0, s) * 0.9], R: [0.08 + 0.05 * s, Math.max(0, -s) * 0.9],
+      AL: [-0.3, 1.1 + 0.5 * s], AR: [0.3, 1.1 - 0.5 * s], hy: -0.025 * Math.abs(s), lean: 0.03 * s };
+  }
+  if (name === 'celebrate') {
+    const ph = t / 0.7 * Math.PI * 2, j = Math.abs(Math.sin(ph));
+    return { ...P0, L: [-0.12, 0.3 * j], R: [0.12, 0.3 * j], AL: [Math.PI - 0.35 + 0.15 * Math.sin(ph * 2), 0.1], AR: [Math.PI + 0.35 - 0.15 * Math.sin(ph * 2), 0.1], hy: -0.09 * j };
+  }
+  if (name === 'ready') return { ...P0, L: [-0.25, 0.25], R: [0.25, 0.25], AL: [-0.9, 0.4], AR: [0.9, 0.4], hy: 0.05 + 0.01 * Math.sin(t * 6) };
+  const b = Math.sin(t * 2.6);
+  return { ...P0, AL: [-0.16 - 0.03 * b, 0.25], AR: [0.16 + 0.03 * b, 0.25], hy: 0.004 * b };
+}
+function poseFor(p, t, walking) {
+  const d = p.actionDelay != null ? p.actionDelay : 0, A = ACTIONS[p.action];
+  if (A) {
+    const dur = p.actionDur || A.dur;
+    const act = f => {
+      const ps = keyPose(A.keys, f);
+      if (p.dir === -1) { ps.rot = -ps.rot; ps.px = -ps.px; [ps.AL, ps.AR] = [[-ps.AR[0], ps.AR[1]], [-ps.AL[0], ps.AL[1]]]; [ps.L, ps.R] = [[-ps.R[0], ps.R[1]], [-ps.L[0], ps.L[1]]]; }
+      return ps;
+    };
+    if (t >= d && t < d + dur) return act((t - d) / dur);
+    if (t >= d + dur) return p.after ? loopPose(p.after, t - d - dur) : act(1);
+    if (walking) return loopPose('run', t);
+    return loopPose(p.before || 'idle', t);
+  }
+  if (walking) return loopPose('run', t);
+  return loopPose(p.action || 'idle', t);
+}
+function limb(x, y, a, len, w, col) {
+  const x2 = x + Math.sin(a) * len, y2 = y + Math.cos(a) * len;
+  ctx.strokeStyle = col; ctx.lineWidth = w; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x2, y2); ctx.stroke();
+  return [x2, y2];
+}
+function rigBody(u, p, t, walking, c) {
+  const ps = poseFor(p, t, walking);
+  ctx.save();
+  ctx.translate(ps.px * u, (-0.5 + ps.hy) * u);
+  ctx.rotate(ps.rot);
+  const lw = u * 0.075, Lt = u * 0.24, Ls = u * 0.25;
+  for (const [side, leg] of [[-1, ps.L], [1, ps.R]]) {
+    const [a, f] = leg, hx = side * u * 0.05;
+    const [kx, ky] = limb(hx, u * 0.04, a, Lt * (1 - 0.15 * f), lw, c.skin);
+    const sa = a + side * 0.25 * f + (f > 0 ? Math.PI * 0.0 : 0);
+    const shinLen = Ls * (1 - 0.55 * f);
+    const mx = kx + Math.sin(sa) * shinLen * 0.35, my = ky + Math.cos(sa) * shinLen * 0.35;
+    limb(kx, ky, sa, shinLen * 0.35, lw * 0.95, c.skin);
+    const [ax, ay] = limb(mx, my, sa, shinLen * 0.65, lw * 1.02, c.socks);
+    ctx.save(); ctx.translate(ax, ay); ctx.rotate(-sa);
+    ctx.fillStyle = '#15171c'; rrect(-lw * 0.62, -u * 0.015 - f * u * 0.03, lw * 1.24, u * 0.045 + f * u * 0.035, lw * 0.3); ctx.fill();
+    ctx.restore();
+  }
+  ctx.fillStyle = c.shorts; rrect(-u * 0.135, -u * 0.06, u * 0.27, u * 0.15, u * 0.02); ctx.fill();
+  ctx.rotate(ps.lean);
+  ctx.fillStyle = c.shirt;
+  ctx.beginPath(); ctx.moveTo(-u * 0.16, -u * 0.32); ctx.lineTo(u * 0.16, -u * 0.32); ctx.lineTo(u * 0.135, -u * 0.03); ctx.lineTo(-u * 0.135, -u * 0.03); ctx.closePath(); ctx.fill();
+  if (c.k.stripes || c.k.checks) {
+    ctx.save(); ctx.clip();
+    const sq = u * 0.045;
+    if (c.k.stripes) for (let i = -4; i <= 4; i++) { ctx.fillStyle = c.k.stripes[(i + 8) % 2]; ctx.fillRect(i * sq - sq / 2, -u * 0.33, sq, u * 0.31); }
+    else for (let r = 0; r < 8; r++) for (let cc = -4; cc <= 4; cc++) { ctx.fillStyle = c.k.checks[(r + cc + 16) % 2]; ctx.fillRect(cc * sq - sq / 2, -u * 0.33 + r * sq, sq, sq); }
+    ctx.restore();
+  }
+  if (u > 50) {
+    ctx.fillStyle = c.txt; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    if (p.front) { if (p.num != null) { font(800, u * 0.07, 'Inter', '0px'); ctx.fillText(String(p.num), u * 0.06, -u * 0.2); } }
+    else {
+      if (p.name) { font(700, Math.max(6, u * 0.034), 'Mono', `${u * 0.004}px`); ctx.fillText(p.name.toUpperCase(), 0, -u * 0.245); }
+      if (p.num != null) { font(800, u * 0.12, 'Inter', '0px'); ctx.fillText(String(p.num), 0, -u * 0.1); }
+    }
+  }
+  for (const [side, arm] of [[-1, ps.AL], [1, ps.AR]]) {
+    const [a, e] = arm, sx = side * u * 0.15, sy = -u * 0.3;
+    const [ex, ey] = limb(sx, sy, a, u * 0.14, u * 0.07, c.k.sleeves || c.shirt);
+    const [hx, hy] = limb(ex, ey, a + side * e, u * 0.15, u * 0.06, c.skin);
+    if (p.gloves) { ctx.fillStyle = p.gloves; ctx.beginPath(); ctx.arc(hx, hy, u * 0.045, 0, 7); ctx.fill(); }
+  }
+  ctx.fillStyle = c.skin; ctx.fillRect(-u * 0.025, -u * 0.37, u * 0.05, u * 0.06);
+  ctx.beginPath(); ctx.arc(0, -u * 0.41, u * 0.062, 0, 7); ctx.fill();
+  ctx.fillStyle = c.hair; ctx.beginPath();
+  if (p.front) ctx.arc(0, -u * 0.425, u * 0.062, Math.PI * 1.05, Math.PI * 1.95);
+  else ctx.arc(0, -u * 0.418, u * 0.06, Math.PI * 0.92, Math.PI * 2.08);
+  ctx.fill();
+  ctx.restore();
+  return ps;
+}
+
 function drawPlayer(x, y, u, p, t, walk, alpha) {
   let k = p.kit || {}, skin = p.skin || '#c68a63', hair = p.hair || '#1b1410';
   if (p.ghost) {
@@ -480,6 +627,16 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
   ctx.save();
   ctx.globalAlpha *= alpha;
   ctx.translate(x, y);
+  if (p.action || p.rig) {
+    const ps = poseFor(p, t, walk > 0);
+    const lift = Math.max(0, -ps.hy) * 3;
+    ctx.fillStyle = `rgba(0,0,0,${0.3 / (1 + lift)})`;
+    ctx.beginPath(); ctx.ellipse(ps.px * u + Math.sin(ps.rot) * u * 0.3, 0, u * (0.17 + Math.abs(Math.sin(ps.rot)) * 0.3), u * 0.035, 0, 0, 7); ctx.fill();
+    rigBody(u, p, t, walk > 0, { k, skin, hair, shirt, shorts, socks, txt });
+    if (p.tag != null) drawTag(u, p, t);
+    ctx.restore();
+    return;
+  }
   ctx.fillStyle = 'rgba(0,0,0,0.3)';
   ctx.beginPath(); ctx.ellipse(0, 0, u * 0.17, u * 0.035, 0, 0, 7); ctx.fill();
   const sw = Math.sin(t * 9) * walk, legW = u * 0.075, gap = u * 0.05;
@@ -540,7 +697,11 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     ctx.lineWidth = u * 0.008; ctx.beginPath(); ctx.moveTo(u * 0.07, -u * 0.89); ctx.quadraticCurveTo(u * 0.12, -u * 0.86, u * 0.1, -u * 0.83); ctx.stroke();
   }
   if (armsUp && p.trophy) drawTrophy(0, -u * 1.2, u);
-  if (p.tag != null) {
+  if (p.tag != null) drawTag(u, p, t);
+  ctx.restore();
+}
+function drawTag(u, p, t) {
+  {
     const kt = pr(t, p.tagDelay != null ? p.tagDelay : 0.4, 0.4);
     if (kt > 0) {
       ctx.save();
@@ -559,7 +720,6 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
       ctx.restore();
     }
   }
-  ctx.restore();
 }
 
 function drawPlayers(cam, lt, players) {
@@ -1451,6 +1611,16 @@ CARDS.ballpath = function (c, ct) {
   ctx.restore();
 };
 CARDS.ballpath.noSlide = true;
+// A ball resting at a world point until 'until' seconds (e.g. waiting to be kicked).
+CARDS.ball = function (c, ct) {
+  if (!S.cam || (c.until != null && ct >= c.until)) return;
+  const q = toCam(S.cam, c.point);
+  if (q[2] < NEAR) return;
+  const s = proj(q);
+  ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.ellipse(s[0], s[1] + FOC * 0.1 / q[2], FOC * 0.14 / q[2], FOC * 0.04 / q[2], 0, 0, 7); ctx.fill();
+  drawBall(s[0], s[1], Math.max(3, FOC * 0.11 / q[2]));
+};
+CARDS.ball.noSlide = true;
 CARDS.ballnumber.selfExit = true;
 CARDS.trophies.noSlide = true;
 CARDS.meter.noSlide = true;
@@ -1548,6 +1718,18 @@ window.loadSpec = async function (spec) {
     }
     if (b.confetti && !(i > 0 && S.beats[i - 1].confetti)) S.events.push({ t: b.start, type: 'crowd' });
   });
+  S.goals = [];
+  S.beats.forEach((b, i) => {
+    for (const it of b.cards) {
+      const c = it.obj;
+      if (c.type === 'ballpath' && c.world && c.flash !== false && !(i > 0 && S.beats[i - 1].cards.includes(it))) {
+        S.goals.push({ t: it.start + (c.dur || 1.6), p: c.points[2] });
+        S.events.push({ t: it.start + (c.dur || 1.6) + 0.05, type: 'impact' });
+      }
+    }
+    for (const p of b.punch || []) S.events.push({ t: b.start + p.t, type: 'whoosh' });
+    for (const p of b.playersArr || []) if (p.action === 'kick' && p.actionDelay != null && b.playersStart === b.start) S.events.push({ t: b.start + p.actionDelay + 0.42 * (p.actionDur || 1), type: 'pop' });
+  });
   S.events = S.events.filter(e => e.t < S.dur);
   return window.getInfo();
 };
@@ -1592,6 +1774,32 @@ function polaroid(lt, label) {
     font(400, 72, 'Marker', '1px'); ctx.fillStyle = '#2b2b33'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText(label, 0, ph / 2 + bb / 2);
   }
+  ctx.restore();
+}
+
+// Punch-ins (quick zoom towards a point, e.g. on a kick) and impact shake, applied to the scene only.
+function cameraFX(b, lt) {
+  let s = 1, cx = W / 2, cy = H * 0.58, dx = 0, dy = 0;
+  for (const p of b.punch || []) {
+    const r = lt - p.t, d = p.dur || 1.2;
+    if (r < 0 || r > d) continue;
+    const k = r < 0.14 ? eOut(r / 0.14) : r > d - 0.35 ? ease((d - r) / 0.35) : 1;
+    s = Math.max(s, 1 + (p.amount || 0.25) * k);
+    if (p.anchor != null && S.anchors[p.anchor]) { const a = S.anchors[p.anchor]; cx = a.x; cy = a.y - a.u * 0.5; }
+    else { cx = p.x != null ? p.x : cx; cy = p.y != null ? p.y : cy; }
+  }
+  for (const sh of b.shake || []) {
+    const r = lt - sh.t;
+    if (r < 0 || r > 0.45) continue;
+    const a = (sh.amount || 18) * (1 - r / 0.45);
+    dx += Math.sin(r * 90) * a; dy += Math.cos(r * 73) * a * 0.7;
+  }
+  if (s === 1 && dx === 0 && dy === 0) return;
+  const fx = fullc.getContext('2d');
+  fx.clearRect(0, 0, W, H); fx.drawImage(cv, 0, 0);
+  ctx.save();
+  ctx.translate(cx + dx, cy + dy); ctx.scale(s, s); ctx.translate(-cx, -cy);
+  ctx.drawImage(fullc, 0, 0);
   ctx.restore();
 }
 
@@ -1640,6 +1848,7 @@ function renderAt(t) {
     drawGoals(cam);
     drawPlayers(cam, t - b.playersStart, b.playersArr);
   }
+  if (b.punch || b.shake) cameraFX(b, lt);
   if (scene.type === 'stadium' && b.fans) drawFans(t, scene);
   if (b.transition === 'polaroid' && lt < 1.2) polaroid(lt, b.polaroidLabel);
   const blend = (key, def) => {

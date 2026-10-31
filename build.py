@@ -21,6 +21,14 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / 'engine'))
 import cues  # noqa: E402
 VO_DELAY = 0.25  # seconds of picture before the voice starts
+VO_LUFS = -16    # the voice is levelled to this before mixing
+SFX_UNDER = 12   # effects sit this many dB below the voice (user: the voice was drowned out)
+
+
+def loudness(path):
+    err = subprocess.run(['ffmpeg', '-i', str(path), '-af', 'loudnorm=I=-14:print_format=json', '-f', 'null', '-'],
+                         capture_output=True, text=True).stderr
+    return float(json.loads(err[err.rindex('{'):err.rindex('}') + 1])['input_i'])
 
 
 def run(cmd, **kw):
@@ -121,6 +129,7 @@ def main():
     ap.add_argument('--music-volume', type=float, default=0.14)
     ap.add_argument('--stills')
     ap.add_argument('--out')
+    ap.add_argument('--audio-only', action='store_true', help='reuse the last render (silent.mp4, sfx.wav) and only redo the audio mix')
     a = ap.parse_args()
 
     spec_path = Path(a.spec)
@@ -157,29 +166,36 @@ def main():
         return
 
     silent, events, sfx = outdir / 'silent.mp4', outdir / 'events.json', outdir / 'sfx.wav'
-    run(render + [silent, '--events', events])
-    run([sys.executable, ROOT / 'engine' / 'sfx.py', events, sfx])
+    if not (a.audio_only and silent.exists() and sfx.exists()):
+        run(render + [silent, '--events', events])
+        run([sys.executable, ROOT / 'engine' / 'sfx.py', events, sfx])
 
     final = Path(a.out) if a.out else outdir / (spec_path.parent.name + ('' if a.vo else '_preview') + '.mp4')
     inputs = ['-i', silent, '-i', sfx]
-    mix = ['[1:a]volume=0.55[s]']
-    labels = ['[s]']
-    if a.vo and not a.mute_vo:
+    with_vo = a.vo and not a.mute_vo
+    if with_vo:
+        # Voice first: level it to VO_LUFS, keep the effects SFX_UNDER dB below it, and duck them further while the voice speaks.
+        vo_gain = VO_LUFS - loudness(a.vo)
+        sfx_gain = VO_LUFS - SFX_UNDER - loudness(sfx)
         inputs += ['-i', a.vo]
         d = int(VO_DELAY * 1000)
-        mix.append(f'[2:a]adelay={d}|{d},volume=1.0[v]')
-        labels.append('[v]')
+        mix = [f'[1:a]volume={sfx_gain:.2f}dB[s0]',
+               f'[2:a]adelay={d}|{d},volume={vo_gain:.2f}dB,aformat=channel_layouts=stereo,asplit=2[v][key]',
+               '[s0][key]sidechaincompress=threshold=0.02:ratio=6:attack=15:release=350[s]']
+        print(f'voice {vo_gain:+.1f} dB, sfx {sfx_gain:+.1f} dB (+ ducking)')
+        labels = ['[s]', '[v]']
+    else:
+        mix = ['[1:a]volume=0.55[s]']
+        labels = ['[s]']
     if a.music:
         inputs += ['-stream_loop', '-1', '-i', a.music]
-        mix.append(f'[{3 if a.vo and not a.mute_vo else 2}:a]volume={a.music_volume}[m]')
+        mix.append(f'[{3 if with_vo else 2}:a]volume={a.music_volume}[m]')
         labels.append('[m]')
     mix.append(''.join(labels) + f'amix=inputs={len(labels)}:normalize=0:duration=first[a]')
     mixed = outdir / 'mix.wav'
     run(['ffmpeg', '-y', '-v', 'error', *inputs, '-filter_complex', ';'.join(mix), '-map', '[a]', '-ar', '48000', mixed])
     # One fixed gain to reach -14 LUFS (Instagram). Dynamic loudnorm pumped the background noise up in pauses.
-    err = subprocess.run(['ffmpeg', '-i', str(mixed), '-af', 'loudnorm=I=-14:print_format=json', '-f', 'null', '-'],
-                         capture_output=True, text=True).stderr
-    measured = float(json.loads(err[err.rindex('{'):err.rindex('}') + 1])['input_i'])
+    measured = loudness(mixed)
     gain = -14 - measured
     print(f'loudness {measured:.1f} LUFS, gain {gain:+.1f} dB')
     run(['ffmpeg', '-y', '-v', 'error', '-i', silent, '-i', mixed, '-filter_complex',

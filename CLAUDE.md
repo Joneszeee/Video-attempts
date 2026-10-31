@@ -41,6 +41,8 @@ Two looks:
    timing (and as the alignment reference later) and leaves it out of the mix.
 4. When their voiceover arrives, run `python3 build.py videos/<slug>/spec.json --vo <voice file> --out videos/<slug>/out/<slug>_final.mp4`
    to sync the beats to the voice, mix it with the SFX (normalised to -14 LUFS for Instagram) and send the final MP4.
+   **The voice must sit clearly on top (user: SFX drowned it out).** `build.py` levels the voice to -16 LUFS, puts the SFX 12 dB under it
+   (`SFX_UNDER`) and ducks them further while the voice speaks. To fix only the mix without re-rendering, add `--audio-only`.
 
 `vo.txt` = the beat lines separated by `<break time="0.8s" />`. For a voiceover recorded elsewhere, the sync step finds those pauses,
 so there must be exactly one clear pause between beats (the build fails with a clear message otherwise;

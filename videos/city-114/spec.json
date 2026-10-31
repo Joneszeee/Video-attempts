@@ -981,24 +981,24 @@
    "camFrom": {
     "pos": [
      0,
-     2.4,
-     -16
+     1.9,
+     -7
     ],
     "tgt": [
      0,
-     1.6,
+     1.4,
      20
     ]
    },
    "camera": {
     "pos": [
      0,
-     3.2,
-     -20
+     2.4,
+     -9
     ],
     "tgt": [
      0,
-     1.6,
+     1.4,
      20
     ]
    },
@@ -1015,12 +1015,12 @@
      "hair": "#2a1a10",
      "name": "",
      "num": 9,
-     "x": -2.5,
-     "z": 26,
+     "x": -1.8,
+     "z": 13,
      "enter": "walk",
-     "fromZ": 4,
-     "fromX": -2,
-     "walkDur": 6
+     "fromZ": 1,
+     "fromX": -1.5,
+     "walkDur": 7
     },
     {
      "kit": {
@@ -1033,12 +1033,12 @@
      "hair": "#2a1a10",
      "name": "",
      "num": 17,
-     "x": 0.5,
-     "z": 28,
+     "x": 0.6,
+     "z": 15,
      "enter": "walk",
-     "fromZ": 6,
-     "fromX": 0.3,
-     "walkDur": 6.3
+     "fromZ": 3,
+     "fromX": 0.4,
+     "walkDur": 7
     },
     {
      "kit": {
@@ -1051,15 +1051,15 @@
      "hair": "#2a1a10",
      "name": "",
      "num": 47,
-     "x": 3,
-     "z": 25,
+     "x": 2.3,
+     "z": 12,
      "enter": "walk",
-     "fromZ": 3,
-     "fromX": 2.6,
-     "walkDur": 5.8
+     "fromZ": 0.5,
+     "fromX": 2.0,
+     "walkDur": 7
     }
    ],
-   "focus": 0.25,
+   "focus": 0.15,
    "lights": 0.5,
    "card": {
     "type": "board",

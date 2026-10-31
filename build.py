@@ -18,6 +18,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT / 'engine'))
+import cues  # noqa: E402
 VO_DELAY = 0.25  # seconds of picture before the voice starts
 
 
@@ -64,6 +66,17 @@ def join_clips(folder, gap=0.45, sr=48000):
     return out
 
 
+def speed_up(vo, speed, outdir):
+    """Tempo change without pitch change; carries line timings (.beats.json) across."""
+    out = outdir / f'{vo.stem}_x{speed:g}.wav'
+    run(['ffmpeg', '-y', '-v', 'error', '-i', str(vo), '-af', f'atempo={speed}', '-ar', '48000', str(out)])
+    side = Path(str(vo) + '.beats.json')
+    if side.exists():
+        st = json.loads(side.read_text())['starts']
+        Path(str(out) + '.beats.json').write_text(json.dumps({'starts': [x / speed for x in st]}))
+    return out
+
+
 def align(spec, vo_path):
     """Set each beat's duration so beat i starts just before VO line i."""
     n = len(spec['beats'])
@@ -76,11 +89,14 @@ def align(spec, vo_path):
         starts = [0.0] + [VO_DELAY + t - 0.12 for t in line_starts[1:]]
     else:
         starts = pause_starts(vo_path, total, n)
+        line_starts = [0.0] + [s - VO_DELAY + 0.12 for s in starts[1:]]
     end = VO_DELAY + total + 0.6
     for i, b in enumerate(spec['beats']):
         b['duration'] = round((starts[i + 1] if i + 1 < n else end) - starts[i], 3)
     spec['tail'] = 0.6
     print('beat starts (s):', ', '.join(f'{s:.2f}' for s in starts))
+    # where each line is actually spoken, for word-synced cues
+    return [(VO_DELAY + a, VO_DELAY + e) for a, e in cues.line_spans(vo_path, line_starts, total)]
 
 
 def pause_starts(vo_path, total, n):
@@ -101,6 +117,7 @@ def main():
     ap.add_argument('--vo')
     ap.add_argument('--music')
     ap.add_argument('--mute-vo', action='store_true', help='use the voice only for timing; mix SFX only (previews)')
+    ap.add_argument('--vo-speed', type=float, default=1.0, help='speed up an uploaded voiceover without changing pitch, e.g. 1.08')
     ap.add_argument('--music-volume', type=float, default=0.14)
     ap.add_argument('--stills')
     ap.add_argument('--out')
@@ -110,13 +127,27 @@ def main():
     spec = json.loads(spec_path.read_text())
     outdir = spec_path.parent / 'out'
     outdir.mkdir(exist_ok=True)
+    speech = None
     if spec.get('timings'):
         for b, d in zip(spec['beats'], spec['timings']):
             b['duration'] = d
     elif a.vo:
         if Path(a.vo).is_dir():  # one clip per beat, e.g. from ElevenLabs
             a.vo = str(join_clips(a.vo))
-        align(spec, a.vo)
+        if a.vo_speed == 1.0 and spec.get('voSpeed') and not a.mute_vo:
+            a.vo_speed = spec['voSpeed']
+        if a.vo_speed != 1.0:
+            a.vo = str(speed_up(Path(a.vo), a.vo_speed, outdir))
+        speech = align(spec, a.vo)
+    for b in spec['beats']:  # no voiceover yet: estimate from the words
+        b.setdefault('duration', round(max(2.4, len(b.get('vo', '').split()) / 2.7 + 0.7), 3))
+    t, starts = 0.0, []
+    for b in spec['beats']:
+        starts.append(t)
+        t += b['duration']
+    if speech is None:
+        speech = [(s + 0.15, s + b['duration'] - 0.45) for s, b in zip(starts, spec['beats'])]
+    cues.resolve(spec, starts, speech)
     resolved = outdir / 'resolved.json'
     resolved.write_text(json.dumps(spec, indent=1))
 

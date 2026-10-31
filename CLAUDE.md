@@ -63,6 +63,23 @@ fallback: put `"timings": [secs per beat]` in the spec).
 **End screen.** It's automatic: about 1.8s after the last line, the final shot softly blurs and darkens and a small brand card fades in
 ("theo6k · follow for more football stories"). Keep it subtle and short. Optional spec keys: `"outroText"`, `"outroDur"`, `"outro": false`.
 
+## Narration-synced animation: required on every video (viewer feedback)
+A viewer said a video felt like "listening instead of watching": the picture sat on one shot while the narrator talked about something
+else (e.g. Ronaldo and Klose on screen while he talked about Gerd Müller). So:
+- **The picture follows the words.** When the narrator names a player, number, date, club or event, something on screen reacts at that
+  moment: the player appears, the number pops or flips, the highlight moves, the pen circles it, the stamp slams down. Never show something
+  before it's said, and never leave something unshown while it's being talked about.
+- **Pin visuals to phrases with `"at"`** (handled by `engine/cues.py`, from the real voice timing):
+  `card.at`, pen `stroke.at`, player `at` (entrance) and `tagAt` (number pop), board `focusPath[].at`, `captionAt`/`swapAt` as a phrase,
+  receipt `totalAt`. Use them in place of hand-tuned `delay` and `t` values.
+- **Several shots per line.** A long line gets `"shots": [{"at": "phrase", ...}]` to cut or move the camera, swap players or bring in a new card
+  mid-sentence. Aim for **a visible change every 2–3 seconds** at most.
+- **Motion matches the emotion** of each line (see the [tag] in `vo_elevenlabs.md`): excited or triumphant means fast moves, pops, confetti and slams.
+  Tense means a slow push-in, darker lights and a held highlight. Sombre means low `lights`, slow drift and fewer elements. Dry or deadpan means a hard cut
+  and a single clean graphic.
+- **Voice speed:** the user's ElevenLabs narrator reads slightly too slowly. Set `"voSpeed": 1.08` in every spec; `build.py` speeds up the
+  uploaded voice (pitch unchanged) before syncing. The user doesn't need to change ElevenLabs settings.
+
 ## Visual richness: required on every video
 - **Every video must be visually rich.** Every beat shows its information through an animated data graphic, effect or transition
   (counters, boards, tables, rulers, trophies, ball-numbers, strikes and corrections, camera moves, depth and lighting changes).

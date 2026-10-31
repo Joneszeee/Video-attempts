@@ -44,18 +44,23 @@
        "value": 16
       }
      ],
-     "focus": 0,
      "cols": 9,
-     "vcols": 3
+     "vcols": 3,
+     "focusPath": [
+      {
+       "t": 0,
+       "row": 0
+      }
+     ]
     },
     {
      "type": "stamp",
      "text": "GUILTY",
      "sub": "114 of 115 charges",
      "y": 1180,
-     "delay": -1.0,
      "rot": -0.14,
-     "size": 130
+     "size": 130,
+     "at": "guilty"
     }
    ]
   },
@@ -69,17 +74,70 @@
    },
    "cut": true,
    "players": [],
-   "card": {
-    "type": "newspaper",
-    "delay": 0.2,
-    "y": 1020,
-    "masthead": "THE FINAL WHISTLE",
-    "dateline": "Tuesday 29 September 2026",
-    "headline": "GUILTY",
-    "size": 190,
-    "color": "#b3121f",
-    "sub": "114 of 115 charges proven"
-   }
+   "card": [
+    {
+     "type": "flip",
+     "at": "twenty-ninth",
+     "pos": "mid",
+     "label": "Verdict day",
+     "groups": [
+      {
+       "label": "September",
+       "value": 29,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "TUE",
+      "big": "29",
+      "bottom": "SEP"
+     }
+    },
+    {
+     "type": "newspaper",
+     "at": "ruled",
+     "y": 1060,
+     "masthead": "THE FINAL WHISTLE",
+     "dateline": "Tuesday 29 September 2026",
+     "headline": "GUILTY",
+     "size": 190,
+     "color": "#b3121f",
+     "sub": "114 of 115 charges proven"
+    }
+   ],
+   "shots": [
+    {
+     "at": "dating back",
+     "card": {
+      "type": "ruler",
+      "y": 900,
+      "min": 2023,
+      "max": 2027,
+      "step": 1,
+      "delay": 0,
+      "markers": [
+       {
+        "value": 2023.1,
+        "label": "Feb 2023 · charged",
+        "len": 90
+       },
+       {
+        "value": 2026.75,
+        "label": "Sep 2026 · verdict",
+        "accent": true,
+        "len": 90,
+        "side": "below"
+       }
+      ],
+      "bracket": {
+       "from": 2023.1,
+       "to": 2026.75,
+       "label": "3 years 7 months",
+       "y": -60
+      }
+     }
+    }
+   ]
   },
   {
    "kicker": "The commission's finding",
@@ -110,7 +168,9 @@
     "total": [
      "Revenue inflated",
      "£830M"
-    ]
+    ],
+    "at": "sham",
+    "totalAt": "eight hundred"
    }
   },
   {
@@ -137,12 +197,12 @@
       }
      ],
      "size": 104,
-     "colW": 400
+     "colW": 400,
+     "at": "financial"
     },
     {
      "type": "dots",
      "y": 1180,
-     "delay": 1.4,
      "label": "Failure to cooperate",
      "caption": "1 not proven",
      "states": [
@@ -182,8 +242,9 @@
       "hit",
       "miss"
      ],
-     "step": 0.05,
-     "counter": false
+     "step": 0.03,
+     "counter": false,
+     "at": "thirty-four"
     }
    ]
   },
@@ -234,40 +295,51 @@
      "num": null
     }
    ],
-   "card": {
-    "type": "board",
-    "id": "case",
-    "y": 640,
-    "label": "Premier League v Man City",
-    "rows": [
-     {
-      "name": "Verdict",
-      "value": "GUILTY"
-     },
-     {
-      "name": "Appeal",
-      "value": "1 OCT"
-     },
-     {
-      "name": "Sanction",
-      "value": "???"
-     }
-    ],
-    "cols": 8,
-    "vcols": 6,
-    "focusPath": [
-     {
-      "t": 0,
-      "row": 0
-     },
-     {
-      "t": 2.4,
-      "row": 1
-     }
-    ],
-    "caption": "'Errors of law, principle and fact'",
-    "captionAt": 3.0
-   }
+   "card": [
+    {
+     "type": "board",
+     "id": "case",
+     "y": 640,
+     "label": "Premier League v Man City",
+     "rows": [
+      {
+       "name": "Verdict",
+       "value": "GUILTY"
+      },
+      {
+       "name": "Appeal",
+       "value": "1 OCT"
+      },
+      {
+       "name": "Sanction",
+       "value": "???"
+      }
+     ],
+     "cols": 8,
+     "vcols": 7,
+     "focusPath": [
+      {
+       "t": 0,
+       "row": 0
+      },
+      {
+       "at": "first of October",
+       "row": 1
+      }
+     ],
+     "caption": "'Errors of law, principle and fact'",
+     "captionAt": "clear material"
+    },
+    {
+     "type": "stamp",
+     "text": "APPEALED",
+     "at": "appealed",
+     "y": 1480,
+     "rot": 0.1,
+     "size": 96,
+     "color": "#6cabdd"
+    }
+   ]
   },
   {
    "headline": "Punishment: [on hold].",
@@ -288,13 +360,42 @@
      },
      {
       "name": "Sanction",
-      "value": "ON HOLD"
+      "value": "???"
      }
     ],
     "cols": 8,
     "vcols": 7,
     "focus": 2
-   }
+   },
+   "shots": [
+    {
+     "at": "no punishment",
+     "card": {
+      "type": "board",
+      "id": "case",
+      "y": 640,
+      "label": "Premier League v Man City",
+      "rows": [
+       {
+        "name": "Verdict",
+        "value": "GUILTY"
+       },
+       {
+        "name": "Appeal",
+        "value": "1 OCT"
+       },
+       {
+        "name": "Sanction",
+        "value": "ON HOLD"
+       }
+      ],
+      "cols": 8,
+      "vcols": 7,
+      "focus": 2
+     },
+     "lights": 0.45
+    }
+   ]
   },
   {
    "kicker": "For context",
@@ -309,25 +410,31 @@
    "focus": 0,
    "lights": 1,
    "card": {
-    "type": "bars",
-    "y": 900,
-    "max": 12,
+    "type": "board",
+    "at": "biggest",
+    "y": 880,
     "label": "Biggest Premier League deductions",
+    "cols": 8,
+    "vcols": 3,
     "rows": [
      {
       "name": "Everton",
-      "value": 10,
-      "accent": true
+      "from": "-10",
+      "value": "-6"
      },
      {
       "name": "Forest",
-      "value": 4
+      "value": "-4"
      },
      {
       "name": "Boro",
-      "value": 3
+      "value": "-3"
      }
-    ]
+    ],
+    "focus": 0,
+    "swapAt": "cut to six",
+    "caption": "Record: 10 points",
+    "captionAt": "ten"
    }
   },
   {
@@ -353,7 +460,8 @@
       "accent": true
      }
     ],
-    "colW": 400
+    "colW": 400,
+    "at": "forty"
    }
   },
   {
@@ -421,14 +529,15 @@
       "row": 0
      },
      {
-      "t": 2.4,
+      "at": "Minus forty",
       "row": 1
      },
      {
-      "t": 4.6,
+      "at": "seventy-four",
       "row": 2
      }
-    ]
+    ],
+    "at": "supercomputer"
    }
   },
   {
@@ -487,9 +596,10 @@
     "cols": 9,
     "vcols": 3,
     "focus": 2,
-    "swapAt": 1.6,
+    "swapAt": "minus nineteen",
     "caption": "Bottom of the table",
-    "captionAt": 2.4
+    "captionAt": "bottom",
+    "at": "Take forty"
    }
   },
   {
@@ -564,21 +674,26 @@
     "vcols": 2,
     "focusPath": [
      {
-      "t": 1.2,
+      "t": 0,
       "row": 0
      },
      {
-      "t": 1.9,
+      "at": "Points",
+      "row": 0
+     },
+     {
+      "at": "titles",
       "row": 1
      },
      {
-      "t": 2.6,
+      "at": "relegation",
       "row": 2
      }
     ],
     "caption": "Comment below",
-    "captionAt": 3.4
+    "captionAt": "Tell me"
    }
   }
- ]
+ ],
+ "voSpeed": 1.08
 }

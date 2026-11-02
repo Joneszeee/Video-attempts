@@ -152,6 +152,10 @@ def _resolve_beat(b, rel):
             for key, out in (('emptyAt', 'emptyT'), ('captionAt', 'captionT')):
                 if isinstance(c.get(key), str):
                     c[out] = round(max(0, rel(c.pop(key)) - base), 3)
+        if c.get('type') == 'tally' and isinstance(c.get('newAt'), str):
+            c['newT'] = round(max(0, rel(c.pop('newAt')) + c.pop('newLag', 0) - base), 3)
+        if c.get('type') == 'ball' and isinstance(c.get('untilAt'), str):
+            c['until'] = round(max(0, rel(c.pop('untilAt')) + c.pop('untilLag', 0) - base), 3)
         if c.get('type') == 'stack':
             for it in c['items']:
                 if 'at' in it:

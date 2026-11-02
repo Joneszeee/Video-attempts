@@ -2263,6 +2263,43 @@ CARDS.tape = function (c, ct, cx, cy) {
 };
 CARDS.tape.noSlide = true;
 
+// Knockout tally (idea list: penalty-shootout dots): a row of circles, one per game, each with a small label underneath.
+// `done` are already filled; the next one fills at `newAt`/`newT` with a slam. `mark: "x"` (red cross) or "check" (green tick).
+// title, left/right labels for who the tally is about, `score` shows "done / n" big under the row.
+CARDS.tally = function (c, ct, cx, cy) {
+  const n = c.n || 6, r = c.r || 58, gap = c.gap || 30, w = n * r * 2 + (n - 1) * gap, a = eOut(pr(ct, 0, 0.35));
+  const filled = (c.done || 0) + (c.newT != null && ct >= c.newT ? 1 : 0);
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.fillStyle = 'rgba(8,10,15,0.72)'; rrect(cx - w / 2 - 40, cy - r - 90, w + 80, r * 2 + 200, 28); ctx.fill();
+  if (c.title) { font(600, 24, 'Mono', '5px'); ctx.fillStyle = '#c9ced6'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(c.title.toUpperCase(), cx, cy - r - 44); }
+  const col = c.mark === 'check' ? '#2ecc71' : '#ff4d5e';
+  for (let i = 0; i < n; i++) {
+    const x = cx - w / 2 + r + i * (2 * r + gap), on = i < filled, isNew = c.newT != null && i === (c.done || 0);
+    const k = isNew ? pr(ct, c.newT, 0.3) : on ? 1 : 0;
+    ctx.lineWidth = 5; ctx.strokeStyle = on ? col : 'rgba(255,255,255,0.22)';
+    ctx.beginPath(); ctx.arc(x, cy, r, 0, 7); ctx.stroke();
+    if (k > 0) {
+      const sc = isNew ? lerp(1.8, 1, eOut(k)) : 1;
+      ctx.save(); ctx.translate(x, cy); ctx.scale(sc, sc); ctx.globalAlpha *= Math.min(1, k * 2);
+      ctx.fillStyle = rgba(col, 0.22); ctx.beginPath(); ctx.arc(0, 0, r - 4, 0, 7); ctx.fill();
+      ctx.strokeStyle = col; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath();
+      if (c.mark === 'check') { ctx.moveTo(-r * 0.4, 0); ctx.lineTo(-r * 0.1, r * 0.32); ctx.lineTo(r * 0.45, -r * 0.35); }
+      else { const q = r * 0.38; ctx.moveTo(-q, -q); ctx.lineTo(q, q); ctx.moveTo(q, -q); ctx.lineTo(-q, q); }
+      ctx.stroke(); ctx.restore();
+    }
+    if (c.labels && c.labels[i]) {
+      font(700, 19, 'Mono', '1px'); ctx.fillStyle = on ? '#f4f2ec' : '#7d838e'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+      String(c.labels[i]).split('\n').forEach((l, j) => ctx.fillText(l.toUpperCase(), x, cy + r + 38 + j * 24));
+    }
+  }
+  if (c.score) {
+    font(800, 40, 'Inter', '-1px'); ctx.textAlign = 'center'; ctx.fillStyle = '#f4f2ec';
+    ctx.fillText(c.score.replace('{n}', filled), cx, cy + r + 98);
+  }
+  ctx.restore();
+};
+CARDS.tally.noSlide = true;
+
 // Golden balance scales: two names weighed against each other; the beam tips toward the heavier side.
 // left/right: {name, value, color}, tilt (radians, exaggerate small gaps), question
 CARDS.scales = function (c, ct, cx, cy) {
@@ -2388,6 +2425,7 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'tally': if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
     case 'scales': ev.push({ t: 0.3, type: 'swish' }, { t: 0.9, type: 'impact' }); for (let t = 0.3; t < 1.5; t += 0.075) ev.push({ t, type: 'tick' }); break;
     case 'poll': ev.push({ t: 0, type: 'pop' }, { t: 0.6, type: 'swipe' }); break;
     case 'comments': c.items.forEach((it, i) => ev.push({ t: it.t != null ? it.t : 0.2 + i * (c.step || 0.45), type: 'pop' })); break;

@@ -170,6 +170,9 @@ Built so far from the idea list (reuse them):
   `emptyAt` + `emptyLabel` (a red "?" pulses in the next empty slot: "25 years of nothing"). Example: `videos/kane-ballon` beats 4 and 5.
   Each item can carry `badge: {colors: [c1, c2, c3], text: "LFC", style: band|stripes|diamond}`: a club shield that pops in above it.
   **Badges are stylised shields in club colours with initials, never real crests** (trademarks). `drawBadge()` can be reused anywhere.
+- **Knockout tally** (idea list's penalty dots, built): the `tally` card. `n` circles with `labels` ("EURO\n2024"), `done` already filled, the next fills with a slam at
+  `newAt`; `mark: x|check`, `title`, `score` ("defeats: {n}"). Repeat it each beat with `done` one higher to build a run of results. Example: `videos/yamal-mbappe`.
+  A resting `ball` can now vanish on a word with `untilAt` (+ `untilLag`), so the kick and the shot both sync to the voice.
 - **Scales:** the `scales` card. A golden balance with two name plates (`left`/`right: {name, value, color, text}`); the beam wobbles and settles toward the
   bigger value (`tilt` exaggerates a small gap, `arm` sets the width). Good for "did X deserve it over Y" endings. Example: `videos/kane-ballon` beat 10.
 - **Poll sticker** (`poll`: `question`, `options: [{label, color, fill, pct}]`, tapping finger) and **comment bubbles** (`comments`: `items: [{text, x, y, color}]`,
@@ -200,7 +203,6 @@ From statbolthq (FORMAT.md Reference 6; demo `videos/_test-statbolt`). Tips, not
 - A drawn player card (polaroid with a caption line) that slides in beside a graphic when a player is named.
 - A scoreboard clock that fast-forwards through a match, with events popping on the timeline.
 - A shirt-number morph: one shirt number flips into another (for heirs to a number, e.g. 7s and 10s).
-- Penalty-shootout dots: ✓ and ✗ circles filling for each kick.
 - Formation chalk-lines: a 4-4-2 drawn on the pitch that rearranges into a new shape.
 - A stopwatch or speed-gun readout for fastest goals or sprints.
 - A league-table climb: a club's row sliding up the table week by week.

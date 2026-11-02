@@ -1,0 +1,1146 @@
+{
+ "title": "Mbappé v Yamal",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Knockout football · since 2024",
+   "headline": "Mbappé v Yamal in knockouts: [0 wins].",
+   "accent": "#FF4D5E",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 24
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.35,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.7,
+   "fans": true,
+   "players": [
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#1f3b7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": 10,
+     "x": 0,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": {
+    "type": "tally",
+    "n": 6,
+    "r": 56,
+    "gap": 32,
+    "y": 760,
+    "title": "Mbappé v Yamal · knockout games",
+    "labels": [
+     "EURO\n2024",
+     "SUPER CUP\n2025",
+     "COPA\n2025",
+     "NATIONS\n2025",
+     "SUPER CUP\n2026",
+     "WORLD CUP\n2026"
+    ],
+    "done": 6,
+    "score": "Mbappé wins: 0 · defeats: {n}",
+    "delay": -1.1
+   },
+   "vo": "Kylian Mbappé has faced Lamine Yamal six times in knockout football. He's lost all six."
+  },
+  {
+   "kicker": "Euro 2024 · semi-final",
+   "headline": "Euro 2024: a [16-year-old] strikes.",
+   "accent": "#E9B949",
+   "transition": "polaroid",
+   "polaroidLabel": "Euro 2024",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 24
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     -0.6,
+     1.9,
+     27.4
+    ],
+    "tgt": [
+     -0.4,
+     1.4,
+     60
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.4,
+     1.7,
+     29.0
+    ],
+    "tgt": [
+     -0.6,
+     1.3,
+     60
+    ]
+   },
+   "move": 5,
+   "fans": true,
+   "lights": 1,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": 19,
+     "x": 0.15,
+     "z": 33.8,
+     "action": "kick",
+     "actionAt": "curled",
+     "actionLag": -0.6,
+     "actionDur": 1.3,
+     "after": "celebrate"
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.4,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "curled",
+     "actionLag": 0.15,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#f7d117"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10"
+    }
+   ],
+   "punch": [
+    {
+     "at": "curled",
+     "lag": -0.1,
+     "amount": 0.12,
+     "dur": 1.4,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "at": "curled",
+     "lag": 1.0,
+     "amount": 20
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.32,
+      0.11,
+      34.2
+     ],
+     "untilAt": "curled",
+     "untilLag": -0.05
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "curled",
+     "lag": -0.05,
+     "dur": 1.1,
+     "points": [
+      [
+       0.32,
+       0.11,
+       34.2
+      ],
+      [
+       -4.8,
+       3.6,
+       44
+      ],
+      [
+       -3.1,
+       2.1,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "tally",
+     "n": 6,
+     "r": 56,
+     "gap": 32,
+     "y": 760,
+     "title": "Mbappé v Yamal · knockout games",
+     "labels": [
+      "EURO\n2024",
+      "SUPER CUP\n2025",
+      "COPA\n2025",
+      "NATIONS\n2025",
+      "SUPER CUP\n2026",
+      "WORLD CUP\n2026"
+     ],
+     "done": 0,
+     "score": "Mbappé wins: 0 · defeats: {n}",
+     "delay": 0,
+     "newAt": "knocked France"
+    }
+   ],
+   "vo": "It started at Euro 2024. A sixteen-year-old Yamal curled one in, and Spain knocked France out in the semi-final."
+  },
+  {
+   "kicker": "Spanish Super Cup · final",
+   "headline": "Super Cup 2025: Barcelona [5–2].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#ffffff",
+     "#f4f4f2"
+    ],
+    "seed": 31
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.8,
+     -6.5
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.6,
+     1.6,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.9,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f7d117",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -1.1,
+     "z": 2,
+     "front": true,
+     "action": "celebrate"
+    },
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": 1.3,
+     "z": 3.5
+    }
+   ],
+   "card": [
+    {
+     "type": "tally",
+     "n": 6,
+     "r": 56,
+     "gap": 32,
+     "y": 760,
+     "title": "Mbappé v Yamal · knockout games",
+     "labels": [
+      "EURO\n2024",
+      "SUPER CUP\n2025",
+      "COPA\n2025",
+      "NATIONS\n2025",
+      "SUPER CUP\n2026",
+      "WORLD CUP\n2026"
+     ],
+     "done": 1,
+     "score": "Mbappé wins: 0 · defeats: {n}",
+     "delay": 0,
+     "newAt": "Real Madrid two"
+    },
+    {
+     "type": "flip",
+     "y": 1560,
+     "at": "Barcelona five",
+     "label": "Final score",
+     "groups": [
+      {
+       "label": "Barcelona",
+       "value": 5,
+       "digits": 1
+      },
+      {
+       "label": "Real Madrid",
+       "value": 2,
+       "digits": 1
+      }
+     ]
+    }
+   ],
+   "vo": "January 2025, the Spanish Super Cup final. Barcelona five, Real Madrid two."
+  },
+  {
+   "kicker": "Copa del Rey · final",
+   "headline": "Copa del Rey: [3–2] after extra time.",
+   "accent": "#E9B949",
+   "camera": {
+    "pos": [
+     -0.8,
+     1.5,
+     -5.0
+    ],
+    "tgt": [
+     0,
+     1.4,
+     20
+    ]
+   },
+   "move": 4,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f7d117",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -1.1,
+     "z": 2,
+     "front": true,
+     "pose": "arms_up",
+     "trophy": true
+    },
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": 1.4,
+     "z": 4.5,
+     "enter": "walk",
+     "fromZ": 3.5,
+     "walkDur": 4
+    }
+   ],
+   "card": [
+    {
+     "type": "tally",
+     "n": 6,
+     "r": 56,
+     "gap": 32,
+     "y": 760,
+     "title": "Mbappé v Yamal · knockout games",
+     "labels": [
+      "EURO\n2024",
+      "SUPER CUP\n2025",
+      "COPA\n2025",
+      "NATIONS\n2025",
+      "SUPER CUP\n2026",
+      "WORLD CUP\n2026"
+     ],
+     "done": 2,
+     "score": "Mbappé wins: 0 · defeats: {n}",
+     "delay": 0,
+     "newAt": "extra time"
+    },
+    {
+     "type": "flip",
+     "y": 1560,
+     "at": "three",
+     "label": "After extra time",
+     "groups": [
+      {
+       "label": "Barcelona",
+       "value": 3,
+       "digits": 1
+      },
+      {
+       "label": "Real Madrid",
+       "value": 2,
+       "digits": 1
+      }
+     ]
+    }
+   ],
+   "vo": "April, the Copa del Rey final. Barcelona win three–two in extra time."
+  },
+  {
+   "kicker": "Nations League · semi-final",
+   "headline": "Nations League: Spain [5–4].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 5
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.4,
+     -3.6
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 4,
+   "lights": 0.95,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": 0,
+     "z": 2,
+     "front": true,
+     "chest": false,
+     "tag": "2",
+     "tagLabel": "Yamal goals",
+     "tagAt": "scores twice"
+    }
+   ],
+   "card": [
+    {
+     "type": "tally",
+     "n": 6,
+     "r": 56,
+     "gap": 32,
+     "y": 760,
+     "title": "Mbappé v Yamal · knockout games",
+     "labels": [
+      "EURO\n2024",
+      "SUPER CUP\n2025",
+      "COPA\n2025",
+      "NATIONS\n2025",
+      "SUPER CUP\n2026",
+      "WORLD CUP\n2026"
+     ],
+     "done": 3,
+     "score": "Mbappé wins: 0 · defeats: {n}",
+     "delay": 0,
+     "newAt": "France four"
+    },
+    {
+     "type": "flip",
+     "y": 1560,
+     "at": "Spain five",
+     "label": "Semi-final",
+     "groups": [
+      {
+       "label": "Spain",
+       "value": 5,
+       "digits": 1
+      },
+      {
+       "label": "France",
+       "value": 4,
+       "digits": 1
+      }
+     ]
+    }
+   ],
+   "vo": "June, the Nations League semi-final. Spain five, France four. Yamal scores twice."
+  },
+  {
+   "kicker": "Spanish Super Cup · final",
+   "headline": "Super Cup 2026: [again].",
+   "accent": "#FF4D5E",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#ffffff",
+     "#f4f4f2"
+    ],
+    "seed": 31
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     2.6,
+     -9
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     2.2,
+     -8
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 4,
+   "lights": 0.6,
+   "players": [
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": 0,
+     "z": 3,
+     "enter": "walk",
+     "fromZ": 1,
+     "walkDur": 5
+    }
+   ],
+   "card": [
+    {
+     "type": "tally",
+     "n": 6,
+     "r": 56,
+     "gap": 32,
+     "y": 760,
+     "title": "Mbappé v Yamal · knockout games",
+     "labels": [
+      "EURO\n2024",
+      "SUPER CUP\n2025",
+      "COPA\n2025",
+      "NATIONS\n2025",
+      "SUPER CUP\n2026",
+      "WORLD CUP\n2026"
+     ],
+     "done": 4,
+     "score": "Mbappé wins: 0 · defeats: {n}",
+     "delay": 0,
+     "newAt": "three–two"
+    },
+    {
+     "type": "flip",
+     "y": 1560,
+     "at": "Barcelona win",
+     "label": "Final score",
+     "groups": [
+      {
+       "label": "Barcelona",
+       "value": 3,
+       "digits": 1
+      },
+      {
+       "label": "Real Madrid",
+       "value": 2,
+       "digits": 1
+      }
+     ]
+    }
+   ],
+   "vo": "January 2026, another Super Cup final. Barcelona win again, three–two."
+  },
+  {
+   "kicker": "World Cup 2026 · semi-final",
+   "headline": "World Cup semi-final: Spain [2–0].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 7
+   },
+   "cut": true,
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.35,
+     2.4
+    ]
+   },
+   "move": 3.2,
+   "lights": 0.9,
+   "flashes": 16,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "pose": "fists"
+    }
+   ],
+   "card": [
+    {
+     "type": "tally",
+     "n": 6,
+     "r": 56,
+     "gap": 32,
+     "y": 700,
+     "title": "Mbappé v Yamal · knockout games",
+     "labels": [
+      "EURO\n2024",
+      "SUPER CUP\n2025",
+      "COPA\n2025",
+      "NATIONS\n2025",
+      "SUPER CUP\n2026",
+      "WORLD CUP\n2026"
+     ],
+     "done": 5,
+     "score": "Mbappé wins: 0 · defeats: {n}",
+     "delay": 0,
+     "newAt": "France nil"
+    }
+   ],
+   "vo": "Then the biggest one of all. A World Cup semi-final. Spain two, France nil.",
+   "orbit": {
+    "center": [
+     0,
+     1.35,
+     2.4
+    ],
+    "r": 4.8,
+    "from": -70,
+    "to": 35,
+    "h": 0.7,
+    "h2": 1.5,
+    "dur": 5.2
+   },
+   "confetti": true,
+   "confettiAt": "Spain two",
+   "confettiColors": [
+    "#c60b1e",
+    "#f7d117",
+    "#ffffff"
+   ],
+   "punch": [
+    {
+     "at": "France nil",
+     "amount": 0.1,
+     "dur": 1.4,
+     "anchor": 0
+    }
+   ]
+  },
+  {
+   "kicker": "The record",
+   "headline": "Six knockout games. [Six defeats].",
+   "accent": "#FF4D5E",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 24
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     3.4,
+     -12
+    ],
+    "tgt": [
+     0,
+     1.0,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     2.6,
+     -9
+    ],
+    "tgt": [
+     0,
+     1.0,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.3,
+   "focus": 0.2,
+   "fans": false,
+   "players": [
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#1f3b7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": 10,
+     "x": 0,
+     "z": 2
+    }
+   ],
+   "card": [
+    {
+     "type": "tally",
+     "n": 6,
+     "r": 56,
+     "gap": 32,
+     "y": 760,
+     "title": "Mbappé v Yamal · knockout games",
+     "labels": [
+      "EURO\n2024",
+      "SUPER CUP\n2025",
+      "COPA\n2025",
+      "NATIONS\n2025",
+      "SUPER CUP\n2026",
+      "WORLD CUP\n2026"
+     ],
+     "done": 6,
+     "score": "Mbappé wins: 0 · defeats: {n}",
+     "delay": 0
+    },
+    {
+     "type": "stamp",
+     "text": "0 / 6",
+     "sub": "knockout wins",
+     "y": 1480,
+     "size": 150,
+     "rot": -0.12,
+     "at": "Six defeats"
+    }
+   ],
+   "vo": "Six knockout games. Six defeats."
+  },
+  {
+   "kicker": "Mbappé",
+   "headline": "He even [scored]. Didn't matter.",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#ffffff",
+     "#f4f4f2"
+    ],
+    "seed": 31
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0.2,
+     1.8,
+     32.4
+    ],
+    "tgt": [
+     0.4,
+     1.3,
+     60
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.3,
+     1.6,
+     33.4
+    ],
+    "tgt": [
+     0.5,
+     1.2,
+     60
+    ]
+   },
+   "move": 4,
+   "lights": 1,
+   "fans": true,
+   "players": [
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": 0.45,
+     "z": 38.1,
+     "action": "kick",
+     "actionAt": "even scored",
+     "actionLag": -0.5,
+     "actionDur": 1.3,
+     "after": "celebrate"
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.4,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "even scored",
+     "actionLag": 0.25,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111",
+      "socks": "#f7d117",
+      "text": "#111"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10"
+    }
+   ],
+   "punch": [
+    {
+     "at": "even scored",
+     "amount": 0.25,
+     "dur": 1.3,
+     "anchor": 0
+    }
+   ],
+   "freezeAt": "never mattered",
+   "freezeLag": 0.1,
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.62,
+      0.11,
+      38.5
+     ],
+     "untilAt": "even scored",
+     "untilLag": 0.05
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "even scored",
+     "lag": 0.05,
+     "dur": 1.0,
+     "points": [
+      [
+       0.62,
+       0.11,
+       38.5
+      ],
+      [
+       1.8,
+       2.4,
+       46
+      ],
+      [
+       2.9,
+       1.9,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "STILL LOST",
+     "y": 1180,
+     "size": 120,
+     "rot": -0.12,
+     "at": "never mattered",
+     "lag": 0.15
+    }
+   ],
+   "vo": "The strangest part? Mbappé even scored in some of them. It never mattered."
+  },
+  {
+   "kicker": "Ballon d'Or 2026",
+   "headline": "Ballon d'Or: missed by [28 points].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stage"
+   },
+   "cut": true,
+   "zoomFrom": 1.0,
+   "zoom": 1.08,
+   "players": [
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "sx": 0.5,
+     "sy": 1640,
+     "scale": 1.05,
+     "front": true,
+     "outfit": "suit"
+    }
+   ],
+   "card": {
+    "type": "tape",
+    "y": 760,
+    "at": "Ballon d'Or",
+    "left": {
+     "name": "Kane",
+     "color": "#dc052d"
+    },
+    "right": {
+     "name": "Mbappé",
+     "color": "#f4f4f2"
+    },
+    "rows": [
+     {
+      "label": "Ballon d'Or points",
+      "left": 1055,
+      "right": 1027,
+      "at": "Ballon d'Or"
+     }
+    ],
+    "caption": "28 points short",
+    "captionAt": "twenty-eight"
+   },
+   "vo": "Last month, he missed the Ballon d'Or by just twenty-eight points."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Yamal: Mbappé's [kryptonite]?",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#ffffff",
+     "#f4f4f2"
+    ],
+    "seed": 31
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -5
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "move": 4,
+   "lights": 0.55,
+   "focus": 0.35,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f7d117",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -1.1,
+     "z": 2,
+     "front": true
+    },
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": 1.1,
+     "z": 2,
+     "front": true
+    }
+   ],
+   "card": {
+    "type": "poll",
+    "y": 800,
+    "at": "kryptonite",
+    "question": "Will Mbappé ever beat him?",
+    "options": [
+     {
+      "label": "Kryptonite",
+      "color": "#a50044",
+      "fill": 0.55
+     },
+     {
+      "label": "He'll win one",
+      "color": "#9fb3cf",
+      "fill": 0.45
+     }
+    ]
+   },
+   "vo": "So is Yamal his kryptonite, or will Mbappé finally win one? Tell me in the comments."
+  }
+ ]
+}

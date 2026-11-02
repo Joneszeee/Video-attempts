@@ -142,13 +142,28 @@ Built so far from the idea list (reuse them):
   (a stamp, a number) keep animating on top. Good for "and then it all stopped" turns.
 - **Hero close-up:** a player with `"front": true, "chest": true` shows name and big number on the chest. Use a camera about 4m in front at chest height.
 
+From statbolthq (FORMAT.md Reference 6; demo `videos/_test-statbolt`). Tips, not rules: mix them with the Story Gaffer look.
+- **Word-by-word captions:** spec-level `"captions": true` swaps the headline for live captions of the VO, word by word from the real voice
+  timing, showing the current phrase only (`captionMax` words, default 5). Names and numbers get a blue selection box automatically;
+  add `"keys": ["word", ...]` on a beat to box more. Options: `captionY`, `captionSize`, `captionBox` (colour). Frame 1 shows the opening
+  phrase whole, so it still works as a thumbnail. Best for fast play-by-play or breakdown videos; keep headlines for stat-led videos.
+  Alternate between the two so the channel doesn't feel samey.
+- **Tactics board:** the `tactic` card. A whiteboard half pitch "drawn from match reports". `players: [{n, x, y, team: home|away, name, label: "left", nameAt}]`
+  (x, y are 0–1 on the board, goal at the top), `home`/`away` colours, `ball` (starting player index), `moves: [{from, to, at, dur, kind: pass|run|shot, curve}]`
+  (from and to are player indexes or `[x, y]`; marker lines draw with the ball, X at each pass start, names appear as players get involved),
+  `cam: [{at, s, x, y}]` to zoom and follow the move (each move starts on its word), `note`. It's clipped below the captions. This is the backlog's pitch map, built.
+- **Stacked counter:** the `stack` card. `items: [{value, label, at, color, gold, prefix, suffix, decimals}]`. Each new stat counts up big and pushes the older ones up, smaller and dimmer.
+- **Shot map on the pitch:** the `shotmap` card (stadium). `shots: [{x, z, blocked, goal, at}]` in metres, `step`, `blockedAt` (blocked shots turn red with an X), `color`.
+  Use a high camera looking down at the box.
+
 **Idea backlog: don't forget it (user asked).** Every video should use at least one backlog item, or invent a new one, and build it into the engine:
-- A pitch map with animated shot or pass trails, or goal locations as dots.
 - A head-to-head "tale of the tape" with bars sliding in from both sides.
 - A calendar or season heatmap of goals.
 - A world map with a route line, for transfers or tournaments.
 - A whip-pan or zoom-through-the-number transition between scenes.
 - A rewind / VHS-scrub transition for "let's go back" moments.
+- A dive-into-a-screen transition: the next scene starts on a tablet or phone lying on a stadium seat, and the camera flies into it (statbolthq).
+- A drawn player card (polaroid with a caption line) that slides in beside a graphic when a player is named.
 - A scoreboard clock that fast-forwards through a match, with events popping on the timeline.
 - A shirt-number morph: one shirt number flips into another (for heirs to a number, e.g. 7s and 10s).
 - A trophy-cabinet shelf that fills as honours are listed.

@@ -1,0 +1,266 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "captions": true,
+ "outro": false,
+ "tail": 0.4,
+ "beats": [
+  {
+   "kicker": "Engine test \u00b7 tactics board",
+   "vo": "Silva finds Okafor, Okafor cuts it back, and Brandt taps in at the back post.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#c8102e",
+     "#ffffff"
+    ],
+    "seed": 3
+   },
+   "camFrom": "stand",
+   "camera": "high",
+   "move": 6,
+   "focus": 0.6,
+   "lights": 0.5,
+   "players": [],
+   "card": {
+    "type": "tactic",
+    "y": 1160,
+    "delay": -0.6,
+    "players": [
+     {
+      "n": 1,
+      "x": 0.5,
+      "y": 0.06,
+      "team": "away",
+      "name": "Keeper"
+     },
+     {
+      "n": 4,
+      "x": 0.4,
+      "y": 0.2,
+      "team": "away"
+     },
+     {
+      "n": 5,
+      "x": 0.62,
+      "y": 0.22,
+      "team": "away"
+     },
+     {
+      "n": 2,
+      "x": 0.25,
+      "y": 0.3,
+      "team": "away"
+     },
+     {
+      "n": 3,
+      "x": 0.8,
+      "y": 0.33,
+      "team": "away"
+     },
+     {
+      "n": 6,
+      "x": 0.5,
+      "y": 0.42,
+      "team": "away"
+     },
+     {
+      "n": 8,
+      "x": 0.45,
+      "y": 0.62,
+      "team": "home",
+      "name": "Silva"
+     },
+     {
+      "n": 7,
+      "x": 0.82,
+      "y": 0.5,
+      "team": "home",
+      "name": "Okafor"
+     },
+     {
+      "n": 9,
+      "x": 0.3,
+      "y": 0.18,
+      "team": "home",
+      "name": "Brandt",
+      "label": "left"
+     },
+     {
+      "n": 10,
+      "x": 0.6,
+      "y": 0.4,
+      "team": "home"
+     }
+    ],
+    "ball": 6,
+    "moves": [
+     {
+      "from": 6,
+      "to": 7,
+      "at": "finds",
+      "dur": 0.7
+     },
+     {
+      "from": 7,
+      "to": [
+       0.86,
+       0.17
+      ],
+      "at": "cuts",
+      "dur": 0.6,
+      "kind": "run"
+     },
+     {
+      "from": [
+       0.86,
+       0.17
+      ],
+      "to": 8,
+      "at": "back,",
+      "dur": 0.6,
+      "curve": 0.15
+     },
+     {
+      "from": 8,
+      "to": [
+       0.47,
+       0.025
+      ],
+      "at": "taps",
+      "dur": 0.4,
+      "kind": "shot"
+     }
+    ],
+    "cam": [
+     {
+      "t": 0,
+      "s": 1
+     },
+     {
+      "at": "finds",
+      "s": 1.35,
+      "x": 0.65,
+      "y": 0.5
+     },
+     {
+      "at": "cuts",
+      "s": 1.5,
+      "x": 0.7,
+      "y": 0.3
+     },
+     {
+      "at": "Brandt",
+      "s": 1.6,
+      "x": 0.45,
+      "y": 0.18
+     }
+    ]
+   }
+  },
+  {
+   "vo": "After the break they took nine shots. Seven were blocked.",
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     30,
+     -6
+    ],
+    "tgt": [
+     0,
+     0,
+     36
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     24,
+     2
+    ],
+    "tgt": [
+     0,
+     0,
+     38
+    ]
+   },
+   "move": 5,
+   "focus": 0,
+   "lights": 0.85,
+   "players": [],
+   "card": [
+    {
+     "type": "shotmap",
+     "at": "nine",
+     "step": 0.1,
+     "blockedAt": "blocked",
+     "shots": [
+      {
+       "x": -6,
+       "z": 36,
+       "blocked": true
+      },
+      {
+       "x": 3,
+       "z": 34,
+       "blocked": true
+      },
+      {
+       "x": 10,
+       "z": 38,
+       "blocked": true
+      },
+      {
+       "x": -2,
+       "z": 41
+      },
+      {
+       "x": 5,
+       "z": 44,
+       "blocked": true
+      },
+      {
+       "x": -12,
+       "z": 33,
+       "blocked": true
+      },
+      {
+       "x": 0,
+       "z": 30,
+       "blocked": true
+      },
+      {
+       "x": 8,
+       "z": 31
+      },
+      {
+       "x": -4,
+       "z": 46,
+       "blocked": true
+      }
+     ]
+    },
+    {
+     "type": "stack",
+     "y": 1560,
+     "delay": 0,
+     "items": [
+      {
+       "value": 9,
+       "label": "Shots, second half",
+       "at": "nine"
+      },
+      {
+       "value": 7,
+       "label": "Blocked",
+       "at": "Seven",
+       "color": "#ff4d5e"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

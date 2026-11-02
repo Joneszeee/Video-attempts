@@ -48,8 +48,57 @@ def frac_of(text, phrase):
     return sum(w(c) for c in text[:k]) / max(1, sum(w(c) for c in text))
 
 
+NUMBER_WORDS = set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen '
+                   'nineteen twenty thirty forty fifty sixty seventy eighty ninety hundred thousand million billion first second third '
+                   'half minus'.split())
+STOP = set('the a an and but so or if on in at of for to by with from as is was are were be been it its this that these those '
+           'what when where who why how there they their them he his she her we our you your i my me take every reports opta\'s '
+           'for context until tell'.split())
+
+
+def caption_words(spec, beat_starts, speech):
+    """Each spoken word with its timeline time, phrase group and whether it is a key word (names, numbers, beat 'keys')."""
+    names = set()
+    for b in spec['beats']:
+        toks = b.get('vo', '').split()
+        for j, w in enumerate(toks):
+            core = re.sub(r"[^\w'’\-]", '', w)
+            if j > 0 and core[:1].isupper() and not re.search(r'[.?!:]$', toks[j - 1]) and core.lower() not in STOP:
+                names.add(core.lower())
+    out, g = [], 0
+    w = lambda ch: PAUSE.get(ch, 1)
+    for i, b in enumerate(spec['beats']):
+        text = b.get('vo', '')
+        if not text:
+            continue
+        s0, s1 = speech[i]
+        total = max(1, sum(w(c) for c in text))
+        keys = {k.lower() for k in b.get('keys', [])}
+        g += 1
+        n_in = 0
+        for m in re.finditer(r'\S+', text):
+            word = m.group(0)
+            core = re.sub(r"[^\w'’\-]", '', word).lower()
+            t = s0 + sum(w(c) for c in text[:m.start()]) / total * (s1 - s0)
+            key = (bool(re.search(r'\d', word)) or core in keys or core in names or core.split('-')[0] in NUMBER_WORDS
+                   or core.endswith('ty') and core in NUMBER_WORDS)
+            if core in ('one', 'first', 'second', 'half', 'minus') and core not in keys:
+                key = False
+            if n_in >= (spec.get('captionMax') or 5):
+                g += 1
+                n_in = 0
+            out.append({'w': word, 't': round(t, 3), 'g': g, 'key': key})
+            n_in += 1
+            if re.search(r'[,.;:?!—]$', word):
+                g += 1
+                n_in = 0
+    return out
+
+
 def resolve(spec, beat_starts, speech):
     """beat_starts: timeline start of each beat. speech: timeline (start, end) of each beat's spoken line."""
+    if spec.get('captions'):
+        spec['captionWords'] = caption_words(spec, beat_starts, speech)
     out = []
     for i, b in enumerate(spec['beats']):
         s0, s1 = speech[i]
@@ -88,6 +137,24 @@ def _resolve_beat(b, rel):
                     g['t'] = round(max(0, rel(g.pop('at')) - base), 3)
             if isinstance(c.get('emptyAt'), str):
                 c['emptyT'] = round(max(0, rel(c.pop('emptyAt')) - base), 3)
+        if c.get('type') == 'tactic':
+            for lst in (c.get('moves') or [], c.get('cam') or []):
+                for m in lst:
+                    if 'at' in m:
+                        m['t'] = round(max(0, rel(m.pop('at')) + m.pop('lag', 0) - base), 3)
+            for pl in c.get('players') or []:
+                if 'nameAt' in pl:
+                    pl['nameT'] = round(max(0, rel(pl.pop('nameAt')) - base), 3)
+        if c.get('type') == 'stack':
+            for it in c['items']:
+                if 'at' in it:
+                    it['t'] = round(max(0, rel(it.pop('at')) - base), 3)
+        if c.get('type') == 'shotmap':
+            for sh in c['shots']:
+                if 'at' in sh:
+                    sh['t'] = round(max(0, rel(sh.pop('at')) - base), 3)
+            if isinstance(c.get('blockedAt'), str):
+                c['blockedT'] = round(max(0, rel(c.pop('blockedAt')) - base), 3)
         if c.get('type') == 'pen':
             base = c.get('delay', 0.3)
             for s in c['strokes']:

@@ -755,6 +755,7 @@ function drawPlayers(cam, lt, players) {
     list.push({ q, ball: c, ct });
   }
   list.sort((a, b) => b.q[2] - a.q[2]);
+  drawShotMaps(cam);
   drawUnderPens();
   for (const o of list) {
     if (o.ball) { ctx.save(); CARDS[o.ball.type](o.ball, o.ct, W / 2, 0, 0); ctx.restore(); continue; }
@@ -1813,6 +1814,203 @@ CARDS.flytext = function (c, ct, cx, cy) {
 };
 CARDS.flytext.noSlide = true;
 
+// ---------- ideas from statbolthq (Reference 6) ----------
+// Word-by-word captions: each word appears as it is spoken, the current phrase only; key words get a selection box.
+// Words and times come from cues.py (spec.captionWords), so they follow the real voice.
+function drawCaptions(t) {
+  const W0 = S.spec.captionWords || [];
+  let cur = -1;
+  for (let i = 0; i < W0.length; i++) if (W0[i].t <= t) cur = i;
+  if (cur < 0 && W0.length) { const g0 = W0[0].g; cur = W0.filter(w => w.g === g0).length - 1; t = W0[cur].t + 1; }   // frame 1 (thumbnail): the opening phrase, whole
+  if (cur < 0) return;
+  const g = W0[cur].g, words = W0.filter((w, i) => w.g === g && i <= cur);
+  const last = W0.filter(w => w.g === g).slice(-1)[0], nextG = W0.find(w => w.g > g);
+  const fade = nextG ? 1 : 1 - pr(t, last.t + 1.6, 0.3);   // the final phrase fades after its last word
+  if (fade <= 0) return;
+  const size = S.spec.captionSize || 80, lh = size * 1.18, maxW = 940;
+  font(800, size, 'Inter', '-1.5px');
+  const sp = ctx.measureText(' ').width, lines = [[]];
+  let x = 0;
+  for (const w of words) {
+    const ww = ctx.measureText(w.w).width;
+    if (x > 0 && x + sp + ww > maxW) { lines.push([]); x = 0; }
+    else if (x > 0) x += sp;
+    lines[lines.length - 1].push({ ...w, x, ww });
+    x += ww;
+  }
+  const y0 = S.spec.captionY || 440;
+  ctx.save(); ctx.globalAlpha = fade; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+  lines.forEach((line, li) => {
+    const lw = line.length ? line[line.length - 1].x + line[line.length - 1].ww : 0, ox = W / 2 - lw / 2, y = y0 + li * lh;
+    for (const w of line) {
+      const age = t - w.t, isCur = w === line[line.length - 1] && li === lines.length - 1;
+      const pop = eBack(Math.min(1, age / 0.16));
+      ctx.save(); ctx.translate(ox + w.x + w.ww / 2, y - size * 0.35); ctx.scale(0.9 + 0.1 * pop, 0.9 + 0.1 * pop); ctx.translate(-(ox + w.x + w.ww / 2), -(y - size * 0.35));
+      if (w.key) {   // selection box with two handles, like a design tool
+        const core = w.w.replace(/[,.;:?!]+$/, ''), cw = ctx.measureText(core).width;
+        const k = eOut(Math.min(1, age / 0.2)), pad = 10, bx = ox + w.x - pad, by = y - size * 0.86, bw = cw + pad * 2, bh = size * 1.08;
+        ctx.strokeStyle = S.spec.captionBox || '#4fb3ff'; ctx.lineWidth = 3;
+        ctx.strokeRect(bx, by, bw * k, bh);
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.beginPath(); ctx.arc(bx, by, 7, 0, 7); ctx.fill();
+        if (k > 0.9) { ctx.beginPath(); ctx.arc(bx + bw, by + bh, 7, 0, 7); ctx.fill(); }
+      }
+      ctx.fillStyle = w.key || isCur ? '#ffffff' : '#7d838e';
+      font(w.key || isCur ? 800 : 600, size, 'Inter', '-1.5px');
+      ctx.fillText(w.w, ox + w.x, y);
+      ctx.restore();
+    }
+  });
+  ctx.restore();
+}
+
+// Whiteboard tactics board, "drawn from match reports": numbered discs, marker names, and the ball travelling
+// along hand-drawn pass lines. The view can zoom and follow the move (cam keyframes).
+function tacXY(c, p, bw, bh) {
+  const v = typeof p === 'number' ? [c.players[p].x + 0.035, c.players[p].y + 0.025] : p;
+  return [(v[0] - 0.5) * bw, (v[1] - 0.5) * bh];
+}
+CARDS.tactic = function (c, ct, cx, cy) {
+  const bw = c.w || 980, bh = c.h || 1180, home = c.home || '#d0263a', away = c.away || '#e9dcb4';
+  const ink = '#17181c', a = eOut(pr(ct, 0, 0.5));
+  // camera on the board: keyframes {t, s, x, y} in board fractions
+  const cam = c.cam || [];
+  let fs = 1, fx = 0.5, fy = 0.5;
+  if (cam.length) {   // each keyframe starts its move when its word is said, and takes about a second
+    let i = -1; while (i < cam.length - 1 && ct >= (cam[i + 1].t || 0)) i++;
+    if (i >= 0) {
+      const A = i > 0 ? cam[i - 1] : { s: 1, x: 0.5, y: 0.5 }, B = cam[i], k = ease(pr(ct, B.t || 0, B.dur || 1.0));
+      fs = lerp(A.s ?? 1, B.s ?? 1, k); fx = lerp(A.x ?? 0.5, B.x ?? 0.5, k); fy = lerp(A.y ?? 0.5, B.y ?? 0.5, k);
+    }
+  }
+  ctx.save();
+  ctx.beginPath(); ctx.rect(0, c.clipTop != null ? c.clipTop : 520, W, H); ctx.clip();   // zooming never covers the captions
+  ctx.globalAlpha *= a;
+  ctx.translate(cx, cy + (1 - a) * 80);
+  ctx.scale(fs, fs);
+  ctx.translate(-(fx - 0.5) * bw, -(fy - 0.5) * bh);
+  ctx.rotate(c.tilt != null ? c.tilt : -0.012);
+  // paper
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 50; ctx.shadowOffsetY = 20;
+  ctx.fillStyle = '#eceef0'; ctx.fillRect(-bw / 2, -bh / 2, bw, bh);
+  ctx.shadowColor = 'transparent';
+  const R = rng(4);
+  for (let i = 0; i < 500; i++) { ctx.fillStyle = `rgba(120,130,140,${R() * 0.07})`; ctx.fillRect(-bw / 2 + R() * bw, -bh / 2 + R() * bh, 3, 3); }
+  // half pitch, goal at the top
+  ctx.strokeStyle = 'rgba(40,44,52,0.38)'; ctx.lineWidth = 3;
+  const m = 34, L = -bw / 2 + m, T = -bh / 2 + m, PW = bw - 2 * m, PH = bh - 2 * m;
+  ctx.strokeRect(L, T, PW, PH);
+  ctx.strokeRect(L + PW * 0.2, T, PW * 0.6, PH * 0.2);
+  ctx.strokeRect(L + PW * 0.37, T, PW * 0.26, PH * 0.07);
+  ctx.strokeRect(L + PW * 0.44, T - 14, PW * 0.12, 14);
+  ctx.beginPath(); ctx.arc(L + PW / 2, T + PH * 0.2, PW * 0.12, 0.25 * Math.PI, 0.75 * Math.PI); ctx.stroke();
+  ctx.beginPath(); ctx.arc(L + PW / 2, T + PH, PW * 0.17, Math.PI, 2 * Math.PI); ctx.stroke();
+  if (c.note !== false) { font(400, 22, 'Marker'); ctx.fillStyle = ink; ctx.textAlign = 'right'; ctx.fillText((c.note || 'Drawn from match reports').toUpperCase(), bw / 2 - 40, -bh / 2 + 26); }
+  // pass lines drawn so far, X where each pass starts
+  const moves = c.moves || [];
+  let ball = tacXY(c, c.ball != null ? c.ball : (moves[0] ? moves[0].from : 0), bw, bh), moving = false;
+  ctx.strokeStyle = ink; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const involved = new Map();
+  for (const mv of moves) {
+    const k = pr(ct, mv.t || 0, mv.dur || 0.7);
+    if (k <= 0) continue;
+    const p0 = tacXY(c, mv.from, bw, bh), p1 = tacXY(c, mv.to, bw, bh), e = mv.kind === 'shot' ? k : ease(k);
+    const mid = mv.curve ? [(p0[0] + p1[0]) / 2 + mv.curve * (p1[1] - p0[1]), (p0[1] + p1[1]) / 2 - mv.curve * (p1[0] - p0[0])] : null;
+    const at = u => mid ? [(1 - u) ** 2 * p0[0] + 2 * (1 - u) * u * mid[0] + u * u * p1[0], (1 - u) ** 2 * p0[1] + 2 * (1 - u) * u * mid[1] + u * u * p1[1]] : [lerp(p0[0], p1[0], u), lerp(p0[1], p1[1], u)];
+    ctx.setLineDash(mv.kind === 'run' ? [14, 14] : []);
+    ctx.beginPath(); ctx.moveTo(...p0);
+    for (let s = 1; s <= 24; s++) ctx.lineTo(...at(e * s / 24));
+    ctx.stroke(); ctx.setLineDash([]);
+    if (mv.kind !== 'run') {
+      const r = 11; ctx.beginPath(); ctx.moveTo(p0[0] - r, p0[1] - r); ctx.lineTo(p0[0] + r, p0[1] + r); ctx.moveTo(p0[0] + r, p0[1] - r); ctx.lineTo(p0[0] - r, p0[1] + r); ctx.stroke();
+      ball = at(e); moving = k < 1;
+    }
+    if (typeof mv.from === 'number') involved.set(mv.from, mv.t || 0);
+    if (typeof mv.to === 'number') involved.set(mv.to, Math.min(involved.get(mv.to) ?? 1e9, (mv.t || 0) + (mv.dur || 0.7) * 0.8));
+  }
+  // players
+  for (const [i, p] of c.players.entries()) {
+    const [x, y] = [(p.x - 0.5) * bw, (p.y - 0.5) * bh], r = c.r || 34;
+    const pk = eBack(pr(ct, (p.t || 0) + 0.1 + i * 0.02, 0.3));
+    if (pk <= 0) continue;
+    ctx.save(); ctx.translate(x, y); ctx.scale(pk, pk);
+    const col = p.team === 'away' ? away : home;
+    ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.beginPath(); ctx.arc(2, 5, r, 0, 7); ctx.fill();
+    ctx.fillStyle = col; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+    ctx.strokeStyle = p.team === 'away' ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.8)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(0, 0, r - 5, 0, 7); ctx.stroke();
+    font(800, r * 0.78, 'Inter'); ctx.fillStyle = p.team === 'away' ? '#3b3424' : '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(String(p.n), 0, 2);
+    ctx.restore();
+    const nt = p.nameT != null ? p.nameT : involved.get(i);
+    if (p.name && nt != null && ct >= nt) {
+      const nk = Math.min(1, (ct - nt) / 0.35), txt = p.name.toUpperCase();
+      font(400, 30, 'Marker'); ctx.fillStyle = ink; ctx.textBaseline = 'middle';
+      const left = p.label === 'left'; ctx.textAlign = left ? 'right' : 'left';
+      ctx.save(); ctx.beginPath();
+      const tw = ctx.measureText(txt).width;
+      ctx.rect(left ? x - r - 12 - tw * nk : x + r + 10, y - 30, tw * nk + 4, 60); ctx.clip();
+      ctx.fillText(txt, left ? x - r - 10 : x + r + 10, y + 1);
+      ctx.restore();
+    }
+  }
+  // ball
+  const br = 15 + (moving ? 3 : 0);
+  drawBall(ball[0], ball[1], br);
+  ctx.restore();
+};
+CARDS.tactic.noSlide = true;
+
+// Stacked stat counter: each new stat counts up big at the bottom and pushes the older ones up, smaller and dimmer.
+CARDS.stack = function (c, ct, cx, cy) {
+  const items = c.items, size = c.size || 150;
+  const shown = items.filter(it => ct >= (it.t || 0));
+  shown.forEach((it, i) => {
+    const depth = shown.length - 1 - i;
+    // how far this item has been pushed up (eases when newer ones arrive)
+    let push = 0;
+    for (let j = i + 1; j < shown.length; j++) push += eOut(pr(ct, shown[j].t || 0, 0.4));
+    const sc = Math.pow(0.5, push), y = cy - push * size * 0.85, al = Math.pow(0.55, push);
+    const ink = eOut(pr(ct, it.t || 0, 0.35));
+    const v = (it.value) * eOut(pr(ct, (it.t || 0), it.countDur || 0.7));
+    const txt = (it.prefix || '') + v.toFixed(it.decimals || 0) + (it.suffix || '');
+    ctx.save(); ctx.globalAlpha *= al * ink; ctx.translate(cx, y + (1 - ink) * 40); ctx.scale(sc, sc);
+    font(800, size, 'Inter', '-3px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    if (it.gold) { const g = ctx.createLinearGradient(0, -size * 0.8, 0, 0); g.addColorStop(0, GOLD[0]); g.addColorStop(1, GOLD[2]); ctx.fillStyle = g; }
+    else ctx.fillStyle = it.color || '#f4f2ec';
+    ctx.fillText(txt, 0, 0);
+    if (it.label) { font(600, 32, 'Inter', '0px'); ctx.fillStyle = '#b3b9c3'; ctx.fillText(it.label, 0, 54); }
+    ctx.restore();
+    void depth;
+  });
+};
+CARDS.stack.noSlide = true;
+
+// Shot map on the real pitch: each shot pops as a dot with a ring where it was taken (world x, z in metres);
+// blocked shots turn red with a cross at blockedT, goals turn gold. Drawn on the grass, under the players.
+function drawShotMaps(cam) {
+  for (const it of S.cur ? S.cur.cards : []) {
+    const c = it.obj, ct = S.t - it.start;
+    if (c.type !== 'shotmap' || ct < 0) continue;
+    c.shots.forEach((s, i) => {
+      const t0 = (s.t != null ? s.t : (c.step || 0.12) * i), k = pr(ct, t0, 0.35);
+      if (k <= 0) return;
+      const q = toCam(cam, [s.x, 0.02, s.z]);
+      if (q[2] < NEAR) return;
+      const p = proj(q), m = FOC / q[2];
+      const bt = s.blocked ? (c.blockedT != null ? c.blockedT + i * 0.06 : null) : null;
+      const isB = bt != null && ct >= bt, col = s.goal ? '#f1c453' : isB ? '#ff4d5e' : (c.color || '#f4f2ec');
+      const ring = 1 - pr(ct, t0, 0.6);
+      ctx.strokeStyle = col; ctx.lineWidth = Math.max(3, m * 0.14);
+      if (ring > 0) { ctx.globalAlpha = ring; ctx.beginPath(); ctx.ellipse(p[0], p[1], m * (1 + 3 * (1 - ring)), m * (1 + 3 * (1 - ring)) * 0.36, 0, 0, 7); ctx.stroke(); ctx.globalAlpha = 1; }
+      ctx.beginPath(); ctx.ellipse(p[0], p[1], m * 1.1, m * 0.4, 0, 0, 7); ctx.stroke();
+      ctx.fillStyle = col; ctx.beginPath(); ctx.ellipse(p[0], p[1], m * 0.6 * eBack(k), m * 0.22 * eBack(k), 0, 0, 7); ctx.fill();
+      if (isB) { const r = m * 0.7; ctx.beginPath(); ctx.moveTo(p[0] - r, p[1] - r * 0.4); ctx.lineTo(p[0] + r, p[1] + r * 0.4); ctx.moveTo(p[0] + r, p[1] - r * 0.4); ctx.lineTo(p[0] - r, p[1] + r * 0.4); ctx.stroke(); }
+    });
+  }
+}
+CARDS.shotmap = function () {};
+CARDS.shotmap.noSlide = true;
+
 // Radial speed lines (hero intro, big moments). Beat key: "speedlines": [{t|at, dur}]
 function drawSpeedlines(b, lt) {
   for (const sl of b.speedlines || []) {
@@ -1863,6 +2061,9 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'tactic': (c.moves || []).forEach(m => { ev.push({ t: m.t || 0, type: m.kind === 'shot' ? 'whoosh' : 'swipe' }); if (m.kind === 'shot') ev.push({ t: (m.t || 0) + (m.dur || 0.7), type: 'impact' }); }); break;
+    case 'stack': c.items.forEach(it => { ev.push({ t: it.t || 0, type: 'pop' }); for (let t = (it.t || 0); t < (it.t || 0) + 0.6; t += 0.075) ev.push({ t, type: 'tick' }); }); break;
+    case 'shotmap': c.shots.forEach((sh, i) => ev.push({ t: sh.t != null ? sh.t : (c.step || 0.12) * i, type: 'pop' })); if (c.blockedT != null) ev.push({ t: c.blockedT, type: 'swish' }); break;
     case 'vehicle': ev.push({ t: 0, type: 'whoosh' }, { t: (c.dur || 1.6) - 0.1, type: 'impact' }); break;
     case 'flytext': ev.push({ t: 0, type: 'whoosh' }); if (c.mode !== 'through' && c.settle !== false) ev.push({ t: c.dur || 0.7, type: 'impact' }); break;
     case 'rain': {
@@ -2145,7 +2346,8 @@ function renderAt(t) {
   drawKicker(b.kickerText, (kChanged && i > 0 ? eOut(pr(lt, 0, 0.4)) : 1) * (1 - kOut));
   const hChanged = i > 0 && prevB.headline !== b.headline;
   const hOut = next && next.headline !== b.headline ? lt - (b.dur - 0.22) : null;
-  if (b.headline) drawHeadline(b.headline, hChanged ? lt : 99, hOut != null && hOut >= 0 ? hOut : null, b.accent);
+  if (S.spec.captions) drawCaptions(t);   // word-by-word captions take the headline's place
+  else if (b.headline) drawHeadline(b.headline, hChanged ? lt : 99, hOut != null && hOut >= 0 ? hOut : null, b.accent);
   if (S.outro && t >= S.outro.start) drawOutro(t - S.outro.start);
 
   ctx.restore();

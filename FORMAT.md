@@ -77,3 +77,20 @@ CAPTION:  <Payoff stat as a sentence>. ⚽ <question to the audience>
 - **Tilted tag-stamps** ("MINNOWS?", "PARKED."): a dark fill, a gold border and a slight rotation.
 - **Clean framing.** The headline is at the top, there's one graphic, and the lights go down for data moments. The action happens in the stadium; it's not a slideshow.
 - Built from it: `vehicle`, `rain`, `flytext`, beat `speedlines`, beat `freeze`, and the `chest` hero player (see CLAUDE.md).
+
+## Reference 6: statbolthq (Arsenal v Liverpool goal breakdown, screen recording, Nov 2026)
+A different creator. These are tips to borrow, not a template.
+- **Word-by-word captions instead of a fixed headline.** Each word appears as it's spoken, centred at the top, showing only the current
+  short phrase. Spoken words go grey and the newest is bold white. **Key words (names, numbers) get a thin blue selection box with two
+  round handles**, like a design tool. It makes the viewer read along, which works well for fast play-by-play narration.
+- **Hand-drawn whiteboard tactics board, "drawn from match reports".** A top-down half pitch on white paper, with numbered discs (home team
+  filled red with a white rim, away team cream) and names in black marker that appear as each player gets involved. The ball travels along
+  black marker pass lines with an X where each pass starts. **The view zooms in and follows the move.**
+- **Player photo card** (a polaroid with a caption line) slides in beside the board when the scorer is named. We don't use real photos, so use
+  a drawn figure or a shirt card if we copy this.
+- **Transitions through objects.** The board first appears on a tablet lying on a red stadium seat, and the camera dives into it.
+- **Stats live on the real pitch.** It's a top-down 3D pitch where each shot pops as a dot with a ring. The numbers stack at the bottom:
+  "9 Liverpool shots, second half" shrinks upwards as "3 blocked" then "7 blocked" counts in beneath it. A gold xG figure ("0.17") shows the answer.
+- **The team colour tints the top gradient** (red for Liverpool) behind the captions.
+- **Calm pacing.** One idea per shot and the camera keeps drifting, but nothing is frantic. The detail comes from the drawing, not from effects.
+- Built from it: `captions`, `tactic`, `stack` and `shotmap` (see CLAUDE.md). Demo: `videos/_test-statbolt`.

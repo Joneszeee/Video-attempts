@@ -148,6 +148,12 @@ Built so far from the idea list (reuse them):
   (a stamp, a number) keep animating on top. Good for "and then it all stopped" turns.
 - **Hero close-up:** a player with `"front": true, "chest": true` shows name and big number on the chest. Use a camera about 4m in front at chest height.
 
+- **Trophy-cabinet shelf:** the `shelf` card. A lit glass cabinet: `items: [{kind: ball|cup|worldcup|boot, label, sub, at}]` drop onto the shelf with a spotlight
+  as each one is named. `slots` (total; extras stay as dashed empty slots), `title`, `instant: true` (already full, for a follow-up beat),
+  `emptyAt` + `emptyLabel` (a red "?" pulses in the next empty slot: "25 years of nothing"). Example: `videos/kane-ballon` beats 4 and 5.
+- **Tale of the tape:** the `tape` card. Two names (`left`/`right: {name, color}`), and for each of `rows: [{label, left, right, at, floor}]` bars slide out
+  from the middle while the numbers count; the bigger side turns gold. `caption` + `captionAt` adds a pill underneath. Use `floor` to exaggerate small gaps.
+
 From statbolthq (FORMAT.md Reference 6; demo `videos/_test-statbolt`). Tips, not rules: mix them with the Story Gaffer look.
 - **Word-by-word captions:** spec-level `"captions": true` swaps the headline for live captions of the VO, word by word from the real voice
   timing, showing the current phrase only (`captionMax` words, default 5). Names and numbers get a blue selection box automatically;
@@ -163,7 +169,6 @@ From statbolthq (FORMAT.md Reference 6; demo `videos/_test-statbolt`). Tips, not
   Use a high camera looking down at the box.
 
 **Idea backlog: don't forget it (user asked).** Every video should use at least one backlog item, or invent a new one, and build it into the engine:
-- A head-to-head "tale of the tape" with bars sliding in from both sides.
 - A calendar or season heatmap of goals.
 - A world map with a route line, for transfers or tournaments.
 - A whip-pan or zoom-through-the-number transition between scenes.
@@ -172,7 +177,6 @@ From statbolthq (FORMAT.md Reference 6; demo `videos/_test-statbolt`). Tips, not
 - A drawn player card (polaroid with a caption line) that slides in beside a graphic when a player is named.
 - A scoreboard clock that fast-forwards through a match, with events popping on the timeline.
 - A shirt-number morph: one shirt number flips into another (for heirs to a number, e.g. 7s and 10s).
-- A trophy-cabinet shelf that fills as honours are listed.
 - Penalty-shootout dots: ✓ and ✗ circles filling for each kick.
 - Formation chalk-lines: a 4-4-2 drawn on the pitch that rearranges into a new shape.
 - A stopwatch or speed-gun readout for fastest goals or sprints.

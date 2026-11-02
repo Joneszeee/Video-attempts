@@ -145,6 +145,13 @@ def _resolve_beat(b, rel):
             for pl in c.get('players') or []:
                 if 'nameAt' in pl:
                     pl['nameT'] = round(max(0, rel(pl.pop('nameAt')) - base), 3)
+        if c.get('type') in ('shelf', 'tape'):
+            for it in c.get('items') or c.get('rows') or []:
+                if 'at' in it:
+                    it['t'] = round(max(0, rel(it.pop('at')) + it.pop('lag', 0) - base), 3)
+            for key, out in (('emptyAt', 'emptyT'), ('captionAt', 'captionT')):
+                if isinstance(c.get(key), str):
+                    c[out] = round(max(0, rel(c.pop(key)) - base), 3)
         if c.get('type') == 'stack':
             for it in c['items']:
                 if 'at' in it:

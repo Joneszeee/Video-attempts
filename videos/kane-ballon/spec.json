@@ -1,0 +1,988 @@
+{
+ "title": "Kane Ballon d'Or",
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Ballon d'Or 2026 · London",
+   "headline": "The Ballon d'Or came to London. An [Englishman] won.",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stage"
+   },
+   "zoomFrom": 1.0,
+   "zoom": 1.12,
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "sx": 0.5,
+     "sy": 1640,
+     "scale": 1.15,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": [
+    {
+     "type": "trophies",
+     "delay": -1.1,
+     "floor": 1000,
+     "items": [
+      {
+       "kind": "ball",
+       "sx": 0.5,
+       "h": 0,
+       "size": 190
+      }
+     ]
+    }
+   ],
+   "shots": [
+    {
+     "at": "twenty-five years",
+     "card": [
+      "same",
+      {
+       "type": "flytext",
+       "text": "25 YEARS",
+       "size": 250,
+       "endScale": 0.55,
+       "y": 1780,
+       "color": "#f1c453",
+       "delay": 0
+      }
+     ]
+    }
+   ],
+   "vo": "The Ballon d'Or came to London for the first time. And for the first time in twenty-five years, an Englishman won it."
+  },
+  {
+   "kicker": "The closest vote",
+   "headline": "Kane beat Mbappé by [28 points].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c9a227",
+     "#ffffff",
+     "#1b2a4a"
+    ],
+    "seed": 8
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.25,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.6,
+   "fans": true,
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "x": -0.85,
+     "z": 2,
+     "front": true,
+     "chest": true,
+     "at": "Harry Kane"
+    },
+    {
+     "name": "Mbappé",
+     "num": 10,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#7a4a2c",
+     "hair": "#141010",
+     "x": 0.85,
+     "z": 2,
+     "front": true,
+     "chest": true,
+     "at": "Mbappé"
+    }
+   ],
+   "card": {
+    "type": "tape",
+    "y": 700,
+    "at": "beat",
+    "left": {
+     "name": "Kane",
+     "color": "#dc052d"
+    },
+    "right": {
+     "name": "Mbappé",
+     "color": "#f4f4f2"
+    },
+    "rows": [
+     {
+      "label": "Ballon d'Or points",
+      "left": 1055,
+      "right": 1027,
+      "at": "beat"
+     }
+    ],
+    "caption": "Just 28 points",
+    "captionAt": "twenty-eight"
+   },
+   "vo": "Harry Kane beat Kylian Mbappé by just twenty-eight points. One of the closest votes ever."
+  },
+  {
+   "kicker": "Why London?",
+   "headline": "1956: the first winner was [English].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f68712",
+     "#ffffff",
+     "#f68712"
+    ],
+    "seed": 56
+   },
+   "cut": true,
+   "transition": "polaroid",
+   "polaroidLabel": "1956",
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.25,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.85,
+   "players": [
+    {
+     "name": "Matthews",
+     "num": 7,
+     "kit": {
+      "shirt": "#f68712",
+      "shorts": "#ffffff",
+      "socks": "#f68712",
+      "text": "#ffffff"
+     },
+     "skin": "#e7c3a0",
+     "hair": "#3b2a1d",
+     "x": 0,
+     "z": 2,
+     "front": true,
+     "chest": true,
+     "enter": "fade",
+     "at": "Stanley"
+    }
+   ],
+   "card": [
+    {
+     "type": "trophies",
+     "at": "very first",
+     "floor": 900,
+     "items": [
+      {
+       "kind": "ball",
+       "sx": 0.5,
+       "h": 0,
+       "size": 170,
+       "label": "1956 · the first Ballon d'Or"
+      }
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "MATTHEWS",
+     "size": 220,
+     "endScale": 0.5,
+     "y": 1640,
+     "at": "Stanley Matthews",
+     "color": "#f68712"
+    }
+   ],
+   "vo": "Why London? Because the very first Ballon d'Or, in 1956, went to an Englishman: Stanley Matthews."
+  },
+  {
+   "kicker": "English winners",
+   "headline": "Only [three] more Englishmen since.",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#1b2a4a"
+    ],
+    "seed": 66
+   },
+   "cut": true,
+   "camFrom": "stand",
+   "camera": "high",
+   "move": 8,
+   "lights": 0.35,
+   "focus": 0.5,
+   "players": [],
+   "card": {
+    "type": "shelf",
+    "y": 1060,
+    "slots": 6,
+    "title": "England's Ballon d'Or winners",
+    "items": [
+     {
+      "label": "Matthews",
+      "sub": "1956",
+      "at": "Since then"
+     },
+     {
+      "label": "Charlton",
+      "sub": "1966",
+      "at": "Bobby Charlton"
+     },
+     {
+      "label": "Keegan",
+      "sub": "1978",
+      "at": "Kevin Keegan"
+     },
+     {
+      "label": "Keegan",
+      "sub": "1979",
+      "at": "twice"
+     },
+     {
+      "label": "Owen",
+      "sub": "2001",
+      "at": "Michael Owen"
+     }
+    ],
+    "delay": 0
+   },
+   "vo": "Since then, only three more Englishmen have won it. Bobby Charlton. Kevin Keegan, twice. And Michael Owen, in 2001."
+  },
+  {
+   "headline": "Then [25 years] of nothing.",
+   "accent": "#FF4D5E",
+   "lights": 0.22,
+   "focus": 0.6,
+   "card": {
+    "type": "shelf",
+    "y": 1060,
+    "slots": 6,
+    "title": "England's Ballon d'Or winners",
+    "instant": true,
+    "delay": 0,
+    "items": [
+     {
+      "label": "Matthews",
+      "sub": "1956"
+     },
+     {
+      "label": "Charlton",
+      "sub": "1966"
+     },
+     {
+      "label": "Keegan",
+      "sub": "1978"
+     },
+     {
+      "label": "Keegan",
+      "sub": "1979"
+     },
+     {
+      "label": "Owen",
+      "sub": "2001"
+     }
+    ],
+    "emptyAt": "twenty-five",
+    "emptyLabel": "2002–2025"
+   },
+   "vo": "Then, twenty-five years of nothing."
+  },
+  {
+   "kicker": "Harry Kane",
+   "headline": "Tottenham: [zero] trophies.",
+   "accent": "#FF4D5E",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff"
+    ],
+    "seed": 21
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -4
+    ],
+    "tgt": [
+     0,
+     1.25,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.9,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.25,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.5,
+   "focus": 0,
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#132257",
+      "text": "#132257"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 10,
+     "x": 0,
+     "z": 7,
+     "enter": "walk",
+     "fromZ": -1,
+     "walkDur": 6
+    }
+   ],
+   "card": {
+    "type": "big",
+    "value": 0,
+    "label": "Trophies with Tottenham",
+    "style": "accent",
+    "y": 760,
+    "at": "single trophy"
+   },
+   "vo": "Kane spent his whole Tottenham career without winning a single trophy."
+  },
+  {
+   "kicker": "Bayern Munich · 2025/26",
+   "headline": "Bayern: [36] goals and a double.",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#dc052d",
+     "#dc052d",
+     "#ffffff",
+     "#0066b2"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0.2,
+     1.8,
+     34.4
+    ],
+    "tgt": [
+     0.4,
+     1.3,
+     60
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.3,
+     1.6,
+     35.2
+    ],
+    "tgt": [
+     0.5,
+     1.2,
+     60
+    ]
+   },
+   "move": 4,
+   "lights": 1,
+   "fans": true,
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "x": 0.45,
+     "z": 40.1,
+     "action": "kick",
+     "actionDelay": 0.05,
+     "actionDur": 1.3,
+     "after": "celebrate"
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.4,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 0.62,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#f7d117"
+     },
+     "skin": "#d9a37c",
+     "hair": "#1a120c"
+    }
+   ],
+   "punch": [
+    {
+     "t": 0.2,
+     "amount": 0.3,
+     "dur": 1.4,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "t": 1.55,
+     "amount": 22
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.62,
+      0.11,
+      40.5
+     ],
+     "until": 0.6
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.6,
+     "dur": 0.95,
+     "points": [
+      [
+       0.62,
+       0.11,
+       40.5
+      ],
+      [
+       1.6,
+       1.4,
+       47
+      ],
+      [
+       2.9,
+       1.6,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "big",
+     "value": 36,
+     "label": "Bundesliga goals",
+     "y": 760,
+     "at": "Thirty-six"
+    }
+   ],
+   "shots": [
+    {
+     "at": "hat-trick",
+     "cut": true,
+     "camFrom": {
+      "pos": [
+       0,
+       1.7,
+       -5
+      ],
+      "tgt": [
+       0,
+       1.3,
+       20
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.5,
+       -3.6
+      ],
+      "tgt": [
+       0,
+       1.3,
+       20
+      ]
+     },
+     "move": 4,
+     "players": [
+      {
+       "name": "Kane",
+       "kit": {
+        "shirt": "#dc052d",
+        "shorts": "#dc052d",
+        "socks": "#dc052d",
+        "text": "#ffffff"
+       },
+       "skin": "#e9b896",
+       "hair": "#8a6a45",
+       "num": 9,
+       "x": 0,
+       "z": 2,
+       "front": true,
+       "chest": true,
+       "action": "celebrate"
+      }
+     ],
+     "fans": false,
+     "card": [
+      {
+       "type": "flytext",
+       "text": "HAT-TRICK",
+       "size": 230,
+       "endScale": 0.5,
+       "y": 760,
+       "delay": 0,
+       "color": "#f1c453"
+      },
+      {
+       "type": "balls",
+       "n": 3,
+       "label": "Cup final",
+       "y": 900,
+       "delay": 0.4
+      }
+     ]
+    },
+    {
+     "at": "domestic double",
+     "confetti": true,
+     "confettiColors": [
+      "#dc052d",
+      "#ffffff",
+      "#f1c453"
+     ],
+     "players": [
+      {
+       "name": "Kane",
+       "kit": {
+        "shirt": "#dc052d",
+        "shorts": "#dc052d",
+        "socks": "#dc052d",
+        "text": "#ffffff"
+       },
+       "skin": "#e9b896",
+       "hair": "#8a6a45",
+       "num": 9,
+       "x": 0,
+       "z": 2,
+       "front": true,
+       "chest": true,
+       "pose": "arms_up"
+      }
+     ],
+     "card": [
+      {
+       "type": "trophies",
+       "floor": 1500,
+       "delay": 0,
+       "items": [
+        {
+         "kind": "cup",
+         "sx": 0.2,
+         "h": 320,
+         "size": 170,
+         "label": "Bundesliga"
+        },
+        {
+         "kind": "cup",
+         "sx": 0.8,
+         "h": 320,
+         "size": 170,
+         "label": "DFB-Pokal"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "vo": "Then came Bayern. Thirty-six league goals, a hat-trick in the cup final, and a domestic double."
+  },
+  {
+   "kicker": "World Cup 2026 · England",
+   "headline": "World Cup: [6] goals, England [third].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#1b2a4a",
+     "#ffffff"
+    ],
+    "seed": 30
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.25,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.4,
+     -4
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.9,
+   "fans": true,
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#1b2a4a",
+      "socks": "#f4f4f2",
+      "text": "#1b2a4a"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "x": 0,
+     "z": 2,
+     "action": "celebrate"
+    }
+   ],
+   "card": {
+    "type": "stack",
+    "y": 1520,
+    "delay": 0,
+    "items": [
+     {
+      "value": 6,
+      "label": "World Cup goals",
+      "at": "six more"
+     },
+     {
+      "value": 3,
+      "suffix": "rd",
+      "label": "England's best since 1966",
+      "at": "third",
+      "gold": true
+     }
+    ]
+   },
+   "vo": "At the World Cup, six more goals. England finished third, their best since 1966."
+  },
+  {
+   "kicker": "Ballon d'Or 2026 · London",
+   "headline": "70 years later: [Kane].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stage"
+   },
+   "cut": true,
+   "zoomFrom": 1.0,
+   "zoom": 1.15,
+   "players": [
+    {
+     "name": "Matthews",
+     "num": 7,
+     "kit": {
+      "shirt": "#f68712",
+      "shorts": "#ffffff",
+      "socks": "#f68712",
+      "text": "#ffffff"
+     },
+     "skin": "#e7c3a0",
+     "hair": "#3b2a1d",
+     "ghost": true,
+     "front": true,
+     "chest": true,
+     "sx": 0.24,
+     "sy": 1560,
+     "scale": 0.85,
+     "enter": "fade",
+     "at": "Matthews"
+    },
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "sx": 0.6,
+     "sy": 1640,
+     "scale": 1.15,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": [],
+   "shots": [
+    {
+     "at": "an Englishman",
+     "confetti": true,
+     "confettiColors": [
+      "#f1c453",
+      "#ffffff",
+      "#E9B949"
+     ],
+     "players": [
+      {
+       "name": "Matthews",
+       "num": 7,
+       "kit": {
+        "shirt": "#f68712",
+        "shorts": "#ffffff",
+        "socks": "#f68712",
+        "text": "#ffffff"
+       },
+       "skin": "#e7c3a0",
+       "hair": "#3b2a1d",
+       "ghost": true,
+       "front": true,
+       "chest": true,
+       "sx": 0.24,
+       "sy": 1560,
+       "scale": 0.85
+      },
+      {
+       "name": "Kane",
+       "kit": {
+        "shirt": "#dc052d",
+        "shorts": "#dc052d",
+        "socks": "#dc052d",
+        "text": "#ffffff"
+       },
+       "skin": "#e9b896",
+       "hair": "#8a6a45",
+       "num": 9,
+       "sx": 0.6,
+       "sy": 1640,
+       "scale": 1.15,
+       "front": true,
+       "chest": true,
+       "pose": "arms_up"
+      }
+     ],
+     "card": [
+      {
+       "type": "trophies",
+       "floor": 1000,
+       "delay": 0,
+       "items": [
+        {
+         "kind": "ball",
+         "sx": 0.6,
+         "h": 0,
+         "size": 190
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "vo": "Seventy years after Matthews won the first one, it came to London, and an Englishman won it again."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Did Kane [deserve] it?",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c9a227",
+     "#ffffff",
+     "#1b2a4a"
+    ],
+    "seed": 8
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.25,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "move": 4,
+   "lights": 0.5,
+   "focus": 0.3,
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "x": -0.85,
+     "z": 2,
+     "front": true,
+     "chest": true
+    },
+    {
+     "name": "Mbappé",
+     "num": 10,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#7a4a2c",
+     "hair": "#141010",
+     "x": 0.85,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": {
+    "type": "board",
+    "id": "vote",
+    "y": 700,
+    "label": "Ballon d'Or 2026",
+    "cols": 8,
+    "vcols": 2,
+    "rows": [
+     {
+      "name": "Kane",
+      "value": "?"
+     },
+     {
+      "name": "Mbappé",
+      "value": "?"
+     }
+    ],
+    "focusPath": [
+     {
+      "t": 0,
+      "row": 0
+     },
+     {
+      "at": "Mbappé",
+      "row": 1
+     }
+    ],
+    "caption": "Comment below",
+    "captionAt": "Tell me"
+   },
+   "vo": "But did Kane really deserve it over Mbappé? Tell me in the comments."
+  }
+ ]
+}

@@ -2011,6 +2011,101 @@ function drawShotMaps(cam) {
 CARDS.shotmap = function () {};
 CARDS.shotmap.noSlide = true;
 
+// Trophy-cabinet shelf (idea list): a lit glass cabinet whose slots fill as honours are named.
+// items: [{kind: ball|cup|worldcup|boot, label, sub, t|at}], slots (total, extra ones stay empty), instant (already full),
+// empty slot pulse with emptyT|emptyAt + emptyLabel.
+CARDS.shelf = function (c, ct, cx, cy) {
+  const n = Math.max(c.slots || 0, c.items.length), cw = c.w || 960, ch = c.h || 420;
+  const a = eOut(pr(ct, 0, 0.45));
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(0, (1 - a) * 40);
+  // cabinet
+  const L = cx - cw / 2, T = cy - ch / 2;
+  const g = ctx.createLinearGradient(0, T, 0, T + ch);
+  g.addColorStop(0, '#20140c'); g.addColorStop(1, '#0d0805');
+  ctx.fillStyle = g; rrect(L, T, cw, ch, 18); ctx.fill();
+  ctx.strokeStyle = goldGrad(L, L + cw); ctx.lineWidth = 6; rrect(L, T, cw, ch, 18); ctx.stroke();
+  ctx.fillStyle = 'rgba(255,255,255,0.04)'; ctx.fillRect(L + 14, T + 14, cw * 0.18, ch - 28);   // glass glint
+  const shelfY = T + ch - 70;
+  ctx.fillStyle = goldGrad(L, L + cw); ctx.fillRect(L + 18, shelfY, cw - 36, 10);
+  if (c.title) { font(600, 22, 'Mono', '5px'); ctx.fillStyle = '#e2d3ad'; ctx.textAlign = 'center'; ctx.fillText(c.title.toUpperCase(), cx, T - 22); }
+  const sw = (cw - 60) / n;
+  for (let i = 0; i < n; i++) {
+    const x = L + 30 + sw * (i + 0.5), it = c.items[i];
+    const t0 = it ? (c.instant ? -1 : (it.t != null ? it.t : 0.3 + i * 0.4)) : null;
+    const k = it ? pr(ct, t0, 0.5) : 0;
+    if (k <= 0) {   // empty slot
+      ctx.setLineDash([8, 8]); ctx.strokeStyle = 'rgba(226,211,173,0.25)'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(x, shelfY - 70, 46, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+      if (!it && c.emptyT != null && ct >= c.emptyT) {
+        const pk = pr(ct, c.emptyT, 0.4), pulse = 0.6 + 0.4 * Math.sin((ct - c.emptyT) * 6);
+        ctx.strokeStyle = rgba(c.emptyColor || '#ff4d5e', pulse); ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.arc(x, shelfY - 70, 46 * (1 + 0.2 * eBack(pk)), 0, 7); ctx.stroke();
+        font(800, 54, 'Inter'); ctx.fillStyle = rgba(c.emptyColor || '#ff4d5e', pk); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText('?', x, shelfY - 66);
+        if (c.emptyLabel) { font(600, 19, 'Mono', '3px'); ctx.textBaseline = 'alphabetic'; ctx.fillText(c.emptyLabel.toUpperCase(), x, shelfY + 44); }
+      }
+      continue;
+    }
+    // spotlight cone + item dropping onto the shelf
+    const sp = ctx.createRadialGradient(x, shelfY - 60, 0, x, shelfY - 60, sw * 0.7);
+    sp.addColorStop(0, `rgba(255,226,150,${0.22 * k})`); sp.addColorStop(1, 'rgba(255,226,150,0)');
+    ctx.fillStyle = sp; ctx.fillRect(x - sw, T, sw * 2, ch);
+    const drop = (1 - eOut(k)) * -120, s = Math.min(sw * 0.95, c.size || 150);
+    ctx.save(); ctx.globalAlpha *= Math.min(1, k * 2);
+    drawProp(it.kind || 'ball', x, shelfY + drop, s, it.text);
+    ctx.restore();
+    const lk = pr(ct, t0 + 0.25, 0.3);
+    if (lk > 0) {
+      ctx.save(); ctx.globalAlpha *= lk; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+      font(700, Math.min(26, sw * 0.17), 'Inter'); ctx.fillStyle = '#f4f2ec'; ctx.fillText(it.label || '', x, shelfY + 42);
+      if (it.sub) { font(600, 19, 'Mono', '3px'); ctx.fillStyle = '#e2b84f'; ctx.fillText(String(it.sub).toUpperCase(), x, shelfY + 66 - 0); }
+      ctx.restore();
+    }
+  }
+  ctx.restore();
+};
+CARDS.shelf.noSlide = true;
+
+// Tale of the tape (idea list): two names, bars sliding out from the middle for each stat; the bigger side wins the accent.
+// left/right: {name, color}, rows: [{label, left, right, t|at, fmt: "comma"}]
+CARDS.tape = function (c, ct, cx, cy) {
+  const bw = c.w || 960, rows = c.rows, rh = c.rowH || 150, top = cy - (rows.length * rh) / 2;
+  const a = eOut(pr(ct, 0, 0.4));
+  ctx.save(); ctx.globalAlpha *= a;
+  const lc = c.left.color || '#d0263a', rc = c.right.color || '#e8e8ea';
+  font(800, 46, 'Inter', '-1px'); ctx.textBaseline = 'alphabetic';
+  ctx.textAlign = 'left'; ctx.fillStyle = '#f4f2ec'; ctx.fillText(c.left.name, cx - bw / 2, top - 30);
+  ctx.textAlign = 'right'; ctx.fillText(c.right.name, cx + bw / 2, top - 30);
+  ctx.fillStyle = lc; ctx.fillRect(cx - bw / 2, top - 18, 80, 6); ctx.fillStyle = rc; ctx.fillRect(cx + bw / 2 - 80, top - 18, 80, 6);
+  rows.forEach((r, i) => {
+    const t0 = r.t != null ? r.t : 0.3 + i * 0.5, k = ease(pr(ct, t0, 0.9));
+    const y = top + i * rh + rh * 0.55, mx = Math.max(r.left, r.right), half = bw / 2 - 20;
+    // scale bars so the difference reads: the smaller side is measured against the bigger, from a floor
+    const floor = r.floor != null ? r.floor : 0, wl = half * (r.left - floor) / (mx - floor), wr = half * (r.right - floor) / (mx - floor);
+    font(600, 22, 'Mono', '4px'); ctx.fillStyle = '#9aa1ad'; ctx.textAlign = 'center'; ctx.fillText(r.label.toUpperCase(), cx, y - 46);
+    ctx.fillStyle = 'rgba(255,255,255,0.06)'; rrect(cx - half - 10, y - 26, half * 2 + 20, 52, 26); ctx.fill();
+    ctx.fillStyle = lc; rrect(cx - 4 - wl * k, y - 20, wl * k, 40, 20); ctx.fill();
+    ctx.fillStyle = rc; rrect(cx + 4, y - 20, wr * k, 40, 20); ctx.fill();
+    const f = v => (c.comma === false ? String(Math.round(v)) : Math.round(v).toLocaleString('en-GB'));
+    const vk = pr(ct, t0 + 0.2, 0.8);
+    font(r.left >= r.right ? 900 : 700, 50, 'Inter', '-1px'); ctx.textAlign = 'left';
+    ctx.fillStyle = r.left >= r.right ? (c.win || '#f1c453') : '#cfd3da'; if (vk > 0) ctx.fillText(f(r.left * eOut(vk)), cx - bw / 2, y + 72);
+    font(r.right > r.left ? 900 : 700, 50, 'Inter', '-1px'); ctx.textAlign = 'right';
+    ctx.fillStyle = r.right > r.left ? (c.win || '#f1c453') : '#cfd3da'; if (vk > 0) ctx.fillText(f(r.right * eOut(vk)), cx + bw / 2, y + 72);
+  });
+  const capT = c.captionT != null ? c.captionT : c.captionAt;
+  if (c.caption && capT != null && ct >= capT) {
+    const pk = eBack(pr(ct, capT, 0.35)), y = top + rows.length * rh + 70;
+    ctx.save(); ctx.translate(cx, y); ctx.scale(pk, pk);
+    font(700, 28, 'Mono', '3px'); const tw = ctx.measureText(c.caption.toUpperCase()).width + 60;
+    ctx.fillStyle = c.captionColor || '#f1c453'; rrect(-tw / 2, -32, tw, 64, 32); ctx.fill();
+    ctx.fillStyle = '#16130e'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.caption.toUpperCase(), 0, 2);
+    ctx.restore();
+  }
+  ctx.restore();
+};
+CARDS.tape.noSlide = true;
+
 // Radial speed lines (hero intro, big moments). Beat key: "speedlines": [{t|at, dur}]
 function drawSpeedlines(b, lt) {
   for (const sl of b.speedlines || []) {
@@ -2061,6 +2156,8 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'shelf': if (!c.instant) c.items.forEach((it, i) => ev.push({ t: (it.t != null ? it.t : 0.3 + i * 0.4) + 0.4, type: 'impact' })); if (c.emptyT != null) ev.push({ t: c.emptyT, type: 'pop' }); break;
+    case 'tape': c.rows.forEach((r, i) => { const t0 = r.t != null ? r.t : 0.3 + i * 0.5; ev.push({ t: t0, type: 'swish' }); for (let t = t0 + 0.2; t < t0 + 0.9; t += 0.075) ev.push({ t, type: 'tick' }); }); if ((c.captionT ?? c.captionAt) != null) ev.push({ t: c.captionT ?? c.captionAt, type: 'pop' }); break;
     case 'tactic': (c.moves || []).forEach(m => { ev.push({ t: m.t || 0, type: m.kind === 'shot' ? 'whoosh' : 'swipe' }); if (m.kind === 'shot') ev.push({ t: (m.t || 0) + (m.dur || 0.7), type: 'impact' }); }); break;
     case 'stack': c.items.forEach(it => { ev.push({ t: it.t || 0, type: 'pop' }); for (let t = (it.t || 0); t < (it.t || 0) + 0.6; t += 0.075) ev.push({ t, type: 'tick' }); }); break;
     case 'shotmap': c.shots.forEach((sh, i) => ev.push({ t: sh.t != null ? sh.t : (c.step || 0.12) * i, type: 'pop' })); if (c.blockedT != null) ev.push({ t: c.blockedT, type: 'swish' }); break;

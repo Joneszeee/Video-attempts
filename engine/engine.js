@@ -656,21 +656,28 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
   }
   if (!suit) { ctx.fillStyle = shorts; rrect(-u * 0.135, -u * 0.56, u * 0.27, u * 0.15, u * 0.02); ctx.fill(); }
   const armsUp = p.pose === 'arms_up';
-  for (const side of [-1, 1]) {
-    ctx.save();
-    ctx.translate(side * u * 0.15, -u * 0.8);
-    ctx.rotate(armsUp ? side * 0.25 + Math.PI : p.pose === 'keeper' ? side * 0.95 : side * 0.12);
-    if (suit) {
-      ctx.fillStyle = suitC; rrect(-u * 0.042, 0, u * 0.084, u * 0.27, u * 0.03); ctx.fill();
-      ctx.fillStyle = '#f4f4f2'; ctx.fillRect(-u * 0.034, u * 0.255, u * 0.068, u * 0.02);
-      ctx.fillStyle = skin; ctx.beginPath(); ctx.arc(0, u * 0.3, u * 0.034, 0, 7); ctx.fill();
-    } else {
-    ctx.fillStyle = k.sleeves || shirt; rrect(-u * 0.04, 0, u * 0.08, u * 0.1, u * 0.02); ctx.fill();
-    ctx.fillStyle = skin; rrect(-u * 0.03, u * 0.09, u * 0.06, u * 0.2, u * 0.03); ctx.fill();
+  // Arms are drawn after the torso, hanging just outside it, so they read as arms (they used to sit behind the shirt,
+  // leaving only the hands poking out at the hips).
+  const drawArms = () => {
+    const sleeve = suit ? suitC : (k.sleeves || shirt), edge = shade(sleeve, -0.35);
+    for (const side of [-1, 1]) {
+      ctx.save();
+      ctx.translate(side * u * 0.165, -u * 0.8);
+      ctx.rotate(armsUp ? side * 0.25 + Math.PI : p.pose === 'keeper' ? side * 0.95 : side * 0.1);
+      ctx.lineWidth = Math.max(1, u * 0.006); ctx.strokeStyle = edge;
+      if (suit) {
+        rrect(-u * 0.04, -u * 0.01, u * 0.08, u * 0.28, u * 0.03); ctx.fillStyle = sleeve; ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#f4f4f2'; ctx.fillRect(-u * 0.032, u * 0.255, u * 0.064, u * 0.02);
+        ctx.fillStyle = skin; ctx.beginPath(); ctx.arc(0, u * 0.3, u * 0.033, 0, 7); ctx.fill();
+      } else {
+        ctx.fillStyle = skin; rrect(-u * 0.028, u * 0.08, u * 0.056, u * 0.21, u * 0.028); ctx.fill();
+        rrect(-u * 0.042, -u * 0.01, u * 0.084, u * 0.11, u * 0.025); ctx.fillStyle = sleeve; ctx.fill(); ctx.stroke();
+        ctx.fillStyle = skin; ctx.beginPath(); ctx.arc(0, u * 0.29, u * 0.03, 0, 7); ctx.fill();
+      }
+      if (p.gloves) { ctx.fillStyle = p.gloves; ctx.beginPath(); ctx.arc(0, u * 0.3, u * 0.042, 0, 7); ctx.fill(); }
+      ctx.restore();
     }
-    if (p.gloves) { ctx.fillStyle = p.gloves; ctx.beginPath(); ctx.arc(0, u * 0.3, u * 0.042, 0, 7); ctx.fill(); }
-    ctx.restore();
-  }
+  };
   ctx.fillStyle = suit ? suitC : shirt;
   ctx.beginPath();
   ctx.moveTo(-u * 0.16, -u * 0.82); ctx.lineTo(u * 0.16, -u * 0.82);
@@ -713,6 +720,7 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     if (p.name) { font(700, Math.max(6, u * 0.034), 'Mono', `${u * 0.004}px`); ctx.fillText(p.name.toUpperCase(), 0, -u * 0.745); }
     if (p.num != null) { font(800, u * 0.12, 'Inter', '0px'); ctx.fillText(String(p.num), 0, -u * 0.6); }
   }
+  drawArms();
   ctx.fillStyle = skin; ctx.fillRect(-u * 0.025, -u * 0.87, u * 0.05, u * 0.06);
   ctx.beginPath(); ctx.arc(0, -u * 0.91, u * 0.062, 0, 7); ctx.fill();
   ctx.fillStyle = hair; ctx.beginPath();

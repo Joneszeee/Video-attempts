@@ -857,10 +857,12 @@ function layoutHL(s) {
   }
   return lines;
 }
-function drawHeadline(text, inT, outT, accent) {
+function drawHeadline(text, inT, outT, accent, wordT) {
   const lines = layoutHL(text);
   font(700, HL.size, 'Inter', '-1.5px');
   ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  const n = lines.reduce((m, l) => m + l.length, 0);
+  let idx = 0;
   lines.forEach((line, li) => {
     const a = eOut(pr(inT, 0.05 + li * 0.08, 0.45));
     const o = outT != null ? pr(outT, 0, 0.22) : 0;
@@ -868,6 +870,15 @@ function drawHeadline(text, inT, outT, accent) {
     ctx.globalAlpha = a * (1 - o);
     const y = HL.y + li * HL.lh + (1 - a) * 30 - o * 14;
     for (const tk of line) {
+      if (wordT != null) {   // hook: the claim builds word by word and lands by ~1.5s (virality checklist)
+        const k = pr(wordT, 0.2 + idx * (1.2 / Math.max(1, n)), 0.22); idx++;
+        if (k <= 0) continue;
+        const w = ctx.measureText(tk.w).width, sc = 0.6 + 0.4 * eBack(k);
+        ctx.save(); ctx.globalAlpha *= Math.min(1, k * 2);
+        ctx.translate(HL.x + tk.x + w / 2, y - HL.size * 0.35); ctx.scale(sc, sc); ctx.translate(-(HL.x + tk.x + w / 2), -(y - HL.size * 0.35));
+        ctx.fillStyle = tk.acc ? (accent || S.accent) : '#f4f2ec'; ctx.fillText(tk.w, HL.x + tk.x, y);
+        ctx.restore(); continue;
+      }
       ctx.fillStyle = tk.acc ? (accent || S.accent) : '#f4f2ec';
       ctx.fillText(tk.w, HL.x + tk.x, y);
     }
@@ -2873,7 +2884,7 @@ function renderAt(t) {
   const hChanged = i > 0 && prevB.headline !== b.headline;
   const hOut = next && next.headline !== b.headline ? lt - (b.dur - 0.22) : null;
   if (S.spec.captions) drawCaptions(t);   // word-by-word captions take the headline's place
-  else if (b.headline) drawHeadline(b.headline, hChanged ? lt : 99, hOut != null && hOut >= 0 ? hOut : null, b.accent);
+  else if (b.headline) drawHeadline(b.headline, hChanged ? lt : 99, hOut != null && hOut >= 0 ? hOut : null, b.accent, i === 0 && b.hookWords ? t : null);
   if (S.outro && t >= S.outro.start) drawOutro(t - S.outro.start);
 
   ctx.restore();

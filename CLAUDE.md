@@ -78,6 +78,20 @@ fallback: put `"timings": [secs per beat]` in the spec).
 - **Keep the hook to one or two lines.** It should create an open loop that the last beat pays off (end on the question or the answer).
 - Write 2–3 hook options and pick the strongest before building.
 
+**Virality skill** (`.claude/skills/virality/SKILL.md`, from the user; built from 262 real posts). Read it before writing any hook or script.
+Football version of its rules:
+- **The 8-point hook checklist applies to every video.** Frame 0 is already moving (no fade-in, no static card). It shows something instantly
+  recognisable: a famous player in his real kit, the real trophy, a club's colours. The biggest element fills 40%+ of the frame and moves from frame 1.
+  **Something extraordinary happens before 3s**: a shot hits the net, a number races and locks, a stamp slams, a trophy shatters, a shirt rips.
+  The claim lands at about 1.2–1.6s, word by word, big and high contrast. The first spoken word comes within 0.5s and it's the subject ("Mbappé…",
+  "Harry Kane…"). It works on mute. It's about the viewer's world: their club, their rivalry, their opinion.
+- **For the hook, the headline builds word by word** (beat 1 `"hookWords": true`) instead of sitting there static. Frame 0 still shows the main visual for the thumbnail.
+- **Write 3 hooks** with a 0.0 / 0.5 / 1.2 / 3.0s frame plan each, run the checklist, and pick one, naming the winning pattern.
+- **Every line is shown, never just said** (already our narration-sync rule). If two frames a second apart look the same, add motion.
+- **Comment trigger:** end on a question that splits opinion (we have no DM product, so no keyword-for-a-link). Ask it in the pinned comment as well.
+- **Rotate the angle** from video to video: result first, contrarian ("Mbappé can't beat a teenager"), stakes or pain ("City could be relegated"),
+  something breaks (a trophy cracks, a record board shatters). Never use the same hook framing twice in a row.
+
 **End screen.** It's automatic: about 1.8s after the last line, the final shot softly blurs and darkens and a small brand card fades in
 ("theo6k · follow for more football stories"). Keep it subtle and short. Optional spec keys: `"outroText"`, `"outroDur"`, `"outro": false`.
 

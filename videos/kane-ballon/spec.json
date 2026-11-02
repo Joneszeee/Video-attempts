@@ -40,7 +40,7 @@
      "floor": 1000,
      "items": [
       {
-       "kind": "ball",
+       "kind": "ballondor",
        "sx": 0.5,
        "h": 0,
        "size": 190
@@ -238,7 +238,7 @@
      "floor": 900,
      "items": [
       {
-       "kind": "ball",
+       "kind": "ballondor",
        "sx": 0.5,
        "h": 0,
        "size": 170,
@@ -294,7 +294,8 @@
         "#ffffff"
        ],
        "text": "BFC"
-      }
+      },
+      "kind": "ballondor"
      },
      {
       "label": "Charlton",
@@ -307,7 +308,8 @@
         "#111111"
        ],
        "text": "MUFC"
-      }
+      },
+      "kind": "ballondor"
      },
      {
       "label": "Keegan",
@@ -321,7 +323,8 @@
        ],
        "style": "diamond",
        "text": "HSV"
-      }
+      },
+      "kind": "ballondor"
      },
      {
       "label": "Keegan",
@@ -335,7 +338,8 @@
        ],
        "style": "diamond",
        "text": "HSV"
-      }
+      },
+      "kind": "ballondor"
      },
      {
       "label": "Owen",
@@ -347,7 +351,8 @@
         "#ffffff"
        ],
        "text": "LFC"
-      }
+      },
+      "kind": "ballondor"
      }
     ],
     "delay": 0
@@ -376,7 +381,8 @@
         "#ffffff"
        ],
        "text": "BFC"
-      }
+      },
+      "kind": "ballondor"
      },
      {
       "label": "Charlton",
@@ -388,7 +394,8 @@
         "#111111"
        ],
        "text": "MUFC"
-      }
+      },
+      "kind": "ballondor"
      },
      {
       "label": "Keegan",
@@ -401,7 +408,8 @@
        ],
        "style": "diamond",
        "text": "HSV"
-      }
+      },
+      "kind": "ballondor"
      },
      {
       "label": "Keegan",
@@ -414,7 +422,8 @@
        ],
        "style": "diamond",
        "text": "HSV"
-      }
+      },
+      "kind": "ballondor"
      },
      {
       "label": "Owen",
@@ -425,7 +434,8 @@
         "#ffffff"
        ],
        "text": "LFC"
-      }
+      },
+      "kind": "ballondor"
      }
     ],
     "emptyAt": "twenty-five",
@@ -948,7 +958,7 @@
        "delay": 0,
        "items": [
         {
-         "kind": "ball",
+         "kind": "ballondor",
          "sx": 0.6,
          "h": 0,
          "size": 190
@@ -977,93 +987,48 @@
    "camFrom": {
     "pos": [
      0,
-     1.6,
-     -5.5
+     1.9,
+     -9
     ],
     "tgt": [
      0,
-     1.25,
+     1.4,
      20
     ]
    },
    "camera": {
     "pos": [
      0,
-     1.3,
-     -3.4
+     2.2,
+     -9
     ],
     "tgt": [
      0,
-     1.15,
+     1.6,
      20
     ]
    },
    "move": 4,
-   "lights": 0.5,
-   "focus": 0.3,
-   "players": [
-    {
-     "name": "Kane",
-     "kit": {
-      "shirt": "#dc052d",
-      "shorts": "#dc052d",
-      "socks": "#dc052d",
-      "text": "#ffffff"
-     },
-     "skin": "#e9b896",
-     "hair": "#8a6a45",
-     "num": 9,
-     "x": -0.85,
-     "z": 2,
-     "front": true,
-     "chest": true
-    },
-    {
-     "name": "Mbappé",
-     "num": 10,
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#f4f4f2",
-      "socks": "#f4f4f2",
-      "text": "#c9a227"
-     },
-     "skin": "#7a4a2c",
-     "hair": "#141010",
-     "x": 0.85,
-     "z": 2,
-     "front": true,
-     "chest": true
-    }
-   ],
+   "lights": 0.45,
+   "focus": 0.35,
+   "players": [],
    "card": {
-    "type": "board",
-    "id": "vote",
-    "y": 700,
-    "label": "Ballon d'Or 2026",
-    "cols": 8,
-    "vcols": 2,
-    "rows": [
-     {
-      "name": "Kane",
-      "value": "?"
-     },
-     {
-      "name": "Mbappé",
-      "value": "?"
-     }
-    ],
-    "focusPath": [
-     {
-      "t": 0,
-      "row": 0
-     },
-     {
-      "at": "Mbappé",
-      "row": 1
-     }
-    ],
-    "caption": "Comment below",
-    "captionAt": "Tell me"
+    "type": "scales",
+    "y": 780,
+    "arm": 380,
+    "tilt": 0.13,
+    "at": "deserve",
+    "left": {
+     "name": "Kane",
+     "value": 1055,
+     "color": "#dc052d"
+    },
+    "right": {
+     "name": "Mbappé",
+     "value": 1027,
+     "color": "#f4f4f2",
+     "text": "#1b2a4a"
+    }
    },
    "vo": "But did Kane really deserve it over Mbappé? Tell me in the comments."
   }

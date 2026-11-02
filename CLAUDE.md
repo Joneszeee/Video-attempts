@@ -155,6 +155,10 @@ Built so far from the idea list (reuse them):
   `emptyAt` + `emptyLabel` (a red "?" pulses in the next empty slot: "25 years of nothing"). Example: `videos/kane-ballon` beats 4 and 5.
   Each item can carry `badge: {colors: [c1, c2, c3], text: "LFC", style: band|stripes|diamond}`: a club shield that pops in above it.
   **Badges are stylised shields in club colours with initials, never real crests** (trademarks). `drawBadge()` can be reused anywhere.
+- **Scales:** the `scales` card. A golden balance with two name plates (`left`/`right: {name, value, color, text}`); the beam wobbles and settles toward the
+  bigger value (`tilt` exaggerates a small gap, `arm` sets the width). Good for "did X deserve it over Y" endings. Example: `videos/kane-ballon` beat 10.
+- **Poll sticker** (`poll`: `question`, `options: [{label, color, fill, pct}]`, tapping finger) and **comment bubbles** (`comments`: `items: [{text, x, y, color}]`,
+  float up like a live chat) are comment-bait endings. Bubbles are example opinions we wrote, never presented as real viewer comments. Mock-ups: `videos/_mock-ending`.
 - **Tale of the tape:** the `tape` card. Two names (`left`/`right: {name, color}`), and for each of `rows: [{label, left, right, at, floor}]` bars slide out
   from the middle while the numbers count; the bigger side turns gold. `caption` + `captionAt` adds a pill underneath. Use `floor` to exaggerate small gaps.
 
@@ -234,7 +238,8 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
 - `balls`: a row of ball icons popping in. `n`, `label`
 - `ruler`: an age or year line. `min`, `max`, `step`, `left`/`right` end labels,
   `markers: [{value, label, accent, side: "above"|"below", len}]`, `bracket: {from, to, label, y}`, `style: "dots"` for a dotted timeline
-- `trophies`: pedestals rising from the floor. `items: [{kind: cup|worldcup|ball|boot, sx, h, size, label, text}]`, `floor`.
+- `trophies`: pedestals rising from the floor. `items: [{kind: cup|worldcup|ball|ballondor|boot, sx, h, size, label, text}]`, `floor`.
+  `ballondor` is the realistic trophy (seamed gold ball on a tapered gold pedestal); use it for any Ballon d'Or, and plain `ball` for a generic gold ball.
   Use `h: 0` for a floating prop (e.g. a gold ball above a player's head)
 - `board`: split-flap departure board, the star graphic of the free-kick reel. `rows: [{name, value, prefix, from, strike}]`, `label`,
   `focus` (row index, gold highlight) or `focusPath: [{t, row}]` (the highlight walks in time), `caption` + `captionAt` (pill underneath),

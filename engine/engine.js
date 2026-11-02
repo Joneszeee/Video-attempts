@@ -1166,6 +1166,41 @@ function drawProp(kind, x, b, s, text) {
       ctx.fillStyle = '#fffaf0'; ctx.shadowColor = 'rgba(0,0,0,0.4)'; ctx.shadowBlur = 14;
       ctx.fillText(text, x, cy + 6);
     }
+  } else if (kind === 'ballondor') {
+    // The real trophy's shape: a gold ball with engraved panel seams, held by a short collar on a tapered gold pedestal.
+    const r = 0.36 * s, baseH = 0.36 * s, cy = b - baseH - r * 0.92;
+    const bw0 = 0.36 * s, bw1 = 0.2 * s;   // pedestal: wide foot, narrow top
+    const pg = ctx.createLinearGradient(x - bw0, 0, x + bw0, 0);
+    pg.addColorStop(0, '#7a520e'); pg.addColorStop(0.35, '#e9b949'); pg.addColorStop(0.55, '#fff0b8'); pg.addColorStop(1, '#8a5c10');
+    ctx.fillStyle = pg;
+    ctx.beginPath(); ctx.moveTo(x - bw0, b); ctx.lineTo(x + bw0, b); ctx.lineTo(x + bw1, b - baseH); ctx.lineTo(x - bw1, b - baseH); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = 'rgba(60,38,6,0.55)'; ctx.fillRect(x - bw0, b - 0.05 * s, bw0 * 2, 0.05 * s);              // foot plinth
+    ctx.fillStyle = 'rgba(60,38,6,0.35)'; ctx.fillRect(x - bw1 * 1.35, b - baseH * 0.62, bw1 * 2.7, 0.018 * s);   // engraved line
+    if (s > 90) { font(700, Math.max(7, 0.045 * s), 'Inter', `${0.01 * s}px`); ctx.fillStyle = 'rgba(70,45,8,0.75)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText("BALLON D'OR", x, b - baseH * 0.38); }
+    ctx.fillStyle = pg; ctx.beginPath(); ctx.ellipse(x, b - baseH, bw1 * 1.05, 0.03 * s, 0, 0, 7); ctx.fill();   // collar
+    // the ball
+    const g = ctx.createRadialGradient(x - r * 0.4, cy - r * 0.45, r * 0.05, x, cy, r);
+    g.addColorStop(0, '#fff7d6'); g.addColorStop(0.35, '#f3cc62'); g.addColorStop(0.8, '#b98219'); g.addColorStop(1, '#6e4609');
+    ctx.shadowColor = 'rgba(241,196,83,0.55)'; ctx.shadowBlur = 0.3 * s;
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, cy, r, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
+    // engraved panels: a pentagon facing us, seams running out to the edge, and the next ring of panels
+    ctx.save(); ctx.beginPath(); ctx.arc(x, cy, r, 0, 7); ctx.clip();
+    ctx.strokeStyle = 'rgba(95,60,8,0.75)'; ctx.lineWidth = Math.max(1, 0.012 * s); ctx.lineJoin = 'round';
+    const P = (rr, a0) => [...Array(5)].map((_, i) => [x + Math.cos(a0 + i * 1.2566) * rr, cy + Math.sin(a0 + i * 1.2566) * rr]);
+    const inner = P(r * 0.3, -Math.PI / 2 + 0.15), outer = P(r * 0.78, -Math.PI / 2 + 0.15 + 0.628);
+    ctx.beginPath(); inner.forEach(([px, py], i) => (i ? ctx.lineTo(px, py) : ctx.moveTo(px, py))); ctx.closePath(); ctx.stroke();
+    inner.forEach(([px, py], i) => { const a = -Math.PI / 2 + 0.15 + i * 1.2566; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(x + Math.cos(a) * r * 0.58, cy + Math.sin(a) * r * 0.58); ctx.stroke(); });
+    inner.forEach((_, i) => {   // hexagon edges between the seams
+      const a = -Math.PI / 2 + 0.15 + i * 1.2566, a2 = a + 1.2566, m = [x + Math.cos(a) * r * 0.58, cy + Math.sin(a) * r * 0.58], m2 = [x + Math.cos(a2) * r * 0.58, cy + Math.sin(a2) * r * 0.58], o = outer[i];
+      ctx.beginPath(); ctx.moveTo(...m); ctx.lineTo(...o); ctx.lineTo(...m2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(...o); ctx.lineTo(x + Math.cos(a + 0.628) * r * 1.05, cy + Math.sin(a + 0.628) * r * 1.05); ctx.stroke();
+    });
+    ctx.restore();
+    ctx.fillStyle = 'rgba(255,255,240,0.55)'; ctx.beginPath(); ctx.ellipse(x - r * 0.38, cy - r * 0.45, r * 0.18, r * 0.1, -0.6, 0, 7); ctx.fill();   // shine
+    if (text) {
+      font(800, r * 1.0, 'Inter', '0px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#fffaf0'; ctx.shadowColor = 'rgba(0,0,0,0.4)'; ctx.shadowBlur = 14; ctx.fillText(text, x, cy + 6);
+    }
   } else if (kind === 'boot') {
     const P = [[-0.45, 0], [0.5, 0], [0.56, -0.08], [0.35, -0.18], [0.1, -0.22], [-0.05, -0.42], [-0.4, -0.45], [-0.47, -0.3]];
     ctx.fillStyle = goldGrad(x - 0.5 * s, x + 0.5 * s);
@@ -2290,6 +2325,9 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'scales': ev.push({ t: 0.3, type: 'swish' }, { t: 0.9, type: 'impact' }); for (let t = 0.3; t < 1.5; t += 0.075) ev.push({ t, type: 'tick' }); break;
+    case 'poll': ev.push({ t: 0, type: 'pop' }, { t: 0.6, type: 'swipe' }); break;
+    case 'comments': c.items.forEach((it, i) => ev.push({ t: it.t != null ? it.t : 0.2 + i * (c.step || 0.45), type: 'pop' })); break;
     case 'shelf': if (!c.instant) c.items.forEach((it, i) => ev.push({ t: (it.t != null ? it.t : 0.3 + i * 0.4) + 0.4, type: 'impact' })); if (c.emptyT != null) ev.push({ t: c.emptyT, type: 'pop' }); break;
     case 'tape': c.rows.forEach((r, i) => { const t0 = r.t != null ? r.t : 0.3 + i * 0.5; ev.push({ t: t0, type: 'swish' }); for (let t = t0 + 0.2; t < t0 + 0.9; t += 0.075) ev.push({ t, type: 'tick' }); }); if ((c.captionT ?? c.captionAt) != null) ev.push({ t: c.captionT ?? c.captionAt, type: 'pop' }); break;
     case 'tactic': (c.moves || []).forEach(m => { ev.push({ t: m.t || 0, type: m.kind === 'shot' ? 'whoosh' : 'swipe' }); if (m.kind === 'shot') ev.push({ t: (m.t || 0) + (m.dur || 0.7), type: 'impact' }); }); break;

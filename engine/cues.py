@@ -156,6 +156,10 @@ def _resolve_beat(b, rel):
             c['newT'] = round(max(0, rel(c.pop('newAt')) + c.pop('newLag', 0) - base), 3)
         if c.get('type') == 'ball' and isinstance(c.get('untilAt'), str):
             c['until'] = round(max(0, rel(c.pop('untilAt')) + c.pop('untilLag', 0) - base), 3)
+        if c.get('type') == 'photo' and isinstance(c.get('ripAt'), str):
+            c['ripT'] = round(max(0, rel(c.pop('ripAt')) + c.pop('ripLag', 0) - base), 3)
+        if isinstance(c.get('hideAt'), str):
+            c['hideT'] = round(max(0, rel(c.pop('hideAt')) + c.pop('hideLag', 0) - base), 3)
         if c.get('type') == 'stack':
             for it in c['items']:
                 if 'at' in it:

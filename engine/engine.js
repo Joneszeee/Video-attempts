@@ -2389,6 +2389,90 @@ CARDS.tickets = function (c, ct, cx, cy) {
 };
 CARDS.tickets.noSlide = true;
 
+// Polaroid photo prop that spins in and can rip in half (virality: "something breaks" before 3s).
+// scene: "bath" draws a young player (photo.player) leaning over a baby in a tub with bubbles; caption under the picture.
+// ripT|ripAt: the photo tears down a jagged line, halves fly apart with a shake. Without ripT it simply stays.
+function drawPhotoScene(c, w, h, t) {
+  const g = ctx.createLinearGradient(0, -h / 2, 0, h / 2); g.addColorStop(0, '#d9e8f2'); g.addColorStop(1, '#b8cfdf');
+  ctx.fillStyle = g; ctx.fillRect(-w / 2, -h / 2, w, h);
+  ctx.fillStyle = 'rgba(255,255,255,0.35)'; for (let i = 0; i < 6; i++) ctx.fillRect(-w / 2 + i * w / 6, -h / 2, 2, h * 0.55);   // tiled wall
+  ctx.fillStyle = 'rgba(255,255,255,0.35)'; for (let j = 0; j < 4; j++) ctx.fillRect(-w / 2, -h / 2 + j * h * 0.14, w, 2);
+  const pl = c.player || {};
+  ctx.save(); ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.clip();
+  drawPlayer(-w * 0.12, h * 0.62, h * 1.1, Object.assign({ front: true }, pl), t, 0, 1);
+  // tub
+  ctx.fillStyle = '#f4f7fa'; ctx.beginPath(); ctx.ellipse(w * 0.08, h * 0.3, w * 0.34, h * 0.12, 0, 0, Math.PI); ctx.fill();
+  ctx.fillStyle = '#e3ebf2'; ctx.fillRect(-w * 0.26, h * 0.18, w * 0.68, h * 0.13);
+  ctx.fillStyle = '#9fd0f0'; ctx.beginPath(); ctx.ellipse(w * 0.08, h * 0.18, w * 0.34, h * 0.05, 0, 0, 7); ctx.fill();
+  // baby
+  ctx.fillStyle = c.babySkin || '#8a5a3c'; ctx.beginPath(); ctx.arc(w * 0.12, h * 0.1, h * 0.075, 0, 7); ctx.fill();
+  ctx.fillStyle = '#1a1210'; ctx.beginPath(); ctx.arc(w * 0.12, h * 0.07, h * 0.06, Math.PI * 1.05, Math.PI * 1.95); ctx.fill();
+  // bubbles
+  const R = rng(5);
+  for (let i = 0; i < 18; i++) { const bx = w * (-0.2 + R() * 0.6), by = h * 0.16 - ((t * 30 * (0.5 + R()) + R() * 200) % (h * 0.5)), br = 4 + R() * 10;
+    ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(bx, by, br, 0, 7); ctx.stroke(); }
+  ctx.restore();
+}
+CARDS.photo = function (c, ct, cx, cy) {
+  const W0 = c.w || 640, H0 = c.h || 720, pad = 34, bottom = 130, ih = H0 - pad - bottom, iw = W0 - pad * 2;
+  const k = eOut(pr(ct, 0, c.spin || 0.9));
+  const ripT = c.ripT, rk = ripT != null ? pr(ct, ripT, 0.6) : 0;
+  if (rk >= 1 && c.vanish !== false) return;
+  ctx.save();
+  ctx.translate(cx, cy); ctx.rotate(lerp(-0.6, c.tilt != null ? c.tilt : -0.05, k)); ctx.scale(lerp(0.6, 1, k), lerp(0.6, 1, k));
+  ctx.globalAlpha *= Math.min(1, k * 2) * (1 - rk * 0.9);
+  const half = (side) => {
+    ctx.save();
+    // jagged tear line down the middle
+    ctx.beginPath();
+    const R = rng(9), pts = []; for (let y = -H0 / 2; y <= H0 / 2; y += 40) pts.push([(R() - 0.5) * 40, y]);
+    if (side < 0) { ctx.moveTo(-W0 / 2 - 2, -H0 / 2 - 2); pts.forEach(p => ctx.lineTo(...p)); ctx.lineTo(-W0 / 2 - 2, H0 / 2 + 2); }
+    else { ctx.moveTo(W0 / 2 + 2, -H0 / 2 - 2); pts.forEach(p => ctx.lineTo(...p)); ctx.lineTo(W0 / 2 + 2, H0 / 2 + 2); }
+    ctx.closePath(); ctx.clip();
+    ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 18;
+    ctx.fillStyle = '#f7f4ec'; ctx.fillRect(-W0 / 2, -H0 / 2, W0, H0); ctx.shadowColor = 'transparent';
+    ctx.save(); ctx.translate(0, -H0 / 2 + pad + ih / 2); ctx.beginPath(); ctx.rect(-iw / 2, -ih / 2, iw, ih); ctx.clip();
+    if (c.scene === 'bath') drawPhotoScene(c, iw, ih, ct);
+    ctx.filter = 'none'; ctx.fillStyle = 'rgba(160,110,40,0.12)'; ctx.fillRect(-iw / 2, -ih / 2, iw, ih);   // old-photo warmth
+    ctx.restore();
+    if (c.caption) { font(400, 54, 'Marker'); ctx.fillStyle = '#2a2a33'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.caption, 0, H0 / 2 - bottom / 2 + 4); }
+    ctx.restore();
+  };
+  if (ripT == null || ct < ripT) { half(-1); half(1); }
+  else {
+    const e = eOut(rk);
+    ctx.save(); ctx.translate(-e * 420, e * 120); ctx.rotate(-e * 0.6); half(-1); ctx.restore();
+    ctx.save(); ctx.translate(e * 420, e * 160); ctx.rotate(e * 0.7); half(1); ctx.restore();
+  }
+  ctx.restore();
+};
+CARDS.photo.noSlide = true;
+
+// A handwritten letter that writes itself: paper sheet, a date in the corner and lines of handwriting appearing.
+// Content is never put in the person's mouth: lines are illegible scribbles unless `lines` are given (only real quotes).
+CARDS.letter = function (c, ct, cx, cy) {
+  const w = c.w || 620, h = c.h || 780, a = eOut(pr(ct, 0, 0.6));
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, cy + (1 - a) * 60); ctx.rotate(c.tilt != null ? c.tilt : 0.04);
+  ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16;
+  ctx.fillStyle = '#fbf8f0'; ctx.fillRect(-w / 2, -h / 2, w, h); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = 'rgba(80,120,190,0.25)'; ctx.lineWidth = 2;
+  for (let y = -h / 2 + 140; y < h / 2 - 40; y += 46) { ctx.beginPath(); ctx.moveTo(-w / 2 + 30, y); ctx.lineTo(w / 2 - 30, y); ctx.stroke(); }
+  font(400, 34, 'Marker'); ctx.fillStyle = '#1e2a55'; ctx.textAlign = 'right'; ctx.textBaseline = 'alphabetic';
+  if (c.date) ctx.fillText(c.date, w / 2 - 40, -h / 2 + 90);
+  const R = rng(17), rows = Math.floor((h - 200) / 46), wk = pr(ct, 0.5, c.write || 2.5);
+  ctx.strokeStyle = '#1e2a55'; ctx.lineWidth = 3.2; ctx.lineCap = 'round';
+  for (let r = 0; r < rows; r++) {
+    const y = -h / 2 + 132 + r * 46, len = (w - 120) * (r === rows - 1 ? 0.4 : 0.75 + R() * 0.25), rowK = clamp(wk * rows - r, 0, 1);
+    if (rowK <= 0) break;
+    ctx.beginPath(); let x = -w / 2 + 50; ctx.moveTo(x, y);
+    const end = x + len * rowK;
+    while (x < end) { const s = 8 + R() * 10; ctx.quadraticCurveTo(x + s / 2, y - 10 - R() * 8, x + s, y - R() * 3); x += s; if (R() < 0.12) { x += 14; ctx.moveTo(x, y); } }
+    ctx.stroke();
+  }
+  ctx.restore();
+};
+CARDS.letter.noSlide = true;
+
 // Match clock (idea list): a broadcast-style clock that races from `from` to `to` minutes over `dur` seconds,
 // with an optional phase label ("EXTRA TIME") and score; `events: [{min, text}]` pop in as the clock passes them.
 CARDS.clock = function (c, ct, cx, cy) {
@@ -2575,6 +2659,8 @@ function cardEvents(c) {
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'tally': if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
+    case 'photo': ev.push({ t: 0, type: 'whoosh' }); if (c.ripT != null) ev.push({ t: c.ripT, type: 'impact' }, { t: c.ripT, type: 'swish' }); break;
+    case 'letter': for (let t = 0.5; t < 0.5 + (c.write || 2.5); t += 0.12) ev.push({ t, type: 'tick' }); break;
     case 'chalk': if (c.newT != null) ev.push({ t: c.newT, type: 'swipe' }); if (c.step) for (let i = c.done || 0; i < c.n; i++) ev.push({ t: (c.start || 0.4) + (i - (c.done || 0)) * c.step, type: 'swipe' }); break;
     case 'clock': for (let t = 0.3; t < 0.3 + (c.dur || 2.2); t += 0.075) ev.push({ t, type: 'tick' }); ev.push({ t: 0.3 + (c.dur || 2.2), type: 'impact' }); break;
     case 'tickets': if (c.newT != null) ev.push({ t: c.newT, type: 'swish' }, { t: c.newT + 0.5, type: 'impact' }); break;
@@ -2857,6 +2943,7 @@ function renderAt(t) {
   for (const it of b.cards) {
     const ct = t - it.start;
     if (ct < 0) continue;
+    if (it.obj.hideT != null && ct >= it.obj.hideT) continue;   // any card can vanish on a word (hideAt)
     const fn = CARDS[it.obj.type];
     if (it.obj.type === 'ball' || it.obj.type === 'vehicle' || (it.obj.type === 'ballpath' && it.obj.world)) continue; // drawn with the players
     const cont = next && it.obj.id && next.cards.some(n => n.obj.id === it.obj.id);

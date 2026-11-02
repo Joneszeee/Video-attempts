@@ -198,6 +198,11 @@ Built so far from the idea list (reuse them):
 - **Aerial goal map:** `shotmap` from a very high camera with `scale: 4.5`; per-shot `color` for each team, `goal: true` in gold for a named player's goals.
 - **Variety rule (user):** across a video, no two consecutive beats may share the same layout or graphic. Each game or fact gets its own scene idea
   (barrage, clock, aerial map, rewind, celebration, chalkboard...). Repeating a "standing players + graphic" frame beat after beat reads as samey.
+- **Ripping photo:** the `photo` card. A polaroid that spins in (`scene: "bath"` draws a young player over a baby in a tub, `player` = his look, `caption`),
+  then rips in half with an impact at `ripAt` (the halves fly apart). Use it for "something breaks" hooks. Example: `videos/messi-last`.
+- **Goodbye letter:** the `letter` card. A sheet with a `date` whose handwriting lines write themselves over `write` seconds. The lines are illegible
+  scribbles, so we never put words in a real person's mouth.
+- **Any card can vanish on a word** with `hideAt` (+ `hideLag`).
 - **Scales:** the `scales` card. A golden balance with two name plates (`left`/`right: {name, value, color, text}`); the beam wobbles and settles toward the
   bigger value (`tilt` exaggerates a small gap, `arm` sets the width). Good for "did X deserve it over Y" endings. Example: `videos/kane-ballon` beat 10.
 - **Poll sticker** (`poll`: `question`, `options: [{label, color, fill, pct}]`, tapping finger) and **comment bubbles** (`comments`: `items: [{text, x, y, color}]`,

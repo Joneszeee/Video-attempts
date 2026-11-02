@@ -1,0 +1,1097 @@
+{
+ "title": "Messi's last World Cup",
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "World Cup 2026 · the final",
+   "headline": "That [baby] ended Messi's World Cup.",
+   "accent": "#E9B949",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.35,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.6
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 6,
+   "lights": 0.75,
+   "focus": 0.15,
+   "fans": true,
+   "speedlines": [
+    {
+     "at": "Nineteen years",
+     "dur": 1.4
+    }
+   ],
+   "flashes": 10,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": [
+    {
+     "type": "photo",
+     "y": 1080,
+     "delay": -0.25,
+     "spin": 0.8,
+     "scene": "bath",
+     "caption": "2007",
+     "player": {
+      "name": "Messi",
+      "kit": {
+       "shirt": "#a50044",
+       "shorts": "#004d98",
+       "socks": "#004d98",
+       "text": "#f7d117",
+       "stripes": [
+        "#a50044",
+        "#004d98"
+       ]
+      },
+      "skin": "#e8b896",
+      "hair": "#4a3020"
+     },
+     "babySkin": "#8a5a3c",
+     "ripAt": "Nineteen years",
+     "ripLag": -0.1
+    },
+    {
+     "type": "pen",
+     "at": "a baby",
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 610,
+       "cy": 1085,
+       "rx": 80,
+       "ry": 66,
+       "color": "#ff4d5e",
+       "t": 0,
+       "dur": 0.4
+      }
+     ],
+     "hideAt": "Nineteen years",
+     "hideLag": -0.1
+    },
+    {
+     "type": "stamp",
+     "text": "19 YEARS LATER",
+     "y": 1560,
+     "size": 90,
+     "rot": -0.08,
+     "at": "later",
+     "lag": 0.1,
+     "color": "#f1c453"
+    }
+   ],
+   "shake": [
+    {
+     "at": "Nineteen years",
+     "amount": 18
+    }
+   ],
+   "vo": "Lionel Messi once bathed a baby for a charity photo. Nineteen years later, that baby ended his World Cup career."
+  },
+  {
+   "kicker": "2007 · a charity calendar",
+   "headline": "The baby was [Lamine Yamal].",
+   "accent": "#E9B949",
+   "transition": "polaroid",
+   "polaroidLabel": "2007",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#ffffff"
+    ],
+    "seed": 3
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     2.4,
+     -9
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.8,
+     -6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "move": 7,
+   "lights": 0.8,
+   "focus": 0.15,
+   "players": [
+    {
+     "name": "Messi",
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f7d117",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "x": 0,
+     "z": 1,
+     "action": "run"
+    }
+   ],
+   "card": {
+    "type": "ruler",
+    "y": 720,
+    "at": "2007",
+    "min": 2006,
+    "max": 2027,
+    "step": 5,
+    "markers": [
+     {
+      "value": 2007,
+      "label": "2007 · the photo",
+      "len": 90
+     },
+     {
+      "value": 2026,
+      "label": "2026 · the final",
+      "accent": true,
+      "len": 90,
+      "side": "below"
+     }
+    ],
+    "bracket": {
+     "from": 2007,
+     "to": 2026,
+     "label": "19 years",
+     "y": -60
+    }
+   },
+   "vo": "The photo was taken in 2007, for a UNICEF calendar. The baby was Lamine Yamal."
+  },
+  {
+   "kicker": "World Cup final · MetLife Stadium",
+   "headline": "Messi's Argentina v [Yamal's Spain].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.25,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.4,
+     -4.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.6,
+   "flashes": 12,
+   "players": [
+    {
+     "name": "Messi",
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#111111",
+      "socks": "#ffffff",
+      "text": "#111111",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "num": 10,
+     "x": -0.95,
+     "z": 2,
+     "front": true,
+     "chest": true,
+     "at": "Messi's"
+    },
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0.95,
+     "z": 2,
+     "front": true,
+     "chest": true,
+     "at": "Yamal's"
+    }
+   ],
+   "card": {
+    "type": "flytext",
+    "text": "FINAL",
+    "size": 300,
+    "endScale": 0.6,
+    "y": 760,
+    "at": "World Cup final",
+    "color": "#f1c453"
+   },
+   "vo": "July 2026. The World Cup final. Messi's Argentina against Yamal's Spain."
+  },
+  {
+   "kicker": "Lionel Messi",
+   "headline": "Aged [39]. His sixth World Cup.",
+   "accent": "#E9B949",
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.3,
+     -2.8
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.6
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.8,
+   "focus": 0,
+   "players": [
+    {
+     "name": "Messi",
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#111111",
+      "socks": "#ffffff",
+      "text": "#111111",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "num": 10,
+     "x": 0,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": {
+    "type": "stack",
+    "y": 1650,
+    "delay": 0,
+    "items": [
+     {
+      "value": 39,
+      "label": "years old",
+      "at": "thirty-nine"
+     },
+     {
+      "value": 6,
+      "suffix": "th",
+      "label": "World Cup",
+      "at": "sixth",
+      "gold": true
+     }
+    ]
+   },
+   "vo": "Messi was thirty-nine, playing in his sixth World Cup."
+  },
+  {
+   "kicker": "The final · 0–0 after 90",
+   "headline": "For 90 minutes, Argentina [held on].",
+   "accent": "#75aadb",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0.5,
+     2.4,
+     60.5
+    ],
+    "tgt": [
+     0,
+     1.0,
+     30
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.4,
+     2.1,
+     59.0
+    ],
+    "tgt": [
+     0,
+     1.0,
+     30
+    ]
+   },
+   "move": 5,
+   "lights": 0.85,
+   "fans": false,
+   "players": [
+    {
+     "name": "Keeper",
+     "x": 0.1,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 0.4,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2e8b57",
+      "shorts": "#111111",
+      "socks": "#2e8b57",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10"
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.25,
+     "dur": 0.6,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       -5,
+       0.11,
+       38
+      ],
+      [
+       -3.0,
+       2.2,
+       45.15
+      ],
+      [
+       -1.0,
+       1.2,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.95,
+     "dur": 0.6,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       4,
+       0.11,
+       40
+      ],
+      [
+       2.45,
+       2.2,
+       46.15
+      ],
+      [
+       0.9,
+       0.7,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 1.65,
+     "dur": 0.6,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       -1,
+       0.11,
+       37
+      ],
+      [
+       -0.4,
+       2.2,
+       44.65
+      ],
+      [
+       0.2,
+       1.9,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 720,
+     "delay": 0,
+     "from": 0,
+     "to": 90,
+     "dur": 2.1,
+     "phase": "STILL 0–0",
+     "phaseAt": 0.95
+    }
+   ],
+   "vo": "For ninety minutes, Argentina held on."
+  },
+  {
+   "kicker": "Extra time · 106'",
+   "headline": "106 minutes. Then [Ferran Torres].",
+   "accent": "#FF4D5E",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0.2,
+     1.8,
+     34.4
+    ],
+    "tgt": [
+     0.4,
+     1.3,
+     60
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.3,
+     1.6,
+     35.2
+    ],
+    "tgt": [
+     0.5,
+     1.2,
+     60
+    ]
+   },
+   "move": 4,
+   "fans": true,
+   "lights": 1,
+   "players": [
+    {
+     "name": "Ferran Torres",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "x": 0.45,
+     "z": 40.1,
+     "action": "kick",
+     "actionAt": "Ferran Torres",
+     "actionLag": -0.5,
+     "actionDur": 1.3,
+     "after": "celebrate"
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.4,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Ferran Torres",
+     "actionLag": 0.15,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2e8b57",
+      "shorts": "#111111",
+      "socks": "#2e8b57",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10"
+    }
+   ],
+   "punch": [
+    {
+     "at": "Ferran Torres",
+     "amount": 0.2,
+     "dur": 1.4,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "at": "scored",
+     "lag": 0.4,
+     "amount": 22
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.62,
+      0.11,
+      40.5
+     ],
+     "untilAt": "Ferran Torres",
+     "untilLag": 0.05
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Ferran Torres",
+     "lag": 0.05,
+     "dur": 0.9,
+     "points": [
+      [
+       0.62,
+       0.11,
+       40.5
+      ],
+      [
+       1.6,
+       1.4,
+       47
+      ],
+      [
+       2.9,
+       1.6,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "1–0",
+     "size": 300,
+     "endScale": 0.7,
+     "y": 780,
+     "at": "Spain won",
+     "color": "#c60b1e"
+    }
+   ],
+   "vo": "Then, in the hundred-and-sixth minute, Ferran Torres scored. Spain won one–nil."
+  },
+  {
+   "kicker": "21 July 2026",
+   "headline": "Two days later: the [goodbye letter].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb"
+    ],
+    "seed": 12
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     2.6,
+     -9
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     2.2,
+     -8
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.3,
+   "focus": 0.45,
+   "players": [
+    {
+     "name": "Messi",
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#111111",
+      "socks": "#ffffff",
+      "text": "#111111",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "num": 10,
+     "x": 0,
+     "z": 4,
+     "enter": "walk",
+     "fromZ": 2,
+     "walkDur": 5
+    }
+   ],
+   "card": {
+    "type": "letter",
+    "y": 1050,
+    "at": "Two days",
+    "date": "21.07.26",
+    "write": 2.2
+   },
+   "vo": "Two days later, Messi wrote his goodbye letter."
+  },
+  {
+   "kicker": "Messi for Argentina",
+   "headline": "[125] goals in 207 games.",
+   "accent": "#75aadb",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb"
+    ],
+    "seed": 12
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     30,
+     -80
+    ],
+    "tgt": [
+     0,
+     0,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     24,
+     -70
+    ],
+    "tgt": [
+     0,
+     0,
+     20
+    ]
+   },
+   "move": 6,
+   "lights": 0.35,
+   "focus": 0.3,
+   "players": [],
+   "card": {
+    "type": "rain",
+    "icon": "ball",
+    "y": 980,
+    "cols": 13,
+    "cell": 52,
+    "delay": 0,
+    "groups": [
+     {
+      "n": 125,
+      "color": "#75aadb",
+      "at": "two hundred",
+      "dur": 2.4
+     }
+    ],
+    "label": "Goals for Argentina · 207 games",
+    "counterGap": 110,
+    "counterSize": 110
+   },
+   "vo": "After two hundred and seven games and one hundred and twenty-five goals, he was done with Argentina."
+  },
+  {
+   "kicker": "He'd done it before",
+   "headline": "Quit in 2016. Came back. [Won it all].",
+   "accent": "#E9B949",
+   "transition": "vhs",
+   "vhsLabel": "2016",
+   "vhsDur": 1.6,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb"
+    ],
+    "seed": 12
+   },
+   "cut": true,
+   "camFrom": "stand",
+   "camera": "high",
+   "move": 6,
+   "lights": 0.5,
+   "focus": 0.45,
+   "players": [],
+   "card": {
+    "type": "shelf",
+    "y": 1060,
+    "slots": 3,
+    "title": "After coming back",
+    "delay": 0,
+    "items": [
+     {
+      "kind": "worldcup",
+      "label": "World Cup",
+      "sub": "2022",
+      "at": "World Cup",
+      "badge": {
+       "colors": [
+        "#75aadb",
+        "#ffffff"
+       ],
+       "style": "stripes",
+       "text": "ARG",
+       "textColor": "#1b2a4a"
+      }
+     },
+     {
+      "kind": "cup",
+      "label": "Copa América",
+      "sub": "2021",
+      "at": "two Copa",
+      "badge": {
+       "colors": [
+        "#75aadb",
+        "#ffffff"
+       ],
+       "style": "stripes",
+       "text": "ARG",
+       "textColor": "#1b2a4a"
+      }
+     },
+     {
+      "kind": "cup",
+      "label": "Copa América",
+      "sub": "2024",
+      "at": "Américas",
+      "badge": {
+       "colors": [
+        "#75aadb",
+        "#ffffff"
+       ],
+       "style": "stripes",
+       "text": "ARG",
+       "textColor": "#1b2a4a"
+      }
+     }
+    ]
+   },
+   "vo": "He'd quit once before, in 2016, and came back to win the World Cup and two Copa Américas."
+  },
+  {
+   "kicker": "World champions",
+   "headline": "The baby from the photo had [the last word].",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#c60b1e"
+    ],
+    "seed": 21
+   },
+   "cut": true,
+   "orbit": {
+    "center": [
+     0,
+     1.35,
+     2.4
+    ],
+    "r": 4.8,
+    "from": -60,
+    "to": 25,
+    "h": 0.8,
+    "h2": 1.4,
+    "dur": 4.5
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.35,
+     2.4
+    ]
+   },
+   "flashes": 16,
+   "confetti": true,
+   "confettiColors": [
+    "#c60b1e",
+    "#f7d117",
+    "#ffffff"
+   ],
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "pose": "arms_up"
+    }
+   ],
+   "card": [
+    {
+     "type": "trophies",
+     "floor": 960,
+     "at": "last word",
+     "items": [
+      {
+       "kind": "worldcup",
+       "sx": 0.5,
+       "h": 0,
+       "size": 190
+      }
+     ]
+    },
+    {
+     "type": "photo",
+     "y": 1500,
+     "shiftX": -250,
+     "w": 330,
+     "h": 380,
+     "at": "baby from",
+     "scene": "bath",
+     "caption": "2007",
+     "player": {
+      "name": "Messi",
+      "kit": {
+       "shirt": "#a50044",
+       "shorts": "#004d98",
+       "socks": "#004d98",
+       "text": "#f7d117",
+       "stripes": [
+        "#a50044",
+        "#004d98"
+       ]
+      },
+      "skin": "#e8b896",
+      "hair": "#4a3020"
+     },
+     "tilt": -0.12
+    }
+   ],
+   "vo": "This time, the baby from the photo had the last word."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Should Messi [come back]?",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb"
+    ],
+    "seed": 12
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -4.8
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "move": 6,
+   "lights": 0.45,
+   "focus": 0.3,
+   "players": [
+    {
+     "name": "Messi",
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#111111",
+      "socks": "#ffffff",
+      "text": "#111111",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "num": 10,
+     "x": 0,
+     "z": 3
+    }
+   ],
+   "card": {
+    "type": "poll",
+    "y": 820,
+    "at": "come back",
+    "question": "Should Messi come back?",
+    "options": [
+     {
+      "label": "One more time",
+      "color": "#75aadb",
+      "fill": 0.6
+     },
+     {
+      "label": "Let him go",
+      "color": "#9aa1ad",
+      "fill": 0.4
+     }
+    ]
+   },
+   "vo": "Should Messi come back one more time? Tell me in the comments."
+  }
+ ]
+}

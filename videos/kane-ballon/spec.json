@@ -727,33 +727,34 @@
    "camFrom": {
     "pos": [
      0,
-     1.6,
-     -5.5
+     0.5,
+     -1.2
     ],
     "tgt": [
      0,
-     1.25,
-     20
+     1.7,
+     12
     ]
    },
    "camera": {
     "pos": [
      0,
-     1.7,
-     -6.5
+     0.42,
+     -3.4
     ],
     "tgt": [
      0,
-     1.2,
-     20
+     1.6,
+     12
     ]
    },
-   "move": 5,
+   "move": 3.2,
    "lights": 0.9,
-   "fans": true,
+   "fans": false,
    "players": [
     {
      "name": "Kane",
+     "num": 9,
      "kit": {
       "shirt": "#f4f4f2",
       "shorts": "#1b2a4a",
@@ -762,15 +763,19 @@
      },
      "skin": "#e9b896",
      "hair": "#8a6a45",
-     "num": 9,
+     "front": true,
+     "chest": true,
      "x": 0,
-     "z": 2,
-     "action": "celebrate"
+     "z": 1.6,
+     "enter": "walk",
+     "fromZ": 6.5,
+     "walkDur": 2.2,
+     "pose": "wings"
     }
    ],
    "card": {
     "type": "stack",
-    "y": 1580,
+    "y": 1720,
     "delay": 0,
     "items": [
      {
@@ -787,7 +792,80 @@
      }
     ]
    },
-   "vo": "At the World Cup, six more goals. England finished third, their best since 1966."
+   "vo": "At the World Cup, six more goals. England finished third, their best since 1966.",
+   "flashes": 16,
+   "speedlines": [
+    {
+     "t": 0,
+     "dur": 1.6,
+     "amount": 0.8
+    }
+   ],
+   "shots": [
+    {
+     "at": "England finished",
+     "cut": true,
+     "move": 3.6,
+     "players": [
+      {
+       "name": "Kane",
+       "num": 9,
+       "kit": {
+        "shirt": "#f4f4f2",
+        "shorts": "#1b2a4a",
+        "socks": "#f4f4f2",
+        "text": "#1b2a4a"
+       },
+       "skin": "#e9b896",
+       "hair": "#8a6a45",
+       "front": true,
+       "chest": true,
+       "x": 0,
+       "z": 2.4,
+       "pose": "fists"
+      }
+     ],
+     "confetti": true,
+     "confettiColors": [
+      "#ffffff",
+      "#c8102e",
+      "#1b2a4a"
+     ],
+     "punch": [
+      {
+       "at": "third",
+       "amount": 0.12,
+       "dur": 1.6,
+       "anchor": 0
+      }
+     ],
+     "orbit": {
+      "center": [
+       0,
+       1.35,
+       2.4
+      ],
+      "r": 4.6,
+      "from": -55,
+      "to": 30,
+      "h": 0.8,
+      "h2": 1.5,
+      "dur": 3.4
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.5,
+       -3.2
+      ],
+      "tgt": [
+       0,
+       1.35,
+       2.4
+      ]
+     }
+    }
+   ]
   },
   {
    "kicker": "Ballon d'Or 2026 · London",

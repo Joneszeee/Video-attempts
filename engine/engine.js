@@ -74,6 +74,11 @@ function proj(q) { return [W / 2 + FOC * q[0] / q[2], CY - FOC * q[1] / q[2], q[
 
 function camInBeat(i, lt) {
   const b = S.beats[i];
+  if (b.orbit) {   // cinematic orbit: the camera circles a point at a constant distance (degrees: 0 = in front, looking toward +z)
+    const o = b.orbit, k = ease(pr(lt, 0, o.dur || b.move || 3)), a = (lerp(o.from, o.to, k)) * Math.PI / 180, c = o.center;
+    const pos = [c[0] + Math.sin(a) * o.r, o.h != null ? lerp(o.h, o.h2 != null ? o.h2 : o.h, k) : c[1], c[2] - Math.cos(a) * o.r];
+    return { pos, tgt: [c[0], c[1], c[2]] };
+  }
   const to = camPreset(b.camera);
   const from = (i === 0 || b.cut) ? camPreset(b.camFrom || b.camera) : camEnd(i - 1);
   const md = b.move != null ? b.move : Math.min(2.4, b.dur * 0.8);
@@ -663,7 +668,7 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     for (const side of [-1, 1]) {
       ctx.save();
       ctx.translate(side * u * 0.165, -u * 0.8);
-      ctx.rotate(armsUp ? side * 0.25 + Math.PI : p.pose === 'keeper' ? side * 0.95 : side * 0.1);
+      ctx.rotate(armsUp ? side * 0.25 + Math.PI : p.pose === 'keeper' ? side * 0.95 : p.pose === 'wings' ? -side * (1.4 + Math.sin(t * 7) * 0.08) : p.pose === 'fists' ? -side * (2.35 + Math.sin(t * 9) * 0.12) : side * 0.1);
       ctx.lineWidth = Math.max(1, u * 0.006); ctx.strokeStyle = edge;
       if (suit) {
         rrect(-u * 0.04, -u * 0.01, u * 0.08, u * 0.28, u * 0.03); ctx.fillStyle = sleeve; ctx.fill(); ctx.stroke();
@@ -707,20 +712,24 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     ctx.restore();
   }
   if (!suit) { ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(-u * 0.135, -u * 0.56, u * 0.27, u * 0.03); }
+  drawArms();   // before the lettering, so sleeves never cover the name
+  const fitName = (txt, weight, size, fam, sp, maxW) => {   // shrink the name until it fits between the sleeves
+    font(weight, size, fam, sp); const w = ctx.measureText(txt).width;
+    if (w > maxW) font(weight, size * maxW / w, fam, sp);
+  };
   if (suit) { /* no name or number on a suit */ }
   else if (u > 50 && p.front && p.chest) {   // hero shot from the front: name and big number on the chest
     ctx.fillStyle = txt; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-    if (p.name) { font(800, u * 0.04, 'Inter', `${u * 0.003}px`); ctx.fillText(p.name.toUpperCase(), 0, -u * 0.735); }
+    if (p.name) { fitName(p.name.toUpperCase(), 800, u * 0.04, 'Inter', `${u * 0.003}px`, u * 0.2); ctx.fillText(p.name.toUpperCase(), 0, -u * 0.735); }
     if (p.num != null) { font(800, u * 0.12, 'Inter', '0px'); ctx.fillText(String(p.num), 0, -u * 0.6); }
   } else if (u > 50 && p.front) {
     ctx.fillStyle = txt; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
     if (p.num != null) { font(800, u * 0.07, 'Inter', '0px'); ctx.fillText(String(p.num), u * 0.06, -u * 0.7); }
   } else if (u > 50) {
     ctx.fillStyle = txt; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-    if (p.name) { font(700, Math.max(6, u * 0.034), 'Mono', `${u * 0.004}px`); ctx.fillText(p.name.toUpperCase(), 0, -u * 0.745); }
+    if (p.name) { fitName(p.name.toUpperCase(), 700, Math.max(6, u * 0.034), 'Mono', `${u * 0.004}px`, u * 0.2); ctx.fillText(p.name.toUpperCase(), 0, -u * 0.745); }
     if (p.num != null) { font(800, u * 0.12, 'Inter', '0px'); ctx.fillText(String(p.num), 0, -u * 0.6); }
   }
-  drawArms();
   ctx.fillStyle = skin; ctx.fillRect(-u * 0.025, -u * 0.87, u * 0.05, u * 0.06);
   ctx.beginPath(); ctx.arc(0, -u * 0.91, u * 0.062, 0, 7); ctx.fill();
   ctx.fillStyle = hair; ctx.beginPath();
@@ -2603,6 +2612,20 @@ function renderAt(t) {
     if (fl > 0) { ctx.fillStyle = `rgba(255,255,255,${0.55 * fl})`; ctx.fillRect(0, 0, W, H); }
   }
   if (b.speedlines) drawSpeedlines(b, lt);
+  if (b.flashes) {   // phone and camera flashes popping across the stands (big moments, celebrations)
+    const n = typeof b.flashes === 'number' ? b.flashes : 14, slot = Math.floor(t / 0.09);
+    for (let k = 0; k < 3; k++) {
+      const R = rng((slot - k) * 7 + 3);
+      for (let i = 0; i < n; i++) {
+        const x = R() * W, y = H * (0.36 + R() * 0.24), age = (t - (slot - k) * 0.09) / 0.27;
+        if (R() > 0.45 || age > 1) continue;
+        const a = (1 - age) * 0.9, r = 10 + R() * 22;
+        const g = ctx.createRadialGradient(x, y, 0, x, y, r * 2.2);
+        g.addColorStop(0, `rgba(255,255,255,${a})`); g.addColorStop(0.3, `rgba(255,250,235,${a * 0.5})`); g.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = g; ctx.fillRect(x - r * 2.2, y - r * 2.2, r * 4.4, r * 4.4);
+      }
+    }
+  }
   if (scene.type === 'stadium' && b.fans) drawFans(t, scene);
   if (b.transition === 'polaroid' && lt < 1.2) polaroid(lt, b.polaroidLabel);
   const blend = (key, def) => {

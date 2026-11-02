@@ -154,6 +154,9 @@ Built so far from the idea list (reuse them):
   (a stamp, a number) keep animating on top. Good for "and then it all stopped" turns.
 - **Suit for ceremonies:** a player with `"outfit": "suit"` (+ `suitColor`) wears a dinner suit with a white shirt and bow tie, and no number. Use it for award nights,
   managers and presidents. Combine with `front: true` on the stage. Example: `videos/kane-ballon` beats 1 and 9.
+- **Cinematic celebration** (example: `videos/kane-ballon` beat 8): a low-angle tracking shot as the player runs at the camera (`front`, `enter: "walk"`
+  with `fromZ` behind him, `pose: "wings"` = aeroplane arms), then a cut to a circling camera (`"orbit": {center, r, from, to, h, h2, dur}` in degrees,
+  0 = in front) with `pose: "fists"`, confetti, a light `punch`, and `"flashes": 16` (phone and camera flashes popping in the stands).
 - **Hero close-up:** a player with `"front": true, "chest": true` shows name and big number on the chest. Use a camera about 4m in front at chest height.
 
 - **Trophy-cabinet shelf:** the `shelf` card. A lit glass cabinet: `items: [{kind: ball|cup|worldcup|boot, label, sub, at}]` drop onto the shelf with a spotlight

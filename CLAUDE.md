@@ -54,6 +54,12 @@ visuals (which tools or backlog items), and what still needs fact-checking. End 
    **The voice must sit clearly on top (user: SFX drowned it out).** `build.py` levels the voice to -16 LUFS, puts the SFX 12 dB under it
    (`SFX_UNDER`) and ducks them further while the voice speaks. To fix only the mix without re-rendering, add `--audio-only`.
 
+5. **With every final, give the YouTube post** (also saved as `videos/<slug>/youtube.md`): 3 title options, **each in its own code block** so it can be
+   copied in one tap, a description (hook sentence, key facts, a question for comments, "Follow for more football stories in under a minute.", 3 hashtags),
+   comma-separated tags, and a pinned comment. Re-check any fact that may have changed (e.g. a league table) before the final.
+6. **Changes after a preview:** fix the issue everywhere in the engine (never just in one video), re-render only the changed section as a short
+   clip with the user's voice when the user asks to see it first, then re-render the full final once they approve. Commit and push after each change.
+
 `vo.txt` = the beat lines separated by `<break time="0.8s" />`. For a voiceover recorded elsewhere, the sync step finds those pauses,
 so there must be exactly one clear pause between beats (the build fails with a clear message otherwise;
 fallback: put `"timings": [secs per beat]` in the spec).

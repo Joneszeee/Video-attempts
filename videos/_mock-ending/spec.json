@@ -1,0 +1,267 @@
+{
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Your call",
+   "headline": "Did Kane [deserve] it?",
+   "accent": "#E9B949",
+   "vo": "",
+   "duration": 4,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c9a227",
+     "#ffffff",
+     "#1b2a4a"
+    ],
+    "seed": 8
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.9,
+     -9
+    ],
+    "tgt": [
+     0,
+     1.4,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     2.2,
+     -9
+    ],
+    "tgt": [
+     0,
+     1.6,
+     20
+    ]
+   },
+   "lights": 0.45,
+   "focus": 0.35,
+   "players": [],
+   "card": {
+    "type": "scales",
+    "y": 780,
+    "tilt": 0.13,
+    "delay": 0,
+    "left": {
+     "name": "Kane",
+     "value": 1055,
+     "color": "#dc052d"
+    },
+    "right": {
+     "name": "Mbappé",
+     "value": 1027,
+     "color": "#f4f4f2",
+     "text": "#1b2a4a"
+    },
+    "arm": 380
+   }
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Who [deserved] it?",
+   "accent": "#E9B949",
+   "vo": "",
+   "duration": 4,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c9a227",
+     "#ffffff",
+     "#1b2a4a"
+    ],
+    "seed": 8
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -5
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "lights": 0.55,
+   "focus": 0.35,
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "x": -1.1,
+     "z": 2,
+     "front": true,
+     "chest": true
+    },
+    {
+     "name": "Mbappé",
+     "num": 10,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#7a4a2c",
+     "hair": "#141010",
+     "x": 1.1,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": {
+    "type": "poll",
+    "y": 800,
+    "delay": 0,
+    "question": "Who deserved the Ballon d'Or?",
+    "options": [
+     {
+      "label": "Kane",
+      "color": "#dc052d",
+      "fill": 0.62
+     },
+     {
+      "label": "Mbappé",
+      "color": "#9fb3cf",
+      "fill": 0.38
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Robbed or [deserved]?",
+   "accent": "#E9B949",
+   "vo": "",
+   "duration": 4,
+   "cut": true,
+   "scene": {
+    "type": "stage"
+   },
+   "zoomFrom": 1.0,
+   "zoom": 1.06,
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "x": -0.85,
+     "z": 2,
+     "front": true,
+     "chest": true,
+     "sx": 0.28,
+     "sy": 1640,
+     "scale": 0.95,
+     "outfit": "suit"
+    },
+    {
+     "name": "Mbappé",
+     "num": 10,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#7a4a2c",
+     "hair": "#141010",
+     "x": 0.85,
+     "z": 2,
+     "front": true,
+     "chest": true,
+     "sx": 0.72,
+     "sy": 1640,
+     "scale": 0.95,
+     "outfit": "suit"
+    }
+   ],
+   "card": [
+    {
+     "type": "trophies",
+     "floor": 1180,
+     "delay": 0,
+     "items": [
+      {
+       "kind": "ball",
+       "sx": 0.5,
+       "h": 0,
+       "size": 170
+      }
+     ]
+    },
+    {
+     "type": "comments",
+     "y": 1000,
+     "delay": 0,
+     "step": 0.35,
+     "items": [
+      {
+       "text": "Kane. Finally.",
+       "x": -170,
+       "y": 1000,
+       "color": "#dc052d"
+      },
+      {
+       "text": "Mbappé was robbed",
+       "x": 170,
+       "y": 880,
+       "color": "#9fb3cf"
+      },
+      {
+       "text": "36 league goals, easy",
+       "x": -140,
+       "y": 760,
+       "color": "#dc052d"
+      },
+      {
+       "text": "28 points?! Too close",
+       "x": 150,
+       "y": 640,
+       "color": "#f1c453"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

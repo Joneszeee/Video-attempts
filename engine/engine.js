@@ -2165,6 +2165,81 @@ CARDS.tape = function (c, ct, cx, cy) {
 };
 CARDS.tape.noSlide = true;
 
+// Golden balance scales: two names weighed against each other; the beam tips toward the heavier side.
+// left/right: {name, value, color}, tilt (radians, exaggerate small gaps), question
+CARDS.scales = function (c, ct, cx, cy) {
+  const a = eOut(pr(ct, 0, 0.5)), settle = pr(ct, 0.4, 1.6);
+  const dir = c.left.value >= c.right.value ? -1 : 1;   // the heavier pan drops
+  const tilt = dir * (c.tilt != null ? c.tilt : 0.12) * (1 - Math.exp(-settle * 5) * Math.cos(settle * 14));
+  const arm = c.arm || 330, gold = goldGrad(cx - arm, cx + arm);
+  ctx.save(); ctx.globalAlpha *= a;
+  // pillar and base
+  ctx.fillStyle = gold; ctx.fillRect(cx - 10, cy, 20, 380); rrect(cx - 120, cy + 370, 240, 30, 12); ctx.fill();
+  ctx.beginPath(); ctx.arc(cx, cy, 22, 0, 7); ctx.fill();
+  // beam
+  ctx.save(); ctx.translate(cx, cy); ctx.rotate(tilt);
+  ctx.fillStyle = gold; rrect(-arm, -9, arm * 2, 18, 9); ctx.fill();
+  ctx.restore();
+  for (const side of [-1, 1]) {
+    const o = side < 0 ? c.left : c.right;
+    const px = cx + side * arm * Math.cos(tilt), py = cy + side * arm * Math.sin(tilt), drop = 230;
+    ctx.strokeStyle = '#d9b45a'; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - 110, py + drop); ctx.moveTo(px, py); ctx.lineTo(px + 110, py + drop); ctx.stroke();
+    ctx.fillStyle = gold; ctx.beginPath(); ctx.ellipse(px, py + drop, 130, 26, 0, 0, Math.PI); ctx.fill();
+    ctx.fillRect(px - 130, py + drop - 6, 260, 8);
+    // the player's name plate sitting in the pan
+    ctx.fillStyle = o.color || '#dc052d'; rrect(px - 100, py + drop - 92, 200, 82, 14); ctx.fill();
+    font(800, 34, 'Inter'); ctx.fillStyle = o.text || '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(o.name.toUpperCase(), px, py + drop - 64);
+    font(700, 26, 'Mono', '2px'); ctx.fillText(Math.round(o.value * eOut(pr(ct, 0.3, 1.2))).toLocaleString('en-GB') + ' PTS', px, py + drop - 30);
+  }
+  ctx.restore();
+};
+CARDS.scales.noSlide = true;
+
+// Poll sticker, Instagram style: question + two options with "?" percentages and a tapping finger.
+CARDS.poll = function (c, ct, cx, cy) {
+  const a = eBack(pr(ct, 0, 0.45)), w = c.w || 760, opts = c.options, h = 150 + opts.length * 120;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(a, a); ctx.rotate(c.rot != null ? c.rot : -0.03);
+  ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 14;
+  ctx.fillStyle = '#ffffff'; rrect(-w / 2, -h / 2, w, h, 36); ctx.fill(); ctx.shadowColor = 'transparent';
+  font(800, 44, 'Inter', '-1px'); ctx.fillStyle = '#16181d'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(c.question, 0, -h / 2 + 76);
+  opts.forEach((o, i) => {
+    const y = -h / 2 + 170 + i * 120, fill = eOut(pr(ct, 0.6 + i * 0.25, 0.8)) * (o.fill || 0.5);
+    ctx.fillStyle = '#eef0f3'; rrect(-w / 2 + 40, y - 46, w - 80, 92, 46); ctx.fill();
+    ctx.save(); rrect(-w / 2 + 40, y - 46, w - 80, 92, 46); ctx.clip();
+    ctx.fillStyle = o.color || '#dc052d'; ctx.globalAlpha *= 0.9; ctx.fillRect(-w / 2 + 40, y - 46, (w - 80) * fill, 92); ctx.restore();
+    font(800, 38, 'Inter'); ctx.fillStyle = '#16181d'; ctx.textAlign = 'left'; ctx.fillText(o.label.toUpperCase(), -w / 2 + 80, y + 2);
+    ctx.textAlign = 'right'; ctx.fillText(o.pct || '?%', w / 2 - 80, y + 2);
+  });
+  // tapping finger (simple hand: circle + finger) bobbing over option 1
+  const tap = Math.abs(Math.sin(ct * 4)), fx = -w / 2 + 40 + (w - 80) * 0.7, fy = -h / 2 + 170 + 30 + tap * 14;
+  ctx.fillStyle = '#f2c9a5'; ctx.strokeStyle = '#16181d'; ctx.lineWidth = 4;
+  rrect(fx - 16, fy, 32, 70, 16); ctx.fill(); ctx.stroke();
+  rrect(fx - 34, fy + 50, 80, 70, 26); ctx.fill(); ctx.stroke();
+  ctx.restore();
+};
+CARDS.poll.noSlide = true;
+
+// Comment bubbles floating up like a live chat (sample viewer opinions; illustrative, not real comments).
+CARDS.comments = function (c, ct, cx, cy) {
+  const items = c.items, R = rng(c.seed || 3);
+  items.forEach((it, i) => {
+    const t0 = (it.t != null ? it.t : 0.2 + i * (c.step || 0.45)), k = ct - t0;
+    if (k < 0) return;
+    const rise = Math.min(1, k / 0.5), x = cx + (it.x != null ? it.x : (R() - 0.5) * 520), y = (it.y != null ? it.y : cy + 300 - i * 120) - eOut(rise) * 60 - k * 18;
+    ctx.save(); ctx.globalAlpha *= Math.min(1, k * 3); ctx.translate(x, y); ctx.scale(0.8 + 0.2 * eBack(rise), 0.8 + 0.2 * eBack(rise));
+    font(700, 34, 'Inter'); const tw = ctx.measureText(it.text).width + 110;
+    ctx.fillStyle = 'rgba(255,255,255,0.96)'; rrect(-tw / 2, -40, tw, 80, 40); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(-tw / 2 + 40, 36); ctx.lineTo(-tw / 2 + 30, 60); ctx.lineTo(-tw / 2 + 64, 38); ctx.fill();
+    ctx.fillStyle = it.color || '#dc052d'; ctx.beginPath(); ctx.arc(-tw / 2 + 42, 0, 22, 0, 7); ctx.fill();
+    ctx.fillStyle = '#16181d'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(it.text, -tw / 2 + 78, 2);
+    ctx.restore();
+  });
+};
+CARDS.comments.noSlide = true;
+
 // Radial speed lines (hero intro, big moments). Beat key: "speedlines": [{t|at, dur}]
 function drawSpeedlines(b, lt) {
   for (const sl of b.speedlines || []) {

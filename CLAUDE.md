@@ -35,7 +35,10 @@ visuals (which tools or backlog items), and what still needs fact-checking. End 
    `tts.py` turns years into words, fixes names via its `PRONOUNCE` table (add any name the voice gets wrong), puts a short gap
    between beats (`--gap 0.45`) and writes `vo.wav.beats.json` with exact line starts, which `build.py` uses for the sync.
    Other voices: `--voice bm_fable|am_michael|am_fenrir`, or blends like `bm_george:0.7+bm_fable:0.3`.
-   **Kokoro sounds flat and robotic (user feedback), so use it only for previews.** For finals, prefer ElevenLabs v3: write
+   **The user records on Eleven v4.** v4 audio tags: one emotion tag per sentence or segment (not "[proud, building]"), optional delivery tags
+   such as `[slowly]` mid-line, and punctuation for pacing (… to hang, full stops for beats). ElevenLabs has no separate field for delivery notes,
+   so build the notes into the text itself and keep the words identical to `vo.txt` so the sync still works.
+   **Kokoro sounds flat and robotic (user feedback), so use it only for previews.** For finals, prefer ElevenLabs (v4 now): write
    `videos/<slug>/vo_elevenlabs.md` with an [emotion] tag and a delivery note per line (example: `videos/messi-91/vo_elevenlabs.md`).
    The user uploads one clip per line (`01.mp3` …), and `build.py --vo <folder>` trims and joins them and syncs exactly.
    **If they upload one single file** (ElevenLabs pauses inside lines too, so pause detection is unreliable), align it against the

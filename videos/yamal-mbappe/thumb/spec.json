@@ -1,0 +1,120 @@
+{
+ "brand": "theo6k",
+ "accent": "#FF4D5E",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Mbappé v Yamal",
+   "headline": "Mbappé has [never] beaten him in a knockout.",
+   "accent": "#FF4D5E",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 24
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.35,
+     -3.9
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.35,
+     -3.9
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 0.1,
+   "lights": 0.6,
+   "fans": true,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f7d117",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -0.95,
+     "z": 2,
+     "front": true,
+     "chest": true
+    },
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": 0.95,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": [
+    {
+     "type": "vs",
+     "y": 800,
+     "delay": -2,
+     "size": 220,
+     "colW": 440,
+     "label": "Knockout games",
+     "items": [
+      {
+       "label": "Yamal",
+       "value": 6,
+       "accent": true
+      },
+      {
+       "label": "Mbappé",
+       "value": 0
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "0 WINS",
+     "sub": "Mbappé v Yamal",
+     "y": 1600,
+     "size": 150,
+     "rot": -0.1,
+     "delay": -2
+    }
+   ],
+   "vo": "",
+   "speedlines": [],
+   "flashes": 10,
+   "duration": 3
+  }
+ ]
+}

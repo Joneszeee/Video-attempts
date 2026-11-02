@@ -669,15 +669,10 @@
     {
      "type": "trophies",
      "floor": 1560,
-     "at": "domestic double",
+     "at": "cup final",
+     "stagger": 0,
+     "rise": 0.6,
      "items": [
-      {
-       "kind": "cup",
-       "sx": 0.15,
-       "h": 300,
-       "size": 140,
-       "label": "Bundesliga"
-      },
       {
        "kind": "cup",
        "sx": 0.85,
@@ -686,11 +681,28 @@
        "label": "DFB-Pokal"
       }
      ]
+    },
+    {
+     "type": "trophies",
+     "floor": 1560,
+     "at": "domestic",
+     "lag": -0.15,
+     "stagger": 0,
+     "rise": 0.55,
+     "items": [
+      {
+       "kind": "cup",
+       "sx": 0.15,
+       "h": 300,
+       "size": 140,
+       "label": "Bundesliga"
+      }
+     ]
     }
    ],
    "vo": "Then came Bayern. Thirty-six league goals, a hat-trick in the cup final, and a domestic double.",
    "confetti": true,
-   "confettiAt": "domestic double",
+   "confettiAt": "domestic",
    "confettiColors": [
     "#dc052d",
     "#ffffff",

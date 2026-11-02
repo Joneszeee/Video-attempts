@@ -247,6 +247,7 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
 - `trophies`: pedestals rising from the floor. `items: [{kind: cup|worldcup|ball|ballondor|boot, sx, h, size, label, text}]`, `floor`.
   `ballondor` is the realistic trophy (seamed gold ball on a tapered gold pedestal); use it for any Ballon d'Or, and plain `ball` for a generic gold ball.
   Use `h: 0` for a floating prop (e.g. a gold ball above a player's head)
+  `stagger` (seconds between items, default 0.5) and `rise` (default 0.9): use `stagger: 0, rise: 0.55` when a line ends soon after the trophies are named.
 - `board`: split-flap departure board, the star graphic of the free-kick reel. `rows: [{name, value, prefix, from, strike}]`, `label`,
   `focus` (row index, gold highlight) or `focusPath: [{t, row}]` (the highlight walks in time), `caption` + `captionAt` (pill underneath),
   `swapAt` (when corrections flip), `cols`/`vcols` (name and value widths). A row with `from` shows `from` first, then a red strike,

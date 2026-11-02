@@ -1359,7 +1359,7 @@ Object.assign(CARDS, {
   },
   trophies(c, ct) {
     c.items.forEach((it, i) => {
-      const k = eOut(pr(ct, 0.2 + i * 0.5, 0.9));
+      const k = eOut(pr(ct, 0.2 + i * (c.stagger != null ? c.stagger : 0.5), c.rise || 0.9));
       if (k <= 0) return;
       const x = (it.sx != null ? it.sx : 0.5) * W, base = c.floor || 1660, top = base - (it.h != null ? it.h : 420) * k, s = it.size || 170;
       if (it.h !== 0) {
@@ -2397,7 +2397,7 @@ function cardEvents(c) {
     case 'pen': c.strokes.forEach(s => ev.push({ t: s.t || 0, type: 'swipe' })); break;
     case 'balls': for (let i = 0; i < c.n; i++) ev.push({ t: 0.3 + i * (c.step || 0.12), type: 'pop' }); break;
     case 'ruler': (c.markers || []).forEach((m, i) => ev.push({ t: 0.8 + i * 0.5, type: 'pop' })); if (c.bracket) ev.push({ t: 0.8 + (c.markers || []).length * 0.5, type: 'swipe' }); break;
-    case 'trophies': c.items.forEach((it, i) => ev.push({ t: 0.9 + i * 0.5, type: 'impact' })); break;
+    case 'trophies': c.items.forEach((it, i) => ev.push({ t: 0.2 + (c.rise || 0.9) + i * (c.stagger != null ? c.stagger : 0.5), type: 'impact' })); break;
     case 'meter': ticks(0.4, (c.countDur || 2.2) * 0.85); ev.push({ t: 0.4 + (c.countDur || 2.2), type: 'impact' }); break;
     case 'dots': {
       const n = c.states ? c.states.length : c.n;

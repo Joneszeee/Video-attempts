@@ -8,6 +8,12 @@ Two looks:
 - **stadium**: 3D stadium with camera moves. Best for match and season stories. Demo: `videos/leicester`.
 - **stage**: theatre with red curtains, gold balconies and a spotlight on each player. Best for awards, comparisons and "who's the best" stories. Demo: `videos/modric`.
 
+## When the user asks for video ideas
+Give **10 ideas: 7 from recent news and 3 evergreen** (user preference). For the 7, search widely first: this week's results, records,
+awards, transfers, controversies and articles across the major leagues and international football. Pick the stories that are most video-worthy for
+virality: surprise, conflict, a record, a big name, and a clear hook number. For each idea give the hook line, the story in one line, the
+visuals (which tools or backlog items), and what still needs fact-checking. End with your top pick and why, and list the sources.
+
 ## When the user sends a script (or a story)
 1. Create `videos/<slug>/spec.json` (format below) and `videos/<slug>/vo.txt`.
    - One beat per sentence or short pair of sentences in the script. A good target is around 60–70s (about 11 beats, about 130 words of VO).

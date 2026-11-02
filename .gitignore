@@ -1,3 +1,4 @@
 videos/*/out/
 __pycache__/
 node_modules/
+videos/**/out/

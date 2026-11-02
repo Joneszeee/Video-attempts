@@ -2473,6 +2473,36 @@ CARDS.letter = function (c, ct, cx, cy) {
 };
 CARDS.letter.noSlide = true;
 
+// Wall-calendar time-lapse: big year pages tear off and fly away, from `from` to `to` over `dur` seconds (accelerating),
+// then the last page lands with a slam. `caption` under the final year. Good for "N years later" jumps.
+CARDS.calendar = function (c, ct, cx, cy) {
+  const a = eOut(pr(ct, 0, 0.3)), w = c.w || 560, h = c.h || 640, from = c.from, to = c.to, n = to - from;
+  const k = pr(ct, c.start || 0.5, c.dur || 2.2), f = Math.pow(k, 1.6) * n, cur = Math.min(to, from + Math.floor(f));
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, cy);
+  const page = (yr, x, y, rot, al) => {
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.globalAlpha *= al;
+    ctx.shadowColor = 'rgba(0,0,0,0.4)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 12;
+    ctx.fillStyle = '#f7f4ec'; ctx.fillRect(-w / 2, -h / 2, w, h); ctx.shadowColor = 'transparent';
+    ctx.fillStyle = c.color || '#d6283b'; ctx.fillRect(-w / 2, -h / 2, w, 120);
+    font(800, 36, 'Mono', '8px'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText((c.title || 'YEAR').toUpperCase(), 0, -h / 2 + 62);
+    font(900, 230, 'Inter', '-8px'); ctx.fillStyle = '#16181d'; ctx.fillText(String(yr), 0, 40);
+    ctx.fillStyle = 'rgba(22,24,29,0.12)'; for (let i = 0; i < 4; i++) ctx.fillRect(-w / 2 + 50, h / 2 - 150 + i * 30, w - 100, 10);
+    ctx.restore();
+  };
+  // rings on top
+  page(cur + (cur < to ? 1 : 0), 0, 0, 0, 1);   // the next page underneath
+  if (cur < to) {
+    const sub = f - Math.floor(f);   // the current page tearing away
+    page(cur, sub * 700, -sub * 500, sub * 0.9, 1 - sub);
+  } else {
+    const lk = pr(ct, (c.start || 0.5) + (c.dur || 2.2), 0.3);
+    if (c.caption && lk > 0) { font(800, 42, 'Inter'); ctx.fillStyle = c.captionColor || '#f1c453'; ctx.textAlign = 'center'; ctx.globalAlpha *= lk; ctx.fillText(c.caption, 0, h / 2 + 70); }
+  }
+  ctx.fillStyle = '#9aa1ad'; for (const x of [-w / 3, 0, w / 3]) { ctx.beginPath(); ctx.arc(x, -h / 2 + 8, 12, 0, 7); ctx.fill(); }
+  ctx.restore();
+};
+CARDS.calendar.noSlide = true;
+
 // Match clock (idea list): a broadcast-style clock that races from `from` to `to` minutes over `dur` seconds,
 // with an optional phase label ("EXTRA TIME") and score; `events: [{min, text}]` pop in as the clock passes them.
 CARDS.clock = function (c, ct, cx, cy) {
@@ -2660,6 +2690,7 @@ function cardEvents(c) {
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'tally': if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
     case 'photo': ev.push({ t: 0, type: 'whoosh' }); if (c.ripT != null) ev.push({ t: c.ripT, type: 'impact' }, { t: c.ripT, type: 'swish' }); break;
+    case 'calendar': { const n = c.to - c.from; for (let i = 1; i <= n; i++) ev.push({ t: (c.start || 0.5) + Math.pow(i / n, 1 / 1.6) * (c.dur || 2.2), type: 'swipe' }); ev.push({ t: (c.start || 0.5) + (c.dur || 2.2), type: 'impact' }); break; }
     case 'letter': for (let t = 0.5; t < 0.5 + (c.write || 2.5); t += 0.12) ev.push({ t, type: 'tick' }); break;
     case 'chalk': if (c.newT != null) ev.push({ t: c.newT, type: 'swipe' }); if (c.step) for (let i = c.done || 0; i < c.n; i++) ev.push({ t: (c.start || 0.4) + (i - (c.done || 0)) * c.step, type: 'swipe' }); break;
     case 'clock': for (let t = 0.3; t < 0.3 + (c.dur || 2.2); t += 0.075) ev.push({ t, type: 'tick' }); ev.push({ t: 0.3 + (c.dur || 2.2), type: 'impact' }); break;

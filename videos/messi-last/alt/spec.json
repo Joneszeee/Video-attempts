@@ -1,0 +1,469 @@
+{
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "OPTION A · minimal",
+   "headline": "The baby was [Lamine Yamal].",
+   "accent": "#E9B949",
+   "vo": "",
+   "duration": 4.2,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": "stand",
+   "camera": "stand",
+   "lights": 0.35,
+   "focus": 0.7,
+   "players": [],
+   "card": [
+    {
+     "type": "photo",
+     "y": 1060,
+     "delay": 0,
+     "scene": "bath",
+     "caption": "2007",
+     "player": {
+      "name": "Messi",
+      "kit": {
+       "shirt": "#a50044",
+       "shorts": "#004d98",
+       "socks": "#004d98",
+       "text": "#f7d117",
+       "stripes": [
+        "#a50044",
+        "#004d98"
+       ]
+      },
+      "skin": "#e8b896",
+      "hair": "#4a3020"
+     },
+     "w": 760,
+     "h": 860,
+     "spin": 1.0
+    },
+    {
+     "type": "pen",
+     "delay": 1.4,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 622,
+       "cy": 1080,
+       "rx": 95,
+       "ry": 80,
+       "color": "#ff4d5e",
+       "t": 0,
+       "dur": 0.45
+      },
+      {
+       "kind": "arrow",
+       "points": [
+        [
+         640,
+         1470
+        ],
+        [
+         700,
+         1300
+        ],
+        [
+         650,
+         1160
+        ]
+       ],
+       "color": "#ff4d5e",
+       "t": 0.5,
+       "dur": 0.4
+      },
+      {
+       "kind": "text",
+       "text": "Lamine Yamal",
+       "x": 470,
+       "y": 1560,
+       "size": 64,
+       "rot": -0.06,
+       "color": "#ffffff",
+       "t": 0.8
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kicker": "OPTION B · kinetic",
+   "headline": "The baby was [Lamine Yamal].",
+   "accent": "#E9B949",
+   "vo": "",
+   "duration": 4.4,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.4,
+     -4.6
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.6
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 4,
+   "lights": 0.7,
+   "focus": 0,
+   "speedlines": [
+    {
+     "t": 0.4,
+     "dur": 2.4,
+     "amount": 0.9
+    }
+   ],
+   "flashes": 10,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 2,
+     "front": true,
+     "chest": true,
+     "enter": "fade",
+     "delay": 2.9
+    }
+   ],
+   "card": [
+    {
+     "type": "calendar",
+     "y": 1000,
+     "delay": 0,
+     "from": 2007,
+     "to": 2026,
+     "start": 0.3,
+     "dur": 2.4,
+     "title": "The year",
+     "hideT": 3.0
+    },
+    {
+     "type": "flytext",
+     "text": "YAMAL",
+     "size": 280,
+     "endScale": 0.6,
+     "y": 1660,
+     "delay": 2.9,
+     "color": "#f1c453"
+    }
+   ]
+  },
+  {
+   "kicker": "OPTION A · minimal",
+   "headline": "For 90 minutes, Argentina [held on].",
+   "accent": "#75aadb",
+   "vo": "",
+   "duration": 4.2,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.45,
+     -1.6
+    ],
+    "tgt": [
+     0,
+     1.45,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.42,
+     -0.9
+    ],
+    "tgt": [
+     0,
+     1.45,
+     20
+    ]
+   },
+   "move": 4.2,
+   "lights": 0.3,
+   "focus": 0.25,
+   "sway": 0.5,
+   "players": [
+    {
+     "name": "Messi",
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#111111",
+      "socks": "#ffffff",
+      "text": "#111111",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "num": 10,
+     "x": 0,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": {
+    "type": "clock",
+    "y": 1640,
+    "delay": 0,
+    "from": 80,
+    "to": 90,
+    "dur": 3.4,
+    "phase": "STILL 0–0",
+    "phaseAt": 0.0
+   }
+  },
+  {
+   "kicker": "OPTION B · kinetic",
+   "headline": "For 90 minutes, Argentina [held on].",
+   "accent": "#75aadb",
+   "vo": "",
+   "duration": 4.4,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     46,
+     -82
+    ],
+    "tgt": [
+     0,
+     0,
+     -36
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     38,
+     -74
+    ],
+    "tgt": [
+     0,
+     0,
+     -36
+    ]
+   },
+   "move": 4.4,
+   "lights": 0.9,
+   "players": [],
+   "shake": [
+    {
+     "t": 3.0,
+     "amount": 10
+    }
+   ],
+   "card": [
+    {
+     "type": "shotmap",
+     "delay": 0,
+     "scale": 3,
+     "blockedT": 0.3,
+     "shots": [
+      {
+       "x": -7.4,
+       "z": -46.1,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 0.2
+      },
+      {
+       "x": -2.9,
+       "z": -45.2,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 0.37
+      },
+      {
+       "x": -12.1,
+       "z": -40.8,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 0.54
+      },
+      {
+       "x": 11.7,
+       "z": -33.6,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 0.71
+      },
+      {
+       "x": 7.4,
+       "z": -44.0,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 0.8800000000000001
+      },
+      {
+       "x": 1.0,
+       "z": -43.0,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 1.05
+      },
+      {
+       "x": -9.2,
+       "z": -46.1,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 1.22
+      },
+      {
+       "x": -8.0,
+       "z": -31.3,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 1.3900000000000001
+      },
+      {
+       "x": 9.2,
+       "z": -33.5,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 1.56
+      },
+      {
+       "x": 8.4,
+       "z": -44.5,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 1.73
+      },
+      {
+       "x": -5.3,
+       "z": -36.7,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 1.9000000000000001
+      },
+      {
+       "x": 6.5,
+       "z": -32.6,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 2.0700000000000003
+      },
+      {
+       "x": 10.6,
+       "z": -46.4,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 2.24
+      },
+      {
+       "x": 3.0,
+       "z": -35.9,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 2.41
+      },
+      {
+       "x": 0.2,
+       "z": -44.8,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 2.5800000000000005
+      },
+      {
+       "x": -0.7,
+       "z": -46.4,
+       "blocked": true,
+       "color": "#c60b1e",
+       "t": 2.7500000000000004
+      }
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "delay": 0,
+     "from": 0,
+     "to": 90,
+     "dur": 3.0,
+     "phase": "STILL 0–0",
+     "phaseAt": 1.0
+    },
+    {
+     "type": "stamp",
+     "text": "HELD",
+     "sub": "0–0 after 90",
+     "y": 1500,
+     "size": 140,
+     "rot": -0.1,
+     "delay": 3.2,
+     "color": "#75aadb"
+    }
+   ]
+  }
+ ]
+}

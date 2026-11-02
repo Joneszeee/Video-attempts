@@ -146,6 +146,8 @@ Built so far from the idea list (reuse them):
 - **Speed lines:** beat `"speedlines": [{"at": "...", "dur": 1.2}]`: radial streaks for a hero intro or a big moment.
 - **Freeze frame:** beat or shot `"freezeAt": "guilty"` (+ `freezeLag`). The scene stops, the colour drains to grey and there's a white flash with an impact, while cards
   (a stamp, a number) keep animating on top. Good for "and then it all stopped" turns.
+- **Suit for ceremonies:** a player with `"outfit": "suit"` (+ `suitColor`) wears a dinner suit with a white shirt and bow tie, and no number. Use it for award nights,
+  managers and presidents. Combine with `front: true` on the stage. Example: `videos/kane-ballon` beats 1 and 9.
 - **Hero close-up:** a player with `"front": true, "chest": true` shows name and big number on the chest. Use a camera about 4m in front at chest height.
 
 - **Trophy-cabinet shelf:** the `shelf` card. A lit glass cabinet: `items: [{kind: ball|cup|worldcup|boot, label, sub, at}]` drop onto the shelf with a spotlight

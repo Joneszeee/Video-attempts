@@ -640,28 +640,53 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
   ctx.fillStyle = 'rgba(0,0,0,0.3)';
   ctx.beginPath(); ctx.ellipse(0, 0, u * 0.17, u * 0.035, 0, 0, 7); ctx.fill();
   const sw = Math.sin(t * 9) * walk, legW = u * 0.075, gap = u * 0.05;
-  for (const side of [-1, 1]) {
+  const suit = p.outfit === 'suit', suitC = p.suitColor || '#1a1d26';
+  if (suit) {   // award-night suit: trousers, black shoes, jacket, white shirt and bow tie, no number
+    for (const side of [-1, 1]) {
+      const lift = Math.max(0, side * sw) * u * 0.05, lx = side * gap;
+      ctx.fillStyle = suitC; rrect(lx - legW * 0.6, -u * 0.56 - lift, legW * 1.2, u * 0.53, legW * 0.2); ctx.fill();
+      ctx.fillStyle = '#0b0c10'; rrect(lx - legW * 0.75, -u * 0.045 - lift, legW * 1.5, u * 0.05, legW * 0.3); ctx.fill();
+    }
+  }
+  for (const side of suit ? [] : [-1, 1]) {
     const lift = Math.max(0, side * sw) * u * 0.05, lx = side * gap;
     ctx.fillStyle = skin; ctx.fillRect(lx - legW / 2, -u * 0.47 - lift, legW, u * 0.2);
     ctx.fillStyle = socks; rrect(lx - legW / 2, -u * 0.28 - lift, legW, u * 0.25, legW * 0.3); ctx.fill();
     ctx.fillStyle = '#15171c'; rrect(lx - legW * 0.6, -u * 0.04 - lift, legW * 1.2, u * 0.045, legW * 0.3); ctx.fill();
   }
-  ctx.fillStyle = shorts; rrect(-u * 0.135, -u * 0.56, u * 0.27, u * 0.15, u * 0.02); ctx.fill();
+  if (!suit) { ctx.fillStyle = shorts; rrect(-u * 0.135, -u * 0.56, u * 0.27, u * 0.15, u * 0.02); ctx.fill(); }
   const armsUp = p.pose === 'arms_up';
   for (const side of [-1, 1]) {
     ctx.save();
     ctx.translate(side * u * 0.15, -u * 0.8);
     ctx.rotate(armsUp ? side * 0.25 + Math.PI : p.pose === 'keeper' ? side * 0.95 : side * 0.12);
+    if (suit) {
+      ctx.fillStyle = suitC; rrect(-u * 0.042, 0, u * 0.084, u * 0.27, u * 0.03); ctx.fill();
+      ctx.fillStyle = '#f4f4f2'; ctx.fillRect(-u * 0.034, u * 0.255, u * 0.068, u * 0.02);
+      ctx.fillStyle = skin; ctx.beginPath(); ctx.arc(0, u * 0.3, u * 0.034, 0, 7); ctx.fill();
+    } else {
     ctx.fillStyle = k.sleeves || shirt; rrect(-u * 0.04, 0, u * 0.08, u * 0.1, u * 0.02); ctx.fill();
     ctx.fillStyle = skin; rrect(-u * 0.03, u * 0.09, u * 0.06, u * 0.2, u * 0.03); ctx.fill();
+    }
     if (p.gloves) { ctx.fillStyle = p.gloves; ctx.beginPath(); ctx.arc(0, u * 0.3, u * 0.042, 0, 7); ctx.fill(); }
     ctx.restore();
   }
-  ctx.fillStyle = shirt;
+  ctx.fillStyle = suit ? suitC : shirt;
   ctx.beginPath();
   ctx.moveTo(-u * 0.16, -u * 0.82); ctx.lineTo(u * 0.16, -u * 0.82);
-  ctx.lineTo(u * 0.135, -u * 0.53); ctx.lineTo(-u * 0.135, -u * 0.53); ctx.closePath(); ctx.fill();
-  if (k.stripes || k.checks) {
+  ctx.lineTo(u * 0.135, suit ? -u * 0.5 : -u * 0.53); ctx.lineTo(-u * 0.135, suit ? -u * 0.5 : -u * 0.53); ctx.closePath(); ctx.fill();
+  if (suit && p.front) {
+    ctx.fillStyle = '#f4f4f2';   // shirt in the V of the jacket
+    ctx.beginPath(); ctx.moveTo(-u * 0.055, -u * 0.82); ctx.lineTo(u * 0.055, -u * 0.82); ctx.lineTo(0, -u * 0.66); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = shade(suitC, 0.25); ctx.lineWidth = u * 0.008;   // lapels
+    ctx.beginPath(); ctx.moveTo(-u * 0.06, -u * 0.82); ctx.lineTo(-u * 0.005, -u * 0.64); ctx.moveTo(u * 0.06, -u * 0.82); ctx.lineTo(u * 0.005, -u * 0.64); ctx.stroke();
+    ctx.fillStyle = '#0b0c10';   // bow tie
+    ctx.beginPath(); ctx.moveTo(0, -u * 0.8); ctx.lineTo(-u * 0.032, -u * 0.815); ctx.lineTo(-u * 0.032, -u * 0.785); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(0, -u * 0.8); ctx.lineTo(u * 0.032, -u * 0.815); ctx.lineTo(u * 0.032, -u * 0.785); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = shade(suitC, 0.4);
+    for (const by of [-0.6, -0.55]) { ctx.beginPath(); ctx.arc(0, by * u, u * 0.007, 0, 7); ctx.fill(); }
+  }
+  if (!suit && (k.stripes || k.checks)) {
     ctx.save();
     ctx.clip();
     const sq = u * 0.045;
@@ -674,8 +699,9 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     }
     ctx.restore();
   }
-  ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(-u * 0.135, -u * 0.56, u * 0.27, u * 0.03);
-  if (u > 50 && p.front && p.chest) {   // hero shot from the front: name and big number on the chest
+  if (!suit) { ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(-u * 0.135, -u * 0.56, u * 0.27, u * 0.03); }
+  if (suit) { /* no name or number on a suit */ }
+  else if (u > 50 && p.front && p.chest) {   // hero shot from the front: name and big number on the chest
     ctx.fillStyle = txt; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
     if (p.name) { font(800, u * 0.04, 'Inter', `${u * 0.003}px`); ctx.fillText(p.name.toUpperCase(), 0, -u * 0.735); }
     if (p.num != null) { font(800, u * 0.12, 'Inter', '0px'); ctx.fillText(String(p.num), 0, -u * 0.6); }

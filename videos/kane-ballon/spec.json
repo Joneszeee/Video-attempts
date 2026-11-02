@@ -29,7 +29,8 @@
      "sy": 1640,
      "scale": 1.15,
      "front": true,
-     "chest": true
+     "outfit": "suit",
+     "suitColor": "#1a1d26"
     }
    ],
    "card": [
@@ -807,7 +808,8 @@
      "sy": 1640,
      "scale": 1.15,
      "front": true,
-     "chest": true
+     "outfit": "suit",
+     "suitColor": "#1a1d26"
     }
    ],
    "card": [],
@@ -854,8 +856,9 @@
        "sy": 1640,
        "scale": 1.15,
        "front": true,
-       "chest": true,
-       "pose": "arms_up"
+       "pose": "arms_up",
+       "outfit": "suit",
+       "suitColor": "#1a1d26"
       }
      ],
      "card": [

@@ -180,7 +180,7 @@ def main():
         inputs += ['-i', a.vo]
         d = int(VO_DELAY * 1000)
         mix = [f'[1:a]volume={sfx_gain:.2f}dB[s0]',
-               f'[2:a]adelay={d}|{d},volume={vo_gain:.2f}dB,aformat=channel_layouts=stereo,asplit=2[v][key]',
+               f'[2:a]adelay={d}|{d},volume={vo_gain:.2f}dB,aformat=channel_layouts=stereo,apad,asplit=2[v][key]',   # apad: keep going after the voice ends so the end screen keeps its audio and isn't cut
                '[s0][key]sidechaincompress=threshold=0.02:ratio=6:attack=15:release=350[s]']
         print(f'voice {vo_gain:+.1f} dB, sfx {sfx_gain:+.1f} dB (+ ducking)')
         labels = ['[s]', '[v]']

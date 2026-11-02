@@ -1,0 +1,71 @@
+{
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Ballon d'Or 2026",
+   "headline": "The first [Englishman] in 25 years.",
+   "accent": "#E9B949",
+   "vo": "",
+   "duration": 3,
+   "scene": {
+    "type": "stage"
+   },
+   "zoomFrom": 1.12,
+   "zoom": 1.12,
+   "confetti": true,
+   "confettiColors": [
+    "#f1c453",
+    "#ffffff",
+    "#E9B949"
+   ],
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "sx": 0.5,
+     "sy": 1560,
+     "scale": 1.25,
+     "front": true,
+     "outfit": "suit",
+     "suitColor": "#1a1d26",
+     "pose": "arms_up"
+    }
+   ],
+   "card": [
+    {
+     "type": "trophies",
+     "floor": 930,
+     "delay": -2,
+     "items": [
+      {
+       "kind": "ballondor",
+       "sx": 0.5,
+       "h": 0,
+       "size": 230
+      }
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "KANE",
+     "size": 330,
+     "endScale": 1,
+     "y": 1720,
+     "delay": -2,
+     "color": "#f1c453"
+    }
+   ]
+  }
+ ]
+}

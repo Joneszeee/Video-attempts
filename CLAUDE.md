@@ -153,6 +153,8 @@ Built so far from the idea list (reuse them):
 - **Trophy-cabinet shelf:** the `shelf` card. A lit glass cabinet: `items: [{kind: ball|cup|worldcup|boot, label, sub, at}]` drop onto the shelf with a spotlight
   as each one is named. `slots` (total; extras stay as dashed empty slots), `title`, `instant: true` (already full, for a follow-up beat),
   `emptyAt` + `emptyLabel` (a red "?" pulses in the next empty slot: "25 years of nothing"). Example: `videos/kane-ballon` beats 4 and 5.
+  Each item can carry `badge: {colors: [c1, c2, c3], text: "LFC", style: band|stripes|diamond}`: a club shield that pops in above it.
+  **Badges are stylised shields in club colours with initials, never real crests** (trademarks). `drawBadge()` can be reused anywhere.
 - **Tale of the tape:** the `tape` card. Two names (`left`/`right: {name, color}`), and for each of `rows: [{label, left, right, at, floor}]` bars slide out
   from the middle while the numbers count; the bigger side turns gold. `caption` + `captionAt` adds a pill underneath. Use `floor` to exaggerate small gaps.
 

@@ -2038,6 +2038,31 @@ function drawShotMaps(cam) {
 CARDS.shotmap = function () {};
 CARDS.shotmap.noSlide = true;
 
+// A stylised club badge (shield in club colours with initials). Not a real crest: never draw real club logos.
+function drawBadge(x, y, h, b) {
+  const w = h * 0.82, c1 = b.colors[0], c2 = b.colors[1] || '#ffffff', c3 = b.colors[2];
+  ctx.save(); ctx.translate(x, y);
+  const shield = () => { ctx.beginPath(); ctx.moveTo(-w / 2, -h / 2); ctx.lineTo(w / 2, -h / 2); ctx.lineTo(w / 2, h * 0.05);
+    ctx.quadraticCurveTo(w / 2, h * 0.35, 0, h / 2); ctx.quadraticCurveTo(-w / 2, h * 0.35, -w / 2, h * 0.05); ctx.closePath(); };
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 16; ctx.shadowOffsetY = 6;
+  shield(); ctx.fillStyle = c1; ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.save(); shield(); ctx.clip();
+  if (b.style === 'stripes') { ctx.fillStyle = c2; for (let i = -3; i <= 3; i += 2) ctx.fillRect(i * w / 7 - w / 14, -h / 2, w / 7, h); }
+  else if (b.style === 'diamond') { ctx.fillStyle = c2; ctx.beginPath(); ctx.moveTo(0, -h * 0.36); ctx.lineTo(w * 0.3, -h * 0.08); ctx.lineTo(0, h * 0.2); ctx.lineTo(-w * 0.3, -h * 0.08); ctx.closePath(); ctx.fill();
+    if (c3) { ctx.fillStyle = c3; ctx.beginPath(); ctx.moveTo(0, -h * 0.21); ctx.lineTo(w * 0.14, -h * 0.08); ctx.lineTo(0, h * 0.05); ctx.lineTo(-w * 0.14, -h * 0.08); ctx.closePath(); ctx.fill(); } }
+  else { ctx.fillStyle = c2; ctx.fillRect(-w / 2, -h / 2, w, h * 0.26); }   // band across the top
+  ctx.restore();
+  ctx.strokeStyle = c3 && b.style !== 'diamond' ? c3 : '#f1c453'; ctx.lineWidth = Math.max(2, h * 0.04); shield(); ctx.stroke();
+  if (b.text) {
+    font(900, h * (b.text.length > 3 ? 0.2 : 0.26), 'Inter', '0px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = b.textColor || '#ffffff'; ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.lineWidth = 3;
+    const ty = b.style === 'diamond' ? h * 0.36 : h * 0.12;
+    if (b.style === 'diamond') { font(900, h * 0.16, 'Inter', '1px'); ctx.fillStyle = b.textColor || c2; ctx.fillText(b.text, 0, h * 0.38); }
+    else { ctx.strokeText(b.text, 0, ty); ctx.fillText(b.text, 0, ty); }
+  }
+  ctx.restore();
+}
+
 // Trophy-cabinet shelf (idea list): a lit glass cabinet whose slots fill as honours are named.
 // items: [{kind: ball|cup|worldcup|boot, label, sub, t|at}], slots (total, extra ones stay empty), instant (already full),
 // empty slot pulse with emptyT|emptyAt + emptyLabel.
@@ -2081,6 +2106,10 @@ CARDS.shelf = function (c, ct, cx, cy) {
     ctx.save(); ctx.globalAlpha *= Math.min(1, k * 2);
     drawProp(it.kind || 'ball', x, shelfY + drop, s, it.text);
     ctx.restore();
+    if (it.badge) {   // club badge pops in above the trophy
+      const bk = eBack(pr(ct, t0 + 0.15, 0.35));
+      if (bk > 0) { ctx.save(); ctx.translate(x, T + (c.badgeY || 112)); ctx.scale(bk, bk); drawBadge(0, 0, Math.min(sw * 0.8, c.badgeSize || 120), it.badge); ctx.restore(); }
+    }
     const lk = pr(ct, t0 + 0.25, 0.3);
     if (lk > 0) {
       ctx.save(); ctx.globalAlpha *= lk; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';

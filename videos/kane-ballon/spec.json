@@ -287,27 +287,67 @@
      {
       "label": "Matthews",
       "sub": "1956",
-      "at": "Since then"
+      "at": "Since then",
+      "badge": {
+       "colors": [
+        "#f68712",
+        "#ffffff"
+       ],
+       "text": "BFC"
+      }
      },
      {
       "label": "Charlton",
       "sub": "1966",
-      "at": "Bobby Charlton"
+      "at": "Bobby Charlton",
+      "badge": {
+       "colors": [
+        "#da291c",
+        "#ffffff",
+        "#111111"
+       ],
+       "text": "MUFC"
+      }
      },
      {
       "label": "Keegan",
       "sub": "1978",
-      "at": "Kevin Keegan"
+      "at": "Kevin Keegan",
+      "badge": {
+       "colors": [
+        "#ffffff",
+        "#0a3f9c",
+        "#111111"
+       ],
+       "style": "diamond",
+       "text": "HSV"
+      }
      },
      {
       "label": "Keegan",
       "sub": "1979",
-      "at": "twice"
+      "at": "twice",
+      "badge": {
+       "colors": [
+        "#ffffff",
+        "#0a3f9c",
+        "#111111"
+       ],
+       "style": "diamond",
+       "text": "HSV"
+      }
      },
      {
       "label": "Owen",
       "sub": "2001",
-      "at": "Michael Owen"
+      "at": "Michael Owen",
+      "badge": {
+       "colors": [
+        "#c8102e",
+        "#ffffff"
+       ],
+       "text": "LFC"
+      }
      }
     ],
     "delay": 0
@@ -329,23 +369,63 @@
     "items": [
      {
       "label": "Matthews",
-      "sub": "1956"
+      "sub": "1956",
+      "badge": {
+       "colors": [
+        "#f68712",
+        "#ffffff"
+       ],
+       "text": "BFC"
+      }
      },
      {
       "label": "Charlton",
-      "sub": "1966"
+      "sub": "1966",
+      "badge": {
+       "colors": [
+        "#da291c",
+        "#ffffff",
+        "#111111"
+       ],
+       "text": "MUFC"
+      }
      },
      {
       "label": "Keegan",
-      "sub": "1978"
+      "sub": "1978",
+      "badge": {
+       "colors": [
+        "#ffffff",
+        "#0a3f9c",
+        "#111111"
+       ],
+       "style": "diamond",
+       "text": "HSV"
+      }
      },
      {
       "label": "Keegan",
-      "sub": "1979"
+      "sub": "1979",
+      "badge": {
+       "colors": [
+        "#ffffff",
+        "#0a3f9c",
+        "#111111"
+       ],
+       "style": "diamond",
+       "text": "HSV"
+      }
      },
      {
       "label": "Owen",
-      "sub": "2001"
+      "sub": "2001",
+      "badge": {
+       "colors": [
+        "#c8102e",
+        "#ffffff"
+       ],
+       "text": "LFC"
+      }
      }
     ],
     "emptyAt": "twenty-five",

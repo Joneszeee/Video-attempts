@@ -2121,9 +2121,9 @@ function drawShotMaps(cam) {
       if (k <= 0) return;
       const q = toCam(cam, [s.x, 0.02, s.z]);
       if (q[2] < NEAR) return;
-      const p = proj(q), m = FOC / q[2];
+      const p = proj(q), m = FOC / q[2] * (c.scale || 1);   // scale: bigger markers for aerial shots
       const bt = s.blocked ? (c.blockedT != null ? c.blockedT + i * 0.06 : null) : null;
-      const isB = bt != null && ct >= bt, col = s.goal ? '#f1c453' : isB ? '#ff4d5e' : (c.color || '#f4f2ec');
+      const isB = bt != null && ct >= bt, col = s.goal ? '#f1c453' : isB ? '#ff4d5e' : (s.color || c.color || '#f4f2ec');
       const ring = 1 - pr(ct, t0, 0.6);
       ctx.strokeStyle = col; ctx.lineWidth = Math.max(3, m * 0.14);
       if (ring > 0) { ctx.globalAlpha = ring; ctx.beginPath(); ctx.ellipse(p[0], p[1], m * (1 + 3 * (1 - ring)), m * (1 + 3 * (1 - ring)) * 0.36, 0, 0, 7); ctx.stroke(); ctx.globalAlpha = 1; }
@@ -2328,7 +2328,7 @@ CARDS.chalk = function (c, ct, cx, cy) {
   for (let i = 0; i < n; i++) {
     const gi = Math.floor(i / 5), j = i % 5, gx = -total / 2 + gi * (gw + 60);
     const isNew = c.newT != null && i === (c.done || 0);
-    const k = i < (c.done || 0) ? 1 : isNew ? pr(ct, c.newT, 0.35) : 0;
+    const k = i < (c.done || 0) ? 1 : isNew ? pr(ct, c.newT, 0.35) : c.step ? pr(ct, (c.start || 0.4) + (i - (c.done || 0)) * c.step, 0.3) : 0;
     if (k <= 0) continue;
     if (j < 4) chalkLine(gx + j * sp, top, gx + j * sp + 6, top + mh, k, 11 + i);
     else chalkLine(gx - 22, top + mh * 0.8, gx + 3 * sp + 26, top + mh * 0.15, k, 11 + i);
@@ -2377,6 +2377,66 @@ CARDS.tickets = function (c, ct, cx, cy) {
   ctx.restore();
 };
 CARDS.tickets.noSlide = true;
+
+// Match clock (idea list): a broadcast-style clock that races from `from` to `to` minutes over `dur` seconds,
+// with an optional phase label ("EXTRA TIME") and score; `events: [{min, text}]` pop in as the clock passes them.
+CARDS.clock = function (c, ct, cx, cy) {
+  const a = eOut(pr(ct, 0, 0.35)), k = ease(pr(ct, 0.3, c.dur || 2.2));
+  const m = lerp(c.from || 90, c.to || 120, k), mm = Math.floor(m), ss = Math.floor((m - mm) * 60);
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, cy);
+  const w = 640, h = 150;
+  ctx.fillStyle = '#0d1016'; rrect(-w / 2, -h / 2, w, h, 20); ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.lineWidth = 3; rrect(-w / 2, -h / 2, w, h, 20); ctx.stroke();
+  font(800, 96, 'Mono', '2px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = k < 1 ? '#f4f2ec' : (c.endColor || '#f1c453');
+  ctx.fillText(String(mm).padStart(2, '0') + ':' + String(ss).padStart(2, '0'), 0, 6);
+  if (c.phase) {
+    const pk = pr(ct, 0.3 + (c.dur || 2.2) * (c.phaseAt || 0.0), 0.3);
+    if (pk > 0) { ctx.globalAlpha *= pk; font(800, 26, 'Mono', '5px'); const tw = ctx.measureText(c.phase).width + 40;
+      ctx.fillStyle = '#d6283b'; rrect(-tw / 2, h / 2 + 18, tw, 48, 24); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(c.phase, 0, h / 2 + 43); }
+  }
+  ctx.restore();
+  (c.events || []).forEach((e, i) => {
+    const ek = pr(m, e.min - 0.01, 0.6);
+    if (ek <= 0) return;
+    ctx.save(); ctx.globalAlpha *= Math.min(1, ek * 2) * a;
+    const y = cy - 150 - i * 70; font(700, 30, 'Inter'); const tw = ctx.measureText(e.text).width + 50;
+    ctx.translate(cx, y); ctx.scale(0.8 + 0.2 * eBack(Math.min(1, ek)), 0.8 + 0.2 * eBack(Math.min(1, ek)));
+    ctx.fillStyle = 'rgba(244,242,236,0.95)'; rrect(-tw / 2, -28, tw, 56, 28); ctx.fill();
+    ctx.fillStyle = '#16181d'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(e.text, 0, 2);
+    ctx.restore();
+  });
+};
+CARDS.clock.noSlide = true;
+
+// VHS rewind (idea list): scanlines, tracking noise, colour split and a "◀◀ label" for the first `dur` seconds of a beat.
+function vhsRewind(lt, label, dur) {
+  const k = 1 - pr(lt, dur * 0.6, dur * 0.4);
+  if (k <= 0) return;
+  const fx = fullc.getContext('2d');
+  fx.clearRect(0, 0, W, H); fx.drawImage(cv, 0, 0);
+  ctx.save();
+  // horizontal tearing: bands of the frame shifted sideways
+  const R = rng(Math.floor(lt * 30) + 7);
+  for (let i = 0; i < 16; i++) {
+    const y = R() * H, h = 12 + R() * 70, dx = (R() - 0.5) * 220 * k;
+    ctx.drawImage(fullc, 0, y, W, h, dx, y, W, h);
+  }
+  // colour split
+  ctx.globalAlpha = 0.35 * k; ctx.globalCompositeOperation = 'lighter';
+  ctx.filter = 'sepia(1) hue-rotate(-50deg) saturate(4)'; ctx.drawImage(fullc, 8 * k, 0);
+  ctx.filter = 'sepia(1) hue-rotate(150deg) saturate(4)'; ctx.drawImage(fullc, -8 * k, 0);
+  ctx.filter = 'none'; ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+  // scanlines + tracking noise bar
+  ctx.fillStyle = `rgba(0,0,0,${0.22 * k})`; for (let y = 0; y < H; y += 6) ctx.fillRect(0, y, W, 2);
+  const by = (lt * 900) % (H + 200) - 100; ctx.fillStyle = `rgba(255,255,255,${0.12 * k})`; ctx.fillRect(0, by, W, 60);
+  for (let i = 0; i < 300; i++) { ctx.fillStyle = `rgba(255,255,255,${R() * 0.3 * k})`; ctx.fillRect(R() * W, by + R() * 60, 3, 2); }
+  // on-screen display
+  ctx.globalAlpha = k; font(800, 110, 'Mono', '6px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = '#ffffff'; ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 8;
+  if (Math.floor(lt * 4) % 2 === 0) ctx.fillText('◀◀ ' + (label || 'REWIND'), W / 2 + (R() - 0.5) * 16, H * 0.62);
+  ctx.restore();
+}
 
 // Golden balance scales: two names weighed against each other; the beam tips toward the heavier side.
 // left/right: {name, value, color}, tilt (radians, exaggerate small gaps), question
@@ -2504,7 +2564,8 @@ function cardEvents(c) {
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'tally': if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
-    case 'chalk': if (c.newT != null) ev.push({ t: c.newT, type: 'swipe' }); break;
+    case 'chalk': if (c.newT != null) ev.push({ t: c.newT, type: 'swipe' }); if (c.step) for (let i = c.done || 0; i < c.n; i++) ev.push({ t: (c.start || 0.4) + (i - (c.done || 0)) * c.step, type: 'swipe' }); break;
+    case 'clock': for (let t = 0.3; t < 0.3 + (c.dur || 2.2); t += 0.075) ev.push({ t, type: 'tick' }); ev.push({ t: 0.3 + (c.dur || 2.2), type: 'impact' }); break;
     case 'tickets': if (c.newT != null) ev.push({ t: c.newT, type: 'swish' }, { t: c.newT + 0.5, type: 'impact' }); break;
     case 'scales': ev.push({ t: 0.3, type: 'swish' }, { t: 0.9, type: 'impact' }); for (let t = 0.3; t < 1.5; t += 0.075) ev.push({ t, type: 'tick' }); break;
     case 'poll': ev.push({ t: 0, type: 'pop' }, { t: 0.6, type: 'swipe' }); break;
@@ -2746,6 +2807,7 @@ function renderAt(t) {
   }
   if (scene.type === 'stadium' && b.fans) drawFans(t, scene);
   if (b.transition === 'polaroid' && lt < 1.2) polaroid(lt, b.polaroidLabel);
+  if (b.transition === 'vhs') vhsRewind(lt, b.vhsLabel, b.vhsDur || 1.6);
   const blend = (key, def) => {
     const p = S.beats[i - 1], cur = b[key] != null ? b[key] : def;
     const from = p && !b.cut && p[key] != null ? p[key] : (p && !b.cut ? def : cur);

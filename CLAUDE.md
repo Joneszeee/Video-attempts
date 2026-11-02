@@ -173,6 +173,17 @@ Built so far from the idea list (reuse them):
 - **Knockout tally** (idea list's penalty dots, built): the `tally` card. `n` circles with `labels` ("EURO\n2024"), `done` already filled, the next fills with a slam at
   `newAt`; `mark: x|check`, `title`, `score` ("defeats: {n}"). Repeat it each beat with `done` one higher to build a run of results. Example: `videos/yamal-mbappe`.
   A resting `ball` can now vanish on a word with `untilAt` (+ `untilLag`), so the kick and the shot both sync to the voice.
+- **Chalkboard tally:** the `chalk` card. A wooden-framed blackboard; tally marks (gates of five) scratch in one by one (`step` seconds apart from `start`,
+  or `done` + `newAt`), `title` and `score` in chalk handwriting. User liked it.
+- **Matchday tickets** (idea list, built): the `tickets` card. A fanned stack of paper tickets `[{comp, teams, score, date, color}]`, each stamped (`stamp: "LOST"`)
+  as it lands (`done` + `newAt`), or all at once; `count` caption underneath. User liked it.
+- **Face-off:** two `front` players side by side under low lights with a giant `vs` number card between them (e.g. 6–0). User liked it.
+- **Match clock** (idea list, built): the `clock` card races `from` → `to` minutes over `dur` with a `phase` pill ("EXTRA TIME") and `events: [{min, text}]` popping above.
+- **VHS rewind** (idea list, built): beat `"transition": "vhs", "vhsLabel": "AGAIN", "vhsDur": 2`: tearing, colour split, scanlines and a blinking ◀◀ label.
+- **Goal barrage:** several `ballpath`s from a camera behind the net (camera at z≈59 looking back up the pitch), one every ~0.75s, each bulging the net.
+- **Aerial goal map:** `shotmap` from a very high camera with `scale: 4.5`; per-shot `color` for each team, `goal: true` in gold for a named player's goals.
+- **Variety rule (user):** across a video, no two consecutive beats may share the same layout or graphic. Each game or fact gets its own scene idea
+  (barrage, clock, aerial map, rewind, celebration, chalkboard...). Repeating a "standing players + graphic" frame beat after beat reads as samey.
 - **Scales:** the `scales` card. A golden balance with two name plates (`left`/`right: {name, value, color, text}`); the beam wobbles and settles toward the
   bigger value (`tilt` exaggerates a small gap, `arm` sets the width). Good for "did X deserve it over Y" endings. Example: `videos/kane-ballon` beat 10.
 - **Poll sticker** (`poll`: `question`, `options: [{label, color, fill, pct}]`, tapping finger) and **comment bubbles** (`comments`: `items: [{text, x, y, color}]`,
@@ -198,15 +209,12 @@ From statbolthq (FORMAT.md Reference 6; demo `videos/_test-statbolt`). Tips, not
 - A calendar or season heatmap of goals.
 - A world map with a route line, for transfers or tournaments.
 - A whip-pan or zoom-through-the-number transition between scenes.
-- A rewind / VHS-scrub transition for "let's go back" moments.
 - A dive-into-a-screen transition: the next scene starts on a tablet or phone lying on a stadium seat, and the camera flies into it (statbolthq).
 - A drawn player card (polaroid with a caption line) that slides in beside a graphic when a player is named.
-- A scoreboard clock that fast-forwards through a match, with events popping on the timeline.
 - A shirt-number morph: one shirt number flips into another (for heirs to a number, e.g. 7s and 10s).
 - Formation chalk-lines: a 4-4-2 drawn on the pitch that rearranges into a new shape.
 - A stopwatch or speed-gun readout for fastest goals or sprints.
 - A league-table climb: a club's row sliding up the table week by week.
-- A paper ticket or matchday-programme reveal for historic games.
 
 ## spec.json
 ```jsonc

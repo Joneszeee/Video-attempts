@@ -2300,6 +2300,84 @@ CARDS.tally = function (c, ct, cx, cy) {
 };
 CARDS.tally.noSlide = true;
 
+// Chalkboard tally: a wooden-framed blackboard; chalk tally marks (gates of five) draw themselves one by one.
+// n marks, done already drawn, next one at newAt/newT; title and score in chalk handwriting.
+function chalkLine(x1, y1, x2, y2, k, seed, w) {
+  const R = rng(seed), xe = lerp(x1, x2, k), ye = lerp(y1, y2, k);
+  ctx.save(); ctx.lineCap = 'round'; ctx.strokeStyle = 'rgba(245,245,238,0.92)'; ctx.lineWidth = w || 9;
+  ctx.beginPath(); ctx.moveTo(x1, y1); const steps = 10;
+  for (let i = 1; i <= steps; i++) { const u = i / steps; ctx.lineTo(lerp(x1, xe, u) + (R() - 0.5) * 3, lerp(y1, ye, u) + (R() - 0.5) * 3); }
+  ctx.stroke();
+  ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.lineWidth = 2;   // chalk grain
+  for (let i = 0; i < 6; i++) { const u = R(); ctx.beginPath(); ctx.moveTo(lerp(x1, xe, u) - 4, lerp(y1, ye, u) - 3); ctx.lineTo(lerp(x1, xe, u) + 3, lerp(y1, ye, u) + 2); ctx.stroke(); }
+  ctx.restore();
+}
+CARDS.chalk = function (c, ct, cx, cy) {
+  const bw = c.w || 900, bh = c.h || 560, n = c.n || 6, a = eOut(pr(ct, 0, 0.4));
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, cy); ctx.rotate(c.tilt != null ? c.tilt : -0.02);
+  ctx.fillStyle = '#5b3a1e'; rrect(-bw / 2 - 22, -bh / 2 - 22, bw + 44, bh + 44, 12); ctx.fill();
+  const g = ctx.createRadialGradient(0, 0, 50, 0, 0, bw * 0.7); g.addColorStop(0, '#2c3a33'); g.addColorStop(1, '#1b2420');
+  ctx.fillStyle = g; ctx.fillRect(-bw / 2, -bh / 2, bw, bh);
+  const R = rng(3); ctx.fillStyle = 'rgba(255,255,255,0.035)';   // old chalk smudges
+  for (let i = 0; i < 14; i++) { ctx.beginPath(); ctx.ellipse((R() - 0.5) * bw, (R() - 0.5) * bh, 60 + R() * 120, 20 + R() * 40, R() * 3, 0, 7); ctx.fill(); }
+  font(400, 54, 'Marker'); ctx.fillStyle = 'rgba(245,245,238,0.92)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  if (c.title) ctx.fillText(c.title, 0, -bh / 2 + 70);
+  // tally marks, gates of five
+  const done = (c.done || 0) + (c.newT != null && ct >= c.newT ? 1 : 0), mh = 150, sp = 46, top = -40;
+  const groups = Math.ceil(n / 5), gw = 4 * sp + 70, total = groups * gw + (groups - 1) * 60;
+  for (let i = 0; i < n; i++) {
+    const gi = Math.floor(i / 5), j = i % 5, gx = -total / 2 + gi * (gw + 60);
+    const isNew = c.newT != null && i === (c.done || 0);
+    const k = i < (c.done || 0) ? 1 : isNew ? pr(ct, c.newT, 0.35) : 0;
+    if (k <= 0) continue;
+    if (j < 4) chalkLine(gx + j * sp, top, gx + j * sp + 6, top + mh, k, 11 + i);
+    else chalkLine(gx - 22, top + mh * 0.8, gx + 3 * sp + 26, top + mh * 0.15, k, 11 + i);
+    if (c.labels && c.labels[i] && k >= 1) { font(400, 22, 'Marker'); ctx.fillStyle = 'rgba(245,245,238,0.6)'; ctx.fillText(c.labels[i], j < 4 ? gx + j * sp + 3 : gx + 3 * sp + 40, top + mh + 34 + (j % 2) * 26); }
+  }
+  void done;
+  if (c.score) { font(400, 64, 'Marker'); ctx.fillStyle = c.scoreColor || '#ff8a8a'; ctx.fillText(c.score, 0, bh / 2 - 60); }
+  ctx.restore();
+};
+CARDS.chalk.noSlide = true;
+
+// Matchday tickets (idea list): a fanned stack of paper tickets, one per game, each stamped as it's named.
+// tickets: [{comp, teams, score, date}], stamp text (e.g. "LOST"), done/newAt like the tally.
+CARDS.tickets = function (c, ct, cx, cy) {
+  const T = c.tickets, n = T.length, tw = c.tw || 560, th = c.th || 210, a = eOut(pr(ct, 0, 0.4));
+  const shown = (c.done || 0) + (c.newT != null && ct >= c.newT ? 1 : 0);
+  ctx.save(); ctx.globalAlpha *= a;
+  T.forEach((tk, i) => {
+    const isNew = c.newT != null && i === (c.done || 0), k = i < (c.done || 0) ? 1 : isNew ? eOut(pr(ct, c.newT, 0.45)) : 0;
+    if (k <= 0 && !c.showAll) return;
+    const ang = (i - (n - 1) / 2) * 0.09, ox = (i - (n - 1) / 2) * 52 + (c.dx || 40), oy = Math.abs(i - (n - 1) / 2) * 12 + (1 - k) * 300;
+    ctx.save(); ctx.translate(cx + ox, cy + oy); ctx.rotate(ang);
+    ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 10;
+    ctx.fillStyle = '#f3ead2'; rrect(-tw / 2, -th / 2, tw, th, 14); ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.fillStyle = tk.color || '#1f3b7a'; ctx.fillRect(-tw / 2, -th / 2, 26, th);
+    ctx.strokeStyle = 'rgba(60,40,10,0.35)'; ctx.setLineDash([6, 8]); ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(tw / 2 - 120, -th / 2 + 10); ctx.lineTo(tw / 2 - 120, th / 2 - 10); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = '#2a2116'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    font(700, 20, 'Mono', '3px'); ctx.fillText(tk.comp.toUpperCase(), -tw / 2 + 50, -th / 2 + 44);
+    font(800, 36, 'Inter', '-0.5px'); ctx.fillText(tk.teams, -tw / 2 + 50, -th / 2 + 96);
+    font(800, 52, 'Inter', '-1px'); ctx.fillText(tk.score, -tw / 2 + 50, -th / 2 + 160);
+    ctx.save(); ctx.translate(tw / 2 - 60, 0); ctx.rotate(-Math.PI / 2); font(700, 18, 'Mono', '3px'); ctx.textAlign = 'center'; ctx.fillText(tk.date.toUpperCase(), 0, 6); ctx.restore();
+    if (c.stamp && k >= 1) {
+      const sk = isNew ? pr(ct, c.newT + 0.45, 0.2) : 1;
+      if (sk > 0) {
+        ctx.save(); ctx.translate(40, 10); ctx.rotate(-0.18); ctx.scale(lerp(2, 1, eOut(sk)), lerp(2, 1, eOut(sk))); ctx.globalAlpha *= 0.88;
+        font(900, 64, 'Inter', '4px'); const sw = ctx.measureText(c.stamp).width + 40;
+        ctx.strokeStyle = '#d6283b'; ctx.lineWidth = 7; rrect(-sw / 2, -44, sw, 88, 10); ctx.stroke();
+        ctx.fillStyle = '#d6283b'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.stamp, 0, 4);
+        ctx.restore();
+      }
+    }
+    ctx.restore();
+  });
+  if (c.count) { font(800, 44, 'Inter', '-1px'); ctx.fillStyle = '#f4f2ec'; ctx.textAlign = 'center'; ctx.fillText(c.count.replace('{n}', shown), cx, cy + th / 2 + 140); }
+  ctx.restore();
+};
+CARDS.tickets.noSlide = true;
+
 // Golden balance scales: two names weighed against each other; the beam tips toward the heavier side.
 // left/right: {name, value, color}, tilt (radians, exaggerate small gaps), question
 CARDS.scales = function (c, ct, cx, cy) {
@@ -2426,6 +2504,8 @@ function cardEvents(c) {
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'tally': if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
+    case 'chalk': if (c.newT != null) ev.push({ t: c.newT, type: 'swipe' }); break;
+    case 'tickets': if (c.newT != null) ev.push({ t: c.newT, type: 'swish' }, { t: c.newT + 0.5, type: 'impact' }); break;
     case 'scales': ev.push({ t: 0.3, type: 'swish' }, { t: 0.9, type: 'impact' }); for (let t = 0.3; t < 1.5; t += 0.075) ev.push({ t, type: 'tick' }); break;
     case 'poll': ev.push({ t: 0, type: 'pop' }, { t: 0.6, type: 'swipe' }); break;
     case 'comments': c.items.forEach((it, i) => ev.push({ t: it.t != null ? it.t : 0.2 + i * (c.step || 0.45), type: 'pop' })); break;

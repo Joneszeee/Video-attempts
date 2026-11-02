@@ -1,0 +1,557 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Knockout football · since 2024",
+   "headline": "Mbappé v Yamal in knockouts: [0 wins].",
+   "accent": "#FF4D5E",
+   "vo": "",
+   "duration": 2.5,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 24
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "lights": 0.75,
+   "fans": true,
+   "players": [
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#1f3b7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": 10,
+     "x": 0,
+     "z": 5,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": {
+    "type": "chalk",
+    "y": 790,
+    "delay": -1,
+    "title": "Mbappé v Yamal",
+    "n": 6,
+    "done": 6,
+    "score": "Mbappé 0 – 6 Yamal",
+    "h": 400,
+    "w": 820
+   }
+  },
+  {
+   "kicker": "Knockout football · since 2024",
+   "headline": "Mbappé v Yamal in knockouts: [0 wins].",
+   "accent": "#FF4D5E",
+   "vo": "",
+   "duration": 2.5,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 24
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "lights": 0.75,
+   "fans": true,
+   "players": [
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#1f3b7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": 10,
+     "x": 0,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "focus": 0.25,
+   "card": {
+    "type": "tickets",
+    "y": 1440,
+    "delay": -1,
+    "done": 6,
+    "stamp": "LOST",
+    "tickets": [
+     {
+      "comp": "Euro 2024 · semi-final",
+      "teams": "Spain v France",
+      "score": "2–1",
+      "date": "9 Jul 2024",
+      "color": "#c60b1e"
+     },
+     {
+      "comp": "Super Cup final",
+      "teams": "Barça v Madrid",
+      "score": "5–2",
+      "date": "12 Jan 2025",
+      "color": "#a50044"
+     },
+     {
+      "comp": "Copa del Rey final",
+      "teams": "Barça v Madrid",
+      "score": "3–2",
+      "date": "26 Apr 2025",
+      "color": "#a50044"
+     },
+     {
+      "comp": "Nations League semi",
+      "teams": "Spain v France",
+      "score": "5–4",
+      "date": "5 Jun 2025",
+      "color": "#c60b1e"
+     },
+     {
+      "comp": "Super Cup final",
+      "teams": "Barça v Madrid",
+      "score": "3–2",
+      "date": "11 Jan 2026",
+      "color": "#a50044"
+     },
+     {
+      "comp": "World Cup semi-final",
+      "teams": "Spain v France",
+      "score": "2–0",
+      "date": "14 Jul 2026",
+      "color": "#c60b1e"
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "Knockout football · since 2024",
+   "headline": "Mbappé v Yamal in knockouts: [0 wins].",
+   "accent": "#FF4D5E",
+   "vo": "",
+   "duration": 2.5,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 24
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.4,
+     -4.2
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.4,
+     -4.2
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "lights": 0.6,
+   "fans": true,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f7d117",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -0.95,
+     "z": 2,
+     "front": true,
+     "chest": true
+    },
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c9a227"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": 0.95,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": {
+    "type": "vs",
+    "y": 780,
+    "delay": -1,
+    "size": 190,
+    "colW": 420,
+    "label": "Knockout head-to-head",
+    "items": [
+     {
+      "label": "Yamal",
+      "value": 6,
+      "accent": true
+     },
+     {
+      "label": "Mbappé",
+      "value": 0
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "Knockout football · since 2024",
+   "headline": "Mbappé v Yamal in knockouts: [0 wins].",
+   "accent": "#FF4D5E",
+   "vo": "",
+   "duration": 2.5,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 24
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "lights": 0.4,
+   "fans": true,
+   "focus": 0.35,
+   "players": [
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#1f3b7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": 10,
+     "x": 0,
+     "z": 4,
+     "front": true
+    }
+   ],
+   "card": {
+    "type": "shelf",
+    "y": 1000,
+    "delay": -1,
+    "slots": 6,
+    "instant": true,
+    "title": "Yamal's wins over Mbappé",
+    "size": 120,
+    "items": [
+     {
+      "kind": "cup",
+      "label": "Euro",
+      "sub": "2024",
+      "badge": {
+       "colors": [
+        "#c60b1e",
+        "#f7d117"
+       ],
+       "text": "ESP"
+      }
+     },
+     {
+      "kind": "cup",
+      "label": "Super Cup",
+      "sub": "2025",
+      "badge": {
+       "colors": [
+        "#a50044",
+        "#004d98"
+       ],
+       "style": "stripes",
+       "text": "FCB"
+      }
+     },
+     {
+      "kind": "cup",
+      "label": "Copa",
+      "sub": "2025",
+      "badge": {
+       "colors": [
+        "#a50044",
+        "#004d98"
+       ],
+       "style": "stripes",
+       "text": "FCB"
+      }
+     },
+     {
+      "kind": "cup",
+      "label": "Nations",
+      "sub": "2025",
+      "badge": {
+       "colors": [
+        "#c60b1e",
+        "#f7d117"
+       ],
+       "text": "ESP"
+      }
+     },
+     {
+      "kind": "cup",
+      "label": "Super Cup",
+      "sub": "2026",
+      "badge": {
+       "colors": [
+        "#a50044",
+        "#004d98"
+       ],
+       "style": "stripes",
+       "text": "FCB"
+      }
+     },
+     {
+      "kind": "cup",
+      "label": "World Cup",
+      "sub": "2026",
+      "badge": {
+       "colors": [
+        "#c60b1e",
+        "#f7d117"
+       ],
+       "text": "ESP"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "Knockout football · since 2024",
+   "headline": "Mbappé v Yamal in knockouts: [0 wins].",
+   "accent": "#FF4D5E",
+   "vo": "",
+   "duration": 2.5,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#f7d117",
+     "#1f3b7a",
+     "#ffffff"
+    ],
+    "seed": 24
+   },
+   "camera": "player",
+   "camFrom": "player",
+   "lights": 0.75,
+   "fans": true,
+   "players": [
+    {
+     "name": "Mbappé",
+     "kit": {
+      "shirt": "#1f3b7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": 10,
+     "x": 0,
+     "z": 0,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": {
+    "type": "pen",
+    "delay": -1,
+    "anchor": 0,
+    "strokes": [
+     {
+      "kind": "ellipse",
+      "layer": "under",
+      "cx": 0,
+      "cy": 0,
+      "rx": 0.5,
+      "ry": 0.09,
+      "color": "#ff4d5e",
+      "t": 0
+     },
+     {
+      "kind": "x",
+      "cx": -0.62,
+      "cy": -0.85,
+      "r": 0.08,
+      "color": "#ff4d5e",
+      "t": 0
+     },
+     {
+      "kind": "x",
+      "cx": -0.7,
+      "cy": -0.55,
+      "r": 0.08,
+      "color": "#ff4d5e",
+      "t": 0
+     },
+     {
+      "kind": "x",
+      "cx": -0.6,
+      "cy": -0.25,
+      "r": 0.08,
+      "color": "#ff4d5e",
+      "t": 0
+     },
+     {
+      "kind": "x",
+      "cx": 0.62,
+      "cy": -0.85,
+      "r": 0.08,
+      "color": "#ff4d5e",
+      "t": 0
+     },
+     {
+      "kind": "x",
+      "cx": 0.7,
+      "cy": -0.55,
+      "r": 0.08,
+      "color": "#ff4d5e",
+      "t": 0
+     },
+     {
+      "kind": "x",
+      "cx": 0.6,
+      "cy": -0.25,
+      "r": 0.08,
+      "color": "#ff4d5e",
+      "t": 0
+     },
+     {
+      "kind": "text",
+      "text": "0 wins v Yamal",
+      "x": 0,
+      "y": -1.12,
+      "size": 0.12,
+      "rot": -0.05,
+      "color": "#ff4d5e",
+      "t": 0
+     }
+    ]
+   }
+  }
+ ]
+}

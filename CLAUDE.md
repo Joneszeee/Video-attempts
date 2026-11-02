@@ -86,6 +86,8 @@ else (e.g. Ronaldo and Klose on screen while he talked about Gerd Müller). So:
   receipt `totalAt`. Use them in place of hand-tuned `delay` and `t` values.
 - **Several shots per line.** A long line gets `"shots": [{"at": "phrase", ...}]` to cut or move the camera, swap players or bring in a new card
   mid-sentence. Inside a shot, plain numbers (`delay`, `actionDelay`, punch `t`) count from the shot's start. Aim for **a visible change every 2–3 seconds** at most.
+  But **no hard cut shorter than about 2 seconds** (user: the Bayern beat "switches way too quickly"). When a line packs in several facts,
+  stay on one shot and layer the cards and effects onto it (pop-ins, fly-in words, rising trophies, confetti) instead of cutting away for each one.
 - **Motion matches the emotion** of each line (see the [tag] in `vo_elevenlabs.md`): excited or triumphant means fast moves, pops, confetti and slams.
   Tense means a slow push-in, darker lights and a held highlight. Sombre means low `lights`, slow drift and fewer elements. Dry or deadpan means a hard cut
   and a single clean graphic.
@@ -217,7 +219,7 @@ From statbolthq (FORMAT.md Reference 6; demo `videos/_test-statbolt`). Tips, not
                   "kit": { "shirt": "#1b4fb5", "shorts": "#fff", "socks": "#1b4fb5", "text": "#fff",
                            "stripes": ["#a50044", "#004d98"] /* or "checks": [c1, c2] */ },
                   "skin": "#e7b593", "hair": "#4a3324" }],   // omitted = inherited, [] = none
-    "confetti": true,
+    "confetti": true,   // + "confettiAt": "phrase" to start it on a word
     "focus": 0.5,       // 0–1: blur + darken the scene behind the cards (eases between beats)
     "lights": 0.5,      // 0–1: scene lighting; < 1 = darker, hazy, moody
     "fans": true,       // stadium: blurred foreground crowd silhouettes

@@ -2441,7 +2441,7 @@ window.loadSpec = async function (spec) {
         B.cards.push({ obj: c, start: pb ? B.start : B.start + delay });
       }
     }
-    if (b.confetti) { B.confettiStart = prev && prev.confetti ? prev.confettiStart : B.start; }
+    if (b.confetti) { B.confettiStart = prev && prev.confetti ? prev.confettiStart : B.start + (b.confettiDelay || 0); }
     prev = B;
     return B;
   });
@@ -2457,7 +2457,7 @@ window.loadSpec = async function (spec) {
       if (i > 0 && S.beats[i - 1].cards.includes(it)) continue;
       for (const e of cardEvents(it.obj)) S.events.push({ t: it.start + e.t, type: e.type });
     }
-    if (b.confetti && !(i > 0 && S.beats[i - 1].confetti)) S.events.push({ t: b.start, type: 'crowd' });
+    if (b.confetti && !(i > 0 && S.beats[i - 1].confetti)) S.events.push({ t: b.confettiStart, type: 'crowd' });
   });
   S.goals = [];
   S.beats.forEach((b, i) => {
@@ -2628,7 +2628,7 @@ function renderAt(t) {
     ctx.restore();
     ctx.fillStyle = `rgba(0,0,0,${(focus * 0.45).toFixed(3)})`; ctx.fillRect(0, 0, W, H);
   }
-  if (b.confetti) drawConfetti(t - b.confettiStart, b.confettiColors || [S.accent, '#ffffff', ...(scene.crowd || [])], 11);
+  if (b.confetti && t >= b.confettiStart) drawConfetti(t - b.confettiStart, b.confettiColors || [S.accent, '#ffffff', ...(scene.crowd || [])], 11);
 
   // legibility overlays
   const tc = scene.type === 'stage' ? '16,6,8' : '8,10,15';

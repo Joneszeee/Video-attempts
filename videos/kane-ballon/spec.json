@@ -648,129 +648,54 @@
      "label": "Bundesliga goals",
      "y": 760,
      "at": "Thirty-six"
-    }
-   ],
-   "shots": [
-    {
-     "at": "hat-trick",
-     "cut": true,
-     "camFrom": {
-      "pos": [
-       0,
-       1.7,
-       -5
-      ],
-      "tgt": [
-       0,
-       1.3,
-       20
-      ]
-     },
-     "camera": {
-      "pos": [
-       0,
-       1.5,
-       -3.6
-      ],
-      "tgt": [
-       0,
-       1.3,
-       20
-      ]
-     },
-     "move": 4,
-     "players": [
-      {
-       "name": "Kane",
-       "kit": {
-        "shirt": "#dc052d",
-        "shorts": "#dc052d",
-        "socks": "#dc052d",
-        "text": "#ffffff"
-       },
-       "skin": "#e9b896",
-       "hair": "#8a6a45",
-       "num": 9,
-       "x": 0,
-       "z": 2,
-       "front": true,
-       "chest": true,
-       "action": "celebrate"
-      }
-     ],
-     "fans": false,
-     "card": [
-      {
-       "type": "flytext",
-       "text": "HAT-TRICK",
-       "size": 230,
-       "endScale": 0.5,
-       "y": 760,
-       "delay": 0,
-       "color": "#f1c453"
-      },
-      {
-       "type": "balls",
-       "n": 3,
-       "label": "Cup final",
-       "y": 900,
-       "delay": 0.4
-      }
-     ]
     },
     {
+     "type": "flytext",
+     "text": "HAT-TRICK",
+     "size": 200,
+     "endScale": 0.55,
+     "y": 1600,
+     "at": "hat-trick",
+     "color": "#f1c453"
+    },
+    {
+     "type": "balls",
+     "n": 3,
+     "label": "in the cup final",
+     "y": 1700,
+     "at": "hat-trick",
+     "lag": 0.5
+    },
+    {
+     "type": "trophies",
+     "floor": 1560,
      "at": "domestic double",
-     "confetti": true,
-     "confettiColors": [
-      "#dc052d",
-      "#ffffff",
-      "#f1c453"
-     ],
-     "players": [
+     "items": [
       {
-       "name": "Kane",
-       "kit": {
-        "shirt": "#dc052d",
-        "shorts": "#dc052d",
-        "socks": "#dc052d",
-        "text": "#ffffff"
-       },
-       "skin": "#e9b896",
-       "hair": "#8a6a45",
-       "num": 9,
-       "x": 0,
-       "z": 2,
-       "front": true,
-       "chest": true,
-       "pose": "arms_up"
-      }
-     ],
-     "card": [
+       "kind": "cup",
+       "sx": 0.15,
+       "h": 300,
+       "size": 140,
+       "label": "Bundesliga"
+      },
       {
-       "type": "trophies",
-       "floor": 1500,
-       "delay": 0,
-       "items": [
-        {
-         "kind": "cup",
-         "sx": 0.2,
-         "h": 320,
-         "size": 170,
-         "label": "Bundesliga"
-        },
-        {
-         "kind": "cup",
-         "sx": 0.8,
-         "h": 320,
-         "size": 170,
-         "label": "DFB-Pokal"
-        }
-       ]
+       "kind": "cup",
+       "sx": 0.85,
+       "h": 300,
+       "size": 140,
+       "label": "DFB-Pokal"
       }
      ]
     }
    ],
-   "vo": "Then came Bayern. Thirty-six league goals, a hat-trick in the cup final, and a domestic double."
+   "vo": "Then came Bayern. Thirty-six league goals, a hat-trick in the cup final, and a domestic double.",
+   "confetti": true,
+   "confettiAt": "domestic double",
+   "confettiColors": [
+    "#dc052d",
+    "#ffffff",
+    "#f1c453"
+   ]
   },
   {
    "kicker": "World Cup 2026 · England",

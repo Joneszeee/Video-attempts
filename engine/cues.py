@@ -174,6 +174,8 @@ def _resolve_beat(b, rel):
             p['tagDelay'] = rel(p.pop('tagAt'))
         if 'actionAt' in p:  # e.g. the kick starts so the strike lands on the word: use "lag" to shift
             p['actionDelay'] = round(rel(p.pop('actionAt')) + p.pop('actionLag', 0), 3)
+    if isinstance(b.get('confettiAt'), str):
+        b['confettiDelay'] = round(rel(b.pop('confettiAt')), 3)
     if isinstance(b.get('freezeAt'), str):
         b['freeze'] = round(rel(b.pop('freezeAt')) + b.pop('freezeLag', 0), 3)
     for key in ('punch', 'shake', 'speedlines'):

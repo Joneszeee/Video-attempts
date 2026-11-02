@@ -1,7 +1,8 @@
 # Theo6k reels
 
 This repo turns a football script into a finished 9:16 animated reel in the Story Gaffer style
-(see FORMAT.md). Brand: **theo6k**. Accent `#3FE0C5` (teal) for stadium videos, `#E9B949` (gold)
+(see FORMAT.md). Brand: **theo6k**, shown as a **blue shirt with yellow trim and a yellow 6** next to the name (user's choice; default
+`brandStyle: "shirt"`, also on the end screen). Other styles exist (`classic`, `pill`, `ball`, `scoreboard`, `marker`; see `videos/_mock-brand`). Accent `#3FE0C5` (teal) for stadium videos, `#E9B949` (gold)
 for theatre-stage videos (awards, "greatest ever", debates).
 
 Two looks:

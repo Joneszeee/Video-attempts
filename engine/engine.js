@@ -866,8 +866,26 @@ function drawKicker(text, a) {
   ctx.fillText('— ' + text.toUpperCase(), HL.x, HL.y - 92);
   ctx.restore();
 }
+// The channel's shirt logo: a blue shirt with yellow trim and a yellow 6 (user's choice). spec.brandShirt: [body, trim] overrides.
+function drawBrandShirt(cx, cy, size) {
+  const [body, trim] = S.spec.brandShirt || ['#1f4fd1', '#f7d117'];
+  drawShirtIcon(cx, cy, size, body, null);
+  ctx.save(); ctx.translate(cx, cy);
+  const s = size;
+  ctx.strokeStyle = trim; ctx.lineWidth = Math.max(2, s * 0.05); ctx.lineJoin = 'round';
+  ctx.beginPath();   // outline trim, same path as drawShirtIcon
+  ctx.moveTo(-s * 0.18, -s * 0.4); ctx.lineTo(-s * 0.5, -s * 0.22); ctx.lineTo(-s * 0.4, 0); ctx.lineTo(-s * 0.3, -s * 0.06);
+  ctx.lineTo(-s * 0.3, s * 0.42); ctx.lineTo(s * 0.3, s * 0.42); ctx.lineTo(s * 0.3, -s * 0.06); ctx.lineTo(s * 0.4, 0);
+  ctx.lineTo(s * 0.5, -s * 0.22); ctx.lineTo(s * 0.18, -s * 0.4); ctx.quadraticCurveTo(0, -s * 0.25, -s * 0.18, -s * 0.4);
+  ctx.stroke();
+  ctx.fillStyle = trim;   // collar and sleeve cuffs
+  ctx.beginPath(); ctx.moveTo(-s * 0.18, -s * 0.4); ctx.quadraticCurveTo(0, -s * 0.25, s * 0.18, -s * 0.4); ctx.quadraticCurveTo(0, -s * 0.17, -s * 0.18, -s * 0.4); ctx.fill();
+  font(900, s * 0.42, 'Inter'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = trim;
+  ctx.fillText('6', 0, s * 0.1);
+  ctx.restore();
+}
 function drawBrand() {
-  const x = HL.x, y = 220, name = S.spec.brand || 'theo6k', st = S.spec.brandStyle || 'classic', acc = S.accent;
+  const x = HL.x, y = 220, name = S.spec.brand || 'theo6k', st = S.spec.brandStyle || 'shirt', acc = S.accent;
   ctx.save(); ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
   if (st === 'pill') {   // frosted pill with a live dot and a small strapline
     font(800, 30, 'Inter', '-0.5px'); const tw = ctx.measureText(name).width;
@@ -885,9 +903,8 @@ function drawBrand() {
     ctx.fillStyle = acc; ctx.fillRect(0, 10, w, 5);
     ctx.restore();
   } else if (st === 'shirt') {   // a shirt badge carrying the 6, then the name
-    drawShirtIcon(x + 28, y - 16, 62, acc, null);
-    font(900, 24, 'Inter'); ctx.fillStyle = '#0d1016'; ctx.textAlign = 'center'; ctx.fillText('6', x + 28, y - 2);
-    font(800, 34, 'Inter', '-0.5px'); ctx.textAlign = 'left'; ctx.fillStyle = '#f4f2ec'; ctx.fillText(name, x + 64, y);
+    drawBrandShirt(x + 28, y - 14, 62);
+    font(800, 34, 'Inter', '-0.5px'); ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#f4f2ec'; ctx.fillText(name, x + 66, y);
   } else if (st === 'scoreboard') {   // broadcast score-bug: THEO | 6K with a live tab
     const h = 54, segs = [['THEO', '#141820', '#f4f2ec'], ['6K', acc, '#0d1016']];
     let cx = x; font(800, 28, 'Mono', '2px');
@@ -2665,9 +2682,12 @@ function drawOutro(ot) {
   ctx.fillStyle = `rgba(6,8,12,${0.62 * k})`; ctx.fillRect(0, 0, W, H);
   const a = eOut(pr(ot, 0.35, 0.5)), y = H * 0.47 + (1 - a) * 24;
   ctx.globalAlpha = a;
-  rrect(W / 2 - 44, y - 130, 88, 88, 22); ctx.fillStyle = S.accent; ctx.fill();
-  ctx.fillStyle = '#0d1016'; ctx.beginPath(); ctx.arc(W / 2, y - 86, 20, 0, 7); ctx.fill();
-  ctx.fillStyle = S.accent; ctx.beginPath(); ctx.arc(W / 2, y - 86, 7, 0, 7); ctx.fill();
+  if ((S.spec.brandStyle || 'shirt') === 'shirt') drawBrandShirt(W / 2, y - 86, 120);
+  else {
+    rrect(W / 2 - 44, y - 130, 88, 88, 22); ctx.fillStyle = S.accent; ctx.fill();
+    ctx.fillStyle = '#0d1016'; ctx.beginPath(); ctx.arc(W / 2, y - 86, 20, 0, 7); ctx.fill();
+    ctx.fillStyle = S.accent; ctx.beginPath(); ctx.arc(W / 2, y - 86, 7, 0, 7); ctx.fill();
+  }
   font(800, 58, 'Inter', '-1px'); ctx.fillStyle = '#f4f2ec'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
   ctx.fillText(S.spec.brand || 'theo6k', W / 2, y + 20);
   font(500, 22, 'Mono', '6px'); ctx.fillStyle = '#9aa1ad';

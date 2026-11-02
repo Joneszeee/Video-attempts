@@ -2048,17 +2048,20 @@ function drawBadge(x, y, h, b) {
   shield(); ctx.fillStyle = c1; ctx.fill(); ctx.shadowColor = 'transparent';
   ctx.save(); shield(); ctx.clip();
   if (b.style === 'stripes') { ctx.fillStyle = c2; for (let i = -3; i <= 3; i += 2) ctx.fillRect(i * w / 7 - w / 14, -h / 2, w / 7, h); }
-  else if (b.style === 'diamond') { ctx.fillStyle = c2; ctx.beginPath(); ctx.moveTo(0, -h * 0.36); ctx.lineTo(w * 0.3, -h * 0.08); ctx.lineTo(0, h * 0.2); ctx.lineTo(-w * 0.3, -h * 0.08); ctx.closePath(); ctx.fill();
-    if (c3) { ctx.fillStyle = c3; ctx.beginPath(); ctx.moveTo(0, -h * 0.21); ctx.lineTo(w * 0.14, -h * 0.08); ctx.lineTo(0, h * 0.05); ctx.lineTo(-w * 0.14, -h * 0.08); ctx.closePath(); ctx.fill(); } }
+  else if (b.style === 'diamond') { ctx.fillStyle = c2; ctx.beginPath(); ctx.moveTo(0, -h * 0.4); ctx.lineTo(w * 0.28, -h * 0.14); ctx.lineTo(0, h * 0.12); ctx.lineTo(-w * 0.28, -h * 0.14); ctx.closePath(); ctx.fill();
+    if (c3) { ctx.fillStyle = c3; ctx.beginPath(); ctx.moveTo(0, -h * 0.26); ctx.lineTo(w * 0.13, -h * 0.14); ctx.lineTo(0, -h * 0.02); ctx.lineTo(-w * 0.13, -h * 0.14); ctx.closePath(); ctx.fill(); } }
   else { ctx.fillStyle = c2; ctx.fillRect(-w / 2, -h / 2, w, h * 0.26); }   // band across the top
   ctx.restore();
   ctx.strokeStyle = c3 && b.style !== 'diamond' ? c3 : '#f1c453'; ctx.lineWidth = Math.max(2, h * 0.04); shield(); ctx.stroke();
-  if (b.text) {
-    font(900, h * (b.text.length > 3 ? 0.2 : 0.26), 'Inter', '0px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillStyle = b.textColor || '#ffffff'; ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.lineWidth = 3;
-    const ty = b.style === 'diamond' ? h * 0.36 : h * 0.12;
-    if (b.style === 'diamond') { font(900, h * 0.16, 'Inter', '1px'); ctx.fillStyle = b.textColor || c2; ctx.fillText(b.text, 0, h * 0.38); }
-    else { ctx.strokeText(b.text, 0, ty); ctx.fillText(b.text, 0, ty); }
+  if (b.text) {   // text is sized to fit inside the shield (it narrows towards the point)
+    const diamond = b.style === 'diamond', ty = diamond ? h * 0.3 : h * 0.12, maxW = w * (diamond ? 0.5 : 0.72);
+    let fs = h * (diamond ? 0.17 : 0.26);
+    font(900, fs, 'Inter', '0px');
+    const tw = ctx.measureText(b.text).width;
+    if (tw > maxW) { fs *= maxW / tw; font(900, fs, 'Inter', '0px'); }
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    if (diamond) { ctx.fillStyle = b.textColor || c2; ctx.fillText(b.text, 0, ty); }
+    else { ctx.fillStyle = b.textColor || '#ffffff'; ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.lineWidth = Math.max(2, fs * 0.08); ctx.strokeText(b.text, 0, ty); ctx.fillText(b.text, 0, ty); }
   }
   ctx.restore();
 }

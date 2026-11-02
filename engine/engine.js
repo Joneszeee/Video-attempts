@@ -1995,12 +1995,13 @@ CARDS.stack = function (c, ct, cx, cy) {
     // how far this item has been pushed up (eases when newer ones arrive)
     let push = 0;
     for (let j = i + 1; j < shown.length; j++) push += eOut(pr(ct, shown[j].t || 0, 0.4));
-    const sc = Math.pow(0.5, push), y = cy - push * size * 0.85, al = Math.pow(0.55, push);
+    const sc = Math.pow(0.5, push), y = cy - push * size * (c.gap || 1.3), al = Math.pow(0.75, push);
     const ink = eOut(pr(ct, it.t || 0, 0.35));
     const v = (it.value) * eOut(pr(ct, (it.t || 0), it.countDur || 0.7));
     const txt = (it.prefix || '') + v.toFixed(it.decimals || 0) + (it.suffix || '');
     ctx.save(); ctx.globalAlpha *= al * ink; ctx.translate(cx, y + (1 - ink) * 40); ctx.scale(sc, sc);
     font(800, size, 'Inter', '-3px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 24;   // stays readable over the pitch and players
     if (it.gold) { const g = ctx.createLinearGradient(0, -size * 0.8, 0, 0); g.addColorStop(0, GOLD[0]); g.addColorStop(1, GOLD[2]); ctx.fillStyle = g; }
     else ctx.fillStyle = it.color || '#f4f2ec';
     ctx.fillText(txt, 0, 0);

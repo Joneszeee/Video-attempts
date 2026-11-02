@@ -1,0 +1,58 @@
+{
+ "title": "Kane Ballon d'Or",
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "voSpeed": 1.08,
+ "brandStyle": "ball",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Ballon d'Or 2026 · London",
+   "headline": "The Ballon d'Or came to London. An [Englishman] won.",
+   "accent": "#E9B949",
+   "scene": {
+    "type": "stage"
+   },
+   "zoomFrom": 1.0,
+   "zoom": 1.12,
+   "players": [
+    {
+     "name": "Kane",
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "num": 9,
+     "sx": 0.5,
+     "sy": 1640,
+     "scale": 1.15,
+     "front": true,
+     "outfit": "suit",
+     "suitColor": "#1a1d26"
+    }
+   ],
+   "card": [
+    {
+     "type": "trophies",
+     "delay": -1.1,
+     "floor": 1000,
+     "items": [
+      {
+       "kind": "ballondor",
+       "sx": 0.5,
+       "h": 0,
+       "size": 190
+      }
+     ]
+    }
+   ],
+   "vo": "The Ballon d'Or came to London for the first time. And for the first time in twenty-five years, an Englishman won it.",
+   "duration": 3
+  }
+ ]
+}

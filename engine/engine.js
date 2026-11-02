@@ -867,15 +867,44 @@ function drawKicker(text, a) {
   ctx.restore();
 }
 function drawBrand() {
-  const x = HL.x, y = 220;
-  rrect(x, y - 30, 40, 40, 10); ctx.fillStyle = S.accent; ctx.fill();
-  ctx.fillStyle = '#0d1016';
-  ctx.beginPath(); ctx.arc(x + 20, y - 10, 9, 0, 7); ctx.fill();
-  ctx.fillStyle = S.accent;
-  ctx.beginPath(); ctx.arc(x + 20, y - 10, 3.2, 0, 7); ctx.fill();
-  font(700, 26, 'Mono', '1px');
-  ctx.fillStyle = '#d6dae1'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-  ctx.fillText(S.spec.brand || 'theo6k', x + 54, y);
+  const x = HL.x, y = 220, name = S.spec.brand || 'theo6k', st = S.spec.brandStyle || 'classic', acc = S.accent;
+  ctx.save(); ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  if (st === 'pill') {   // frosted pill with a live dot and a small strapline
+    font(800, 30, 'Inter', '-0.5px'); const tw = ctx.measureText(name).width;
+    ctx.fillStyle = 'rgba(255,255,255,0.1)'; rrect(x - 6, y - 40, tw + 92, 58, 29); ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 2; rrect(x - 6, y - 40, tw + 92, 58, 29); ctx.stroke();
+    ctx.fillStyle = acc; ctx.beginPath(); ctx.arc(x + 24, y - 11, 9, 0, 7); ctx.fill();
+    ctx.fillStyle = '#f4f2ec'; ctx.fillText(name, x + 46, y);
+    font(600, 16, 'Mono', '4px'); ctx.fillStyle = '#8b919c'; ctx.fillText('FOOTBALL STORIES', x + tw + 104, y - 3);
+  } else if (st === 'ball') {   // a football as the "o", bold italic wordmark with an accent underline
+    font(900, 40, 'Inter', '-1px'); ctx.fillStyle = '#f4f2ec';
+    ctx.save(); ctx.translate(x, y); ctx.transform(1, 0, -0.18, 1, 0, 0);
+    const pre = name.slice(0, name.indexOf('o')), post = name.slice(name.indexOf('o') + 1);
+    ctx.fillText(pre.toUpperCase(), 0, 0); let w = ctx.measureText(pre.toUpperCase()).width;
+    drawBall(w + 19, -14, 16); w += 40; ctx.fillStyle = '#f4f2ec'; ctx.fillText(post.toUpperCase(), w, 0); w += ctx.measureText(post.toUpperCase()).width;
+    ctx.fillStyle = acc; ctx.fillRect(0, 10, w, 5);
+    ctx.restore();
+  } else if (st === 'shirt') {   // a shirt badge carrying the 6, then the name
+    drawShirtIcon(x + 28, y - 16, 62, acc, null);
+    font(900, 24, 'Inter'); ctx.fillStyle = '#0d1016'; ctx.textAlign = 'center'; ctx.fillText('6', x + 28, y - 2);
+    font(800, 34, 'Inter', '-0.5px'); ctx.textAlign = 'left'; ctx.fillStyle = '#f4f2ec'; ctx.fillText(name, x + 64, y);
+  } else if (st === 'scoreboard') {   // broadcast score-bug: THEO | 6K with a live tab
+    const h = 54, segs = [['THEO', '#141820', '#f4f2ec'], ['6K', acc, '#0d1016']];
+    let cx = x; font(800, 28, 'Mono', '2px');
+    for (const [t, bg, fg] of segs) { const w = ctx.measureText(t).width + 36; ctx.fillStyle = bg; ctx.fillRect(cx, y - 40, w, h); ctx.fillStyle = fg; ctx.fillText(t, cx + 18, y - 3); cx += w; }
+    ctx.fillStyle = '#d6283b'; ctx.fillRect(cx, y - 40, 86, h); ctx.fillStyle = '#fff'; font(800, 18, 'Mono', '2px');
+    ctx.beginPath(); ctx.arc(cx + 18, y - 13, 6, 0, 7); ctx.fill(); ctx.fillText('LIVE', cx + 30, y - 6);
+  } else if (st === 'marker') {   // hand-drawn tactics-board marker, circled
+    font(400, 46, 'Marker'); const tw = ctx.measureText(name).width;
+    ctx.fillStyle = '#f4f2ec'; ctx.fillText(name, x + 8, y);
+    ctx.strokeStyle = acc; ctx.lineWidth = 4; ctx.beginPath(); ctx.ellipse(x + 8 + tw / 2, y - 16, tw / 2 + 26, 36, -0.04, 0.15, Math.PI * 2 - 0.1); ctx.stroke();
+  } else {   // classic: accent tile with a target, mono wordmark
+    rrect(x, y - 30, 40, 40, 10); ctx.fillStyle = acc; ctx.fill();
+    ctx.fillStyle = '#0d1016'; ctx.beginPath(); ctx.arc(x + 20, y - 10, 9, 0, 7); ctx.fill();
+    ctx.fillStyle = acc; ctx.beginPath(); ctx.arc(x + 20, y - 10, 3.2, 0, 7); ctx.fill();
+    font(700, 26, 'Mono', '1px'); ctx.fillStyle = '#d6dae1'; ctx.fillText(name, x + 54, y);
+  }
+  ctx.restore();
 }
 
 // ---------- cards ----------

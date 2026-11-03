@@ -123,6 +123,11 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
   and `"shake": [{"at": "...", "amount": 20}]` on impacts.
 - **The ball is real.** A `ball` card (`point`, `until`) rests on the pitch, and `ballpath` with `world: true` is the shot. Both are depth-sorted
   with the players, so they pass behind or in front correctly. A goal (`flash` on) bulges the net where it hits and makes the crowd jump.
+- **Real saves (user: the keeper "doesn't actually save shots"):** give the `ballpath` `"saveBy": <keeper index>` and `"flash": false`. The ball then
+  ends in the keeper's gloves at the moment of contact, worked out from his dive pose, and stays held as he falls. Time his `actionDelay` so contact
+  (about 45% through the dive) matches the ball's arrival, and film it from in front of the goal, never from behind the net.
+- **Run cycle:** rigged players with `action: "run"` (or walking in) use an athletic run (arms tucked and pumping, knee drive, bob).
+  The old one looked goofy, according to the user.
 - **Shots must read correctly.** A goal must clearly beat the keeper (send him the wrong way, or past his fingertips); a save puts the ball into
   his gloves (`flash: false`). The ball must never pass "through" a player.
 - **Prefer scenes over plain graphics.** Show events happening in the stadium, booth or another place, and use cards to support the action rather than replace it.

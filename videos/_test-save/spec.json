@@ -1,0 +1,208 @@
+{
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Engine test \u00b7 new run",
+   "headline": "The new [run] cycle.",
+   "vo": "",
+   "duration": 3.2,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": {
+    "pos": [
+     1.8,
+     1.4,
+     0.5
+    ],
+    "tgt": [
+     0,
+     1.0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     1.8,
+     1.4,
+     5.5
+    ],
+    "tgt": [
+     0,
+     1.0,
+     13
+    ]
+   },
+   "move": 3.2,
+   "players": [
+    {
+     "name": "Messi",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#111111",
+      "socks": "#ffffff",
+      "text": "#111111",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "x": 0,
+     "z": 9,
+     "enter": "walk",
+     "fromZ": 2,
+     "walkDur": 3.2,
+     "action": "run"
+    }
+   ]
+  },
+  {
+   "kicker": "Engine test \u00b7 a real save",
+   "headline": "Into the [gloves].",
+   "vo": "",
+   "duration": 3.6,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": {
+    "pos": [
+     -1.6,
+     1.9,
+     34.0
+    ],
+    "tgt": [
+     0.6,
+     1.2,
+     60
+    ]
+   },
+   "camera": {
+    "pos": [
+     -1.5,
+     1.7,
+     35.2
+    ],
+    "tgt": [
+     0.7,
+     1.1,
+     60
+    ]
+   },
+   "move": 3.6,
+   "fans": true,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "x": 0.45,
+     "z": 40.1,
+     "action": "kick",
+     "actionDelay": 0.05,
+     "actionDur": 1.3
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.4,
+     "z": 52.0,
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": 1.0,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2e8b57",
+      "shorts": "#111111",
+      "socks": "#2e8b57",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10"
+    }
+   ],
+   "punch": [
+    {
+     "t": 1.2,
+     "amount": 0.15,
+     "dur": 1.6,
+     "x": 700,
+     "y": 1000
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.62,
+      0.11,
+      40.5
+     ],
+     "until": 0.6
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.6,
+     "dur": 0.82,
+     "saveBy": 1,
+     "flash": false,
+     "points": [
+      [
+       0.62,
+       0.11,
+       40.5
+      ],
+      [
+       1.6,
+       1.6,
+       47
+      ],
+      [
+       2.2,
+       1.0,
+       51.6
+      ]
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "SAVED",
+     "y": 1500,
+     "size": 130,
+     "rot": -0.1,
+     "delay": 1.7,
+     "color": "#2ecc71"
+    }
+   ]
+  }
+ ]
+}

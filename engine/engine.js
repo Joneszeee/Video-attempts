@@ -532,10 +532,11 @@ function keyPose(keys, f) {
   return mixPose(keys[keys.length - 1][1], keys[keys.length - 1][1], 0);
 }
 function loopPose(name, t) {
-  if (name === 'run') {
-    const ph = t / 0.5 * Math.PI * 2, s = Math.sin(ph);
-    return { ...P0, L: [-0.08 + 0.05 * s, Math.max(0, s) * 0.9], R: [0.08 + 0.05 * s, Math.max(0, -s) * 0.9],
-      AL: [-0.3, 1.1 + 0.5 * s], AR: [0.3, 1.1 - 0.5 * s], hy: -0.025 * Math.abs(s), lean: 0.03 * s };
+  if (name === 'run') {   // athletic run: arms tucked and pumping, strong knee drive, a bob twice per stride (the old one looked goofy)
+    const ph = t / 0.42 * Math.PI * 2, s = Math.sin(ph), c2 = Math.cos(ph * 2);
+    return { ...P0, L: [-0.05 + 0.03 * s, Math.max(0, s) * 1.35], R: [0.05 + 0.03 * s, Math.max(0, -s) * 1.35],
+      AL: [-0.14 - 0.05 * Math.max(0, -s), -(2.35 + 0.45 * s)], AR: [0.14 + 0.05 * Math.max(0, s), -(2.35 - 0.45 * s)],   // elbows bent forward: forearms up and in
+      hy: -0.035 * (0.5 + 0.5 * c2), rot: 0.035 * s, px: 0.012 * s, lean: 0 };
   }
   if (name === 'celebrate') {
     const ph = t / 0.7 * Math.PI * 2, j = Math.abs(Math.sin(ph));
@@ -561,6 +562,20 @@ function poseFor(p, t, walking) {
   }
   if (walking) return loopPose('run', t);
   return loopPose(p.action || 'idle', t);
+}
+// Where a rigged player's hands are (screen px, relative to his feet), mirroring rigBody's transforms. Used for real saves.
+function rigHands(u, p, t) {
+  const ps = poseFor(p, t, false), out = [];
+  for (const [side, arm] of [[-1, ps.AL], [1, ps.AR]]) {
+    const [a, e] = arm;
+    let x = side * u * 0.15, y = -u * 0.3;
+    x += Math.sin(a) * u * 0.14; y += Math.cos(a) * u * 0.14;
+    x += Math.sin(a + side * e) * u * 0.15; y += Math.cos(a + side * e) * u * 0.15;
+    const r1 = ps.lean, x1 = x * Math.cos(r1) - y * Math.sin(r1), y1 = x * Math.sin(r1) + y * Math.cos(r1);
+    const r2 = ps.rot, x2 = x1 * Math.cos(r2) - y1 * Math.sin(r2), y2 = x1 * Math.sin(r2) + y1 * Math.cos(r2);
+    out.push([x2 + ps.px * u, y2 + (-0.5 + ps.hy) * u]);
+  }
+  return out;
 }
 function limb(x, y, a, len, w, col) {
   const x2 = x + Math.sin(a) * len, y2 = y + Math.cos(a) * len;
@@ -792,7 +807,7 @@ function drawPlayers(cam, lt, players) {
     const c = it.obj, ct = S.t - it.start;
     if (ct < 0 || !(c.type === 'ball' || c.type === 'vehicle' || (c.type === 'ballpath' && c.world))) continue;
     if (c.type === 'ball' && c.until != null && ct >= c.until) continue;
-    if (c.type === 'ballpath' && ct >= (c.dur || 1.6) && c.flash === false) continue;
+    if (c.type === 'ballpath' && ct >= (c.dur || 1.6) && c.flash === false && c.saveBy == null) continue;
     const q = toCam(cam, c.type === 'ball' ? c.point : c.type === 'vehicle' ? vehicleWorld(c, ct) : ballWorld(c, ct));
     if (q[2] < NEAR) continue;
     list.push({ q, ball: c, ct });
@@ -1737,14 +1752,23 @@ function ballWorld(c, ct) {
 CARDS.ballpath = function (c, ct) {
   const dur = c.dur || 1.6, k0 = pr(ct, 0, dur);
   if (k0 <= 0 || (c.world && !S.cam)) return;
-  if (k0 >= 1 && c.flash === false && c.hide !== false) return;
-  let P = c.points, r0 = c.r || 18, r1 = c.rEnd || 8;
+  if (k0 >= 1 && c.flash === false && c.hide !== false && c.saveBy == null) return;
+  let P = c.points, r0 = c.r || 18, r1 = c.rEnd || 8, held = null;
   if (c.world) {
     const q = c.points.map(p => toCam(S.cam, p));
     if (q.some(v => v[2] < NEAR)) return;
     P = q.map(proj);
     r0 = Math.max(4, FOC * 0.11 / q[0][2]); r1 = Math.max(3, FOC * 0.11 / q[2][2]);
+    const kp = c.saveBy != null && S.cur && S.cur.playersArr[c.saveBy], an = kp && S.anchors[c.saveBy];
+    if (kp && an) {   // a real save: the ball ends in the keeper's gloves at the moment of contact, then stays held as he falls
+      const lt = S.t - S.cur.playersStart, contact = lt - ct + dur;
+      const hands = t => { const h = rigHands(an.u, kp, t); return [an.x + (h[0][0] + h[1][0]) / 2, an.y + (h[0][1] + h[1][1]) / 2]; };
+      const end = hands(Math.min(lt, contact));
+      P = [P[0], P[1], end]; r1 = Math.max(3, an.u * 0.11 / 1.85 * 1.0);
+      if (k0 >= 1) held = hands(lt);
+    }
   }
+  if (held) { ctx.save(); drawBall(held[0], held[1], r1); ctx.restore(); return; }
   const slow = ballSlow;
   const at = u => { const a = P[0], b = P[1], d = P[2]; return [(1 - u) ** 2 * a[0] + 2 * (1 - u) * u * b[0] + u * u * d[0], (1 - u) ** 2 * a[1] + 2 * (1 - u) * u * b[1] + u * u * d[1]]; };
   const u = c.slowmo === false ? k0 : slow(k0);

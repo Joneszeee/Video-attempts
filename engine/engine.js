@@ -82,7 +82,7 @@ function camInBeat(i, lt) {
   const to = camPreset(b.camera);
   const from = (i === 0 || b.cut) ? camPreset(b.camFrom || b.camera) : camEnd(i - 1);
   const md = b.move != null ? b.move : Math.min(2.4, b.dur * 0.8);
-  const k = ease(pr(lt, 0, md));
+  const k = b.moveEase === 'linear' ? pr(lt, 0, md) : ease(pr(lt, 0, md));   // linear: tracking a runner at constant speed
   let pos = lerp3(from.pos, to.pos, k);
   const tgt = lerp3(from.tgt, to.tgt, k);
   const dr = (b.drift != null ? b.drift : 0.012) * lt;
@@ -518,6 +518,12 @@ const ACTIONS = {
     [0.45, { L: [-0.15, 0.15], R: [0.3, 0.4], AL: [Math.PI - 0.2, 0], AR: [Math.PI + 0.15, 0], hy: -0.22, rot: 1.25, px: 0.55 }],
     [0.7, { L: [-0.1, 0.2], R: [0.35, 0.5], AL: [Math.PI - 0.1, 0], AR: [Math.PI + 0.2, 0], hy: 0.12, rot: 1.5, px: 0.78 }],
     [1.0, { L: [-0.05, 0.3], R: [0.3, 0.5], AL: [Math.PI - 0.3, 0.2], AR: [Math.PI + 0.1, 0.2], hy: 0.4, rot: 1.56, px: 0.86 }]] },
+  slide: { dur: 1.1, keys: [   // sliding tackle: drop, lean back, leading leg out, skid along the grass, then settle
+    [0.0, { L: [-0.15, 0.4], R: [0.25, 0.5], AL: [-0.5, 0.6], AR: [0.5, 0.6], lean: 0.15, hy: 0.04 }],
+    [0.2, { L: [0.5, 0.9], R: [1.2, 0.1], AL: [-1.9, 0.3], AR: [1.0, 0.5], rot: 0.55, hy: 0.18, px: 0.1 }],
+    [0.45, { L: [0.8, 1.0], R: [1.45, 0.0], AL: [-2.3, 0.2], AR: [0.6, 0.6], rot: 1.15, hy: 0.38, px: 0.25 }],
+    [0.8, { L: [0.85, 1.0], R: [1.5, 0.0], AL: [-2.4, 0.2], AR: [0.5, 0.6], rot: 1.25, hy: 0.42, px: 0.3 }],
+    [1.0, { L: [0.8, 1.1], R: [1.35, 0.15], AL: [-2.2, 0.3], AR: [0.6, 0.7], rot: 1.2, hy: 0.42, px: 0.3 }]] },
 };
 function mixPose(a, b, k) {
   const o = {};
@@ -555,13 +561,25 @@ function poseFor(p, t, walking) {
       if (p.dir === -1) { ps.rot = -ps.rot; ps.px = -ps.px; [ps.AL, ps.AR] = [[-ps.AR[0], ps.AR[1]], [-ps.AL[0], ps.AL[1]]]; [ps.L, ps.R] = [[-ps.R[0], ps.R[1]], [-ps.L[0], ps.L[1]]]; }
       return ps;
     };
-    if (t >= d && t < d + dur) return act((t - d) / dur);
-    if (t >= d + dur) return p.after ? loopPose(p.after, t - d - dur) : act(1);
-    if (walking) return loopPose('run', t);
-    return loopPose(p.before || 'idle', t);
+    const pre = tt => walking || p.path ? loopPose('run', tt) : loopPose(p.before || 'idle', tt);
+    let ps;
+    if (t >= d && t < d + dur) {   // blend in over 0.12s so the move doesn't snap
+      ps = act((t - d) / dur);
+      if (t - d < 0.12) ps = mixPose(pre(t), ps, ease((t - d) / 0.12));
+    } else if (t >= d + dur) {
+      ps = p.after ? loopPose(p.after, t - d - dur) : act(1);
+      if (p.after && t - d - dur < 0.2) ps = mixPose(act(1), ps, ease((t - d - dur) / 0.2));
+    } else ps = pre(t);
+    return withHops(p, ps, t);
   }
-  if (walking) return loopPose('run', t);
-  return loopPose(p.action || 'idle', t);
+  return withHops(p, walking ? loopPose('run', t) : loopPose(p.action || 'idle', t), t);
+}
+function withHops(p, ps, t) {   // "hops": [{t, dur}] — a small jump (e.g. hurdling a slide tackle)
+  for (const h of p.hops || []) {
+    const k = pr(t, h.t, h.dur || 0.45);
+    if (k > 0 && k < 1) { ps = { ...ps }; ps.hy -= (h.height || 0.16) * Math.sin(Math.PI * k); ps.L = [ps.L[0], ps.L[1] + 0.8 * Math.sin(Math.PI * k)]; ps.R = [ps.R[0], ps.R[1] + 0.8 * Math.sin(Math.PI * k)]; }
+  }
+  return ps;
 }
 // Where a rigged player's hands are (screen px, relative to his feet), mirroring rigBody's transforms. Used for real saves.
 function rigHands(u, p, t) {

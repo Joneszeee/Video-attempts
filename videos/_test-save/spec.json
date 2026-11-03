@@ -6,9 +6,9 @@
  "beats": [
   {
    "kicker": "Engine test \u00b7 new run",
-   "headline": "Running past a [defender].",
+   "headline": "Past one, over the [tackle].",
    "vo": "",
-   "duration": 4.0,
+   "duration": 4.8,
    "scene": {
     "type": "stadium",
     "crowd": [
@@ -21,29 +21,29 @@
    },
    "camFrom": {
     "pos": [
-     1.8,
-     1.6,
-     -3.5
+     1.4,
+     1.9,
+     6.0
     ],
     "tgt": [
      0.4,
      1.0,
-     6
+     30
     ]
    },
    "camera": {
     "pos": [
-     1.8,
-     1.6,
-     9.0
+     1.0,
+     1.9,
+     32.0
     ],
     "tgt": [
      0.4,
      1.0,
-     21
+     56
     ]
    },
-   "move": 3.8,
+   "move": 4.8,
    "players": [
     {
      "name": "Messi",
@@ -65,35 +65,42 @@
      "path": [
       [
        0,
-       1
+       14
       ],
       [
        0,
-       6.5
+       19
       ],
       [
-       1.7,
-       9.0
+       1.6,
+       22.5
       ],
       [
        0.6,
-       12.5
+       27
       ],
       [
        0.4,
-       17
+       40
       ]
      ],
-     "pathDur": 3.6
+     "pathDur": 4.2,
+     "hops": [
+      {
+       "t": 2.95,
+       "dur": 0.5,
+       "height": 0.18
+      }
+     ]
     },
     {
      "name": "Defender",
      "front": true,
-     "x": -0.15,
-     "z": 9.0,
+     "x": -0.3,
+     "z": 22.6,
      "action": "dive",
      "dir": -1,
-     "actionDelay": 1.5,
+     "actionDelay": 1.15,
      "actionDur": 0.9,
      "before": "ready",
      "kit": {
@@ -104,8 +111,58 @@
      },
      "skin": "#c68a63",
      "hair": "#1a120c"
+    },
+    {
+     "name": "Slider",
+     "kit": {
+      "shirt": "#1f6f3a",
+      "shorts": "#ffffff",
+      "socks": "#1f6f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "path": [
+      [
+       7,
+       34.6
+      ],
+      [
+       3.2,
+       34.4
+      ],
+      [
+       -1.4,
+       34.1
+      ]
+     ],
+     "pathDur": 1.6,
+     "delay": 1.9,
+     "action": "slide",
+     "dir": 1,
+     "actionDelay": 2.62,
+     "actionDur": 1.1
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.3,
+     "z": 52.0,
+     "action": "dive",
+     "actionDelay": 99,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111",
+      "socks": "#f7d117",
+      "text": "#111"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10"
     }
-   ]
+   ],
+   "moveEase": "linear"
   },
   {
    "kicker": "Engine test \u00b7 a real save",

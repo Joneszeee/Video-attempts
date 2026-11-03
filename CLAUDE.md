@@ -131,6 +131,11 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
 - **Running for real (user: Messi "keeps running on the spot"):** give a player `"path": [[x,z], ...]` + `"pathDur"` and he runs along it at a steady pace,
   with the ball following his heading when he's dribbling. Keep the camera slower than him (or still) so he visibly covers ground. To beat a defender,
   put a `front` defender beside the path with a short `dive` (lunge) timed just before Messi reaches him. Example: `videos/_test-save`.
+- **Slide tackle:** `action: "slide"` (with `dir: 1` when he slides right-to-left on screen, `-1` the other way) on a player moving along a short `path`
+  across the runner's line: drop, lean back, leading leg out, skid. The runner jumps it with `"hops": [{"t", "dur", "height"}]`. Example: `videos/_test-save`.
+- **Smooth moves:** actions now blend in over 0.12s and into their `after` loop over 0.2s, so nothing snaps. When tracking a runner,
+  use beat `"moveEase": "linear"` so the camera keeps a constant pace with him (easing makes him look like he's running on the spot).
+- **Always put a keeper in the goal** a player is running or shooting towards (`front`, `before: "ready"`).
 - **Saves are auto-timed:** with `saveBy`, the engine sets the keeper's `actionDelay` so the catch lands at full stretch (70% of the dive) and he falls holding it.
 - **Dribbling:** a player with `"dribble": true` runs with the ball at his feet, pushed ahead on every other stride and depth-sorted with the players.
   Use it whenever a player runs in a scene (the user asked for it).

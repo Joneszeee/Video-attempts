@@ -504,7 +504,7 @@ function drawTrophy(x, y, u) {
 // Pose angles: 0 = limb points straight down, positive = towards screen-right. Legs are [angle, fold] where fold (0..1)
 // bends the knee back (foot lifts behind, seen from behind). Arms are [angle, elbow bend]. hy = hip lift (u), px = shift (u),
 // rot = whole-body rotation around the hip, lean = torso lean.
-const P0 = { rot: 0, px: 0, hy: 0, lean: 0, L: [-0.06, 0], R: [0.06, 0], AL: [-0.16, 0.25], AR: [0.16, 0.25] };
+const P0 = { rot: 0, px: 0, hy: 0, lean: 0, armsFront: 0, L: [-0.06, 0], R: [0.06, 0], AL: [-0.16, 0.25], AR: [0.16, 0.25] };
 const ACTIONS = {
   kick: { dur: 1.0, contact: 0.42, keys: [
     [0.0, { L: [-0.06, 0], R: [0.06, 0], AL: [-0.25, 0.3], AR: [0.25, 0.3] }],
@@ -535,7 +535,7 @@ function loopPose(name, t) {
   if (name === 'run') {   // athletic run: arms tucked and pumping, strong knee drive, a bob twice per stride (the old one looked goofy)
     const ph = t / 0.42 * Math.PI * 2, s = Math.sin(ph), c2 = Math.cos(ph * 2);
     return { ...P0, L: [-0.05 + 0.03 * s, Math.max(0, s) * 1.35], R: [0.05 + 0.03 * s, Math.max(0, -s) * 1.35],
-      AL: [-0.14 - 0.05 * Math.max(0, -s), -(2.35 + 0.45 * s)], AR: [0.14 + 0.05 * Math.max(0, s), -(2.35 - 0.45 * s)],   // elbows bent forward: forearms up and in
+      AL: [-0.12, lerp(0.35, -2.4, (1 + s) / 2)], AR: [0.12, lerp(0.35, -2.4, (1 - s) / 2)], armsFront: 1,   // arms swing in front of the body (seen from behind)
       hy: -0.035 * (0.5 + 0.5 * c2), rot: 0.035 * s, px: 0.012 * s, lean: 0 };
   }
   if (name === 'celebrate') {
@@ -603,6 +603,15 @@ function rigBody(u, p, t, walking, c) {
   }
   ctx.fillStyle = c.shorts; rrect(-u * 0.135, -u * 0.06, u * 0.27, u * 0.15, u * 0.02); ctx.fill();
   ctx.rotate(ps.lean);
+  const drawRigArms = () => {
+    for (const [side, arm] of [[-1, ps.AL], [1, ps.AR]]) {
+      const [a, e] = arm, sx = side * u * 0.15, sy = -u * 0.3;
+      const [ex, ey] = limb(sx, sy, a, u * 0.14, u * 0.07, c.k.sleeves || c.shirt);
+      const [hx, hy] = limb(ex, ey, a + side * e, u * 0.15, u * 0.06, c.skin);
+      if (p.gloves) { ctx.fillStyle = p.gloves; ctx.beginPath(); ctx.arc(hx, hy, u * 0.045, 0, 7); ctx.fill(); }
+    }
+  };
+  if (ps.armsFront && !p.front) drawRigArms();
   ctx.fillStyle = c.shirt;
   ctx.beginPath(); ctx.moveTo(-u * 0.16, -u * 0.32); ctx.lineTo(u * 0.16, -u * 0.32); ctx.lineTo(u * 0.135, -u * 0.03); ctx.lineTo(-u * 0.135, -u * 0.03); ctx.closePath(); ctx.fill();
   if (c.k.stripes || c.k.checks) {
@@ -620,12 +629,7 @@ function rigBody(u, p, t, walking, c) {
       if (p.num != null) { font(800, u * 0.12, 'Inter', '0px'); ctx.fillText(String(p.num), 0, -u * 0.1); }
     }
   }
-  for (const [side, arm] of [[-1, ps.AL], [1, ps.AR]]) {
-    const [a, e] = arm, sx = side * u * 0.15, sy = -u * 0.3;
-    const [ex, ey] = limb(sx, sy, a, u * 0.14, u * 0.07, c.k.sleeves || c.shirt);
-    const [hx, hy] = limb(ex, ey, a + side * e, u * 0.15, u * 0.06, c.skin);
-    if (p.gloves) { ctx.fillStyle = p.gloves; ctx.beginPath(); ctx.arc(hx, hy, u * 0.045, 0, 7); ctx.fill(); }
-  }
+  if (!(ps.armsFront && !p.front)) drawRigArms();
   ctx.fillStyle = c.skin; ctx.fillRect(-u * 0.025, -u * 0.37, u * 0.05, u * 0.06);
   ctx.beginPath(); ctx.arc(0, -u * 0.41, u * 0.062, 0, 7); ctx.fill();
   ctx.fillStyle = c.hair; ctx.beginPath();
@@ -797,6 +801,12 @@ function drawPlayers(cam, lt, players) {
     const q = toCam(cam, [x, 0, z]);
     if (q[2] < NEAR + 0.5) continue;
     list.push({ p, q, walk });
+    if (p.dribble && (walk > 0 || p.action === 'run')) {   // he runs with the ball: a touch every other stride pushes it ahead
+      const ph = ((lt / 0.84) % 1), push = Math.sin(ph * Math.PI), dirz = p.front ? -1 : 1;
+      const bp = [x + 0.18, 0.11, z + dirz * (0.45 + 0.55 * push)];
+      const bq = toCam(cam, bp);
+      if (bq[2] > NEAR) list.push({ q: bq, dribbleBall: true, spin: lt * 12 });
+    }
   }
   for (const o of list) {
     const s = proj(o.q);
@@ -817,6 +827,12 @@ function drawPlayers(cam, lt, players) {
   drawUnderPens();
   for (const o of list) {
     if (o.ball) { ctx.save(); CARDS[o.ball.type](o.ball, o.ct, W / 2, 0, 0); ctx.restore(); continue; }
+    if (o.dribbleBall) {
+      const s2 = proj(o.q), r = Math.max(3, FOC * 0.11 / o.q[2]);
+      ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.ellipse(s2[0], s2[1] + r * 0.9, r * 1.3, r * 0.35, 0, 0, 7); ctx.fill();
+      ctx.save(); ctx.translate(s2[0], s2[1]); ctx.rotate(o.spin); drawBall(0, 0, r); ctx.restore();
+      continue;
+    }
     const s = proj(o.q), u = FOC * 1.85 / o.q[2];
     const alpha = o.p.enter === 'fade' ? eOut(pr(lt, o.p.delay || 0, 0.5)) : 1;
     drawPlayer(s[0], s[1], u, o.p, lt, o.walk, alpha);

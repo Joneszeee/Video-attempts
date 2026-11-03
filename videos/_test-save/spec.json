@@ -65,7 +65,8 @@
      "enter": "walk",
      "fromZ": 2,
      "walkDur": 3.2,
-     "action": "run"
+     "action": "run",
+     "dribble": true
     }
    ]
   },

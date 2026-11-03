@@ -126,8 +126,10 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
 - **Real saves (user: the keeper "doesn't actually save shots"):** give the `ballpath` `"saveBy": <keeper index>` and `"flash": false`. The ball then
   ends in the keeper's gloves at the moment of contact, worked out from his dive pose, and stays held as he falls. Time his `actionDelay` so contact
   (about 45% through the dive) matches the ball's arrival, and film it from in front of the goal, never from behind the net.
-- **Run cycle:** rigged players with `action: "run"` (or walking in) use an athletic run (arms tucked and pumping, knee drive, bob).
-  The old one looked goofy, according to the user.
+- **Run cycle:** rigged players with `action: "run"` (or walking in) use an athletic run: knee drive, bob, and, seen from behind, the arms swinging
+  **in front of the body** (only the back arm shows at his side). The user found the old one goofy and wanted the arms in front.
+- **Dribbling:** a player with `"dribble": true` runs with the ball at his feet, pushed ahead on every other stride and depth-sorted with the players.
+  Use it whenever a player runs in a scene (the user asked for it).
 - **Shots must read correctly.** A goal must clearly beat the keeper (send him the wrong way, or past his fingertips); a save puts the ball into
   his gloves (`flash: false`). The ball must never pass "through" a player.
 - **Prefer scenes over plain graphics.** Show events happening in the stadium, booth or another place, and use cards to support the action rather than replace it.

@@ -87,6 +87,9 @@ Football version of its rules:
   "Harry Kane…"). It works on mute. It's about the viewer's world: their club, their rivalry, their opinion.
 - **For the hook, the headline builds word by word** (beat 1 `"hookWords": true`) instead of sitting there static. Frame 0 still shows the main visual for the thumbnail.
 - **Write 3 hooks** with a 0.0 / 0.5 / 1.2 / 3.0s frame plan each, run the checklist, and pick one, naming the winning pattern.
+- **Motion check before every preview:** render stills every 0.5s and compare frames 1s apart (mean pixel difference). Anything under about 3
+  (out of 255) is a static moment: add a camera push, a slower count or more action there. A replay shot can start part-way through the
+  action with `"timeShift": <seconds>` (shot cards marked `noShift` keep their word timing).
 - **Every line is shown, never just said** (already our narration-sync rule). If two frames a second apart look the same, add motion.
 - **Comment trigger:** end on a question that splits opinion (we have no DM product, so no keyword-for-a-link). Ask it in the pinned comment as well.
 - **Rotate the angle** from video to video: result first, contrarian ("Mbappé can't beat a teenager"), stakes or pain ("City could be relegated"),

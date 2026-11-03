@@ -6,8 +6,7 @@ One emotion per line, pauses from the punctuation. The words match vo.txt. Don't
 
 [intrigued] Lionel Messi once bathed a baby for a charity photo. Nineteen years later… that baby ended his World Cup career.
 [warm] The photo was taken in 2007, for a UNICEF calendar. The baby was Lamine Yamal.
-[excited] That same year, a nineteen-year-old Messi dribbled through Getafe's entire defence.
-[impressed] Barcelona fans still vote it… the greatest goal in the club's history.
+[excited] That same year, nineteen-year-old Messi scored the goal Barça fans call… their greatest ever.
 [dramatic] July 2026. The World Cup final. Messi's Argentina against Yamal's Spain.
 [sympathetic] Messi was thirty-nine, playing in his sixth World Cup.
 [tense] For ninety minutes… Argentina held on.

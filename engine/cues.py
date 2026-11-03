@@ -209,6 +209,8 @@ def _split(b):
         nb.setdefault('card', 'same' if prev.get('card') else None)
         nb['vo'] = ''
         nb['duration'] = round(cuts[k + 1] - cuts[k], 3)
+        if sh.get('keepTimes'):   # a replay shot keeps its own action timeline (with timeShift), so don't shift it
+            nb.pop('keepTimes', None)
         if 'accent' in prev and 'accent' not in sh and 'headline' not in sh:  # same headline keeps its accent
             nb['accent'] = prev['accent']
         parts.append(nb)

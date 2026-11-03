@@ -155,12 +155,12 @@
    "camFrom": {
     "pos": [
      0,
-     1.3,
-     -3.0
+     1.5,
+     -6.0
     ],
     "tgt": [
      0,
-     1.15,
+     1.2,
      20
     ]
    },
@@ -168,7 +168,7 @@
     "pos": [
      0,
      1.3,
-     -3.5
+     -3.4
     ],
     "tgt": [
      0,
@@ -176,7 +176,7 @@
      20
     ]
    },
-   "move": 6,
+   "move": 7,
    "lights": 0.55,
    "focus": 0,
    "players": [
@@ -206,7 +206,7 @@
      "from": 2004,
      "to": 2007,
      "start": 0.2,
-     "dur": 1.8,
+     "dur": 2.6,
      "title": "Charity calendar",
      "color": "#1cabe2",
      "caption": "UNICEF · FC Barcelona",
@@ -248,8 +248,8 @@
   },
   {
    "kicker": "18 April 2007 · v Getafe",
-   "headline": "Age 19: through the [entire defence].",
-   "vo": "That same year, a nineteen-year-old Messi dribbled through Getafe's entire defence.",
+   "headline": "Age 19: Barça's [greatest] ever goal.",
+   "vo": "That same year, nineteen-year-old Messi scored the goal Barça fans call their greatest ever.",
    "scene": {
     "type": "stadium",
     "crowd": [
@@ -283,7 +283,7 @@
      56
     ]
    },
-   "move": 4.2,
+   "move": 3.59,
    "players": [
     {
      "name": "Messi",
@@ -324,15 +324,15 @@
        38
       ]
      ],
-     "pathDur": 3.6,
+     "pathDur": 2.6,
      "hops": [
       {
-       "t": 2.79,
+       "t": 2.015,
        "dur": 0.5,
        "height": 0.18
       }
      ],
-     "actionDelay": 3.438,
+     "actionDelay": 2.483,
      "actionDur": 0.9,
      "after": "celebrate"
     },
@@ -343,7 +343,7 @@
      "z": 22.6,
      "action": "dive",
      "dir": -1,
-     "actionDelay": 1.035,
+     "actionDelay": 0.747,
      "actionDur": 0.9,
      "before": "ready",
      "kit": {
@@ -379,11 +379,11 @@
        34.1
       ]
      ],
-     "pathDur": 1.44,
-     "delay": 1.845,
+     "pathDur": 1.04,
+     "delay": 1.333,
      "action": "slide",
      "dir": 1,
-     "actionDelay": 2.493,
+     "actionDelay": 1.8,
      "actionDur": 1.1
     },
     {
@@ -392,7 +392,7 @@
      "x": 0.3,
      "z": 52.0,
      "action": "dive",
-     "actionDelay": 3.735,
+     "actionDelay": 2.711,
      "before": "ready",
      "gloves": "#f2f2f2",
      "kit": {
@@ -410,34 +410,34 @@
    "moveEase": "linear",
    "punch": [
     {
-     "t": 3.6,
+     "t": 2.661,
      "amount": 0.18,
-     "dur": 1.4,
+     "dur": 1.2,
      "anchor": 0
     }
    ],
    "shake": [
     {
-     "t": 4.455,
+     "t": 3.561,
      "amount": 18
     }
    ],
    "card": [
     {
      "type": "ball",
-     "delay": 3.6,
+     "delay": 2.6,
      "point": [
       0.58,
       0.11,
       38.6
      ],
-     "until": 0.18
+     "until": 0.261
     },
     {
      "type": "ballpath",
      "world": true,
-     "delay": 3.78,
-     "dur": 0.8,
+     "delay": 2.861,
+     "dur": 0.7,
      "points": [
       [
        0.58,
@@ -462,241 +462,232 @@
      "size": 300,
      "endScale": 0.65,
      "y": 1600,
-     "delay": 4.5,
+     "delay": 3.561,
      "color": "#f1c453"
     }
    ],
    "accent": "#E9B949",
    "cut": true,
    "transition": "polaroid",
-   "polaroidLabel": "2007"
-  },
-  {
-   "kicker": "Replay · drone cam",
-   "headline": "Barça's [greatest] ever goal.",
-   "vo": "Barcelona fans still vote it the greatest goal in the club's history.",
-   "scene": {
-    "type": "stadium",
-    "crowd": [
-     "#a50044",
-     "#004d98",
-     "#ffffff"
-    ],
-    "seed": 3
-   },
-   "camFrom": {
-    "pos": [
-     -9,
-     10,
-     18
-    ],
-    "tgt": [
-     0,
-     0,
-     28
-    ]
-   },
-   "camera": {
-    "pos": [
-     8.5,
-     5.5,
-     32
-    ],
-    "tgt": [
-     0.4,
-     1,
-     45
-    ]
-   },
-   "move": 4.6,
-   "players": [
+   "polaroidLabel": "2007",
+   "shots": [
     {
-     "name": "Messi",
-     "num": 19,
-     "kit": {
-      "shirt": "#a50044",
-      "shorts": "#004d98",
-      "socks": "#004d98",
-      "text": "#f7d117",
-      "stripes": [
-       "#a50044",
-       "#004d98"
+     "at": "call their",
+     "cut": true,
+     "kicker": "Replay · drone cam",
+     "letterbox": true,
+     "replayTag": "REPLAY",
+     "timeShift": 2.261,
+     "camFrom": {
+      "pos": [
+       -7,
+       8,
+       26
+      ],
+      "tgt": [
+       0,
+       0.5,
+       40
       ]
      },
-     "skin": "#e8b896",
-     "hair": "#4a3020",
-     "action": "kick",
-     "dribble": true,
-     "path": [
-      [
+     "camera": {
+      "pos": [
+       6,
+       4.5,
+       36
+      ],
+      "tgt": [
        0,
-       14
-      ],
-      [
-       0,
-       19
-      ],
-      [
-       1.6,
-       22.5
-      ],
-      [
-       0.6,
-       27
-      ],
-      [
-       0.4,
-       38
+       1,
+       48
       ]
-     ],
-     "pathDur": 3.6,
-     "hops": [
+     },
+     "move": 2.6,
+     "moveEase": "ease",
+     "players": [
       {
-       "t": 2.79,
-       "dur": 0.5,
-       "height": 0.18
+       "name": "Messi",
+       "num": 19,
+       "kit": {
+        "shirt": "#a50044",
+        "shorts": "#004d98",
+        "socks": "#004d98",
+        "text": "#f7d117",
+        "stripes": [
+         "#a50044",
+         "#004d98"
+        ]
+       },
+       "skin": "#e8b896",
+       "hair": "#4a3020",
+       "action": "kick",
+       "dribble": true,
+       "path": [
+        [
+         0,
+         14
+        ],
+        [
+         0,
+         19
+        ],
+        [
+         1.6,
+         22.5
+        ],
+        [
+         0.6,
+         27
+        ],
+        [
+         0.4,
+         38
+        ]
+       ],
+       "pathDur": 2.6,
+       "hops": [
+        {
+         "t": 2.015,
+         "dur": 0.5,
+         "height": 0.18
+        }
+       ],
+       "actionDelay": 2.483,
+       "actionDur": 0.9,
+       "after": "celebrate"
+      },
+      {
+       "name": "Defender",
+       "front": true,
+       "x": -0.3,
+       "z": 22.6,
+       "action": "dive",
+       "dir": -1,
+       "actionDelay": 0.747,
+       "actionDur": 0.9,
+       "before": "ready",
+       "kit": {
+        "shirt": "#005999",
+        "shorts": "#005999",
+        "socks": "#005999",
+        "text": "#ffffff"
+       },
+       "skin": "#c68a63",
+       "hair": "#1a120c"
+      },
+      {
+       "name": "Slider",
+       "kit": {
+        "shirt": "#005999",
+        "shorts": "#005999",
+        "socks": "#005999",
+        "text": "#ffffff"
+       },
+       "skin": "#d9a37c",
+       "hair": "#2a1a10",
+       "path": [
+        [
+         7,
+         34.6
+        ],
+        [
+         3.2,
+         34.4
+        ],
+        [
+         -1.4,
+         34.1
+        ]
+       ],
+       "pathDur": 1.04,
+       "delay": 1.333,
+       "action": "slide",
+       "dir": 1,
+       "actionDelay": 1.8,
+       "actionDur": 1.1
+      },
+      {
+       "name": "Keeper",
+       "front": true,
+       "x": 0.3,
+       "z": 52.0,
+       "action": "dive",
+       "actionDelay": 2.711,
+       "before": "ready",
+       "gloves": "#f2f2f2",
+       "kit": {
+        "shirt": "#f7d117",
+        "shorts": "#111",
+        "socks": "#f7d117",
+        "text": "#111"
+       },
+       "skin": "#e2b08c",
+       "hair": "#2a1a10",
+       "dir": 1,
+       "actionDur": 0.95
       }
      ],
-     "actionDelay": 3.438,
-     "actionDur": 0.9,
-     "after": "celebrate"
-    },
-    {
-     "name": "Defender",
-     "front": true,
-     "x": -0.3,
-     "z": 22.6,
-     "action": "dive",
-     "dir": -1,
-     "actionDelay": 1.035,
-     "actionDur": 0.9,
-     "before": "ready",
-     "kit": {
-      "shirt": "#005999",
-      "shorts": "#005999",
-      "socks": "#005999",
-      "text": "#ffffff"
-     },
-     "skin": "#c68a63",
-     "hair": "#1a120c"
-    },
-    {
-     "name": "Slider",
-     "kit": {
-      "shirt": "#005999",
-      "shorts": "#005999",
-      "socks": "#005999",
-      "text": "#ffffff"
-     },
-     "skin": "#d9a37c",
-     "hair": "#2a1a10",
-     "path": [
-      [
-       7,
-       34.6
-      ],
-      [
-       3.2,
-       34.4
-      ],
-      [
-       -1.4,
-       34.1
-      ]
+     "card": [
+      {
+       "type": "ball",
+       "delay": 2.6,
+       "point": [
+        0.58,
+        0.11,
+        38.6
+       ],
+       "until": 0.261
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "delay": 2.861,
+       "dur": 0.7,
+       "points": [
+        [
+         0.58,
+         0.11,
+         38.6
+        ],
+        [
+         -1.2,
+         1.8,
+         46
+        ],
+        [
+         -2.7,
+         1.5,
+         53.0
+        ]
+       ]
+      },
+      {
+       "type": "flytext",
+       "text": "No. 1",
+       "size": 260,
+       "endScale": 0.6,
+       "y": 1560,
+       "at": "greatest ever",
+       "color": "#f1c453",
+       "noShift": true
+      }
      ],
-     "pathDur": 1.44,
-     "delay": 1.845,
-     "action": "slide",
-     "dir": 1,
-     "actionDelay": 2.493,
-     "actionDur": 1.1
-    },
-    {
-     "name": "Keeper",
-     "front": true,
-     "x": 0.3,
-     "z": 52.0,
-     "action": "dive",
-     "actionDelay": 3.735,
-     "before": "ready",
-     "gloves": "#f2f2f2",
-     "kit": {
-      "shirt": "#f7d117",
-      "shorts": "#111",
-      "socks": "#f7d117",
-      "text": "#111"
-     },
-     "skin": "#e2b08c",
-     "hair": "#2a1a10",
-     "dir": 1,
-     "actionDur": 0.95
-    }
-   ],
-   "moveEase": "ease",
-   "punch": [],
-   "shake": [
-    {
-     "t": 4.455,
-     "amount": 18
-    }
-   ],
-   "card": [
-    {
-     "type": "ball",
-     "delay": 3.6,
-     "point": [
-      0.58,
-      0.11,
-      38.6
+     "confetti": true,
+     "confettiColors": [
+      "#a50044",
+      "#004d98",
+      "#f7d117"
      ],
-     "until": 0.18
-    },
-    {
-     "type": "ballpath",
-     "world": true,
-     "delay": 3.78,
-     "dur": 0.8,
-     "points": [
-      [
-       0.58,
-       0.11,
-       38.6
-      ],
-      [
-       -1.2,
-       1.8,
-       46
-      ],
-      [
-       -2.7,
-       1.5,
-       53.0
-      ]
-     ]
-    },
-    {
-     "type": "flytext",
-     "text": "No. 1",
-     "size": 260,
-     "endScale": 0.6,
-     "y": 1560,
-     "at": "greatest goal",
-     "color": "#f1c453",
-     "noShift": true
+     "confettiDelay": 1.3,
+     "shake": [
+      {
+       "t": 1.3,
+       "amount": 12
+      }
+     ],
+     "punch": []
     }
-   ],
-   "accent": "#E9B949",
-   "cut": true,
-   "letterbox": true,
-   "replayTag": "REPLAY",
-   "timeShift": 1.1,
-   "confetti": true,
-   "confettiColors": [
-    "#a50044",
-    "#004d98",
-    "#f7d117"
-   ],
-   "confettiDelay": 3.4
+   ]
   },
   {
    "kicker": "World Cup final · MetLife Stadium",
@@ -1154,8 +1145,8 @@
    "camFrom": {
     "pos": [
      0,
-     2.6,
-     -9
+     3.4,
+     -11
     ],
     "tgt": [
      0,
@@ -1166,8 +1157,8 @@
    "camera": {
     "pos": [
      0,
-     2.2,
-     -8
+     1.8,
+     -5
     ],
     "tgt": [
      0,
@@ -1175,7 +1166,7 @@
      20
     ]
    },
-   "move": 5,
+   "move": 3.4,
    "lights": 0.3,
    "focus": 0.45,
    "players": [
@@ -1198,7 +1189,7 @@
      "z": 4,
      "enter": "walk",
      "fromZ": 2,
-     "walkDur": 5
+     "walkDur": 3.2
     }
    ],
    "card": {
@@ -1206,9 +1197,11 @@
     "y": 1050,
     "at": "Two days",
     "date": "21.07.26",
-    "write": 2.2
+    "write": 3.0,
+    "tilt": 0.0
    },
-   "vo": "Two days later, Messi wrote his goodbye letter."
+   "vo": "Two days later, Messi wrote his goodbye letter.",
+   "speedlines": []
   },
   {
    "kicker": "Messi for Argentina",
@@ -1227,8 +1220,8 @@
    "camFrom": {
     "pos": [
      0,
-     30,
-     -80
+     34,
+     -86
     ],
     "tgt": [
      0,
@@ -1239,16 +1232,16 @@
    "camera": {
     "pos": [
      0,
-     24,
-     -70
+     20,
+     -62
     ],
     "tgt": [
      0,
      0,
-     20
+     22
     ]
    },
-   "move": 6,
+   "move": 6.5,
    "lights": 0.35,
    "focus": 0.3,
    "players": [],
@@ -1264,7 +1257,7 @@
       "n": 125,
       "color": "#75aadb",
       "at": "two hundred",
-      "dur": 2.4
+      "dur": 4.8
      }
     ],
     "label": "Goals for Argentina · 207 games",
@@ -1290,9 +1283,31 @@
     "seed": 12
    },
    "cut": true,
-   "camFrom": "stand",
-   "camera": "high",
-   "move": 6,
+   "camFrom": {
+    "pos": [
+     0,
+     14,
+     -75
+    ],
+    "tgt": [
+     0,
+     3,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     40,
+     -60
+    ],
+    "tgt": [
+     0,
+     0,
+     30
+    ]
+   },
+   "move": 7.2,
    "lights": 0.5,
    "focus": 0.45,
    "players": [],
@@ -1475,8 +1490,8 @@
    "camFrom": {
     "pos": [
      0,
-     1.6,
-     -6
+     1.8,
+     -8
     ],
     "tgt": [
      0,
@@ -1487,8 +1502,8 @@
    "camera": {
     "pos": [
      0,
-     1.5,
-     -4.8
+     1.4,
+     -4.2
     ],
     "tgt": [
      0,
@@ -1496,7 +1511,7 @@
      20
     ]
    },
-   "move": 6,
+   "move": 6.5,
    "lights": 0.45,
    "focus": 0.3,
    "players": [
@@ -1516,7 +1531,8 @@
      "hair": "#4a3020",
      "num": 10,
      "x": 0,
-     "z": 3
+     "z": 3,
+     "action": "idle"
     }
    ],
    "card": {
@@ -1537,7 +1553,8 @@
      }
     ]
    },
-   "vo": "Should Messi come back one more time? Tell me in the comments."
+   "vo": "Should Messi come back one more time? Tell me in the comments.",
+   "flashes": 6
   }
  ]
 }

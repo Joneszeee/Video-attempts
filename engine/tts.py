@@ -45,6 +45,9 @@ PRONOUNCE = {
     'Gerd': 'ɡˈeət',            # German "Gairt", not "Jerd"
     'Flamengo': 'fləmˈɛŋɡəʊ',   # fla-MEN-go
     'Kabwe': 'kˈabweɪ',         # KAB-way
+    'Agüero': 'əɡwˈɛəɹəʊ',      # a-GWAIR-oh
+    'Džeko': 'ʤˈɛkəʊ',          # JEK-oh
+    'Cissé': 'sˈiːseɪ',
 }
 
 

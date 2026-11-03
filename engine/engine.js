@@ -632,10 +632,11 @@ function rigBody(u, p, t, walking, c) {
   if (ps.armsFront && !p.front) drawRigArms();
   ctx.fillStyle = c.shirt;
   ctx.beginPath(); ctx.moveTo(-u * 0.16, -u * 0.32); ctx.lineTo(u * 0.16, -u * 0.32); ctx.lineTo(u * 0.135, -u * 0.03); ctx.lineTo(-u * 0.135, -u * 0.03); ctx.closePath(); ctx.fill();
-  if (c.k.stripes || c.k.checks) {
+  if (c.k.stripes || c.k.checks || c.k.hoops) {
     ctx.save(); ctx.clip();
     const sq = u * 0.045;
     if (c.k.stripes) for (let i = -4; i <= 4; i++) { ctx.fillStyle = c.k.stripes[(i + 8) % 2]; ctx.fillRect(i * sq - sq / 2, -u * 0.33, sq, u * 0.31); }
+    else if (c.k.hoops) for (let r = 0; r < 6; r++) { ctx.fillStyle = c.k.hoops[r % 2]; ctx.fillRect(-u * 0.2, -u * 0.33 + r * u * 0.055, u * 0.4, u * 0.055); }
     else for (let r = 0; r < 8; r++) for (let cc = -4; cc <= 4; cc++) { ctx.fillStyle = c.k.checks[(r + cc + 16) % 2]; ctx.fillRect(cc * sq - sq / 2, -u * 0.33 + r * sq, sq, sq); }
     ctx.restore();
   }
@@ -735,12 +736,14 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     ctx.fillStyle = shade(suitC, 0.4);
     for (const by of [-0.6, -0.55]) { ctx.beginPath(); ctx.arc(0, by * u, u * 0.007, 0, 7); ctx.fill(); }
   }
-  if (!suit && (k.stripes || k.checks)) {
+  if (!suit && (k.stripes || k.checks || k.hoops)) {
     ctx.save();
     ctx.clip();
     const sq = u * 0.045;
     if (k.stripes) {
       for (let i = -4; i <= 4; i++) { ctx.fillStyle = k.stripes[(i + 8) % 2]; ctx.fillRect(i * sq - sq / 2, -u * 0.83, sq, u * 0.31); }
+    } else if (k.hoops) {   // horizontal bands (QPR)
+      for (let r = 0; r < 6; r++) { ctx.fillStyle = k.hoops[r % 2]; ctx.fillRect(-u * 0.2, -u * 0.83 + r * u * 0.055, u * 0.4, u * 0.055); }
     } else {
       for (let r = 0; r < 8; r++) for (let c = -4; c <= 4; c++) {
         ctx.fillStyle = k.checks[(r + c + 16) % 2]; ctx.fillRect(c * sq - sq / 2, -u * 0.83 + r * sq, sq, sq);
@@ -2382,6 +2385,24 @@ CARDS.tally = function (c, ct, cx, cy) {
 };
 CARDS.tally.noSlide = true;
 
+// The referee's red card: an arm swings up from the bottom of the frame holding the card, which glows and shakes.
+CARDS.redcard = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.45)), sh = ct > 0.45 && ct < 0.8 ? Math.sin(ct * 70) * 8 * (1 - (ct - 0.45) / 0.35) : 0;
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(cx + (c.dx || 180) + sh, cy + (1 - k) * 700); ctx.rotate(lerp(0.5, c.rot != null ? c.rot : 0.12, k));
+  ctx.fillStyle = '#111318'; rrect(-36, 40, 72, 520, 30); ctx.fill();              // black referee sleeve
+  ctx.fillStyle = '#e2b08c'; ctx.beginPath(); ctx.ellipse(0, 30, 46, 52, 0, 0, 7); ctx.fill();   // hand
+  const g = ctx.createRadialGradient(0, -120, 10, 0, -120, 260); g.addColorStop(0, 'rgba(255,40,60,0.45)'); g.addColorStop(1, 'rgba(255,40,60,0)');
+  ctx.fillStyle = g; ctx.fillRect(-300, -420, 600, 600);
+  ctx.fillStyle = '#e3132b'; rrect(-95, -270, 190, 270, 14); ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,0.18)'; rrect(-95, -270, 60, 270, 14); ctx.fill();
+  ctx.fillStyle = '#e2b08c'; ctx.beginPath(); ctx.ellipse(-60, -20, 26, 40, -0.3, 0, 7); ctx.fill();   // thumb over the card
+  ctx.restore();
+  if (c.label && ct > 0.5) { const a = pr(ct, 0.5, 0.3); ctx.save(); ctx.globalAlpha *= a; font(800, 44, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center';
+    ctx.strokeStyle = 'rgba(0,0,0,0.6)'; ctx.lineWidth = 8; ctx.strokeText(c.label, cx - 160, cy + 260); ctx.fillText(c.label, cx - 160, cy + 260); ctx.restore(); }
+};
+CARDS.redcard.noSlide = true;
+
 // Chalkboard tally: a wooden-framed blackboard; chalk tally marks (gates of five) draw themselves one by one.
 // n marks, done already drawn, next one at newAt/newT; title and score in chalk handwriting.
 function chalkLine(x1, y1, x2, y2, k, seed, w) {
@@ -2580,7 +2601,7 @@ CARDS.calendar.noSlide = true;
 CARDS.clock = function (c, ct, cx, cy) {
   const a = eOut(pr(ct, 0, 0.35)), k = ease(pr(ct, 0.3, c.dur || 2.2));
   const m = lerp(c.from || 90, c.to || 120, k), mm = Math.floor(m), ss = Math.floor((m - mm) * 60);
-  ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, cy);
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, cy); ctx.scale(c.scale || 1, c.scale || 1);
   const w = 640, h = 150;
   ctx.fillStyle = '#0d1016'; rrect(-w / 2, -h / 2, w, h, 20); ctx.fill();
   ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.lineWidth = 3; rrect(-w / 2, -h / 2, w, h, 20); ctx.stroke();
@@ -2760,6 +2781,7 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'redcard': ev.push({ t: 0.1, type: 'whoosh' }, { t: 0.45, type: 'impact' }); break;
     case 'tally': if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
     case 'photo': ev.push({ t: 0, type: 'whoosh' }); if (c.ripT != null) ev.push({ t: c.ripT, type: 'impact' }, { t: c.ripT, type: 'swish' }); break;
     case 'calendar': { const n = c.to - c.from; for (let i = 1; i <= n; i++) ev.push({ t: (c.start || 0.5) + Math.pow(i / n, 1 / 1.6) * (c.dur || 2.2), type: 'swipe' }); ev.push({ t: (c.start || 0.5) + (c.dur || 2.2), type: 'impact' }); break; }

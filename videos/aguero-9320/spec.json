@@ -1,0 +1,1407 @@
+{
+ "title": "Agüero 93:20",
+ "brand": "theo6k",
+ "accent": "#6cabdd",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Premier League · final day 2012",
+   "headline": "City needed [2 goals] in stoppage time.",
+   "accent": "#6cabdd",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.35,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.6
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 6,
+   "lights": 0.75,
+   "fans": true,
+   "speedlines": [
+    {
+     "t": 0,
+     "dur": 1.4,
+     "amount": 0.7
+    }
+   ],
+   "shake": [
+    {
+     "t": 1.25,
+     "amount": 16
+    }
+   ],
+   "players": [
+    {
+     "name": "Agüero",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": 16,
+     "x": 0,
+     "z": 2.2,
+     "front": true,
+     "chest": true,
+     "action": "celebrate",
+     "actionAt": "They got",
+     "actionDur": 0.01,
+     "after": "celebrate"
+    }
+   ],
+   "confetti": true,
+   "confettiAt": "They got",
+   "confettiColors": [
+    "#6cabdd",
+    "#ffffff",
+    "#1c2c5b"
+   ],
+   "card": [
+    {
+     "type": "clock",
+     "y": 1520,
+     "scale": 1.45,
+     "delay": -0.3,
+     "from": 90,
+     "to": 93.3334,
+     "dur": 1.2,
+     "endColor": "#ff4d5e"
+    }
+   ],
+   "vo": "Manchester City needed two goals in stoppage time to win the Premier League. They got them."
+  },
+  {
+   "kicker": "Sunday 13 May 2012",
+   "headline": "Final day. City and United [level].",
+   "accent": "#6cabdd",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -6.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.4,
+     -4.3
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 6,
+   "lights": 0.6,
+   "players": [
+    {
+     "name": "City",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#d9a37c",
+     "hair": "#1a120c",
+     "num": null,
+     "x": -0.95,
+     "z": 2,
+     "front": true,
+     "at": "City and"
+    },
+    {
+     "name": "United",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 0.95,
+     "z": 2,
+     "front": true,
+     "at": "United were"
+    }
+   ],
+   "card": [
+    {
+     "type": "flip",
+     "y": 650,
+     "at": "thirteenth",
+     "label": "Final day",
+     "groups": [
+      {
+       "label": "2012",
+       "value": 13,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "SUN",
+      "big": "13",
+      "bottom": "MAY"
+     },
+     "hideAt": "level on"
+    },
+    {
+     "type": "tape",
+     "y": 680,
+     "at": "level on",
+     "left": {
+      "name": "Man City",
+      "color": "#6cabdd"
+     },
+     "right": {
+      "name": "Man United",
+      "color": "#da291c"
+     },
+     "rows": [
+      {
+       "label": "Points before kick-off",
+       "left": 86,
+       "right": 86
+      }
+     ],
+     "caption": "Dead level",
+     "captionAt": "points"
+    }
+   ],
+   "vo": "The thirteenth of May, 2012. The final day. City and United were level on points."
+  },
+  {
+   "kicker": "Etihad Stadium",
+   "headline": "Beat [QPR] at home. That's all.",
+   "accent": "#6cabdd",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -110
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     22,
+     -48
+    ],
+    "tgt": [
+     0,
+     0,
+     14
+    ]
+   },
+   "move": 6,
+   "lights": 0.9,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#d9a37c",
+     "hair": "#1a120c",
+     "num": null,
+     "x": -1.2,
+     "z": 8,
+     "action": "run",
+     "path": [
+      [
+       -1.2,
+       4
+      ],
+      [
+       -1.2,
+       10
+      ]
+     ],
+     "pathDur": 5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1d5ba4",
+      "hoops": [
+       "#1d5ba4",
+       "#ffffff"
+      ],
+      "shorts": "#ffffff",
+      "socks": "#ffffff",
+      "text": "#0d2d5a"
+     },
+     "skin": "#d9a37c",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 1.5,
+     "z": 12,
+     "action": "run",
+     "path": [
+      [
+       1.5,
+       15
+      ],
+      [
+       1.5,
+       11
+      ]
+     ],
+     "pathDur": 5
+    }
+   ],
+   "card": [
+    {
+     "type": "stamp",
+     "text": "MUST WIN",
+     "y": 1200,
+     "size": 130,
+     "rot": -0.1,
+     "at": "had to beat",
+     "color": "#f1c453"
+    },
+    {
+     "type": "stamp",
+     "text": "FIGHTING THE DROP",
+     "sub": "QPR",
+     "y": 1560,
+     "size": 80,
+     "rot": 0.07,
+     "at": "fighting",
+     "color": "#ff4d5e"
+    }
+   ],
+   "vo": "City just had to beat Queens Park Rangers, at home. QPR were fighting relegation."
+  },
+  {
+   "kicker": "City 1–1 QPR",
+   "headline": "1–0. 1–1. Then a [red card].",
+   "accent": "#ff4d5e",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     2.4,
+     -9
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     2.0,
+     -7
+    ],
+    "tgt": [
+     0,
+     1.2,
+     20
+    ]
+   },
+   "move": 5,
+   "lights": 0.7,
+   "players": [
+    {
+     "name": "Barton",
+     "kit": {
+      "shirt": "#1d5ba4",
+      "hoops": [
+       "#1d5ba4",
+       "#ffffff"
+      ],
+      "shorts": "#ffffff",
+      "socks": "#ffffff",
+      "text": "#0d2d5a"
+     },
+     "skin": "#d9a37c",
+     "hair": "#1a120c",
+     "num": 17,
+     "x": 0.4,
+     "z": 4,
+     "enter": "walk",
+     "fromZ": 1,
+     "walkDur": 5,
+     "at": "Joey Barton"
+    }
+   ],
+   "card": [
+    {
+     "type": "clock",
+     "y": 680,
+     "at": "Zabaleta",
+     "from": 36,
+     "to": 56,
+     "dur": 3.0,
+     "events": [
+      {
+       "min": 39,
+       "text": "39' Zabaleta 1–0"
+      },
+      {
+       "min": 48,
+       "text": "48' Cissé 1–1"
+      }
+     ]
+    },
+    {
+     "type": "redcard",
+     "y": 1400,
+     "at": "sent off",
+     "label": "55' Barton"
+    }
+   ],
+   "vo": "Zabaleta scored. QPR equalised. Then Joey Barton was sent off."
+  },
+  {
+   "kicker": "66 minutes",
+   "headline": "Ten-man QPR go [2–1] up.",
+   "accent": "#ff4d5e",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0.2,
+     1.8,
+     34.4
+    ],
+    "tgt": [
+     0.4,
+     1.3,
+     60
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.3,
+     1.6,
+     35.2
+    ],
+    "tgt": [
+     0.5,
+     1.2,
+     60
+    ]
+   },
+   "move": 3,
+   "lights": 0.9,
+   "fans": true,
+   "players": [
+    {
+     "name": "Mackie",
+     "kit": {
+      "shirt": "#1d5ba4",
+      "hoops": [
+       "#1d5ba4",
+       "#ffffff"
+      ],
+      "shorts": "#ffffff",
+      "socks": "#ffffff",
+      "text": "#0d2d5a"
+     },
+     "skin": "#d9a37c",
+     "hair": "#1a120c",
+     "num": 9,
+     "x": 0.45,
+     "z": 40.1,
+     "action": "kick",
+     "actionAt": "QPR went",
+     "actionLag": -0.3,
+     "actionDur": 1.1
+    },
+    {
+     "name": "Hart",
+     "front": true,
+     "x": 0.4,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "QPR went",
+     "actionLag": 0.35,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2e8b57",
+      "shorts": "#111111",
+      "socks": "#2e8b57",
+      "text": "#ffffff"
+     },
+     "skin": "#e7c3a0",
+     "hair": "#a07040"
+    }
+   ],
+   "punch": [
+    {
+     "at": "QPR went",
+     "amount": 0.18,
+     "dur": 1.2,
+     "anchor": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.62,
+      0.11,
+      40.5
+     ],
+     "untilAt": "QPR went",
+     "untilLag": 0.16
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "QPR went",
+     "lag": 0.16,
+     "dur": 0.8,
+     "points": [
+      [
+       0.62,
+       0.11,
+       40.5
+      ],
+      [
+       1.6,
+       1.4,
+       47
+      ],
+      [
+       2.9,
+       1.6,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "1–2",
+     "sub": "City losing",
+     "y": 1500,
+     "size": 150,
+     "rot": -0.1,
+     "at": "two–one"
+    }
+   ],
+   "vo": "And then, ten-man QPR went two–one up."
+  },
+  {
+   "kicker": "Meanwhile, at Sunderland",
+   "headline": "United win. The title's going to [Old Trafford].",
+   "accent": "#da291c",
+   "scene": {
+    "type": "booth",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#da291c"
+    ],
+    "seed": 4,
+    "screenLeft": [
+     "SUN 0–1 MUN",
+     "FULL TIME"
+    ],
+    "screenRight": [
+     "MCI 1–2 QPR",
+     "90'"
+    ]
+   },
+   "cut": true,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3a2a1a",
+     "headset": true,
+     "sx": 0.5,
+     "scale": 0.85
+    }
+   ],
+   "card": [
+    {
+     "type": "board",
+     "y": 760,
+     "at": "United won",
+     "label": "As it stands",
+     "rows": [
+      {
+       "name": "Man United",
+       "value": "89"
+      },
+      {
+       "name": "Man City",
+       "value": "86"
+      }
+     ],
+     "cols": 10,
+     "vcols": 3,
+     "focus": 0
+    },
+    {
+     "type": "stamp",
+     "text": "UNITED'S TITLE",
+     "y": 1560,
+     "size": 100,
+     "rot": -0.08,
+     "at": "Old Trafford",
+     "color": "#da291c"
+    }
+   ],
+   "vo": "At Sunderland, United won. The title was going to Old Trafford."
+  },
+  {
+   "kicker": "92 minutes",
+   "headline": "Džeko. [2–2].",
+   "accent": "#6cabdd",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     2.5,
+     3.0,
+     33
+    ],
+    "tgt": [
+     0.5,
+     1.5,
+     60
+    ]
+   },
+   "camera": {
+    "pos": [
+     2.0,
+     2.6,
+     35
+    ],
+    "tgt": [
+     0.5,
+     1.5,
+     60
+    ]
+   },
+   "move": 4,
+   "lights": 1,
+   "fans": true,
+   "players": [
+    {
+     "name": "Džeko",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7c3a0",
+     "hair": "#2a1a10",
+     "num": 10,
+     "x": 0.6,
+     "z": 46.6,
+     "hops": []
+    },
+    {
+     "name": "Kenny",
+     "front": true,
+     "x": 0.2,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#e7c3a0",
+     "hair": "#2a1a10",
+     "actionAt": "headed",
+     "actionLag": 0.2
+    }
+   ],
+   "card": [
+    {
+     "type": "clock",
+     "y": 680,
+     "scale": 0.8,
+     "delay": 0,
+     "from": 90,
+     "to": 92,
+     "dur": 0.8
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Džeko",
+     "lag": -0.4,
+     "dur": 0.9,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       20,
+       0.2,
+       44
+      ],
+      [
+       10,
+       6,
+       46
+      ],
+      [
+       0.6,
+       2.1,
+       46.7
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "headed",
+     "lag": -0.05,
+     "dur": 0.55,
+     "points": [
+      [
+       0.6,
+       2.1,
+       46.7
+      ],
+      [
+       1.2,
+       2.0,
+       50
+      ],
+      [
+       2.6,
+       1.2,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "2–2",
+     "size": 280,
+     "endScale": 0.7,
+     "y": 1580,
+     "at": "equaliser",
+     "color": "#6cabdd"
+    }
+   ],
+   "vo": "In the ninety-second minute, Džeko headed in the equaliser."
+  },
+  {
+   "kicker": "93 minutes",
+   "headline": "Last kick: [Balotelli] to Agüero.",
+   "accent": "#6cabdd",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": "stand",
+   "camera": "stand",
+   "lights": 0.4,
+   "focus": 0.6,
+   "players": [],
+   "card": {
+    "type": "tactic",
+    "y": 1160,
+    "delay": 0,
+    "home": "#6cabdd",
+    "away": "#e9eef5",
+    "players": [
+     {
+      "n": 1,
+      "x": 0.5,
+      "y": 0.05,
+      "team": "away",
+      "name": "Kenny"
+     },
+     {
+      "n": 5,
+      "x": 0.42,
+      "y": 0.2,
+      "team": "away"
+     },
+     {
+      "n": 3,
+      "x": 0.62,
+      "y": 0.22,
+      "team": "away",
+      "name": "Taiwo"
+     },
+     {
+      "n": 6,
+      "x": 0.3,
+      "y": 0.3,
+      "team": "away"
+     },
+     {
+      "n": 16,
+      "x": 0.45,
+      "y": 0.62,
+      "team": "home",
+      "name": "Agüero"
+     },
+     {
+      "n": 45,
+      "x": 0.55,
+      "y": 0.35,
+      "team": "home",
+      "name": "Balotelli"
+     }
+    ],
+    "ball": 4,
+    "moves": [
+     {
+      "from": 4,
+      "to": 5,
+      "at": "Then",
+      "dur": 0.7
+     },
+     {
+      "from": 5,
+      "to": [
+       0.62,
+       0.3
+      ],
+      "at": "poked",
+      "dur": 0.6,
+      "curve": 0.1
+     },
+     {
+      "from": 4,
+      "to": [
+       0.62,
+       0.3
+      ],
+      "at": "Balotelli",
+      "dur": 1.0,
+      "kind": "run"
+     },
+     {
+      "from": [
+       0.62,
+       0.3
+      ],
+      "to": [
+       0.68,
+       0.16
+      ],
+      "at": "to Agüero",
+      "dur": 0.6,
+      "kind": "run"
+     }
+    ],
+    "cam": [
+     {
+      "t": 0,
+      "s": 1
+     },
+     {
+      "at": "Balotelli",
+      "s": 1.4,
+      "x": 0.55,
+      "y": 0.35
+     },
+     {
+      "at": "Agüero",
+      "s": 1.6,
+      "x": 0.62,
+      "y": 0.25
+     }
+    ]
+   },
+   "vo": "Then, with almost the last kick of the season, Balotelli poked the ball to Agüero."
+  },
+  {
+   "kicker": "93:20",
+   "headline": "93:20. [AGÜEROOO].",
+   "accent": "#6cabdd",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     -3.5,
+     1.7,
+     33.5
+    ],
+    "tgt": [
+     -1.2,
+     1.0,
+     60
+    ]
+   },
+   "camera": {
+    "pos": [
+     -2.8,
+     1.7,
+     36.5
+    ],
+    "tgt": [
+     -0.8,
+     1.0,
+     60
+    ]
+   },
+   "move": 3.4,
+   "moveEase": "linear",
+   "fans": true,
+   "lights": 1,
+   "players": [
+    {
+     "name": "Agüero",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": 16,
+     "action": "kick",
+     "dribble": true,
+     "path": [
+      [
+       -5.5,
+       39
+      ],
+      [
+       -4.0,
+       41.0
+      ],
+      [
+       -2.7,
+       43.5
+      ]
+     ],
+     "pathDur": 1.5,
+     "actionDelay": 1.45,
+     "actionDur": 0.9,
+     "after": "celebrate"
+    },
+    {
+     "name": "Taiwo",
+     "front": true,
+     "x": -3.4,
+     "z": 42.2,
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": 0.75,
+     "actionDur": 0.9,
+     "before": "ready",
+     "kit": {
+      "shirt": "#1d5ba4",
+      "hoops": [
+       "#1d5ba4",
+       "#ffffff"
+      ],
+      "shorts": "#ffffff",
+      "socks": "#ffffff",
+      "text": "#0d2d5a"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010"
+    },
+    {
+     "name": "Kenny",
+     "front": true,
+     "x": -0.6,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 1.75,
+     "actionDur": 0.95,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#e7c3a0",
+     "hair": "#2a1a10"
+    }
+   ],
+   "punch": [
+    {
+     "t": 1.6,
+     "amount": 0.18,
+     "dur": 1.2,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "t": 2.45,
+     "amount": 22
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 1.5,
+     "point": [
+      -2.45,
+      0.11,
+      44.0
+     ],
+     "until": 0.33
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 1.83,
+     "dur": 0.6,
+     "slowmo": false,
+     "points": [
+      [
+       -2.45,
+       0.11,
+       44.0
+      ],
+      [
+       -2.0,
+       1.3,
+       48.5
+      ],
+      [
+       -2.6,
+       1.7,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 640,
+     "scale": 0.7,
+     "delay": 0,
+     "from": 93.0,
+     "to": 93.3334,
+     "dur": 2.1,
+     "endColor": "#ff4d5e"
+    },
+    {
+     "type": "flytext",
+     "text": "GOAL",
+     "size": 300,
+     "endScale": 0.65,
+     "y": 1600,
+     "delay": 2.45,
+     "color": "#f1c453"
+    }
+   ],
+   "vo": "Ninety-three minutes, twenty seconds. Agüero scored."
+  },
+  {
+   "kicker": "Replay · drone cam",
+   "headline": "First title in [44 years].",
+   "accent": "#6cabdd",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     -14,
+     10,
+     34
+    ],
+    "tgt": [
+     -2,
+     0.5,
+     46
+    ]
+   },
+   "camera": {
+    "pos": [
+     6,
+     4.5,
+     40
+    ],
+    "tgt": [
+     -1.5,
+     1,
+     50
+    ]
+   },
+   "move": 4.6,
+   "moveEase": "ease",
+   "fans": true,
+   "lights": 1,
+   "players": [
+    {
+     "name": "Agüero",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": 16,
+     "action": "kick",
+     "dribble": true,
+     "path": [
+      [
+       -5.5,
+       39
+      ],
+      [
+       -4.0,
+       41.0
+      ],
+      [
+       -2.7,
+       43.5
+      ]
+     ],
+     "pathDur": 1.5,
+     "actionDelay": 1.45,
+     "actionDur": 0.9,
+     "after": "celebrate"
+    },
+    {
+     "name": "Taiwo",
+     "front": true,
+     "x": -3.4,
+     "z": 42.2,
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": 0.75,
+     "actionDur": 0.9,
+     "before": "ready",
+     "kit": {
+      "shirt": "#1d5ba4",
+      "hoops": [
+       "#1d5ba4",
+       "#ffffff"
+      ],
+      "shorts": "#ffffff",
+      "socks": "#ffffff",
+      "text": "#0d2d5a"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010"
+    },
+    {
+     "name": "Kenny",
+     "front": true,
+     "x": -0.6,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 1.75,
+     "actionDur": 0.95,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#e7c3a0",
+     "hair": "#2a1a10"
+    }
+   ],
+   "punch": [],
+   "shake": [
+    {
+     "t": 1.85,
+     "amount": 12
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 1.5,
+     "point": [
+      -2.45,
+      0.11,
+      44.0
+     ],
+     "until": 0.33
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 1.83,
+     "dur": 0.6,
+     "slowmo": false,
+     "points": [
+      [
+       -2.45,
+       0.11,
+       44.0
+      ],
+      [
+       -2.0,
+       1.3,
+       48.5
+      ],
+      [
+       -2.6,
+       1.7,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "44 YEARS",
+     "size": 220,
+     "endScale": 0.6,
+     "y": 1560,
+     "at": "forty-four",
+     "color": "#f1c453",
+     "noShift": true
+    },
+    {
+     "type": "stamp",
+     "text": "ON GOAL DIFFERENCE",
+     "y": 1250,
+     "size": 70,
+     "rot": -0.06,
+     "at": "goal difference",
+     "color": "#6cabdd",
+     "noShift": true
+    }
+   ],
+   "letterbox": true,
+   "replayTag": "REPLAY",
+   "timeShift": 0.6,
+   "confetti": true,
+   "confettiDelay": 1.9,
+   "confettiColors": [
+    "#6cabdd",
+    "#ffffff",
+    "#1c2c5b"
+   ],
+   "vo": "City's first league title in forty-four years, won on goal difference."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "The greatest Premier League [moment]?",
+   "accent": "#6cabdd",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "orbit": {
+    "center": [
+     0,
+     1.35,
+     2.4
+    ],
+    "r": 4.8,
+    "from": -60,
+    "to": 30,
+    "h": 0.8,
+    "h2": 1.5,
+    "dur": 5
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.35,
+     2.4
+    ]
+   },
+   "flashes": 14,
+   "confetti": true,
+   "confettiColors": [
+    "#6cabdd",
+    "#ffffff",
+    "#1c2c5b"
+   ],
+   "players": [
+    {
+     "name": "Agüero",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": 16,
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "chest": true,
+     "pose": "fists"
+    }
+   ],
+   "card": {
+    "type": "poll",
+    "y": 760,
+    "at": "greatest moment",
+    "question": "Greatest Premier League moment?",
+    "options": [
+     {
+      "label": "93:20, easily",
+      "color": "#6cabdd",
+      "fill": 0.7
+     },
+     {
+      "label": "Something else",
+      "color": "#9aa1ad",
+      "fill": 0.3
+     }
+    ]
+   },
+   "vo": "Was this the greatest moment in Premier League history? Tell me in the comments."
+  }
+ ]
+}

@@ -2495,7 +2495,8 @@ CARDS.photo = function (c, ct, cx, cy) {
     // jagged tear line down the middle
     ctx.beginPath();
     const R = rng(9), pts = []; for (let y = -H0 / 2; y <= H0 / 2; y += 40) pts.push([(R() - 0.5) * 40, y]);
-    if (side < 0) { ctx.moveTo(-W0 / 2 - 2, -H0 / 2 - 2); pts.forEach(p => ctx.lineTo(...p)); ctx.lineTo(-W0 / 2 - 2, H0 / 2 + 2); }
+    if (side === 0) ctx.rect(-W0 / 2 - 50, -H0 / 2 - 50, W0 + 100, H0 + 100);   // whole photo, no tear seam
+    else if (side < 0) { ctx.moveTo(-W0 / 2 - 2, -H0 / 2 - 2); pts.forEach(p => ctx.lineTo(...p)); ctx.lineTo(-W0 / 2 - 2, H0 / 2 + 2); }
     else { ctx.moveTo(W0 / 2 + 2, -H0 / 2 - 2); pts.forEach(p => ctx.lineTo(...p)); ctx.lineTo(W0 / 2 + 2, H0 / 2 + 2); }
     ctx.closePath(); ctx.clip();
     ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 18;
@@ -2507,7 +2508,7 @@ CARDS.photo = function (c, ct, cx, cy) {
     if (c.caption) { font(400, 54, 'Marker'); ctx.fillStyle = '#2a2a33'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.caption, 0, H0 / 2 - bottom / 2 + 4); }
     ctx.restore();
   };
-  if (ripT == null || ct < ripT) { half(-1); half(1); }
+  if (ripT == null || ct < ripT) half(0);
   else {
     const e = eOut(rk);
     ctx.save(); ctx.translate(-e * 420, e * 120); ctx.rotate(-e * 0.6); half(-1); ctx.restore();
@@ -2811,7 +2812,7 @@ window.loadSpec = async function (spec) {
     B.world = B.sceneObj.type === 'stadium' || B.sceneObj.type === 'booth' ? buildWorld(B.sceneObj) : null;
     if (B.sceneObj.type === 'stage') buildStage(B.sceneObj);
     if (b.players === undefined && prev) { B.playersArr = prev.playersArr; B.playersStart = prev.playersStart; }
-    else { B.playersArr = b.players || []; B.playersStart = B.start; }
+    else { B.playersArr = b.players || []; B.playersStart = B.start - (b.timeShift || 0); }   // timeShift: start the action part-way through (replays)
     B.kickerText = b.kicker !== undefined ? b.kicker : (prev ? prev.kickerText : '');
     B.cards = [];
     for (const c of b.card == null ? [] : Array.isArray(b.card) ? b.card : [b.card]) {
@@ -2822,7 +2823,7 @@ window.loadSpec = async function (spec) {
         if (pb && c.type !== 'board') { B.cards.push(pb); continue; }
         if (pb) c._prev = pb.obj;
         // beat 1 is the hook: its cards are already in on frame 1 (the frame people see while scrolling)
-        const delay = c.delay != null ? c.delay : (i === 0 ? -0.45 : 0.3);
+        const delay = (c.delay != null ? c.delay : (i === 0 ? -0.45 : 0.3)) - (c.noShift ? 0 : (b.timeShift || 0));
         B.cards.push({ obj: c, start: pb ? B.start : B.start + delay });
       }
     }

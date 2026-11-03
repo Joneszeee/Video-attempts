@@ -33,19 +33,23 @@ and the ending loops back to the photo.
 - Messi retired from Argentina, announced 31 Aug 2026, aged 39. He wrote the letter on 21 July, two days after the final. 125 goals in 207 games. Six World Cups.
   [CNN](https://www.cnn.com/2026/08/31/sport/lionel-messi-argentina-national-team), [FIFA](https://www.fifa.com/en/tournaments/mens/worldcup/articles/lionel-messi-retires-from-argentina), [ESPN](https://www.espn.com/soccer/story/_/id/49266819/lionel-messi-argentina-international-retirement-world-cup-copa-america), [NBC](https://www.nbcnews.com/sports/soccer/lionel-messi-argentina-soccer-national-team-world-cup-retire-rcna595342)
 - He also quit in 2016 after the Copa América final, came back, and won the 2021 Copa América, the 2022 World Cup and the 2024 Copa América.
-- Not used: shot totals (only one source), the reported reversal (single source, contradicted), and the exact age of the baby (sources disagree).
+- Getafe goal: 18 Apr 2007, Copa del Rey semi-final, Messi aged 19 dribbled from his own half through the defence; fans voted it Barça's best ever goal (45%).
+  [FC Barcelona](https://www.fcbarcelona.com/en/news/1133199/messis-goal-against-getafe-is-the-best-in-barcas-history-according-to-the-fans), [SI](https://www.si.com/soccer/2019/04/18/anatomy-goal-12-years-lionel-messis-stunning-solo-goat-goal-against-getafe)
+- Not used: how many players he beat (sources say 4, 5 or 6), shot totals (only one source), the reported reversal (single source, contradicted), and the exact age of the baby (sources disagree).
 
 ## Script
 1. Lionel Messi once bathed a baby for a charity photo. Nineteen years later, that baby ended his World Cup career.
 2. The photo was taken in 2007, for a UNICEF calendar. The baby was Lamine Yamal.
-3. July 2026. The World Cup final. Messi's Argentina against Yamal's Spain.
-4. Messi was thirty-nine, playing in his sixth World Cup.
-5. For ninety minutes, Argentina held on.
-6. Then, in the hundred-and-sixth minute, Ferran Torres scored. Spain won one–nil.
-7. Two days later, Messi wrote his goodbye letter.
-8. After two hundred and seven games and one hundred and twenty-five goals, he was done with Argentina.
-9. He'd quit once before, in 2016, and came back to win the World Cup and two Copa Américas.
-10. This time, the baby from the photo had the last word.
-11. Should Messi come back one more time? Tell me in the comments.
+3. That same year, a nineteen-year-old Messi dribbled through Getafe's entire defence.
+4. Barcelona fans still vote it the greatest goal in the club's history.
+5. July 2026. The World Cup final. Messi's Argentina against Yamal's Spain.
+6. Messi was thirty-nine, playing in his sixth World Cup.
+7. For ninety minutes, Argentina held on.
+8. Then, in the hundred-and-sixth minute, Ferran Torres scored. Spain won one–nil.
+9. Two days later, Messi wrote his goodbye letter.
+10. After two hundred and seven games and one hundred and twenty-five goals, he was done with Argentina.
+11. He'd quit once before, in 2016, and came back to win the World Cup and two Copa Américas.
+12. This time, the baby from the photo had the last word.
+13. Should Messi come back one more time? Tell me in the comments.
 
 CTA: the question in line 11 and the pinned comment: "Should Messi come back one more time? 🤔"

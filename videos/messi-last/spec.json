@@ -139,7 +139,6 @@
    "kicker": "2007 · a charity calendar",
    "headline": "The baby was [Lamine Yamal].",
    "accent": "#E9B949",
-   "transition": "polaroid",
    "polaroidLabel": "2007",
    "scene": {
     "type": "stadium",
@@ -151,36 +150,129 @@
     "seed": 3
    },
    "cut": true,
+   "camFrom": "stand",
+   "camera": "stand",
+   "move": 7,
+   "lights": 0.35,
+   "focus": 0.7,
+   "players": [],
+   "card": [
+    {
+     "type": "photo",
+     "y": 1060,
+     "scene": "bath",
+     "caption": "2007",
+     "player": {
+      "name": "Messi",
+      "kit": {
+       "shirt": "#a50044",
+       "shorts": "#004d98",
+       "socks": "#004d98",
+       "text": "#f7d117",
+       "stripes": [
+        "#a50044",
+        "#004d98"
+       ]
+      },
+      "skin": "#e8b896",
+      "hair": "#4a3020"
+     },
+     "w": 760,
+     "h": 860,
+     "spin": 1.0,
+     "at": "The photo"
+    },
+    {
+     "type": "pen",
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 622,
+       "cy": 1080,
+       "rx": 95,
+       "ry": 80,
+       "color": "#ff4d5e",
+       "t": 0,
+       "dur": 0.45
+      },
+      {
+       "kind": "arrow",
+       "points": [
+        [
+         640,
+         1470
+        ],
+        [
+         700,
+         1300
+        ],
+        [
+         650,
+         1160
+        ]
+       ],
+       "color": "#ff4d5e",
+       "t": 0.5,
+       "dur": 0.4
+      },
+      {
+       "kind": "text",
+       "text": "Lamine Yamal",
+       "x": 470,
+       "y": 1560,
+       "size": 64,
+       "rot": -0.06,
+       "color": "#ffffff",
+       "t": 0.8
+      }
+     ],
+     "at": "The baby"
+    }
+   ],
+   "vo": "The photo was taken in 2007, for a UNICEF calendar. The baby was Lamine Yamal."
+  },
+  {
+   "kicker": "18 April 2007 · v Getafe",
+   "headline": "Age 19: through the [entire defence].",
+   "vo": "That same year, a nineteen-year-old Messi dribbled through Getafe's entire defence.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#ffffff"
+    ],
+    "seed": 3
+   },
    "camFrom": {
     "pos": [
-     0,
-     2.4,
-     -9
+     1.4,
+     1.9,
+     6.0
     ],
     "tgt": [
-     0,
-     1.3,
-     20
+     0.4,
+     1.0,
+     30
     ]
    },
    "camera": {
     "pos": [
-     0,
-     1.8,
-     -6
+     1.0,
+     1.9,
+     30.0
     ],
     "tgt": [
-     0,
-     1.3,
-     20
+     0.4,
+     1.0,
+     56
     ]
    },
-   "move": 7,
-   "lights": 0.8,
-   "focus": 0.15,
+   "move": 4.2,
    "players": [
     {
      "name": "Messi",
+     "num": 19,
      "kit": {
       "shirt": "#a50044",
       "shorts": "#004d98",
@@ -193,40 +285,403 @@
      },
      "skin": "#e8b896",
      "hair": "#4a3020",
-     "x": 0,
-     "z": 1,
-     "action": "run"
+     "action": "kick",
+     "dribble": true,
+     "path": [
+      [
+       0,
+       14
+      ],
+      [
+       0,
+       19
+      ],
+      [
+       1.6,
+       22.5
+      ],
+      [
+       0.6,
+       27
+      ],
+      [
+       0.4,
+       38
+      ]
+     ],
+     "pathDur": 3.6,
+     "hops": [
+      {
+       "t": 2.79,
+       "dur": 0.5,
+       "height": 0.18
+      }
+     ],
+     "actionDelay": 3.438,
+     "actionDur": 0.9,
+     "after": "celebrate"
+    },
+    {
+     "name": "Defender",
+     "front": true,
+     "x": -0.3,
+     "z": 22.6,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 1.035,
+     "actionDur": 0.9,
+     "before": "ready",
+     "kit": {
+      "shirt": "#005999",
+      "shorts": "#005999",
+      "socks": "#005999",
+      "text": "#ffffff"
+     },
+     "skin": "#c68a63",
+     "hair": "#1a120c"
+    },
+    {
+     "name": "Slider",
+     "kit": {
+      "shirt": "#005999",
+      "shorts": "#005999",
+      "socks": "#005999",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "path": [
+      [
+       7,
+       34.6
+      ],
+      [
+       3.2,
+       34.4
+      ],
+      [
+       -1.4,
+       34.1
+      ]
+     ],
+     "pathDur": 1.44,
+     "delay": 1.845,
+     "action": "slide",
+     "dir": 1,
+     "actionDelay": 2.493,
+     "actionDur": 1.1
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.3,
+     "z": 52.0,
+     "action": "dive",
+     "actionDelay": 3.735,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111",
+      "socks": "#f7d117",
+      "text": "#111"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "dir": 1,
+     "actionDur": 0.95
     }
    ],
-   "card": {
-    "type": "ruler",
-    "y": 720,
-    "at": "2007",
-    "min": 2006,
-    "max": 2027,
-    "step": 5,
-    "markers": [
-     {
-      "value": 2007,
-      "label": "2007 · the photo",
-      "len": 90
-     },
-     {
-      "value": 2026,
-      "label": "2026 · the final",
-      "accent": true,
-      "len": 90,
-      "side": "below"
-     }
-    ],
-    "bracket": {
-     "from": 2007,
-     "to": 2026,
-     "label": "19 years",
-     "y": -60
+   "moveEase": "linear",
+   "punch": [
+    {
+     "t": 3.6,
+     "amount": 0.18,
+     "dur": 1.4,
+     "anchor": 0
     }
+   ],
+   "shake": [
+    {
+     "t": 4.455,
+     "amount": 18
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 3.6,
+     "point": [
+      0.58,
+      0.11,
+      38.6
+     ],
+     "until": 0.18
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 3.78,
+     "dur": 0.8,
+     "points": [
+      [
+       0.58,
+       0.11,
+       38.6
+      ],
+      [
+       -1.2,
+       1.8,
+       46
+      ],
+      [
+       -2.7,
+       1.5,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "GOAL",
+     "size": 300,
+     "endScale": 0.65,
+     "y": 1600,
+     "delay": 4.5,
+     "color": "#f1c453"
+    }
+   ],
+   "accent": "#E9B949",
+   "cut": true,
+   "transition": "polaroid",
+   "polaroidLabel": "2007"
+  },
+  {
+   "kicker": "Replay · drone cam",
+   "headline": "Barça's [greatest] ever goal.",
+   "vo": "Barcelona fans still vote it the greatest goal in the club's history.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#ffffff"
+    ],
+    "seed": 3
    },
-   "vo": "The photo was taken in 2007, for a UNICEF calendar. The baby was Lamine Yamal."
+   "camFrom": {
+    "pos": [
+     -9,
+     10,
+     18
+    ],
+    "tgt": [
+     0,
+     0,
+     28
+    ]
+   },
+   "camera": {
+    "pos": [
+     8.5,
+     5.5,
+     32
+    ],
+    "tgt": [
+     0.4,
+     1,
+     45
+    ]
+   },
+   "move": 4.6,
+   "players": [
+    {
+     "name": "Messi",
+     "num": 19,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f7d117",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "action": "kick",
+     "dribble": true,
+     "path": [
+      [
+       0,
+       14
+      ],
+      [
+       0,
+       19
+      ],
+      [
+       1.6,
+       22.5
+      ],
+      [
+       0.6,
+       27
+      ],
+      [
+       0.4,
+       38
+      ]
+     ],
+     "pathDur": 3.6,
+     "hops": [
+      {
+       "t": 2.79,
+       "dur": 0.5,
+       "height": 0.18
+      }
+     ],
+     "actionDelay": 3.438,
+     "actionDur": 0.9,
+     "after": "celebrate"
+    },
+    {
+     "name": "Defender",
+     "front": true,
+     "x": -0.3,
+     "z": 22.6,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 1.035,
+     "actionDur": 0.9,
+     "before": "ready",
+     "kit": {
+      "shirt": "#005999",
+      "shorts": "#005999",
+      "socks": "#005999",
+      "text": "#ffffff"
+     },
+     "skin": "#c68a63",
+     "hair": "#1a120c"
+    },
+    {
+     "name": "Slider",
+     "kit": {
+      "shirt": "#005999",
+      "shorts": "#005999",
+      "socks": "#005999",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "path": [
+      [
+       7,
+       34.6
+      ],
+      [
+       3.2,
+       34.4
+      ],
+      [
+       -1.4,
+       34.1
+      ]
+     ],
+     "pathDur": 1.44,
+     "delay": 1.845,
+     "action": "slide",
+     "dir": 1,
+     "actionDelay": 2.493,
+     "actionDur": 1.1
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.3,
+     "z": 52.0,
+     "action": "dive",
+     "actionDelay": 3.735,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111",
+      "socks": "#f7d117",
+      "text": "#111"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "dir": 1,
+     "actionDur": 0.95
+    }
+   ],
+   "moveEase": "ease",
+   "punch": [],
+   "shake": [
+    {
+     "t": 4.455,
+     "amount": 18
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 3.6,
+     "point": [
+      0.58,
+      0.11,
+      38.6
+     ],
+     "until": 0.18
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 3.78,
+     "dur": 0.8,
+     "points": [
+      [
+       0.58,
+       0.11,
+       38.6
+      ],
+      [
+       -1.2,
+       1.8,
+       46
+      ],
+      [
+       -2.7,
+       1.5,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "No. 1",
+     "size": 260,
+     "endScale": 0.6,
+     "y": 1560,
+     "at": "greatest goal",
+     "color": "#f1c453",
+     "noShift": true
+    }
+   ],
+   "accent": "#E9B949",
+   "cut": true,
+   "letterbox": true,
+   "replayTag": "REPLAY",
+   "timeShift": 1.1,
+   "confetti": true,
+   "confettiColors": [
+    "#a50044",
+    "#004d98",
+    "#f7d117"
+   ],
+   "confettiDelay": 3.4
   },
   {
    "kicker": "World Cup final · MetLife Stadium",
@@ -412,39 +867,55 @@
    "cut": true,
    "camFrom": {
     "pos": [
-     0.5,
-     2.4,
-     60.5
+     -1.6,
+     1.9,
+     34.0
     ],
     "tgt": [
-     0,
-     1.0,
-     30
+     0.6,
+     1.2,
+     60
     ]
    },
    "camera": {
     "pos": [
-     -0.4,
-     2.1,
-     59.0
+     -1.5,
+     1.7,
+     35.4
     ],
     "tgt": [
-     0,
-     1.0,
-     30
+     0.7,
+     1.1,
+     60
     ]
    },
-   "move": 5,
+   "move": 3,
    "lights": 0.85,
    "fans": false,
    "players": [
     {
+     "name": "",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "x": 0.45,
+     "z": 40.1,
+     "action": "kick",
+     "actionDelay": 0.05,
+     "actionDur": 1.3
+    },
+    {
      "name": "Keeper",
-     "x": 0.1,
+     "front": true,
+     "x": 0.4,
      "z": 52.0,
      "action": "dive",
-     "dir": -1,
-     "actionDelay": 0.4,
+     "dir": 1,
      "before": "ready",
      "gloves": "#f2f2f2",
      "kit": {
@@ -459,89 +930,49 @@
    ],
    "card": [
     {
-     "type": "ballpath",
-     "world": true,
-     "delay": 0.25,
-     "dur": 0.6,
-     "slowmo": false,
-     "flash": false,
-     "points": [
-      [
-       -5,
-       0.11,
-       38
-      ],
-      [
-       -3.0,
-       2.2,
-       45.15
-      ],
-      [
-       -1.0,
-       1.2,
-       52.3
-      ]
-     ]
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.62,
+      0.11,
+      40.5
+     ],
+     "until": 0.6
     },
     {
      "type": "ballpath",
      "world": true,
-     "delay": 0.95,
-     "dur": 0.6,
-     "slowmo": false,
+     "delay": 0.6,
+     "dur": 0.82,
+     "saveBy": 1,
      "flash": false,
      "points": [
       [
-       4,
+       0.62,
        0.11,
-       40
+       40.5
       ],
       [
-       2.45,
+       1.6,
+       1.6,
+       47
+      ],
+      [
        2.2,
-       46.15
-      ],
-      [
-       0.9,
-       0.7,
-       52.3
-      ]
-     ]
-    },
-    {
-     "type": "ballpath",
-     "world": true,
-     "delay": 1.65,
-     "dur": 0.6,
-     "slowmo": false,
-     "flash": false,
-     "points": [
-      [
-       -1,
-       0.11,
-       37
-      ],
-      [
-       -0.4,
-       2.2,
-       44.65
-      ],
-      [
-       0.2,
-       1.9,
-       52.3
+       1.0,
+       51.6
       ]
      ]
     },
     {
      "type": "clock",
-     "y": 720,
+     "y": 700,
      "delay": 0,
-     "from": 0,
+     "from": 60,
      "to": 90,
-     "dur": 2.1,
+     "dur": 2.0,
      "phase": "STILL 0–0",
-     "phaseAt": 0.95
+     "phaseAt": 0.9
     }
    ],
    "vo": "For ninety minutes, Argentina held on."

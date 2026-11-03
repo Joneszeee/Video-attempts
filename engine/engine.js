@@ -1655,6 +1655,7 @@ function anchorStroke(s, a) {
   if (s.r != null) o.r = s.r * a.u;
   if (s.points) o.points = s.points.map(P);
   if (s.x != null) [o.x, o.y] = P([s.x, s.y]);
+  if (s.size != null && s.size < 5) o.size = s.size * a.u;   // anchored text: size in player-heights too
   return o;
 }
 CARDS.pen = function (c, ct) {

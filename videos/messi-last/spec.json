@@ -49,7 +49,8 @@
    "fans": true,
    "speedlines": [
     {
-     "at": "Nineteen years",
+     "at": "charity photo",
+     "lag": 0.0,
      "dur": 1.4
     }
    ],
@@ -95,8 +96,8 @@
       "hair": "#4a3020"
      },
      "babySkin": "#8a5a3c",
-     "ripAt": "Nineteen years",
-     "ripLag": -0.1
+     "ripAt": "charity photo",
+     "ripLag": 0.0
     },
     {
      "type": "pen",
@@ -113,8 +114,8 @@
        "dur": 0.4
       }
      ],
-     "hideAt": "Nineteen years",
-     "hideLag": -0.1
+     "hideAt": "charity photo",
+     "hideLag": 0.0
     },
     {
      "type": "stamp",
@@ -129,7 +130,8 @@
    ],
    "shake": [
     {
-     "at": "Nineteen years",
+     "at": "charity photo",
+     "lag": 0.0,
      "amount": 18
     }
    ],
@@ -150,83 +152,96 @@
     "seed": 3
    },
    "cut": true,
-   "camFrom": "stand",
-   "camera": "stand",
-   "move": 7,
-   "lights": 0.35,
-   "focus": 0.7,
-   "players": [],
+   "camFrom": {
+    "pos": [
+     0,
+     1.3,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -3.5
+    ],
+    "tgt": [
+     0,
+     1.15,
+     20
+    ]
+   },
+   "move": 6,
+   "lights": 0.55,
+   "focus": 0,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 2,
+     "front": true,
+     "chest": true,
+     "enter": "fade",
+     "at": "The baby was"
+    }
+   ],
    "card": [
     {
-     "type": "photo",
-     "y": 1060,
-     "scene": "bath",
-     "caption": "2007",
-     "player": {
-      "name": "Messi",
-      "kit": {
-       "shirt": "#a50044",
-       "shorts": "#004d98",
-       "socks": "#004d98",
-       "text": "#f7d117",
-       "stripes": [
-        "#a50044",
-        "#004d98"
-       ]
-      },
-      "skin": "#e8b896",
-      "hair": "#4a3020"
-     },
-     "w": 760,
-     "h": 860,
-     "spin": 1.0,
-     "at": "The photo"
+     "type": "calendar",
+     "y": 1000,
+     "at": "The photo",
+     "from": 2004,
+     "to": 2007,
+     "start": 0.2,
+     "dur": 1.8,
+     "title": "Charity calendar",
+     "color": "#1cabe2",
+     "caption": "UNICEF · FC Barcelona",
+     "hideAt": "The baby was",
+     "hideLag": -0.1,
+     "w": 640,
+     "h": 720
     },
     {
      "type": "pen",
+     "at": "The baby was",
+     "anchor": 0,
      "strokes": [
       {
        "kind": "ellipse",
-       "cx": 622,
-       "cy": 1080,
-       "rx": 95,
-       "ry": 80,
+       "layer": "under",
+       "cx": 0,
+       "cy": 0,
+       "rx": 0.42,
+       "ry": 0.08,
        "color": "#ff4d5e",
-       "t": 0,
-       "dur": 0.45
-      },
-      {
-       "kind": "arrow",
-       "points": [
-        [
-         640,
-         1470
-        ],
-        [
-         700,
-         1300
-        ],
-        [
-         650,
-         1160
-        ]
-       ],
-       "color": "#ff4d5e",
-       "t": 0.5,
-       "dur": 0.4
+       "t": 0
       },
       {
        "kind": "text",
-       "text": "Lamine Yamal",
-       "x": 470,
-       "y": 1560,
-       "size": 64,
-       "rot": -0.06,
+       "text": "the baby, 19 years on",
+       "x": -0.62,
+       "y": -1.1,
+       "size": 0.085,
+       "rot": -0.05,
        "color": "#ffffff",
-       "t": 0.8
+       "t": 0.2
       }
      ],
-     "at": "The baby"
+     "lag": 0.5
     }
    ],
    "vo": "The photo was taken in 2007, for a UNICEF calendar. The baby was Lamine Yamal."

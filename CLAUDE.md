@@ -128,6 +128,10 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
   (about 45% through the dive) matches the ball's arrival, and film it from in front of the goal, never from behind the net.
 - **Run cycle:** rigged players with `action: "run"` (or walking in) use an athletic run: knee drive, bob, and, seen from behind, the arms swinging
   **in front of the body** (only the back arm shows at his side). The user found the old one goofy and wanted the arms in front.
+- **Running for real (user: Messi "keeps running on the spot"):** give a player `"path": [[x,z], ...]` + `"pathDur"` and he runs along it at a steady pace,
+  with the ball following his heading when he's dribbling. Keep the camera slower than him (or still) so he visibly covers ground. To beat a defender,
+  put a `front` defender beside the path with a short `dive` (lunge) timed just before Messi reaches him. Example: `videos/_test-save`.
+- **Saves are auto-timed:** with `saveBy`, the engine sets the keeper's `actionDelay` so the catch lands at full stretch (70% of the dive) and he falls holding it.
 - **Dribbling:** a player with `"dribble": true` runs with the ball at his feet, pushed ahead on every other stride and depth-sorted with the players.
   Use it whenever a player runs in a scene (the user asked for it).
 - **Shots must read correctly.** A goal must clearly beat the keeper (send him the wrong way, or past his fingertips); a save puts the ball into

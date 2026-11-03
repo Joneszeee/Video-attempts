@@ -791,8 +791,18 @@ function drawTag(u, p, t) {
 function drawPlayers(cam, lt, players) {
   const list = [];
   for (const p of players) {
-    let x = p.x || 0, z = p.z || 0, walk = 0;
-    if (p.enter === 'walk') {
+    let x = p.x || 0, z = p.z || 0, walk = 0, heading = [0, 1];
+    if (p.path) {   // runs along a route at a steady pace (no easing, so he never looks like he's running on the spot)
+      const pts = p.path, segs = []; let total = 0;
+      for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); segs.push(d); total += d; }
+      const k = clamp((lt - (p.delay || 0)) / (p.pathDur || 3), 0, 1);
+      let dist = k * total, i = 0;
+      while (i < segs.length - 1 && dist > segs[i]) { dist -= segs[i]; i++; }
+      const f = segs[i] ? dist / segs[i] : 0;
+      x = lerp(pts[i][0], pts[i + 1][0], f); z = lerp(pts[i][1], pts[i + 1][1], f);
+      heading = [(pts[i + 1][0] - pts[i][0]) / (segs[i] || 1), (pts[i + 1][1] - pts[i][1]) / (segs[i] || 1)];
+      walk = k > 0 && k < 1 ? 1 : 0;
+    } else if (p.enter === 'walk') {
       const k = pr(lt, p.delay || 0, p.walkDur || 1.8);
       x = lerp(p.fromX != null ? p.fromX : x, x, eOut(k));
       z = lerp(p.fromZ != null ? p.fromZ : z - 6, z, eOut(k));
@@ -801,9 +811,10 @@ function drawPlayers(cam, lt, players) {
     const q = toCam(cam, [x, 0, z]);
     if (q[2] < NEAR + 0.5) continue;
     list.push({ p, q, walk });
-    if (p.dribble && (walk > 0 || p.action === 'run')) {   // he runs with the ball: a touch every other stride pushes it ahead
-      const ph = ((lt / 0.84) % 1), push = Math.sin(ph * Math.PI), dirz = p.front ? -1 : 1;
-      const bp = [x + 0.18, 0.11, z + dirz * (0.45 + 0.55 * push)];
+    if (p.dribble && (walk > 0 || (p.action === 'run' && !p.path))) {   // he runs with the ball: a touch every other stride pushes it ahead
+      const ph = ((lt / 0.84) % 1), push = Math.sin(ph * Math.PI), dirz = p.front ? -1 : 1, lead = 0.45 + 0.55 * push;
+      const hx = p.path ? heading[0] : 0, hz = p.path ? heading[1] : dirz;   // the ball runs ahead in the direction he's going
+      const bp = [x + 0.18 * hz + hx * lead, 0.11, z + hz * lead - 0.18 * hx];
       const bq = toCam(cam, bp);
       if (bq[2] > NEAR) list.push({ q: bq, dribbleBall: true, spin: lt * 12 });
     }
@@ -2814,6 +2825,15 @@ window.loadSpec = async function (spec) {
       for (const e of cardEvents(it.obj)) S.events.push({ t: it.start + e.t, type: e.type });
     }
     if (b.confetti && !(i > 0 && S.beats[i - 1].confetti)) S.events.push({ t: b.confettiStart, type: 'crowd' });
+  });
+  // real saves: time each keeper's dive so the ball meets his gloves at full stretch, then he lands holding it
+  S.beats.forEach(b => {
+    for (const it of b.cards) {
+      const c = it.obj, kp = c.type === 'ballpath' && c.saveBy != null && b.playersArr && b.playersArr[c.saveBy];
+      if (!kp || kp._autoDive === it) continue;
+      const dur = kp.actionDur || (ACTIONS[kp.action] || { dur: 0.95 }).dur;
+      kp.actionDelay = +(it.start + (c.dur || 1.6) - b.playersStart - 0.7 * dur).toFixed(3); kp._autoDive = it;
+    }
   });
   S.goals = [];
   S.beats.forEach((b, i) => {

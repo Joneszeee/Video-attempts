@@ -6,9 +6,9 @@
  "beats": [
   {
    "kicker": "Engine test \u00b7 new run",
-   "headline": "The new [run] cycle.",
+   "headline": "Running past a [defender].",
    "vo": "",
-   "duration": 3.2,
+   "duration": 4.0,
    "scene": {
     "type": "stadium",
     "crowd": [
@@ -22,28 +22,28 @@
    "camFrom": {
     "pos": [
      1.8,
-     1.4,
-     0.5
+     1.6,
+     -3.5
     ],
     "tgt": [
-     0,
+     0.4,
      1.0,
-     8
+     6
     ]
    },
    "camera": {
     "pos": [
      1.8,
-     1.4,
-     5.5
+     1.6,
+     9.0
     ],
     "tgt": [
-     0,
+     0.4,
      1.0,
-     13
+     21
     ]
    },
-   "move": 3.2,
+   "move": 3.8,
    "players": [
     {
      "name": "Messi",
@@ -60,13 +60,50 @@
      },
      "skin": "#e8b896",
      "hair": "#4a3020",
-     "x": 0,
-     "z": 9,
-     "enter": "walk",
-     "fromZ": 2,
-     "walkDur": 3.2,
      "action": "run",
-     "dribble": true
+     "dribble": true,
+     "path": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       6.5
+      ],
+      [
+       1.7,
+       9.0
+      ],
+      [
+       0.6,
+       12.5
+      ],
+      [
+       0.4,
+       17
+      ]
+     ],
+     "pathDur": 3.6
+    },
+    {
+     "name": "Defender",
+     "front": true,
+     "x": -0.15,
+     "z": 9.0,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 1.5,
+     "actionDur": 0.9,
+     "before": "ready",
+     "kit": {
+      "shirt": "#1f6f3a",
+      "shorts": "#ffffff",
+      "socks": "#1f6f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#c68a63",
+     "hair": "#1a120c"
     }
    ]
   },
@@ -136,7 +173,6 @@
      "z": 52.0,
      "action": "dive",
      "dir": 1,
-     "actionDelay": 1.0,
      "before": "ready",
      "gloves": "#f2f2f2",
      "kit": {

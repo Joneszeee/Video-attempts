@@ -83,6 +83,15 @@
        "text": "MCI 1–2 QPR"
       }
      ]
+    },
+    {
+     "type": "shout",
+     "text": "AGÜEROOOOO\nOOOOOOOO!!!",
+     "y": 1290,
+     "size": 200,
+     "delay": -2,
+     "clear": false,
+     "w": 930
     }
    ],
    "vo": "Thumbnail.",

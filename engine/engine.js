@@ -2423,6 +2423,32 @@ CARDS.redcard = function (c, ct, cx, cy) {
 };
 CARDS.redcard.noSlide = true;
 
+// Viral "shout" text (meme-thumbnail style): heavy slanted caps, yellow fill, thick black outline, white glow, tilted,
+// popping in with an overshoot. "\n" splits lines; each line is auto-fitted to `w` (default 1000px) up to `size`.
+// text, size (max px, default 190), color, stroke, rot (radians, default -0.07), skew (default -0.18), w, glow (colour or false)
+CARDS.shout = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.35)), a = pr(ct, 0, 0.12);
+  if (k <= 0) return;
+  const lines = String(c.text).split('\n'), maxW = c.w || 1000, gap = c.gap != null ? c.gap : 0.92;
+  const sizes = lines.map(l => { font(900, 100, 'Inter', '-2px'); return Math.min(c.size || 190, 100 * maxW / Math.max(1, ctx.measureText(l).width)); });
+  const total = sizes.reduce((m, z) => m + z * gap, 0);
+  const sh = ct < 0.6 ? Math.sin(ct * 60) * 6 * (1 - ct / 0.6) : 0;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx + sh, cy); ctx.rotate(c.rot != null ? c.rot : -0.07);
+  ctx.scale(0.4 + 0.6 * k, 0.4 + 0.6 * k); ctx.transform(1, 0, c.skew != null ? c.skew : -0.18, 1, 0, 0);
+  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round';
+  let y = -total / 2;
+  lines.forEach((l, i) => {
+    const z = sizes[i]; y += z * gap; font(900, z, 'Inter', '-2px');
+    if (c.glow !== false) { ctx.save(); ctx.shadowColor = c.glow || 'rgba(255,255,255,0.75)'; ctx.shadowBlur = z * 0.35; ctx.strokeStyle = 'rgba(0,0,0,0)'; ctx.fillStyle = c.stroke || '#0a0a0a'; ctx.fillText(l, 0, y); ctx.restore(); }
+    ctx.lineWidth = z * 0.2; ctx.strokeStyle = c.stroke || '#0a0a0a'; ctx.strokeText(l, 0, y);   // fat outline
+    ctx.fillStyle = 'rgba(0,0,0,0.55)'; ctx.fillText(l, z * 0.04, y + z * 0.06);                  // drop shadow inside the outline
+    const g = ctx.createLinearGradient(0, y - z * 0.8, 0, y); g.addColorStop(0, c.color2 || '#fff36b'); g.addColorStop(1, c.color || '#ffc400');
+    ctx.fillStyle = g; ctx.fillText(l, 0, y);
+  });
+  ctx.restore();
+};
+CARDS.shout.noSlide = true;
+
 // Chalkboard tally: a wooden-framed blackboard; chalk tally marks (gates of five) draw themselves one by one.
 // n marks, done already drawn, next one at newAt/newT; title and score in chalk handwriting.
 function chalkLine(x1, y1, x2, y2, k, seed, w) {

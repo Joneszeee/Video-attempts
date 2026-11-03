@@ -231,6 +231,9 @@ Built so far from the idea list (reuse them):
   bring a comparison in on the line *before* its payoff word (e.g. the points tape on "The final day", not on "level on points").
 - **Red card:** the `redcard` card. A referee's arm swings up from the bottom holding a glowing red card, with a shake (`dx` = sideways offset, default 180;
   `label` sits above the card, e.g. "55' Barton"). Put the sent-off player on the other side of the frame. Example: `videos/aguero-9320` beat 4.
+- **Shout text (viral thumbnail style):** the `shout` card. Heavy slanted caps, yellow gradient, fat black outline, white glow, tilted, pops in with a shake.
+  `text` ("\n" for lines, each auto-fitted to `w`, default 1000), `size` (max), `color`/`color2`, `stroke`, `rot`, `skew`, `glow`. Use it on thumbnails
+  ("AGÜEROOOO!!!", `videos/aguero-9320/thumb`) or for a big shouted moment in a video.
 - **Hooped kits:** `kit.hoops: [c1, c2]` gives horizontal bands (QPR, Celtic).
 - **Headers:** `hops` take `at`/`lag` like everything else and now work on any player (no `action` needed). For a header, time the cross `ballpath`
   to end on the word, a hop peaking there and the header `ballpath` starting from the head. Film it side-on or 3/4 so the ball isn't hidden by the scorer.

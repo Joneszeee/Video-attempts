@@ -2,3 +2,4 @@ videos/*/out/
 __pycache__/
 node_modules/
 videos/**/out/
+videos/**/thumb_real/photo_*.jpg

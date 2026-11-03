@@ -135,6 +135,9 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
   across the runner's line: drop, lean back, leading leg out, skid. The runner jumps it with `"hops": [{"t", "dur", "height"}]`. Example: `videos/_test-save`.
 - **Smooth moves:** actions now blend in over 0.12s and into their `after` loop over 0.2s, so nothing snaps. When tracking a runner,
   use beat `"moveEase": "linear"` so the camera keeps a constant pace with him (easing makes him look like he's running on the spot).
+- **Drone replay (user idea):** copy the action beat, add `"cut": true`, `"letterbox": true`, `"replayTag": "REPLAY"` and a high sweeping camera
+  (`camFrom` high and wide to one side, `camera` lower on the other side, `move` = beat length). The same action plays again from above with cinema bars.
+  A runner can finish with a shot: `action: "kick"` timed to the end of his `path`, a `ball` at his feet until contact, then the `ballpath` past a wrong-way keeper.
 - **Always put a keeper in the goal** a player is running or shooting towards (`front`, `before: "ready"`).
 - **Saves are auto-timed:** with `saveBy`, the engine sets the keeper's `actionDelay` so the catch lands at full stretch (70% of the dive) and he falls holding it.
 - **Dribbling:** a player with `"dribble": true` runs with the ball at his feet, pushed ahead on every other stride and depth-sorted with the players.

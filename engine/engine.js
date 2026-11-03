@@ -2996,6 +2996,16 @@ function renderAt(t) {
     const fl = 1 - pr(lt, b.freeze, 0.35);
     if (fl > 0) { ctx.fillStyle = `rgba(255,255,255,${0.55 * fl})`; ctx.fillRect(0, 0, W, H); }
   }
+  if (b.letterbox) {   // cinematic bars (drone replays, big moments)
+    const k = eOut(pr(lt, 0, 0.4)), hb = 150 * k;
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, hb); ctx.fillRect(0, H - hb, W, hb);
+    if (b.replayTag) {
+      ctx.save(); ctx.globalAlpha = k * (0.75 + 0.25 * Math.sin(lt * 5));
+      ctx.fillStyle = '#d6283b'; ctx.beginPath(); ctx.arc(W - 250, H - hb - 46, 11, 0, 7); ctx.fill();
+      font(800, 30, 'Mono', '5px'); ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(b.replayTag, W - 228, H - hb - 44);
+      ctx.restore();
+    }
+  }
   if (b.speedlines) drawSpeedlines(b, lt);
   if (b.flashes) {   // phone and camera flashes popping across the stands (big moments, celebrations)
     const n = typeof b.flashes === 'number' ? b.flashes : 14, slot = Math.floor(t / 0.09);

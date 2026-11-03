@@ -6,9 +6,9 @@
  "beats": [
   {
    "kicker": "Engine test \u00b7 new run",
-   "headline": "Past one, over the [tackle].",
+   "headline": "Past two, then [the finish].",
    "vo": "",
-   "duration": 4.8,
+   "duration": 6.4,
    "scene": {
     "type": "stadium",
     "crowd": [
@@ -35,7 +35,7 @@
     "pos": [
      1.0,
      1.9,
-     32.0
+     30.0
     ],
     "tgt": [
      0.4,
@@ -43,7 +43,7 @@
      56
     ]
    },
-   "move": 4.8,
+   "move": 4.6,
    "players": [
     {
      "name": "Messi",
@@ -60,7 +60,7 @@
      },
      "skin": "#e8b896",
      "hair": "#4a3020",
-     "action": "run",
+     "action": "kick",
      "dribble": true,
      "path": [
       [
@@ -81,17 +81,20 @@
       ],
       [
        0.4,
-       40
+       38
       ]
      ],
-     "pathDur": 4.2,
+     "pathDur": 4.0,
      "hops": [
       {
-       "t": 2.95,
+       "t": 3.1,
        "dur": 0.5,
        "height": 0.18
       }
-     ]
+     ],
+     "actionDelay": 3.82,
+     "actionDur": 0.9,
+     "after": "celebrate"
     },
     {
      "name": "Defender",
@@ -137,10 +140,10 @@
       ]
      ],
      "pathDur": 1.6,
-     "delay": 1.9,
+     "delay": 2.05,
      "action": "slide",
      "dir": 1,
-     "actionDelay": 2.62,
+     "actionDelay": 2.77,
      "actionDur": 1.1
     },
     {
@@ -149,7 +152,7 @@
      "x": 0.3,
      "z": 52.0,
      "action": "dive",
-     "actionDelay": 99,
+     "actionDelay": 4.15,
      "before": "ready",
      "gloves": "#f2f2f2",
      "kit": {
@@ -159,10 +162,291 @@
       "text": "#111"
      },
      "skin": "#e2b08c",
-     "hair": "#2a1a10"
+     "hair": "#2a1a10",
+     "dir": 1,
+     "actionDur": 0.95
     }
    ],
-   "moveEase": "linear"
+   "moveEase": "linear",
+   "punch": [
+    {
+     "t": 4.0,
+     "amount": 0.18,
+     "dur": 1.4,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "t": 4.95,
+     "amount": 18
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 4.0,
+     "point": [
+      0.58,
+      0.11,
+      38.6
+     ],
+     "until": 0.2
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 4.2,
+     "dur": 0.8,
+     "points": [
+      [
+       0.58,
+       0.11,
+       38.6
+      ],
+      [
+       -1.2,
+       1.8,
+       46
+      ],
+      [
+       -2.7,
+       1.5,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "GOAL",
+     "size": 300,
+     "endScale": 0.65,
+     "y": 1600,
+     "delay": 5.0,
+     "color": "#f1c453"
+    }
+   ]
+  },
+  {
+   "kicker": "Replay \u00b7 drone cam",
+   "headline": "The same run, [from above].",
+   "vo": "",
+   "duration": 6.4,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": {
+    "pos": [
+     -11,
+     12,
+     12
+    ],
+    "tgt": [
+     0,
+     0,
+     24
+    ]
+   },
+   "camera": {
+    "pos": [
+     8.5,
+     5.5,
+     32
+    ],
+    "tgt": [
+     0.4,
+     1,
+     45
+    ]
+   },
+   "move": 6.4,
+   "players": [
+    {
+     "name": "Messi",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#111111",
+      "socks": "#ffffff",
+      "text": "#111111",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "action": "kick",
+     "dribble": true,
+     "path": [
+      [
+       0,
+       14
+      ],
+      [
+       0,
+       19
+      ],
+      [
+       1.6,
+       22.5
+      ],
+      [
+       0.6,
+       27
+      ],
+      [
+       0.4,
+       38
+      ]
+     ],
+     "pathDur": 4.0,
+     "hops": [
+      {
+       "t": 3.1,
+       "dur": 0.5,
+       "height": 0.18
+      }
+     ],
+     "actionDelay": 3.82,
+     "actionDur": 0.9,
+     "after": "celebrate"
+    },
+    {
+     "name": "Defender",
+     "front": true,
+     "x": -0.3,
+     "z": 22.6,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 1.15,
+     "actionDur": 0.9,
+     "before": "ready",
+     "kit": {
+      "shirt": "#1f6f3a",
+      "shorts": "#ffffff",
+      "socks": "#1f6f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#c68a63",
+     "hair": "#1a120c"
+    },
+    {
+     "name": "Slider",
+     "kit": {
+      "shirt": "#1f6f3a",
+      "shorts": "#ffffff",
+      "socks": "#1f6f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "path": [
+      [
+       7,
+       34.6
+      ],
+      [
+       3.2,
+       34.4
+      ],
+      [
+       -1.4,
+       34.1
+      ]
+     ],
+     "pathDur": 1.6,
+     "delay": 2.05,
+     "action": "slide",
+     "dir": 1,
+     "actionDelay": 2.77,
+     "actionDur": 1.1
+    },
+    {
+     "name": "Keeper",
+     "front": true,
+     "x": 0.3,
+     "z": 52.0,
+     "action": "dive",
+     "actionDelay": 4.15,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111",
+      "socks": "#f7d117",
+      "text": "#111"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "dir": 1,
+     "actionDur": 0.95
+    }
+   ],
+   "moveEase": "ease",
+   "punch": [],
+   "shake": [
+    {
+     "t": 4.95,
+     "amount": 12
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 4.0,
+     "point": [
+      0.58,
+      0.11,
+      38.6
+     ],
+     "until": 0.2
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 4.2,
+     "dur": 0.8,
+     "points": [
+      [
+       0.58,
+       0.11,
+       38.6
+      ],
+      [
+       -1.2,
+       1.8,
+       46
+      ],
+      [
+       -2.7,
+       1.5,
+       53.0
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "GOAL",
+     "size": 260,
+     "endScale": 0.6,
+     "y": 1560,
+     "delay": 5.0,
+     "color": "#f1c453"
+    }
+   ],
+   "cut": true,
+   "letterbox": true,
+   "replayTag": "REPLAY",
+   "confetti": true,
+   "confettiDelay": 5.0
   },
   {
    "kicker": "Engine test \u00b7 a real save",

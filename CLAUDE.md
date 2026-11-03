@@ -143,6 +143,7 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
   A runner can finish with a shot: `action: "kick"` timed to the end of his `path`, a `ball` at his feet until contact, then the `ballpath` past a wrong-way keeper.
 - **Always put a keeper in the goal** a player is running or shooting towards (`front`, `before: "ready"`).
 - **Saves are auto-timed:** with `saveBy`, the engine sets the keeper's `actionDelay` so the catch lands at full stretch (70% of the dive) and he falls holding it.
+- **Strong foot:** `"foot": "left"` mirrors the kick and keeps the dribbled ball on his left (Messi is left-footed; check this for every named player).
 - **Dribbling:** a player with `"dribble": true` runs with the ball at his feet, pushed ahead on every other stride and depth-sorted with the players.
   Use it whenever a player runs in a scene (the user asked for it).
 - **Shots must read correctly.** A goal must clearly beat the keeper (send him the wrong way, or past his fingertips); a save puts the ball into

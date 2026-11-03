@@ -334,7 +334,8 @@
      ],
      "actionDelay": 2.483,
      "actionDur": 0.9,
-     "after": "celebrate"
+     "after": "celebrate",
+     "foot": "left"
     },
     {
      "name": "Defender",
@@ -427,7 +428,7 @@
      "type": "ball",
      "delay": 2.6,
      "point": [
-      0.58,
+      0.22,
       0.11,
       38.6
      ],
@@ -440,7 +441,7 @@
      "dur": 0.7,
      "points": [
       [
-       0.58,
+       0.22,
        0.11,
        38.6
       ],
@@ -554,7 +555,8 @@
        ],
        "actionDelay": 2.483,
        "actionDur": 0.9,
-       "after": "celebrate"
+       "after": "celebrate",
+       "foot": "left"
       },
       {
        "name": "Defender",
@@ -632,7 +634,7 @@
        "type": "ball",
        "delay": 2.6,
        "point": [
-        0.58,
+        0.22,
         0.11,
         38.6
        ],
@@ -645,7 +647,7 @@
        "dur": 0.7,
        "points": [
         [
-         0.58,
+         0.22,
          0.11,
          38.6
         ],

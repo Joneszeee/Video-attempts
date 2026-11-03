@@ -1,0 +1,85 @@
+{
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "World Cup 2026 · the final",
+   "headline": "This baby ended Messi's [World Cup].",
+   "accent": "#E9B949",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": {
+    "pos": [
+     0.6,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0.6,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.6,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0.6,
+     1.2,
+     20
+    ]
+   },
+   "move": 0.1,
+   "lights": 0.75,
+   "focus": 0.15,
+   "fans": true,
+   "speedlines": [],
+   "flashes": 10,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.0,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": [
+    {
+     "type": "stamp",
+     "text": "19 YEARS LATER",
+     "y": 1700,
+     "size": 90,
+     "rot": -0.08,
+     "delay": -2,
+     "color": "#f1c453"
+    }
+   ],
+   "shake": [],
+   "vo": "",
+   "duration": 3
+  }
+ ]
+}

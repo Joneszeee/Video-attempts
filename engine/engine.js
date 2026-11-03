@@ -558,7 +558,7 @@ function poseFor(p, t, walking) {
     const dur = p.actionDur || A.dur;
     const act = f => {
       const ps = keyPose(A.keys, f);
-      if (p.dir === -1) { ps.rot = -ps.rot; ps.px = -ps.px; [ps.AL, ps.AR] = [[-ps.AR[0], ps.AR[1]], [-ps.AL[0], ps.AL[1]]]; [ps.L, ps.R] = [[-ps.R[0], ps.R[1]], [-ps.L[0], ps.L[1]]]; }
+      if (p.dir === -1 || (p.foot === 'left' && p.action === 'kick')) { ps.rot = -ps.rot; /* foot: 'left' mirrors the strike for left-footers (Messi) */ ps.px = -ps.px; [ps.AL, ps.AR] = [[-ps.AR[0], ps.AR[1]], [-ps.AL[0], ps.AL[1]]]; [ps.L, ps.R] = [[-ps.R[0], ps.R[1]], [-ps.L[0], ps.L[1]]]; }
       return ps;
     };
     const pre = tt => walking || p.path ? loopPose('run', tt) : loopPose(p.before || 'idle', tt);
@@ -832,7 +832,8 @@ function drawPlayers(cam, lt, players) {
     if (p.dribble && (walk > 0 || (p.action === 'run' && !p.path))) {   // he runs with the ball: a touch every other stride pushes it ahead
       const ph = ((lt / 0.84) % 1), push = Math.sin(ph * Math.PI), dirz = p.front ? -1 : 1, lead = 0.45 + 0.55 * push;
       const hx = p.path ? heading[0] : 0, hz = p.path ? heading[1] : dirz;   // the ball runs ahead in the direction he's going
-      const bp = [x + 0.18 * hz + hx * lead, 0.11, z + hz * lead - 0.18 * hx];
+      const side = p.foot === 'left' ? -0.18 : 0.18;   // ball on his stronger foot
+      const bp = [x + side * hz + hx * lead, 0.11, z + hz * lead - side * hx];
       const bq = toCam(cam, bp);
       if (bq[2] > NEAR) list.push({ q: bq, dribbleBall: true, spin: lt * 12 });
     }

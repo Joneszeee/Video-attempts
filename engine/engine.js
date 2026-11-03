@@ -1019,8 +1019,28 @@ function drawBrand() {
 // ---------- cards ----------
 const GOLD = ['#fff4c9', '#f1c453', '#b77d16'];
 function cardY(c) {
-  if (c.y != null) return c.y;
-  return { top: 0.4, mid: 0.47, center: 0.55, low: 0.8 }[c.pos || 'mid'] * H;
+  const y = c.y != null ? c.y : { top: 0.4, mid: 0.47, center: 0.55, low: 0.8 }[c.pos || 'mid'] * H;
+  // Cards never sit on the headline (user: the date and points cards overlapped a two-line headline):
+  // measure the card's real top edge once and push it down to leave a clear gap under the headline.
+  if (S.hlBottom == null || NO_CLEAR.has(c.type) || c.clear === false) return y;
+  const top = cardTop(c, y);
+  return top == null || top > 900 ? y : Math.max(y, S.hlBottom + 56 + top);
+}
+const NO_CLEAR = new Set(['ball', 'ballpath', 'vehicle', 'pen', 'flytext', 'redcard', 'comments', 'shotmap', 'speedlines']);
+let probeCtx = null;
+function cardTop(c, y) {   // distance from the card's centre line up to its highest drawn pixel, in its settled state
+  if (c._top !== undefined && c._topY === y) return c._top;
+  c._topY = y; c._top = null;
+  const fn = CARDS[c.type]; if (!fn) return null;
+  if (!probeCtx) { const pc = document.createElement('canvas'); pc.width = W; pc.height = H; probeCtx = pc.getContext('2d', { willReadFrequently: true }); }
+  const saved = ctx, savedHL = S.hlBottom; ctx = probeCtx; S.hlBottom = null;
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.clearRect(0, 0, W, H);
+  const ct = c.hideT != null ? Math.max(0.5, Math.min(2.5, c.hideT - 0.05)) : 2.5;
+  try { ctx.save(); fn(c, ct, W / 2 + (c.shiftX || 0), y, 0); ctx.restore(); } catch (e) { /* a card that can't draw offscreen just isn't moved */ }
+  ctx = saved; S.hlBottom = savedHL;
+  const rows = Math.max(1, Math.min(H, Math.floor(y))), d = probeCtx.getImageData(0, 0, W, rows).data;
+  for (let yy = 0; yy < rows; yy++) for (let x = 0; x < W; x += 3) if (d[(yy * W + x) * 4 + 3] > 40) { c._top = y - yy; return c._top; }
+  return c._top;
 }
 function cardBox(cx, cy, w, h, label) {
   rrect(cx - w / 2, cy - h / 2, w, h, 22);
@@ -3088,6 +3108,7 @@ function renderAt(t) {
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 
   // cards
+  S.hlBottom = !S.spec.captions && b.headline ? HL.y + (layoutHL(b.headline).length - 1) * HL.lh + 24 : null;
   for (const it of b.cards) {
     const ct = t - it.start;
     if (ct < 0) continue;

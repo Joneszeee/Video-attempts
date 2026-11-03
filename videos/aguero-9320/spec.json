@@ -277,12 +277,12 @@
       "big": "13",
       "bottom": "MAY"
      },
-     "hideAt": "level on"
+     "hideAt": "The final day"
     },
     {
      "type": "tape",
      "y": 680,
-     "at": "level on",
+     "at": "The final day",
      "left": {
       "name": "Man City",
       "color": "#6cabdd"
@@ -299,7 +299,7 @@
       }
      ],
      "caption": "Dead level",
-     "captionAt": "points"
+     "captionAt": "level"
     }
    ],
    "vo": "The thirteenth of May, 2012. The final day. City and United were level on points."

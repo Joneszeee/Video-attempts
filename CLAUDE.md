@@ -226,6 +226,9 @@ Built so far from the idea list (reuse them):
 - **Goodbye letter:** the `letter` card. A sheet with a `date` whose handwriting lines write themselves over `write` seconds. The lines are illegible
   scribbles, so we never put words in a real person's mouth.
 - **Any card can vanish on a word** with `hideAt` (+ `hideLag`).
+- **Cards clear the headline automatically** (user: the date and points cards overlapped a two-line headline). The engine measures each card's real top
+  edge and pushes it down to leave a gap under the headline. Opt out per card with `"clear": false`. Still give stat cards time to be read:
+  bring a comparison in on the line *before* its payoff word (e.g. the points tape on "The final day", not on "level on points").
 - **Red card:** the `redcard` card. A referee's arm swings up from the bottom holding a glowing red card, with a shake (`dx` = sideways offset, default 180;
   `label` sits above the card, e.g. "55' Barton"). Put the sent-off player on the other side of the frame. Example: `videos/aguero-9320` beat 4.
 - **Hooped kits:** `kit.hoops: [c1, c2]` gives horizontal bands (QPR, Celtic).

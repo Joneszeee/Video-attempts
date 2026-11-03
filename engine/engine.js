@@ -1622,11 +1622,12 @@ function drawUnderPens() {
   const b = S.cur;
   if (!b) return;
   for (const it of b.cards) {
-    if (it.obj.type !== 'pen' || !it.obj.strokes.some(s => s.layer === 'under')) continue;
+    const web = it.obj.type === 'passweb';
+    if (!web && (it.obj.type !== 'pen' || !it.obj.strokes.some(s => s.layer === 'under'))) continue;
     const ct = S.t - it.start;
     if (ct < 0) continue;
     ctx.save();
-    it.obj._under = true; CARDS.pen(it.obj, ct); it.obj._under = false;
+    it.obj._under = true; CARDS[it.obj.type](it.obj, ct); it.obj._under = false;
     ctx.restore();
   }
 }
@@ -1861,6 +1862,52 @@ CARDS.ballpath = function (c, ct) {
   ctx.restore();
 };
 CARDS.ballpath.noSlide = true;
+// Pass web (stadium): the ball pings from player to player on the real pitch, each pass leaving a glowing line on the grass
+// (drawn under the players), while a big counter races up. nodes: [[x, z], ...] pitch points (put players there),
+// pass (s per pass, default 0.34), trail (lines kept, default 16), color, seed; counter: from, to, dur, label, y (or pos).
+// counter: false hides the number (lines only).
+function passSeq(c) {
+  if (c._seq) return c._seq;
+  const R = rng(c.seed || 7), n = c.nodes.length, seq = [c.start || 0];
+  for (let i = 0; i < 400; i++) { let j; do { j = Math.floor(R() * n); } while (j === seq[seq.length - 1]); seq.push(j); }
+  return (c._seq = seq);
+}
+CARDS.passweb = function (c, ct, cx, cy) {
+  if (c._under) {
+    if (!S.cam) return;
+    const seq = passSeq(c), pd = c.pass || 0.34, done = ct / pd, cur = Math.floor(done), k = done - cur, trail = c.trail || 16;
+    const P = i => { const v = toCam(S.cam, [c.nodes[seq[i]][0], 0.05, c.nodes[seq[i]][1]]); return v[2] < NEAR ? null : proj(v); };
+    const end = c.stopAt != null ? Math.min(cur, Math.floor(c.stopAt / pd)) : cur;
+    ctx.save(); ctx.lineCap = 'round';
+    for (let i = Math.max(0, end - trail); i < end; i++) {
+      const a = P(i), b = P(i + 1); if (!a || !b) continue;
+      const f = 1 - (end - i) / (trail + 1);
+      ctx.strokeStyle = c.color || '#ffffff'; ctx.globalAlpha = 0.15 + 0.55 * f; ctx.lineWidth = 3 + 5 * f;
+      ctx.shadowColor = c.color || '#ffffff'; ctx.shadowBlur = 14 * f;
+      ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke();
+    }
+    ctx.restore();
+    if (c.stopAt != null && ct >= c.stopAt) return;
+    const a = P(cur), b = P(cur + 1); if (!a || !b) return;
+    const e = ease(k), x = lerp(a[0], b[0], e), y = lerp(a[1], b[1], e) - Math.sin(Math.PI * k) * 10;
+    const va = toCam(S.cam, [c.nodes[seq[cur]][0], 0, c.nodes[seq[cur]][1]]), r = Math.max(4, FOC * 0.11 / Math.max(1, va[2]));
+    ctx.save(); ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = r * 0.9; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(lerp(a[0], b[0], Math.max(0, e - 0.12)), lerp(a[1], b[1], Math.max(0, e - 0.12))); ctx.lineTo(x, y); ctx.stroke();
+    drawBall(x, y, r); ctx.restore();
+    return;
+  }
+  if (c.counter === false) return;
+  const k = ease(pr(ct, 0, c.dur || 4)), v = Math.round(lerp(c.from || 0, c.to, k)), fin = k >= 1;
+  const pop = fin ? 1 + 0.12 * Math.max(0, 1 - (ct - (c.dur || 4)) / 0.3) : 1;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(pop, pop);
+  ctx.fillStyle = 'rgba(10,12,18,0.78)'; rrect(-300, -120, 600, 230, 28); ctx.fill();
+  font(800, 150, 'Inter', '-3px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  if (fin) { ctx.shadowColor = c.gold === false ? 'transparent' : '#f1c453'; ctx.shadowBlur = 30; }
+  ctx.fillStyle = fin && c.gold !== false ? '#f1c453' : '#ffffff'; ctx.fillText(v.toLocaleString('en-GB'), 0, 50); ctx.shadowBlur = 0;
+  font(600, 26, 'Mono', '5px'); ctx.fillStyle = '#9aa3b2'; ctx.fillText((c.label || 'Passes completed').toUpperCase(), 0, 92);
+  ctx.restore();
+};
+CARDS.passweb.noSlide = true;
 // A ball resting at a world point until 'until' seconds (e.g. waiting to be kicked).
 CARDS.ball = function (c, ct) {
   if (!S.cam || (c.until != null && ct >= c.until)) return;
@@ -2828,6 +2875,9 @@ function cardEvents(c) {
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'redcard': ev.push({ t: 0.1, type: 'whoosh' }, { t: 0.45, type: 'impact' }); break;
+    case 'passweb': { const pd = c.pass || 0.34, end = c.stopAt != null ? c.stopAt : (c.passFor || 6); for (let t = pd; t < end; t += pd) ev.push({ t, type: 'pop' });
+      if (c.counter !== false) { ticks(0.1, (c.dur || 4) * 0.9); ev.push({ t: c.dur || 4, type: 'impact' }); } break; }
+    case 'shout': ev.push({ t: 0, type: 'whoosh' }, { t: 0.3, type: 'impact' }); break;
     case 'tally': if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
     case 'photo': ev.push({ t: 0, type: 'whoosh' }); if (c.ripT != null) ev.push({ t: c.ripT, type: 'impact' }, { t: c.ripT, type: 'swish' }); break;
     case 'calendar': { const n = c.to - c.from; for (let i = 1; i <= n; i++) ev.push({ t: (c.start || 0.5) + Math.pow(i / n, 1 / 1.6) * (c.dur || 2.2), type: 'swipe' }); ev.push({ t: (c.start || 0.5) + (c.dur || 2.2), type: 'impact' }); break; }
@@ -3048,7 +3098,7 @@ function renderAt(t) {
   S.anchors = []; S.cam = null; S.cur = b; S.t = ts;
   if (scene.type === 'stage') drawStage(ts, b, stageCamAt(i, lts), ts - b.playersStart);
   else if (scene.type === 'booth') {   // slow push-in toward the desk so the booth never sits still (zoomFrom/zoom override)
-    const z = lerp(b.zoomFrom != null ? b.zoomFrom : 1, b.zoom != null ? b.zoom : 1.12, ease(pr(lts, 0, b.dur)));
+    const z = lerp(b.zoomFrom != null ? b.zoomFrom : 1, b.zoom != null ? b.zoom : 1.15, pr(lts, 0, b.dur));   // linear, so the end of the beat keeps moving
     ctx.save(); ctx.translate(W / 2, H * 0.55); ctx.scale(z, z); ctx.translate(-W / 2, -H * 0.55);
     drawBooth(ts, b, ts - b.playersStart); ctx.restore();
   }
@@ -3067,7 +3117,11 @@ function renderAt(t) {
   if (b.freeze != null && lt > b.freeze) {   // drain the colour and flash white, like a paused broadcast
     const k = pr(lt, b.freeze, 0.3), fx = fullc.getContext('2d');
     fx.clearRect(0, 0, W, H); fx.drawImage(cv, 0, 0);
-    ctx.save(); ctx.globalAlpha = k; ctx.filter = 'grayscale(1) contrast(1.15) brightness(0.8)'; ctx.drawImage(fullc, 0, 0); ctx.restore();
+    const z = 1 + 0.05 * (lt - b.freeze);   // slow push-in on the frozen frame so it never sits still
+    ctx.save(); ctx.globalAlpha = 1; ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-W / 2, -H / 2);
+    ctx.filter = k < 1 ? 'none' : 'grayscale(1) contrast(1.15) brightness(0.8)'; ctx.drawImage(fullc, 0, 0);
+    if (k < 1) { ctx.globalAlpha = k; ctx.filter = 'grayscale(1) contrast(1.15) brightness(0.8)'; ctx.drawImage(fullc, 0, 0); }
+    ctx.restore();
     const fl = 1 - pr(lt, b.freeze, 0.35);
     if (fl > 0) { ctx.fillStyle = `rgba(255,255,255,${0.55 * fl})`; ctx.fillRect(0, 0, W, H); }
   }

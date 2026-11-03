@@ -1,0 +1,207 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Premier League · club records",
+   "headline": "Spurs [759]. City [902].",
+   "accent": "#f1c453",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     3.0,
+     0.5
+    ],
+    "tgt": [
+     0,
+     0.6,
+     13
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     3.0,
+     0.5
+    ],
+    "tgt": [
+     0,
+     0.6,
+     13
+    ]
+   },
+   "move": 0.1,
+   "lights": 0.9,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": -3.2,
+     "z": 6.5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": 2.6,
+     "z": 7.5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 5.5,
+     "z": 12
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 0.4,
+     "z": 14.5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": -5.6,
+     "z": 12.5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "num": null,
+     "x": -1.2,
+     "z": 10
+    }
+   ],
+   "speedlines": [],
+   "shake": [],
+   "card": [
+    {
+     "type": "passweb",
+     "id": "hookweb",
+     "delay": -3,
+     "nodes": [
+      [
+       -3.2,
+       6.5
+      ],
+      [
+       2.6,
+       7.5
+      ],
+      [
+       5.5,
+       12
+      ],
+      [
+       0.4,
+       14.5
+      ],
+      [
+       -5.6,
+       12.5
+      ],
+      [
+       -1.2,
+       10
+      ]
+     ],
+     "pass": 0.3,
+     "trail": 14,
+     "counter": false,
+     "seed": 3
+    },
+    {
+     "type": "stack",
+     "id": "hookstack",
+     "y": 1230,
+     "delay": -5,
+     "items": [
+      {
+       "value": 759,
+       "label": "Tottenham v Palace · 2026",
+       "t": 0
+      },
+      {
+       "value": 902,
+       "label": "Man City v Chelsea · 2018",
+       "color": "#6cabdd",
+       "gold": true,
+       "t": 0.4
+      }
+     ],
+     "size": 210
+    },
+    {
+     "type": "shout",
+     "text": "STILL 143\nSHORT?!",
+     "y": 1660,
+     "size": 170,
+     "delay": -2,
+     "clear": false,
+     "w": 900
+    }
+   ],
+   "vo": "Thumbnail.",
+   "focus": 0.45
+  }
+ ]
+}

@@ -193,7 +193,7 @@ Built so far from the idea list (reuse them):
 - **Fly-through word:** the `flytext` card. A giant word whips across with a motion trail and settles (`endScale`, `dir: -1|1`, `color`, `size`),
   or `settle: false` to pass straight through, or `mode: "through"` to zoom past the camera (a transition).
 - **Speed lines:** beat `"speedlines": [{"at": "...", "dur": 1.2}]`: radial streaks for a hero intro or a big moment.
-- **Freeze frame:** beat or shot `"freezeAt": "guilty"` (+ `freezeLag`). The scene stops, the colour drains to grey and there's a white flash with an impact, while cards
+- **Freeze frame:** beat or shot `"freezeAt": "guilty"` (+ `freezeLag`). The frozen frame slowly pushes in (5%/s) so it never reads as static. The scene stops, the colour drains to grey and there's a white flash with an impact, while cards
   (a stamp, a number) keep animating on top. Good for "and then it all stopped" turns.
 - **Suit for ceremonies:** a player with `"outfit": "suit"` (+ `suitColor`) wears a dinner suit with a white shirt and bow tie, and no number. Use it for award nights,
   managers and presidents. Combine with `front: true` on the stage. Example: `videos/kane-ballon` beats 1 and 9.
@@ -234,11 +234,14 @@ Built so far from the idea list (reuse them):
 - **Shout text (viral thumbnail style):** the `shout` card. Heavy slanted caps, yellow gradient, fat black outline, white glow, tilted, pops in with a shake.
   `text` ("\n" for lines, each auto-fitted to `w`, default 1000), `size` (max), `color`/`color2`, `stroke`, `rot`, `skew`, `glow`. Use it on thumbnails
   ("AGÜEROOOO!!!", `videos/aguero-9320/thumb`) or for a big shouted moment in a video.
+- **Pass web:** the `passweb` card (stadium). The ball pings from player to player on the real pitch, each pass leaving a glowing line on the grass
+  (drawn under the players), with a pop per pass. `nodes: [[x, z], ...]` (put the players there), `pass` (s per pass), `trail`, `color`, `seed`, `passFor`;
+  the counter (`from`, `to`, `dur`, `label`, `y`) races and goes gold, or `counter: false` for lines only. Example: `videos/spurs-759` (hook, 10 v 10 web, City 902).
 - **Hooped kits:** `kit.hoops: [c1, c2]` gives horizontal bands (QPR, Celtic).
 - **Headers:** `hops` take `at`/`lag` like everything else and now work on any player (no `action` needed). For a header, time the cross `ballpath`
   to end on the word, a hop peaking there and the header `ballpath` starting from the head. Film it side-on or 3/4 so the ball isn't hidden by the scorer.
 - **Shots must be visible:** never film a goal straight from behind the shooter along the ball's line (the body hides the ball). Offset the camera a few metres sideways.
-- **Booth push-in:** the booth scene now slowly zooms 1 → 1.12 over each beat (`zoomFrom`/`zoom` override), so it's never static.
+- **Booth push-in:** the booth scene now slowly zooms 1 → 1.15 over each beat (linear, so it never stalls) (`zoomFrom`/`zoom` override), so it's never static.
 - **Scales:** the `scales` card. A golden balance with two name plates (`left`/`right: {name, value, color, text}`); the beam wobbles and settles toward the
   bigger value (`tilt` exaggerates a small gap, `arm` sets the width). Good for "did X deserve it over Y" endings. Example: `videos/kane-ballon` beat 10.
 - **Poll sticker** (`poll`: `question`, `options: [{label, color, fill, pct}]`, tapping finger) and **comment bubbles** (`comments`: `items: [{text, x, y, color}]`,

@@ -42,6 +42,8 @@ def speakable(line):
 
 # Words the phonemiser gets wrong -> the phonemes to use instead.
 PRONOUNCE = {
+    'Hecke': 'hˈɛkə',           # van HECK-uh
+    'Mateta': 'matˈɛtə',        # ma-TET-a
     'Gerd': 'ɡˈeət',            # German "Gairt", not "Jerd"
     'Flamengo': 'fləmˈɛŋɡəʊ',   # fla-MEN-go
     'Kabwe': 'kˈabweɪ',         # KAB-way

@@ -1,0 +1,2220 @@
+{
+ "title": "Spurs 759",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Premier League · club records",
+   "headline": "Spurs [759]. City [902].",
+   "accent": "#f1c453",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     3.4,
+     -2.5
+    ],
+    "tgt": [
+     0,
+     0.6,
+     13
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     3.0,
+     0.5
+    ],
+    "tgt": [
+     0,
+     0.6,
+     13
+    ]
+   },
+   "move": 5,
+   "lights": 0.9,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": -3.2,
+     "z": 6.5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": 2.6,
+     "z": 7.5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 5.5,
+     "z": 12
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 0.4,
+     "z": 14.5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": -5.6,
+     "z": 12.5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "num": null,
+     "x": -1.2,
+     "z": 10
+    }
+   ],
+   "speedlines": [
+    {
+     "t": 0,
+     "dur": 1.2,
+     "amount": 0.6
+    }
+   ],
+   "shake": [
+    {
+     "t": 1.25,
+     "amount": 14
+    }
+   ],
+   "card": [
+    {
+     "type": "passweb",
+     "id": "hookweb",
+     "delay": -0.6,
+     "nodes": [
+      [
+       -3.2,
+       6.5
+      ],
+      [
+       2.6,
+       7.5
+      ],
+      [
+       5.5,
+       12
+      ],
+      [
+       0.4,
+       14.5
+      ],
+      [
+       -5.6,
+       12.5
+      ],
+      [
+       -1.2,
+       10
+      ]
+     ],
+     "pass": 0.3,
+     "trail": 14,
+     "counter": false,
+     "seed": 3
+    },
+    {
+     "type": "stack",
+     "id": "hookstack",
+     "y": 1500,
+     "delay": -0.2,
+     "items": [
+      {
+       "value": 759,
+       "label": "Tottenham v Palace · 2026",
+       "t": 0
+      },
+      {
+       "value": 902,
+       "label": "Man City v Chelsea · 2018",
+       "at": "Manchester City",
+       "color": "#6cabdd",
+       "gold": true
+      }
+     ],
+     "size": 210
+    }
+   ],
+   "shots": [
+    {
+     "at": "Manchester City",
+     "cut": true,
+     "move": 3.5,
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#6cabdd",
+       "#6cabdd",
+       "#ffffff",
+       "#1c2c5b"
+      ],
+      "seed": 19
+     },
+     "camFrom": {
+      "pos": [
+       3,
+       3.6,
+       -1.5
+      ],
+      "tgt": [
+       0,
+       0.6,
+       13
+      ]
+     },
+     "camera": {
+      "pos": [
+       1.5,
+       3.1,
+       1.0
+      ],
+      "tgt": [
+       0,
+       0.6,
+       13
+      ]
+     },
+     "players": [
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#e7b593",
+       "hair": "#4a3324",
+       "num": null,
+       "x": -3.2,
+       "z": 6.5
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "num": null,
+       "x": 2.6,
+       "z": 7.5
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#c99a6e",
+       "hair": "#1a120c",
+       "num": null,
+       "x": 5.5,
+       "z": 12
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#8a6a45",
+       "num": null,
+       "x": 0.4,
+       "z": 14.5
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#6b4429",
+       "hair": "#141010",
+       "num": null,
+       "x": -5.6,
+       "z": 12.5
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#d9a37c",
+       "hair": "#2a1a10",
+       "num": null,
+       "x": -1.2,
+       "z": 10
+      }
+     ],
+     "card": [
+      "same"
+     ],
+     "shake": [
+      {
+       "t": 0.35,
+       "amount": 12
+      }
+     ],
+     "focus": 0.3
+    }
+   ],
+   "vo": "Tottenham just completed 759 passes in one game. Manchester City once made 902.",
+   "focus": 0.3
+  },
+  {
+   "kicker": "Saturday · Tottenham v Palace",
+   "headline": "Ten men [inside 15 minutes].",
+   "accent": "#ff4d5e",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     40,
+     -75
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     24,
+     -46
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 3,
+   "lights": 0.9,
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 700,
+     "at": "Saturday",
+     "label": "Tottenham v Palace",
+     "groups": [
+      {
+       "label": "October",
+       "value": 31,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "SAT",
+      "big": "31",
+      "bottom": "OCT"
+     }
+    }
+   ],
+   "shots": [
+    {
+     "at": "Early on",
+     "cut": true,
+     "move": 2.6,
+     "moveEase": "linear",
+     "camFrom": {
+      "pos": [
+       -2.5,
+       1.7,
+       9
+      ],
+      "tgt": [
+       0.5,
+       1.0,
+       21
+      ]
+     },
+     "camera": {
+      "pos": [
+       1.5,
+       1.7,
+       9.5
+      ],
+      "tgt": [
+       1.5,
+       1.0,
+       21
+      ]
+     },
+     "players": [
+      {
+       "name": "Van de Ven",
+       "num": 37,
+       "kit": {
+        "shirt": "#f4f4f2",
+        "shorts": "#132257",
+        "socks": "#f4f4f2",
+        "text": "#132257"
+       },
+       "skin": "#e7b593",
+       "hair": "#3a2a1a",
+       "action": "dive",
+       "dir": -1,
+       "dribble": true,
+       "path": [
+        [
+         -7,
+         20.2
+        ],
+        [
+         0,
+         20.4
+        ],
+        [
+         6,
+         20.6
+        ]
+       ],
+       "pathDur": 2.4,
+       "actionDelay": 1.0,
+       "actionDur": 0.9
+      },
+      {
+       "name": "Mateta",
+       "num": 14,
+       "kit": {
+        "shirt": "#1b458f",
+        "stripes": [
+         "#1b458f",
+         "#c4122e"
+        ],
+        "shorts": "#1b458f",
+        "socks": "#c4122e",
+        "text": "#ffffff"
+       },
+       "skin": "#4a2c1c",
+       "hair": "#141010",
+       "path": [
+        [
+         6.5,
+         20.0
+        ],
+        [
+         3.5,
+         20.3
+        ],
+        [
+         0.5,
+         20.5
+        ]
+       ],
+       "pathDur": 1.3,
+       "delay": 0.0,
+       "action": "slide",
+       "dir": 1,
+       "actionDelay": 0.55,
+       "actionDur": 1.1
+      }
+     ],
+     "freezeAt": "sent off",
+     "freezeLag": 0.05,
+     "card": [
+      {
+       "type": "stamp",
+       "text": "RED CARD",
+       "sub": "VAR · serious foul play",
+       "y": 1450,
+       "size": 120,
+       "rot": -0.08,
+       "at": "sent off",
+       "color": "#ff4d5e"
+      }
+     ]
+    }
+   ],
+   "vo": "On Saturday, Palace came to Tottenham. Early on, Mateta was sent off for a late tackle on Van de Ven."
+  },
+  {
+   "kicker": "Against ten men",
+   "headline": "Spurs kept the ball. And [kept it].",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     30,
+     -6
+    ],
+    "tgt": [
+     0,
+     0,
+     30
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     22,
+     4
+    ],
+    "tgt": [
+     0,
+     0,
+     32
+    ]
+   },
+   "move": 4.5,
+   "lights": 1,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": -14,
+     "z": 22
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -5,
+     "z": 18
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 5,
+     "z": 18
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 14,
+     "z": 22
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": -9,
+     "z": 30
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "num": null,
+     "x": 0,
+     "z": 27
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": 9,
+     "z": 30
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -6,
+     "z": 38
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 6,
+     "z": 38
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 0,
+     "z": 42
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": -12,
+     "z": 40,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -4,
+     "z": 41,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 4,
+     "z": 41,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 12,
+     "z": 40,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": -8,
+     "z": 46,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "num": null,
+     "x": 0,
+     "z": 46.5,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": 8,
+     "z": 46,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -3,
+     "z": 35,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 3,
+     "z": 35,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#2e8b57",
+      "shorts": "#111111",
+      "socks": "#2e8b57",
+      "text": "#ffffff"
+     },
+     "x": 0,
+     "z": 51.5,
+     "front": true,
+     "pose": "keeper",
+     "gloves": "#ffffff",
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45"
+    }
+   ],
+   "punch": [
+    {
+     "at": "And kept",
+     "amount": 0.08,
+     "dur": 0.8
+    },
+    {
+     "at": "And kept it.",
+     "amount": 0.1,
+     "dur": 0.8
+    }
+   ],
+   "card": [
+    {
+     "type": "passweb",
+     "delay": 0,
+     "nodes": [
+      [
+       -14,
+       22
+      ],
+      [
+       -5,
+       18
+      ],
+      [
+       5,
+       18
+      ],
+      [
+       14,
+       22
+      ],
+      [
+       -9,
+       30
+      ],
+      [
+       0,
+       27
+      ],
+      [
+       9,
+       30
+      ],
+      [
+       -6,
+       38
+      ],
+      [
+       6,
+       38
+      ],
+      [
+       0,
+       42
+      ]
+     ],
+     "pass": 0.26,
+     "trail": 24,
+     "counter": false,
+     "seed": 11,
+     "passFor": 6
+    }
+   ],
+   "vo": "Against ten men, Spurs kept the ball. And kept it. And kept it."
+  },
+  {
+   "kicker": "25 minutes",
+   "headline": "Archie Gray. [1–0].",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     8.5,
+     1.9,
+     40.5
+    ],
+    "tgt": [
+     0.2,
+     1.3,
+     50
+    ]
+   },
+   "camera": {
+    "pos": [
+     7.0,
+     1.6,
+     42.0
+    ],
+    "tgt": [
+     0.2,
+     1.3,
+     50
+    ]
+   },
+   "move": 2.4,
+   "lights": 1,
+   "fans": true,
+   "players": [
+    {
+     "name": "Gray",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "num": null,
+     "x": 0.3,
+     "z": 46.5,
+     "hops": [
+      {
+       "at": "headed",
+       "lag": -0.3,
+       "dur": 0.6,
+       "height": 0.3
+      }
+     ]
+    },
+    {
+     "name": "Henderson",
+     "x": 0.2,
+     "z": 52.3,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "headed",
+     "actionLag": -0.15,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2e8b57",
+      "shorts": "#111111",
+      "socks": "#2e8b57",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45"
+    }
+   ],
+   "punch": [
+    {
+     "at": "headed",
+     "amount": 0.15,
+     "dur": 1.2,
+     "anchor": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "headed",
+     "lag": -1.0,
+     "dur": 0.9,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       -18,
+       0.3,
+       44
+      ],
+      [
+       -9,
+       6,
+       46
+      ],
+      [
+       0.3,
+       2.0,
+       46.6
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "headed",
+     "lag": -0.1,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       0.3,
+       2.0,
+       46.6
+      ],
+      [
+       -1.0,
+       1.6,
+       50
+      ],
+      [
+       -2.4,
+       1.0,
+       53.2
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "1–0",
+     "size": 260,
+     "endScale": 0.7,
+     "y": 1560,
+     "at": "the first",
+     "color": "#ffffff"
+    }
+   ],
+   "vo": "Archie Gray headed in the first."
+  },
+  {
+   "kicker": "73 minutes",
+   "headline": "Saved. Bar. [In off van Hecke].",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     3.5,
+     4.6,
+     61.5
+    ],
+    "tgt": [
+     0,
+     1.0,
+     46
+    ]
+   },
+   "camera": {
+    "pos": [
+     2.5,
+     4.0,
+     60.5
+    ],
+    "tgt": [
+     0,
+     1.0,
+     46
+    ]
+   },
+   "move": 3,
+   "lights": 1,
+   "players": [
+    {
+     "name": "Van Hecke",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": 0.4,
+     "z": 49.6,
+     "front": true,
+     "chest": true,
+     "hops": [
+      {
+       "at": "saved",
+       "lag": -0.75,
+       "dur": 0.6,
+       "height": 0.28
+      }
+     ]
+    },
+    {
+     "name": "Henderson",
+     "x": -0.4,
+     "z": 52.0,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "saved",
+     "actionLag": -0.46,
+     "actionDur": 0.8,
+     "before": "ready",
+     "gloves": "#f2f2f2",
+     "kit": {
+      "shirt": "#2e8b57",
+      "shorts": "#111111",
+      "socks": "#2e8b57",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45"
+    }
+   ],
+   "shake": [
+    {
+     "at": "hit the bar",
+     "amount": 10
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "saved",
+     "lag": -0.5,
+     "dur": 0.4,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       0.4,
+       2.0,
+       49.6
+      ],
+      [
+       0.4,
+       2.1,
+       50.8
+      ],
+      [
+       0.5,
+       1.9,
+       51.8
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "saved",
+     "lag": -0.1,
+     "dur": 0.3,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       0.5,
+       1.9,
+       51.8
+      ],
+      [
+       0.6,
+       2.4,
+       52.0
+      ],
+      [
+       0.7,
+       2.38,
+       52.45
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "saved",
+     "lag": 0.2,
+     "dur": 0.35,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       0.7,
+       2.38,
+       52.45
+      ],
+      [
+       0.6,
+       1.8,
+       51.0
+      ],
+      [
+       0.45,
+       1.1,
+       49.8
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "saved",
+     "lag": 0.55,
+     "dur": 0.4,
+     "slowmo": false,
+     "points": [
+      [
+       0.45,
+       1.1,
+       49.8
+      ],
+      [
+       0.4,
+       0.9,
+       51.5
+      ],
+      [
+       0.3,
+       0.6,
+       53.4
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "2–0",
+     "size": 260,
+     "endScale": 0.7,
+     "y": 1560,
+     "at": "van Hecke",
+     "color": "#ffffff"
+    }
+   ],
+   "vo": "The second was saved, hit the bar, and went in off Jan Paul van Hecke."
+  },
+  {
+   "kicker": "Full time",
+   "headline": "[759] passes. A club record.",
+   "accent": "#f1c453",
+   "cut": true,
+   "scene": {
+    "type": "booth",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff"
+    ],
+    "seed": 5,
+    "screenLeft": [
+     "TOT 2–0 CRY",
+     "FULL TIME"
+    ],
+    "screenRight": [
+     "759 PASSES",
+     "CLUB RECORD"
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "headset": true,
+     "sx": 0.5,
+     "scale": 0.85
+    }
+   ],
+   "card": [
+    {
+     "type": "board",
+     "y": 780,
+     "at": "759",
+     "label": "Spurs · most passes in a PL game",
+     "rows": [
+      {
+       "name": "Palace 2026",
+       "value": "759"
+      },
+      {
+       "name": "Cardiff 2019",
+       "value": "747"
+      }
+     ],
+     "cols": 12,
+     "vcols": 3,
+     "focus": 0
+    },
+    {
+     "type": "stamp",
+     "text": "CLUB RECORD",
+     "y": 1560,
+     "size": 90,
+     "rot": -0.07,
+     "at": "The most",
+     "color": "#f1c453"
+    }
+   ],
+   "vo": "By full time: 759 completed passes. The most in Spurs' Premier League history."
+  },
+  {
+   "kicker": "Jan Paul van Hecke",
+   "headline": "[143] passes. On his own.",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -1.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     0.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 5,
+   "lights": 0.85,
+   "flashes": 8,
+   "players": [
+    {
+     "name": "Van Hecke",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": 0,
+     "z": 3.6,
+     "front": true,
+     "chest": true,
+     "tag": 143,
+     "tagLabel": "Passes",
+     "tagAt": "143"
+    }
+   ],
+   "card": [
+    {
+     "type": "pen",
+     "anchor": 0,
+     "delay": 0,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "layer": "under",
+       "cx": 0,
+       "cy": 0,
+       "rx": 0.5,
+       "ry": 0.09,
+       "at": "Van Hecke",
+       "dur": 0.6,
+       "color": "#f1c453",
+       "width": 8
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "CLUB RECORD",
+     "y": 1760,
+     "size": 90,
+     "rot": 0.06,
+     "at": "Another",
+     "color": "#f1c453"
+    }
+   ],
+   "vo": "Van Hecke completed 143 of them on his own. Another club record."
+  },
+  {
+   "kicker": "Pass accuracy",
+   "headline": "[93%] found a teammate.",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     -9,
+     3.2,
+     4
+    ],
+    "tgt": [
+     0,
+     0.8,
+     14
+    ]
+   },
+   "camera": {
+    "pos": [
+     -6,
+     2.6,
+     7
+    ],
+    "tgt": [
+     0,
+     0.8,
+     15
+    ]
+   },
+   "move": 5,
+   "lights": 0.9,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": -4,
+     "z": 12
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": 3,
+     "z": 11
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 6,
+     "z": 17
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 0,
+     "z": 20
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": -6,
+     "z": 18
+    }
+   ],
+   "card": [
+    {
+     "type": "passweb",
+     "delay": 0,
+     "nodes": [
+      [
+       -4,
+       12
+      ],
+      [
+       3,
+       11
+      ],
+      [
+       6,
+       17
+      ],
+      [
+       0,
+       20
+      ],
+      [
+       -6,
+       18
+      ]
+     ],
+     "pass": 0.32,
+     "trail": 12,
+     "counter": false,
+     "seed": 5
+    },
+    {
+     "type": "orb",
+     "y": 760,
+     "at": "93",
+     "value": 93,
+     "label": "Pass accuracy · club record"
+    }
+   ],
+   "vo": "And 93 per cent of their passes found a teammate. A club record too."
+  },
+  {
+   "kicker": "Man City v Chelsea · 4 March 2018",
+   "headline": "City: [902] passes. In one game.",
+   "accent": "#6cabdd",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "2018",
+   "vhsDur": 1.6,
+   "camFrom": {
+    "pos": [
+     0,
+     30,
+     -6
+    ],
+    "tgt": [
+     0,
+     0,
+     30
+    ]
+   },
+   "camera": {
+    "pos": [
+     6,
+     24,
+     2
+    ],
+    "tgt": [
+     0,
+     0,
+     30
+    ]
+   },
+   "move": 6,
+   "lights": 1,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": -14,
+     "z": 22
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -5,
+     "z": 18
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 5,
+     "z": 18
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 14,
+     "z": 22
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": -9,
+     "z": 30
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "num": null,
+     "x": 0,
+     "z": 27
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": 9,
+     "z": 30
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -6,
+     "z": 38
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 6,
+     "z": 38
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 0,
+     "z": 42
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": -12,
+     "z": 40,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -4,
+     "z": 41,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 4,
+     "z": 41,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 12,
+     "z": 40,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": -8,
+     "z": 46,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "num": null,
+     "x": 0,
+     "z": 46.5,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": 8,
+     "z": 46,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -3,
+     "z": 35,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 3,
+     "z": 35,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1a1a1a",
+      "shorts": "#1a1a1a",
+      "socks": "#1a1a1a",
+      "text": "#fff"
+     },
+     "x": 0,
+     "z": 51.5,
+     "front": true,
+     "pose": "keeper",
+     "gloves": "#ffffff",
+     "skin": "#e7b593",
+     "hair": "#3a2a1a"
+    }
+   ],
+   "card": [
+    {
+     "type": "passweb",
+     "at": "Manchester City",
+     "nodes": [
+      [
+       -14,
+       22
+      ],
+      [
+       -5,
+       18
+      ],
+      [
+       5,
+       18
+      ],
+      [
+       14,
+       22
+      ],
+      [
+       -9,
+       30
+      ],
+      [
+       0,
+       27
+      ],
+      [
+       9,
+       30
+      ],
+      [
+       -6,
+       38
+      ],
+      [
+       6,
+       38
+      ],
+      [
+       0,
+       42
+      ]
+     ],
+     "pass": 0.2,
+     "trail": 30,
+     "color": "#bfe3ff",
+     "seed": 21,
+     "from": 0,
+     "to": 902,
+     "dur": 3.2,
+     "y": 1520,
+     "label": "Passes completed · City v Chelsea",
+     "passFor": 5
+    }
+   ],
+   "vo": "But rewind to 2018. Manchester City completed 902 passes against Chelsea."
+  },
+  {
+   "kicker": "The Premier League record",
+   "headline": "Still the most [ever].",
+   "accent": "#6cabdd",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.5
+    ],
+    "tgt": [
+     0,
+     1.4,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.6
+    ],
+    "tgt": [
+     0,
+     1.4,
+     10
+    ]
+   },
+   "move": 4,
+   "lights": 0.55,
+   "players": [
+    {
+     "name": "Spurs",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -1.0,
+     "z": 3,
+     "front": true
+    },
+    {
+     "name": "City",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "num": null,
+     "x": 1.0,
+     "z": 3,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "tape",
+     "y": 760,
+     "delay": -0.3,
+     "left": {
+      "name": "Spurs 2026",
+      "color": "#f4f4f2"
+     },
+     "right": {
+      "name": "City 2018",
+      "color": "#6cabdd"
+     },
+     "rows": [
+      {
+       "label": "Passes completed in one game",
+       "left": 759,
+       "right": 902,
+       "t": 0
+      }
+     ],
+     "caption": "Premier League record",
+     "captionAt": "most ever"
+    }
+   ],
+   "vo": "It's still the most ever recorded in the Premier League."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Can Spurs ever pass [902]?",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#132257",
+     "#ffffff",
+     "#9aa3b2"
+    ],
+    "seed": 11
+   },
+   "cut": true,
+   "orbit": {
+    "center": [
+     0,
+     1.35,
+     2.4
+    ],
+    "r": 4.4,
+    "from": -40,
+    "to": 25,
+    "h": 0.9,
+    "h2": 1.4,
+    "dur": 5
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -2.0
+    ],
+    "tgt": [
+     0,
+     1.35,
+     2.4
+    ]
+   },
+   "flashes": 10,
+   "lights": 0.9,
+   "players": [
+    {
+     "name": "De Zerbi",
+     "outfit": "suit",
+     "suitColor": "#1b2233",
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "pose": "fists"
+    }
+   ],
+   "card": {
+    "type": "poll",
+    "y": 1560,
+    "at": "De Zerbi",
+    "question": "Will anyone beat City's 902?",
+    "options": [
+     {
+      "label": "Yes, Spurs will",
+      "color": "#f4f4f2",
+      "fill": 0.5
+     },
+     {
+      "label": "Never",
+      "color": "#6cabdd",
+      "fill": 0.5
+     }
+    ]
+   },
+   "vo": "So can De Zerbi's Spurs ever pass 902? Tell me in the comments."
+  }
+ ]
+}

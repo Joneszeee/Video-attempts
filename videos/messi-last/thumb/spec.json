@@ -1,0 +1,149 @@
+{
+ "brand": "theo6k",
+ "accent": "#E9B949",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "World Cup 2026 · the final",
+   "headline": "This baby ended Messi's [World Cup].",
+   "accent": "#E9B949",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#c60b1e",
+     "#f7d117"
+    ],
+    "seed": 9
+   },
+   "camFrom": {
+    "pos": [
+     0.6,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0.6,
+     1.2,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.6,
+     1.3,
+     -3.4
+    ],
+    "tgt": [
+     0.6,
+     1.2,
+     20
+    ]
+   },
+   "move": 0.1,
+   "lights": 0.75,
+   "focus": 0.15,
+   "fans": true,
+   "speedlines": [],
+   "flashes": 10,
+   "players": [
+    {
+     "name": "Yamal",
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#f7d117"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.0,
+     "z": 2,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": [
+    {
+     "type": "photo",
+     "y": 1180,
+     "delay": -2,
+     "spin": 0.8,
+     "scene": "bath",
+     "caption": "2007",
+     "player": {
+      "name": "Messi",
+      "kit": {
+       "shirt": "#a50044",
+       "shorts": "#004d98",
+       "socks": "#004d98",
+       "text": "#f7d117",
+       "stripes": [
+        "#a50044",
+        "#004d98"
+       ]
+      },
+      "skin": "#e8b896",
+      "hair": "#4a3020"
+     },
+     "babySkin": "#8a5a3c",
+     "shiftX": -180,
+     "w": 560,
+     "h": 640,
+     "tilt": -0.08
+    },
+    {
+     "type": "pen",
+     "delay": -2,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 440,
+       "cy": 1200,
+       "rx": 70,
+       "ry": 60,
+       "color": "#ff4d5e",
+       "t": 0,
+       "dur": 0.1
+      },
+      {
+       "kind": "arrow",
+       "points": [
+        [
+         520,
+         1260
+        ],
+        [
+         650,
+         1290
+        ],
+        [
+         720,
+         1150
+        ]
+       ],
+       "color": "#ff4d5e",
+       "t": 0,
+       "dur": 0.1
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "19 YEARS LATER",
+     "y": 1700,
+     "size": 90,
+     "rot": -0.08,
+     "delay": -2,
+     "color": "#f1c453"
+    }
+   ],
+   "shake": [],
+   "vo": "",
+   "duration": 3
+  }
+ ]
+}

@@ -5,9 +5,9 @@
  "tail": 0,
  "beats": [
   {
-   "kicker": "Premier League · 13 May 2012",
-   "headline": "2 goals in stoppage time. [Champions.]",
-   "accent": "#6cabdd",
+   "kicker": "Premier League · final day 2012",
+   "headline": "Losing at [90 minutes]. 200 seconds to save it.",
+   "accent": "#ff4d5e",
    "hookWords": false,
    "scene": {
     "type": "stadium",
@@ -22,29 +22,29 @@
    "camFrom": {
     "pos": [
      0,
-     0.5,
-     -2.4
+     0.72,
+     -0.2
     ],
     "tgt": [
      0,
-     1.6,
-     12
+     1.7,
+     8
     ]
    },
    "camera": {
     "pos": [
      0,
-     0.5,
-     -2.4
+     0.72,
+     -0.2
     ],
     "tgt": [
      0,
-     1.6,
-     12
+     1.7,
+     8
     ]
    },
    "move": 0.1,
-   "lights": 0.9,
+   "lights": 0.55,
    "fans": true,
    "speedlines": [],
    "shake": [],
@@ -61,36 +61,32 @@
      "hair": "#1a120c",
      "num": 16,
      "x": 0,
-     "z": 1.6,
+     "z": 2.4,
      "front": true,
-     "chest": true,
-     "fromZ": 7.5,
-     "walkDur": 2.6,
-     "pose": "wings"
+     "chest": true
     }
    ],
-   "confetti": true,
-   "confettiColors": [
-    "#6cabdd",
-    "#ffffff",
-    "#1c2c5b"
-   ],
+   "confetti": false,
    "card": [
     {
      "type": "clock",
-     "y": 1640,
-     "scale": 1.5,
+     "y": 1700,
+     "scale": 1.45,
      "delay": -5,
      "from": 90,
      "to": 93.3334,
-     "dur": 1.2,
+     "dur": 1.3,
      "endColor": "#ff4d5e",
-     "id": "hookclock"
+     "events": [
+      {
+       "min": 90,
+       "text": "MCI 1–2 QPR"
+      }
+     ]
     }
    ],
    "vo": "Thumbnail.",
-   "flashes": 14,
-   "confettiDelay": -3
+   "flashes": 0
   }
  ]
 }

@@ -6,8 +6,8 @@
  "beats": [
   {
    "kicker": "Premier League · final day 2012",
-   "headline": "City needed [2 goals] in stoppage time.",
-   "accent": "#6cabdd",
+   "headline": "Losing at [90 minutes]. 200 seconds to save it.",
+   "accent": "#ff4d5e",
    "hookWords": true,
    "scene": {
     "type": "stadium",
@@ -22,41 +22,35 @@
    "camFrom": {
     "pos": [
      0,
-     0.5,
-     -1.0
+     0.75,
+     -0.9
     ],
     "tgt": [
      0,
-     1.7,
-     12
+     1.75,
+     8
     ]
    },
    "camera": {
     "pos": [
      0,
-     0.45,
-     -2.6
+     0.72,
+     -0.2
     ],
     "tgt": [
      0,
-     1.6,
-     12
+     1.7,
+     8
     ]
    },
-   "move": 3.4,
-   "lights": 0.9,
+   "move": 5,
+   "lights": 0.55,
    "fans": true,
-   "speedlines": [
-    {
-     "t": 0,
-     "dur": 1.4,
-     "amount": 0.7
-    }
-   ],
+   "speedlines": [],
    "shake": [
     {
      "t": 1.25,
-     "amount": 16
+     "amount": 18
     }
    ],
    "players": [
@@ -72,117 +66,32 @@
      "hair": "#1a120c",
      "num": 16,
      "x": 0,
-     "z": 1.5,
+     "z": 2.4,
      "front": true,
-     "chest": true,
-     "enter": "walk",
-     "fromZ": 7.5,
-     "walkDur": 2.6,
-     "pose": "wings"
+     "chest": true
     }
    ],
    "confetti": false,
-   "confettiColors": [
-    "#6cabdd",
-    "#ffffff",
-    "#1c2c5b"
-   ],
    "card": [
     {
      "type": "clock",
      "y": 1700,
-     "scale": 1.3,
+     "scale": 1.45,
      "delay": -0.3,
      "from": 90,
      "to": 93.3334,
-     "dur": 1.2,
+     "dur": 1.3,
      "endColor": "#ff4d5e",
-     "id": "hookclock"
+     "events": [
+      {
+       "min": 90,
+       "text": "MCI 1–2 QPR"
+      }
+     ]
     }
    ],
-   "vo": "Manchester City needed two goals in stoppage time to win the Premier League. They got them.",
-   "flashes": 12,
-   "shots": [
-    {
-     "at": "to win the",
-     "cut": true,
-     "move": 3.4,
-     "camFrom": {
-      "pos": [
-       0,
-       1.45,
-       -1.0
-      ],
-      "tgt": [
-       0,
-       1.35,
-       2.4
-      ]
-     },
-     "camera": {
-      "pos": [
-       0,
-       1.35,
-       -0.4
-      ],
-      "tgt": [
-       0,
-       1.3,
-       2.4
-      ]
-     },
-     "players": [
-      {
-       "name": "Agüero",
-       "kit": {
-        "shirt": "#6cabdd",
-        "shorts": "#ffffff",
-        "socks": "#6cabdd",
-        "text": "#1c2c5b"
-       },
-       "skin": "#c99a6e",
-       "hair": "#1a120c",
-       "num": 16,
-       "x": 0,
-       "z": 2.4,
-       "front": true,
-       "chest": true,
-       "pose": "fists"
-      }
-     ],
-     "punch": [
-      {
-       "at": "They got",
-       "amount": 0.14,
-       "dur": 1.2,
-       "anchor": 0
-      }
-     ],
-     "confetti": true,
-     "confettiColors": [
-      "#6cabdd",
-      "#ffffff",
-      "#1c2c5b"
-     ],
-     "card": [
-      "same"
-     ],
-     "confettiAt": "They got",
-     "orbit": {
-      "center": [
-       0,
-       1.35,
-       2.4
-      ],
-      "r": 3.6,
-      "from": -35,
-      "to": 15,
-      "h": 1.0,
-      "h2": 1.4,
-      "dur": 3.4
-     }
-    }
-   ]
+   "vo": "Manchester City. Losing, with ninety minutes gone. And two hundred seconds to save the title.",
+   "flashes": 0
   },
   {
    "kicker": "Sunday 13 May 2012",
@@ -1472,7 +1381,7 @@
      "size": 70,
      "rot": -0.06,
      "at": "goal difference",
-     "color": "#6cabdd",
+     "color": "#ffffff",
      "noShift": true
     }
    ],

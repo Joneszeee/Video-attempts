@@ -4,7 +4,7 @@ One emotion per line, pauses from the punctuation, words match vo.txt (capitals 
 
 ## Copy-paste block
 
-[intense] Manchester City needed two goals in stoppage time to win the Premier League. [triumphant] They got them.
+[tense] Manchester City. Losing, with ninety minutes gone. [building] And two hundred seconds… to save the title.
 [storytelling] The thirteenth of May, 2012. The final day. City and United were level on points.
 [matter-of-fact] City just had to beat Queens Park Rangers, at home. QPR were fighting relegation.
 [building] Zabaleta scored. QPR equalised. Then Joey Barton was sent off.

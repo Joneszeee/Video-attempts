@@ -1,10 +1,17 @@
 # Agüero 93:20: two goals in stoppage time to win the league
 
 WHO IT'S FOR: football fans (City, United and neutrals). They get the full final-day story told like a match, minute by minute.
-Angle: result first (last video was "something breaks"; this rotates).
+Angle: stakes / open loop (last video was "something breaks"; this rotates). The result is held back until 93:20.
 
 ## Hooks (virality skill: 3 options, 0–3s plans, 8-point checklist)
-**A. "Two goals in stoppage time" ← PICKED** (result first + a number races and locks)
+**D. "200 seconds to save it" ← PICKED (self-review: A gave the result away in 4s)** (stakes + open loop + a number races and locks)
+  0.0s  Agüero (City 16) huge in a low front close-up under dark lights; giant clock on 90:00 with an "MCI 1–2 QPR" pill.
+  0.3s  First words: "Manchester City. Losing, with ninety minutes gone…"
+  1.2s  Clock races and SLAMS red on 93:20 (shake). Headline builds word by word: "Losing at 90 minutes. 200 seconds to save it."
+  3.0s  "…two hundred seconds to save the title." Slow push-in; nothing resolved until the goal at 93:20 (90:00 → 93:20 = 200 s).
+  CHECKLIST: 1 ✓ 2 ✓ 3 ✓ Agüero 40%+ from frame 0 · 4 ✓ 5 ✓ 6 ✓ 7 ✓ 8 ✓; open loop paid off at line 9.
+
+**A. "Two goals in stoppage time"** (result first; first pick, replaced: it closed its own loop with "They got them")
   0.0s  A giant match clock is already racing from 90:00, filling 45% of the frame, with Agüero (City 16) in a front close-up behind it.
   0.3s  First word: "Manchester City needed two goals in stoppage time…"
   1.2s  The clock SLAMS to a stop on 93:20 (red flash and shake). Headline builds word by word: "City needed 2 goals in stoppage time."
@@ -25,7 +32,7 @@ Angle: result first (last video was "something breaks"; this rotates).
 - Not used: commentary quotes (copyrighted), exact goal-difference figures.
 
 ## Script
-1. Manchester City needed two goals in stoppage time to win the Premier League. They got them.
+1. Manchester City. Losing, with ninety minutes gone. And two hundred seconds to save the title.
 2. The thirteenth of May, 2012. The final day. City and United were level on points.
 3. City just had to beat Queens Park Rangers, at home. QPR were fighting relegation.
 4. Zabaleta scored. QPR equalised. Then Joey Barton was sent off.

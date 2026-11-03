@@ -1,0 +1,96 @@
+{
+ "brand": "theo6k",
+ "accent": "#6cabdd",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Premier League · 13 May 2012",
+   "headline": "2 goals in stoppage time. [Champions.]",
+   "accent": "#6cabdd",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     0.5,
+     -2.4
+    ],
+    "tgt": [
+     0,
+     1.6,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     0.5,
+     -2.4
+    ],
+    "tgt": [
+     0,
+     1.6,
+     12
+    ]
+   },
+   "move": 0.1,
+   "lights": 0.9,
+   "fans": true,
+   "speedlines": [],
+   "shake": [],
+   "players": [
+    {
+     "name": "Agüero",
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": 16,
+     "x": 0,
+     "z": 1.6,
+     "front": true,
+     "chest": true,
+     "fromZ": 7.5,
+     "walkDur": 2.6,
+     "pose": "wings"
+    }
+   ],
+   "confetti": true,
+   "confettiColors": [
+    "#6cabdd",
+    "#ffffff",
+    "#1c2c5b"
+   ],
+   "card": [
+    {
+     "type": "clock",
+     "y": 1640,
+     "scale": 1.5,
+     "delay": -5,
+     "from": 90,
+     "to": 93.3334,
+     "dur": 1.2,
+     "endColor": "#ff4d5e",
+     "id": "hookclock"
+    }
+   ],
+   "vo": "Thumbnail.",
+   "flashes": 14,
+   "confettiDelay": -3
+  }
+ ]
+}

@@ -180,6 +180,9 @@ def _resolve_beat(b, rel):
             p['delay'] = rel(p.pop('at'))
         if 'tagAt' in p:
             p['tagDelay'] = rel(p.pop('tagAt'))
+        for h in p.get('hops') or []:  # a jump on a word (e.g. a header)
+            if 'at' in h:
+                h['t'] = round(rel(h.pop('at')) + h.pop('lag', 0), 3)
         if 'actionAt' in p:  # e.g. the kick starts so the strike lands on the word: use "lag" to shift
             p['actionDelay'] = round(rel(p.pop('actionAt')) + p.pop('actionLag', 0), 3)
     if isinstance(b.get('confettiAt'), str):

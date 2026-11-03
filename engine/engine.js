@@ -670,7 +670,7 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
   ctx.save();
   ctx.globalAlpha *= alpha;
   ctx.translate(x, y);
-  if (p.action || p.rig) {
+  if (p.action || p.rig || (p.hops && p.hops.length)) {
     const ps = poseFor(p, t, walk > 0);
     const lift = Math.max(0, -ps.hy) * 3;
     ctx.fillStyle = `rgba(0,0,0,${0.3 / (1 + lift)})`;
@@ -2399,7 +2399,7 @@ CARDS.redcard = function (c, ct, cx, cy) {
   ctx.fillStyle = '#e2b08c'; ctx.beginPath(); ctx.ellipse(-60, -20, 26, 40, -0.3, 0, 7); ctx.fill();   // thumb over the card
   ctx.restore();
   if (c.label && ct > 0.5) { const a = pr(ct, 0.5, 0.3); ctx.save(); ctx.globalAlpha *= a; font(800, 44, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center';
-    ctx.strokeStyle = 'rgba(0,0,0,0.6)'; ctx.lineWidth = 8; ctx.strokeText(c.label, cx - 160, cy + 260); ctx.fillText(c.label, cx - 160, cy + 260); ctx.restore(); }
+    ctx.strokeStyle = 'rgba(0,0,0,0.6)'; ctx.lineWidth = 8; const lx = cx + (c.dx || 180), ly = cy - 310; ctx.strokeText(c.label, lx, ly); ctx.fillText(c.label, lx, ly); ctx.restore(); }
 };
 CARDS.redcard.noSlide = true;
 
@@ -3001,7 +3001,11 @@ function renderAt(t) {
   const ts = fz != null ? b.start + fz : t, lts = fz != null ? fz : lt;
   S.anchors = []; S.cam = null; S.cur = b; S.t = ts;
   if (scene.type === 'stage') drawStage(ts, b, stageCamAt(i, lts), ts - b.playersStart);
-  else if (scene.type === 'booth') drawBooth(ts, b, ts - b.playersStart);
+  else if (scene.type === 'booth') {   // slow push-in toward the desk so the booth never sits still (zoomFrom/zoom override)
+    const z = lerp(b.zoomFrom != null ? b.zoomFrom : 1, b.zoom != null ? b.zoom : 1.12, ease(pr(lts, 0, b.dur)));
+    ctx.save(); ctx.translate(W / 2, H * 0.55); ctx.scale(z, z); ctx.translate(-W / 2, -H * 0.55);
+    drawBooth(ts, b, ts - b.playersStart); ctx.restore();
+  }
   else if (scene.type === 'studio') drawStudio(ts, scene);
   else {
     const c = camInBeat(i, lts), cam = mkCam(c.pos, c.tgt);

@@ -226,6 +226,13 @@ Built so far from the idea list (reuse them):
 - **Goodbye letter:** the `letter` card. A sheet with a `date` whose handwriting lines write themselves over `write` seconds. The lines are illegible
   scribbles, so we never put words in a real person's mouth.
 - **Any card can vanish on a word** with `hideAt` (+ `hideLag`).
+- **Red card:** the `redcard` card. A referee's arm swings up from the bottom holding a glowing red card, with a shake (`dx` = sideways offset, default 180;
+  `label` sits above the card, e.g. "55' Barton"). Put the sent-off player on the other side of the frame. Example: `videos/aguero-9320` beat 4.
+- **Hooped kits:** `kit.hoops: [c1, c2]` gives horizontal bands (QPR, Celtic).
+- **Headers:** `hops` take `at`/`lag` like everything else and now work on any player (no `action` needed). For a header, time the cross `ballpath`
+  to end on the word, a hop peaking there and the header `ballpath` starting from the head. Film it side-on or 3/4 so the ball isn't hidden by the scorer.
+- **Shots must be visible:** never film a goal straight from behind the shooter along the ball's line (the body hides the ball). Offset the camera a few metres sideways.
+- **Booth push-in:** the booth scene now slowly zooms 1 → 1.12 over each beat (`zoomFrom`/`zoom` override), so it's never static.
 - **Scales:** the `scales` card. A golden balance with two name plates (`left`/`right: {name, value, color, text}`); the beam wobbles and settles toward the
   bigger value (`tilt` exaggerates a small gap, `arm` sets the width). Good for "did X deserve it over Y" endings. Example: `videos/kane-ballon` beat 10.
 - **Poll sticker** (`poll`: `question`, `options: [{label, color, fill, pct}]`, tapping finger) and **comment bubbles** (`comments`: `items: [{text, x, y, color}]`,

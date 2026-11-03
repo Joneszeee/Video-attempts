@@ -22,29 +22,29 @@
    "camFrom": {
     "pos": [
      0,
-     1.35,
-     -3.0
+     0.5,
+     -1.0
     ],
     "tgt": [
      0,
-     1.2,
-     20
+     1.7,
+     12
     ]
    },
    "camera": {
     "pos": [
      0,
-     1.3,
-     -3.6
+     0.45,
+     -2.6
     ],
     "tgt": [
      0,
-     1.2,
-     20
+     1.6,
+     12
     ]
    },
-   "move": 6,
-   "lights": 0.75,
+   "move": 3.4,
+   "lights": 0.9,
    "fans": true,
    "speedlines": [
     {
@@ -72,17 +72,16 @@
      "hair": "#1a120c",
      "num": 16,
      "x": 0,
-     "z": 2.2,
+     "z": 1.5,
      "front": true,
      "chest": true,
-     "action": "celebrate",
-     "actionAt": "They got",
-     "actionDur": 0.01,
-     "after": "celebrate"
+     "enter": "walk",
+     "fromZ": 7.5,
+     "walkDur": 2.6,
+     "pose": "wings"
     }
    ],
-   "confetti": true,
-   "confettiAt": "They got",
+   "confetti": false,
    "confettiColors": [
     "#6cabdd",
     "#ffffff",
@@ -91,16 +90,99 @@
    "card": [
     {
      "type": "clock",
-     "y": 1520,
-     "scale": 1.45,
+     "y": 1700,
+     "scale": 1.3,
      "delay": -0.3,
      "from": 90,
      "to": 93.3334,
      "dur": 1.2,
-     "endColor": "#ff4d5e"
+     "endColor": "#ff4d5e",
+     "id": "hookclock"
     }
    ],
-   "vo": "Manchester City needed two goals in stoppage time to win the Premier League. They got them."
+   "vo": "Manchester City needed two goals in stoppage time to win the Premier League. They got them.",
+   "flashes": 12,
+   "shots": [
+    {
+     "at": "to win the",
+     "cut": true,
+     "move": 3.4,
+     "camFrom": {
+      "pos": [
+       0,
+       1.45,
+       -1.0
+      ],
+      "tgt": [
+       0,
+       1.35,
+       2.4
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.35,
+       -0.4
+      ],
+      "tgt": [
+       0,
+       1.3,
+       2.4
+      ]
+     },
+     "players": [
+      {
+       "name": "Agüero",
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#c99a6e",
+       "hair": "#1a120c",
+       "num": 16,
+       "x": 0,
+       "z": 2.4,
+       "front": true,
+       "chest": true,
+       "pose": "fists"
+      }
+     ],
+     "punch": [
+      {
+       "at": "They got",
+       "amount": 0.14,
+       "dur": 1.2,
+       "anchor": 0
+      }
+     ],
+     "confetti": true,
+     "confettiColors": [
+      "#6cabdd",
+      "#ffffff",
+      "#1c2c5b"
+     ],
+     "card": [
+      "same"
+     ],
+     "confettiAt": "They got",
+     "orbit": {
+      "center": [
+       0,
+       1.35,
+       2.4
+      ],
+      "r": 3.6,
+      "from": -35,
+      "to": 15,
+      "h": 1.0,
+      "h2": 1.4,
+      "dur": 3.4
+     }
+    }
+   ]
   },
   {
    "kicker": "Sunday 13 May 2012",
@@ -334,7 +416,6 @@
     {
      "type": "stamp",
      "text": "FIGHTING THE DROP",
-     "sub": "QPR",
      "y": 1560,
      "size": 80,
      "rot": 0.07,
@@ -362,53 +443,30 @@
    "camFrom": {
     "pos": [
      0,
-     2.4,
-     -9
+     9,
+     -30
     ],
     "tgt": [
      0,
-     1.2,
+     0,
      20
     ]
    },
    "camera": {
     "pos": [
      0,
-     2.0,
-     -7
+     6,
+     -20
     ],
     "tgt": [
      0,
-     1.2,
-     20
+     0,
+     22
     ]
    },
    "move": 5,
-   "lights": 0.7,
-   "players": [
-    {
-     "name": "Barton",
-     "kit": {
-      "shirt": "#1d5ba4",
-      "hoops": [
-       "#1d5ba4",
-       "#ffffff"
-      ],
-      "shorts": "#ffffff",
-      "socks": "#ffffff",
-      "text": "#0d2d5a"
-     },
-     "skin": "#d9a37c",
-     "hair": "#1a120c",
-     "num": 17,
-     "x": 0.4,
-     "z": 4,
-     "enter": "walk",
-     "fromZ": 1,
-     "walkDur": 5,
-     "at": "Joey Barton"
-    }
-   ],
+   "lights": 0.8,
+   "players": [],
    "card": [
     {
      "type": "clock",
@@ -427,15 +485,75 @@
        "text": "48' Cissé 1–1"
       }
      ]
-    },
-    {
-     "type": "redcard",
-     "y": 1400,
-     "at": "sent off",
-     "label": "55' Barton"
     }
    ],
-   "vo": "Zabaleta scored. QPR equalised. Then Joey Barton was sent off."
+   "vo": "Zabaleta scored. QPR equalised. Then Joey Barton was sent off.",
+   "shots": [
+    {
+     "at": "Joey Barton",
+     "cut": true,
+     "move": 2.4,
+     "lights": 0.55,
+     "camFrom": {
+      "pos": [
+       0,
+       1.45,
+       -1.6
+      ],
+      "tgt": [
+       0,
+       1.25,
+       8
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.4,
+       -0.8
+      ],
+      "tgt": [
+       0,
+       1.25,
+       8
+      ]
+     },
+     "players": [
+      {
+       "name": "Barton",
+       "num": 17,
+       "kit": {
+        "shirt": "#1d5ba4",
+        "hoops": [
+         "#1d5ba4",
+         "#ffffff"
+        ],
+        "shorts": "#ffffff",
+        "socks": "#ffffff",
+        "text": "#0d2d5a"
+       },
+       "skin": "#d9a37c",
+       "hair": "#1a120c",
+       "x": -0.55,
+       "z": 2.6,
+       "front": true,
+       "chest": true,
+       "enter": "walk",
+       "fromZ": 4.2,
+       "walkDur": 2.4
+      }
+     ],
+     "card": [
+      {
+       "type": "redcard",
+       "y": 1380,
+       "at": "sent off",
+       "label": "55' Barton",
+       "dx": 240
+      }
+     ]
+    }
+   ]
   },
   {
    "kicker": "66 minutes",
@@ -454,26 +572,26 @@
    "cut": true,
    "camFrom": {
     "pos": [
-     0.2,
-     1.8,
-     34.4
+     8.5,
+     1.9,
+     40.5
     ],
     "tgt": [
-     0.4,
+     1.2,
      1.3,
-     60
+     51
     ]
    },
    "camera": {
     "pos": [
-     0.3,
+     7.0,
      1.6,
-     35.2
+     42.0
     ],
     "tgt": [
-     0.5,
      1.2,
-     60
+     1.3,
+     51
     ]
    },
    "move": 3,
@@ -495,22 +613,25 @@
      "skin": "#d9a37c",
      "hair": "#1a120c",
      "num": 9,
-     "x": 0.45,
-     "z": 40.1,
-     "action": "kick",
-     "actionAt": "QPR went",
-     "actionLag": -0.3,
-     "actionDur": 1.1
+     "x": 0.3,
+     "z": 46.5,
+     "hops": [
+      {
+       "at": "QPR went",
+       "lag": -0.45,
+       "dur": 0.6,
+       "height": 0.3
+      }
+     ]
     },
     {
      "name": "Hart",
-     "front": true,
-     "x": 0.4,
-     "z": 52.0,
+     "x": 0.2,
+     "z": 52.3,
      "action": "dive",
-     "dir": -1,
+     "dir": 1,
      "actionAt": "QPR went",
-     "actionLag": 0.35,
+     "actionLag": -0.3,
      "before": "ready",
      "gloves": "#f2f2f2",
      "kit": {
@@ -526,44 +647,60 @@
    "punch": [
     {
      "at": "QPR went",
-     "amount": 0.18,
+     "amount": 0.15,
      "dur": 1.2,
      "anchor": 0
     }
    ],
    "card": [
     {
-     "type": "ball",
-     "delay": 0,
-     "point": [
-      0.62,
-      0.11,
-      40.5
-     ],
-     "untilAt": "QPR went",
-     "untilLag": 0.16
+     "type": "ballpath",
+     "world": true,
+     "at": "QPR went",
+     "lag": -1.1,
+     "dur": 0.9,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       -18,
+       0.3,
+       44
+      ],
+      [
+       -9,
+       6,
+       46
+      ],
+      [
+       0.3,
+       2.0,
+       46.6
+      ]
+     ]
     },
     {
      "type": "ballpath",
      "world": true,
      "at": "QPR went",
-     "lag": 0.16,
-     "dur": 0.8,
+     "lag": -0.2,
+     "dur": 0.45,
+     "slowmo": false,
      "points": [
       [
-       0.62,
-       0.11,
-       40.5
+       0.3,
+       2.0,
+       46.6
       ],
       [
+       -1.0,
        1.6,
-       1.4,
-       47
+       50
       ],
       [
-       2.9,
-       1.6,
-       53.0
+       -2.4,
+       1.0,
+       53.2
       ]
      ]
     },
@@ -572,12 +709,19 @@
      "text": "1–2",
      "sub": "City losing",
      "y": 1500,
-     "size": 150,
+     "dx": 250,
+     "size": 130,
      "rot": -0.1,
      "at": "two–one"
     }
    ],
-   "vo": "And then, ten-man QPR went two–one up."
+   "vo": "And then, ten-man QPR went two–one up.",
+   "shake": [
+    {
+     "at": "two–one",
+     "amount": 14
+    }
+   ]
   },
   {
    "kicker": "Meanwhile, at Sunderland",
@@ -641,7 +785,7 @@
      "type": "stamp",
      "text": "UNITED'S TITLE",
      "y": 1560,
-     "size": 100,
+     "size": 72,
      "rot": -0.08,
      "at": "Old Trafford",
      "color": "#da291c"
@@ -666,25 +810,25 @@
    "cut": true,
    "camFrom": {
     "pos": [
-     2.5,
-     3.0,
-     33
+     2.4,
+     2.4,
+     37
     ],
     "tgt": [
      0.5,
-     1.5,
+     1.6,
      60
     ]
    },
    "camera": {
     "pos": [
      2.0,
-     2.6,
-     35
+     2.1,
+     39.5
     ],
     "tgt": [
      0.5,
-     1.5,
+     1.6,
      60
     ]
    },
@@ -705,7 +849,14 @@
      "num": 10,
      "x": 0.6,
      "z": 46.6,
-     "hops": []
+     "hops": [
+      {
+       "at": "headed",
+       "lag": -0.3,
+       "dur": 0.6,
+       "height": 0.32
+      }
+     ]
     },
     {
      "name": "Kenny",
@@ -741,8 +892,8 @@
     {
      "type": "ballpath",
      "world": true,
-     "at": "Džeko",
-     "lag": -0.4,
+     "at": "headed",
+     "lag": -0.95,
      "dur": 0.9,
      "slowmo": false,
      "flash": false,
@@ -798,7 +949,21 @@
      "color": "#6cabdd"
     }
    ],
-   "vo": "In the ninety-second minute, Džeko headed in the equaliser."
+   "vo": "In the ninety-second minute, Džeko headed in the equaliser.",
+   "punch": [
+    {
+     "at": "headed",
+     "amount": 0.16,
+     "dur": 1.2,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "at": "equaliser",
+     "amount": 14
+    }
+   ]
   },
   {
    "kicker": "93 minutes",
@@ -916,6 +1081,12 @@
       "s": 1
      },
      {
+      "at": "last kick",
+      "s": 1.2,
+      "x": 0.5,
+      "y": 0.42
+     },
+     {
       "at": "Balotelli",
       "s": 1.4,
       "x": 0.55,
@@ -948,24 +1119,24 @@
    "cut": true,
    "camFrom": {
     "pos": [
-     -3.5,
-     1.7,
+     0.6,
+     1.8,
      33.5
     ],
     "tgt": [
-     -1.2,
+     -2.2,
      1.0,
      60
     ]
    },
    "camera": {
     "pos": [
-     -2.8,
-     1.7,
+     0.9,
+     1.8,
      36.5
     ],
     "tgt": [
-     -0.8,
+     -2.0,
      1.0,
      60
     ]
@@ -1036,7 +1207,7 @@
      "x": -0.6,
      "z": 52.0,
      "action": "dive",
-     "dir": -1,
+     "dir": 1,
      "actionDelay": 1.75,
      "actionDur": 0.95,
      "before": "ready",
@@ -1089,13 +1260,13 @@
        44.0
       ],
       [
-       -2.0,
-       1.3,
+       -2.4,
+       1.4,
        48.5
       ],
       [
-       -2.6,
-       1.7,
+       -2.9,
+       1.75,
        53.0
       ]
      ]
@@ -1151,19 +1322,19 @@
    },
    "camera": {
     "pos": [
-     6,
-     4.5,
-     40
+     3.5,
+     5.5,
+     35
     ],
     "tgt": [
-     -1.5,
-     1,
-     50
+     -2.2,
+     0.8,
+     47
     ]
    },
    "move": 4.6,
    "moveEase": "ease",
-   "fans": true,
+   "fans": false,
    "lights": 1,
    "players": [
     {
@@ -1227,7 +1398,7 @@
      "x": -0.6,
      "z": 52.0,
      "action": "dive",
-     "dir": -1,
+     "dir": 1,
      "actionDelay": 1.75,
      "actionDur": 0.95,
      "before": "ready",
@@ -1273,13 +1444,13 @@
        44.0
       ],
       [
-       -2.0,
-       1.3,
+       -2.4,
+       1.4,
        48.5
       ],
       [
-       -2.6,
-       1.7,
+       -2.9,
+       1.75,
        53.0
       ]
      ]
@@ -1297,7 +1468,7 @@
     {
      "type": "stamp",
      "text": "ON GOAL DIFFERENCE",
-     "y": 1250,
+     "y": 860,
      "size": 70,
      "rot": -0.06,
      "at": "goal difference",
@@ -1385,7 +1556,7 @@
    ],
    "card": {
     "type": "poll",
-    "y": 760,
+    "y": 1560,
     "at": "greatest moment",
     "question": "Greatest Premier League moment?",
     "options": [

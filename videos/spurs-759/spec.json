@@ -443,9 +443,9 @@
      "moveEase": "linear",
      "camFrom": {
       "pos": [
-       -2.5,
-       1.7,
-       9
+       -2.0,
+       1.6,
+       13.0
       ],
       "tgt": [
        0.5,
@@ -455,12 +455,12 @@
      },
      "camera": {
       "pos": [
-       1.5,
-       1.7,
-       9.5
+       1.2,
+       1.6,
+       13.6
       ],
       "tgt": [
-       1.5,
+       1.2,
        1.0,
        21
       ]
@@ -2003,13 +2003,14 @@
     {
      "name": "De Zerbi",
      "outfit": "suit",
-     "suitColor": "#1b2233",
+     "suitColor": "#2a3140",
      "skin": "#e7b593",
      "hair": "#2a1a10",
      "x": 0,
      "z": 2.4,
      "front": true,
-     "pose": "fists"
+     "pose": "fists",
+     "tie": "#132257"
     }
    ],
    "card": {

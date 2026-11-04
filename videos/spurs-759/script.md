@@ -31,8 +31,8 @@ Angle: two numbers that clash (Agüero was stakes/open loop; this rotates).
 - Not used: possession % and shot count (single sources), the "616 days" stat (single source), exact red-card minute (sources differ).
 
 ## Script
-1. Tottenham just completed 759 passes in one game. Manchester City once made 902.
-2. On Saturday, Palace came to Tottenham. Early on, Mateta was sent off for a late tackle on Van de Ven.
+1. Tottenham completed 759 passes in one game. Manchester City once made 902.
+2. On Saturday the 31st of October 2026, Palace came to Tottenham. Early on, Mateta was sent off for a late tackle on Van de Ven.
 3. Against ten men, Spurs kept the ball. And kept it. And kept it.
 4. Archie Gray headed in the first.
 5. The second was saved, hit the bar, and went in off Jan Paul van Hecke.

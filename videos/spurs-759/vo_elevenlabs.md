@@ -4,8 +4,8 @@ One emotion per line, pauses from the punctuation, words match vo.txt (capitals 
 
 ## Copy-paste block
 
-[intrigued] Tottenham just completed 759 passes in one game. [smug] Manchester City once made… 902.
-[storytelling] On Saturday, Palace came to Tottenham. [serious] Early on, Mateta was sent off for a late tackle on Van de Ven.
+[intrigued] Tottenham completed 759 passes in one game. [smug] Manchester City once made… 902.
+[storytelling] On Saturday the 31st of October 2026, Palace came to Tottenham. [serious] Early on, Mateta was sent off for a late tackle on Van de Ven.
 [amused] Against ten men, Spurs kept the ball. And kept it. And kept it.
 [upbeat] Archie Gray headed in the first.
 [laughing] The second was saved, hit the bar… and went in off Jan Paul van Hecke.

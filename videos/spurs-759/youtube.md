@@ -12,7 +12,7 @@ Will ANYONE Ever Beat Man City's 902 Passes? #Shorts
 ```
 
 ## Description
-Tottenham just completed 759 passes in one Premier League game. Manchester City once made 902. ⚽
+On 31 October 2026, Tottenham completed 759 passes in one Premier League game. Manchester City once made 902. ⚽
 
 Against 10-man Crystal Palace (Mateta was sent off early), Roberto De Zerbi's Spurs won 2–0 with goals from Archie Gray and Jan Paul van Hecke, and set three club records: 759 completed passes, 93% pass accuracy, and 143 passes from van Hecke alone. But City's 902 against Chelsea in March 2018 is still the most ever recorded in the Premier League.
 

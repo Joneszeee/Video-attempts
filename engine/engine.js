@@ -2073,11 +2073,18 @@ CARDS.passweb = function (c, ct, cx, cy) {
   const k = ease(pr(ct, 0, c.dur || 4)), v = Math.round(lerp(c.from || 0, c.to, k)), fin = k >= 1;
   const pop = fin ? 1 + 0.12 * Math.max(0, 1 - (ct - (c.dur || 4)) / 0.3) : 1;
   ctx.save(); ctx.translate(cx, cy); ctx.scale(pop, pop);
-  ctx.fillStyle = 'rgba(10,12,18,0.78)'; rrect(-300, -120, 600, 230, 28); ctx.fill();
+  // the box always wraps its label and the final number (user: the label ran outside the box)
+  const lab = (c.label || 'Passes completed').toUpperCase();
+  font(600, 26, 'Mono', '5px'); let lw = ctx.measureText(lab).width, ls = 26;
+  if (lw > 900) { ls = 26 * 900 / lw; font(600, ls, 'Mono', '4px'); lw = ctx.measureText(lab).width; }
+  font(800, 150, 'Inter', '-3px'); const nw = ctx.measureText(Number(c.to).toLocaleString('en-GB')).width;
+  const bw = Math.max(560, lw + 90, nw + 120);
+  ctx.fillStyle = 'rgba(10,12,18,0.82)'; rrect(-bw / 2, -120, bw, 236, 28); ctx.fill();
+  ctx.strokeStyle = fin && c.gold !== false ? 'rgba(241,196,83,0.55)' : 'rgba(255,255,255,0.12)'; ctx.lineWidth = 2; rrect(-bw / 2, -120, bw, 236, 28); ctx.stroke();
   font(800, 150, 'Inter', '-3px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
   if (fin) { ctx.shadowColor = c.gold === false ? 'transparent' : '#f1c453'; ctx.shadowBlur = 30; }
   ctx.fillStyle = fin && c.gold !== false ? '#f1c453' : '#ffffff'; ctx.fillText(v.toLocaleString('en-GB'), 0, 50); ctx.shadowBlur = 0;
-  font(600, 26, 'Mono', '5px'); ctx.fillStyle = '#9aa3b2'; ctx.fillText((c.label || 'Passes completed').toUpperCase(), 0, 92);
+  font(600, ls, 'Mono', ls < 26 ? '4px' : '5px'); ctx.fillStyle = '#9aa3b2'; ctx.fillText(lab, 0, 90);
   ctx.restore();
 };
 CARDS.passweb.chalk = function (c, ct, cx, cy) {   // tactics chalkboard version

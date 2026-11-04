@@ -109,7 +109,7 @@ else (e.g. Ronaldo and Klose on screen while he talked about Gerd Müller). So:
   receipt `totalAt`. Use them in place of hand-tuned `delay` and `t` values.
 - **Several shots per line.** A long line gets `"shots": [{"at": "phrase", ...}]` to cut or move the camera, swap players or bring in a new card
   mid-sentence. Inside a shot, plain numbers (`delay`, `actionDelay`, punch `t`) count from the shot's start. Aim for **a visible change every 2–3 seconds** at most.
-  But **no hard cut shorter than about 2 seconds** (user: the Bayern beat "switches way too quickly"). When a line packs in several facts,
+  A shot also takes `"lag"` to nudge its cut earlier or later. But **no hard cut shorter than about 2 seconds** (user: the Bayern beat "switches way too quickly"). When a line packs in several facts,
   stay on one shot and layer the cards and effects onto it (pop-ins, fly-in words, rising trophies, confetti) instead of cutting away for each one.
 - **Motion matches the emotion** of each line (see the [tag] in `vo_elevenlabs.md`): excited or triumphant means fast moves, pops, confetti and slams.
   Tense means a slow push-in, darker lights and a held highlight. Sombre means low `lights`, slow drift and fewer elements. Dry or deadpan means a hard cut

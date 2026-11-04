@@ -106,7 +106,7 @@ def resolve(spec, beat_starts, speech):
         _resolve_beat(b, rel)
         for sh in b.get('shots', []):
             # inside a shot, phrases resolve relative to the shot's start, and plain numbers already are
-            sh['_t'] = t0 = rel(sh['at'])
+            sh['_t'] = t0 = round(rel(sh['at']) + sh.pop('lag', 0), 3)   # 'lag' nudges the cut (keep cuts >= ~2s)
             _resolve_beat(sh, lambda phrase, t0=t0: round(rel(phrase) - t0, 3))
         out.extend(_split(b))
     spec['beats'] = out

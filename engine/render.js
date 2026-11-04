@@ -3,6 +3,7 @@
 // or to PNG stills for quick checks.
 //   node engine/render.js spec.json out.mp4 [--fps 30] [--events events.json]
 //   node engine/render.js spec.json stills_dir --stills 0.5,3,7.2
+//   node engine/render.js resolved.json clip.mp4 --range 12,20   (one stretch only, for quick section previews)
 const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const fs = require('fs');
@@ -50,7 +51,9 @@ function arg(name, def) {
   const done = new Promise((res, rej) => ff.on('close', c => (c === 0 ? res() : rej(new Error('ffmpeg exited ' + c)))));
   const n = Math.round(info.duration * fps);
   const t0 = Date.now();
-  for (let f = 0; f < n; f++) {
+  const range = (arg('--range') || '').split(',').filter(Boolean).map(Number);   // --range a,b: render only that stretch (quick section previews)
+  const f0 = range.length ? Math.round(range[0] * fps) : 0, f1 = range.length ? Math.min(n, Math.round(range[1] * fps)) : n;
+  for (let f = f0; f < f1; f++) {
     const b64 = await page.evaluate(t => window.frame(t), f / fps);
     if (!ff.stdin.write(Buffer.from(b64, 'base64'))) await new Promise(r => ff.stdin.once('drain', r));
     if (f % (fps * 5) === 0) process.stdout.write(`\r  frame ${f}/${n}`);

@@ -79,6 +79,11 @@ function camInBeat(i, lt) {
     const pos = [c[0] + Math.sin(a) * o.r, o.h != null ? lerp(o.h, o.h2 != null ? o.h2 : o.h, k) : c[1], c[2] - Math.cos(a) * o.r];
     return { pos, tgt: [c[0], c[1], c[2]] };
   }
+  if (b.camFollow) {   // broadcast camera following the ball of the beat's pass web (smoothed so it glides)
+    const it = webCard(b), F = b.camFollow;
+    if (it) { const ct = b.start + lt - it.start; let sx = 0, sz = 0; for (let j = 0; j < 8; j++) { const p = webBall(it.obj, ct - j * 0.12).p; sx += p[0]; sz += p[2]; }
+      const bx = sx / 8, bz = sz / 8; return { pos: [bx + (F.side || 0), F.h || 9, bz - (F.back || 14)], tgt: [bx, 0.5, bz + (F.ahead || 3)] }; }
+  }
   const to = camPreset(b.camera);
   const from = (i === 0 || b.cut) ? camPreset(b.camFrom || b.camera) : camEnd(i - 1);
   const md = b.move != null ? b.move : Math.min(2.4, b.dur * 0.8);
@@ -813,7 +818,9 @@ function drawPlayers(cam, lt, players) {
   const list = [];
   for (const p of players) {
     let x = p.x || 0, z = p.z || 0, walk = 0, heading = [0, 1];
-    if (p.path) {   // runs along a route at a steady pace (no easing, so he never looks like he's running on the spot)
+    const wp = (p.web != null || p.webRival != null) ? webPlayerPos(p, lt) : null;
+    if (wp) { x = wp.x; z = wp.z; walk = wp.walk; heading = wp.heading; }
+    else if (p.path) {   // runs along a route at a steady pace (no easing, so he never looks like he's running on the spot)
       const pts = p.path, segs = []; let total = 0;
       for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); segs.push(d); total += d; }
       const k = clamp((lt - (p.delay || 0)) / (p.pathDur || 3), 0, 1);
@@ -1862,38 +1869,89 @@ CARDS.ballpath = function (c, ct) {
   ctx.restore();
 };
 CARDS.ballpath.noSlide = true;
-// Pass web (stadium): the ball pings from player to player on the real pitch, each pass leaving a glowing line on the grass
-// (drawn under the players), while a big counter races up. nodes: [[x, z], ...] pitch points (put players there),
-// pass (s per pass, default 0.34), trail (lines kept, default 16), color, seed; counter: from, to, dur, label, y (or pos).
-// counter: false hides the number (lines only).
+// Pass web: the ball pings from player to player, each pass leaving a line, with a pop per pass. Three looks:
+//  - stadium (default): glowing lines on the grass, drawn under the players. Bind rigged players to it with player "web": k (node k)
+//    or "webRival": j (they move for real, running when they move). "tokens": true draws top-down player discs instead (bird's-eye shots,
+//    e.g. an "orbit" with h ≈ 40). Beat "camFollow": {h, back, side} makes a broadcast camera follow the ball.
+//  - board: "chalk": a tactics chalkboard (screen card) with chalk O's, X's chasing the ball, and pass lines scratching in.
+// nodes: [[x, z], ...] pitch metres; drift (m, players wander), pass (s per pass), trail, color, seed, loft (share of lofted passes),
+// rivals: {nodes, color, chase} (opponents shuffle towards the ball); kit: {shirt, ring} and rivalKit for tokens;
+// counter: from, to, dur, label, y (or counter: false). Chalk: w, h, area [x0, z0, x1, z1], zoom [from, to], follow (0–1).
 function passSeq(c) {
   if (c._seq) return c._seq;
   const R = rng(c.seed || 7), n = c.nodes.length, seq = [c.start || 0];
   for (let i = 0; i < 400; i++) { let j; do { j = Math.floor(R() * n); } while (j === seq[seq.length - 1]); seq.push(j); }
   return (c._seq = seq);
 }
+function webNode(c, j, t) {
+  const b = c.nodes[j], d = c.drift != null ? c.drift : 0, ph = j * 1.7;
+  return [b[0] + d * Math.sin(t * 0.7 + ph), b[1] + d * 0.8 * Math.cos(t * 0.55 + ph * 1.3)];
+}
+function webPass(c, i) {   // where pass i starts and ends, and how high it travels
+  const pd = c.pass || 0.34, seq = passSeq(c), R = rng(1000 + i * 7 + (c.seed || 7));
+  return { a: webNode(c, seq[i], i * pd), b: webNode(c, seq[i + 1], (i + 1) * pd), arc: R() < (c.loft != null ? c.loft : 0.2) ? 2.4 : 0.15 };
+}
+function webBall(c, ct) {   // [x, y, z] of the ball and the pass index
+  const pd = c.pass || 0.34, t = Math.max(0, ct);
+  let cur = Math.floor(t / pd), k = t / pd - cur;
+  if (c.stopAt != null && t >= c.stopAt) { cur = Math.floor(c.stopAt / pd); k = 1; }
+  const P = webPass(c, cur), e = eOut(k);
+  return { p: [lerp(P.a[0], P.b[0], e), 0.11 + P.arc * Math.sin(Math.PI * k), lerp(P.a[1], P.b[1], e)], cur, k };
+}
+function webRival(c, j, t) {
+  const R = c.rivals, b = R.nodes[j], ch = R.chase != null ? R.chase : 0.45;
+  const cx = R.nodes.reduce((m, n) => m + n[0], 0) / R.nodes.length, cz = R.nodes.reduce((m, n) => m + n[1], 0) / R.nodes.length;
+  const ball = webBall(c, t - 0.55).p, ph = j * 2.3;
+  return [lerp(b[0], ball[0] + (b[0] - cx) * 0.4, ch) + 0.6 * Math.sin(t * 0.9 + ph), lerp(b[1], ball[2] + (b[1] - cz) * 0.4, ch) + 0.5 * Math.cos(t * 0.8 + ph)];
+}
+function webCard(b) { for (const it of b ? b.cards : []) if (it.obj.type === 'passweb') return it; return null; }
+function webPlayerPos(p, lt) {   // a rigged player bound to the pass web: where he is, and whether he's running
+  const it = webCard(S.cur); if (!it) return null;
+  const c = it.obj, ct = S.t - it.start, f = t => p.web != null ? webNode(c, p.web, t) : webRival(c, p.webRival, t);
+  const a = f(ct), b0 = f(ct - 0.12), sp = Math.hypot(a[0] - b0[0], a[1] - b0[1]) / 0.12;
+  return { x: a[0], z: a[1], walk: sp > 1.2 ? 1 : 0, heading: sp > 0.01 ? [(a[0] - b0[0]) / (sp * 0.12), (a[1] - b0[1]) / (sp * 0.12)] : [0, 1] };
+}
+function webTokenW(cam, x, z, r, fill, ring, alpha) {   // a top-down player disc on the pitch
+  const c0 = toCam(cam, [x, 0.03, z]); if (c0[2] < NEAR) return;
+  const s = proj(c0), sx = proj(toCam(cam, [x + r, 0.03, z])), sz = proj(toCam(cam, [x, 0.03, z + r]));
+  const rx = Math.max(3, Math.hypot(sx[0] - s[0], sx[1] - s[1])), ry = Math.max(2, Math.hypot(sz[0] - s[0], sz[1] - s[1]));
+  ctx.save(); ctx.globalAlpha *= alpha == null ? 1 : alpha;
+  ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.beginPath(); ctx.ellipse(s[0] + rx * 0.15, s[1] + ry * 0.3, rx, ry, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = fill; ctx.beginPath(); ctx.ellipse(s[0], s[1], rx, ry, 0, 0, 7); ctx.fill();
+  ctx.lineWidth = Math.max(2, rx * 0.22); ctx.strokeStyle = ring; ctx.stroke();
+  ctx.restore();
+}
 CARDS.passweb = function (c, ct, cx, cy) {
+  if (c.board === 'chalk') { if (!c._under) CARDS.passweb.chalk(c, ct, cx, cy); return; }
   if (c._under) {
     if (!S.cam) return;
-    const seq = passSeq(c), pd = c.pass || 0.34, done = ct / pd, cur = Math.floor(done), k = done - cur, trail = c.trail || 16;
-    const P = i => { const v = toCam(S.cam, [c.nodes[seq[i]][0], 0.05, c.nodes[seq[i]][1]]); return v[2] < NEAR ? null : proj(v); };
-    const end = c.stopAt != null ? Math.min(cur, Math.floor(c.stopAt / pd)) : cur;
+    const pd = c.pass || 0.34, { cur, k } = webBall(c, ct), trail = c.trail || 16, col = c.color || '#ffffff';
+    const P = w => { const v = toCam(S.cam, [w[0], 0.05, w[1]]); return v[2] < NEAR ? null : proj(v); };
     ctx.save(); ctx.lineCap = 'round';
-    for (let i = Math.max(0, end - trail); i < end; i++) {
-      const a = P(i), b = P(i + 1); if (!a || !b) continue;
-      const f = 1 - (end - i) / (trail + 1);
-      ctx.strokeStyle = c.color || '#ffffff'; ctx.globalAlpha = 0.15 + 0.55 * f; ctx.lineWidth = 3 + 5 * f;
-      ctx.shadowColor = c.color || '#ffffff'; ctx.shadowBlur = 14 * f;
+    for (let i = Math.max(0, cur - trail); i < cur; i++) {   // completed passes, older ones fading
+      const W = webPass(c, i), a = P(W.a), b = P(W.b); if (!a || !b) continue;
+      const f = 1 - (cur - i) / (trail + 1);
+      ctx.strokeStyle = col; ctx.globalAlpha = 0.12 + 0.6 * f; ctx.lineWidth = 2 + 6 * f; ctx.shadowColor = col; ctx.shadowBlur = 16 * f;
+      if (W.arc > 1) ctx.setLineDash([14, 12]); else ctx.setLineDash([]);   // lofted passes dashed, like a TV graphic
       ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke();
     }
+    ctx.setLineDash([]);
+    { const W = webPass(c, cur), a = P(W.a), bp = P([lerp(W.a[0], W.b[0], eOut(k)), lerp(W.a[1], W.b[1], eOut(k))]);   // the pass in flight draws itself
+      if (a && bp) { ctx.globalAlpha = 0.85; ctx.strokeStyle = col; ctx.lineWidth = 7; ctx.shadowColor = col; ctx.shadowBlur = 18; ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...bp); ctx.stroke(); } }
     ctx.restore();
+    if (c.tokens) {   // bird's-eye: player discs, rivals chasing, a pulse on whoever just received it
+      const kit = c.kit || { shirt: '#f4f4f2', ring: '#132257' }, rk = c.rivalKit || { shirt: '#c4122e', ring: '#1b458f' };
+      if (c.rivals) c.rivals.nodes.forEach((_, j) => { const p = webRival(c, j, ct); webTokenW(S.cam, p[0], p[1], 0.9, rk.shirt, rk.ring); });
+      const seq = passSeq(c), rec = webNode(c, seq[cur], cur * pd), pk = pr(k, 0, 0.5);
+      if (pk < 1) { const s0 = toCam(S.cam, [rec[0], 0.03, rec[1]]); if (s0[2] > NEAR) { const s = proj(s0), rr = FOC * (1 + 2.2 * pk) / s0[2];
+        ctx.save(); ctx.strokeStyle = col; ctx.globalAlpha = 0.8 * (1 - pk); ctx.lineWidth = 4; ctx.beginPath(); ctx.ellipse(s[0], s[1], rr, rr * Math.abs(S.cam.f[1]), 0, 0, 7); ctx.stroke(); ctx.restore(); } }
+      c.nodes.forEach((_, j) => { const p = webNode(c, j, ct); webTokenW(S.cam, p[0], p[1], 1.0, kit.shirt, kit.ring); });
+    }
     if (c.stopAt != null && ct >= c.stopAt) return;
-    const a = P(cur), b = P(cur + 1); if (!a || !b) return;
-    const e = ease(k), x = lerp(a[0], b[0], e), y = lerp(a[1], b[1], e) - Math.sin(Math.PI * k) * 10;
-    const va = toCam(S.cam, [c.nodes[seq[cur]][0], 0, c.nodes[seq[cur]][1]]), r = Math.max(4, FOC * 0.11 / Math.max(1, va[2]));
-    ctx.save(); ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = r * 0.9; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(lerp(a[0], b[0], Math.max(0, e - 0.12)), lerp(a[1], b[1], Math.max(0, e - 0.12))); ctx.lineTo(x, y); ctx.stroke();
-    drawBall(x, y, r); ctx.restore();
+    const bw = webBall(c, ct).p, v = toCam(S.cam, bw); if (v[2] < NEAR) return;
+    const s = proj(v), r = Math.max(5, FOC * 0.16 / v[2]) * (c.tokens ? 1.6 : 1), g = toCam(S.cam, [bw[0], 0.02, bw[2]]);
+    if (g[2] > NEAR) { const sg = proj(g); ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.ellipse(sg[0], sg[1], r, r * 0.4, 0, 0, 7); ctx.fill(); }
+    drawBall(s[0], s[1], r);
     return;
   }
   if (c.counter === false) return;
@@ -1905,6 +1963,48 @@ CARDS.passweb = function (c, ct, cx, cy) {
   if (fin) { ctx.shadowColor = c.gold === false ? 'transparent' : '#f1c453'; ctx.shadowBlur = 30; }
   ctx.fillStyle = fin && c.gold !== false ? '#f1c453' : '#ffffff'; ctx.fillText(v.toLocaleString('en-GB'), 0, 50); ctx.shadowBlur = 0;
   font(600, 26, 'Mono', '5px'); ctx.fillStyle = '#9aa3b2'; ctx.fillText((c.label || 'Passes completed').toUpperCase(), 0, 92);
+  ctx.restore();
+};
+CARDS.passweb.chalk = function (c, ct, cx, cy) {   // tactics chalkboard version
+  const bw = c.w || 960, bh = c.h || 1180, A = c.area || [-34, 0, 34, 52.5], pad = 40, a = eOut(pr(ct, 0, 0.35));
+  const toB = (x, z) => [-bw / 2 + pad + (x - A[0]) / (A[2] - A[0]) * (bw - 2 * pad), bh / 2 - pad - (z - A[1]) / (A[3] - A[1]) * (bh - 2 * pad)];
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, cy + (1 - a) * 60); ctx.rotate(c.tilt != null ? c.tilt : -0.015);
+  ctx.fillStyle = '#5b3a1e'; rrect(-bw / 2 - 22, -bh / 2 - 22, bw + 44, bh + 44, 12); ctx.fill();
+  const g = ctx.createRadialGradient(0, 0, 50, 0, 0, bh * 0.7); g.addColorStop(0, '#2c3a33'); g.addColorStop(1, '#18201c');
+  ctx.fillStyle = g; ctx.fillRect(-bw / 2, -bh / 2, bw, bh);
+  ctx.save(); ctx.beginPath(); ctx.rect(-bw / 2, -bh / 2, bw, bh); ctx.clip();
+  // camera on the board: slow push-in that leans towards the ball
+  const zm = c.zoom || [1, 1.25], zk = lerp(zm[0], zm[1], pr(ct, 0, c.zoomDur || 6));
+  let fx = 0, fy = 0;
+  if (c.follow) { let sx = 0, sy = 0; for (let i = 0; i < 6; i++) { const p = webBall(c, ct - i * 0.15).p, q = toB(p[0], p[2]); sx += q[0]; sy += q[1]; } fx = sx / 6 * c.follow; fy = sy / 6 * c.follow; }
+  ctx.scale(zk, zk); ctx.translate(-fx, -fy);
+  const R = rng(3); ctx.fillStyle = 'rgba(255,255,255,0.035)';   // old chalk smudges
+  for (let i = 0; i < 16; i++) { ctx.beginPath(); ctx.ellipse((R() - 0.5) * bw, (R() - 0.5) * bh, 60 + R() * 120, 20 + R() * 40, R() * 3, 0, 7); ctx.fill(); }
+  const L = (x1, z1, x2, z2, s, w, col, k) => { const p = toB(x1, z1), q = toB(x2, z2); chalkLine(p[0], p[1], q[0], q[1], k == null ? 1 : k, s, w, col); };
+  const dim = 'rgba(245,245,238,0.45)';   // the pitch markings
+  L(A[0], A[3], A[2], A[3], 1, 6, dim); L(A[0], A[1], A[0], A[3], 2, 6, dim); L(A[2], A[1], A[2], A[3], 3, 6, dim);
+  if (A[1] <= 0) L(A[0], 0, A[2], 0, 4, 6, dim);
+  const bx = 20.16, bz = 52.5 - 16.5, sx = 9.16, sz = 52.5 - 5.5;
+  L(-bx, 52.5, -bx, bz, 5, 6, dim); L(-bx, bz, bx, bz, 6, 6, dim); L(bx, bz, bx, 52.5, 7, 6, dim);
+  L(-sx, 52.5, -sx, sz, 8, 5, dim); L(-sx, sz, sx, sz, 9, 5, dim); L(sx, sz, sx, 52.5, 10, 5, dim);
+  { const c0 = toB(0, 0), rr = 9.15 / (A[2] - A[0]) * (bw - 2 * pad); ctx.save(); ctx.strokeStyle = dim; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(c0[0], c0[1], rr, Math.PI, 2 * Math.PI); ctx.stroke(); ctx.restore(); }
+  // passes: completed ones stay (chalk), the one in flight scratches in behind the ball
+  const pd = c.pass || 0.34, { cur, k } = webBall(c, ct), col = c.color || 'rgba(245,245,238,0.92)', trail = c.trail || 40;
+  for (let i = Math.max(0, cur - trail); i < cur; i++) { const W = webPass(c, i); L(W.a[0], W.a[1], W.b[0], W.b[1], 50 + i, 5, col); }
+  { const W = webPass(c, cur); L(W.a[0], W.a[1], W.b[0], W.b[1], 50 + cur, 7, col, eOut(k)); }
+  // rivals (X) chasing, players (O)
+  const rcol = (c.rivals && c.rivals.color) || '#ff8a96';
+  if (c.rivals) c.rivals.nodes.forEach((_, j) => { const p = webRival(c, j, ct), q = toB(p[0], p[1]), s = 20;
+    chalkLine(q[0] - s, q[1] - s, q[0] + s, q[1] + s, 1, 300 + j, 8, rcol); chalkLine(q[0] + s, q[1] - s, q[0] - s, q[1] + s, 1, 400 + j, 8, rcol); });
+  const hcol = (c.kit && c.kit.chalk) || '#ffffff', seq = passSeq(c);
+  c.nodes.forEach((_, j) => { const p = webNode(c, j, ct), q = toB(p[0], p[1]);
+    ctx.save(); ctx.strokeStyle = hcol; ctx.lineWidth = 8; ctx.globalAlpha *= 0.92; ctx.beginPath(); ctx.arc(q[0], q[1], 24, 0, 7); ctx.stroke(); ctx.restore(); });
+  const rec = webNode(c, seq[cur], cur * pd), pk = pr(k, 0, 0.45), rq = toB(rec[0], rec[1]);   // a chalk ring pulses on the receiver
+  if (pk < 1) { ctx.save(); ctx.strokeStyle = '#f1c453'; ctx.globalAlpha *= 1 - pk; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(rq[0], rq[1], 24 + 30 * pk, 0, 7); ctx.stroke(); ctx.restore(); }
+  const bp = webBall(c, ct).p, bq = toB(bp[0], bp[2]);
+  ctx.fillStyle = '#f1c453'; ctx.beginPath(); ctx.arc(bq[0], bq[1] - bp[1] * 6, 11, 0, 7); ctx.fill();
+  ctx.restore();
+  if (c.note) { font(400, 46, 'Marker'); ctx.fillStyle = 'rgba(245,245,238,0.9)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.note, 0, -bh / 2 + 54); }
   ctx.restore();
 };
 CARDS.passweb.noSlide = true;
@@ -2498,9 +2598,9 @@ CARDS.shout.noSlide = true;
 
 // Chalkboard tally: a wooden-framed blackboard; chalk tally marks (gates of five) draw themselves one by one.
 // n marks, done already drawn, next one at newAt/newT; title and score in chalk handwriting.
-function chalkLine(x1, y1, x2, y2, k, seed, w) {
+function chalkLine(x1, y1, x2, y2, k, seed, w, col) {
   const R = rng(seed), xe = lerp(x1, x2, k), ye = lerp(y1, y2, k);
-  ctx.save(); ctx.lineCap = 'round'; ctx.strokeStyle = 'rgba(245,245,238,0.92)'; ctx.lineWidth = w || 9;
+  ctx.save(); ctx.lineCap = 'round'; ctx.strokeStyle = col || 'rgba(245,245,238,0.92)'; ctx.lineWidth = w || 9;
   ctx.beginPath(); ctx.moveTo(x1, y1); const steps = 10;
   for (let i = 1; i <= steps; i++) { const u = i / steps; ctx.lineTo(lerp(x1, xe, u) + (R() - 0.5) * 3, lerp(y1, ye, u) + (R() - 0.5) * 3); }
   ctx.stroke();

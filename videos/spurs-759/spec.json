@@ -19,118 +19,9 @@
     ],
     "seed": 11
    },
-   "camFrom": {
-    "pos": [
-     0,
-     3.4,
-     -2.5
-    ],
-    "tgt": [
-     0,
-     0.6,
-     13
-    ]
-   },
-   "camera": {
-    "pos": [
-     0,
-     3.0,
-     0.5
-    ],
-    "tgt": [
-     0,
-     0.6,
-     13
-    ]
-   },
    "move": 5,
    "lights": 0.9,
-   "players": [
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#e7b593",
-     "hair": "#4a3324",
-     "num": null,
-     "x": -3.2,
-     "z": 6.5
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#8a5a3c",
-     "hair": "#141010",
-     "num": null,
-     "x": 2.6,
-     "z": 7.5
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#c99a6e",
-     "hair": "#1a120c",
-     "num": null,
-     "x": 5.5,
-     "z": 12
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#f0c8a8",
-     "hair": "#8a6a45",
-     "num": null,
-     "x": 0.4,
-     "z": 14.5
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#6b4429",
-     "hair": "#141010",
-     "num": null,
-     "x": -5.6,
-     "z": 12.5
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#d9a37c",
-     "hair": "#2a1a10",
-     "num": null,
-     "x": -1.2,
-     "z": 10
-    }
-   ],
+   "players": [],
    "speedlines": [
     {
      "t": 0,
@@ -151,34 +42,106 @@
      "delay": -0.6,
      "nodes": [
       [
-       -3.2,
-       6.5
+       -14,
+       20
       ],
       [
-       2.6,
-       7.5
+       -5,
+       16
       ],
       [
-       5.5,
-       12
+       5,
+       16
       ],
       [
-       0.4,
-       14.5
+       14,
+       20
       ],
       [
-       -5.6,
-       12.5
+       -9,
+       28
       ],
       [
-       -1.2,
-       10
+       0,
+       25
+      ],
+      [
+       9,
+       28
+      ],
+      [
+       -6,
+       36
+      ],
+      [
+       6,
+       36
+      ],
+      [
+       0,
+       40
       ]
      ],
+     "drift": 2.2,
      "pass": 0.3,
-     "trail": 14,
+     "trail": 18,
+     "loft": 0.2,
      "counter": false,
-     "seed": 3
+     "seed": 3,
+     "tokens": true,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "ring": "#132257"
+     },
+     "rivals": {
+      "nodes": [
+       [
+        -12,
+        41
+       ],
+       [
+        -4,
+        42
+       ],
+       [
+        4,
+        42
+       ],
+       [
+        12,
+        41
+       ],
+       [
+        -8,
+        47
+       ],
+       [
+        0,
+        47.5
+       ],
+       [
+        8,
+        47
+       ],
+       [
+        -3,
+        36
+       ],
+       [
+        3,
+        36
+       ],
+       [
+        0,
+        51
+       ]
+      ],
+      "chase": 0.5
+     },
+     "rivalKit": {
+      "shirt": "#1b458f",
+      "ring": "#c4122e"
+     }
     },
     {
      "type": "stack",
@@ -217,118 +180,148 @@
       ],
       "seed": 19
      },
-     "camFrom": {
-      "pos": [
-       3,
-       3.6,
-       -1.5
-      ],
-      "tgt": [
-       0,
-       0.6,
-       13
-      ]
-     },
      "camera": {
       "pos": [
-       1.5,
-       3.1,
-       1.0
+       0,
+       40,
+       14
       ],
       "tgt": [
        0,
-       0.6,
-       13
+       0,
+       30
       ]
      },
-     "players": [
-      {
-       "name": "",
-       "kit": {
-        "shirt": "#6cabdd",
-        "shorts": "#ffffff",
-        "socks": "#6cabdd",
-        "text": "#1c2c5b"
-       },
-       "skin": "#e7b593",
-       "hair": "#4a3324",
-       "num": null,
-       "x": -3.2,
-       "z": 6.5
-      },
-      {
-       "name": "",
-       "kit": {
-        "shirt": "#6cabdd",
-        "shorts": "#ffffff",
-        "socks": "#6cabdd",
-        "text": "#1c2c5b"
-       },
-       "skin": "#8a5a3c",
-       "hair": "#141010",
-       "num": null,
-       "x": 2.6,
-       "z": 7.5
-      },
-      {
-       "name": "",
-       "kit": {
-        "shirt": "#6cabdd",
-        "shorts": "#ffffff",
-        "socks": "#6cabdd",
-        "text": "#1c2c5b"
-       },
-       "skin": "#c99a6e",
-       "hair": "#1a120c",
-       "num": null,
-       "x": 5.5,
-       "z": 12
-      },
-      {
-       "name": "",
-       "kit": {
-        "shirt": "#6cabdd",
-        "shorts": "#ffffff",
-        "socks": "#6cabdd",
-        "text": "#1c2c5b"
-       },
-       "skin": "#f0c8a8",
-       "hair": "#8a6a45",
-       "num": null,
-       "x": 0.4,
-       "z": 14.5
-      },
-      {
-       "name": "",
-       "kit": {
-        "shirt": "#6cabdd",
-        "shorts": "#ffffff",
-        "socks": "#6cabdd",
-        "text": "#1c2c5b"
-       },
-       "skin": "#6b4429",
-       "hair": "#141010",
-       "num": null,
-       "x": -5.6,
-       "z": 12.5
-      },
-      {
-       "name": "",
-       "kit": {
-        "shirt": "#6cabdd",
-        "shorts": "#ffffff",
-        "socks": "#6cabdd",
-        "text": "#1c2c5b"
-       },
-       "skin": "#d9a37c",
-       "hair": "#2a1a10",
-       "num": null,
-       "x": -1.2,
-       "z": 10
-      }
-     ],
+     "players": [],
      "card": [
-      "same"
+      {
+       "type": "passweb",
+       "id": "cityweb",
+       "delay": -0.6,
+       "nodes": [
+        [
+         -14,
+         20
+        ],
+        [
+         -5,
+         16
+        ],
+        [
+         5,
+         16
+        ],
+        [
+         14,
+         20
+        ],
+        [
+         -9,
+         28
+        ],
+        [
+         0,
+         25
+        ],
+        [
+         9,
+         28
+        ],
+        [
+         -6,
+         36
+        ],
+        [
+         6,
+         36
+        ],
+        [
+         0,
+         40
+        ]
+       ],
+       "drift": 2.2,
+       "pass": 0.3,
+       "trail": 18,
+       "loft": 0.2,
+       "counter": false,
+       "seed": 21,
+       "tokens": true,
+       "kit": {
+        "shirt": "#6cabdd",
+        "ring": "#1c2c5b"
+       },
+       "rivals": {
+        "nodes": [
+         [
+          -12,
+          41
+         ],
+         [
+          -4,
+          42
+         ],
+         [
+          4,
+          42
+         ],
+         [
+          12,
+          41
+         ],
+         [
+          -8,
+          47
+         ],
+         [
+          0,
+          47.5
+         ],
+         [
+          8,
+          47
+         ],
+         [
+          -3,
+          36
+         ],
+         [
+          3,
+          36
+         ],
+         [
+          0,
+          51
+         ]
+        ],
+        "chase": 0.5
+       },
+       "rivalKit": {
+        "shirt": "#034694",
+        "ring": "#ffffff"
+       }
+      },
+      {
+       "type": "stack",
+       "id": "hookstack",
+       "y": 1500,
+       "delay": -0.2,
+       "items": [
+        {
+         "value": 759,
+         "label": "Tottenham v Palace · 2026",
+         "t": 0
+        },
+        {
+         "value": 902,
+         "label": "Man City v Chelsea · 2018",
+         "at": "Manchester City",
+         "color": "#6cabdd",
+         "gold": true
+        }
+       ],
+       "size": 210
+      }
      ],
      "shake": [
       {
@@ -336,11 +329,49 @@
        "amount": 12
       }
      ],
-     "focus": 0.3
+     "focus": 0.25,
+     "orbit": {
+      "center": [
+       0,
+       0,
+       30
+      ],
+      "r": 16,
+      "from": 40,
+      "to": 5,
+      "h": 36,
+      "h2": 40,
+      "dur": 4
+     }
     }
    ],
    "vo": "Tottenham just completed 759 passes in one game. Manchester City once made 902.",
-   "focus": 0.3
+   "focus": 0.25,
+   "orbit": {
+    "center": [
+     0,
+     0,
+     30
+    ],
+    "r": 16,
+    "from": -25,
+    "to": 20,
+    "h": 40,
+    "h2": 34,
+    "dur": 5.5
+   },
+   "camera": {
+    "pos": [
+     0,
+     40,
+     14
+    ],
+    "tgt": [
+     0,
+     0,
+     30
+    ]
+   }
   },
   {
    "kicker": "Saturday · Tottenham v Palace",
@@ -540,424 +571,148 @@
    "camFrom": {
     "pos": [
      0,
-     30,
-     -6
+     6,
+     -10
     ],
     "tgt": [
      0,
-     0,
+     1,
      30
     ]
    },
    "camera": {
     "pos": [
      0,
-     22,
-     4
+     5,
+     -6
     ],
     "tgt": [
      0,
-     0,
-     32
+     1,
+     30
     ]
    },
    "move": 4.5,
-   "lights": 1,
-   "players": [
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#e7b593",
-     "hair": "#4a3324",
-     "num": null,
-     "x": -14,
-     "z": 22
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#8a5a3c",
-     "hair": "#141010",
-     "num": null,
-     "x": -5,
-     "z": 18
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#c99a6e",
-     "hair": "#1a120c",
-     "num": null,
-     "x": 5,
-     "z": 18
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#f0c8a8",
-     "hair": "#8a6a45",
-     "num": null,
-     "x": 14,
-     "z": 22
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#6b4429",
-     "hair": "#141010",
-     "num": null,
-     "x": -9,
-     "z": 30
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#d9a37c",
-     "hair": "#2a1a10",
-     "num": null,
-     "x": 0,
-     "z": 27
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#e7b593",
-     "hair": "#4a3324",
-     "num": null,
-     "x": 9,
-     "z": 30
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#8a5a3c",
-     "hair": "#141010",
-     "num": null,
-     "x": -6,
-     "z": 38
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#c99a6e",
-     "hair": "#1a120c",
-     "num": null,
-     "x": 6,
-     "z": 38
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#f4f4f2",
-      "shorts": "#132257",
-      "socks": "#f4f4f2",
-      "text": "#132257"
-     },
-     "skin": "#f0c8a8",
-     "hair": "#8a6a45",
-     "num": null,
-     "x": 0,
-     "z": 42
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#1b458f",
-      "stripes": [
-       "#1b458f",
-       "#c4122e"
-      ],
-      "shorts": "#1b458f",
-      "socks": "#c4122e",
-      "text": "#ffffff"
-     },
-     "skin": "#e7b593",
-     "hair": "#4a3324",
-     "num": null,
-     "x": -12,
-     "z": 40,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#1b458f",
-      "stripes": [
-       "#1b458f",
-       "#c4122e"
-      ],
-      "shorts": "#1b458f",
-      "socks": "#c4122e",
-      "text": "#ffffff"
-     },
-     "skin": "#8a5a3c",
-     "hair": "#141010",
-     "num": null,
-     "x": -4,
-     "z": 41,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#1b458f",
-      "stripes": [
-       "#1b458f",
-       "#c4122e"
-      ],
-      "shorts": "#1b458f",
-      "socks": "#c4122e",
-      "text": "#ffffff"
-     },
-     "skin": "#c99a6e",
-     "hair": "#1a120c",
-     "num": null,
-     "x": 4,
-     "z": 41,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#1b458f",
-      "stripes": [
-       "#1b458f",
-       "#c4122e"
-      ],
-      "shorts": "#1b458f",
-      "socks": "#c4122e",
-      "text": "#ffffff"
-     },
-     "skin": "#f0c8a8",
-     "hair": "#8a6a45",
-     "num": null,
-     "x": 12,
-     "z": 40,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#1b458f",
-      "stripes": [
-       "#1b458f",
-       "#c4122e"
-      ],
-      "shorts": "#1b458f",
-      "socks": "#c4122e",
-      "text": "#ffffff"
-     },
-     "skin": "#6b4429",
-     "hair": "#141010",
-     "num": null,
-     "x": -8,
-     "z": 46,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#1b458f",
-      "stripes": [
-       "#1b458f",
-       "#c4122e"
-      ],
-      "shorts": "#1b458f",
-      "socks": "#c4122e",
-      "text": "#ffffff"
-     },
-     "skin": "#d9a37c",
-     "hair": "#2a1a10",
-     "num": null,
-     "x": 0,
-     "z": 46.5,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#1b458f",
-      "stripes": [
-       "#1b458f",
-       "#c4122e"
-      ],
-      "shorts": "#1b458f",
-      "socks": "#c4122e",
-      "text": "#ffffff"
-     },
-     "skin": "#e7b593",
-     "hair": "#4a3324",
-     "num": null,
-     "x": 8,
-     "z": 46,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#1b458f",
-      "stripes": [
-       "#1b458f",
-       "#c4122e"
-      ],
-      "shorts": "#1b458f",
-      "socks": "#c4122e",
-      "text": "#ffffff"
-     },
-     "skin": "#8a5a3c",
-     "hair": "#141010",
-     "num": null,
-     "x": -3,
-     "z": 35,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#1b458f",
-      "stripes": [
-       "#1b458f",
-       "#c4122e"
-      ],
-      "shorts": "#1b458f",
-      "socks": "#c4122e",
-      "text": "#ffffff"
-     },
-     "skin": "#c99a6e",
-     "hair": "#1a120c",
-     "num": null,
-     "x": 3,
-     "z": 35,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#2e8b57",
-      "shorts": "#111111",
-      "socks": "#2e8b57",
-      "text": "#ffffff"
-     },
-     "x": 0,
-     "z": 51.5,
-     "front": true,
-     "pose": "keeper",
-     "gloves": "#ffffff",
-     "skin": "#f0c8a8",
-     "hair": "#8a6a45"
-    }
-   ],
-   "punch": [
-    {
-     "at": "And kept",
-     "amount": 0.08,
-     "dur": 0.8
-    },
-    {
-     "at": "And kept it.",
-     "amount": 0.1,
-     "dur": 0.8
-    }
-   ],
+   "lights": 0.8,
+   "players": [],
    "card": [
     {
      "type": "passweb",
+     "board": "chalk",
+     "y": 1150,
+     "w": 940,
+     "h": 1180,
      "delay": 0,
      "nodes": [
       [
        -14,
-       22
+       20
       ],
       [
        -5,
-       18
+       16
       ],
       [
        5,
-       18
+       16
       ],
       [
        14,
-       22
+       20
       ],
       [
        -9,
-       30
+       28
       ],
       [
        0,
-       27
+       25
       ],
       [
        9,
-       30
+       28
       ],
       [
        -6,
-       38
+       36
       ],
       [
        6,
-       38
+       36
       ],
       [
        0,
-       42
+       40
       ]
      ],
-     "pass": 0.26,
-     "trail": 24,
-     "counter": false,
+     "drift": 2.4,
+     "pass": 0.32,
+     "trail": 40,
      "seed": 11,
-     "passFor": 6
+     "area": [
+      -34,
+      8,
+      34,
+      52.5
+     ],
+     "zoom": [
+      1.0,
+      1.35
+     ],
+     "zoomDur": 4.5,
+     "follow": 0.4,
+     "rivals": {
+      "nodes": [
+       [
+        -12,
+        41
+       ],
+       [
+        -4,
+        42
+       ],
+       [
+        4,
+        42
+       ],
+       [
+        12,
+        41
+       ],
+       [
+        -8,
+        47
+       ],
+       [
+        0,
+        47.5
+       ],
+       [
+        8,
+        47
+       ],
+       [
+        -3,
+        36
+       ],
+       [
+        3,
+        36
+       ],
+       [
+        0,
+        51
+       ]
+      ],
+      "chase": 0.55
+     },
+     "note": "Spurs v 10 men",
+     "counter": false,
+     "passFor": 5
     }
    ],
-   "vo": "Against ten men, Spurs kept the ball. And kept it. And kept it."
+   "vo": "Against ten men, Spurs kept the ball. And kept it. And kept it.",
+   "focus": 0.7
   },
   {
    "kicker": "25 minutes",
@@ -1544,7 +1299,8 @@
      "hair": "#4a3324",
      "num": null,
      "x": -4,
-     "z": 12
+     "z": 12,
+     "web": 0
     },
     {
      "name": "",
@@ -1558,7 +1314,8 @@
      "hair": "#141010",
      "num": null,
      "x": 3,
-     "z": 11
+     "z": 11,
+     "web": 1
     },
     {
      "name": "",
@@ -1572,7 +1329,8 @@
      "hair": "#1a120c",
      "num": null,
      "x": 6,
-     "z": 17
+     "z": 17,
+     "web": 2
     },
     {
      "name": "",
@@ -1586,7 +1344,8 @@
      "hair": "#8a6a45",
      "num": null,
      "x": 0,
-     "z": 20
+     "z": 20,
+     "web": 3
     },
     {
      "name": "",
@@ -1600,7 +1359,8 @@
      "hair": "#141010",
      "num": null,
      "x": -6,
-     "z": 18
+     "z": 18,
+     "web": 4
     }
    ],
    "card": [
@@ -1629,20 +1389,36 @@
        18
       ]
      ],
-     "pass": 0.32,
-     "trail": 12,
+     "drift": 2.0,
+     "pass": 0.4,
+     "trail": 10,
      "counter": false,
      "seed": 5
     },
     {
-     "type": "orb",
-     "y": 760,
+     "type": "rain",
+     "y": 900,
      "at": "93",
-     "value": 93,
-     "label": "Pass accuracy · club record"
+     "groups": [
+      {
+       "n": 93,
+       "color": "#f4f4f2",
+       "t": 0,
+       "dur": 1.6
+      }
+     ],
+     "empty": 7,
+     "cols": 10,
+     "cell": 62,
+     "icon": "ball",
+     "label": "of their passes found a teammate",
+     "suffix": "%",
+     "emptyAt": "teammate",
+     "emptyLabel": "7% missed"
     }
    ],
-   "vo": "And 93 per cent of their passes found a teammate. A club record too."
+   "vo": "And 93 per cent of their passes found a teammate. A club record too.",
+   "focus": 0.55
   },
   {
    "kicker": "Man City v Chelsea · 4 March 2018",
@@ -1662,18 +1438,6 @@
    "transition": "vhs",
    "vhsLabel": "2018",
    "vhsDur": 1.6,
-   "camFrom": {
-    "pos": [
-     0,
-     30,
-     -6
-    ],
-    "tgt": [
-     0,
-     0,
-     30
-    ]
-   },
    "camera": {
     "pos": [
      6,
@@ -1701,7 +1465,8 @@
      "hair": "#4a3324",
      "num": null,
      "x": -14,
-     "z": 22
+     "z": 10,
+     "web": 0
     },
     {
      "name": "",
@@ -1715,7 +1480,8 @@
      "hair": "#141010",
      "num": null,
      "x": -5,
-     "z": 18
+     "z": 6,
+     "web": 1
     },
     {
      "name": "",
@@ -1729,7 +1495,8 @@
      "hair": "#1a120c",
      "num": null,
      "x": 5,
-     "z": 18
+     "z": 6,
+     "web": 2
     },
     {
      "name": "",
@@ -1743,7 +1510,8 @@
      "hair": "#8a6a45",
      "num": null,
      "x": 14,
-     "z": 22
+     "z": 10,
+     "web": 3
     },
     {
      "name": "",
@@ -1757,7 +1525,8 @@
      "hair": "#141010",
      "num": null,
      "x": -9,
-     "z": 30
+     "z": 18,
+     "web": 4
     },
     {
      "name": "",
@@ -1771,7 +1540,8 @@
      "hair": "#2a1a10",
      "num": null,
      "x": 0,
-     "z": 27
+     "z": 15,
+     "web": 5
     },
     {
      "name": "",
@@ -1785,7 +1555,8 @@
      "hair": "#4a3324",
      "num": null,
      "x": 9,
-     "z": 30
+     "z": 18,
+     "web": 6
     },
     {
      "name": "",
@@ -1799,7 +1570,8 @@
      "hair": "#141010",
      "num": null,
      "x": -6,
-     "z": 38
+     "z": 26,
+     "web": 7
     },
     {
      "name": "",
@@ -1813,7 +1585,8 @@
      "hair": "#1a120c",
      "num": null,
      "x": 6,
-     "z": 38
+     "z": 26,
+     "web": 8
     },
     {
      "name": "",
@@ -1827,37 +1600,8 @@
      "hair": "#8a6a45",
      "num": null,
      "x": 0,
-     "z": 42
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#034694",
-      "shorts": "#034694",
-      "socks": "#ffffff",
-      "text": "#ffffff"
-     },
-     "skin": "#e7b593",
-     "hair": "#4a3324",
-     "num": null,
-     "x": -12,
-     "z": 40,
-     "front": true
-    },
-    {
-     "name": "",
-     "kit": {
-      "shirt": "#034694",
-      "shorts": "#034694",
-      "socks": "#ffffff",
-      "text": "#ffffff"
-     },
-     "skin": "#8a5a3c",
-     "hair": "#141010",
-     "num": null,
-     "x": -4,
-     "z": 41,
-     "front": true
+     "z": 30,
+     "web": 9
     },
     {
      "name": "",
@@ -1870,8 +1614,9 @@
      "skin": "#c99a6e",
      "hair": "#1a120c",
      "num": null,
-     "x": 4,
-     "z": 41,
+     "x": -12,
+     "z": 31,
+     "webRival": 0,
      "front": true
     },
     {
@@ -1885,8 +1630,9 @@
      "skin": "#f0c8a8",
      "hair": "#8a6a45",
      "num": null,
-     "x": 12,
-     "z": 40,
+     "x": -4,
+     "z": 32,
+     "webRival": 1,
      "front": true
     },
     {
@@ -1900,8 +1646,9 @@
      "skin": "#6b4429",
      "hair": "#141010",
      "num": null,
-     "x": -8,
-     "z": 46,
+     "x": 4,
+     "z": 32,
+     "webRival": 2,
      "front": true
     },
     {
@@ -1915,8 +1662,9 @@
      "skin": "#d9a37c",
      "hair": "#2a1a10",
      "num": null,
-     "x": 0,
-     "z": 46.5,
+     "x": 12,
+     "z": 31,
+     "webRival": 3,
      "front": true
     },
     {
@@ -1930,8 +1678,9 @@
      "skin": "#e7b593",
      "hair": "#4a3324",
      "num": null,
-     "x": 8,
-     "z": 46,
+     "x": -8,
+     "z": 37,
+     "webRival": 4,
      "front": true
     },
     {
@@ -1945,8 +1694,9 @@
      "skin": "#8a5a3c",
      "hair": "#141010",
      "num": null,
-     "x": -3,
-     "z": 35,
+     "x": 0,
+     "z": 37.5,
+     "webRival": 5,
      "front": true
     },
     {
@@ -1960,25 +1710,42 @@
      "skin": "#c99a6e",
      "hair": "#1a120c",
      "num": null,
-     "x": 3,
-     "z": 35,
+     "x": 8,
+     "z": 37,
+     "webRival": 6,
      "front": true
     },
     {
      "name": "",
      "kit": {
-      "shirt": "#1a1a1a",
-      "shorts": "#1a1a1a",
-      "socks": "#1a1a1a",
-      "text": "#fff"
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
      },
-     "x": 0,
-     "z": 51.5,
-     "front": true,
-     "pose": "keeper",
-     "gloves": "#ffffff",
-     "skin": "#e7b593",
-     "hair": "#3a2a1a"
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": -3,
+     "z": 26,
+     "webRival": 7,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#034694",
+      "shorts": "#034694",
+      "socks": "#ffffff",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": 3,
+     "z": 26,
+     "webRival": 8,
+     "front": true
     }
    ],
    "card": [
@@ -1988,58 +1755,107 @@
      "nodes": [
       [
        -14,
-       22
+       10
       ],
       [
        -5,
-       18
+       6
       ],
       [
        5,
-       18
+       6
       ],
       [
        14,
-       22
+       10
       ],
       [
        -9,
-       30
+       18
       ],
       [
        0,
-       27
+       15
       ],
       [
        9,
-       30
+       18
       ],
       [
        -6,
-       38
+       26
       ],
       [
        6,
-       38
+       26
       ],
       [
        0,
-       42
+       30
       ]
      ],
-     "pass": 0.2,
-     "trail": 30,
+     "pass": 0.36,
+     "trail": 14,
      "color": "#bfe3ff",
      "seed": 21,
      "from": 0,
      "to": 902,
-     "dur": 3.2,
-     "y": 1520,
+     "dur": 3.4,
+     "y": 1600,
      "label": "Passes completed · City v Chelsea",
-     "passFor": 5
+     "passFor": 7,
+     "drift": 2.6,
+     "loft": 0.25,
+     "rivals": {
+      "nodes": [
+       [
+        -12,
+        31
+       ],
+       [
+        -4,
+        32
+       ],
+       [
+        4,
+        32
+       ],
+       [
+        12,
+        31
+       ],
+       [
+        -8,
+        37
+       ],
+       [
+        0,
+        37.5
+       ],
+       [
+        8,
+        37
+       ],
+       [
+        -3,
+        26
+       ],
+       [
+        3,
+        26
+       ]
+      ],
+      "chase": 0.5
+     }
     }
    ],
-   "vo": "But rewind to 2018. Manchester City completed 902 passes against Chelsea."
+   "vo": "But rewind to 2018. Manchester City completed 902 passes against Chelsea.",
+   "camFollow": {
+    "h": 7.5,
+    "back": 11,
+    "side": 4,
+    "ahead": 4
+   }
   },
   {
    "kicker": "The Premier League record",

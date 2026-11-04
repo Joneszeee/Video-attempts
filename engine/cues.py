@@ -145,11 +145,13 @@ def _resolve_beat(b, rel):
             for pl in c.get('players') or []:
                 if 'nameAt' in pl:
                     pl['nameT'] = round(max(0, rel(pl.pop('nameAt')) - base), 3)
-        if c.get('type') in ('whiteboard', 'toytable'):
-            for lst in (c.get('lines') or [], c.get('zones') or [], c.get('moves') or []):
+        if c.get('type') in ('whiteboard', 'toytable', 'toyresults', 'toydoors'):
+            for lst in (c.get('lines') or [], c.get('zones') or [], c.get('moves') or [], c.get('items') or [], c.get('doors') or []):
                 for it in lst:
                     if 'at' in it:
                         it['t'] = round(max(0, rel(it.pop('at')) + it.pop('lag', 0) - base), 3)
+                    if isinstance(it.get('shut'), str):
+                        it['shut'] = round(max(0, rel(it['shut']) - base), 3)
                     if isinstance(it.get('circle'), dict) and 'at' in it['circle']:
                         it['circle']['t'] = round(max(0, rel(it['circle'].pop('at')) - base), 3)
             if isinstance(c.get('teamAt'), str):

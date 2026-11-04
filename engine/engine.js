@@ -3206,6 +3206,8 @@ function cardEvents(c) {
     case 'passweb': { const pd = c.pass || 0.34, end = c.stopAt != null ? c.stopAt : (c.passFor || 6); for (let t = pd; t < end; t += pd) ev.push({ t, type: 'pop' });
       if (c.counter !== false) { ticks(0.1, (c.dur || 4) * 0.9); ev.push({ t: c.dur || 4, type: 'impact' }); } break; }
     case 'shout': ev.push({ t: 0, type: 'whoosh' }, { t: 0.3, type: 'impact' }); break;
+    case 'toyresults': (c.items || []).forEach((it, i) => { const t0 = it.t != null ? it.t : i * 0.5; ev.push({ t: t0, type: 'whoosh' }, { t: t0 + 0.32, type: it.win ? 'pop' : 'impact' }); }); break;
+    case 'toydoors': (c.doors || []).forEach(d => { ev.push({ t: d.t || 0, type: 'pop' }); if (d.shut != null) ev.push({ t: d.shut, type: 'impact' }); }); break;
     case 'claynum': ev.push({ t: 0, type: 'whoosh' }, { t: 0.31, type: 'impact' }); break;
     case 'whiteboard': ev.push({ t: 0, type: 'whoosh' }); (c.lines || []).forEach(L => { const n = L.text.length, sp = L.speed || 0.045; for (let t = (L.t || 0); t < (L.t || 0) + n * sp; t += 0.09) ev.push({ t, type: 'tick' }); if (L.circle) ev.push({ t: L.circle.t != null ? L.circle.t : (L.t || 0) + n * sp + 0.2, type: 'swish' }); }); break;
     case 'toytable': ev.push({ t: 0, type: 'whoosh' }, { t: c.teamAt != null ? c.teamAt + 0.3 : 0.6, type: 'pop' }); (c.zones || []).forEach(z => ev.push({ t: z.t || 0, type: 'pop' })); (c.moves || []).forEach(m => ev.push({ t: m.t || 0, type: 'swipe' }, { t: (m.t || 0) + 0.6, type: 'impact' })); break;

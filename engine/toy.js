@@ -146,7 +146,7 @@ function toyTiltShift(amount) {
 
 function drawToyScene(ts, b, i, lts) {
   const scene = b.sceneObj;
-  if (scene.set === 'room') { S.cam = null; drawToyRoom(ts, scene); }
+  if (scene.set === 'room') { S.cam = null; const z = 1 + 0.035 * lts; ctx.save(); ctx.translate(W / 2, H * 0.6); ctx.scale(z, z); ctx.translate(-W / 2, -H * 0.6); drawToyRoom(ts, scene); ctx.restore(); }
   else {
     const c = camInBeat(i, lts), cam = mkCam(c.pos, c.tgt);
     S.cam = cam;
@@ -228,6 +228,7 @@ function drawToyFigure(x, y, u, p, t, walk, alpha) {
   // drop onto the set with a bounce when it appears
   let drop = 0, dsc = 1;
   if (p.delay != null && p.enter !== 'walk' && !p.path) { const k = pr(t, p.delay, 0.45); if (k <= 0) return; drop = (1 - eOut(k)) * u * 0.9; dsc = 0.85 + 0.15 * eBack(k); }
+  if (p.ghost) alpha *= 0.4;
   const k = p.kit || {}, skin = p.skin || '#e3b38f', shirt = k.shirt || '#d6283b', shorts = k.shorts || '#ffffff', socks = k.socks || shirt, txt = k.text || '#ffffff';
   const front = !!p.front, o = toyPose(p, t, walk), suit = p.outfit === 'suit', sc = u * dsc;
   ctx.save(); ctx.globalAlpha *= alpha;
@@ -292,7 +293,7 @@ function drawToyFigure(x, y, u, p, t, walk, alpha) {
   // a masking-tape name label above the head
   if (p.label && t >= (p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3)) {
     const lk = eBack(pr(t, p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3, 0.3));
-    toyTape(p.label, x + o.dx * u, y - u * 1.18 - o.hop * u, Math.max(26, Math.min(44, u * 0.14)), lk, (p.x || 0) * 0.02);
+    toyTape(p.label, x + o.dx * u, y - u * 1.18 - o.hop * u, Math.max(34, Math.min(46, u * 0.14)), lk, (p.x || 0) * 0.02);
   }
 }
 
@@ -367,6 +368,7 @@ function drawToyOutro(ot) {
 }
 
 // ---------- toy cards ----------
+function toyDrift(ct, cx, cy, amt) { const z = 1 + (amt || 0.03) * ct; ctx.translate(cx, cy + Math.sin(ct * 1.3) * 8); ctx.rotate(Math.sin(ct * 0.9) * 0.006); ctx.scale(z, z); ctx.translate(-cx, -cy); }
 // Whiteboard: marker lines write themselves on (lines: [{text, at|t, y (0–1), size, color, circle: {at|t, color}, underline}]).
 CARDS.whiteboard = function (c, ct, cx, cy) {
   const w = c.w || 920, h = c.h || 820, a = eBack(pr(ct, 0, 0.45));
@@ -404,7 +406,7 @@ CARDS.whiteboard.noSlide = true;
 CARDS.toytable = function (c, ct, cx, cy) {
   const w = c.w || 760, h = c.h || 1180, n = c.n || 36, a = eBack(pr(ct, 0, 0.45));
   if (a <= 0) return;
-  ctx.save(); ctx.translate(cx + (c.dx || -60), cy + (1 - a) * 140); ctx.rotate(-0.012);
+  ctx.save(); toyDrift(ct, cx, cy); ctx.translate(cx + (c.dx || -60), cy + (1 - a) * 140); ctx.rotate(-0.012);
   ctx.shadowColor = 'rgba(60,30,10,0.35)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 14;
   ctx.fillStyle = '#b07a45'; rrect(-w / 2 - 20, -h / 2 - 20, w + 40, h + 40, 24); ctx.fill(); ctx.shadowColor = 'transparent';
   ctx.fillStyle = '#f3e9d6'; rrect(-w / 2, -h / 2, w, h, 12); ctx.fill();
@@ -434,6 +436,7 @@ CARDS.toytable = function (c, ct, cx, cy) {
       ctx.save(); ctx.translate(bx + bw / 2, y); ctx.scale(k2, k2);
       ctx.shadowColor = 'rgba(60,20,10,0.4)'; ctx.shadowBlur = 16; ctx.shadowOffsetY = 6;
       const g = ctx.createLinearGradient(0, -bh / 2, 0, bh / 2); g.addColorStop(0, shade(c.team.color || '#d6283b', 0.25)); g.addColorStop(1, shade(c.team.color || '#d6283b', -0.25));
+      ctx.shadowColor = `rgba(255,80,80,${0.35 + 0.25 * Math.sin(ct * 4)})`; ctx.shadowBlur = 26;
       ctx.fillStyle = g; rrect(-bw / 2, -bh / 2, bw, bh, bh / 2); ctx.fill(); ctx.shadowColor = 'transparent';
       ctx.fillStyle = 'rgba(255,255,255,0.3)'; rrect(-bw / 2 + 12, -bh / 2 + 5, bw - 24, bh * 0.28, bh * 0.14); ctx.fill();
       font(900, bh * 0.5, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(c.team.name, -bw / 2 + 24, 2);
@@ -463,3 +466,50 @@ CARDS.claynum = function (c, ct, cx, cy) {
   if (c.label) toyTape(c.label, cx, cy + (c.labelDy || 70), 40, eBack(pr(ct, 0.55, 0.3)), 0.02);
 };
 CARDS.claynum.noSlide = true;
+
+// Results tiles: frosted tiles that drop in one by one (items: [{score, team, win, at|t}]), 2 columns.
+CARDS.toyresults = function (c, ct, cx, cy) {
+  ctx.save(); toyDrift(ct, cx, cy, 0.035);
+  const items = c.items || [], cols = 2, tw = 420, th = 230, gap = 34, rows = Math.ceil(items.length / cols);
+  items.forEach((it, i) => {
+    const k = pr(ct, it.t != null ? it.t : i * 0.5, 0.5); if (k <= 0) return;
+    const col = i % cols, row = Math.floor(i / cols), x = cx + (col - (cols - 1) / 2) * (tw + gap), y = cy + (row - (rows - 1) / 2) * (th + gap);
+    const fall = 1 - eOut(Math.min(1, k * 1.5)), land = pr(k, 0.62, 0.38), sq = land > 0 && land < 1 ? Math.sin(Math.PI * land) * 0.08 : 0;
+    ctx.save(); ctx.translate(x, y - fall * 700); ctx.scale(1 + sq, 1 - sq); ctx.rotate((col ? 1 : -1) * 0.015);
+    ctx.shadowColor = 'rgba(40,20,5,0.28)'; ctx.shadowBlur = 26; ctx.shadowOffsetY = 12;
+    ctx.fillStyle = 'rgba(255,255,255,0.9)'; rrect(-tw / 2, -th / 2, tw, th, 36); ctx.fill(); ctx.shadowColor = 'transparent';
+    tf(800, 92); ctx.fillStyle = TOY.ink; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.fillText(it.score, -tw / 2 + 40, 18);
+    tf(600, 34); ctx.fillStyle = '#6b6f78'; ctx.fillText(it.team, -tw / 2 + 42, 74);
+    const ok = it.win, chip = ok ? '#34c759' : '#ff3b30';   // iOS green / red
+    toyBlob(tw / 2 - 64, -th / 2 + 64, 34, chip);
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath();
+    const bx = tw / 2 - 64, by = -th / 2 + 64;
+    if (ok) { ctx.moveTo(bx - 14, by + 1); ctx.lineTo(bx - 3, by + 12); ctx.lineTo(bx + 15, by - 11); } else { ctx.moveTo(bx - 11, by - 11); ctx.lineTo(bx + 11, by + 11); ctx.moveTo(bx + 11, by - 11); ctx.lineTo(bx - 11, by + 11); }
+    ctx.stroke(); ctx.restore();
+  });
+  ctx.restore();
+};
+CARDS.toyresults.noSlide = true;
+
+// Three clay archways (doors: [{label, sub, color, at|t, shut}]): each pops up on its word; a shut door gets a red bar across.
+CARDS.toydoors = function (c, ct, cx, cy) {
+  ctx.save(); toyDrift(ct, cx, cy, 0.035);
+  const doors = c.doors || [], dw = 290, dh = 470, gap = 30;
+  doors.forEach((d, i) => {
+    const k = eBack(pr(ct, d.t || 0, 0.5)); if (k <= 0) return;
+    const x = cx + (i - (doors.length - 1) / 2) * (dw + gap);
+    ctx.save(); ctx.translate(x, cy + dh / 2); ctx.scale(1, k); ctx.translate(0, -dh / 2);
+    const g = ctx.createLinearGradient(-dw / 2, 0, dw / 2, 0); g.addColorStop(0, shade(d.color, 0.25)); g.addColorStop(1, shade(d.color, -0.2));
+    ctx.shadowColor = 'rgba(40,20,5,0.3)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 12;
+    ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(-dw / 2, dh / 2); ctx.lineTo(-dw / 2, -dh / 2 + dw / 2); ctx.arc(0, -dh / 2 + dw / 2, dw / 2, Math.PI, 0); ctx.lineTo(dw / 2, dh / 2); ctx.closePath(); ctx.fill();
+    ctx.shadowColor = 'transparent';
+    ctx.fillStyle = 'rgba(30,15,5,0.55)'; ctx.beginPath(); const iw = dw * 0.62; ctx.moveTo(-iw / 2, dh / 2); ctx.lineTo(-iw / 2, -dh / 2 + dw / 2 + 30); ctx.arc(0, -dh / 2 + dw / 2 + 30, iw / 2, Math.PI, 0); ctx.lineTo(iw / 2, dh / 2); ctx.closePath(); ctx.fill();
+    tf(800, 54); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(d.label, 0, -dh / 2 + 92);
+    if (d.sub) { tf(600, 30); ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fillText(d.sub, 0, dh / 2 + 52); }
+    if (d.shut != null) { const sk = eOut(pr(ct, d.shut, 0.35)); if (sk > 0) { ctx.save(); ctx.rotate(-0.18); ctx.fillStyle = '#ff3b30'; rrect(-dw * 0.62 * sk, -24, dw * 1.24 * sk, 48, 24); ctx.fill();
+      tf(800, 30); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; if (sk > 0.9) ctx.fillText('OUT', 0, 2); ctx.restore(); } }
+    ctx.restore();
+  });
+  ctx.restore();
+};
+CARDS.toydoors.noSlide = true;

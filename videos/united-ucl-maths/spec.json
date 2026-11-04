@@ -1,0 +1,911 @@
+{
+ "title": "United UCL maths",
+ "brand": "theo6k",
+ "accent": "#ff5e5e",
+ "style": "toy",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Champions League · the maths",
+   "headline": "United fans: you need [10 points].",
+   "accent": "#ff5e5e",
+   "hookWords": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#d6283b",
+     "#1d1c22"
+    ],
+    "seed": 7
+   },
+   "camFrom": {
+    "pos": [
+     0.6,
+     1.9,
+     -2.6
+    ],
+    "tgt": [
+     0.2,
+     1.1,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.4,
+     1.8,
+     -1.6
+    ],
+    "tgt": [
+     0.2,
+     1.1,
+     6
+    ]
+   },
+   "move": 3.5,
+   "players": [
+    {
+     "name": "Fernandes",
+     "num": 8,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#1d1c22",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "x": -0.55,
+     "z": 0.6,
+     "front": true,
+     "chest": true,
+     "pose": "think",
+     "mood": "cross"
+    }
+   ],
+   "shake": [
+    {
+     "t": 1.25,
+     "amount": 12
+    }
+   ],
+   "card": [
+    {
+     "type": "claynum",
+     "text": "10",
+     "size": 320,
+     "y": 1600,
+     "delay": 0.9,
+     "label": "points needed",
+     "labelDy": 84,
+     "clear": false
+    }
+   ],
+   "shots": [
+    {
+     "at": "And look",
+     "cut": true,
+     "move": 3,
+     "headline": "From [these four].",
+     "camFrom": {
+      "pos": [
+       0.3,
+       2.2,
+       -3.2
+      ],
+      "tgt": [
+       0.4,
+       1.1,
+       5
+      ]
+     },
+     "camera": {
+      "pos": [
+       0.3,
+       2.0,
+       -2.4
+      ],
+      "tgt": [
+       0.4,
+       1.1,
+       5
+      ]
+     },
+     "players": [
+      {
+       "name": "Fernandes",
+       "num": 8,
+       "kit": {
+        "shirt": "#d6283b",
+        "shorts": "#ffffff",
+        "socks": "#1d1c22",
+        "text": "#ffffff"
+       },
+       "skin": "#e2b08c",
+       "hair": "#2a1a10",
+       "x": -0.2,
+       "z": 1.0,
+       "front": true,
+       "chest": true,
+       "pose": "think",
+       "mood": "cross"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#1f8a4c",
+        "hoops": [
+         "#1f8a4c",
+         "#ffffff"
+        ],
+        "shorts": "#1d1c22",
+        "socks": "#1f8a4c",
+        "text": "#ffffff"
+       },
+       "x": -2.4,
+       "z": 4.6,
+       "front": true,
+       "at": "look",
+       "label": "Sporting",
+       "skin": "#c99a6e",
+       "hair": "#141010"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#ffffff",
+        "shorts": "#c8102e",
+        "socks": "#ffffff",
+        "text": "#c8102e"
+       },
+       "x": -0.6,
+       "z": 5.4,
+       "front": true,
+       "at": "who's",
+       "label": "Leipzig",
+       "lag": 0,
+       "skin": "#f0c8a8",
+       "hair": "#8a6a45",
+       "hairStyle": "buzz"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#dc052d",
+        "shorts": "#ffffff",
+        "socks": "#dc052d",
+        "text": "#ffffff"
+       },
+       "x": 1.4,
+       "z": 5.2,
+       "front": true,
+       "at": "left",
+       "label": "Bayern",
+       "skin": "#e7b593",
+       "hair": "#3a2a1a"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#f7d117",
+        "shorts": "#1b3f8f",
+        "socks": "#f7d117",
+        "text": "#1b3f8f"
+       },
+       "x": 3.2,
+       "z": 4.4,
+       "front": true,
+       "at": "left",
+       "label": "Villarreal",
+       "skin": "#d9a37c",
+       "hair": "#141010",
+       "hairStyle": "curly"
+      }
+     ],
+     "card": []
+    }
+   ],
+   "vo": "United fans: you need ten points from four games. And look who's left."
+  },
+  {
+   "kicker": "After four games",
+   "headline": "6 points. [17th].",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "room",
+    "seed": 11
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "toytable",
+     "y": 1180,
+     "delay": 0,
+     "pos": 22,
+     "teamAt": "After four",
+     "moves": [
+      {
+       "to": 17,
+       "at": "Seventeenth"
+      }
+     ],
+     "team": {
+      "name": "MAN UTD",
+      "pts": 6,
+      "color": "#d6283b"
+     },
+     "zones": [
+      {
+       "from": 1,
+       "to": 8,
+       "color": "#cfe8c4"
+      },
+      {
+       "from": 9,
+       "to": 24,
+       "color": "#f7e2ad"
+      },
+      {
+       "from": 25,
+       "to": 36,
+       "color": "#f4c1b8"
+      }
+     ]
+    }
+   ],
+   "vo": "After four games, United have six points. Seventeenth."
+  },
+  {
+   "kicker": "So far",
+   "headline": "Two wins. [Two defeats].",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "room",
+    "seed": 3
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "toyresults",
+     "y": 1150,
+     "delay": 0,
+     "items": [
+      {
+       "score": "4–0",
+       "team": "v Sabah · home",
+       "win": true,
+       "at": "Sabah"
+      },
+      {
+       "score": "0–2",
+       "team": "at Atlético",
+       "win": false,
+       "at": "Madrid"
+      },
+      {
+       "score": "1–4",
+       "team": "at Como",
+       "win": false,
+       "at": "Como"
+      },
+      {
+       "score": "3–2",
+       "team": "v Roma · home",
+       "win": true,
+       "at": "comeback"
+      }
+     ]
+    }
+   ],
+   "vo": "Four–nil against Sabah. Beaten in Madrid and in Como. Then that comeback against Roma."
+  },
+  {
+   "kicker": "The rule",
+   "headline": "36 teams. [Top 8] go through.",
+   "accent": "#34c759",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#d6283b",
+     "#1d1c22"
+    ],
+    "seed": 7
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     7,
+     -16
+    ],
+    "tgt": [
+     0,
+     1.5,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     6,
+     -12
+    ],
+    "tgt": [
+     0,
+     1.5,
+     6
+    ]
+   },
+   "move": 5,
+   "players": [],
+   "focus": 0.35,
+   "card": [
+    {
+     "type": "toydoors",
+     "id": "doors",
+     "y": 1180,
+     "delay": 0,
+     "doors": [
+      {
+       "label": "1–8",
+       "sub": "Last 16",
+       "color": "#34c759",
+       "at": "top eight"
+      }
+     ]
+    }
+   ],
+   "vo": "Here's the rule. Thirty-six teams, one table. The top eight go straight through."
+  },
+  {
+   "kicker": "The rule",
+   "headline": "9–24: play-off. 25+: [out].",
+   "accent": "#ff5e5e",
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#d6283b",
+     "#1d1c22"
+    ],
+    "seed": 7
+   },
+   "camera": {
+    "pos": [
+     0,
+     5.5,
+     -10
+    ],
+    "tgt": [
+     0,
+     1.5,
+     6
+    ]
+   },
+   "move": 4.5,
+   "players": [],
+   "focus": 0.35,
+   "card": [
+    {
+     "type": "toydoors",
+     "id": "doors2",
+     "y": 1180,
+     "delay": -1,
+     "doors": [
+      {
+       "label": "1–8",
+       "sub": "Last 16",
+       "color": "#34c759",
+       "t": 0
+      },
+      {
+       "label": "9–24",
+       "sub": "Play-off",
+       "color": "#ff9f0a",
+       "at": "Ninth"
+      },
+      {
+       "label": "25+",
+       "sub": "Out",
+       "color": "#ff3b30",
+       "at": "Twenty-fifth",
+       "shut": "you're out"
+      }
+     ]
+    }
+   ],
+   "vo": "Ninth to twenty-fourth: a play-off. Twenty-fifth or lower: you're out."
+  },
+  {
+   "kicker": "The magic number",
+   "headline": "8th place got [16]. Twice.",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "room",
+    "seed": 4
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "whiteboard",
+     "id": "wb",
+     "y": 1150,
+     "delay": 0,
+     "lines": [
+      {
+       "text": "8th place: 16 pts",
+       "y": 0.2,
+       "at": "sixteen",
+       "size": 78
+      },
+      {
+       "text": "2024/25 · 2025/26",
+       "y": 0.36,
+       "at": "both seasons",
+       "size": 44,
+       "weight": 600,
+       "color": "#6b6f78"
+      }
+     ]
+    }
+   ],
+   "vo": "The magic number is sixteen. In both seasons of this format, that's what eighth place got."
+  },
+  {
+   "kicker": "The magic number",
+   "headline": "16 − 6 = [10].",
+   "accent": "#ff5e5e",
+   "scene": {
+    "type": "toy",
+    "set": "room",
+    "seed": 4
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "whiteboard",
+     "id": "wb2",
+     "y": 1150,
+     "delay": -3,
+     "lines": [
+      {
+       "text": "8th place: 16 pts",
+       "y": 0.2,
+       "t": 0,
+       "size": 78
+      },
+      {
+       "text": "2024/25 · 2025/26",
+       "y": 0.36,
+       "t": 0,
+       "size": 44,
+       "weight": 600,
+       "color": "#6b6f78"
+      },
+      {
+       "text": "16 − 6 = 10",
+       "y": 0.58,
+       "at": "Sixteen minus",
+       "size": 110,
+       "color": "#d6283b",
+       "speed": 0.09,
+       "circle": {
+        "at": "is ten"
+       }
+      },
+      {
+       "text": "W  W  W  D",
+       "y": 0.83,
+       "at": "Three wins",
+       "size": 72,
+       "speed": 0.08
+      }
+     ]
+    }
+   ],
+   "vo": "Sixteen minus six… is ten. Three wins and a draw."
+  },
+  {
+   "kicker": "What's left",
+   "headline": "Sporting away. Then [Leipzig].",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#d6283b",
+     "#1d1c22"
+    ],
+    "seed": 7
+   },
+   "camFrom": {
+    "pos": [
+     -1.6,
+     1.9,
+     -2.5
+    ],
+    "tgt": [
+     -1.2,
+     1.0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     -1.0,
+     1.8,
+     -1.9
+    ],
+    "tgt": [
+     -1.0,
+     1.0,
+     5
+    ]
+   },
+   "move": 5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f8a4c",
+      "hoops": [
+       "#1f8a4c",
+       "#ffffff"
+      ],
+      "shorts": "#1d1c22",
+      "socks": "#1f8a4c",
+      "text": "#ffffff"
+     },
+     "x": -1.6,
+     "z": 4.2,
+     "front": true,
+     "at": "Sporting",
+     "label": "Sporting · away",
+     "skin": "#c99a6e",
+     "hair": "#141010"
+    },
+    {
+     "name": "",
+     "num": 10,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#1d1c22",
+      "text": "#ffffff"
+     },
+     "skin": "#a8724e",
+     "hair": "#141010",
+     "x": -2.9,
+     "z": 3.4,
+     "front": true,
+     "chest": true,
+     "ghost": true,
+     "at": "no Cunha",
+     "label": "Cunha · suspended",
+     "mood": "cross"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#c8102e",
+      "socks": "#ffffff",
+      "text": "#c8102e"
+     },
+     "x": 0.2,
+     "z": 4.2,
+     "front": true,
+     "at": "Leipzig",
+     "label": "Leipzig · home",
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "hairStyle": "buzz"
+    }
+   ],
+   "vo": "Now look who's left. Sporting away, with no Cunha. Then Leipzig at Old Trafford."
+  },
+  {
+   "kicker": "What's left",
+   "headline": "Then [Bayern]. Then Villarreal.",
+   "accent": "#ff5e5e",
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#d6283b",
+     "#1d1c22"
+    ],
+    "seed": 7
+   },
+   "camera": {
+    "pos": [
+     1.5,
+     1.8,
+     -1.9
+    ],
+    "tgt": [
+     1.5,
+     1.0,
+     5
+    ]
+   },
+   "move": 3,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f8a4c",
+      "hoops": [
+       "#1f8a4c",
+       "#ffffff"
+      ],
+      "shorts": "#1d1c22",
+      "socks": "#1f8a4c",
+      "text": "#ffffff"
+     },
+     "x": -1.6,
+     "z": 4.2,
+     "front": true,
+     "label": "Sporting · away",
+     "skin": "#c99a6e",
+     "hair": "#141010"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#c8102e",
+      "socks": "#ffffff",
+      "text": "#c8102e"
+     },
+     "x": 0.2,
+     "z": 4.2,
+     "front": true,
+     "label": "Leipzig · home",
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "hairStyle": "buzz"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#ffffff",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "x": 1.7,
+     "z": 4.2,
+     "front": true,
+     "at": "Bayern",
+     "label": "Bayern · home",
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "pose": "arms_up"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#1b3f8f",
+      "socks": "#f7d117",
+      "text": "#1b3f8f"
+     },
+     "x": 3.1,
+     "z": 4.2,
+     "front": true,
+     "at": "Villarreal",
+     "label": "Villarreal · away",
+     "skin": "#d9a37c",
+     "hair": "#141010",
+     "hairStyle": "curly"
+    }
+   ],
+   "vo": "Then Bayern Munich… and Villarreal away."
+  },
+  {
+   "kicker": "Plan B",
+   "headline": "Play-offs needed [9–11 pts].",
+   "accent": "#ff9f0a",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "room",
+    "seed": 11
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "toytable",
+     "y": 1180,
+     "delay": -1,
+     "pos": 17,
+     "teamAt": 0,
+     "team": {
+      "name": "MAN UTD",
+      "pts": 6,
+      "color": "#d6283b"
+     },
+     "zones": [
+      {
+       "from": 1,
+       "to": 8,
+       "color": "#cfe8c4"
+      },
+      {
+       "from": 9,
+       "to": 24,
+       "color": "#f7e2ad",
+       "label": "9–11 pts\nneeded",
+       "at": "play-off spot"
+      },
+      {
+       "from": 25,
+       "to": 36,
+       "color": "#f4c1b8"
+      }
+     ]
+    }
+   ],
+   "vo": "Miss out, and even a play-off spot has needed nine to eleven points."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "How many do United [win]?",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#d6283b",
+     "#1d1c22"
+    ],
+    "seed": 7
+   },
+   "orbit": {
+    "center": [
+     0,
+     1.1,
+     3
+    ],
+    "r": 5,
+    "from": -30,
+    "to": 20,
+    "h": 1.6,
+    "h2": 2.0,
+    "dur": 5
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.8,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.1,
+     3
+    ]
+   },
+   "players": [
+    {
+     "name": "Fernandes",
+     "num": 8,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#1d1c22",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 2.6,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up",
+     "mood": "joy"
+    },
+    {
+     "name": "",
+     "num": 10,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#1d1c22",
+      "text": "#ffffff"
+     },
+     "skin": "#a8724e",
+     "hair": "#141010",
+     "x": -1.5,
+     "z": 3.4,
+     "front": true,
+     "chest": true,
+     "pose": "fists"
+    },
+    {
+     "name": "",
+     "num": 37,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#1d1c22",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "hairStyle": "curly",
+     "x": 1.5,
+     "z": 3.4,
+     "front": true,
+     "chest": true,
+     "pose": "wings"
+    }
+   ],
+   "confetti": true,
+   "confettiColors": [
+    "#d6283b",
+    "#ffffff",
+    "#f7d117"
+   ],
+   "card": [
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "be honest",
+     "question": "How many will United win?",
+     "options": [
+      {
+       "label": "All four",
+       "color": "#d6283b",
+       "fill": 0.25
+      },
+      {
+       "label": "Three",
+       "color": "#ff9f0a",
+       "fill": 0.35
+      },
+      {
+       "label": "Two or fewer",
+       "color": "#9aa1ad",
+       "fill": 0.4
+      }
+     ]
+    }
+   ],
+   "vo": "So be honest: how many of these four do United win? Comment your number."
+  }
+ ]
+}

@@ -5,7 +5,7 @@ One emotion per line, pauses from the punctuation, words match vo.txt (capitals 
 ## Copy-paste block
 
 [intense] Manchester United were 2–0 down after 17 minutes. [mysterious] At half-time, Carrick changed nothing… and everything changed.
-[storytelling] Tuesday night, Roma at Old Trafford. [frustrated] Eleven minutes in, Mainoo lost the ball, and Soulé scored.
+[frustrated] Eleven minutes in, Mainoo lost the ball, and Soulé scored.
 [exasperated] Six minutes later, Heaven blocked a shot with his arm. Malen scored the penalty.
 [serious] No away side had ever gone 2–0 up this fast at Old Trafford in Europe.
 [deadpan] By half-time, Roma had seven shots. United had none from inside the box, and 0.24 expected goals.
@@ -14,4 +14,6 @@ One emotion per line, pauses from the punctuation, words match vo.txt (capitals 
 [tense] Bruno's penalty was saved… but retaken for encroachment. [relieved] He scored. 2–1.
 [excited] Then Cunha. Eighty-three minutes: 2–2. [ecstatic] Eighty-six minutes: 3–2!
 [laughing] He took his shirt off, got booked… [deadpan] and was sent off in stoppage time.
-[curious] Nine games without a win… over. Was this Carrick's best night yet? Tell me in the comments.
+[amused] At full time, he came back on to celebrate. [tense] Carrick walked straight over… and sent him down the tunnel.
+[serious] Cunha was furious. But reports say Carrick was protecting him from more punishment.
+[curious] So was Carrick right… or should he have let him celebrate? Tell me in the comments.

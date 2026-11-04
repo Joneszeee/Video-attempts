@@ -33,11 +33,17 @@ Inspiration (user's reference, thefinalthird.pro): dark analytics pitch with num
 - Half-time message (Mainoo): react faster when possession is lost, "be more active and take the game ourselves".
   [United in Focus](https://www.unitedinfocus.com/news/kobbie-mainoo-shares-what-michael-carrick-said-to-man-utds-players-at-half-time-vs-roma/)
 - Ended a nine-game winless run (six defeats, three draws). United 17th in the league phase on 6 points.
-- Not used: why United's penalty was given (unclear in reports), the assist on Cunha's winner (sources conflict), exact red-card minute.
+- After full time, the sent-off Cunha came back onto the pitch to celebrate; Carrick walked over and appeared to send him to the dressing room;
+  Cunha was visibly upset and shouted towards him (Daily Mail via Yahoo/Athlon, GiveMeSport, SPORTbible). Manchester Evening News: understood Carrick did it
+  so Cunha would avoid further punishment. Cunha misses the next Champions League game (red-card suspension).
+  [Yahoo/Athlon](https://sports.yahoo.com/articles/michael-carrick-matheus-cunha-clash-221917971.html),
+  [GiveMeSport](https://www.givemesport.com/michael-carrick-matheus-cunha-leave-pitch-man-utd-roma-explained/),
+  [SPORTbible](https://www.sportbible.com/football/football-news/man-utd/michael-carrick-matheus-cunha-red-card-incident-champions-league-roma-726304-20261103)
+- Not used: post-match quotes (wording unconfirmed), why United's penalty was given (unclear in reports), the assist on Cunha's winner (sources conflict), exact red-card minute.
 
 ## Script
 1. Manchester United were 2–0 down after 17 minutes. At half-time, Carrick changed nothing… and everything changed.
-2. Tuesday night, Roma at Old Trafford. Eleven minutes in, Mainoo lost the ball, and Soulé scored.
+2. Eleven minutes in, Mainoo lost the ball, and Soulé scored.
 3. Six minutes later, Heaven blocked a shot with his arm. Malen scored the penalty.
 4. No away side had ever gone 2–0 up this fast at Old Trafford in Europe.
 5. By half-time, Roma had seven shots. United had none from inside the box, and 0.24 expected goals.
@@ -46,6 +52,8 @@ Inspiration (user's reference, thefinalthird.pro): dark analytics pitch with num
 8. Bruno's penalty was saved… but retaken for encroachment. He scored. 2–1.
 9. Then Cunha. Eighty-three minutes: 2–2. Eighty-six minutes: 3–2.
 10. He took his shirt off, got booked… and was sent off in stoppage time.
-11. Nine games without a win… over. Was this Carrick's best night yet? Tell me in the comments.
+11. At full time, he came back on to celebrate. Carrick walked straight over and sent him down the tunnel.
+12. Cunha was furious. But reports say Carrick was protecting him from more punishment.
+13. So was Carrick right… or should he have let him celebrate? Tell me in the comments.
 
-CTA: line 11, plus pinned comment "Carrick's best night yet, or just Roma collapsing? 👇"
+CTA: line 13 (splits opinion), plus pinned comment "Carrick right to send Cunha off the pitch, or let him celebrate? 👇"

@@ -501,7 +501,7 @@
       "s": 1
      },
      {
-      "at": "Old Trafford",
+      "at": "Eleven",
       "s": 1.12,
       "x": 0.5,
       "y": 0.5
@@ -520,7 +520,7 @@
      }
     ]
    },
-   "vo": "Tuesday night, Roma at Old Trafford. Eleven minutes in, Mainoo lost the ball, and Soulé scored."
+   "vo": "Eleven minutes in, Mainoo lost the ball, and Soulé scored."
   },
   {
    "kicker": "17 minutes",
@@ -2249,8 +2249,220 @@
    "vo": "He took his shirt off, got booked… and was sent off in stoppage time."
   },
   {
+   "kicker": "After the final whistle",
+   "headline": "Back on to celebrate. [Sent off the pitch].",
+   "accent": "#ff4d5e",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0.4,
+     1.45,
+     0.2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.2,
+     1.4,
+     1.0
+    ],
+    "tgt": [
+     0,
+     1.25,
+     8
+    ]
+   },
+   "move": 5,
+   "lights": 0.8,
+   "flashes": 10,
+   "players": [
+    {
+     "name": "Cunha",
+     "num": 10,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#a8724e",
+     "hair": "#141010",
+     "x": -0.8,
+     "z": 4.2,
+     "front": true,
+     "chest": true,
+     "enter": "walk",
+     "fromZ": 9,
+     "walkDur": 2.0,
+     "action": "celebrate"
+    },
+    {
+     "name": "Carrick",
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "outfit": "suit",
+     "suitColor": "#1b2233",
+     "x": 0.8,
+     "z": 4.4,
+     "front": true,
+     "enter": "walk",
+     "fromX": 5,
+     "fromZ": 4.4,
+     "walkDur": 1.6,
+     "at": "Carrick walked"
+    }
+   ],
+   "card": [
+    {
+     "type": "pen",
+     "anchor": 0,
+     "at": "down the tunnel",
+     "lag": -0.3,
+     "strokes": [
+      {
+       "kind": "arrow",
+       "points": [
+        [
+         -0.35,
+         -0.55
+        ],
+        [
+         -1.0,
+         -0.75
+        ],
+        [
+         -1.7,
+         -0.5
+        ]
+       ],
+       "t": 0,
+       "dur": 0.6,
+       "color": "#ffffff",
+       "width": 8
+      },
+      {
+       "kind": "text",
+       "text": "TUNNEL",
+       "x": -1.75,
+       "y": -0.85,
+       "size": 0.16,
+       "t": 0.4,
+       "color": "#ffffff",
+       "rot": -0.1
+      }
+     ]
+    }
+   ],
+   "vo": "At full time, he came back on to celebrate. Carrick walked straight over and sent him down the tunnel."
+  },
+  {
+   "kicker": "The row",
+   "headline": "Furious. Or [protected]?",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.4
+    ],
+    "tgt": [
+     0,
+     1.4,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.4
+    ],
+    "tgt": [
+     0,
+     1.4,
+     10
+    ]
+   },
+   "move": 5,
+   "lights": 0.45,
+   "players": [
+    {
+     "name": "Carrick",
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "outfit": "suit",
+     "suitColor": "#1b2233",
+     "x": -1.0,
+     "z": 3.2,
+     "front": true
+    },
+    {
+     "name": "Cunha",
+     "num": 10,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#a8724e",
+     "hair": "#141010",
+     "x": 1.0,
+     "z": 3.2,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up"
+    }
+   ],
+   "shake": [
+    {
+     "at": "furious",
+     "amount": 12
+    }
+   ],
+   "card": [
+    {
+     "type": "stamp",
+     "text": "PROTECTING HIM",
+     "sub": "Reports: to avoid more punishment",
+     "y": 1500,
+     "size": 96,
+     "rot": -0.06,
+     "at": "protecting",
+     "color": "#f1c453"
+    }
+   ],
+   "vo": "Cunha was furious. But reports say Carrick was protecting him from more punishment."
+  },
+  {
    "kicker": "Your call",
-   "headline": "Carrick's [best night] yet?",
+   "headline": "Was Carrick [right]?",
    "accent": "#f1c453",
    "scene": {
     "type": "stadium",
@@ -2306,34 +2518,25 @@
    ],
    "card": [
     {
-     "type": "flytext",
-     "text": "9 WINLESS: OVER",
-     "size": 120,
-     "endScale": 0.8,
-     "y": 700,
-     "at": "over",
-     "color": "#f1c453"
-    },
-    {
      "type": "poll",
      "y": 1560,
-     "at": "best night",
-     "question": "Carrick's best night yet?",
+     "at": "Carrick right",
+     "question": "Was Carrick right?",
      "options": [
       {
-       "label": "Yes, easily",
+       "label": "Right call",
        "color": "#da291c",
        "fill": 0.5
       },
       {
-       "label": "Not yet",
-       "color": "#9aa1ad",
+       "label": "Let him celebrate",
+       "color": "#f1c453",
        "fill": 0.5
       }
      ]
     }
    ],
-   "vo": "Nine games without a win… over. Was this Carrick's best night yet? Tell me in the comments."
+   "vo": "So was Carrick right… or should he have let him celebrate? Tell me in the comments."
   }
  ]
 }

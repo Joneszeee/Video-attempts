@@ -711,7 +711,7 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     for (const side of [-1, 1]) {
       ctx.save();
       ctx.translate(side * u * 0.165, -u * 0.8);
-      ctx.rotate(armsUp ? side * 0.25 + Math.PI : p.pose === 'keeper' ? side * 0.95 : p.pose === 'wings' ? -side * (1.4 + Math.sin(t * 7) * 0.08) : p.pose === 'fists' ? -side * (2.35 + Math.sin(t * 9) * 0.12) : side * 0.1);
+      ctx.rotate(armsUp ? side * 0.25 + Math.PI : p.pose === 'keeper' ? side * 0.95 : p.pose === 'wings' ? -side * (1.4 + Math.sin(t * 7) * 0.08) : p.pose === 'fists' ? -side * (2.35 + Math.sin(t * 9) * 0.12) : p.pose === 'shake' && side === (p.shakeSide || 1) ? -side * (0.95 + Math.sin(t * 9 + (p.x || 0)) * 0.12) : side * 0.1);
       ctx.lineWidth = Math.max(1, u * 0.006); ctx.strokeStyle = edge;
       if (suit) {
         rrect(-u * 0.04, -u * 0.01, u * 0.08, u * 0.28, u * 0.03); ctx.fillStyle = sleeve; ctx.fill(); ctx.stroke();
@@ -822,10 +822,12 @@ function drawTag(u, p, t) {
 
 function drawPlayers(cam, lt, players) {
   const list = [];
-  for (const p of players) {
+  for (let p of players) {
+    const pIdx = players.indexOf(p);
     let x = p.x || 0, z = p.z || 0, walk = 0, heading = [0, 1];
     const wp = (p.web != null || p.webRival != null) ? webPlayerPos(p, lt) : null;
-    if (wp) { x = wp.x; z = wp.z; walk = wp.walk; heading = wp.heading; }
+    if (wp) { x = wp.x; z = wp.z; walk = wp.walk; heading = wp.heading;
+      if (wp.tackle) { p = Object.assign({}, p, { action: 'slide', actionDelay: wp.tackle.delay, actionDur: 1.1, dir: wp.tackle.dir }); walk = 0; } }
     else if (p.path) {   // runs along a route at a steady pace (no easing, so he never looks like he's running on the spot)
       const pts = p.path, segs = []; let total = 0;
       for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); segs.push(d); total += d; }
@@ -844,7 +846,7 @@ function drawPlayers(cam, lt, players) {
     }
     const q = toCam(cam, [x, 0, z]);
     if (q[2] < NEAR + 0.5) continue;
-    list.push({ p, q, walk });
+    list.push({ p, q, walk, idx: pIdx });
     if (p.dribble && (walk > 0 || (p.action === 'run' && !p.path))) {   // he runs with the ball: a touch every other stride pushes it ahead
       const ph = ((lt / 0.84) % 1), push = Math.sin(ph * Math.PI), dirz = p.front ? -1 : 1, lead = 0.45 + 0.55 * push;
       const hx = p.path ? heading[0] : 0, hz = p.path ? heading[1] : dirz;   // the ball runs ahead in the direction he's going
@@ -856,7 +858,7 @@ function drawPlayers(cam, lt, players) {
   }
   for (const o of list) {
     const s = proj(o.q);
-    S.anchors[players.indexOf(o.p)] = { x: s[0], y: s[1], u: FOC * 1.85 / o.q[2] };
+    S.anchors[o.idx != null ? o.idx : players.indexOf(o.p)] = { x: s[0], y: s[1], u: FOC * 1.85 / o.q[2] };
   }
   // balls in the world (resting ball, shots) are drawn in depth order with the players, so they pass behind or in front correctly
   for (const it of S.cur ? S.cur.cards : []) {
@@ -1891,6 +1893,20 @@ CARDS.ballpath.noSlide = true;
 // counter: from, to, dur, label, y (or counter: false). Chalk: w, h, area [x0, z0, x1, z1], zoom [from, to], follow (0–1).
 function passSeq(c) {
   if (c._seq) return c._seq;
+  if (c.play) {   // a real move: build up from the back, mostly forward and sideways, then recycle to the back and go again
+    const R = rng(c.seed || 7), N = c.nodes, n = N.length, zs = N.map(q => q[1]), zmin = Math.min(...zs), zmax = Math.max(...zs);
+    let cur = c.start != null ? c.start : zs.indexOf(zmin); const seq = [cur];
+    for (let i = 0; i < 400; i++) {
+      const z = N[cur][1], front = (z - zmin) / Math.max(1, zmax - zmin) > 0.75;
+      let opts = N.map((q, j) => j).filter(j => j !== cur && Math.hypot(N[j][0] - N[cur][0], N[j][1] - N[cur][1]) < (c.reach || 22));
+      if (front && R() < 0.6) opts = opts.filter(j => N[j][1] < z - 4);           // recycle it back
+      else { const fw = opts.filter(j => N[j][1] > z - 2); if (fw.length && R() < 0.8) opts = fw; }   // play forward or across
+      if (!opts.length) opts = N.map((q, j) => j).filter(j => j !== cur);
+      if (seq.length > 1) { const nb = opts.filter(j => j !== seq[seq.length - 2]); if (nb.length) opts = nb; }   // no instant back-and-forth
+      cur = opts[Math.floor(R() * opts.length)]; seq.push(cur);
+    }
+    return (c._seq = seq);
+  }
   const R = rng(c.seed || 7), n = c.nodes.length, seq = [c.start || 0];
   for (let i = 0; i < 400; i++) { let j; do { j = Math.floor(R() * n); } while (j === seq[seq.length - 1]); seq.push(j); }
   return (c._seq = seq);
@@ -1898,20 +1914,71 @@ function passSeq(c) {
 function webHash(j, k) { const x = Math.sin(j * 127.1 + k * 311.7) * 43758.5453; return x - Math.floor(x); }
 function webNode(c, j, t) {   // each player wanders on his own rhythm (user: they moved as one block)
   const b = c.nodes[j], d = c.drift != null ? c.drift : 0, f1 = 0.45 + 0.5 * webHash(j, 1), f2 = 0.35 + 0.45 * webHash(j, 2), ph = webHash(j, 3) * 6.28;
-  return [b[0] + d * (0.6 + 0.6 * webHash(j, 4)) * Math.sin(t * f1 + ph), b[1] + d * (0.5 + 0.5 * webHash(j, 5)) * Math.cos(t * f2 + ph * 1.3)];
+  const push = c.push ? Math.min(c.pushMax || 8, c.push * Math.max(0, t)) : 0;   // the team squeezes up the pitch as the move goes on
+  return [b[0] + d * (0.6 + 0.6 * webHash(j, 4)) * Math.sin(t * f1 + ph), b[1] + push + d * (0.5 + 0.5 * webHash(j, 5)) * Math.cos(t * f2 + ph * 1.3)];
 }
+function webDash(c, j, t) {   // play mode: after receiving, a player carries the ball forward a few metres, then eases back into shape
+  if (!c.play || t < 0) return [0, 0];
+  const pd = c.pass || 0.34, cf = c.carryFrac != null ? c.carryFrac : 0.45, seq = passSeq(c), cur = Math.floor(t / pd);
+  let i = cur; while (i >= 0 && cur - i < 40 && seq[i] !== j) i--;
+  if (i < 0 || seq[i] !== j) return [0, 0];
+  const s = t - i * pd, rise = eOut(Math.min(1, s / (cf * pd))), decay = Math.exp(-Math.max(0, s - cf * pd) / 1.2);
+  const C = c.carry != null ? c.carry : 3, a = (webHash(i, 31) - 0.5) * 1.2;
+  return [Math.sin(a) * C * rise * decay, Math.cos(a) * C * rise * decay];
+}
+function webPos(c, j, t) { const n = webNode(c, j, t), d = webDash(c, j, t); return [n[0] + d[0], n[1] + d[1]]; }
 function webPass(c, i) {   // where pass i starts and ends, and how high it travels
   const pd = c.pass || 0.34, seq = passSeq(c), R = rng(1000 + i * 7 + (c.seed || 7));
-  return { a: webNode(c, seq[i], i * pd), b: webNode(c, seq[i + 1], (i + 1) * pd), arc: R() < (c.loft != null ? c.loft : 0.2) ? 2.4 : 0.15 };
+  if (c.play) {
+    const cf = c.carryFrac != null ? c.carryFrac : 0.45;
+    return { a: webPos(c, seq[i], (i + cf) * pd), b: webPos(c, seq[i + 1], (i + 1) * pd), arc: R() < (c.loft != null ? c.loft : 0.15) ? 2.2 : 0.1, bend: (R() - 0.5) * 0.35 };
+  }
+  return { a: webNode(c, seq[i], i * pd), b: webNode(c, seq[i + 1], (i + 1) * pd), arc: R() < (c.loft != null ? c.loft : 0.2) ? 2.4 : 0.15, bend: 0 };
+}
+function webCurve(P, u) {   // a point along a (slightly bent) pass on the ground
+  const mx = (P.a[0] + P.b[0]) / 2, mz = (P.a[1] + P.b[1]) / 2, dx = P.b[0] - P.a[0], dz = P.b[1] - P.a[1];
+  const cx = mx - dz * P.bend, cz = mz + dx * P.bend;
+  return [(1 - u) ** 2 * P.a[0] + 2 * (1 - u) * u * cx + u * u * P.b[0], (1 - u) ** 2 * P.a[1] + 2 * (1 - u) * u * cz + u * u * P.b[1]];
 }
 function webBall(c, ct) {   // [x, y, z] of the ball and the pass index
   const pd = c.pass || 0.34, t = Math.max(0, ct);
   let cur = Math.floor(t / pd), k = t / pd - cur;
   if (c.stopAt != null && t >= c.stopAt) { cur = Math.floor(c.stopAt / pd); k = 1; }
+  if (c.play) {
+    const cf = c.carryFrac != null ? c.carryFrac : 0.45, seq = passSeq(c);
+    if (k < cf) {   // at the receiver's feet, touched ahead as he carries it
+      const q = webPos(c, seq[cur], t), d = webDash(c, seq[cur], t), dl = Math.hypot(d[0], d[1]) || 1, lead = 0.5 + 0.25 * Math.abs(Math.sin(t * 9));
+      return { p: [q[0] + d[0] / dl * lead * Math.min(1, dl), 0.11, q[1] + d[1] / dl * lead * Math.min(1, dl) + (dl < 0.05 ? lead : 0)], cur, k: 0, carry: true };
+    }
+    const P = webPass(c, cur), u = (k - cf) / (1 - cf), e = u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2, g = webCurve(P, e);
+    return { p: [g[0], 0.11 + P.arc * Math.sin(Math.PI * u), g[1]], cur, k: u };
+  }
   const P = webPass(c, cur), e = eOut(k);
   return { p: [lerp(P.a[0], P.b[0], e), 0.11 + P.arc * Math.sin(Math.PI * k), lerp(P.a[1], P.b[1], e)], cur, k };
 }
-function webRival(c, j, t) {   // opponents press individually: each reacts on its own delay, the nearest ones press hardest, the rest hold shape
+function webTackles(c) {   // play mode: now and then the nearest defender slides in on the man receiving it (deterministic, so any frame renders the same)
+  if (c._tk) return c._tk;
+  const pd = c.pass || 0.34, seq = passSeq(c), out = [], every = c.tackleEvery || 0.22;
+  if (c.rivals && c.tackles !== false) for (let i = 3; i < 200; i++) {
+    if (webHash(i, 41) > every) continue;
+    const te = i * pd, r = webNode(c, seq[i], te);
+    let best = -1, bd = 1e9; c.rivals.nodes.forEach((_, j) => { const q = webRivalBase(c, j, te), d = Math.hypot(q[0] - r[0], q[1] - r[1]); if (d < bd) { bd = d; best = j; } });
+    if (best >= 0 && !out.some(o => o.j === best && Math.abs(o.te - te) < 2.5)) out.push({ te, j: best, i });
+  }
+  return (c._tk = out);
+}
+function webRival(c, j, t) {
+  const base = webRivalBase(c, j, t);
+  if (!c.play) return base;
+  for (const tk of webTackles(c)) {
+    if (tk.j !== j || t < tk.te - 0.7 || t > tk.te + 1.4) continue;
+    const r = webPos(c, passSeq(c)[tk.i], Math.min(t, tk.te + 0.2)), w = t < tk.te ? eOut(pr(t, tk.te - 0.7, 0.7)) : 1 - eOut(pr(t, tk.te + 0.6, 0.8));
+    return [lerp(base[0], r[0] + 0.9, w), lerp(base[1], r[1] + 0.4, w)];
+  }
+  return base;
+}
+function webRivalTackle(c, j, t) { if (!c.play) return null; for (const tk of webTackles(c)) if (tk.j === j && t >= tk.te - 0.45 && t <= tk.te + 0.75) return tk; return null; }
+function webRivalBase(c, j, t) {   // opponents press individually: each reacts on its own delay, the nearest ones press hardest, the rest hold shape
   const R = c.rivals, b = R.nodes[j], ch = R.chase != null ? R.chase : 0.45;
   const lag = 0.3 + 0.8 * webHash(j, 7), ball = webBall(c, t - lag).p;
   const dist = Math.hypot(ball[0] - b[0], ball[2] - b[1]), pull = ch * (0.25 + 0.75 * Math.exp(-dist / 14)) * (0.7 + 0.5 * webHash(j, 8));
@@ -1923,17 +1990,21 @@ function webCard(b) { for (const it of b ? b.cards : []) if (it.obj.type === 'pa
 function webPlayerPos(p, lt) {   // a rigged player bound to the pass web: where he is, and whether he's running
   const it = webCard(S.cur); if (!it) return null;
   const c = it.obj, ct = S.t - it.start, f = t => p.web != null ? webNode(c, p.web, t) : webRival(c, p.webRival, t);
-  const a = f(ct), b0 = f(ct - 0.12), sp = Math.hypot(a[0] - b0[0], a[1] - b0[1]) / 0.12;
-  return { x: a[0], z: a[1], walk: sp > 1.2 ? 1 : 0, heading: sp > 0.01 ? [(a[0] - b0[0]) / (sp * 0.12), (a[1] - b0[1]) / (sp * 0.12)] : [0, 1] };
+  const g = t => p.web != null ? webPos(c, p.web, t) : webRival(c, p.webRival, t);
+  const a = g(ct), b0 = g(ct - 0.12), sp = Math.hypot(a[0] - b0[0], a[1] - b0[1]) / 0.12;
+  const tk = p.webRival != null ? webRivalTackle(c, p.webRival, ct) : null;
+  return { x: a[0], z: a[1], walk: sp > 0.9 ? 1 : 0, heading: sp > 0.01 ? [(a[0] - b0[0]) / (sp * 0.12), (a[1] - b0[1]) / (sp * 0.12)] : [0, 1],
+    tackle: tk ? { delay: lt - (ct - (tk.te - 0.45)), dir: (a[0] - webPos(c, passSeq(c)[tk.i], tk.te)[0]) > 0 ? 1 : -1 } : null };
 }
-function webTokenW(cam, x, z, r, fill, ring, alpha) {   // a top-down player disc on the pitch
+function webTokenW(cam, x, z, r, fill, ring, alpha, label, hot) {   // a top-down player disc on the pitch (label = shirt number, hot = on the ball)
   const c0 = toCam(cam, [x, 0.03, z]); if (c0[2] < NEAR) return;
   const s = proj(c0), sx = proj(toCam(cam, [x + r, 0.03, z])), sz = proj(toCam(cam, [x, 0.03, z + r]));
   const rx = Math.max(3, Math.hypot(sx[0] - s[0], sx[1] - s[1])), ry = Math.max(2, Math.hypot(sz[0] - s[0], sz[1] - s[1]));
   ctx.save(); ctx.globalAlpha *= alpha == null ? 1 : alpha;
   ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.beginPath(); ctx.ellipse(s[0] + rx * 0.15, s[1] + ry * 0.3, rx, ry, 0, 0, 7); ctx.fill();
   ctx.fillStyle = fill; ctx.beginPath(); ctx.ellipse(s[0], s[1], rx, ry, 0, 0, 7); ctx.fill();
-  ctx.lineWidth = Math.max(2, rx * 0.22); ctx.strokeStyle = ring; ctx.stroke();
+  ctx.lineWidth = Math.max(2, rx * 0.22); ctx.strokeStyle = hot ? '#f1c453' : ring; ctx.stroke();
+  if (label != null && rx > 9) { font(800, rx * 0.95, 'Inter'); ctx.fillStyle = ring; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(label), s[0], s[1] + rx * 0.05); }
   ctx.restore();
 }
 CARDS.passweb = function (c, ct, cx, cy) {
@@ -1942,6 +2013,35 @@ CARDS.passweb = function (c, ct, cx, cy) {
     if (!S.cam) return;
     const pd = c.pass || 0.34, { cur, k } = webBall(c, ct), trail = c.trail || 16, col = c.color || '#ffffff';
     const P = w => { const v = toCam(S.cam, [w[0], 0.05, w[1]]); return v[2] < NEAR ? null : proj(v); };
+    if (c.play) {   // a TV analysis graphic: bent pass lines that draw behind the ball, the last few fading, an arrowhead on each, carries dotted
+      const bb = webBall(c, ct), cf = c.carryFrac != null ? c.carryFrac : 0.45, tr = c.trail || 6, seq = passSeq(c);
+      const curve = (W, u0, u1, n) => { const out = []; for (let s2 = 0; s2 <= n; s2++) { const g = webCurve(W, lerp(u0, u1, s2 / n)), q = P(g); if (q) out.push(q); } return out; };
+      const stroke = (pts, w, al, dash) => { if (pts.length < 2) return; ctx.globalAlpha = al; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(...pts[0]); for (const q of pts.slice(1)) ctx.lineTo(...q); ctx.stroke(); };
+      const head = (pts, sz, al) => { if (pts.length < 2) return; const a1 = pts[pts.length - 2], a2 = pts[pts.length - 1], an = Math.atan2(a2[1] - a1[1], a2[0] - a1[0]);
+        ctx.globalAlpha = al; ctx.setLineDash([]); ctx.beginPath(); ctx.moveTo(...a2); ctx.lineTo(a2[0] - sz * Math.cos(an - 0.5), a2[1] - sz * Math.sin(an - 0.5)); ctx.lineTo(a2[0] - sz * Math.cos(an + 0.5), a2[1] - sz * Math.sin(an + 0.5)); ctx.closePath(); ctx.fill(); };
+      ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = col; ctx.fillStyle = col; ctx.shadowColor = col;
+      for (let i = Math.max(0, bb.cur - tr); i < bb.cur; i++) {
+        const W = webPass(c, i), f = 1 - (bb.cur - i - 1) / tr, pts = curve(W, 0, 1, 18);
+        ctx.shadowBlur = 10 * f; stroke(pts, 2 + 5 * f, 0.15 + 0.6 * f, W.arc > 1 ? [14, 10] : null); head(pts, 10 + 8 * f, 0.15 + 0.6 * f);
+        const d0 = P(W.b), nxt = webPass(c, i + 1), d1 = P(nxt.a);   // the carry that followed
+        if (d0 && d1 && i + 1 < bb.cur) { ctx.shadowBlur = 0; stroke([d0, d1], 2 + 2 * f, 0.15 + 0.4 * f, [4, 8]); }
+      }
+      if (!bb.carry) { const W = webPass(c, bb.cur), pts = curve(W, 0, bb.k, 18); ctx.shadowBlur = 16; stroke(pts, 7, 0.9, W.arc > 1 ? [14, 10] : null); }
+      ctx.restore();
+      if (c.tokens) {
+        const kit = c.kit || { shirt: '#f4f4f2', ring: '#132257' }, rk = c.rivalKit || { shirt: '#c4122e', ring: '#1b458f' };
+        if (c.rivals) c.rivals.nodes.forEach((_, j) => { const q = webRival(c, j, ct); webTokenW(S.cam, q[0], q[1], 0.95, rk.shirt, rk.ring, 1, (c.rivals.numbers || [])[j]); });
+        const recv = seq[bb.carry ? bb.cur : bb.cur + 1], rq = webPos(c, recv, ct), pk = bb.carry ? pr(ct / pd - bb.cur, 0, cf) : 0;
+        if (bb.carry && pk < 1) { const s0 = toCam(S.cam, [rq[0], 0.03, rq[1]]); if (s0[2] > NEAR) { const sp0 = proj(s0), rr = FOC * (1.2 + 2.4 * pk) / s0[2];
+          ctx.save(); ctx.strokeStyle = col; ctx.globalAlpha = 0.85 * (1 - pk); ctx.lineWidth = 4; ctx.beginPath(); ctx.ellipse(sp0[0], sp0[1], rr, rr * Math.abs(S.cam.f[1]), 0, 0, 7); ctx.stroke(); ctx.restore(); } }
+        c.nodes.forEach((_, j) => { const q = webPos(c, j, ct); webTokenW(S.cam, q[0], q[1], 1.05, kit.shirt, kit.ring, 1, (c.numbers || [])[j], j === recv); });
+      }
+      const v = toCam(S.cam, bb.p); if (v[2] < NEAR) return;
+      const sp = proj(v), r = Math.max(5, FOC * 0.16 / v[2]) * (c.tokens ? 1.5 : 1), g = toCam(S.cam, [bb.p[0], 0.02, bb.p[2]]);
+      if (g[2] > NEAR) { const sg = proj(g); ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.ellipse(sg[0], sg[1], r, r * 0.4, 0, 0, 7); ctx.fill(); }
+      drawBall(sp[0], sp[1], r);
+      return;
+    }
     ctx.save(); ctx.lineCap = 'round';
     for (let i = Math.max(0, cur - trail); i < cur; i++) {   // completed passes, older ones fading
       const W = webPass(c, i), a = P(W.a), b = P(W.b); if (!a || !b) continue;

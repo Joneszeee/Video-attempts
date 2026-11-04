@@ -82,10 +82,10 @@
        40
       ]
      ],
-     "drift": 2.2,
-     "pass": 0.3,
-     "trail": 18,
-     "loft": 0.2,
+     "drift": 1.2,
+     "pass": 0.62,
+     "trail": 6,
+     "loft": 0.15,
      "counter": false,
      "seed": 3,
      "tokens": true,
@@ -136,12 +136,30 @@
         51
        ]
       ],
-      "chase": 0.5
+      "chase": 0.55
      },
      "rivalKit": {
       "shirt": "#1b458f",
       "ring": "#c4122e"
-     }
+     },
+     "play": true,
+     "carryFrac": 0.45,
+     "carry": 3.0,
+     "push": 0.5,
+     "pushMax": 5,
+     "numbers": [
+      2,
+      5,
+      6,
+      3,
+      8,
+      4,
+      10,
+      7,
+      11,
+      9
+     ],
+     "reach": 24
     },
     {
      "type": "stack",
@@ -240,10 +258,10 @@
          40
         ]
        ],
-       "drift": 2.2,
-       "pass": 0.3,
-       "trail": 18,
-       "loft": 0.2,
+       "drift": 1.2,
+       "pass": 0.62,
+       "trail": 6,
+       "loft": 0.15,
        "counter": false,
        "seed": 21,
        "tokens": true,
@@ -294,12 +312,30 @@
           51
          ]
         ],
-        "chase": 0.5
+        "chase": 0.55
        },
        "rivalKit": {
         "shirt": "#034694",
         "ring": "#ffffff"
-       }
+       },
+       "play": true,
+       "carryFrac": 0.45,
+       "carry": 3.0,
+       "push": 0.5,
+       "pushMax": 5,
+       "numbers": [
+        2,
+        5,
+        6,
+        3,
+        8,
+        4,
+        10,
+        7,
+        11,
+        9
+       ],
+       "reach": 24
       },
       {
        "type": "stack",
@@ -391,30 +427,537 @@
    "camFrom": {
     "pos": [
      0,
-     40,
-     -75
+     18,
+     -34
     ],
     "tgt": [
      0,
      0,
-     5
+     3
     ]
    },
    "camera": {
     "pos": [
      0,
-     24,
-     -46
+     9,
+     -16
     ],
     "tgt": [
      0,
-     0,
-     10
+     0.5,
+     3
     ]
    },
    "move": 3,
    "lights": 0.9,
-   "players": [],
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": -6.0,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -4.8,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": -3.6,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": -2.4000000000000004,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": -1.2000000000000002,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "num": null,
+     "x": 0.0,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "x": 1.1999999999999993,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": 2.4000000000000004,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 3.5999999999999996,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "x": 4.799999999999999,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#132257",
+      "socks": "#f4f4f2",
+      "text": "#132257"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": 6.0,
+     "z": 0.7,
+     "front": true,
+     "pose": "shake",
+     "shakeSide": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "path": [
+      [
+       -9.0,
+       -0.5
+      ],
+      [
+       7.0,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "path": [
+      [
+       -10.25,
+       -0.5
+      ],
+      [
+       5.75,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "num": null,
+     "path": [
+      [
+       -11.5,
+       -0.5
+      ],
+      [
+       4.5,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "path": [
+      [
+       -12.75,
+       -0.5
+      ],
+      [
+       3.25,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "path": [
+      [
+       -14.0,
+       -0.5
+      ],
+      [
+       2.0,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "path": [
+      [
+       -15.25,
+       -0.5
+      ],
+      [
+       0.75,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "num": null,
+     "path": [
+      [
+       -16.5,
+       -0.5
+      ],
+      [
+       -0.5,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "path": [
+      [
+       -17.75,
+       -0.5
+      ],
+      [
+       -1.75,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "num": null,
+     "path": [
+      [
+       -19.0,
+       -0.5
+      ],
+      [
+       -3.0,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#4a3324",
+     "num": null,
+     "path": [
+      [
+       -20.25,
+       -0.5
+      ],
+      [
+       -4.25,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1b458f",
+      "stripes": [
+       "#1b458f",
+       "#c4122e"
+      ],
+      "shorts": "#1b458f",
+      "socks": "#c4122e",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "path": [
+      [
+       -21.5,
+       -0.5
+      ],
+      [
+       -5.5,
+       -0.5
+      ]
+     ],
+     "pathDur": 5.5,
+     "pose": "shake",
+     "shakeSide": -1
+    }
+   ],
    "card": [
     {
      "type": "flip",
@@ -1794,8 +2337,8 @@
        30
       ]
      ],
-     "pass": 0.36,
-     "trail": 14,
+     "pass": 0.95,
+     "trail": 5,
      "color": "#bfe3ff",
      "seed": 21,
      "from": 0,
@@ -1804,8 +2347,8 @@
      "y": 1600,
      "label": "Passes completed · City v Chelsea",
      "passFor": 7,
-     "drift": 2.6,
-     "loft": 0.25,
+     "drift": 1.6,
+     "loft": 0.2,
      "rivals": {
       "nodes": [
        [
@@ -1845,8 +2388,13 @@
         26
        ]
       ],
-      "chase": 0.5
-     }
+      "chase": 0.6
+     },
+     "play": true,
+     "carryFrac": 0.5,
+     "carry": 4.0,
+     "tackleEvery": 0.35,
+     "reach": 22
     }
    ],
    "vo": "But rewind to 2018. Manchester City completed 902 passes against Chelsea.",

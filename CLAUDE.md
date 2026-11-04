@@ -237,6 +237,11 @@ Built so far from the idea list (reuse them):
 - **Pass web:** the `passweb` card (stadium). The ball pings from player to player on the real pitch, each pass leaving a glowing line on the grass
   (drawn under the players), with a pop per pass. `nodes: [[x, z], ...]` (put the players there), `pass` (s per pass), `trail`, `color`, `seed`, `passFor`;
   the counter (`from`, `to`, `dur`, `label`, `y`) races and goes gold, or `counter: false` for lines only. Example: `videos/spurs-759` (hook, 10 v 10 web, City 902).
+- **Pass web "play" mode** (user: make it a real move, not a ball pinging around): `passweb` with `"play": true`. A forward-biased build-up that recycles
+  to the back, each receiver carries the ball a few metres (`carry`, `carryFrac`), bent pass lines draw behind the ball with arrowheads (last `trail` only),
+  carries dotted, the shape pushes up (`push`, `pushMax`), numbered discs in bird's-eye (`numbers`), and in 3D the nearest defender slides into a tackle
+  now and then (`tackleEvery`, `tackles: false` to turn off). Slower `pass` (0.6–1.0s) reads as tactical.
+- **Pre-match handshake line:** players with `"pose": "shake"` (+ `shakeSide`): home team in a line on halfway, away team walking along it on a `path`.
 - **Dark analytics board** (from the user's thefinalthird.pro reference, `videos/united-roma`): the `tactic` card with `"theme": "dark"`. Numbered discs on a dark
   olive half pitch, `kind: "shot"` moves become dashed red lines with an arrowhead (`ball: false` to hide the ball), player `ring` highlights an unmarked man,
   `tags: [{at, x, y, text, color}]` pop event labels ("LOST IT", "11' · 0–1"), `showBall: false`, `awayText`. Boards and newspapers now slowly push in by themselves.

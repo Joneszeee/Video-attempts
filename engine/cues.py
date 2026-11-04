@@ -138,13 +138,17 @@ def _resolve_beat(b, rel):
             if isinstance(c.get('emptyAt'), str):
                 c['emptyT'] = round(max(0, rel(c.pop('emptyAt')) - base), 3)
         if c.get('type') == 'tactic':
-            for lst in (c.get('moves') or [], c.get('cam') or []):
+            for lst in (c.get('moves') or [], c.get('cam') or [], c.get('tags') or []):
                 for m in lst:
                     if 'at' in m:
                         m['t'] = round(max(0, rel(m.pop('at')) + m.pop('lag', 0) - base), 3)
             for pl in c.get('players') or []:
                 if 'nameAt' in pl:
                     pl['nameT'] = round(max(0, rel(pl.pop('nameAt')) - base), 3)
+        if c.get('type') in ('xg', 'swing'):
+            for it in c.get('items') or c.get('rows') or []:
+                if 'at' in it:
+                    it['t'] = round(max(0, rel(it.pop('at')) + it.pop('lag', 0) - base), 3)
         if c.get('type') in ('shelf', 'tape'):
             for it in c.get('items') or c.get('rows') or []:
                 if 'at' in it:

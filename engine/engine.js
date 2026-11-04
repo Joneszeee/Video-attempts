@@ -1795,7 +1795,8 @@ CARDS.newspaper = function (c, ct, cx, cy) {
   ctx.save();
   ctx.translate(cx, cy);
   ctx.rotate(lerp(-Math.PI * (c.turns || 3), c.tilt != null ? c.tilt : -0.05, k));
-  ctx.scale(lerp(0.05, sc, k), lerp(0.05, sc, k));
+  const drift = 1 + 0.035 * Math.max(0, ct - (c.spin || 1.4));   // keeps pushing in after it lands
+  ctx.scale(lerp(0.05, sc, k) * drift, lerp(0.05, sc, k) * drift);
   ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16;
   ctx.fillStyle = '#f1ece0'; ctx.fillRect(-w / 2, -h / 2, w, h);
   ctx.shadowColor = 'transparent';
@@ -1807,10 +1808,15 @@ CARDS.newspaper = function (c, ct, cx, cy) {
   ctx.fillRect(-w / 2 + 30, -h / 2 + 110, w - 60, 4);
   ctx.font = `500 20px Mono`; ctx.fillText((c.dateline || '').toUpperCase(), 0, -h / 2 + 140);
   ctx.fillRect(-w / 2 + 30, -h / 2 + 156, w - 60, 2);
-  ctx.font = `900 ${c.size || 300}px Inter`; ctx.fillStyle = c.color || '#16130e'; ctx.fillText(c.headline || '', 0, -h / 2 + 170 + (c.size || 300) * 0.82);
-  ctx.fillStyle = '#16130e'; ctx.font = `700 54px ${serif}`;
-  const subY = -h / 2 + 200 + (c.size || 300) * 0.82 + 40;
-  String(c.sub || '').split('\n').forEach((l, i) => ctx.fillText(l, 0, subY + i * 60));
+  // headline: "\n" for lines, each auto-fitted to the page width (user: a long headline ran off the page)
+  let hy = -h / 2 + 170;
+  for (const l of String(c.headline || '').split('\n')) {
+    ctx.font = `900 100px Inter`; const fs = Math.min(c.size || 300, 100 * (w - 70) / Math.max(1, ctx.measureText(l).width));
+    ctx.font = `900 ${fs}px Inter`; ctx.fillStyle = c.color || '#16130e'; hy += fs * 0.86; ctx.fillText(l, 0, hy); hy += fs * 0.1;
+  }
+  ctx.fillStyle = '#16130e';
+  const subY = hy + 64;
+  String(c.sub || '').split('\n').forEach((l, i) => { ctx.font = `700 54px ${serif}`; const fs = Math.min(54, 54 * (w - 70) / Math.max(1, ctx.measureText(l).width)); ctx.font = `700 ${fs}px ${serif}`; ctx.fillText(l, 0, subY + i * 60); });
   ctx.fillStyle = 'rgba(22,19,14,0.35)';
   const top = subY + 60 * String(c.sub || '').split('\n').length + 10;
   for (let col = 0; col < 3; col++) for (let y = top; y < h / 2 - 40; y += 18) {
@@ -2248,7 +2254,7 @@ function tacXY(c, p, bw, bh) {
 }
 CARDS.tactic = function (c, ct, cx, cy) {
   const bw = c.w || 980, bh = c.h || 1180, home = c.home || '#d0263a', away = c.away || '#e9dcb4';
-  const ink = '#17181c', a = eOut(pr(ct, 0, 0.5));
+  const dark = c.theme === 'dark', ink = dark ? '#ecebe6' : '#17181c', a = eOut(pr(ct, 0, 0.5));
   // camera on the board: keyframes {t, s, x, y} in board fractions
   const cam = c.cam || [];
   let fs = 1, fx = 0.5, fy = 0.5;
@@ -2263,25 +2269,27 @@ CARDS.tactic = function (c, ct, cx, cy) {
   ctx.beginPath(); ctx.rect(0, c.clipTop != null ? c.clipTop : 520, W, H); ctx.clip();   // zooming never covers the captions
   ctx.globalAlpha *= a;
   ctx.translate(cx, cy + (1 - a) * 80);
+  fs *= 1 + (c.drift != null ? c.drift : 0.03) * ct;   // slow push-in so the board is never static
   ctx.scale(fs, fs);
   ctx.translate(-(fx - 0.5) * bw, -(fy - 0.5) * bh);
   ctx.rotate(c.tilt != null ? c.tilt : -0.012);
   // paper
   ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 50; ctx.shadowOffsetY = 20;
-  ctx.fillStyle = '#eceef0'; ctx.fillRect(-bw / 2, -bh / 2, bw, bh);
+  ctx.fillStyle = dark ? '#0f1214' : '#eceef0'; ctx.fillRect(-bw / 2, -bh / 2, bw, bh);
   ctx.shadowColor = 'transparent';
   const R = rng(4);
-  for (let i = 0; i < 500; i++) { ctx.fillStyle = `rgba(120,130,140,${R() * 0.07})`; ctx.fillRect(-bw / 2 + R() * bw, -bh / 2 + R() * bh, 3, 3); }
+  if (!dark) for (let i = 0; i < 500; i++) { ctx.fillStyle = `rgba(120,130,140,${R() * 0.07})`; ctx.fillRect(-bw / 2 + R() * bw, -bh / 2 + R() * bh, 3, 3); }
   // half pitch, goal at the top
-  ctx.strokeStyle = 'rgba(40,44,52,0.38)'; ctx.lineWidth = 3;
+  ctx.strokeStyle = dark ? 'rgba(205,215,180,0.32)' : 'rgba(40,44,52,0.38)'; ctx.lineWidth = 3;
   const m = 34, L = -bw / 2 + m, T = -bh / 2 + m, PW = bw - 2 * m, PH = bh - 2 * m;
+  if (dark) { const pg = ctx.createLinearGradient(0, T, 0, T + PH); pg.addColorStop(0, 'rgba(88,104,52,0.30)'); pg.addColorStop(1, 'rgba(40,52,30,0.10)'); ctx.fillStyle = pg; ctx.fillRect(L, T, PW, PH); }
   ctx.strokeRect(L, T, PW, PH);
   ctx.strokeRect(L + PW * 0.2, T, PW * 0.6, PH * 0.2);
   ctx.strokeRect(L + PW * 0.37, T, PW * 0.26, PH * 0.07);
   ctx.strokeRect(L + PW * 0.44, T - 14, PW * 0.12, 14);
   ctx.beginPath(); ctx.arc(L + PW / 2, T + PH * 0.2, PW * 0.12, 0.25 * Math.PI, 0.75 * Math.PI); ctx.stroke();
   ctx.beginPath(); ctx.arc(L + PW / 2, T + PH, PW * 0.17, Math.PI, 2 * Math.PI); ctx.stroke();
-  if (c.note !== false) { font(400, 22, 'Marker'); ctx.fillStyle = ink; ctx.textAlign = 'right'; ctx.fillText((c.note || 'Drawn from match reports').toUpperCase(), bw / 2 - 40, -bh / 2 + 26); }
+  if (c.note !== false && !(dark && c.note == null)) { font(400, 22, 'Marker'); ctx.fillStyle = ink; ctx.textAlign = 'right'; ctx.fillText((c.note || 'Drawn from match reports').toUpperCase(), bw / 2 - 40, -bh / 2 + 26); }
   // pass lines drawn so far, X where each pass starts
   const moves = c.moves || [];
   let ball = tacXY(c, c.ball != null ? c.ball : (moves[0] ? moves[0].from : 0), bw, bh), moving = false;
@@ -2293,20 +2301,24 @@ CARDS.tactic = function (c, ct, cx, cy) {
     const p0 = tacXY(c, mv.from, bw, bh), p1 = tacXY(c, mv.to, bw, bh), e = mv.kind === 'shot' ? k : ease(k);
     const mid = mv.curve ? [(p0[0] + p1[0]) / 2 + mv.curve * (p1[1] - p0[1]), (p0[1] + p1[1]) / 2 - mv.curve * (p1[0] - p0[0])] : null;
     const at = u => mid ? [(1 - u) ** 2 * p0[0] + 2 * (1 - u) * u * mid[0] + u * u * p1[0], (1 - u) ** 2 * p0[1] + 2 * (1 - u) * u * mid[1] + u * u * p1[1]] : [lerp(p0[0], p1[0], u), lerp(p0[1], p1[1], u)];
-    ctx.setLineDash(mv.kind === 'run' ? [14, 14] : []);
+    const shotDash = dark && mv.kind === 'shot';
+    ctx.save(); ctx.strokeStyle = mv.color || (shotDash ? '#ff4d5e' : ink);
+    ctx.setLineDash(mv.kind === 'run' ? [14, 14] : shotDash ? [10, 10] : []);
     ctx.beginPath(); ctx.moveTo(...p0);
     for (let s = 1; s <= 24; s++) ctx.lineTo(...at(e * s / 24));
     ctx.stroke(); ctx.setLineDash([]);
-    if (mv.kind !== 'run') {
+    if (shotDash && k >= 1) { const q = at(0.97), ang = Math.atan2(p1[1] - q[1], p1[0] - q[0]); ctx.fillStyle = ctx.strokeStyle; ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p1[0] - 20 * Math.cos(ang - 0.45), p1[1] - 20 * Math.sin(ang - 0.45)); ctx.lineTo(p1[0] - 20 * Math.cos(ang + 0.45), p1[1] - 20 * Math.sin(ang + 0.45)); ctx.fill(); }
+    ctx.restore();
+    if (mv.kind !== 'run' && !(dark && mv.kind === 'shot')) {
       const r = 11; ctx.beginPath(); ctx.moveTo(p0[0] - r, p0[1] - r); ctx.lineTo(p0[0] + r, p0[1] + r); ctx.moveTo(p0[0] + r, p0[1] - r); ctx.lineTo(p0[0] - r, p0[1] + r); ctx.stroke();
       ball = at(e); moving = k < 1;
-    }
+    } else if (mv.kind === 'shot' && mv.ball !== false) { ball = at(e); moving = k < 1; }
     if (typeof mv.from === 'number') involved.set(mv.from, mv.t || 0);
     if (typeof mv.to === 'number') involved.set(mv.to, Math.min(involved.get(mv.to) ?? 1e9, (mv.t || 0) + (mv.dur || 0.7) * 0.8));
   }
   // players
   for (const [i, p] of c.players.entries()) {
-    const [x, y] = [(p.x - 0.5) * bw, (p.y - 0.5) * bh], r = c.r || 34;
+    const x = (p.x - 0.5) * bw + Math.sin(ct * 1.3 + i * 1.7) * 4, y = (p.y - 0.5) * bh + Math.cos(ct * 1.1 + i * 2.3) * 4, r = c.r || 34;   // players shuffle slightly
     const pk = eBack(pr(ct, (p.t || 0) + 0.1 + i * 0.02, 0.3));
     if (pk <= 0) continue;
     ctx.save(); ctx.translate(x, y); ctx.scale(pk, pk);
@@ -2314,13 +2326,14 @@ CARDS.tactic = function (c, ct, cx, cy) {
     ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.beginPath(); ctx.arc(2, 5, r, 0, 7); ctx.fill();
     ctx.fillStyle = col; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
     ctx.strokeStyle = p.team === 'away' ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.8)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(0, 0, r - 5, 0, 7); ctx.stroke();
-    font(800, r * 0.78, 'Inter'); ctx.fillStyle = p.team === 'away' ? '#3b3424' : '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    if (p.ring) { ctx.strokeStyle = p.ring; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(0, 0, r + 9 + 3 * Math.sin(ct * 6), 0, 7); ctx.stroke(); }
+    font(800, r * 0.78, 'Inter'); ctx.fillStyle = p.team === 'away' ? (c.awayText || '#3b3424') : '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText(String(p.n), 0, 2);
     ctx.restore();
     const nt = p.nameT != null ? p.nameT : involved.get(i);
     if (p.name && nt != null && ct >= nt) {
       const nk = Math.min(1, (ct - nt) / 0.35), txt = p.name.toUpperCase();
-      font(400, 30, 'Marker'); ctx.fillStyle = ink; ctx.textBaseline = 'middle';
+      if (dark) font(800, 24, 'Inter', '2px'); else font(400, 30, 'Marker'); ctx.fillStyle = ink; ctx.textBaseline = 'middle';
       const left = p.label === 'left'; ctx.textAlign = left ? 'right' : 'left';
       ctx.save(); ctx.beginPath();
       const tw = ctx.measureText(txt).width;
@@ -2329,12 +2342,102 @@ CARDS.tactic = function (c, ct, cx, cy) {
       ctx.restore();
     }
   }
+  // event tags that pop on the board ("HANDBALL", "17' PEN"): {t, x, y, text, color}
+  for (const tg of c.tags || []) {
+    const tk = eBack(pr(ct, tg.t || 0, 0.3)); if (tk <= 0) continue;
+    const [x, y] = [(tg.x - 0.5) * bw, (tg.y - 0.5) * bh];
+    font(800, 24, 'Inter', '3px'); const tw = ctx.measureText(tg.text.toUpperCase()).width + 34;
+    ctx.save(); ctx.translate(x, y); ctx.scale(tk, tk); ctx.rotate(-0.04);
+    ctx.fillStyle = tg.color || '#d6283b'; rrect(-tw / 2, -22, tw, 44, 10); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(tg.text.toUpperCase(), 0, 1); ctx.restore();
+  }
   // ball
   const br = 15 + (moving ? 3 : 0);
-  drawBall(ball[0], ball[1], br);
+  if (c.showBall !== false) drawBall(ball[0], ball[1], br);
   ctx.restore();
 };
 CARDS.tactic.noSlide = true;
+
+// xG spheres: one glossy sphere per team, its size growing with the expected-goals value while the number counts up above it.
+// items: [{label, value, from, color, t}], max (value of the biggest sphere), title, dur, gap.
+CARDS.xg = function (c, ct, cx, cy) {
+  const items = c.items, max = c.max || Math.max(...items.map(it => it.value)), gap = c.gap || 440;
+  items.forEach((it, i) => {
+    const t0 = it.t || 0, k = ease(pr(ct, t0, c.dur || 1.4)), a = pr(ct, t0, 0.25);
+    if (a <= 0) return;
+    const v = lerp(it.from != null ? it.from : 0, it.value, k), x = cx + (i - (items.length - 1) / 2) * gap;
+    const r = 34 + 150 * Math.sqrt(Math.max(0, v) / max), col = it.color || '#d6283b';
+    ctx.save(); ctx.globalAlpha *= a;
+    // floor ring + shadow
+    ctx.strokeStyle = col; ctx.globalAlpha *= 0.8; ctx.lineWidth = 4; ctx.beginPath(); ctx.ellipse(x, cy + 6, r * 1.25, r * 0.22, 0, 0, 7); ctx.stroke(); ctx.globalAlpha /= 0.8;
+    ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.beginPath(); ctx.ellipse(x, cy + 6, r * 1.0, r * 0.16, 0, 0, 7); ctx.fill();
+    const g = ctx.createRadialGradient(x - r * 0.35, cy - r - r * 0.4, r * 0.1, x, cy - r, r * 1.05);
+    g.addColorStop(0, '#ffffff'); g.addColorStop(0.12, col); g.addColorStop(0.75, col); g.addColorStop(1, 'rgba(0,0,0,0.85)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, cy - r, r, 0, 7); ctx.fill();
+    ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.beginPath(); ctx.arc(x + r * 0.25, cy - r + r * 0.25, r * 0.9, 0, 7); ctx.fill(); ctx.globalCompositeOperation = 'source-over';
+    // number + label above
+    const ny = cy - 2 * r - 46;
+    font(700, 76, 'Mono'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = it.textColor || (i ? '#f1c453' : '#ffffff');
+    ctx.fillText(v.toFixed(2), x, ny);
+    font(600, 22, 'Mono', '4px'); ctx.fillStyle = '#9aa3b2'; ctx.fillText((it.label || '').toUpperCase(), x, ny + 34);
+    if (it.badge) drawBadge(x, ny - 100, 56, it.badge);
+    ctx.restore();
+  });
+  if (c.title) { font(600, 26, 'Mono', '6px'); ctx.fillStyle = '#c9ced8'; ctx.textAlign = 'center'; ctx.fillText(c.title.toUpperCase(), cx, cy + 90); }
+};
+CARDS.xg.noSlide = true;
+
+// Before / after swing: each row shows a stat from the first half crossing over to the second (numbers count, an arrow draws).
+// rows: [{label, from, to, t, decimals, good}], title.
+CARDS.swing = function (c, ct, cx, cy) {
+  ctx.save(); const fz = 1 + 0.02 * ct; ctx.translate(cx, cy + Math.sin(ct * 1.2) * 6); ctx.scale(fz, fz); ctx.translate(-cx, -cy);   // gentle float + push
+  const rows = c.rows, rh = c.rowH || 170, w = c.w || 900, top = cy - rows.length * rh / 2;
+  if (c.title) { font(600, 24, 'Mono', '6px'); ctx.fillStyle = '#9aa3b2'; ctx.textAlign = 'center'; ctx.fillText(c.title.toUpperCase(), cx, top - 24); }
+  font(600, 20, 'Mono', '5px'); ctx.fillStyle = '#6f7785'; ctx.textAlign = 'center';
+  ctx.fillText('1ST HALF', cx - w * 0.28, top + 8); ctx.fillText('2ND HALF', cx + w * 0.28, top + 8);
+  rows.forEach((r, i) => {
+    const t0 = r.t != null ? r.t : 0.2 + i * 0.6, a = eOut(pr(ct, t0, 0.35)), k = ease(pr(ct, t0 + 0.35, 1.0));
+    if (a <= 0) return;
+    const y = top + 30 + i * rh + rh / 2, d = r.decimals || 0, good = r.good !== false;
+    ctx.save(); ctx.globalAlpha *= a; ctx.translate((1 - a) * 80, 0);
+    ctx.fillStyle = 'rgba(12,14,20,0.82)'; rrect(cx - w / 2, y - rh / 2 + 10, w, rh - 20, 22); ctx.fill();
+    font(700, 26, 'Inter', '1px'); ctx.fillStyle = '#c9ced8'; ctx.textAlign = 'center'; ctx.fillText(r.label, cx, y - rh / 2 + 44);
+    font(800, 84, 'Inter', '-2px'); ctx.textBaseline = 'alphabetic';
+    ctx.fillStyle = '#8a92a0'; ctx.fillText(Number(r.from).toFixed(d), cx - w * 0.28, y + 48);
+    const v = lerp(r.from, r.to, k); ctx.fillStyle = k >= 1 ? (good ? '#3fe08a' : '#ff4d5e') : '#ffffff';
+    if (k >= 1) { ctx.shadowColor = ctx.fillStyle; ctx.shadowBlur = 18 + 12 * Math.sin(ct * 4 + i); }
+    ctx.fillText(v.toFixed(d), cx + w * 0.28, y + 48); ctx.shadowBlur = 0;
+    const x0 = cx - w * 0.1, x1 = lerp(x0, cx + w * 0.1, k);   // the arrow draws across
+    ctx.strokeStyle = '#f1c453'; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x0, y + 20); ctx.lineTo(x1, y + 20); ctx.stroke();
+    if (k > 0.05) { ctx.fillStyle = '#f1c453'; ctx.beginPath(); ctx.moveTo(x1 + 14, y + 20); ctx.lineTo(x1 - 6, y + 6); ctx.lineTo(x1 - 6, y + 34); ctx.fill(); }
+    ctx.restore();
+  });
+  ctx.restore();
+};
+CARDS.swing.noSlide = true;
+
+// Drawn player card (idea backlog): a trading-card frame with the player drawn from the chest up and a tag strip ("MALEN · 17' PEN").
+// player: {name, num, kit, skin, hair}, tag, side: right|left, color (frame), tilt.
+CARDS.pcard = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.5)), side = c.side === 'left' ? -1 : 1, w = c.w || 420, h = c.h || 560;
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(cx + side * (1 - k) * 700, cy); ctx.rotate((c.tilt != null ? c.tilt : 0.05) * side * (1.4 - 0.4 * k));
+  ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 18;
+  ctx.fillStyle = c.color || '#f1c453'; rrect(-w / 2 - 10, -h / 2 - 10, w + 20, h + 20, 22); ctx.fill(); ctx.shadowColor = 'transparent';
+  const g = ctx.createLinearGradient(0, -h / 2, 0, h / 2); g.addColorStop(0, '#2a2f3a'); g.addColorStop(1, '#0d0f14');
+  ctx.fillStyle = g; rrect(-w / 2, -h / 2, w, h, 16); ctx.fill();
+  ctx.save(); rrect(-w / 2, -h / 2, w, h, 16); ctx.clip();
+  const p = Object.assign({ front: true, chest: true }, c.player);
+  drawPlayer(0, h * 0.95, h * 1.25, p, ct, 0, 1);
+  const sh = ctx.createLinearGradient(0, h * 0.1, 0, h / 2); sh.addColorStop(0, 'rgba(13,15,20,0)'); sh.addColorStop(1, 'rgba(13,15,20,0.9)'); ctx.fillStyle = sh; ctx.fillRect(-w / 2, 0, w, h / 2);
+  ctx.restore();
+  if (c.tag) { font(800, 26, 'Inter', '3px'); const tw = ctx.measureText(c.tag.toUpperCase()).width + 30;
+    ctx.fillStyle = c.tagColor || '#f1c453'; rrect(-w / 2 + 18, -h / 2 + 18, tw, 46, 8); ctx.fill();
+    ctx.fillStyle = '#111'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(c.tag.toUpperCase(), -w / 2 + 33, -h / 2 + 42); }
+  if (c.caption) { font(800, 40, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(c.caption, 0, h / 2 - 30); }
+  ctx.restore();
+};
+CARDS.pcard.noSlide = true;
 
 // Stacked stat counter: each new stat counts up big at the bottom and pushes the older ones up, smaller and dimmer.
 CARDS.stack = function (c, ct, cx, cy) {
@@ -2559,9 +2662,9 @@ CARDS.redcard = function (c, ct, cx, cy) {
   ctx.save(); ctx.translate(cx + (c.dx || 180) + sh, cy + (1 - k) * 700); ctx.rotate(lerp(0.5, c.rot != null ? c.rot : 0.12, k));
   ctx.fillStyle = '#111318'; rrect(-36, 40, 72, 520, 30); ctx.fill();              // black referee sleeve
   ctx.fillStyle = '#e2b08c'; ctx.beginPath(); ctx.ellipse(0, 30, 46, 52, 0, 0, 7); ctx.fill();   // hand
-  const g = ctx.createRadialGradient(0, -120, 10, 0, -120, 260); g.addColorStop(0, 'rgba(255,40,60,0.45)'); g.addColorStop(1, 'rgba(255,40,60,0)');
+  const g = ctx.createRadialGradient(0, -120, 10, 0, -120, 260); g.addColorStop(0, c.color ? 'rgba(255,220,40,0.45)' : 'rgba(255,40,60,0.45)'); g.addColorStop(1, 'rgba(255,40,60,0)');
   ctx.fillStyle = g; ctx.fillRect(-300, -420, 600, 600);
-  ctx.fillStyle = '#e3132b'; rrect(-95, -270, 190, 270, 14); ctx.fill();
+  ctx.fillStyle = c.color || '#e3132b'; rrect(-95, -270, 190, 270, 14); ctx.fill();
   ctx.fillStyle = 'rgba(255,255,255,0.18)'; rrect(-95, -270, 60, 270, 14); ctx.fill();
   ctx.fillStyle = '#e2b08c'; ctx.beginPath(); ctx.ellipse(-60, -20, 26, 40, -0.3, 0, 7); ctx.fill();   // thumb over the card
   ctx.restore();
@@ -2793,7 +2896,7 @@ CARDS.calendar.noSlide = true;
 // with an optional phase label ("EXTRA TIME") and score; `events: [{min, text}]` pop in as the clock passes them.
 CARDS.clock = function (c, ct, cx, cy) {
   const a = eOut(pr(ct, 0, 0.35)), k = ease(pr(ct, 0.3, c.dur || 2.2));
-  const m = lerp(c.from || 90, c.to || 120, k), mm = Math.floor(m), ss = Math.floor((m - mm) * 60);
+  const m = lerp(c.from ?? 90, c.to ?? 120, k), mm = Math.floor(m), ss = Math.floor((m - mm) * 60);   // ?? so a clock can start at 0'
   ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, cy); ctx.scale(c.scale || 1, c.scale || 1);
   const w = 640, h = 150;
   ctx.fillStyle = '#0d1016'; rrect(-w / 2, -h / 2, w, h, 20); ctx.fill();
@@ -2808,10 +2911,10 @@ CARDS.clock = function (c, ct, cx, cy) {
   }
   ctx.restore();
   (c.events || []).forEach((e, i) => {
-    const ek = pr(m, e.min - 0.01, 0.6);
+    const ek = pr(m, e.min - 0.6, 0.6);   // pops as the clock reaches it (also when the clock stops exactly on that minute)
     if (ek <= 0) return;
     ctx.save(); ctx.globalAlpha *= Math.min(1, ek * 2) * a;
-    const y = cy - 150 - i * 70; font(700, 30, 'Inter'); const tw = ctx.measureText(e.text).width + 50;
+    const y = cy - 75 * (c.scale || 1) - 60 - i * 70; font(700, 30, 'Inter'); const tw = ctx.measureText(e.text).width + 50;
     ctx.translate(cx, y); ctx.scale(0.8 + 0.2 * eBack(Math.min(1, ek)), 0.8 + 0.2 * eBack(Math.min(1, ek)));
     ctx.fillStyle = 'rgba(244,242,236,0.95)'; rrect(-tw / 2, -28, tw, 56, 28); ctx.fill();
     ctx.fillStyle = '#16181d'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(e.text, 0, 2);
@@ -2978,6 +3081,9 @@ function cardEvents(c) {
     case 'passweb': { const pd = c.pass || 0.34, end = c.stopAt != null ? c.stopAt : (c.passFor || 6); for (let t = pd; t < end; t += pd) ev.push({ t, type: 'pop' });
       if (c.counter !== false) { ticks(0.1, (c.dur || 4) * 0.9); ev.push({ t: c.dur || 4, type: 'impact' }); } break; }
     case 'shout': ev.push({ t: 0, type: 'whoosh' }, { t: 0.3, type: 'impact' }); break;
+    case 'xg': c.items.forEach(it => { ticks((it.t || 0) + 0.05, (c.dur || 1.4) * 0.9); ev.push({ t: (it.t || 0) + (c.dur || 1.4), type: 'pop' }); }); break;
+    case 'swing': c.rows.forEach((r, i) => { const t0 = r.t != null ? r.t : 0.2 + i * 0.6; ev.push({ t: t0, type: 'swipe' }); ticks(t0 + 0.35, 0.9); ev.push({ t: t0 + 1.35, type: 'pop' }); }); break;
+    case 'pcard': ev.push({ t: 0, type: 'whoosh' }, { t: 0.45, type: 'pop' }); break;
     case 'tally': if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
     case 'photo': ev.push({ t: 0, type: 'whoosh' }); if (c.ripT != null) ev.push({ t: c.ripT, type: 'impact' }, { t: c.ripT, type: 'swish' }); break;
     case 'calendar': { const n = c.to - c.from; for (let i = 1; i <= n; i++) ev.push({ t: (c.start || 0.5) + Math.pow(i / n, 1 / 1.6) * (c.dur || 2.2), type: 'swipe' }); ev.push({ t: (c.start || 0.5) + (c.dur || 2.2), type: 'impact' }); break; }

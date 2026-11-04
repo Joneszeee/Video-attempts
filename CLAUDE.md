@@ -237,6 +237,16 @@ Built so far from the idea list (reuse them):
 - **Pass web:** the `passweb` card (stadium). The ball pings from player to player on the real pitch, each pass leaving a glowing line on the grass
   (drawn under the players), with a pop per pass. `nodes: [[x, z], ...]` (put the players there), `pass` (s per pass), `trail`, `color`, `seed`, `passFor`;
   the counter (`from`, `to`, `dur`, `label`, `y`) races and goes gold, or `counter: false` for lines only. Example: `videos/spurs-759` (hook, 10 v 10 web, City 902).
+- **Dark analytics board** (from the user's thefinalthird.pro reference, `videos/united-roma`): the `tactic` card with `"theme": "dark"`. Numbered discs on a dark
+  olive half pitch, `kind: "shot"` moves become dashed red lines with an arrowhead (`ball: false` to hide the ball), player `ring` highlights an unmarked man,
+  `tags: [{at, x, y, text, color}]` pop event labels ("LOST IT", "11' · 0–1"), `showBall: false`, `awayText`. Boards and newspapers now slowly push in by themselves.
+- **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.
+- **Half-time swing:** the `swing` card. Rows `[{label, from, to, at, decimals, good}]`: 1st-half number on the left, an arrow draws, the 2nd-half number counts and glows
+  green (`good`) or red. Great for "what changed" tactics stories.
+- **Drawn player card** (backlog item, built): the `pcard` card. A gold-framed trading card with the player drawn chest-up and a tag strip ("MALEN · 17' PEN");
+  `player`, `tag`, `side`, `shiftX`, `w`, `h`. We never use real photos in the video.
+- **Yellow card:** the `redcard` card with `"color": "#f7d117"` (then `hideAt` and a red one for a second yellow).
+- **Kit clash check:** when two teams' kits are close (United red v Roma maroon), use the away kit they actually wore (Roma played in black).
 - **Hooped kits:** `kit.hoops: [c1, c2]` gives horizontal bands (QPR, Celtic).
 - **Headers:** `hops` take `at`/`lag` like everything else and now work on any player (no `action` needed). For a header, time the cross `ballpath`
   to end on the word, a hop peaking there and the header `ballpath` starting from the head. Film it side-on or 3/4 so the ball isn't hidden by the scorer.

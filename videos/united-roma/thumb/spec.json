@@ -1,0 +1,84 @@
+{
+ "brand": "theo6k",
+ "accent": "#f1c453",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Champions League · Man United v Roma",
+   "headline": "Carrick changed [nothing].",
+   "accent": "#ff4d5e",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     0.5,
+     -2.2
+    ],
+    "tgt": [
+     0,
+     1.7,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     0.5,
+     -2.2
+    ],
+    "tgt": [
+     0,
+     1.7,
+     12
+    ]
+   },
+   "move": 0.1,
+   "lights": 0.9,
+   "flashes": 16,
+   "players": [
+    {
+     "name": "Cunha",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#a8724e",
+     "hair": "#141010",
+     "num": 10,
+     "x": 0,
+     "z": 1.6,
+     "front": true,
+     "fromZ": 7,
+     "walkDur": 2.2,
+     "pose": "wings",
+     "chest": true
+    }
+   ],
+   "card": [
+    {
+     "type": "shout",
+     "text": "0–2 → 3–2",
+     "y": 1640,
+     "size": 220,
+     "delay": -2,
+     "clear": false,
+     "w": 900
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

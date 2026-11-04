@@ -1,0 +1,2339 @@
+{
+ "title": "United 3–2 Roma",
+ "brand": "theo6k",
+ "accent": "#f1c453",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Champions League · Old Trafford",
+   "headline": "2–0 down after [17 minutes].",
+   "accent": "#ff4d5e",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     0.8,
+     0.0
+    ],
+    "tgt": [
+     0,
+     1.75,
+     9
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     0.72,
+     1.0
+    ],
+    "tgt": [
+     0,
+     1.7,
+     9
+    ]
+   },
+   "move": 4,
+   "lights": 0.6,
+   "players": [
+    {
+     "name": "Fernandes",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e0b48f",
+     "hair": "#2a1a10",
+     "num": 8,
+     "x": 0,
+     "z": 3.4,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "shake": [
+    {
+     "t": 1.25,
+     "amount": 16
+    }
+   ],
+   "speedlines": [
+    {
+     "t": 0,
+     "dur": 1.2,
+     "amount": 0.6
+    }
+   ],
+   "card": [
+    {
+     "type": "clock",
+     "y": 1660,
+     "scale": 1.4,
+     "delay": -0.3,
+     "from": 0,
+     "to": 17,
+     "dur": 1.3,
+     "endColor": "#ff4d5e",
+     "events": [
+      {
+       "min": 11,
+       "text": "11' Soulé · 0–1"
+      },
+      {
+       "min": 17,
+       "text": "17' Malen (pen) · 0–2"
+      }
+     ]
+    }
+   ],
+   "shots": [
+    {
+     "at": "At half-time",
+     "cut": true,
+     "move": 4.5,
+     "headline": "Same XI. [Everything changed].",
+     "accent": "#f1c453",
+     "lights": 0.85,
+     "camFrom": {
+      "pos": [
+       0,
+       0.9,
+       -3.5
+      ],
+      "tgt": [
+       0,
+       1.4,
+       12
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       0.8,
+       -1.5
+      ],
+      "tgt": [
+       0,
+       1.5,
+       12
+      ]
+     },
+     "players": [
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#e7b593",
+       "hair": "#3a2a1a",
+       "num": null,
+       "x": -5,
+       "z": 7.0,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 12.0,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "num": null,
+       "x": -4,
+       "z": 6.4,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 11.4,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#c99a6e",
+       "hair": "#1a120c",
+       "num": null,
+       "x": -3,
+       "z": 5.8,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 10.8,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#6b4429",
+       "hair": "#141010",
+       "num": null,
+       "x": -2,
+       "z": 5.2,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 10.2,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#e0b48f",
+       "hair": "#2a1a10",
+       "num": null,
+       "x": -1,
+       "z": 4.6,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 9.6,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#a8724e",
+       "hair": "#141010",
+       "num": null,
+       "x": 0,
+       "z": 4.0,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 9.0,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#e7b593",
+       "hair": "#3a2a1a",
+       "num": null,
+       "x": 1,
+       "z": 4.6,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 9.6,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "num": null,
+       "x": 2,
+       "z": 5.2,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 10.2,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#c99a6e",
+       "hair": "#1a120c",
+       "num": null,
+       "x": 3,
+       "z": 5.8,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 10.8,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#6b4429",
+       "hair": "#141010",
+       "num": null,
+       "x": 4,
+       "z": 6.4,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 11.4,
+       "walkDur": 2.6
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#e0b48f",
+       "hair": "#2a1a10",
+       "num": null,
+       "x": 5,
+       "z": 7.0,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 12.0,
+       "walkDur": 2.6
+      }
+     ],
+     "card": [
+      {
+       "type": "stamp",
+       "text": "NO CHANGES",
+       "y": 1500,
+       "size": 110,
+       "rot": -0.07,
+       "at": "changed nothing",
+       "color": "#f1c453"
+      }
+     ],
+     "speedlines": [
+      {
+       "at": "everything",
+       "dur": 1.2,
+       "amount": 0.8
+      }
+     ],
+     "punch": [
+      {
+       "at": "everything",
+       "amount": 0.12,
+       "dur": 1.2
+      }
+     ],
+     "flashes": 10
+    }
+   ],
+   "vo": "Manchester United were 2–0 down after 17 minutes. At half-time, Carrick changed nothing… and everything changed."
+  },
+  {
+   "kicker": "11 minutes",
+   "headline": "Mainoo loses it. [Soulé] scores.",
+   "accent": "#f0bc42",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": "stand",
+   "camera": "stand",
+   "lights": 0.35,
+   "focus": 0.75,
+   "players": [],
+   "card": {
+    "type": "tactic",
+    "theme": "dark",
+    "y": 1180,
+    "delay": 0,
+    "note": false,
+    "home": "#da291c",
+    "away": "#f0bc42",
+    "awayText": "#3b2a10",
+    "r": 36,
+    "players": [
+     {
+      "n": "GK",
+      "x": 0.5,
+      "y": 0.05,
+      "team": "home"
+     },
+     {
+      "n": 26,
+      "x": 0.42,
+      "y": 0.22,
+      "team": "home",
+      "name": "Heaven"
+     },
+     {
+      "n": 2,
+      "x": 0.18,
+      "y": 0.3,
+      "team": "home",
+      "name": "Dalot",
+      "label": "left"
+     },
+     {
+      "n": "",
+      "x": 0.62,
+      "y": 0.24,
+      "team": "home"
+     },
+     {
+      "n": 37,
+      "x": 0.46,
+      "y": 0.64,
+      "team": "home",
+      "name": "Mainoo"
+     },
+     {
+      "n": "",
+      "x": 0.55,
+      "y": 0.56,
+      "team": "away",
+      "name": "Mora"
+     },
+     {
+      "n": 18,
+      "x": 0.84,
+      "y": 0.3,
+      "team": "away",
+      "name": "Soulé",
+      "label": "left",
+      "ring": "#f1c453"
+     },
+     {
+      "n": "",
+      "x": 0.5,
+      "y": 0.38,
+      "team": "away",
+      "name": "Malen"
+     }
+    ],
+    "ball": 4,
+    "moves": [
+     {
+      "from": 4,
+      "to": 5,
+      "at": "lost the ball",
+      "lag": -0.2,
+      "dur": 0.5
+     },
+     {
+      "from": 5,
+      "to": 6,
+      "at": "and Soulé",
+      "lag": -0.3,
+      "dur": 0.8,
+      "curve": 0.12
+     },
+     {
+      "from": 6,
+      "to": [
+       0.47,
+       0.0
+      ],
+      "at": "scored",
+      "lag": -0.25,
+      "dur": 0.45,
+      "kind": "shot"
+     }
+    ],
+    "tags": [
+     {
+      "at": "lost the ball",
+      "x": 0.36,
+      "y": 0.72,
+      "text": "Lost it",
+      "color": "#d6283b"
+     },
+     {
+      "at": "scored",
+      "lag": 0.3,
+      "x": 0.5,
+      "y": 0.12,
+      "text": "11' · 0–1",
+      "color": "#f0bc42"
+     }
+    ],
+    "cam": [
+     {
+      "t": 0,
+      "s": 1
+     },
+     {
+      "at": "Old Trafford",
+      "s": 1.12,
+      "x": 0.5,
+      "y": 0.5
+     },
+     {
+      "at": "Mainoo",
+      "s": 1.3,
+      "x": 0.5,
+      "y": 0.58
+     },
+     {
+      "at": "Soulé",
+      "s": 1.25,
+      "x": 0.62,
+      "y": 0.3
+     }
+    ]
+   },
+   "vo": "Tuesday night, Roma at Old Trafford. Eleven minutes in, Mainoo lost the ball, and Soulé scored."
+  },
+  {
+   "kicker": "17 minutes",
+   "headline": "Handball. [Penalty].",
+   "accent": "#ff4d5e",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     6.5,
+     1.9,
+     35.5
+    ],
+    "tgt": [
+     0.8,
+     1.3,
+     44
+    ]
+   },
+   "camera": {
+    "pos": [
+     5.8,
+     1.8,
+     36.8
+    ],
+    "tgt": [
+     0.8,
+     1.3,
+     44
+    ]
+   },
+   "move": 2.6,
+   "lights": 1,
+   "players": [
+    {
+     "name": "Soulé",
+     "kit": {
+      "shirt": "#1c1c1f",
+      "shorts": "#1c1c1f",
+      "socks": "#1c1c1f",
+      "text": "#f0bc42"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "num": 18,
+     "x": 1.6,
+     "z": 40.6,
+     "action": "kick",
+     "actionAt": "Heaven",
+     "actionLag": -0.2,
+     "actionDur": 0.8,
+     "foot": "left"
+    },
+    {
+     "name": "Heaven",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": 26,
+     "x": 1.0,
+     "z": 44.4,
+     "front": true,
+     "pose": "arms_up"
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "num": null,
+     "x": 0.2,
+     "z": 52.0,
+     "front": true,
+     "action": "idle",
+     "before": "ready",
+     "pose": "keeper",
+     "gloves": "#ffffff"
+    }
+   ],
+   "freezeAt": "his arm",
+   "freezeLag": 0.0,
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.85,
+      0.11,
+      40.95
+     ],
+     "untilAt": "Heaven",
+     "untilLag": 0.14
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Heaven",
+     "lag": 0.14,
+     "dur": 0.4,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       1.85,
+       0.11,
+       40.95
+      ],
+      [
+       1.4,
+       1.2,
+       42.8
+      ],
+      [
+       1.05,
+       1.55,
+       44.3
+      ]
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "HANDBALL",
+     "y": 1450,
+     "size": 120,
+     "rot": -0.08,
+     "at": "his arm",
+     "color": "#ff4d5e"
+    }
+   ],
+   "shots": [
+    {
+     "at": "Malen",
+     "cut": true,
+     "move": 2.6,
+     "headline": "Malen. [0–2].",
+     "camFrom": {
+      "pos": [
+       -3.2,
+       1.7,
+       34.5
+      ],
+      "tgt": [
+       0,
+       1.1,
+       53
+      ]
+     },
+     "camera": {
+      "pos": [
+       -2.6,
+       1.65,
+       35.5
+      ],
+      "tgt": [
+       0,
+       1.1,
+       53
+      ]
+     },
+     "players": [
+      {
+       "name": "Malen",
+       "kit": {
+        "shirt": "#1c1c1f",
+        "shorts": "#1c1c1f",
+        "socks": "#1c1c1f",
+        "text": "#f0bc42"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "num": null,
+       "x": 0.35,
+       "z": 40.6,
+       "action": "kick",
+       "actionAt": "penalty",
+       "actionLag": -0.5,
+       "actionDur": 0.9,
+       "after": "celebrate"
+      },
+      {
+       "name": "",
+       "kit": {
+        "shirt": "#2b2f3a",
+        "shorts": "#2b2f3a",
+        "socks": "#2b2f3a",
+        "text": "#ffffff"
+       },
+       "skin": "#e7b593",
+       "hair": "#3a2a1a",
+       "num": null,
+       "x": 0,
+       "z": 52.0,
+       "front": true,
+       "action": "dive",
+       "dir": 1,
+       "actionAt": "penalty",
+       "actionLag": -0.2,
+       "before": "ready",
+       "gloves": "#ffffff"
+      }
+     ],
+     "card": [
+      {
+       "type": "ball",
+       "delay": 0,
+       "point": [
+        0,
+        0.11,
+        41.5
+       ],
+       "untilAt": "penalty",
+       "untilLag": -0.12
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "penalty",
+       "lag": -0.12,
+       "dur": 0.45,
+       "slowmo": false,
+       "points": [
+        [
+         0,
+         0.11,
+         41.5
+        ],
+        [
+         -1.4,
+         0.8,
+         47
+        ],
+        [
+         -2.7,
+         0.9,
+         52.8
+        ]
+       ]
+      },
+      {
+       "type": "pcard",
+       "at": "Malen",
+       "lag": 0.2,
+       "y": 1250,
+       "shiftX": -260,
+       "w": 330,
+       "h": 440,
+       "side": "left",
+       "tag": "Malen · 17' pen",
+       "player": {
+        "name": "Malen",
+        "kit": {
+         "shirt": "#1c1c1f",
+         "shorts": "#1c1c1f",
+         "socks": "#1c1c1f",
+         "text": "#f0bc42"
+        },
+        "skin": "#8a5a3c",
+        "hair": "#141010",
+        "num": null
+       }
+      }
+     ]
+    }
+   ],
+   "vo": "Six minutes later, Heaven blocked a shot with his arm. Malen scored the penalty."
+  },
+  {
+   "kicker": "The record",
+   "headline": "Never this fast. [Never].",
+   "accent": "#ff4d5e",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     18,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     14,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     22
+    ]
+   },
+   "move": 5,
+   "lights": 0.55,
+   "focus": 0.6,
+   "players": [],
+   "card": [
+    {
+     "type": "newspaper",
+     "y": 1080,
+     "at": "No away side",
+     "masthead": "THE MATCHDAY POST",
+     "headline": "ROMA 2 UP\nIN 17 MINUTES",
+     "sub": "No away side had ever gone two up this fast\nat Old Trafford in European football",
+     "dateline": "Tuesday 3 November",
+     "color": "#d6283b",
+     "spin": 1.4,
+     "size": 170
+    },
+    {
+     "type": "stamp",
+     "text": "RECORD",
+     "y": 1620,
+     "size": 120,
+     "rot": 0.07,
+     "at": "in Europe",
+     "color": "#ff4d5e"
+    }
+   ],
+   "vo": "No away side had ever gone 2–0 up this fast at Old Trafford in Europe."
+  },
+  {
+   "kicker": "Half-time",
+   "headline": "Roma 7 shots. United: [none in the box].",
+   "accent": "#ff4d5e",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": "stand",
+   "camera": "stand",
+   "lights": 0.35,
+   "focus": 0.75,
+   "players": [],
+   "card": {
+    "type": "tactic",
+    "theme": "dark",
+    "y": 1180,
+    "delay": 0,
+    "note": false,
+    "home": "#da291c",
+    "away": "#f0bc42",
+    "awayText": "#3b2a10",
+    "r": 34,
+    "showBall": false,
+    "players": [
+     {
+      "n": 8,
+      "x": 0.5,
+      "y": 0.4,
+      "team": "home",
+      "name": "Fernandes"
+     },
+     {
+      "n": 10,
+      "x": 0.3,
+      "y": 0.36,
+      "team": "home",
+      "name": "Cunha",
+      "label": "left"
+     },
+     {
+      "n": 19,
+      "x": 0.74,
+      "y": 0.32,
+      "team": "home",
+      "name": "Mbeumo"
+     },
+     {
+      "n": 16,
+      "x": 0.62,
+      "y": 0.46,
+      "team": "home"
+     },
+     {
+      "n": 37,
+      "x": 0.42,
+      "y": 0.55,
+      "team": "home"
+     },
+     {
+      "n": "GK",
+      "x": 0.5,
+      "y": 0.04,
+      "team": "away"
+     },
+     {
+      "n": "",
+      "x": 0.38,
+      "y": 0.13,
+      "team": "away"
+     },
+     {
+      "n": "",
+      "x": 0.5,
+      "y": 0.15,
+      "team": "away"
+     },
+     {
+      "n": "",
+      "x": 0.62,
+      "y": 0.13,
+      "team": "away"
+     },
+     {
+      "n": "",
+      "x": 0.44,
+      "y": 0.26,
+      "team": "away"
+     },
+     {
+      "n": "",
+      "x": 0.58,
+      "y": 0.26,
+      "team": "away"
+     }
+    ],
+    "moves": [
+     {
+      "from": 1,
+      "to": [
+       0.44,
+       0.0
+      ],
+      "at": "United had",
+      "dur": 0.4,
+      "kind": "shot",
+      "ball": false
+     },
+     {
+      "from": 2,
+      "to": [
+       0.56,
+       0.0
+      ],
+      "at": "none",
+      "dur": 0.4,
+      "kind": "shot",
+      "ball": false
+     },
+     {
+      "from": 0,
+      "to": [
+       0.5,
+       0.0
+      ],
+      "at": "from inside",
+      "dur": 0.4,
+      "kind": "shot",
+      "ball": false
+     },
+     {
+      "from": 3,
+      "to": [
+       0.53,
+       0.0
+      ],
+      "at": "inside",
+      "lag": 0.2,
+      "dur": 0.4,
+      "kind": "shot",
+      "ball": false
+     },
+     {
+      "from": 4,
+      "to": [
+       0.46,
+       0.0
+      ],
+      "at": "the box",
+      "dur": 0.4,
+      "kind": "shot",
+      "ball": false
+     }
+    ],
+    "tags": [
+     {
+      "at": "seven shots",
+      "x": 0.5,
+      "y": 0.72,
+      "text": "Roma: 7 shots · 4 on target",
+      "color": "#c98a12"
+     },
+     {
+      "at": "the box",
+      "lag": 0.3,
+      "x": 0.5,
+      "y": 0.21,
+      "text": "0 inside the box",
+      "color": "#d6283b"
+     }
+    ]
+   },
+   "shots": [
+    {
+     "at": "and 0.24",
+     "cut": true,
+     "move": 3,
+     "headline": "United's xG: [0.24].",
+     "camFrom": {
+      "pos": [
+       0,
+       3,
+       -12
+      ],
+      "tgt": [
+       0,
+       1.5,
+       20
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       2.6,
+       -9
+      ],
+      "tgt": [
+       0,
+       1.5,
+       20
+      ]
+     },
+     "lights": 0.45,
+     "focus": 0.7,
+     "players": [],
+     "card": [
+      {
+       "type": "xg",
+       "y": 1450,
+       "delay": 0,
+       "max": 2.5,
+       "title": "Expected goals · first half",
+       "items": [
+        {
+         "label": "Man United",
+         "value": 0.24,
+         "color": "#d6283b",
+         "t": 0
+        },
+        {
+         "label": "Roma",
+         "value": 1.53,
+         "color": "#e8a33a",
+         "t": 0.6
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "vo": "By half-time, Roma had seven shots. United had none from inside the box, and 0.24 expected goals."
+  },
+  {
+   "kicker": "The half-time message",
+   "headline": "Lose it? [Win it back. Fast].",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     6,
+     -12
+    ],
+    "tgt": [
+     0,
+     1,
+     30
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     5,
+     -8
+    ],
+    "tgt": [
+     0,
+     1,
+     30
+    ]
+   },
+   "move": 5,
+   "lights": 0.6,
+   "focus": 0.75,
+   "players": [],
+   "card": [
+    {
+     "type": "passweb",
+     "board": "chalk",
+     "y": 1170,
+     "w": 940,
+     "h": 1160,
+     "delay": 0,
+     "nodes": [
+      [
+       -15,
+       8
+      ],
+      [
+       -5,
+       5
+      ],
+      [
+       5,
+       5
+      ],
+      [
+       15,
+       8
+      ],
+      [
+       -10,
+       18
+      ],
+      [
+       0,
+       15
+      ],
+      [
+       10,
+       18
+      ],
+      [
+       -6,
+       26
+      ],
+      [
+       6,
+       26
+      ],
+      [
+       0,
+       30
+      ]
+     ],
+     "drift": 2.2,
+     "pass": 0.42,
+     "trail": 24,
+     "seed": 9,
+     "area": [
+      -34,
+      0,
+      34,
+      52.5
+     ],
+     "zoom": [
+      1.0,
+      1.3
+     ],
+     "zoomDur": 5,
+     "follow": 0.35,
+     "rivals": {
+      "nodes": [
+       [
+        -12,
+        24
+       ],
+       [
+        -4,
+        26
+       ],
+       [
+        4,
+        26
+       ],
+       [
+        12,
+        24
+       ],
+       [
+        -8,
+        32
+       ],
+       [
+        0,
+        33
+       ],
+       [
+        8,
+        32
+       ],
+       [
+        -3,
+        40
+       ],
+       [
+        3,
+        40
+       ],
+       [
+        0,
+        46
+       ]
+      ],
+      "chase": 0.8,
+      "color": "#ff6b6b"
+     },
+     "kit": {
+      "chalk": "#ffc266"
+     },
+     "note": "React faster",
+     "counter": false,
+     "passFor": 5
+    }
+   ],
+   "vo": "Carrick sent out the same eleven. The message: react faster when you lose the ball."
+  },
+  {
+   "kicker": "First half v second half",
+   "headline": "Same players. [Different team].",
+   "accent": "#3fe08a",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     -6,
+     9,
+     -6
+    ],
+    "tgt": [
+     0,
+     0,
+     20
+    ]
+   },
+   "camera": {
+    "pos": [
+     4,
+     8,
+     -3
+    ],
+    "tgt": [
+     0,
+     0,
+     21
+    ]
+   },
+   "move": 10,
+   "lights": 0.8,
+   "focus": 0.45,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1c1c1f",
+      "shorts": "#1c1c1f",
+      "socks": "#1c1c1f",
+      "text": "#f0bc42"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "num": null,
+     "x": -10,
+     "z": 14,
+     "web": 0
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1c1c1f",
+      "shorts": "#1c1c1f",
+      "socks": "#1c1c1f",
+      "text": "#f0bc42"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": -2,
+     "z": 10,
+     "web": 1
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1c1c1f",
+      "shorts": "#1c1c1f",
+      "socks": "#1c1c1f",
+      "text": "#f0bc42"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 6,
+     "z": 12,
+     "web": 2
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1c1c1f",
+      "shorts": "#1c1c1f",
+      "socks": "#1c1c1f",
+      "text": "#f0bc42"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": 12,
+     "z": 18,
+     "web": 3
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1c1c1f",
+      "shorts": "#1c1c1f",
+      "socks": "#1c1c1f",
+      "text": "#f0bc42"
+     },
+     "skin": "#e0b48f",
+     "hair": "#2a1a10",
+     "num": null,
+     "x": 0,
+     "z": 20,
+     "web": 4
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#1c1c1f",
+      "shorts": "#1c1c1f",
+      "socks": "#1c1c1f",
+      "text": "#f0bc42"
+     },
+     "skin": "#a8724e",
+     "hair": "#141010",
+     "num": null,
+     "x": -7,
+     "z": 22,
+     "web": 5
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "num": null,
+     "x": -8,
+     "z": 24,
+     "webRival": 0,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e0b48f",
+     "hair": "#2a1a10",
+     "num": null,
+     "x": 0,
+     "z": 25,
+     "webRival": 1,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#a8724e",
+     "hair": "#141010",
+     "num": null,
+     "x": 8,
+     "z": 24,
+     "webRival": 2,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "num": null,
+     "x": -4,
+     "z": 30,
+     "webRival": 3,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "num": null,
+     "x": 4,
+     "z": 30,
+     "webRival": 4,
+     "front": true
+    },
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 0,
+     "z": 35,
+     "webRival": 5,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "passweb",
+     "delay": 0,
+     "nodes": [
+      [
+       -10,
+       14
+      ],
+      [
+       -2,
+       10
+      ],
+      [
+       6,
+       12
+      ],
+      [
+       12,
+       18
+      ],
+      [
+       0,
+       20
+      ],
+      [
+       -7,
+       22
+      ]
+     ],
+     "drift": 2.0,
+     "pass": 0.5,
+     "trail": 8,
+     "color": "#ffc266",
+     "counter": false,
+     "seed": 4,
+     "rivals": {
+      "nodes": [
+       [
+        -8,
+        24
+       ],
+       [
+        0,
+        25
+       ],
+       [
+        8,
+        24
+       ],
+       [
+        -4,
+        30
+       ],
+       [
+        4,
+        30
+       ],
+       [
+        0,
+        35
+       ]
+      ],
+      "chase": 0.85
+     },
+     "passFor": 10
+    },
+    {
+     "type": "swing",
+     "y": 1120,
+     "title": "Man United v Roma",
+     "rows": [
+      {
+       "label": "United tackles",
+       "from": 6,
+       "to": 14,
+       "at": "tackles"
+      },
+      {
+       "label": "United expected goals",
+       "from": 0.24,
+       "to": 2.48,
+       "decimals": 2,
+       "at": "expected goals"
+      },
+      {
+       "label": "Roma shots",
+       "from": 7,
+       "to": 0,
+       "at": "And Roma"
+      }
+     ]
+    }
+   ],
+   "vo": "United's tackles went from six to fourteen. Their expected goals, from 0.24 to 2.48. And Roma? Not one shot after the break."
+  },
+  {
+   "kicker": "58 minutes",
+   "headline": "Saved. Retaken. [Scored].",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     -2.6,
+     1.75,
+     33.2
+    ],
+    "tgt": [
+     0.3,
+     1.1,
+     53
+    ]
+   },
+   "camera": {
+    "pos": [
+     -2.2,
+     1.7,
+     34.2
+    ],
+    "tgt": [
+     0.3,
+     1.1,
+     53
+    ]
+   },
+   "move": 2.5,
+   "lights": 1,
+   "fans": true,
+   "players": [
+    {
+     "name": "Fernandes",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e0b48f",
+     "hair": "#2a1a10",
+     "num": 8,
+     "x": 0.35,
+     "z": 40.6,
+     "action": "kick",
+     "actionAt": "saved",
+     "actionLag": -0.75,
+     "actionDur": 0.9
+    },
+    {
+     "name": "Vásquez",
+     "kit": {
+      "shirt": "#b5e61d",
+      "shorts": "#111111",
+      "socks": "#b5e61d",
+      "text": "#111111"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "before": "ready",
+     "gloves": "#ffffff"
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0,
+      0.11,
+      41.5
+     ],
+     "untilAt": "saved",
+     "untilLag": -0.37
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "saved",
+     "lag": -0.37,
+     "dur": 0.45,
+     "slowmo": false,
+     "flash": false,
+     "saveBy": 1,
+     "points": [
+      [
+       0,
+       0.11,
+       41.5
+      ],
+      [
+       -1,
+       0.8,
+       47
+      ],
+      [
+       -1.9,
+       0.9,
+       52.3
+      ]
+     ]
+    }
+   ],
+   "shots": [
+    {
+     "at": "retaken",
+     "cut": true,
+     "move": 3,
+     "camFrom": {
+      "pos": [
+       2.6,
+       1.75,
+       33.2
+      ],
+      "tgt": [
+       -0.2,
+       1.1,
+       53
+      ]
+     },
+     "camera": {
+      "pos": [
+       2.2,
+       1.7,
+       34.2
+      ],
+      "tgt": [
+       -0.2,
+       1.1,
+       53
+      ]
+     },
+     "players": [
+      {
+       "name": "Fernandes",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#e0b48f",
+       "hair": "#2a1a10",
+       "num": 8,
+       "x": 0.35,
+       "z": 40.6,
+       "action": "kick",
+       "actionAt": "He scored",
+       "actionLag": -0.5,
+       "actionDur": 0.9,
+       "after": "celebrate"
+      },
+      {
+       "name": "Vásquez",
+       "kit": {
+        "shirt": "#b5e61d",
+        "shorts": "#111111",
+        "socks": "#b5e61d",
+        "text": "#111111"
+       },
+       "skin": "#c99a6e",
+       "hair": "#1a120c",
+       "num": null,
+       "x": 0,
+       "z": 52.0,
+       "front": true,
+       "action": "dive",
+       "dir": 1,
+       "actionAt": "He scored",
+       "actionLag": -0.2,
+       "before": "ready",
+       "gloves": "#ffffff"
+      }
+     ],
+     "card": [
+      {
+       "type": "stamp",
+       "text": "RETAKE",
+       "sub": "Encroachment",
+       "y": 1450,
+       "size": 120,
+       "rot": -0.07,
+       "at": "retaken",
+       "color": "#f1c453",
+       "hideAt": "He scored"
+      },
+      {
+       "type": "ball",
+       "delay": 0,
+       "point": [
+        0,
+        0.11,
+        41.5
+       ],
+       "untilAt": "He scored",
+       "untilLag": -0.12
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "He scored",
+       "lag": -0.12,
+       "dur": 0.45,
+       "slowmo": false,
+       "points": [
+        [
+         0,
+         0.11,
+         41.5
+        ],
+        [
+         1.3,
+         0.9,
+         47
+        ],
+        [
+         2.6,
+         1.0,
+         52.8
+        ]
+       ]
+      },
+      {
+       "type": "flytext",
+       "text": "2–1",
+       "size": 260,
+       "endScale": 0.7,
+       "y": 1580,
+       "at": "2–1",
+       "color": "#ffffff"
+      }
+     ]
+    }
+   ],
+   "vo": "Bruno's penalty was saved… but retaken for encroachment. He scored. 2–1."
+  },
+  {
+   "kicker": "83 and 86 minutes",
+   "headline": "[Cunha]. Then Cunha again.",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     -2.8,
+     1.9,
+     36.5
+    ],
+    "tgt": [
+     0.8,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -2.3,
+     1.85,
+     38
+    ],
+    "tgt": [
+     0.8,
+     1.0,
+     52
+    ]
+   },
+   "move": 2.4,
+   "lights": 1,
+   "players": [
+    {
+     "name": "Balerdi",
+     "kit": {
+      "shirt": "#1c1c1f",
+      "shorts": "#1c1c1f",
+      "socks": "#1c1c1f",
+      "text": "#f0bc42"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "num": null,
+     "x": -0.4,
+     "z": 44.5,
+     "front": true,
+     "action": "kick",
+     "actionAt": "Then Cunha",
+     "actionLag": 0.1,
+     "actionDur": 0.8
+    },
+    {
+     "name": "Cunha",
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#a8724e",
+     "hair": "#141010",
+     "num": 10,
+     "x": 0.6,
+     "z": 43.3,
+     "action": "kick",
+     "actionAt": "Eighty-three",
+     "actionLag": -0.3,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "Vásquez",
+     "kit": {
+      "shirt": "#b5e61d",
+      "shorts": "#111111",
+      "socks": "#b5e61d",
+      "text": "#111111"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1a120c",
+     "num": null,
+     "x": 0.2,
+     "z": 52.0,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Eighty-three",
+     "actionLag": -0.1,
+     "before": "ready",
+     "gloves": "#ffffff"
+    }
+   ],
+   "card": [
+    {
+     "type": "clock",
+     "id": "cl9",
+     "y": 660,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 58,
+     "to": 83,
+     "dur": 1.0,
+     "events": [
+      {
+       "min": 83,
+       "text": "Cunha · 2–2"
+      }
+     ]
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.55,
+      0.11,
+      44.0
+     ],
+     "untilAt": "Eighty-three",
+     "untilLag": 0.04
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Eighty-three",
+     "lag": 0.04,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       0.55,
+       0.11,
+       44.0
+      ],
+      [
+       1.5,
+       0.9,
+       48
+      ],
+      [
+       2.7,
+       1.3,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "BALERDI MISSES IT",
+     "y": 1500,
+     "size": 70,
+     "rot": -0.06,
+     "at": "Then Cunha",
+     "lag": 0.5,
+     "color": "#f0bc42"
+    }
+   ],
+   "shots": [
+    {
+     "at": "Eighty-six",
+     "cut": true,
+     "move": 2.5,
+     "camFrom": {
+      "pos": [
+       16,
+       1.8,
+       42
+      ],
+      "tgt": [
+       2,
+       1.1,
+       52.5
+      ]
+     },
+     "camera": {
+      "pos": [
+       15,
+       1.7,
+       43.5
+      ],
+      "tgt": [
+       2,
+       1.1,
+       52.5
+      ]
+     },
+     "players": [
+      {
+       "name": "Cunha",
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#a8724e",
+       "hair": "#141010",
+       "num": 10,
+       "x": 10.5,
+       "z": 46.8,
+       "action": "kick",
+       "actionAt": "Eighty-six",
+       "actionLag": 0.1,
+       "actionDur": 0.8,
+       "after": "celebrate",
+       "foot": "right"
+      },
+      {
+       "name": "Vásquez",
+       "kit": {
+        "shirt": "#b5e61d",
+        "shorts": "#111111",
+        "socks": "#b5e61d",
+        "text": "#111111"
+       },
+       "skin": "#c99a6e",
+       "hair": "#1a120c",
+       "num": null,
+       "x": 1.2,
+       "z": 52.0,
+       "front": true,
+       "action": "dive",
+       "dir": 1,
+       "actionAt": "Eighty-six",
+       "actionLag": 0.55,
+       "before": "ready",
+       "gloves": "#ffffff"
+      }
+     ],
+     "card": [
+      {
+       "type": "clock",
+       "id": "cl9b",
+       "y": 660,
+       "scale": 0.75,
+       "delay": 0,
+       "from": 83,
+       "to": 86,
+       "dur": 0.6,
+       "events": [
+        {
+         "min": 86,
+         "text": "Cunha · 3–2"
+        }
+       ]
+      },
+      {
+       "type": "ball",
+       "delay": 0,
+       "point": [
+        10.9,
+        0.11,
+        47.2
+       ],
+       "untilAt": "Eighty-six",
+       "untilLag": 0.44
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "Eighty-six",
+       "lag": 0.44,
+       "dur": 0.4,
+       "slowmo": false,
+       "points": [
+        [
+         10.9,
+         0.11,
+         47.2
+        ],
+        [
+         7,
+         1.0,
+         50
+        ],
+        [
+         3.3,
+         1.4,
+         52.8
+        ]
+       ]
+      },
+      {
+       "type": "flytext",
+       "text": "3–2",
+       "size": 260,
+       "endScale": 0.7,
+       "y": 1580,
+       "at": "3–2",
+       "color": "#ffffff"
+      }
+     ]
+    }
+   ],
+   "vo": "Then Cunha. Eighty-three minutes: 2–2. Eighty-six minutes: 3–2."
+  },
+  {
+   "kicker": "Stoppage time",
+   "headline": "Shirt off. Booked. [Sent off].",
+   "accent": "#ff4d5e",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     0,
+     0.55,
+     -1.2
+    ],
+    "tgt": [
+     0,
+     1.7,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     0.45,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.6,
+     12
+    ]
+   },
+   "move": 3.5,
+   "lights": 0.9,
+   "flashes": 16,
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#a8724e",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#a8724e"
+     },
+     "skin": "#a8724e",
+     "hair": "#141010",
+     "num": null,
+     "x": -0.5,
+     "z": 1.6,
+     "front": true,
+     "enter": "walk",
+     "fromZ": 7,
+     "walkDur": 2.2,
+     "pose": "wings"
+    }
+   ],
+   "card": [
+    {
+     "type": "redcard",
+     "y": 1420,
+     "dx": 250,
+     "color": "#f7d117",
+     "label": "Shirt off",
+     "at": "booked",
+     "hideAt": "sent off"
+    },
+    {
+     "type": "redcard",
+     "y": 1420,
+     "dx": 250,
+     "label": "Second yellow",
+     "at": "sent off"
+    }
+   ],
+   "freezeAt": "sent off",
+   "freezeLag": 0.1,
+   "vo": "He took his shirt off, got booked… and was sent off in stoppage time."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Carrick's [best night] yet?",
+   "accent": "#f1c453",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#1a1a1a",
+     "#da291c"
+    ],
+    "seed": 23
+   },
+   "cut": true,
+   "orbit": {
+    "center": [
+     0,
+     1.35,
+     2.4
+    ],
+    "r": 4.4,
+    "from": -35,
+    "to": 25,
+    "h": 0.9,
+    "h2": 1.4,
+    "dur": 5.5
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -2.0
+    ],
+    "tgt": [
+     0,
+     1.35,
+     2.4
+    ]
+   },
+   "flashes": 8,
+   "lights": 0.85,
+   "confetti": false,
+   "players": [
+    {
+     "name": "Carrick",
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "outfit": "suit",
+     "suitColor": "#1b2233",
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "pose": "fists"
+    }
+   ],
+   "card": [
+    {
+     "type": "flytext",
+     "text": "9 WINLESS: OVER",
+     "size": 120,
+     "endScale": 0.8,
+     "y": 700,
+     "at": "over",
+     "color": "#f1c453"
+    },
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "best night",
+     "question": "Carrick's best night yet?",
+     "options": [
+      {
+       "label": "Yes, easily",
+       "color": "#da291c",
+       "fill": 0.5
+      },
+      {
+       "label": "Not yet",
+       "color": "#9aa1ad",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "Nine games without a win… over. Was this Carrick's best night yet? Tell me in the comments."
+  }
+ ]
+}

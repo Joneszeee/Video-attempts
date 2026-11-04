@@ -1889,9 +1889,10 @@ function passSeq(c) {
   for (let i = 0; i < 400; i++) { let j; do { j = Math.floor(R() * n); } while (j === seq[seq.length - 1]); seq.push(j); }
   return (c._seq = seq);
 }
-function webNode(c, j, t) {
-  const b = c.nodes[j], d = c.drift != null ? c.drift : 0, ph = j * 1.7;
-  return [b[0] + d * Math.sin(t * 0.7 + ph), b[1] + d * 0.8 * Math.cos(t * 0.55 + ph * 1.3)];
+function webHash(j, k) { const x = Math.sin(j * 127.1 + k * 311.7) * 43758.5453; return x - Math.floor(x); }
+function webNode(c, j, t) {   // each player wanders on his own rhythm (user: they moved as one block)
+  const b = c.nodes[j], d = c.drift != null ? c.drift : 0, f1 = 0.45 + 0.5 * webHash(j, 1), f2 = 0.35 + 0.45 * webHash(j, 2), ph = webHash(j, 3) * 6.28;
+  return [b[0] + d * (0.6 + 0.6 * webHash(j, 4)) * Math.sin(t * f1 + ph), b[1] + d * (0.5 + 0.5 * webHash(j, 5)) * Math.cos(t * f2 + ph * 1.3)];
 }
 function webPass(c, i) {   // where pass i starts and ends, and how high it travels
   const pd = c.pass || 0.34, seq = passSeq(c), R = rng(1000 + i * 7 + (c.seed || 7));
@@ -1904,11 +1905,13 @@ function webBall(c, ct) {   // [x, y, z] of the ball and the pass index
   const P = webPass(c, cur), e = eOut(k);
   return { p: [lerp(P.a[0], P.b[0], e), 0.11 + P.arc * Math.sin(Math.PI * k), lerp(P.a[1], P.b[1], e)], cur, k };
 }
-function webRival(c, j, t) {
+function webRival(c, j, t) {   // opponents press individually: each reacts on its own delay, the nearest ones press hardest, the rest hold shape
   const R = c.rivals, b = R.nodes[j], ch = R.chase != null ? R.chase : 0.45;
-  const cx = R.nodes.reduce((m, n) => m + n[0], 0) / R.nodes.length, cz = R.nodes.reduce((m, n) => m + n[1], 0) / R.nodes.length;
-  const ball = webBall(c, t - 0.55).p, ph = j * 2.3;
-  return [lerp(b[0], ball[0] + (b[0] - cx) * 0.4, ch) + 0.6 * Math.sin(t * 0.9 + ph), lerp(b[1], ball[2] + (b[1] - cz) * 0.4, ch) + 0.5 * Math.cos(t * 0.8 + ph)];
+  const lag = 0.3 + 0.8 * webHash(j, 7), ball = webBall(c, t - lag).p;
+  const dist = Math.hypot(ball[0] - b[0], ball[2] - b[1]), pull = ch * (0.25 + 0.75 * Math.exp(-dist / 14)) * (0.7 + 0.5 * webHash(j, 8));
+  const tx = ball[0] + (webHash(j, 9) - 0.5) * 6, tz = ball[2] + (webHash(j, 10) - 0.5) * 6 + 2.5;   // goal side of the ball, never on top of it
+  const f1 = 0.6 + 0.6 * webHash(j, 11), f2 = 0.5 + 0.5 * webHash(j, 12), ph = webHash(j, 13) * 6.28;
+  return [lerp(b[0], tx, pull) + 1.2 * Math.sin(t * f1 + ph), lerp(b[1], tz, pull) + 1.0 * Math.cos(t * f2 + ph)];
 }
 function webCard(b) { for (const it of b ? b.cards : []) if (it.obj.type === 'passweb') return it; return null; }
 function webPlayerPos(p, lt) {   // a rigged player bound to the pass web: where he is, and whether he's running
@@ -2369,12 +2372,17 @@ CARDS.xg = function (c, ct, cx, cy) {
     const r = 34 + 150 * Math.sqrt(Math.max(0, v) / max), col = it.color || '#d6283b';
     ctx.save(); ctx.globalAlpha *= a;
     // floor ring + shadow
-    ctx.strokeStyle = col; ctx.globalAlpha *= 0.8; ctx.lineWidth = 4; ctx.beginPath(); ctx.ellipse(x, cy + 6, r * 1.25, r * 0.22, 0, 0, 7); ctx.stroke(); ctx.globalAlpha /= 0.8;
-    ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.beginPath(); ctx.ellipse(x, cy + 6, r * 1.0, r * 0.16, 0, 0, 7); ctx.fill();
-    const g = ctx.createRadialGradient(x - r * 0.35, cy - r - r * 0.4, r * 0.1, x, cy - r, r * 1.05);
-    g.addColorStop(0, '#ffffff'); g.addColorStop(0.12, col); g.addColorStop(0.75, col); g.addColorStop(1, 'rgba(0,0,0,0.85)');
-    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, cy - r, r, 0, 7); ctx.fill();
-    ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.beginPath(); ctx.arc(x + r * 0.25, cy - r + r * 0.25, r * 0.9, 0, 7); ctx.fill(); ctx.globalCompositeOperation = 'source-over';
+    // floor: a thin coloured ring, then a soft contact shadow right under the ball (user: the old shading looked like a second ball)
+    ctx.strokeStyle = col; ctx.globalAlpha *= 0.7; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(x, cy, r * 1.3, r * 0.2, 0, 0, 7); ctx.stroke(); ctx.globalAlpha /= 0.7;
+    const sh = ctx.createRadialGradient(x, cy, 0, x, cy, r * 1.0); sh.addColorStop(0, 'rgba(0,0,0,0.6)'); sh.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.save(); ctx.translate(x, cy); ctx.scale(1, 0.18); ctx.translate(-x, -cy); ctx.fillStyle = sh; ctx.beginPath(); ctx.arc(x, cy, r * 1.0, 0, 7); ctx.fill(); ctx.restore();
+    // the sphere: one light from the top left, shading falling away to the bottom right, a faint bounce light on the lower rim
+    const bx = x, by = cy - r;
+    const g = ctx.createRadialGradient(bx - r * 0.4, by - r * 0.45, r * 0.05, bx - r * 0.1, by - r * 0.1, r * 1.15);
+    g.addColorStop(0, '#ffffff'); g.addColorStop(0.1, shade(col, 0.35)); g.addColorStop(0.45, col); g.addColorStop(0.85, shade(col, -0.45)); g.addColorStop(1, shade(col, -0.7));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(bx, by, r, 0, 7); ctx.fill();
+    const rim = ctx.createRadialGradient(bx, by + r * 0.95, 0, bx, by + r * 0.95, r * 0.7); rim.addColorStop(0, 'rgba(255,255,255,0.12)'); rim.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.save(); ctx.beginPath(); ctx.arc(bx, by, r, 0, 7); ctx.clip(); ctx.fillStyle = rim; ctx.fillRect(bx - r, by, 2 * r, r); ctx.restore();
     // number + label above
     const ny = cy - 2 * r - 46;
     font(700, 76, 'Mono'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = it.textColor || (i ? '#f1c453' : '#ffffff');

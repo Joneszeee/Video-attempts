@@ -735,9 +735,15 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     ctx.beginPath(); ctx.moveTo(-u * 0.055, -u * 0.82); ctx.lineTo(u * 0.055, -u * 0.82); ctx.lineTo(0, -u * 0.66); ctx.closePath(); ctx.fill();
     ctx.strokeStyle = shade(suitC, 0.25); ctx.lineWidth = u * 0.008;   // lapels
     ctx.beginPath(); ctx.moveTo(-u * 0.06, -u * 0.82); ctx.lineTo(-u * 0.005, -u * 0.64); ctx.moveTo(u * 0.06, -u * 0.82); ctx.lineTo(u * 0.005, -u * 0.64); ctx.stroke();
+    if (p.tie) {   // business suit (managers on the touchline): a long tie instead of a bow tie
+      ctx.fillStyle = p.tie === true ? '#7a1420' : p.tie;
+      ctx.beginPath(); ctx.moveTo(-u * 0.014, -u * 0.815); ctx.lineTo(u * 0.014, -u * 0.815); ctx.lineTo(u * 0.009, -u * 0.8); ctx.lineTo(u * 0.016, -u * 0.69);
+      ctx.lineTo(0, -u * 0.665); ctx.lineTo(-u * 0.016, -u * 0.69); ctx.lineTo(-u * 0.009, -u * 0.8); ctx.closePath(); ctx.fill();
+    } else {
     ctx.fillStyle = '#0b0c10';   // bow tie
     ctx.beginPath(); ctx.moveTo(0, -u * 0.8); ctx.lineTo(-u * 0.032, -u * 0.815); ctx.lineTo(-u * 0.032, -u * 0.785); ctx.closePath(); ctx.fill();
     ctx.beginPath(); ctx.moveTo(0, -u * 0.8); ctx.lineTo(u * 0.032, -u * 0.815); ctx.lineTo(u * 0.032, -u * 0.785); ctx.closePath(); ctx.fill();
+    }
     ctx.fillStyle = shade(suitC, 0.4);
     for (const by of [-0.6, -0.55]) { ctx.beginPath(); ctx.arc(0, by * u, u * 0.007, 0, 7); ctx.fill(); }
   }

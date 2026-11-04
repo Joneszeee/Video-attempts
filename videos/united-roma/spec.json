@@ -2316,7 +2316,7 @@
      "skin": "#f0c8a8",
      "hair": "#8a6a45",
      "outfit": "suit",
-     "suitColor": "#1b2233",
+     "suitColor": "#2a3140",
      "x": 0.8,
      "z": 4.4,
      "front": true,
@@ -2324,7 +2324,8 @@
      "fromX": 5,
      "fromZ": 4.4,
      "walkDur": 1.6,
-     "at": "Carrick walked"
+     "at": "Carrick walked",
+     "tie": "#7a1420"
     }
    ],
    "card": [
@@ -2417,10 +2418,11 @@
      "skin": "#f0c8a8",
      "hair": "#8a6a45",
      "outfit": "suit",
-     "suitColor": "#1b2233",
+     "suitColor": "#2a3140",
      "x": -1.0,
      "z": 3.2,
-     "front": true
+     "front": true,
+     "tie": "#7a1420"
     },
     {
      "name": "Cunha",
@@ -2509,11 +2511,12 @@
      "skin": "#f0c8a8",
      "hair": "#8a6a45",
      "outfit": "suit",
-     "suitColor": "#1b2233",
+     "suitColor": "#2a3140",
      "x": 0,
      "z": 2.4,
      "front": true,
-     "pose": "fists"
+     "pose": "fists",
+     "tie": "#7a1420"
     }
    ],
    "card": [

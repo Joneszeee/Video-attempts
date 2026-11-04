@@ -195,7 +195,7 @@ Built so far from the idea list (reuse them):
 - **Speed lines:** beat `"speedlines": [{"at": "...", "dur": 1.2}]`: radial streaks for a hero intro or a big moment.
 - **Freeze frame:** beat or shot `"freezeAt": "guilty"` (+ `freezeLag`). The frozen frame slowly pushes in (5%/s) so it never reads as static. The scene stops, the colour drains to grey and there's a white flash with an impact, while cards
   (a stamp, a number) keep animating on top. Good for "and then it all stopped" turns.
-- **Suit for ceremonies:** a player with `"outfit": "suit"` (+ `suitColor`) wears a dinner suit with a white shirt and bow tie, and no number. Use it for award nights,
+- **Suit for ceremonies:** a player with `"outfit": "suit"` (+ `suitColor`) wears a dinner suit with a white shirt and bow tie, and no number. Add `"tie": "#7a1420"` for a regular business suit with a long tie (managers on the touchline; user: Carrick in a regular suit, not a tuxedo). Use it for award nights,
   managers and presidents. Combine with `front: true` on the stage. Example: `videos/kane-ballon` beats 1 and 9.
 - **Cinematic celebration** (user loved it, so use it for big goal or celebration moments; example: `videos/kane-ballon` beat 8): a low-angle tracking shot as the player runs at the camera (`front`, `enter: "walk"`
   with `fromZ` behind him, `pose: "wings"` = aeroplane arms), then a cut to a circling camera (`"orbit": {center, r, from, to, h, h2, dur}` in degrees,

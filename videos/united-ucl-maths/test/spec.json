@@ -1,0 +1,259 @@
+{
+ "title": "United UCL maths style test",
+ "brand": "theo6k",
+ "accent": "#d6283b",
+ "style": "toy",
+ "outro": false,
+ "beats": [
+  {
+   "kicker": "Champions League · the maths",
+   "headline": "United need [10 points]. From these four.",
+   "accent": "#d6283b",
+   "hookWords": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#d6283b",
+     "#1d1c22"
+    ],
+    "seed": 7
+   },
+   "camFrom": {
+    "pos": [
+     0.6,
+     2.2,
+     -3.4
+    ],
+    "tgt": [
+     0.2,
+     1.0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.4,
+     2.0,
+     -2.2
+    ],
+    "tgt": [
+     0.2,
+     1.0,
+     6
+    ]
+   },
+   "move": 6,
+   "players": [
+    {
+     "name": "Fernandes",
+     "num": 8,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#1d1c22",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "hairStyle": "short",
+     "x": -0.55,
+     "z": 0.6,
+     "front": true,
+     "chest": true,
+     "pose": "think",
+     "mood": "cross"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f8a4c",
+      "hoops": [
+       "#1f8a4c",
+       "#ffffff"
+      ],
+      "shorts": "#1d1c22",
+      "socks": "#1f8a4c",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#141010",
+     "x": -2.6,
+     "z": 8.5,
+     "front": true,
+     "delay": 0.5,
+     "label": "Sporting"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#c8102e",
+      "socks": "#ffffff",
+      "text": "#c8102e"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "hairStyle": "buzz",
+     "x": -0.2,
+     "z": 9.5,
+     "front": true,
+     "delay": 0.8,
+     "label": "Leipzig"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 2.2,
+     "z": 9.0,
+     "front": true,
+     "delay": 1.1,
+     "label": "Bayern"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#1b3f8f",
+      "socks": "#f7d117",
+      "text": "#1b3f8f"
+     },
+     "skin": "#d9a37c",
+     "hair": "#141010",
+     "hairStyle": "curly",
+     "x": 4.4,
+     "z": 8.0,
+     "front": true,
+     "delay": 1.4,
+     "label": "Villarreal"
+    }
+   ],
+   "card": [
+    {
+     "type": "claynum",
+     "text": "10",
+     "size": 300,
+     "y": 1640,
+     "delay": 1.0,
+     "label": "points needed",
+     "labelDy": 80,
+     "clear": false
+    }
+   ],
+   "vo": "Manchester United need ten points from their last four Champions League games. Here's the maths."
+  },
+  {
+   "kicker": "After four games",
+   "headline": "Six points. [17th].",
+   "accent": "#d6283b",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "room",
+    "seed": 11
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "toytable",
+     "y": 1180,
+     "delay": 0,
+     "pos": 22,
+     "teamAt": 0.3,
+     "moves": [
+      {
+       "to": 17,
+       "t": 1.6
+      }
+     ],
+     "team": {
+      "name": "MAN UTD",
+      "pts": 6,
+      "color": "#d6283b"
+     },
+     "zones": [
+      {
+       "from": 1,
+       "to": 8,
+       "color": "#cfe8c4",
+       "label": "Last 16",
+       "t": 2.6
+      },
+      {
+       "from": 9,
+       "to": 24,
+       "color": "#f7e2ad",
+       "label": "Play-off",
+       "t": 3.1
+      },
+      {
+       "from": 25,
+       "to": 36,
+       "color": "#f4c1b8",
+       "label": "Out",
+       "t": 3.6
+      }
+     ]
+    }
+   ],
+   "vo": "After four games, United have six points: two wins, two defeats. That's seventeenth."
+  },
+  {
+   "kicker": "The magic number",
+   "headline": "8th place needed [16].",
+   "accent": "#d6283b",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "room",
+    "seed": 4
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "whiteboard",
+     "y": 1150,
+     "delay": 0,
+     "lines": [
+      {
+       "text": "8th place: 16 pts",
+       "y": 0.22,
+       "t": 0.5,
+       "size": 76
+      },
+      {
+       "text": "United: 6 pts",
+       "y": 0.45,
+       "t": 1.8,
+       "size": 76,
+       "color": "#d6283b"
+      },
+      {
+       "text": "16 - 6 = 10",
+       "y": 0.7,
+       "t": 3.0,
+       "size": 110,
+       "circle": {
+        "t": 4.0
+       }
+      }
+     ]
+    }
+   ],
+   "vo": "In both seasons of this format, eighth place finished on sixteen points. United have six. So they need ten more."
+  }
+ ]
+}

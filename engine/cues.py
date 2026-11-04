@@ -145,6 +145,15 @@ def _resolve_beat(b, rel):
             for pl in c.get('players') or []:
                 if 'nameAt' in pl:
                     pl['nameT'] = round(max(0, rel(pl.pop('nameAt')) - base), 3)
+        if c.get('type') in ('whiteboard', 'toytable'):
+            for lst in (c.get('lines') or [], c.get('zones') or [], c.get('moves') or []):
+                for it in lst:
+                    if 'at' in it:
+                        it['t'] = round(max(0, rel(it.pop('at')) + it.pop('lag', 0) - base), 3)
+                    if isinstance(it.get('circle'), dict) and 'at' in it['circle']:
+                        it['circle']['t'] = round(max(0, rel(it['circle'].pop('at')) - base), 3)
+            if isinstance(c.get('teamAt'), str):
+                c['teamAt'] = round(max(0, rel(c['teamAt']) - base), 3)
         if c.get('type') in ('xg', 'swing'):
             for it in c.get('items') or c.get('rows') or []:
                 if 'at' in it:
@@ -182,6 +191,8 @@ def _resolve_beat(b, rel):
     for p in b.get('players') or []:
         if 'at' in p:
             p['delay'] = rel(p.pop('at'))
+        if 'labelAt' in p:
+            p['labelDelay'] = rel(p.pop('labelAt'))
         if 'tagAt' in p:
             p['tagDelay'] = rel(p.pop('tagAt'))
         for h in p.get('hops') or []:  # a jump on a word (e.g. a header)

@@ -665,6 +665,7 @@ function rigBody(u, p, t, walking, c) {
 }
 
 function drawPlayer(x, y, u, p, t, walk, alpha) {
+  if (typeof toyOn === 'function' && toyOn()) return drawToyFigure(x, y, u, p, t, walk, alpha);
   let k = p.kit || {}, skin = p.skin || '#c68a63', hair = p.hair || '#1b1410';
   if (p.ghost) {
     k = { shirt: '#a9c0e4', shorts: '#a9c0e4', socks: '#a9c0e4', text: '#ffffff' };
@@ -937,6 +938,7 @@ function layoutHL(s) {
   return lines;
 }
 function drawHeadline(text, inT, outT, accent, wordT) {
+  if (typeof toyOn === 'function' && toyOn()) return drawToyHeadline(text, inT, outT, accent, wordT);
   const lines = layoutHL(text);
   font(700, HL.size, 'Inter', '-1.5px');
   ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
@@ -965,6 +967,7 @@ function drawHeadline(text, inT, outT, accent, wordT) {
   });
 }
 function drawKicker(text, a) {
+  if (typeof toyOn === 'function' && toyOn()) return drawToyKicker(text, a);
   if (!text) return;
   ctx.save();
   ctx.globalAlpha = a;
@@ -992,6 +995,7 @@ function drawBrandShirt(cx, cy, size) {
   ctx.restore();
 }
 function drawBrand() {
+  if (typeof toyOn === 'function' && toyOn()) return drawToyBrand();
   const x = HL.x, y = 220, name = S.spec.brand || 'theo6k', st = S.spec.brandStyle || 'shirt', acc = S.accent;
   ctx.save(); ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
   if (st === 'pill') {   // frosted pill with a live dot and a small strapline
@@ -3202,6 +3206,9 @@ function cardEvents(c) {
     case 'passweb': { const pd = c.pass || 0.34, end = c.stopAt != null ? c.stopAt : (c.passFor || 6); for (let t = pd; t < end; t += pd) ev.push({ t, type: 'pop' });
       if (c.counter !== false) { ticks(0.1, (c.dur || 4) * 0.9); ev.push({ t: c.dur || 4, type: 'impact' }); } break; }
     case 'shout': ev.push({ t: 0, type: 'whoosh' }, { t: 0.3, type: 'impact' }); break;
+    case 'claynum': ev.push({ t: 0, type: 'whoosh' }, { t: 0.31, type: 'impact' }); break;
+    case 'whiteboard': ev.push({ t: 0, type: 'whoosh' }); (c.lines || []).forEach(L => { const n = L.text.length, sp = L.speed || 0.045; for (let t = (L.t || 0); t < (L.t || 0) + n * sp; t += 0.09) ev.push({ t, type: 'tick' }); if (L.circle) ev.push({ t: L.circle.t != null ? L.circle.t : (L.t || 0) + n * sp + 0.2, type: 'swish' }); }); break;
+    case 'toytable': ev.push({ t: 0, type: 'whoosh' }, { t: c.teamAt != null ? c.teamAt + 0.3 : 0.6, type: 'pop' }); (c.zones || []).forEach(z => ev.push({ t: z.t || 0, type: 'pop' })); (c.moves || []).forEach(m => ev.push({ t: m.t || 0, type: 'swipe' }, { t: (m.t || 0) + 0.6, type: 'impact' })); break;
     case 'xg': c.items.forEach(it => { ticks((it.t || 0) + 0.05, (c.dur || 1.4) * 0.9); ev.push({ t: (it.t || 0) + (c.dur || 1.4), type: 'pop' }); }); break;
     case 'swing': c.rows.forEach((r, i) => { const t0 = r.t != null ? r.t : 0.2 + i * 0.6; ev.push({ t: t0, type: 'swipe' }); ticks(t0 + 0.35, 0.9); ev.push({ t: t0 + 1.35, type: 'pop' }); }); break;
     case 'pcard': ev.push({ t: 0, type: 'whoosh' }, { t: 0.45, type: 'pop' }); break;
@@ -3430,6 +3437,7 @@ function renderAt(t) {
     drawBooth(ts, b, ts - b.playersStart); ctx.restore();
   }
   else if (scene.type === 'studio') drawStudio(ts, scene);
+  else if (scene.type === 'toy') drawToyScene(ts, b, i, lts);   // one-off toy/clay look (toy.js)
   else {
     const c = camInBeat(i, lts), cam = mkCam(c.pos, c.tgt);
     S.cam = cam;
@@ -3555,6 +3563,7 @@ function renderAt(t) {
 
 // End screen: the last shot softly blurs and darkens, and a small brand card fades in.
 function drawOutro(ot) {
+  if (typeof toyOn === 'function' && toyOn()) return drawToyOutro(ot);
   const k = ease(pr(ot, 0, 0.6));
   bgx.clearRect(0, 0, W / Q, H / Q);
   bgx.filter = 'blur(2.5px)';

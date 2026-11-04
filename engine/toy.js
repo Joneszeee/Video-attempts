@@ -296,67 +296,57 @@ function drawToyFigure(x, y, u, p, t, walk, alpha) {
   }
 }
 
-// a strip of masking tape with marker writing on it
-function toyTape(text, cx, cy, size, k, rot, col) {
+// Typography for the toy style (user: "simple, minimalistic, Apple-like, modern"): Inter with tight tracking,
+// frosted rounded pills instead of tape, no rotation or hand lettering.
+function tf(weight, size) { font(weight, size, 'Inter', (-size * 0.025).toFixed(1) + 'px'); }
+function toyPill(x, y, w, h, alpha) {   // frosted glass pill
+  ctx.save(); ctx.shadowColor = 'rgba(40,20,5,0.18)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 6;
+  ctx.fillStyle = `rgba(255,255,255,${alpha == null ? 0.82 : alpha})`; rrect(x, y, w, h, h / 2); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = 'rgba(255,255,255,0.9)'; ctx.lineWidth = 1.5; rrect(x + 0.75, y + 0.75, w - 1.5, h - 1.5, h / 2); ctx.stroke();
+  ctx.restore();
+}
+function toyTape(text, cx, cy, size, k, rot, col) {   // name label: a small frosted pill
   if (k <= 0) return;
-  ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot || -0.03); ctx.scale(k, k);
-  font(400, size, 'Marker'); const tw = ctx.measureText(text).width, h = size * 1.35, w = tw + size * 0.9;
-  ctx.fillStyle = TOY.tape; ctx.beginPath(); ctx.moveTo(-w / 2, -h / 2);
-  for (let i = 0; i <= 6; i++) ctx.lineTo(-w / 2 + (i % 2 ? 4 : -2), -h / 2 + i * h / 6);   // torn ends
-  for (let i = 0; i <= 6; i++) ctx.lineTo(w / 2 + (i % 2 ? -4 : 2), h / 2 - i * h / 6);
-  ctx.closePath(); ctx.shadowColor = 'rgba(60,30,10,0.25)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 3; ctx.fill(); ctx.shadowColor = 'transparent';
-  ctx.fillStyle = col || TOY.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 0, size * 0.06);
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k);
+  tf(600, size * 0.8); const tw = ctx.measureText(text).width, h = size * 1.25, w = tw + size * 1.0;
+  toyPill(-w / 2, -h / 2, w, h);
+  ctx.fillStyle = col || TOY.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 0, size * 0.03);
   ctx.restore();
 }
 
-// ---------- toy header: marker on tape ----------
+// ---------- toy header: clean sans, white on the scene ----------
 function drawToyHeadline(text, inT, outT, accent, wordT) {
-  font(400, 70, 'Marker'); const sp = ctx.measureText(' ').width, lines = [[]]; let x = 0;
+  const size = 76; tf(700, size); const sp = ctx.measureText(' ').width, lines = [[]]; let x = 0;
   for (const tk of parseHL(text)) {
     const w = ctx.measureText(tk.w).width, gap = tk.space ? sp : 0;
-    if (tk.space && x + gap + w > 860 && lines[lines.length - 1].length) { lines.push([]); x = 0; } else x += gap;
+    if (tk.space && x + gap + w > 900 && lines[lines.length - 1].length) { lines.push([]); x = 0; } else x += gap;
     lines[lines.length - 1].push({ ...tk, x, ww: w }); x += w;
   }
   const n = lines.reduce((m, l) => m + l.length, 0); let idx = 0;
   lines.forEach((line, li) => {
-    const a = eOut(pr(inT, 0.05 + li * 0.08, 0.45)), o = outT != null ? pr(outT, 0, 0.22) : 0;
-    let lw = line.length ? line[line.length - 1].x + line[line.length - 1].ww : 0, y = HL.y + li * 92 + (1 - a) * 24;
-    if (wordT != null) {   // hook: the tape grows with the words as they land
-      let shown = -1; line.forEach((tk, j) => { if (pr(wordT, 0.2 + (idx + j) * (1.2 / Math.max(1, n)), 0.22) > 0) shown = j; });
-      if (shown < 0) { idx += line.length; return; }
-      lw = line[shown].x + line[shown].ww;
-    }
-    ctx.save(); ctx.globalAlpha = a * (1 - o);
-    ctx.translate(HL.x, y); ctx.rotate(li % 2 ? 0.012 : -0.015);
-    ctx.fillStyle = TOY.tape; ctx.shadowColor = 'rgba(60,30,10,0.22)'; ctx.shadowBlur = 10; ctx.shadowOffsetY = 4;
-    ctx.beginPath(); ctx.moveTo(-22, -66);
-    for (let i = 0; i <= 6; i++) ctx.lineTo(-22 + (i % 2 ? 6 : -3), -66 + i * 14);
-    for (let i = 0; i <= 6; i++) ctx.lineTo(lw + 24 + (i % 2 ? -6 : 3), 18 - i * 14);
-    ctx.closePath(); ctx.fill(); ctx.shadowColor = 'transparent';
-    font(400, 70, 'Marker'); ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    const a = eOut(pr(inT, 0.05 + li * 0.08, 0.45)), o = outT != null ? pr(outT, 0, 0.22) : 0, y = HL.y + li * 88 + (1 - a) * 20 - o * 10;
+    ctx.save(); ctx.globalAlpha = a * (1 - o); tf(700, size); ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.shadowColor = 'rgba(30,15,5,0.35)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 3;
     for (const tk of line) {
       let kk = 1;
-      if (wordT != null) { kk = pr(wordT, 0.2 + idx * (1.2 / Math.max(1, n)), 0.22); idx++; if (kk <= 0) continue; }
-      ctx.save(); ctx.globalAlpha *= Math.min(1, kk * 2);
-      const sc = 0.6 + 0.4 * eBack(kk); ctx.translate(tk.x + tk.ww / 2, -24); ctx.scale(sc, sc); ctx.translate(-(tk.x + tk.ww / 2), 24);
-      ctx.fillStyle = tk.acc ? (accent || S.accent) : TOY.ink; ctx.fillText(tk.w, tk.x, 0); ctx.restore();
+      if (wordT != null) { kk = pr(wordT, 0.2 + idx * (1.2 / Math.max(1, n)), 0.3); idx++; if (kk <= 0) continue; }
+      ctx.save(); ctx.globalAlpha *= eOut(kk);
+      ctx.fillStyle = tk.acc ? (accent || S.accent) : '#ffffff'; ctx.fillText(tk.w, HL.x + tk.x, y + (1 - eOut(kk)) * 18); ctx.restore();
     }
     ctx.restore();
   });
 }
 function drawToyKicker(text, a) {
   if (!text) return;
-  ctx.save(); ctx.globalAlpha = a; font(400, 30, 'Marker'); ctx.fillStyle = '#f6e7cc'; ctx.textAlign = 'left';
+  ctx.save(); ctx.globalAlpha = a * 0.75; font(600, 24, 'Inter', '3px'); ctx.fillStyle = '#ffffff'; ctx.textAlign = 'left';
   ctx.fillText(text.toUpperCase(), HL.x, HL.y - 96); ctx.restore();
 }
-function drawToyBrand() {   // the theo6k shirt as a little clay badge on a clay plate
+function drawToyBrand() {   // the theo6k shirt in a frosted pill
   const x = HL.x, y = 220, name = S.spec.brand || 'theo6k';
-  ctx.save(); font(400, 40, 'Marker'); const tw = ctx.measureText(name).width;
-  ctx.shadowColor = 'rgba(60,30,10,0.3)'; ctx.shadowBlur = 14; ctx.shadowOffsetY = 5;
-  const g = ctx.createLinearGradient(0, y - 50, 0, y + 20); g.addColorStop(0, '#fbf3e4'); g.addColorStop(1, '#e8d6ba');
-  ctx.fillStyle = g; rrect(x - 12, y - 52, tw + 110, 72, 36); ctx.fill(); ctx.shadowColor = 'transparent';
-  drawBrandShirt(x + 34, y - 16, 56);
-  ctx.fillStyle = TOY.ink; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.fillText(name, x + 72, y);
+  ctx.save(); tf(700, 34); const tw = ctx.measureText(name).width;
+  toyPill(x - 12, y - 50, tw + 104, 66, 0.86);
+  drawBrandShirt(x + 30, y - 17, 50);
+  ctx.fillStyle = TOY.ink; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; tf(700, 34); ctx.fillText(name, x + 66, y - 4);
   ctx.restore();
 }
 function drawToyOutro(ot) {
@@ -365,16 +355,13 @@ function drawToyOutro(ot) {
   ctx.save(); ctx.globalAlpha = k; ctx.drawImage(bgc, 0, 0, W, H); ctx.globalAlpha = 1;
   ctx.fillStyle = `rgba(90,50,20,${0.35 * k})`; ctx.fillRect(0, 0, W, H);
   const a = eBack(pr(ot, 0.35, 0.5)), y = H * 0.47;
-  if (a > 0) {   // a little wooden sign on a post
-    ctx.translate(W / 2, y + (1 - a) * 200); ctx.rotate(-0.03 * (1 - a) - 0.015);
-    ctx.fillStyle = '#9c6a3c'; rrect(-14, 60, 28, 260, 8); ctx.fill();
-    ctx.shadowColor = 'rgba(50,25,10,0.4)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 10;
-    const g = ctx.createLinearGradient(0, -150, 0, 110); g.addColorStop(0, '#d9a36a'); g.addColorStop(1, '#b07a45');
-    ctx.fillStyle = g; rrect(-330, -150, 660, 260, 30); ctx.fill(); ctx.shadowColor = 'transparent';
-    ctx.strokeStyle = 'rgba(90,50,20,0.35)'; ctx.lineWidth = 3; for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.moveTo(-310, -110 + i * 48); ctx.lineTo(310, -100 + i * 48); ctx.stroke(); }
-    drawBrandShirt(0, -78, 92);
-    font(400, 78, 'Marker'); ctx.fillStyle = TOY.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(S.spec.brand || 'theo6k', 0, 34);
-    font(400, 30, 'Marker'); ctx.fillStyle = '#4a2a14'; ctx.fillText(S.spec.outroText || 'follow for more football stories', 0, 82);
+  if (a > 0) {   // a clean frosted card
+    ctx.translate(W / 2, y + (1 - a) * 60); ctx.globalAlpha = Math.min(1, a);
+    ctx.shadowColor = 'rgba(40,20,5,0.3)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 14;
+    ctx.fillStyle = 'rgba(255,255,255,0.88)'; rrect(-300, -170, 600, 300, 44); ctx.fill(); ctx.shadowColor = 'transparent';
+    drawBrandShirt(0, -86, 96);
+    tf(700, 64); ctx.fillStyle = TOY.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(S.spec.brand || 'theo6k', 0, 22);
+    tf(500, 28); ctx.fillStyle = '#6b6f78'; ctx.fillText(S.spec.outroText || 'Follow for more football stories', 0, 76);
   }
   ctx.restore();
 }
@@ -397,15 +384,15 @@ CARDS.whiteboard = function (c, ct, cx, cy) {
   for (const L of c.lines || []) {
     const t0 = L.t || 0; if (ct < t0) continue;
     const size = L.size || 72, n = L.text.length, shown = Math.min(n, Math.floor((ct - t0) / (L.speed || 0.045)) + 1);
-    font(400, size, 'Marker'); ctx.fillStyle = L.color || TOY.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    tf(L.weight || 700, size); ctx.fillStyle = L.color || TOY.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     const y = -h / 2 + (L.y != null ? L.y : 0.5) * h, full = ctx.measureText(L.text).width;
     ctx.textAlign = 'left'; ctx.fillText(L.text.slice(0, shown), -full / 2, y);
     const done = t0 + n * (L.speed || 0.045);
     if (L.underline && ct > done) { const k = pr(ct, done, 0.35); ctx.strokeStyle = L.underline; ctx.lineWidth = 7; ctx.lineCap = 'round';
       ctx.beginPath(); ctx.moveTo(-full / 2, y + size * 0.55); ctx.lineTo(-full / 2 + full * k, y + size * 0.55 + 6 * Math.sin(k * 3)); ctx.stroke(); }
     if (L.circle) { const t1 = L.circle.t != null ? L.circle.t : done + 0.2, k = pr(ct, t1, 0.5); if (k > 0) {
-      ctx.strokeStyle = L.circle.color || '#d6283b'; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath();
-      for (let i = 0; i <= 40 * k; i++) { const an = -0.6 + i / 40 * Math.PI * 2.15, rx = full / 2 + 40 + Math.sin(i * 0.7) * 3, ry = size * 0.75; ctx.lineTo(Math.cos(an) * rx, y + Math.sin(an) * ry); }
+      ctx.strokeStyle = L.circle.color || '#d6283b'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath();
+      for (let i = 0; i <= 60 * k; i++) { const an = -Math.PI / 2 + i / 60 * Math.PI * 2, rx = full / 2 + 44, ry = size * 0.78; ctx.lineTo(Math.cos(an) * rx, y + Math.sin(an) * ry); }
       ctx.stroke(); } }
   }
   ctx.restore();
@@ -426,7 +413,7 @@ CARDS.toytable = function (c, ct, cx, cy) {
   zones.forEach(z => { ctx.fillStyle = z.color; ctx.fillRect(-w / 2 + 10, top + (z.from - 1) * rh, w - 20, (z.to - z.from + 1) * rh); });
   for (let r = 1; r <= n; r++) {
     const y = rowY(r);
-    font(400, rh * 0.62, 'Marker'); ctx.fillStyle = 'rgba(40,30,20,0.55)'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText(String(r), -w / 2 + 52, y + 1);
+    tf(600, rh * 0.5); ctx.fillStyle = 'rgba(40,30,20,0.5)'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText(String(r), -w / 2 + 52, y + 1);
     ctx.fillStyle = 'rgba(255,255,255,0.55)'; rrect(-w / 2 + 64, y - rh * 0.34, w * 0.5, rh * 0.68, rh * 0.34); ctx.fill();
   }
   // zone labels on the right, appearing on their words
@@ -434,7 +421,7 @@ CARDS.toytable = function (c, ct, cx, cy) {
     const y0 = top + (z.from - 1) * rh + 6, y1 = top + z.to * rh - 6, x = w * 0.18;
     ctx.save(); ctx.globalAlpha *= Math.min(1, k); ctx.strokeStyle = TOY.ink; ctx.lineWidth = 5; ctx.lineCap = 'round';
     ctx.beginPath(); ctx.moveTo(x, y0); ctx.lineTo(x + 18, y0); ctx.lineTo(x + 18, y1); ctx.lineTo(x, y1); ctx.stroke();
-    String(z.label).split('\n').forEach((l, i, arr) => { font(400, 34, 'Marker'); ctx.fillStyle = TOY.ink; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    String(z.label).split('\n').forEach((l, i, arr) => { tf(700, 32); ctx.fillStyle = TOY.ink; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
       ctx.fillText(l, x + 34, (y0 + y1) / 2 + (i - (arr.length - 1) / 2) * 38); });
     ctx.restore(); });
   // the team block
@@ -454,7 +441,7 @@ CARDS.toytable = function (c, ct, cx, cy) {
       ctx.restore();
     }
   }
-  if (c.title) { font(400, 44, 'Marker'); ctx.fillStyle = TOY.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(c.title, 0, -h / 2 - 34); }
+  if (c.title) { tf(700, 40); ctx.fillStyle = TOY.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(c.title, 0, -h / 2 - 34); }
   ctx.restore();
 };
 CARDS.toytable.noSlide = true;

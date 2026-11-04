@@ -1,14 +1,14 @@
 {
  "title": "United UCL maths style test",
  "brand": "theo6k",
- "accent": "#d6283b",
+ "accent": "#ff5e5e",
  "style": "toy",
  "outro": false,
  "beats": [
   {
    "kicker": "Champions League · the maths",
    "headline": "United need [10 points]. From these four.",
-   "accent": "#d6283b",
+   "accent": "#ff5e5e",
    "hookWords": true,
    "scene": {
     "type": "toy",
@@ -158,7 +158,7 @@
   {
    "kicker": "After four games",
    "headline": "Six points. [17th].",
-   "accent": "#d6283b",
+   "accent": "#ff5e5e",
    "cut": true,
    "scene": {
     "type": "toy",
@@ -214,7 +214,7 @@
   {
    "kicker": "The magic number",
    "headline": "8th place needed [16].",
-   "accent": "#d6283b",
+   "accent": "#ff5e5e",
    "cut": true,
    "scene": {
     "type": "toy",
@@ -242,7 +242,7 @@
        "color": "#d6283b"
       },
       {
-       "text": "16 - 6 = 10",
+       "text": "16 − 6 = 10",
        "y": 0.7,
        "t": 3.0,
        "size": 110,

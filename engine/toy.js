@@ -225,6 +225,9 @@ function toyPose(p, t, walk) {   // arms (angles from straight down, + = outward
 }
 function drawToyFigure(x, y, u, p, t, walk, alpha) {
   if (u < 3) return;
+  // a costume change: from swapDelay the figure takes the "swap" look, hidden behind a puff of clay smoke
+  const sw = p.swap && p.swapDelay != null ? t - p.swapDelay : null;
+  if (sw != null && sw >= 0) p = Object.assign({}, p, p.swap);
   // drop onto the set with a bounce when it appears
   let drop = 0, dsc = 1;
   if (p.delay != null && p.enter !== 'walk' && !p.path) { const k = pr(t, p.delay, 0.45); if (k <= 0) return; drop = (1 - eOut(k)) * u * 0.9; dsc = 0.85 + 0.15 * eBack(k); }
@@ -290,6 +293,11 @@ function drawToyFigure(x, y, u, p, t, walk, alpha) {
   }
   drawToyHair(hx, hy, hr, p, front);
   ctx.restore();
+  if (sw != null && sw > -0.05 && sw < 0.6) {   // the puff
+    const k = pr(sw, -0.05, 0.65), R = rng(17);
+    for (let i = 0; i < 9; i++) { const a = R() * 6.28, d = u * (0.15 + 0.35 * k) * (0.6 + R() * 0.6), r = u * (0.12 + 0.1 * R()) * (1 - k * 0.6);
+      ctx.save(); ctx.globalAlpha *= 0.9 * (1 - k); toyBlob(x + Math.cos(a) * d, y - u * 0.55 + Math.sin(a) * d * 0.8, r, '#f4efe6'); ctx.restore(); }
+  }
   // a masking-tape name label above the head
   if (p.label && t >= (p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3)) {
     const lk = eBack(pr(t, p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3, 0.3));
@@ -513,3 +521,20 @@ CARDS.toydoors = function (c, ct, cx, cy) {
   ctx.restore();
 };
 CARDS.toydoors.noSlide = true;
+
+// A frosted quote card (text, by): the quote fades up line by line.
+CARDS.toyquote = function (c, ct, cx, cy) {
+  const k = eOut(pr(ct, 0, 0.5)); if (k <= 0) return;
+  ctx.save(); toyDrift(ct, cx, cy, 0.03); ctx.globalAlpha *= k; ctx.translate(0, (1 - k) * 40);
+  const w = c.w || 860; tf(800, c.size || 76);
+  const words = String(c.text).split(' '), lines = [''];
+  for (const wd of words) { const tl = (lines[lines.length - 1] + ' ' + wd).trim(); if (ctx.measureText(tl).width > w - 120 && lines[lines.length - 1]) lines.push(wd); else lines[lines.length - 1] = tl; }
+  const lh = (c.size || 76) * 1.12, h = lines.length * lh + 170;
+  ctx.shadowColor = 'rgba(40,20,5,0.3)'; ctx.shadowBlur = 36; ctx.shadowOffsetY = 14; ctx.fillStyle = 'rgba(255,255,255,0.9)'; rrect(cx - w / 2, cy - h / 2, w, h, 44); ctx.fill(); ctx.shadowColor = 'transparent';
+  tf(800, 150); ctx.fillStyle = c.color || '#f7b500'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.fillText('\u201C', cx - w / 2 + 40, cy - h / 2 + 130);
+  tf(800, c.size || 76); ctx.fillStyle = TOY.ink; ctx.textAlign = 'center';
+  lines.forEach((l, i) => { const lk = eOut(pr(ct, 0.25 + i * 0.25, 0.4)); ctx.save(); ctx.globalAlpha *= lk; ctx.fillText(l, cx, cy - h / 2 + 120 + i * lh + (1 - lk) * 14); ctx.restore(); });
+  if (c.by) { tf(600, 32); ctx.fillStyle = '#6b6f78'; ctx.globalAlpha *= eOut(pr(ct, 0.6, 0.4)); ctx.fillText(c.by, cx, cy + h / 2 - 40); }
+  ctx.restore();
+};
+CARDS.toyquote.noSlide = true;

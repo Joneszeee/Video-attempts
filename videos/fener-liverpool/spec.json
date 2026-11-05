@@ -1,0 +1,1302 @@
+{
+ "title": "Fenerbahçe 3–2 Liverpool",
+ "brand": "theo6k",
+ "accent": "#ffcc00",
+ "style": "toy",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Champions League · Istanbul",
+   "headline": "Liverpool fans: [Kuyt] just beat you.",
+   "accent": "#ffcc00",
+   "hookWords": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.9,
+     -1.0
+    ],
+    "tgt": [
+     0,
+     1.25,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.8,
+     0.2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     8
+    ]
+   },
+   "move": 4,
+   "players": [
+    {
+     "name": "Kuyt",
+     "num": 18,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#f2c9a8",
+     "hair": "#c99a5a",
+     "hairStyle": "short",
+     "front": true,
+     "chest": true,
+     "x": 0,
+     "z": 2.6,
+     "pose": "wings",
+     "swapAt": "beat you",
+     "swapLag": -0.15,
+     "swap": {
+      "outfit": "suit",
+      "suitColor": "#1b2a6b",
+      "tie": "#f7d117",
+      "pose": "fists",
+      "mood": "joy"
+     }
+    }
+   ],
+   "shake": [
+    {
+     "at": "beat you",
+     "amount": 12
+    }
+   ],
+   "confetti": true,
+   "confettiAt": "Istanbul",
+   "confettiColors": [
+    "#f7d117",
+    "#1b2a6b",
+    "#ffffff"
+   ],
+   "card": [
+    {
+     "type": "claynum",
+     "text": "3–2",
+     "size": 250,
+     "y": 1620,
+     "at": "beat you",
+     "color": "#f7b500",
+     "label": "Fenerbahçe v Liverpool",
+     "labelDy": 84,
+     "clear": false
+    }
+   ],
+   "vo": "Liverpool fans: Dirk Kuyt just beat you. In Istanbul."
+  },
+  {
+   "kicker": "Six seasons at Anfield",
+   "headline": "Liverpool's 18. Now [their opponent].",
+   "accent": "#ffcc00",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "room",
+    "seed": 6
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "whiteboard",
+     "y": 1150,
+     "delay": 0,
+     "lines": [
+      {
+       "text": "Dirk Kuyt",
+       "y": 0.18,
+       "at": "Kuyt played",
+       "size": 88
+      },
+      {
+       "text": "2006–2012 · Liverpool 18",
+       "y": 0.42,
+       "at": "six seasons",
+       "size": 56,
+       "color": "#c8102e",
+       "weight": 700
+      },
+      {
+       "text": "Nov 2026 · Fenerbahçe coach",
+       "y": 0.66,
+       "at": "Last week",
+       "size": 56,
+       "color": "#1b2a6b",
+       "weight": 700,
+       "underline": "#f7b500"
+      }
+     ]
+    }
+   ],
+   "vo": "Kuyt played six seasons for Liverpool. Last week, Fenerbahçe made him interim coach."
+  },
+  {
+   "kicker": "Before Istanbul",
+   "headline": "Liverpool: [3 wins] from 3.",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     2.4,
+     -3
+    ],
+    "tgt": [
+     0,
+     1.0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     2.2,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.0,
+     6
+    ]
+   },
+   "move": 4,
+   "players": [
+    {
+     "name": "",
+     "num": 9,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": -1.4,
+     "z": 3.4,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up",
+     "mood": "joy"
+    },
+    {
+     "name": "",
+     "num": 7,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 3.0,
+     "front": true,
+     "chest": true,
+     "pose": "fists",
+     "mood": "joy"
+    },
+    {
+     "name": "",
+     "num": 8,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "hairStyle": "curly",
+     "x": 1.4,
+     "z": 3.4,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up",
+     "mood": "joy"
+    }
+   ],
+   "card": [
+    {
+     "type": "claynum",
+     "text": "3/3",
+     "size": 240,
+     "y": 1630,
+     "at": "three wins",
+     "color": "#c8102e",
+     "label": "Champions League wins",
+     "labelDy": 84,
+     "clear": false
+    }
+   ],
+   "vo": "Liverpool arrived with three wins from three in Europe."
+  },
+  {
+   "kicker": "25 minutes",
+   "headline": "[Nyoni]. Liverpool lead.",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "camFrom": {
+    "pos": [
+     -1.7000000000000002,
+     2.0,
+     33.5
+    ],
+    "tgt": [
+     0.6000000000000001,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -1.1,
+     1.8,
+     35.0
+    ],
+    "tgt": [
+     0.6000000000000001,
+     1.0,
+     52
+    ]
+   },
+   "move": 3.5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "x": 1.5,
+     "z": 40,
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "label": "Nyoni",
+     "labelAt": "Nyoni",
+     "action": "kick",
+     "actionAt": "scores",
+     "actionLag": -0.3,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2fae6b",
+      "shorts": "#1d1c22",
+      "socks": "#2fae6b",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "scores",
+     "actionLag": 0.25,
+     "before": "ready",
+     "pose": "keeper"
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.72,
+      0.11,
+      40.45
+     ],
+     "untilAt": "scores",
+     "untilLag": 0.04
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "scores",
+     "lag": 0.04,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       1.72,
+       0.11,
+       40.45
+      ],
+      [
+       -0.44000000000000006,
+       1.0,
+       46.25
+      ],
+      [
+       -2.6,
+       0.8,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "claynum",
+     "text": "0–1",
+     "size": 170,
+     "y": 1650,
+     "at": "Liverpool lead",
+     "color": "#c8102e",
+     "clear": false
+    }
+   ],
+   "vo": "Twenty-five minutes: Trey Nyoni scores. Liverpool lead."
+  },
+  {
+   "kicker": "29 minutes",
+   "headline": "[Greenwood]. 1–1.",
+   "accent": "#ffcc00",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "camFrom": {
+    "pos": [
+     1.2000000000000002,
+     2.0,
+     34.5
+    ],
+    "tgt": [
+     -0.8,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.6000000000000001,
+     1.8,
+     36.0
+    ],
+    "tgt": [
+     -0.8,
+     1.0,
+     52
+    ]
+   },
+   "move": 3,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "stripes": [
+       "#f7d117",
+       "#1b2a6b"
+      ],
+      "shorts": "#1b2a6b",
+      "socks": "#f7d117",
+      "text": "#1b2a6b"
+     },
+     "x": -2.0,
+     "z": 41,
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "hairStyle": "curly",
+     "label": "Greenwood",
+     "labelAt": "Greenwood",
+     "action": "kick",
+     "actionAt": "Greenwood",
+     "actionLag": -0.3,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#4b4f5c",
+      "shorts": "#4b4f5c",
+      "socks": "#4b4f5c",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Greenwood",
+     "actionLag": 0.25,
+     "before": "ready",
+     "pose": "keeper"
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.78,
+      0.11,
+      41.45
+     ],
+     "untilAt": "Greenwood",
+     "untilLag": 0.04
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Greenwood",
+     "lag": 0.04,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.78,
+       0.11,
+       41.45
+      ],
+      [
+       0.5099999999999999,
+       1.0,
+       46.75
+      ],
+      [
+       2.8,
+       1.2,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "claynum",
+     "text": "1–1",
+     "size": 170,
+     "y": 1650,
+     "at": "One",
+     "color": "#f7b500",
+     "clear": false
+    }
+   ],
+   "vo": "Four minutes later: Mason Greenwood. One–one."
+  },
+  {
+   "kicker": "69 minutes",
+   "headline": "[Isak] heads it in. 1–2.",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "camFrom": {
+    "pos": [
+     3.6,
+     2.0,
+     40.0
+    ],
+    "tgt": [
+     0.16000000000000003,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.0,
+     1.8,
+     41.5
+    ],
+    "tgt": [
+     0.16000000000000003,
+     1.0,
+     52
+    ]
+   },
+   "move": 3,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "x": 0.4,
+     "z": 46.5,
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "label": "Isak",
+     "labelAt": "Isak",
+     "hops": [
+      {
+       "at": "heads",
+       "lag": -0.3,
+       "dur": 0.6,
+       "height": 0.35
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2fae6b",
+      "shorts": "#1d1c22",
+      "socks": "#2fae6b",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "heads",
+     "actionLag": 0.25,
+     "before": "ready",
+     "pose": "keeper"
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "heads",
+     "lag": -1.0,
+     "dur": 0.9,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       18,
+       0.3,
+       44
+      ],
+      [
+       9.2,
+       6,
+       45.25
+      ],
+      [
+       0.4,
+       2.2,
+       46.8
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "heads",
+     "lag": -0.1,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       0.4,
+       2.2,
+       46.8
+      ],
+      [
+       -1.0,
+       1.8,
+       49.5
+      ],
+      [
+       -2.4,
+       1.0,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "claynum",
+     "text": "1–2",
+     "size": 170,
+     "y": 1650,
+     "at": "in front",
+     "color": "#c8102e",
+     "clear": false
+    }
+   ],
+   "vo": "Sixty-nine: Isak heads Liverpool back in front."
+  },
+  {
+   "kicker": "73 minutes",
+   "headline": "Archie Brown, [left foot]. 2–2.",
+   "accent": "#ffcc00",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "camFrom": {
+    "pos": [
+     -1.0,
+     2.0,
+     35.5
+    ],
+    "tgt": [
+     0.8800000000000001,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.3999999999999999,
+     1.8,
+     37.0
+    ],
+    "tgt": [
+     0.8800000000000001,
+     1.0,
+     52
+    ]
+   },
+   "move": 3,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "stripes": [
+       "#f7d117",
+       "#1b2a6b"
+      ],
+      "shorts": "#1b2a6b",
+      "socks": "#f7d117",
+      "text": "#1b2a6b"
+     },
+     "x": 2.2,
+     "z": 42,
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "label": "Brown",
+     "labelAt": "Archie Brown",
+     "action": "kick",
+     "actionAt": "left foot",
+     "actionLag": -0.3,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "foot": "left"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#4b4f5c",
+      "shorts": "#4b4f5c",
+      "socks": "#4b4f5c",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "left foot",
+     "actionLag": 0.25,
+     "before": "ready",
+     "pose": "keeper"
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.9800000000000002,
+      0.11,
+      42.45
+     ],
+     "untilAt": "left foot",
+     "untilLag": 0.04
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "left foot",
+     "lag": 0.04,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       1.9800000000000002,
+       0.11,
+       42.45
+      ],
+      [
+       -0.45999999999999985,
+       1.0,
+       47.25
+      ],
+      [
+       -2.9,
+       0.6,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "claynum",
+     "text": "2–2",
+     "size": 170,
+     "y": 1650,
+     "at": "Two",
+     "color": "#f7b500",
+     "clear": false
+    }
+   ],
+   "vo": "Seventy-three: Archie Brown, left foot. Two–two."
+  },
+  {
+   "kicker": "79 minutes",
+   "headline": "[Muriqi]. Through three of them.",
+   "accent": "#ffcc00",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "camFrom": {
+    "pos": [
+     2.0,
+     3.6,
+     39.5
+    ],
+    "tgt": [
+     0.3,
+     1.3,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     1.6,
+     3.2,
+     41.5
+    ],
+    "tgt": [
+     0.3,
+     1.3,
+     52
+    ]
+   },
+   "move": 4,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "stripes": [
+       "#f7d117",
+       "#1b2a6b"
+      ],
+      "shorts": "#1b2a6b",
+      "socks": "#f7d117",
+      "text": "#1b2a6b"
+     },
+     "x": 0.1,
+     "z": 46.6,
+     "skin": "#e2b08c",
+     "hair": "#1d1410",
+     "beard": true,
+     "label": "Muriqi",
+     "labelAt": "Muriqi",
+     "hops": [
+      {
+       "at": "outmuscles",
+       "lag": -0.3,
+       "dur": 0.6,
+       "height": 0.45
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#4b4f5c",
+      "shorts": "#4b4f5c",
+      "socks": "#4b4f5c",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "outmuscles",
+     "actionLag": 0.25,
+     "before": "ready",
+     "pose": "keeper"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "x": -0.6,
+     "z": 46.2,
+     "hops": [
+      {
+       "at": "outmuscles",
+       "lag": -0.35,
+       "dur": 0.55,
+       "height": 0.2
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": 0.9,
+     "z": 46.4,
+     "hops": [
+      {
+       "at": "outmuscles",
+       "lag": -0.35,
+       "dur": 0.55,
+       "height": 0.2
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "x": 0.2,
+     "z": 47.3,
+     "hops": [
+      {
+       "at": "outmuscles",
+       "lag": -0.35,
+       "dur": 0.55,
+       "height": 0.2
+      }
+     ]
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "outmuscles",
+     "lag": -1.0,
+     "dur": 0.9,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       -19,
+       0.3,
+       43
+      ],
+      [
+       -9.45,
+       6,
+       44.8
+      ],
+      [
+       0.1,
+       2.2,
+       46.9
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "outmuscles",
+     "lag": -0.1,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       0.1,
+       2.2,
+       46.9
+      ],
+      [
+       1.35,
+       1.8,
+       49.55
+      ],
+      [
+       2.6,
+       1.4,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "claynum",
+     "text": "3–2",
+     "size": 230,
+     "y": 1640,
+     "at": "Three",
+     "color": "#f7b500",
+     "clear": false
+    }
+   ],
+   "confetti": true,
+   "confettiAt": "Three",
+   "confettiColors": [
+    "#f7d117",
+    "#1b2a6b",
+    "#ffffff"
+   ],
+   "shake": [
+    {
+     "at": "Three",
+     "amount": 14
+    }
+   ],
+   "vo": "Seventy-nine: Brown's cross… and Muriqi outmuscles three defenders. Three–two."
+  },
+  {
+   "kicker": "Champions League",
+   "headline": "Perfect start: [gone].",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "room",
+    "seed": 9
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "toyresults",
+     "y": 1150,
+     "delay": 0,
+     "items": [
+      {
+       "score": "Won",
+       "team": "Matchday 1",
+       "win": true,
+       "t": 0
+      },
+      {
+       "score": "Won",
+       "team": "Matchday 2",
+       "win": true,
+       "t": 0.25
+      },
+      {
+       "score": "Won",
+       "team": "Matchday 3",
+       "win": true,
+       "t": 0.5
+      },
+      {
+       "score": "2–3",
+       "team": "at Fenerbahçe",
+       "win": false,
+       "at": "gone"
+      }
+     ]
+    }
+   ],
+   "vo": "Liverpool's perfect start in Europe: gone."
+  },
+  {
+   "kicker": "Dirk Kuyt",
+   "headline": "His words, not ours.",
+   "accent": "#ffcc00",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "orbit": {
+    "center": [
+     0,
+     1.2,
+     2.4
+    ],
+    "r": 4.6,
+    "from": -25,
+    "to": 20,
+    "h": 1.5,
+    "h2": 1.9,
+    "dur": 4
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.2,
+     2.4
+    ]
+   },
+   "players": [
+    {
+     "name": "Kuyt",
+     "num": 18,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#f2c9a8",
+     "hair": "#c99a5a",
+     "hairStyle": "short",
+     "front": true,
+     "chest": true,
+     "x": 0,
+     "z": 2.4,
+     "outfit": "suit",
+     "suitColor": "#1b2a6b",
+     "tie": "#f7d117",
+     "pose": "arms_up",
+     "mood": "joy"
+    }
+   ],
+   "card": [
+    {
+     "type": "toyquote",
+     "y": 1520,
+     "at": "another miracle",
+     "text": "Another miracle in Istanbul.",
+     "by": "Dirk Kuyt",
+     "size": 64
+    }
+   ],
+   "vo": "Kuyt called it another miracle in Istanbul."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Iraola or the [players]?",
+   "accent": "#ff5e5e",
+   "cut": true,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     2.0,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     1.1,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.9,
+     -1.6
+    ],
+    "tgt": [
+     0,
+     1.1,
+     5
+    ]
+   },
+   "move": 5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#2a3140",
+     "tie": "#c8102e",
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 2.8,
+     "front": true,
+     "mood": "cross",
+     "label": "Iraola",
+     "labelAt": "Iraola"
+    },
+    {
+     "name": "",
+     "num": 4,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4429",
+     "hair": "#141010",
+     "x": -1.5,
+     "z": 3.6,
+     "front": true,
+     "chest": true,
+     "mood": "cross"
+    },
+    {
+     "name": "",
+     "num": 10,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "x": 1.5,
+     "z": 3.6,
+     "front": true,
+     "chest": true,
+     "mood": "cross"
+    }
+   ],
+   "card": [
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "is this one",
+     "question": "Whose fault is it?",
+     "options": [
+      {
+       "label": "Iraola",
+       "color": "#c8102e",
+       "fill": 0.5
+      },
+      {
+       "label": "The players",
+       "color": "#9aa1ad",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So Liverpool fans: is this one on Iraola, or the players? Tell me in the comments."
+  }
+ ]
+}

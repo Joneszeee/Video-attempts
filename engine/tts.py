@@ -42,6 +42,10 @@ def speakable(line):
 
 # Words the phonemiser gets wrong -> the phonemes to use instead.
 PRONOUNCE = {
+    'Kuyt': 'kˈaɪt',             # KITE
+    'Fenerbahçe': 'fˈɛnəbɑːtʃeɪ',
+    'Muriqi': 'mʊɹˈiːtʃi',
+    'Nyoni': 'njˈəʊni',
     'Soulé': 'sˈuːleɪ',          # SOO-lay
     'Malen': 'mˈɑːlən',         # MAH-len
     'Cunha': 'kˈuːnjə',         # KOON-ya

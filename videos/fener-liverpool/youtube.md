@@ -18,6 +18,8 @@ Kuyt played six seasons for Liverpool (2006–2012). Last week Fenerbahçe made 
 
 Is this one on Iraola, or the players? Tell me in the comments 👇
 
+Also: I'm testing a brand-new toy style for this one. Do you like it, or should I go back to the usual look? Let me know 👀
+
 Follow for more football stories in under a minute.
 
 #Liverpool #ChampionsLeague #Shorts
@@ -26,4 +28,4 @@ Follow for more football stories in under a minute.
 liverpool, fenerbahce, fenerbahce vs liverpool, fenerbahce 3-2 liverpool, dirk kuyt, kuyt fenerbahce, liverpool champions league, champions league 2026, iraola, andoni iraola, isak, trey nyoni, mason greenwood, archie brown, muriqi, vedat muriqi, istanbul, miracle of istanbul, football shorts, theo6k
 
 ## Pinned comment
-Iraola or the players: whose fault was this one? 👇
+Iraola or the players: whose fault was this one? 👇 And be honest: do you like this new toy style, or should I go back to the old one?

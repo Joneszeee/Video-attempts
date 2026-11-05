@@ -1,0 +1,97 @@
+{
+ "brand": "theo6k",
+ "accent": "#ffcc00",
+ "style": "toy",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Champions League · Istanbul",
+   "headline": "Liverpool fans: [Kuyt] just beat you.",
+   "accent": "#ffcc00",
+   "hookWords": false,
+   "scene": {
+    "type": "toy",
+    "set": "pitch",
+    "crowd": [
+     "#f7d117",
+     "#1b2a6b",
+     "#f7d117",
+     "#ffffff"
+    ],
+    "seed": 12
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.8,
+     0.2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.8,
+     0.2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     8
+    ]
+   },
+   "move": 0.1,
+   "players": [
+    {
+     "name": "Kuyt",
+     "num": 18,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#f2c9a8",
+     "hair": "#c99a5a",
+     "hairStyle": "short",
+     "front": true,
+     "chest": true,
+     "x": 0,
+     "z": 2.6,
+     "pose": "fists",
+     "outfit": "suit",
+     "suitColor": "#1b2a6b",
+     "tie": "#f7d117",
+     "mood": "joy"
+    }
+   ],
+   "shake": [],
+   "confetti": true,
+   "confettiColors": [
+    "#f7d117",
+    "#1b2a6b",
+    "#ffffff"
+   ],
+   "card": [
+    {
+     "type": "claynum",
+     "text": "3–2",
+     "size": 250,
+     "y": 1620,
+     "color": "#f7b500",
+     "label": "Fenerbahçe v Liverpool",
+     "labelDy": 84,
+     "clear": false,
+     "delay": -3
+    }
+   ],
+   "vo": "Thumbnail.",
+   "confettiDelay": -3
+  }
+ ]
+}

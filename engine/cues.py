@@ -192,7 +192,7 @@ def _resolve_beat(b, rel):
                     s['t'] = round(max(0, rel(s.pop('at')) - base), 3)
     for p in b.get('players') or []:
         if 'at' in p:
-            p['delay'] = rel(p.pop('at'))
+            p['delay'] = round(rel(p.pop('at')) + p.pop('lag', 0), 3)
         if 'swapAt' in p:
             p['swapDelay'] = round(rel(p.pop('swapAt')) + p.pop('swapLag', 0), 3)
         if 'labelAt' in p:

@@ -442,30 +442,96 @@
    },
    "camFrom": {
     "pos": [
-     1.5,
-     2.0,
-     60
+     3.4,
+     3.0,
+     33.5
     ],
     "tgt": [
-     0,
-     1.2,
-     40
+     -1.2,
+     1.0,
+     50
     ]
    },
    "camera": {
     "pos": [
-     0.8,
-     1.8,
-     59
+     2.2,
+     2.5,
+     36.8
     ],
     "tgt": [
-     0,
-     1.3,
-     40
+     -1.2,
+     1.1,
+     51
     ]
    },
-   "move": 5,
+   "move": 6,
    "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "x": -3.4,
+     "z": 45,
+     "skin": "#a8714f",
+     "hair": "#1d1410",
+     "label": "Da Cunha",
+     "labelAt": "Da Cunha",
+     "action": "kick",
+     "actionAt": "Da Cunha",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "x": 3.0,
+     "z": 48.2,
+     "skin": "#f0c8a8",
+     "hair": "#c9a46a",
+     "label": "Kempf",
+     "labelAt": "Kempf",
+     "hops": [
+      {
+       "at": "Kempf",
+       "lag": -0.15,
+       "dur": 0.6,
+       "height": 0.7
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "x": 0.6,
+     "z": 42.5,
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "label": "Douvikas",
+     "labelAt": "hat-trick",
+     "action": "kick",
+     "actionAt": "hat-trick",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
     {
      "name": "",
      "num": null,
@@ -477,34 +543,50 @@
      },
      "skin": "#f0c8a8",
      "hair": "#8a6a45",
-     "x": 0.2,
-     "z": 51.6,
+     "x": 0.1,
+     "z": 52.0,
+     "front": true,
      "pose": "keeper",
-     "front": false
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "hat-trick",
+     "actionLag": 0.45
     }
    ],
    "card": [
     {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -3.12,
+      0.11,
+      45.45
+     ],
+     "untilAt": "Da Cunha",
+     "untilLag": 0.24
+    },
+    {
      "type": "ballpath",
      "world": true,
      "at": "Da Cunha",
-     "lag": -0.1,
-     "dur": 0.6,
+     "lag": 0.24,
+     "dur": 0.55,
      "slowmo": false,
      "points": [
       [
-       -8,
-       0.3,
-       38
-      ],
-      [
-       -5.1,
-       2.1,
+       -3.12,
+       0.11,
        45.45
       ],
       [
-       -2.2,
-       0.9,
+       -3.06,
+       1.0,
+       49.175
+      ],
+      [
+       -3.0,
+       0.5,
        52.9
       ]
      ]
@@ -513,55 +595,66 @@
      "type": "ballpath",
      "world": true,
      "at": "Kempf",
-     "lag": -0.1,
-     "dur": 0.6,
+     "lag": 0.05,
+     "dur": 0.4,
      "slowmo": false,
      "points": [
       [
-       3,
        3.0,
-       46
+       2.5,
+       48.4
       ],
       [
-       2.4,
-       4.2,
-       49.45
+       3.0,
+       2.7,
+       50.65
       ],
       [
-       1.8,
-       1.8,
+       3.0,
+       2.0,
        52.9
       ]
      ]
     },
     {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.82,
+      0.11,
+      42.95
+     ],
+     "untilAt": "hat-trick",
+     "untilLag": 0.24
+    },
+    {
      "type": "ballpath",
      "world": true,
      "at": "hat-trick",
-     "lag": -0.1,
-     "dur": 0.6,
+     "lag": 0.24,
+     "dur": 0.55,
      "slowmo": false,
      "points": [
       [
-       1,
-       0.3,
-       40
+       0.82,
+       0.11,
+       42.95
       ],
       [
-       0.7,
-       1.7999999999999998,
-       46.45
+       -0.99,
+       1.0,
+       47.925
       ],
       [
-       0.4,
-       0.6,
+       -2.8,
+       0.45,
        52.9
       ]
      ]
     },
     {
      "type": "stack",
-     "y": 1720,
+     "y": 1700,
      "delay": 0,
      "items": [
       {
@@ -583,10 +676,12 @@
        "prefix": "0–",
        "gold": true
       }
-     ]
+     ],
+     "shiftX": -290
     }
    ],
-   "vo": "After the break, it got silly. Da Cunha. Kempf. Then Douvikas completes his hat-trick."
+   "vo": "After the break, it got silly. Da Cunha. Kempf. Then Douvikas completes his hat-trick.",
+   "moveEase": "linear"
   },
   {
    "kicker": "Off the bench",
@@ -628,7 +723,7 @@
     ]
    },
    "move": 3.3,
-   "focus": 0.55,
+   "focus": 0,
    "players": [
     {
      "name": "",
@@ -651,6 +746,110 @@
      "label": "Liberali",
      "at": "Liberali",
      "pose": "arms_up"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 3.6,
+     "z": 6.0,
+     "front": true,
+     "enter": "walk",
+     "fromX": 9,
+     "fromZ": 9.0,
+     "walkDur": 1.3,
+     "at": "Liberali",
+     "lag": 0.3,
+     "action": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "skin": "#a8714f",
+     "hair": "#1d1410",
+     "x": -0.6,
+     "z": 6.8,
+     "front": true,
+     "enter": "walk",
+     "fromX": -6,
+     "fromZ": 9.8,
+     "walkDur": 1.3,
+     "at": "Liberali",
+     "lag": 0.5,
+     "action": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#c9a46a",
+     "x": 2.4,
+     "z": 9.5,
+     "front": true,
+     "enter": "walk",
+     "fromX": 7,
+     "fromZ": 12.5,
+     "walkDur": 1.3,
+     "at": "Liberali",
+     "lag": 0.7,
+     "action": "run"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#e2001a",
+      "shorts": "#1d1c22",
+      "socks": "#e2001a",
+      "text": "#ffd400",
+      "stripes": [
+       "#e2001a",
+       "#ffd400"
+      ]
+     },
+     "skin": "#d9a37c",
+     "hair": "#1d1410",
+     "x": -3.2,
+     "z": 12,
+     "front": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#e2001a",
+      "shorts": "#1d1c22",
+      "socks": "#e2001a",
+      "text": "#ffd400",
+      "stripes": [
+       "#e2001a",
+       "#ffd400"
+      ]
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a20",
+     "x": -5.4,
+     "z": 14.5,
+     "front": false
     }
    ],
    "card": [

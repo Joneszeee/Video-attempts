@@ -275,8 +275,19 @@ function drawToyFigure(x, y, u, p, t, walk, alpha) {
   toyBlob(hx - hr * 0.95, hy + hr * 0.1, hr * 0.2, skin); toyBlob(hx + hr * 0.95, hy + hr * 0.1, hr * 0.2, skin);   // ears
   toyBlob(hx, hy, hr, skin);
   if (front) {
-    if (p.beard) { ctx.save(); ctx.beginPath(); ctx.arc(hx, hy, hr, 0, 7); ctx.clip(); ctx.fillStyle = p.beardColor || p.hair || '#2a1a10'; ctx.globalAlpha *= 0.92;
-      ctx.beginPath(); ctx.ellipse(hx, hy + hr * 0.62, hr * 0.85, hr * 0.55, 0, 0, 7); ctx.fill(); ctx.restore(); }
+    if (p.beard) {   // short trimmed beard: a soft jawline band with the mouth left clear, plus a thin moustache
+      const bc = p.beardColor || p.hair || '#2a1a10';
+      ctx.save(); ctx.beginPath(); ctx.arc(hx, hy, hr * 0.995, 0, 7); ctx.clip();
+      ctx.globalAlpha *= 0.62; ctx.fillStyle = bc;
+      ctx.beginPath(); ctx.moveTo(hx - hr * 1.05, hy + hr * 0.12);
+      ctx.quadraticCurveTo(hx - hr * 0.62, hy + hr * 0.3, hx - hr * 0.42, hy + hr * 0.5);
+      ctx.quadraticCurveTo(hx, hy + hr * 0.78, hx + hr * 0.42, hy + hr * 0.5);
+      ctx.quadraticCurveTo(hx + hr * 0.62, hy + hr * 0.3, hx + hr * 1.05, hy + hr * 0.12);
+      ctx.lineTo(hx + hr * 1.05, hy + hr * 1.1); ctx.lineTo(hx - hr * 1.05, hy + hr * 1.1); ctx.closePath(); ctx.fill();
+      ctx.restore();
+      ctx.save(); ctx.globalAlpha *= 0.7; ctx.strokeStyle = bc; ctx.lineCap = 'round'; ctx.lineWidth = hr * 0.07;
+      ctx.beginPath(); ctx.moveTo(hx - hr * 0.2, hy + hr * 0.33); ctx.quadraticCurveTo(hx, hy + hr * 0.25, hx + hr * 0.2, hy + hr * 0.33); ctx.stroke();
+      ctx.restore(); }
     ctx.fillStyle = '#1d1c22';
     const blink = (Math.sin(t * 1.3 + (p.x || 0)) > 0.985) ? 0.15 : 1;
     ctx.beginPath(); ctx.ellipse(hx - hr * 0.33, hy + hr * 0.02, hr * 0.09, hr * 0.13 * blink, 0, 0, 7); ctx.fill();

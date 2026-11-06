@@ -1446,7 +1446,7 @@ Object.assign(CARDS, {
       ctx.fillText(c.fmt ? c.fmt.replace('{v}', v) : String(v), x, cy + 50);
     }
     (c.markers || []).forEach((m, i) => {
-      const k = eOut(pr(ct, 0.8 + i * 0.5, 0.4));
+      const k = eOut(pr(ct, m.t != null ? m.t : 0.8 + i * 0.5, 0.4));   // markers can land on their words (at)
       if (k <= 0) return;
       const x = X(m.value), up = m.side !== 'below', len = (m.len || 80) * k, col = m.accent ? S.accent : '#e7eaef';
       ctx.save(); ctx.globalAlpha *= k;

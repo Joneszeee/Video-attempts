@@ -7,7 +7,7 @@ const TOY = {
   wall: ['#f3dcbc', '#d9a679'], felt: '#64b25e', felt2: '#6fbc68', chalk: '#f7f1e2', wood: '#c48a52', wood2: '#a8713f',
   ink: '#1d1c22', tape: 'rgba(246,234,200,0.94)',
 };
-function toyOn() { return S.spec && S.spec.style === 'toy'; }
+function toyOn() { return S.spec && (S.spec.style === 'toy' || S.spec.style === 'hybrid'); }   // hybrid: toy figures + clean type, in the regular stadium scenes
 
 // a polygon in world space, clipped at the near plane and projected
 function toyPoly(cam, pts, fill, stroke, lw) {

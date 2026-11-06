@@ -1,0 +1,1265 @@
+{
+ "title": "Como 9–1 Lens",
+ "brand": "theo6k",
+ "accent": "#4da3ff",
+ "style": "hybrid",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Champions League · Lens v Como",
+   "headline": "Serie D in 2017. Now [nine] in one game.",
+   "accent": "#4da3ff",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     0.6,
+     -1.4
+    ],
+    "tgt": [
+     0,
+     1.7,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     0.5,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.6,
+     12
+    ]
+   },
+   "move": 4,
+   "lights": 0.9,
+   "flashes": 10,
+   "speedlines": [
+    {
+     "t": 0,
+     "dur": 1.2,
+     "amount": 0.6
+    }
+   ],
+   "shake": [
+    {
+     "at": "nine",
+     "amount": 14
+    }
+   ],
+   "players": [
+    {
+     "name": "",
+     "num": 9,
+     "kit": {
+      "shirt": "#dcdcdc",
+      "shorts": "#dcdcdc",
+      "socks": "#dcdcdc",
+      "text": "#666666"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 1.6,
+     "front": true,
+     "chest": true,
+     "enter": "walk",
+     "fromZ": 7,
+     "walkDur": 2.6,
+     "label": "Serie D · 2017",
+     "labelDelay": 0,
+     "swapAt": "Now they've",
+     "swapLag": -0.1,
+     "swap": {
+      "kit": {
+       "shirt": "#1f5fae",
+       "shorts": "#ffffff",
+       "socks": "#1f5fae",
+       "text": "#ffffff"
+      },
+      "pose": "wings",
+      "mood": "joy",
+      "label": "Champions League · 2026"
+     }
+    }
+   ],
+   "card": [
+    {
+     "type": "claynum",
+     "text": "9–1",
+     "size": 250,
+     "y": 1630,
+     "at": "scored nine",
+     "color": "#4da3ff",
+     "label": "Lens v Como",
+     "labelDy": 84,
+     "clear": false
+    }
+   ],
+   "vo": "Como were playing in Serie D in 2017. Now they've scored nine in one Champions League game."
+  },
+  {
+   "kicker": "4 November 2026 · Stade Bollaert",
+   "headline": "Lens v Como. [7 minutes] in.",
+   "accent": "#4da3ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     40,
+     -70
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     24,
+     -42
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 4,
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 700,
+     "at": "fourth",
+     "label": "Lens v Como",
+     "groups": [
+      {
+       "label": "November",
+       "value": 4,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "WED",
+      "big": "4",
+      "bottom": "NOV"
+     }
+    }
+   ],
+   "shots": [
+    {
+     "at": "Seven minutes",
+     "cut": true,
+     "move": 2.6,
+     "camFrom": {
+      "pos": [
+       -2.0,
+       2.0,
+       33.5
+      ],
+      "tgt": [
+       0.48,
+       1.0,
+       52
+      ]
+     },
+     "camera": {
+      "pos": [
+       -1.4000000000000001,
+       1.8,
+       35.0
+      ],
+      "tgt": [
+       0.48,
+       1.0,
+       52
+      ]
+     },
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#1f5fae",
+        "shorts": "#ffffff",
+        "socks": "#1f5fae",
+        "text": "#ffffff"
+       },
+       "x": 1.2,
+       "z": 40,
+       "skin": "#e7b593",
+       "hair": "#3a2a1a",
+       "label": "Douvikas",
+       "labelAt": "Douvikas",
+       "action": "kick",
+       "actionAt": "Douvikas",
+       "actionLag": -0.1,
+       "actionDur": 0.8,
+       "after": "celebrate"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#2fae6b",
+        "shorts": "#1d1c22",
+        "socks": "#2fae6b",
+        "text": "#ffffff"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#8a6a45",
+       "x": 0,
+       "z": 52.0,
+       "front": true,
+       "action": "dive",
+       "dir": 1,
+       "actionAt": "Douvikas",
+       "actionLag": 0.45000000000000007,
+       "before": "ready",
+       "pose": "keeper"
+      }
+     ],
+     "card": [
+      {
+       "type": "ball",
+       "delay": 0,
+       "point": [
+        1.42,
+        0.11,
+        40.45
+       ],
+       "untilAt": "Douvikas",
+       "untilLag": 0.24000000000000002
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "Douvikas",
+       "lag": 0.24000000000000002,
+       "dur": 0.5,
+       "slowmo": false,
+       "points": [
+        [
+         1.42,
+         0.11,
+         40.45
+        ],
+        [
+         -0.5900000000000001,
+         1.0,
+         46.25
+        ],
+        [
+         -2.6,
+         0.8,
+         52.8
+        ]
+       ]
+      },
+      {
+       "type": "clock",
+       "y": 700,
+       "scale": 0.75,
+       "delay": 0,
+       "from": 0,
+       "to": 7,
+       "dur": 1.0,
+       "events": [
+        {
+         "min": 7,
+         "text": "Douvikas · 0–1"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "vo": "The fourth of November, 2026. Como away at Lens. Seven minutes in: Douvikas."
+  },
+  {
+   "kicker": "First half",
+   "headline": "[3–0] at half-time.",
+   "accent": "#4da3ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "camFrom": "stand",
+   "camera": "stand",
+   "lights": 0.4,
+   "focus": 0.75,
+   "players": [],
+   "card": {
+    "type": "tactic",
+    "theme": "dark",
+    "y": 1180,
+    "delay": 0,
+    "note": false,
+    "home": "#1f5fae",
+    "away": "#e2001a",
+    "awayText": "#ffd400",
+    "r": 34,
+    "showBall": false,
+    "players": [
+     {
+      "n": "GK",
+      "x": 0.5,
+      "y": 0.05,
+      "team": "away",
+      "name": "Risser",
+      "label": "left"
+     },
+     {
+      "n": "",
+      "x": 0.36,
+      "y": 0.2,
+      "team": "away"
+     },
+     {
+      "n": "",
+      "x": 0.62,
+      "y": 0.2,
+      "team": "away"
+     },
+     {
+      "n": 11,
+      "x": 0.44,
+      "y": 0.24,
+      "team": "home",
+      "name": "Douvikas",
+      "ring": "#4da3ff"
+     },
+     {
+      "n": 10,
+      "x": 0.6,
+      "y": 0.36,
+      "team": "home",
+      "name": "Paz"
+     }
+    ],
+    "moves": [
+     {
+      "from": 3,
+      "to": [
+       0.46,
+       0.0
+      ],
+      "at": "thirty-two",
+      "dur": 0.45,
+      "kind": "shot",
+      "ball": false,
+      "color": "#4da3ff"
+     },
+     {
+      "from": 4,
+      "to": [
+       0.52,
+       0.0
+      ],
+      "at": "Nico Paz",
+      "lag": 0.3,
+      "dur": 0.8,
+      "kind": "shot",
+      "curve": -0.25,
+      "ball": false,
+      "color": "#4da3ff"
+     }
+    ],
+    "tags": [
+     {
+      "at": "thirty-two",
+      "lag": 0.3,
+      "x": 0.3,
+      "y": 0.12,
+      "text": "32' · 0–2",
+      "color": "#1f5fae"
+     },
+     {
+      "at": "made it three",
+      "x": 0.72,
+      "y": 0.12,
+      "text": "40' lob · 0–3",
+      "color": "#1f5fae"
+     },
+     {
+      "at": "half-time",
+      "x": 0.5,
+      "y": 0.62,
+      "text": "HT · LENS 0–3 COMO",
+      "color": "#e2001a"
+     }
+    ]
+   },
+   "vo": "He scored again on thirty-two. Nico Paz made it three. Three–nil at half-time."
+  },
+  {
+   "kicker": "Second half",
+   "headline": "Then it got [silly].",
+   "accent": "#4da3ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "camFrom": {
+    "pos": [
+     1.5,
+     2.0,
+     60
+    ],
+    "tgt": [
+     0,
+     1.2,
+     40
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.8,
+     1.8,
+     59
+    ],
+    "tgt": [
+     0,
+     1.3,
+     40
+    ]
+   },
+   "move": 5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2fae6b",
+      "shorts": "#1d1c22",
+      "socks": "#2fae6b",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "x": 0.2,
+     "z": 51.6,
+     "pose": "keeper",
+     "front": false
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Da Cunha",
+     "lag": -0.1,
+     "dur": 0.6,
+     "slowmo": false,
+     "points": [
+      [
+       -8,
+       0.3,
+       38
+      ],
+      [
+       -5.1,
+       2.1,
+       45.45
+      ],
+      [
+       -2.2,
+       0.9,
+       52.9
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Kempf",
+     "lag": -0.1,
+     "dur": 0.6,
+     "slowmo": false,
+     "points": [
+      [
+       3,
+       3.0,
+       46
+      ],
+      [
+       2.4,
+       4.2,
+       49.45
+      ],
+      [
+       1.8,
+       1.8,
+       52.9
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "hat-trick",
+     "lag": -0.1,
+     "dur": 0.6,
+     "slowmo": false,
+     "points": [
+      [
+       1,
+       0.3,
+       40
+      ],
+      [
+       0.7,
+       1.7999999999999998,
+       46.45
+      ],
+      [
+       0.4,
+       0.6,
+       52.9
+      ]
+     ]
+    },
+    {
+     "type": "stack",
+     "y": 1720,
+     "delay": 0,
+     "items": [
+      {
+       "value": 4,
+       "label": "Da Cunha",
+       "at": "Da Cunha",
+       "prefix": "0–"
+      },
+      {
+       "value": 5,
+       "label": "Kempf",
+       "at": "Kempf",
+       "prefix": "0–"
+      },
+      {
+       "value": 6,
+       "label": "Douvikas · hat-trick",
+       "at": "hat-trick",
+       "prefix": "0–",
+       "gold": true
+      }
+     ]
+    }
+   ],
+   "vo": "After the break, it got silly. Da Cunha. Kempf. Then Douvikas completes his hat-trick."
+  },
+  {
+   "kicker": "Off the bench",
+   "headline": "Liberali. Baturina. [Eight].",
+   "accent": "#4da3ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "camFrom": {
+    "pos": [
+     -4,
+     3.5,
+     -6
+    ],
+    "tgt": [
+     0,
+     1,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -1,
+     2.2,
+     -2.5
+    ],
+    "tgt": [
+     0.8,
+     1.2,
+     8
+    ]
+   },
+   "move": 3.3,
+   "focus": 0.55,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "x": 1.8,
+     "z": 3.6,
+     "front": true,
+     "enter": "walk",
+     "fromX": 8,
+     "fromZ": 4,
+     "walkDur": 1.4,
+     "label": "Liberali",
+     "at": "Liberali",
+     "pose": "arms_up"
+    }
+   ],
+   "card": [
+    {
+     "type": "rain",
+     "y": 1450,
+     "delay": -1,
+     "groups": [
+      {
+       "n": 6,
+       "color": "#4da3ff",
+       "t": 0,
+       "dur": 0.01
+      },
+      {
+       "n": 1,
+       "color": "#4da3ff",
+       "at": "Liberali",
+       "dur": 0.4
+      },
+      {
+       "n": 1,
+       "color": "#ffcc00",
+       "at": "Baturina",
+       "dur": 0.4
+      }
+     ],
+     "cols": 5,
+     "cell": 96,
+     "icon": "ball",
+     "label": "Como goals"
+    }
+   ],
+   "vo": "Liberali, off the bench. Baturina. That's eight."
+  },
+  {
+   "kicker": "Stoppage time",
+   "headline": "18 years old. On his [debut].",
+   "accent": "#4da3ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "camFrom": {
+    "pos": [
+     1.8000000000000003,
+     2.0,
+     34.5
+    ],
+    "tgt": [
+     -0.5599999999999999,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     1.2000000000000002,
+     1.8,
+     36.0
+    ],
+    "tgt": [
+     -0.5599999999999999,
+     1.0,
+     52
+    ]
+   },
+   "move": 4.5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "x": -1.4,
+     "z": 41,
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "label": "Papaccioli · 18",
+     "labelAt": "Papaccioli",
+     "action": "kick",
+     "actionAt": "debut",
+     "actionLag": -0.45,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2fae6b",
+      "shorts": "#1d1c22",
+      "socks": "#2fae6b",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "debut",
+     "actionLag": 0.10000000000000003,
+     "before": "ready",
+     "pose": "keeper"
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.18,
+      0.11,
+      41.45
+     ],
+     "untilAt": "debut",
+     "untilLag": -0.10999999999999999
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "debut",
+     "lag": -0.10999999999999999,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.18,
+       0.11,
+       41.45
+      ],
+      [
+       0.8099999999999999,
+       1.0,
+       46.75
+      ],
+      [
+       2.8,
+       1.1,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 65,
+     "to": 91,
+     "dur": 2.4,
+     "events": [
+      {
+       "min": 65,
+       "text": "65' Aguilar · 1–8"
+      },
+      {
+       "min": 91,
+       "text": "90+1' Papaccioli · 1–9"
+      }
+     ]
+    },
+    {
+     "type": "claynum",
+     "text": "9–1",
+     "size": 230,
+     "y": 1650,
+     "at": "Nine",
+     "color": "#4da3ff",
+     "clear": false
+    }
+   ],
+   "confetti": true,
+   "confettiAt": "Nine",
+   "confettiColors": [
+    "#1f5fae",
+    "#ffffff",
+    "#4da3ff"
+   ],
+   "vo": "Lens got one back. Then, in stoppage time, eighteen-year-old Papaccioli scored on his debut. Nine–one."
+  },
+  {
+   "kicker": "The record books",
+   "headline": "The joint-[biggest] ever.",
+   "accent": "#ffcc00",
+   "cut": true,
+   "scene": {
+    "type": "booth",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#1f5fae"
+    ],
+    "seed": 7,
+    "screenLeft": [
+     "LENS 1–9 COMO",
+     "FULL TIME"
+    ],
+    "screenRight": [
+     "+8",
+     "JOINT RECORD"
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3a2a1a",
+     "headset": true,
+     "sx": 0.5,
+     "scale": 0.78,
+     "front": true,
+     "mood": "joy",
+     "pose": "arms_up"
+    }
+   ],
+   "card": [
+    {
+     "type": "board",
+     "y": 760,
+     "at": "joint-biggest",
+     "label": "Biggest Champions League wins",
+     "rows": [
+      {
+       "name": "LIV 8-0 BES 07",
+       "value": "+8"
+      },
+      {
+       "name": "MAL 0-8 RMA 15",
+       "value": "+8"
+      },
+      {
+       "name": "LEN 1-9 COM 26",
+       "value": "+8"
+      }
+     ],
+     "cols": 14,
+     "vcols": 2,
+     "focus": 2
+    }
+   ],
+   "vo": "It's the joint-biggest win in Champions League history."
+  },
+  {
+   "kicker": "Champions League debut season",
+   "headline": "[19 goals]. Four games.",
+   "accent": "#4da3ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     6,
+     -14
+    ],
+    "tgt": [
+     0,
+     1,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     5,
+     -10
+    ],
+    "tgt": [
+     0,
+     1,
+     10
+    ]
+   },
+   "move": 5,
+   "focus": 0.55,
+   "players": [],
+   "card": [
+    {
+     "type": "toyresults",
+     "y": 1180,
+     "delay": 0,
+     "items": [
+      {
+       "score": "4–1",
+       "team": "v RB Leipzig",
+       "win": true,
+       "t": 0.2
+      },
+      {
+       "score": "4–1",
+       "team": "v Man United",
+       "win": true,
+       "at": "Manchester United"
+      },
+      {
+       "score": "9–1",
+       "team": "at Lens",
+       "win": true,
+       "t": 0.6
+      },
+      {
+       "score": "19",
+       "team": "goals in 4 games",
+       "win": true,
+       "at": "nineteen"
+      }
+     ]
+    }
+   ],
+   "vo": "Como have now scored nineteen goals in four games. They beat Manchester United four–one."
+  },
+  {
+   "kicker": "The coach",
+   "headline": "Cesc [Fàbregas].",
+   "accent": "#4da3ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "orbit": {
+    "center": [
+     0,
+     1.25,
+     2.4
+    ],
+    "r": 4.2,
+    "from": -30,
+    "to": 15,
+    "h": 1.4,
+    "h2": 1.7,
+    "dur": 3.2
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -1.8
+    ],
+    "tgt": [
+     0,
+     1.25,
+     2.4
+    ]
+   },
+   "flashes": 14,
+   "lights": 0.85,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1b2233",
+     "tie": "#1f5fae",
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "beard": true,
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "pose": "fists",
+     "mood": "joy",
+     "label": "Cesc Fàbregas",
+     "labelAt": "Fàbregas"
+    }
+   ],
+   "vo": "The man behind it all: Cesc Fàbregas."
+  },
+  {
+   "kicker": "From the bottom",
+   "headline": "Bankrupt to [4th in Europe].",
+   "accent": "#4da3ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -110
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     36,
+     -62
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 6,
+   "focus": 0.6,
+   "players": [],
+   "card": [
+    {
+     "type": "ruler",
+     "y": 1100,
+     "delay": 0,
+     "min": 2017,
+     "max": 2026,
+     "step": 1,
+     "width": 820,
+     "markers": [
+      {
+       "value": 2017,
+       "label": "Serie D\n(bankrupt)",
+       "at": "Bankrupt",
+       "side": "above"
+      },
+      {
+       "value": 2019,
+       "label": "Serie C",
+       "t": 0.9,
+       "side": "below",
+       "len": 60
+      },
+      {
+       "value": 2024,
+       "label": "Serie A",
+       "at": "Serie A",
+       "side": "above"
+      },
+      {
+       "value": 2026,
+       "label": "UCL · 4th",
+       "at": "fourth",
+       "accent": true,
+       "side": "below"
+      }
+     ]
+    }
+   ],
+   "vo": "Bankrupt in 2017. Serie A in 2024. Now fourth in the Champions League."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Can Como [win it]?",
+   "accent": "#4da3ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "orbit": {
+    "center": [
+     0,
+     1.1,
+     3
+    ],
+    "r": 5,
+    "from": -30,
+    "to": 20,
+    "h": 1.6,
+    "h2": 2.0,
+    "dur": 5
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.8,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.1,
+     3
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "num": 11,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -1.5,
+     "z": 3.4,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up",
+     "mood": "joy"
+    },
+    {
+     "name": "",
+     "num": 10,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#141010",
+     "x": 0,
+     "z": 2.8,
+     "front": true,
+     "chest": true,
+     "pose": "fists",
+     "mood": "joy"
+    },
+    {
+     "name": "",
+     "num": 7,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a45",
+     "x": 1.5,
+     "z": 3.4,
+     "front": true,
+     "chest": true,
+     "pose": "wings",
+     "mood": "joy"
+    }
+   ],
+   "flashes": 12,
+   "confetti": true,
+   "confettiColors": [
+    "#1f5fae",
+    "#ffffff",
+    "#4da3ff"
+   ],
+   "card": [
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "be honest",
+     "question": "Can Como win it all?",
+     "options": [
+      {
+       "label": "Yes, why not",
+       "color": "#1f5fae",
+       "fill": 0.5
+      },
+      {
+       "label": "No chance",
+       "color": "#9aa1ad",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So be honest: can Como actually win it? Tell me in the comments."
+  }
+ ]
+}

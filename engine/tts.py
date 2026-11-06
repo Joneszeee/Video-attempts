@@ -42,6 +42,11 @@ def speakable(line):
 
 # Words the phonemiser gets wrong -> the phonemes to use instead.
 PRONOUNCE = {
+    'Douvikas': 'duːvˈiːkəs',
+    'Papaccioli': 'papətʃˈəʊli',
+    'Baturina': 'batʊɹˈiːnə',
+    'Liberali': 'lɪbəɹˈɑːli',
+    'Fàbregas': 'fˈabɹɪɡas',
     'Kuyt': 'kˈaɪt',             # KITE
     'Fenerbahçe': 'fˈɛnəbɑːtʃeɪ',
     'Muriqi': 'mʊɹˈiːtʃi',

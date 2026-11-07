@@ -1,0 +1,1692 @@
+{
+ "title": "Neuer's record day",
+ "brand": "theo6k",
+ "accent": "#e8384f",
+ "style": "hybrid",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Bundesliga · Mainz v Bayern",
+   "headline": "Neuer's record day went [wrong].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     0.7,
+     -1.6
+    ],
+    "tgt": [
+     0,
+     1.6,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     0.6,
+     -2.8
+    ],
+    "tgt": [
+     0,
+     1.5,
+     12
+    ]
+   },
+   "move": 3.5,
+   "lights": 0.9,
+   "flashes": 10,
+   "speedlines": [
+    {
+     "t": 0,
+     "dur": 1.0,
+     "amount": 0.6
+    }
+   ],
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b3242",
+      "shorts": "#2b3242",
+      "socks": "#2b3242",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8925f",
+     "gloves": "#ffffff",
+     "x": 0,
+     "z": 1.6,
+     "front": true,
+     "pose": "keeper",
+     "enter": "walk",
+     "fromZ": 3.8,
+     "walkDur": 1.8,
+     "label": "Manuel Neuer",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "flip",
+     "y": 1530,
+     "delay": -2.6,
+     "label": "Age today",
+     "groups": [
+      {
+       "label": "Years",
+       "value": 40,
+       "digits": 2
+      },
+      {
+       "label": "Days",
+       "value": 225,
+       "digits": 3
+      }
+     ],
+     "hideAt": "Forty minutes"
+    },
+    {
+     "type": "stamp",
+     "text": "RECORD",
+     "sub": "Bayern's oldest",
+     "at": "record",
+     "color": "#e9b949",
+     "rot": -0.12,
+     "y": 1250,
+     "hideAt": "Forty minutes"
+    },
+    {
+     "type": "stamp",
+     "text": "INJURED",
+     "sub": "40'",
+     "at": "limping",
+     "color": "#e8384f",
+     "rot": 0.1,
+     "y": 1420
+    }
+   ],
+   "freezeAt": "Forty minutes",
+   "freezeLag": -0.1,
+   "shake": [
+    {
+     "at": "record",
+     "amount": 12
+    }
+   ],
+   "vo": "Manuel Neuer broke a Bayern record at Mainz. Forty minutes later, he was limping off.",
+   "accent": "#e8384f"
+  },
+  {
+   "kicker": "Saturday · Mewa Arena",
+   "headline": "7 November 2026. Neuer [starts].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     40,
+     -70
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     22,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 3,
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 700,
+     "at": "seventh",
+     "label": "Mainz v Bayern",
+     "groups": [
+      {
+       "label": "November",
+       "value": 7,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "SAT",
+      "big": "7",
+      "bottom": "NOV"
+     },
+     "hideAt": "Neuer starts"
+    }
+   ],
+   "shots": [
+    {
+     "at": "Neuer starts",
+     "cut": true,
+     "move": 3.5,
+     "camFrom": {
+      "pos": [
+       0,
+       1.7,
+       44
+      ],
+      "tgt": [
+       0,
+       1.3,
+       52
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.6,
+       46.8
+      ],
+      "tgt": [
+       0,
+       1.3,
+       52
+      ]
+     },
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#2b3242",
+        "shorts": "#2b3242",
+        "socks": "#2b3242",
+        "text": "#ffffff"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#b8925f",
+       "gloves": "#ffffff",
+       "x": 0,
+       "z": 51.6,
+       "front": true,
+       "chest": true,
+       "pose": "keeper",
+       "label": "Neuer · 40 years, 225 days",
+       "labelAt": "aged"
+      }
+     ]
+    }
+   ],
+   "vo": "Saturday the seventh of November, 2026. Neuer starts, aged forty years and two hundred and twenty-five days.",
+   "accent": "#e8384f"
+  },
+  {
+   "kicker": "The record",
+   "headline": "Bayern's [oldest ever] in the Bundesliga.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -1.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     1.2,
+     8
+    ]
+   },
+   "move": 4.5,
+   "lights": 0.8,
+   "flashes": 8,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b3242",
+      "shorts": "#2b3242",
+      "socks": "#2b3242",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8925f",
+     "gloves": "#ffffff",
+     "x": 1.3,
+     "z": 2.6,
+     "front": true,
+     "pose": "fists",
+     "mood": "joy",
+     "label": "Neuer · 2026",
+     "labelAt": "oldest"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#5b6b4a",
+      "shorts": "#1d1c22",
+      "socks": "#5b6b4a",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a5038",
+     "x": -1.3,
+     "z": 3.2,
+     "front": true,
+     "pose": "keeper",
+     "ghost": true,
+     "label": "Dreher · 2007",
+     "labelAt": "Dreher",
+     "at": "Dreher",
+     "enter": "fade"
+    }
+   ],
+   "card": [
+    {
+     "type": "big",
+     "y": 1560,
+     "at": "oldest",
+     "value": 225,
+     "prefix": "40y ",
+     "suffix": "d",
+     "size": 150,
+     "label": "Bayern's oldest Bundesliga player",
+     "hideAt": "Dreher",
+     "hideLag": -0.3
+    },
+    {
+     "type": "tape",
+     "y": 1600,
+     "at": "Dreher",
+     "lag": -0.3,
+     "left": {
+      "name": "Neuer · 2026",
+      "color": "#e9b949"
+     },
+     "right": {
+      "name": "Dreher · 2007",
+      "color": "#8a96a8"
+     },
+     "rows": [
+      {
+       "label": "Days past his 40th birthday",
+       "left": 225,
+       "right": 198,
+       "t": 0.3,
+       "floor": 150
+      }
+     ]
+    }
+   ],
+   "vo": "That makes him Bayern's oldest ever Bundesliga player. He passes Bernd Dreher, from 2007.",
+   "accent": "#e8384f"
+  },
+  {
+   "kicker": "14 minutes",
+   "headline": "Kane finds [Kimmich].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "camFrom": {
+    "pos": [
+     -1.5,
+     4.2,
+     18.5
+    ],
+    "tgt": [
+     0.0,
+     0.8,
+     44
+    ]
+   },
+   "camera": {
+    "pos": [
+     -1.0,
+     3.5,
+     21.5
+    ],
+    "tgt": [
+     0.3,
+     0.8,
+     45
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c8102e"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#a07850",
+     "x": -5,
+     "z": 36,
+     "label": "Kane",
+     "labelAt": "Kane",
+     "action": "kick",
+     "actionAt": "Kane",
+     "actionLag": -0.1,
+     "actionDur": 0.8
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c8102e"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#4a3324",
+     "x": 0.35,
+     "z": 31.0,
+     "label": "Kimmich",
+     "labelAt": "Kimmich",
+     "action": "kick",
+     "actionAt": "Kimmich",
+     "actionLag": 0.15,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c3002f",
+      "shorts": "#ffffff",
+      "socks": "#c3002f",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#1d1410",
+     "x": 2.6,
+     "z": 36,
+     "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a20",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Kimmich",
+     "actionLag": 0.55
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -4.72,
+      0.11,
+      36.45
+     ],
+     "untilAt": "Kane",
+     "untilLag": 0.24
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Kane",
+     "lag": 0.24,
+     "dur": 0.55,
+     "slowmo": false,
+     "points": [
+      [
+       -4.72,
+       0.11,
+       36.45
+      ],
+      [
+       -3.0,
+       0.3,
+       33.6
+      ],
+      [
+       0.6,
+       0.11,
+       31.5
+      ]
+     ]
+    },
+    {
+     "type": "ball",
+     "at": "Kane",
+     "lag": 0.79,
+     "point": [
+      0.6,
+      0.11,
+      31.5
+     ],
+     "untilAt": "Kimmich",
+     "untilLag": 0.49
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Kimmich",
+     "lag": 0.49,
+     "dur": 0.75,
+     "slowmo": false,
+     "points": [
+      [
+       0.6,
+       0.11,
+       31.5
+      ],
+      [
+       1.75,
+       3.4,
+       42.15
+      ],
+      [
+       2.9,
+       2.1,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 0,
+     "to": 14,
+     "dur": 1.2,
+     "events": [
+      {
+       "min": 14,
+       "text": "14' Kimmich · 0–1"
+      }
+     ]
+    }
+   ],
+   "punch": [
+    {
+     "at": "Kimmich",
+     "lag": 0.6,
+     "amount": 0.2,
+     "dur": 1.2,
+     "anchor": 1
+    }
+   ],
+   "vo": "And it starts perfectly. Fourteen minutes: Kane finds Kimmich. Nil–one.",
+   "accent": "#e8384f"
+  },
+  {
+   "kicker": "40 minutes",
+   "headline": "Amiri. Free kick. Tah [flicks it].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "lights": 0.7,
+   "camFrom": {
+    "pos": [
+     -24,
+     8.0,
+     22
+    ],
+    "tgt": [
+     -2,
+     0.6,
+     46
+    ]
+   },
+   "camera": {
+    "pos": [
+     -21,
+     6.5,
+     26
+    ],
+    "tgt": [
+     -1.5,
+     0.8,
+     47.5
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c3002f",
+      "shorts": "#ffffff",
+      "socks": "#c3002f",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#1d1410",
+     "x": -15.4,
+     "z": 33.4,
+     "label": "Amiri",
+     "labelAt": "Amiri",
+     "action": "kick",
+     "actionAt": "swings",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "foot": "left"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c8102e"
+     },
+     "skin": "#6b4630",
+     "hair": "#141010",
+     "x": -1.2,
+     "z": 46.0,
+     "label": "Tah",
+     "labelAt": "Tah",
+     "hops": [
+      {
+       "at": "flicks",
+       "lag": -0.25,
+       "dur": 0.5,
+       "height": 0.35
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c3002f",
+      "shorts": "#ffffff",
+      "socks": "#c3002f",
+      "text": "#ffffff"
+     },
+     "skin": "#e8c39e",
+     "hair": "#141010",
+     "x": 3.6,
+     "z": 48.6,
+     "label": "Lee",
+     "labelAt": "Tah"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c8102e"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "x": 2.4,
+     "z": 47.8
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c3002f",
+      "shorts": "#ffffff",
+      "socks": "#c3002f",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#7a5a3a",
+     "x": -3.0,
+     "z": 47.0
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c8102e"
+     },
+     "skin": "#d9a37c",
+     "hair": "#141010",
+     "x": -4.0,
+     "z": 45.6
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b3242",
+      "shorts": "#2b3242",
+      "socks": "#2b3242",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8925f",
+     "gloves": "#ffffff",
+     "x": 0.4,
+     "z": 51.6,
+     "front": true,
+     "pose": "keeper"
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -15,
+      0.11,
+      34
+     ],
+     "untilAt": "swings",
+     "untilLag": 0.24
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "swings",
+     "lag": 0.24,
+     "dur": 1.1,
+     "slowmo": false,
+     "points": [
+      [
+       -15,
+       0.11,
+       34
+      ],
+      [
+       -8,
+       6.5,
+       44
+      ],
+      [
+       -1.2,
+       2.3,
+       46.2
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "flicks",
+     "lag": 0.0,
+     "dur": 0.9,
+     "slowmo": false,
+     "points": [
+      [
+       -1.2,
+       2.3,
+       46.2
+      ],
+      [
+       1.5,
+       3.2,
+       48.5
+      ],
+      [
+       3.6,
+       0.6,
+       49.6
+      ]
+     ],
+     "flash": false
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 14,
+     "to": 40,
+     "dur": 1.2,
+     "events": [
+      {
+       "min": 40,
+       "text": "40' free kick"
+      }
+     ]
+    }
+   ],
+   "vo": "Then, on forty minutes, Amiri swings in a free kick. Tah flicks it on.",
+   "accent": "#e8384f"
+  },
+  {
+   "kicker": "The flap",
+   "headline": "Missed it [by a mile].",
+   "accent": "#e8384f",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "lights": 0.8,
+   "camFrom": {
+    "pos": [
+     -6.5,
+     1.9,
+     43.5
+    ],
+    "tgt": [
+     1.5,
+     1.5,
+     50
+    ]
+   },
+   "camera": {
+    "pos": [
+     -5.5,
+     1.8,
+     45
+    ],
+    "tgt": [
+     1.7,
+     1.5,
+     50
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b3242",
+      "shorts": "#2b3242",
+      "socks": "#2b3242",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8925f",
+     "gloves": "#ffffff",
+     "x": 0.4,
+     "z": 51.6,
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       0.4,
+       51.6
+      ],
+      [
+       1.0,
+       48.9
+      ]
+     ],
+     "pathDur": 0.8,
+     "at": "flying",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "flying",
+     "actionLag": 0.55,
+     "actionDur": 0.9
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c3002f",
+      "shorts": "#ffffff",
+      "socks": "#c3002f",
+      "text": "#ffffff"
+     },
+     "skin": "#e8c39e",
+     "hair": "#141010",
+     "x": 3.6,
+     "z": 49.8,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "flying",
+     "lag": 0.5,
+     "dur": 1.5,
+     "slowmo": true,
+     "points": [
+      [
+       -1.2,
+       2.3,
+       46.2
+      ],
+      [
+       1.0,
+       4.2,
+       48.0
+      ],
+      [
+       3.1,
+       0.5,
+       49.2
+      ]
+     ],
+     "flash": false
+    },
+    {
+     "type": "pen",
+     "delay": 0,
+     "strokes": [
+      {
+       "kind": "text",
+       "text": "A MILE",
+       "x": 560,
+       "y": 860,
+       "size": 80,
+       "rot": -6,
+       "at": "mile",
+       "color": "#e8384f"
+      }
+     ]
+    }
+   ],
+   "punch": [
+    {
+     "at": "misses",
+     "amount": 0.18,
+     "dur": 1.4,
+     "anchor": 0
+    }
+   ],
+   "vo": "Neuer comes flying off his line… and misses it by a mile."
+  },
+  {
+   "kicker": "40 minutes",
+   "headline": "Lee scores. [1–1]?",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "camFrom": {
+    "pos": [
+     5.5,
+     1.8,
+     40.5
+    ],
+    "tgt": [
+     1.5,
+     1.0,
+     51
+    ]
+   },
+   "camera": {
+    "pos": [
+     4.6,
+     1.7,
+     42.5
+    ],
+    "tgt": [
+     1.6,
+     1.0,
+     51
+    ]
+   },
+   "move": 4,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c3002f",
+      "shorts": "#ffffff",
+      "socks": "#c3002f",
+      "text": "#ffffff"
+     },
+     "skin": "#e8c39e",
+     "hair": "#141010",
+     "x": 3.6,
+     "z": 49.4,
+     "label": "Lee Jae-sung",
+     "labelAt": "Lee",
+     "action": "kick",
+     "actionAt": "scores",
+     "actionLag": -0.45,
+     "actionDur": 0.7,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b3242",
+      "shorts": "#2b3242",
+      "socks": "#2b3242",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8925f",
+     "gloves": "#ffffff",
+     "x": 0.9,
+     "z": 49.2,
+     "front": true,
+     "pose": "hurt",
+     "mood": "cross"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c3002f",
+      "shorts": "#ffffff",
+      "socks": "#c3002f",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#7a5a3a",
+     "x": -2.0,
+     "z": 47.0,
+     "front": true,
+     "action": "celebrate",
+     "actionAt": "level"
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      3.4,
+      0.2,
+      49.75
+     ],
+     "untilAt": "scores",
+     "untilLag": -0.15
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "scores",
+     "lag": -0.15,
+     "dur": 0.35,
+     "slowmo": false,
+     "points": [
+      [
+       3.4,
+       0.2,
+       49.75
+      ],
+      [
+       2.9,
+       0.5,
+       51.275
+      ],
+      [
+       2.4,
+       0.3,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "claynum",
+     "text": "1–1",
+     "size": 220,
+     "y": 1600,
+     "at": "level",
+     "color": "#ffffff",
+     "label": "40' · Lee",
+     "labelDy": 80,
+     "clear": false
+    }
+   ],
+   "vo": "Lee Jae-sung scores behind him. Mainz are level.",
+   "accent": "#e8384f"
+  },
+  {
+   "kicker": "Injury",
+   "headline": "Neuer [can't go on].",
+   "accent": "#e8384f",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "lights": 0.6,
+   "camFrom": {
+    "pos": [
+     2.0,
+     1.4,
+     45.5
+    ],
+    "tgt": [
+     0.9,
+     0.5,
+     49.2
+    ]
+   },
+   "camera": {
+    "pos": [
+     1.6,
+     1.2,
+     46.5
+    ],
+    "tgt": [
+     0.9,
+     0.5,
+     49.2
+    ]
+   },
+   "move": 3.5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b3242",
+      "shorts": "#2b3242",
+      "socks": "#2b3242",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8925f",
+     "gloves": "#ffffff",
+     "x": 0.9,
+     "z": 49.2,
+     "front": true,
+     "pose": "hurt",
+     "mood": "cross",
+     "label": "Right foot",
+     "labelAt": "right foot"
+    }
+   ],
+   "card": [
+    {
+     "type": "pen",
+     "delay": 0,
+     "anchor": 0,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 0.12,
+       "cy": -0.05,
+       "rx": 0.32,
+       "ry": 0.12,
+       "at": "right foot",
+       "color": "#e8384f",
+       "layer": "under"
+      }
+     ],
+     "hideAt": "On comes",
+     "hideLag": -0.1
+    }
+   ],
+   "shots": [
+    {
+     "at": "On comes",
+     "lag": -0.1,
+     "cut": true,
+     "lights": 0.9,
+     "move": 3,
+     "camFrom": {
+      "pos": [
+       -1,
+       1.6,
+       -3.5
+      ],
+      "tgt": [
+       0,
+       1.2,
+       6
+      ]
+     },
+     "camera": {
+      "pos": [
+       -0.6,
+       1.5,
+       -2.4
+      ],
+      "tgt": [
+       0,
+       1.2,
+       6
+      ]
+     },
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#2b3242",
+        "shorts": "#2b3242",
+        "socks": "#2b3242",
+        "text": "#ffffff"
+       },
+       "skin": "#f2cbb0",
+       "hair": "#8a6a45",
+       "gloves": "#ffffff",
+       "x": 0,
+       "z": 2.2,
+       "front": true,
+       "enter": "walk",
+       "fromX": -6,
+       "fromZ": 2.2,
+       "walkDur": 1.4,
+       "label": "Jonas Urbig",
+       "labelAt": "Urbig",
+       "pose": "keeper"
+      }
+     ]
+    }
+   ],
+   "vo": "But Neuer stays down, holding his right foot. On comes Jonas Urbig."
+  },
+  {
+   "kicker": "VAR check",
+   "headline": "Lee was [offside].",
+   "accent": "#3fa0ff",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "camFrom": {
+    "pos": [
+     -11,
+     5.5,
+     44.5
+    ],
+    "tgt": [
+     2.5,
+     0.6,
+     49.4
+    ]
+   },
+   "camera": {
+    "pos": [
+     -8.5,
+     4.2,
+     45.5
+    ],
+    "tgt": [
+     2.5,
+     0.6,
+     49.4
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "lights": 0.85,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c3002f",
+      "shorts": "#ffffff",
+      "socks": "#c3002f",
+      "text": "#ffffff"
+     },
+     "skin": "#e8c39e",
+     "hair": "#141010",
+     "x": 4.6,
+     "z": 49.5,
+     "label": "Lee",
+     "labelAt": "offside"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c8102e"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "x": -0.6,
+     "z": 48.9,
+     "label": "Last defender",
+     "labelAt": "VAR"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c3002f",
+      "shorts": "#ffffff",
+      "socks": "#c3002f",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#7a5a3a",
+     "x": -3.0,
+     "z": 46.5
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c8102e"
+     },
+     "skin": "#6b4630",
+     "hair": "#141010",
+     "x": -1.2,
+     "z": 46.0
+    }
+   ],
+   "card": [
+    {
+     "type": "varlines",
+     "at": "VAR",
+     "def": 48.9,
+     "att": 49.5,
+     "x0": -20,
+     "x1": 30,
+     "dur": 0.7,
+     "y": 640,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "NO GOAL",
+     "sub": "HT · 0–1",
+     "at": "No goal",
+     "color": "#3fa0ff",
+     "rot": -0.1,
+     "y": 1660
+    }
+   ],
+   "vo": "Then VAR steps in. Lee was offside. No goal."
+  },
+  {
+   "kicker": "Second half",
+   "headline": "Bayern win [2–1].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "camFrom": {
+    "pos": [
+     2.8,
+     2.0,
+     32.5
+    ],
+    "tgt": [
+     -0.8,
+     1.0,
+     51
+    ]
+   },
+   "camera": {
+    "pos": [
+     2.0,
+     1.9,
+     35.0
+    ],
+    "tgt": [
+     -0.8,
+     1.0,
+     51
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#c8102e"
+     },
+     "skin": "#e2b08c",
+     "hair": "#1d1410",
+     "x": -1.25,
+     "z": 40.0,
+     "label": "Karl",
+     "labelAt": "Karl",
+     "action": "kick",
+     "actionAt": "Karl",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a20",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "Karl",
+     "actionLag": 0.4
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.0,
+      0.11,
+      40.5
+     ],
+     "untilAt": "Karl",
+     "untilLag": 0.24
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Karl",
+     "lag": 0.24,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.0,
+       0.11,
+       40.5
+      ],
+      [
+       -1.95,
+       1.0,
+       46.65
+      ],
+      [
+       -2.9,
+       0.5,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 45,
+     "to": 93,
+     "dur": 3.2,
+     "events": [
+      {
+       "min": 57,
+       "text": "57' Karl · 0–2"
+      },
+      {
+       "min": 93,
+       "text": "90+3' Tietz · 1–2"
+      }
+     ]
+    },
+    {
+     "type": "claynum",
+     "text": "1–2",
+     "size": 230,
+     "y": 1650,
+     "at": "Bayern win",
+     "color": "#e8384f",
+     "label": "Mainz v Bayern",
+     "labelDy": 84,
+     "clear": false
+    }
+   ],
+   "vo": "Karl makes it two. Tietz pulls one back late. Bayern win two–one.",
+   "accent": "#e8384f"
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Neuer or [Urbig]?",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "lights": 0.7,
+   "orbit": {
+    "center": [
+     0,
+     1.2,
+     3
+    ],
+    "r": 5,
+    "from": -25,
+    "to": 20,
+    "h": 1.5,
+    "h2": 1.9,
+    "dur": 6
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.2,
+     3
+    ]
+   },
+   "flashes": 8,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b3242",
+      "shorts": "#2b3242",
+      "socks": "#2b3242",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8925f",
+     "gloves": "#ffffff",
+     "x": -1.3,
+     "z": 3.2,
+     "front": true,
+     "pose": "keeper",
+     "label": "Neuer · 40",
+     "labelDelay": 0
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b3242",
+      "shorts": "#2b3242",
+      "socks": "#2b3242",
+      "text": "#ffffff"
+     },
+     "skin": "#f2cbb0",
+     "hair": "#8a6a45",
+     "gloves": "#ffffff",
+     "x": 1.3,
+     "z": 3.2,
+     "front": true,
+     "pose": "keeper",
+     "label": "Urbig",
+     "labelAt": "Urbig"
+    }
+   ],
+   "card": [
+    {
+     "type": "toyresults",
+     "y": 1640,
+     "delay": 0,
+     "hideAt": "So is it",
+     "items": [
+      {
+       "score": "✓",
+       "team": "record",
+       "win": true,
+       "at": "record"
+      },
+      {
+       "score": "✗",
+       "team": "howler",
+       "win": false,
+       "at": "howler"
+      },
+      {
+       "score": "+",
+       "team": "injury",
+       "win": false,
+       "at": "injury"
+      }
+     ]
+    },
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "So is it",
+     "question": "Who starts next?",
+     "options": [
+      {
+       "label": "Urbig, for good",
+       "color": "#e8384f",
+       "fill": 0.5
+      },
+      {
+       "label": "Neuer, always",
+       "color": "#9aa1ad",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "A record, a howler and an injury, all in forty minutes. So is it time for Urbig to take the gloves for good?",
+   "accent": "#e8384f"
+  }
+ ]
+}

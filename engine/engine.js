@@ -1641,10 +1641,10 @@ function drawUnderPens() {
   const b = S.cur;
   if (!b) return;
   for (const it of b.cards) {
-    const web = it.obj.type === 'passweb';
+    const web = it.obj.type === 'passweb' || it.obj.type === 'varlines';
     if (!web && (it.obj.type !== 'pen' || !it.obj.strokes.some(s => s.layer === 'under'))) continue;
     const ct = S.t - it.start;
-    if (ct < 0) continue;
+    if (ct < 0 || (it.obj.hideT != null && ct >= it.obj.hideT)) continue;   // hideAt applies to grass layers too
     ctx.save();
     it.obj._under = true; CARDS[it.obj.type](it.obj, ct); it.obj._under = false;
     ctx.restore();
@@ -1798,6 +1798,42 @@ CARDS.stamp = function (c, ct, cx, cy) {
   ctx.restore();
 };
 CARDS.stamp.noSlide = true;
+
+// VAR offside check: the shot holds while two lines draw across the real pitch (drawn on the grass, under the players):
+// blue for the last defender (def = z in metres), red for the attacker (att), then the gap between them glows.
+// {type: "varlines", att, def, x0, x1, dur, gapAt (s, card time), label: "VAR · CHECKING OFFSIDE", y}
+CARDS.varlines = function (c, ct, cx, cy) {
+  const dur = c.dur || 0.7, x0 = c.x0 != null ? c.x0 : -34, x1 = c.x1 != null ? c.x1 : 34;
+  if (c._under) {
+    if (!S.cam) return;
+    const P = (x, z) => { const v = toCam(S.cam, [x, 0.04, z]); return v[2] < NEAR ? null : proj(v); };
+    const line = (z, col, t0) => {
+      const k = ease(pr(ct - t0, 0, dur)); if (k <= 0) return;
+      const pts = []; for (let i = 0; i <= 24; i++) { const q = P(lerp(x0, lerp(x0, x1, k), i / 24), z); if (q) pts.push(q); }
+      if (pts.length < 2) return;
+      ctx.save(); ctx.strokeStyle = col; ctx.shadowColor = col; ctx.shadowBlur = 18; ctx.lineWidth = 7; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(...pts[0]); for (const q of pts.slice(1)) ctx.lineTo(...q); ctx.stroke(); ctx.restore();
+    };
+    const gk = pr(ct - (c.gapAt != null ? c.gapAt : dur * 2 + 0.2), 0, 0.4);
+    if (gk > 0) {   // the offside gap
+      const a = [P(x0, c.def), P(x1, c.def), P(x1, c.att), P(x0, c.att)];
+      if (a.every(Boolean)) { ctx.save(); ctx.globalAlpha = gk * (0.35 + 0.15 * Math.sin(ct * 8)); ctx.fillStyle = c.gapColor || '#ff3b4a';
+        ctx.beginPath(); ctx.moveTo(...a[0]); a.slice(1).forEach(q => ctx.lineTo(...q)); ctx.closePath(); ctx.fill(); ctx.restore(); }
+    }
+    line(c.def, c.defColor || '#3fa0ff', 0);
+    line(c.att, c.attColor || '#ff3b4a', dur + 0.1);
+    return;
+  }
+  if (c.label === false) return;   // the on-screen VAR badge
+  const k = ease(pr(ct, 0, 0.35)), y = c.y || 640, txt = c.label || 'VAR · CHECKING OFFSIDE';
+  ctx.save(); ctx.globalAlpha *= k; font(800, 34, 'Inter'); const w = ctx.measureText(txt).width + 90;
+  rrect(W / 2 - w / 2, y - 34 + (1 - k) * 20, w, 68, 34); ctx.fillStyle = 'rgba(12,14,20,0.82)'; ctx.fill();
+  ctx.fillStyle = (Math.sin(ct * 9) > 0) ? '#ff3b4a' : '#7a1c24'; ctx.beginPath(); ctx.arc(W / 2 - w / 2 + 36, y + (1 - k) * 20, 9, 0, 7); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(txt, W / 2 - w / 2 + 58, y + 2 + (1 - k) * 20);
+  ctx.restore();
+};
+CARDS.varlines.noSlide = true;
+
 
 // Newspaper front page that spins in (archive / reaction beats). Masthead is fictional: never imitate a real paper.
 CARDS.newspaper = function (c, ct, cx, cy) {
@@ -3202,6 +3238,7 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'varlines': ev.push({ t: 0, type: 'whoosh' }, { t: (c.dur || 0.7) + 0.1, type: 'whoosh' }, { t: c.gapAt != null ? c.gapAt : (c.dur || 0.7) * 2 + 0.2, type: 'tick' }); break;
     case 'redcard': ev.push({ t: 0.1, type: 'whoosh' }, { t: 0.45, type: 'impact' }); break;
     case 'passweb': { const pd = c.pass || 0.34, end = c.stopAt != null ? c.stopAt : (c.passFor || 6); for (let t = pd; t < end; t += pd) ev.push({ t, type: 'pop' });
       if (c.counter !== false) { ticks(0.1, (c.dur || 4) * 0.9); ev.push({ t: c.dur || 4, type: 'impact' }); } break; }

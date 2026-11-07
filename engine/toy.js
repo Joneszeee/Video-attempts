@@ -197,6 +197,7 @@ function toyPose(p, t, walk) {   // arms (angles from straight down, + = outward
   else if (pose === 'shake') { o.aR = 1.2 + 0.1 * Math.sin(t * 9); }
   else if (pose === 'point') { o.aR = 2.1; }
   else if (pose === 'think') { o.aR = 2.6; }
+  else if (pose === 'hurt') { o.rot = -0.22 + 0.06 * Math.sin(t * 3.2 + seed); o.sq = -0.1; o.hop = -0.12; o.aL = 0.55; o.aR = 0.7; o.legR = -1.0; o.legL = 0.25; }   // down, clutching a foot
   if (walk > 0) {
     const ph = t * 10 + seed;
     o.hop = Math.abs(Math.sin(ph)) * 0.06 * walk; o.legL = Math.sin(ph) * 0.5 * walk; o.legR = -o.legL;

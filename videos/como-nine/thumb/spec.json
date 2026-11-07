@@ -1,0 +1,96 @@
+{
+ "brand": "theo6k",
+ "accent": "#4da3ff",
+ "style": "hybrid",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Champions League · Lens v Como",
+   "headline": "Serie D in 2017. Now [nine] in one game.",
+   "accent": "#4da3ff",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#e2001a",
+     "#ffd400",
+     "#e2001a",
+     "#1d1c22"
+    ],
+    "seed": 21
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     0.5,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.6,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     0.5,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.6,
+     12
+    ]
+   },
+   "move": 0.1,
+   "lights": 0.9,
+   "flashes": 10,
+   "speedlines": [],
+   "shake": [],
+   "players": [
+    {
+     "name": "",
+     "num": 9,
+     "kit": {
+      "shirt": "#1f5fae",
+      "shorts": "#ffffff",
+      "socks": "#1f5fae",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 1.6,
+     "front": true,
+     "chest": true,
+     "label": "Champions League · 2026",
+     "pose": "wings",
+     "mood": "joy"
+    }
+   ],
+   "card": [
+    {
+     "type": "claynum",
+     "text": "9–1",
+     "size": 250,
+     "y": 1630,
+     "color": "#4da3ff",
+     "label": "Como win at Lens",
+     "labelDy": 84,
+     "clear": false,
+     "delay": -3
+    }
+   ],
+   "vo": "Thumbnail.",
+   "confetti": true,
+   "confettiDelay": -3,
+   "confettiColors": [
+    "#1f5fae",
+    "#ffffff",
+    "#4da3ff"
+   ]
+  }
+ ]
+}

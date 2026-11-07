@@ -8,13 +8,13 @@ Serie D in 2017… 9 Goals in ONE Champions League Game 🤯 #Shorts
 Como 9–1 Lens: The Joint-Biggest Win in Champions League History
 ```
 ```
-Fàbregas' Como Just Scored NINE Away From Home #Shorts
+Fàbregas' Como Scored NINE Away From Home #Shorts
 ```
 
 ## Description
 Como were playing in Serie D in 2017. On 4 November 2026 they won 9–1 away at Lens in the Champions League. 🔵
 
-Douvikas scored a hat-trick, Nico Paz lobbed the keeper, and 18-year-old Papaccioli scored on his debut in stoppage time. It's the joint-biggest win in Champions League history. Como have 19 goals in their first four games, including 4–1 against Man United, and sit fourth in the league phase under Cesc Fàbregas.
+Douvikas scored a hat-trick, Nico Paz lobbed the keeper, and 18-year-old Papaccioli scored on his debut in stoppage time. It's the joint-biggest win in Champions League history. Como scored 19 goals in their first four games, including 4–1 against Man United, and were fourth in the league phase at that point under Cesc Fàbregas.
 
 Can Como actually win the Champions League? Tell me in the comments 👇 And what do you think of this new mixed style?
 

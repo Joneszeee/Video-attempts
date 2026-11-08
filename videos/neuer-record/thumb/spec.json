@@ -1,0 +1,115 @@
+{
+ "brand": "theo6k",
+ "accent": "#e8384f",
+ "style": "hybrid",
+ "outro": false,
+ "tail": 0,
+ "beats": [
+  {
+   "kicker": "Bundesliga · Mainz v Bayern",
+   "headline": "Neuer's record day went [wrong].",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c3002f",
+     "#ffffff",
+     "#c3002f",
+     "#1d1c22"
+    ],
+    "seed": 27
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     0.6,
+     -2.8
+    ],
+    "tgt": [
+     0,
+     1.5,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     0.6,
+     -2.8
+    ],
+    "tgt": [
+     0,
+     1.5,
+     12
+    ]
+   },
+   "move": 0.1,
+   "lights": 0.9,
+   "flashes": 10,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b3242",
+      "shorts": "#2b3242",
+      "socks": "#2b3242",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8925f",
+     "gloves": "#ffffff",
+     "x": 0,
+     "z": 0.9,
+     "front": true,
+     "pose": "hurt",
+     "mood": "cross"
+    }
+   ],
+   "card": [
+    {
+     "type": "flip",
+     "y": 1690,
+     "delay": -3,
+     "label": "Age today",
+     "groups": [
+      {
+       "label": "Years",
+       "value": 40,
+       "digits": 2
+      },
+      {
+       "label": "Days",
+       "value": 225,
+       "digits": 3
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "RECORD",
+     "sub": "Bayern's oldest",
+     "color": "#e9b949",
+     "rot": -0.12,
+     "y": 640,
+     "delay": -3,
+     "dx": -160,
+     "size": 120
+    },
+    {
+     "type": "stamp",
+     "text": "INJURED",
+     "sub": "40'",
+     "color": "#e8384f",
+     "rot": 0.1,
+     "y": 1380,
+     "delay": -3,
+     "dx": 170,
+     "size": 120
+    }
+   ],
+   "vo": "Thumbnail.",
+   "accent": "#e8384f"
+  }
+ ]
+}

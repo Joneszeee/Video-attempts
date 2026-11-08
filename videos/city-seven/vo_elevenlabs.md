@@ -4,8 +4,8 @@ One emotion per line, pauses from the punctuation, words match vo.txt. Don't cha
 
 ## Copy-paste block
 
-[intrigued] Man City won their first seven games. [dramatic] Then they lost three in a row.
-[mysterious] Only one team in top-flight history had done that before: [slowly] Sheffield Wednesday, in 1904.
+[intrigued] Man City just did something no team has done in 122 years. [dramatic] Seven wins… then three defeats.
+[mysterious] The last team to do it? [slowly] Sheffield Wednesday, in 1904.
 [confident] Enzo Maresca's City started perfectly. Seven games. Seven wins.
 [tense] Then, at Villa Park, Nicolas Jackson scores twice. Villa win two–one.
 [storytelling] A week later, Brighton come to the Etihad. Ayari scores after eleven minutes. [deadpan] One–nil.

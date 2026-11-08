@@ -4,7 +4,18 @@ WHO IT'S FOR: City fans, Arsenal fans, and anyone with a title-race opinion. The
 and a question that splits the comments.
 Angle: **two numbers that clash** (7 wins → 3 losses) + a history twist (only Sheffield Wednesday, 1904). Rotates from Neuer (something breaks).
 
-## Hooks
+## Hooks (v2, after the user asked for a stronger hook)
+**A2. "Man City just did something no team has done in 122 years. Seven wins… then three defeats." ← PICKED** (curiosity loop + number clash + something breaks)
+  0.0s  City player celebrating in a lit stadium; green ✓ discs filling fast beside him.
+  0.3s  First word: "Man City…"
+  1.3s  A year counter races 1904 → 2026 and locks; gold "122 YEARS" slams in; headline builds word by word.
+  2.4s  "Seven wins…": 7th ✓ pops; then three red ✗ slam in, the trophy behind him cracks, lights drop.
+  CHECKLIST: 1 ✓ 2 ✓ 3 ✓ 4 ✓ 5 ✓ 6 ✓ 7 ✓ 8 ✓
+**B2. "City fans, look away. Your team just broke a 122-year-old record. The wrong one."** Pain first; "the wrong one" lands late, excludes Arsenal fans.
+**C2. "Seven wins. Three losses. Only one team in history had done that, and they're Sheffield Wednesday."** Funny, but spends the payoff in the hook.
+Line 2 becomes "The last team to do it? Sheffield Wednesday, in 1904." 122 years = 2026 − 1904.
+
+## Hooks (v1)
 **A. "Man City won their first seven games. Then they lost three in a row." ← PICKED** (number clash, result first)
   0.0s  City player (sky blue kit) close-up in a lit stadium, already celebrating; above him a tally of 7 green ✓ discs is filling fast.
   0.3s  First word: "Man City…"
@@ -18,8 +29,8 @@ Angle: **two numbers that clash** (7 wins → 3 losses) + a history twist (only 
 ## Script (11 beats, 124 words, about 55–60s)
 | # | VO | On screen |
 |---|----|-----------|
-| 1 | Man City won their first seven games. Then they lost three in a row. | Hook A: tally 7 ✓ then 3 ✗ slams; player's celebration freezes; lights dim. |
-| 2 | Only one team in top-flight history had done that before: Sheffield Wednesday, in 1904. | Polaroid flashback (sepia, "1904"): an old-kit Wednesday team (blue-and-white stripes, period look) with their own 7 ✓ 3 ✗ chalkboard. |
+| 1 | Man City just did something no team has done in 122 years. Seven wins… then three defeats. | Hook A2: tally 7 ✓ then 3 ✗ slams; player's celebration freezes; lights dim. |
+| 2 | The last team to do it? Sheffield Wednesday, in 1904. | Polaroid flashback (sepia, "1904"): an old-kit Wednesday team (blue-and-white stripes, period look) with their own 7 ✓ 3 ✗ chalkboard. |
 | 3 | Enzo Maresca's City started perfectly. Seven games. Seven wins. | Booth/touchline: Maresca in a suit, fists up; tickets fan in, each stamped WON (7 of them, fast). |
 | 4 | Then, at Villa Park, Nicolas Jackson scores twice. Villa win two–one. | Villa crowd (claret and blue): Jackson's first, Haaland's header, Jackson's winner, as a quick barrage; clock 24 OCT. First ✗ stamps on a ticket. |
 | 5 | A week later, Brighton come to the Etihad. Ayari scores after eleven minutes. One–nil. | Etihad (sky blue crowd): clock races to 11', Ayari finishes; second ✗. |

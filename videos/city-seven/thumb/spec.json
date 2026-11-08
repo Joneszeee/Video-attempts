@@ -1,0 +1,138 @@
+{
+ "brand": "theo6k",
+ "accent": "#6cabdd",
+ "outro": false,
+ "tail": 0,
+ "hype": false,
+ "beats": [
+  {
+   "kicker": "Premier League · 2026/27",
+   "headline": "122 years. Nobody did [this].",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.3,
+     -1.3
+    ],
+    "tgt": [
+     0,
+     1.2,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -1.3
+    ],
+    "tgt": [
+     0,
+     1.2,
+     12
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "lights": 0.85,
+   "flashes": 14,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 2.2,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up"
+    }
+   ],
+   "card": [
+    {
+     "type": "big",
+     "delay": -5,
+     "countDur": 3.0,
+     "from": 0,
+     "value": 122,
+     "suffix": " yrs",
+     "label": "Since it last happened · 1904",
+     "y": 1250,
+     "size": 200
+    },
+    {
+     "type": "tally",
+     "y": 1620,
+     "r": 46,
+     "gap": 14,
+     "perRow": 5,
+     "title": "Man City · first 10 games",
+     "score": "{w} W · {l} L",
+     "items": [
+      {
+       "mark": "check",
+       "t": 0
+      },
+      {
+       "mark": "check",
+       "t": 0
+      },
+      {
+       "mark": "check",
+       "t": 0
+      },
+      {
+       "mark": "check",
+       "t": 0
+      },
+      {
+       "mark": "check",
+       "t": 0
+      },
+      {
+       "mark": "check",
+       "t": 0
+      },
+      {
+       "mark": "check",
+       "t": 0
+      },
+      {
+       "mark": "x",
+       "t": 0
+      },
+      {
+       "mark": "x",
+       "t": 0
+      },
+      {
+       "mark": "x",
+       "t": 0
+      }
+     ],
+     "delay": -3
+    }
+   ],
+   "vo": "Thumbnail.",
+   "accent": "#6cabdd"
+  }
+ ]
+}

@@ -1,0 +1,1506 @@
+{
+ "title": "Man City: won 7, lost 3",
+ "brand": "theo6k",
+ "accent": "#6cabdd",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Premier League · 2026/27",
+   "headline": "122 years. Nobody did [this].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     1.4,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     -1.3
+    ],
+    "tgt": [
+     0,
+     1.2,
+     12
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "lights": 1,
+   "flashes": 14,
+   "speedlines": [
+    {
+     "t": 0,
+     "dur": 1.0,
+     "amount": 0.6
+    }
+   ],
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 2.2,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up"
+    }
+   ],
+   "card": [
+    {
+     "type": "big",
+     "delay": -0.9,
+     "countDur": 3.0,
+     "from": 0,
+     "value": 122,
+     "suffix": " yrs",
+     "label": "Since it last happened · 1904",
+     "y": 1660,
+     "hideAt": "Seven wins",
+     "hideLag": -0.2
+    },
+    {
+     "type": "tally",
+     "at": "Seven wins",
+     "lag": -0.25,
+     "y": 1560,
+     "r": 46,
+     "gap": 14,
+     "perRow": 5,
+     "title": "Man City · first 10 games",
+     "score": "{w} W · {l} L",
+     "items": [
+      {
+       "mark": "check",
+       "at": "Seven wins",
+       "lag": -0.25
+      },
+      {
+       "mark": "check",
+       "at": "Seven wins",
+       "lag": -0.14
+      },
+      {
+       "mark": "check",
+       "at": "Seven wins",
+       "lag": -0.03
+      },
+      {
+       "mark": "check",
+       "at": "Seven wins",
+       "lag": 0.08000000000000002
+      },
+      {
+       "mark": "check",
+       "at": "Seven wins",
+       "lag": 0.19
+      },
+      {
+       "mark": "check",
+       "at": "Seven wins",
+       "lag": 0.30000000000000004
+      },
+      {
+       "mark": "check",
+       "at": "Seven wins",
+       "lag": 0.41000000000000003
+      },
+      {
+       "mark": "x",
+       "at": "three",
+       "lag": 0.0
+      },
+      {
+       "mark": "x",
+       "at": "three",
+       "lag": 0.32
+      },
+      {
+       "mark": "x",
+       "at": "three",
+       "lag": 0.64
+      }
+     ]
+    }
+   ],
+   "shake": [
+    {
+     "at": "three",
+     "lag": 0.0,
+     "amount": 16
+    },
+    {
+     "at": "three",
+     "lag": 0.32,
+     "amount": 16
+    },
+    {
+     "at": "three",
+     "lag": 0.64,
+     "amount": 16
+    }
+   ],
+   "freezeAt": "defeats",
+   "freezeLag": 0.3,
+   "vo": "Man City just did something no team has done in 122 years. Seven wins… then three defeats.",
+   "accent": "#6cabdd"
+  },
+  {
+   "kicker": "The only other time",
+   "headline": "Sheffield Wednesday, [1904].",
+   "accent": "#e9b949",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#1f4e9c",
+     "#ffffff",
+     "#8a7a5a",
+     "#3a3020"
+    ],
+    "seed": 4
+   },
+   "transition": "polaroid",
+   "polaroidLabel": "1904",
+   "lights": 0.85,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -4.5
+    ],
+    "tgt": [
+     0,
+     1.2,
+     12
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.4,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.2,
+     12
+    ]
+   },
+   "move": 4,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f4e9c",
+      "shorts": "#ffffff",
+      "socks": "#1f4e9c",
+      "text": "#ffffff",
+      "stripes": [
+       "#1f4e9c",
+       "#ffffff"
+      ]
+     },
+     "skin": "#efc9a8",
+     "hair": "#5a4030",
+     "x": -1.5,
+     "z": 2.8,
+     "front": true,
+     "pose": "arms_up"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f4e9c",
+      "shorts": "#ffffff",
+      "socks": "#1f4e9c",
+      "text": "#ffffff",
+      "stripes": [
+       "#1f4e9c",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": 0.1,
+     "z": 2.2,
+     "front": true,
+     "chest": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f4e9c",
+      "shorts": "#ffffff",
+      "socks": "#1f4e9c",
+      "text": "#ffffff",
+      "stripes": [
+       "#1f4e9c",
+       "#ffffff"
+      ]
+     },
+     "skin": "#efc9a8",
+     "hair": "#8a6a45",
+     "x": 1.6,
+     "z": 2.9,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "newspaper",
+     "at": "Sheffield Wednesday",
+     "lag": -0.3,
+     "y": 1500,
+     "masthead": "THE FOOTBALL ECHO",
+     "dateline": "Season 1904–05",
+     "headline": "SEVEN WINS…\nTHEN THREE DEFEATS",
+     "sub": "Wednesday's perfect start is over",
+     "color": "#2a2116",
+     "spin": 1.4,
+     "scale": 0.8
+    }
+   ],
+   "vo": "The last team to do it? Sheffield Wednesday, in 1904."
+  },
+  {
+   "kicker": "August to October",
+   "headline": "Seven games. [Seven wins].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "camFrom": {
+    "pos": [
+     -1.0,
+     1.5,
+     -2.6
+    ],
+    "tgt": [
+     0.2,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.4,
+     1.5,
+     -1.6
+    ],
+    "tgt": [
+     0.2,
+     1.3,
+     10
+    ]
+   },
+   "move": 4,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c2233",
+     "tie": "#6cabdd",
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": 0.3,
+     "z": 2.0,
+     "front": true,
+     "pose": "fists",
+     "label": "Enzo Maresca",
+     "labelAt": "Maresca"
+    }
+   ],
+   "confetti": true,
+   "confettiAt": "Seven wins",
+   "confettiColors": [
+    "#6cabdd",
+    "#ffffff",
+    "#1c2c5b"
+   ],
+   "card": [
+    {
+     "type": "rain",
+     "y": 1560,
+     "at": "Seven games",
+     "groups": [
+      {
+       "n": 7,
+       "color": "#6cabdd",
+       "at": "Seven wins",
+       "dur": 0.8
+      }
+     ],
+     "cols": 7,
+     "cell": 96,
+     "icon": "ball",
+     "empty": 0,
+     "label": "Wins"
+    }
+   ],
+   "vo": "Enzo Maresca's City started perfectly. Seven games. Seven wins.",
+   "accent": "#6cabdd"
+  },
+  {
+   "kicker": "24 October · Villa Park",
+   "headline": "Jackson twice. [Villa 2–1].",
+   "accent": "#ff4d5e",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#670e36",
+     "#95bfe5",
+     "#670e36",
+     "#f2c200"
+    ],
+    "seed": 31
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#670e36",
+      "shorts": "#ffffff",
+      "socks": "#670e36",
+      "text": "#95bfe5"
+     },
+     "skin": "#5a3a28",
+     "hair": "#141010",
+     "x": -1.2,
+     "z": 40,
+     "label": "Nicolas Jackson",
+     "labelAt": "Jackson",
+     "action": "kick",
+     "actionAt": "Jackson",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "tag": 2,
+     "tagLabel": "Goals",
+     "tagAt": "twice"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#f1c453"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Jackson",
+     "actionLag": 0.35
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.98,
+      0.11,
+      40.45
+     ],
+     "untilAt": "Jackson",
+     "untilLag": 0.24000000000000002
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Jackson",
+     "lag": 0.24000000000000002,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -0.98,
+       0.11,
+       40.45
+      ],
+      [
+       0.9099999999999999,
+       1.0,
+       46.625
+      ],
+      [
+       2.8,
+       0.6,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "tickets",
+     "y": 1560,
+     "delay": 0,
+     "tickets": [
+      {
+       "comp": "Premier League",
+       "teams": "Villa v City",
+       "score": "2–1",
+       "date": "24 Oct 2026",
+       "color": "#670e36"
+      }
+     ],
+     "done": 0,
+     "newAt": "Villa win",
+     "stamp": "LOST",
+     "dx": 0
+    }
+   ],
+   "shake": [
+    {
+     "at": "Villa win",
+     "lag": 0.6,
+     "amount": 12
+    }
+   ],
+   "camFrom": {
+    "pos": [
+     -4.2,
+     2.0,
+     33.5
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.5999999999999996,
+     1.8,
+     35.2
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "vo": "Then, at Villa Park, Nicolas Jackson scores twice. Villa win two–one."
+  },
+  {
+   "kicker": "31 October · Etihad",
+   "headline": "Brighton win at the [Etihad].",
+   "accent": "#ff4d5e",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0057b8",
+      "shorts": "#0057b8",
+      "socks": "#ffffff",
+      "text": "#ffffff",
+      "stripes": [
+       "#0057b8",
+       "#ffffff"
+      ]
+     },
+     "skin": "#c99a6e",
+     "hair": "#1d1410",
+     "x": 1.4,
+     "z": 41,
+     "label": "Yasin Ayari",
+     "labelAt": "Ayari",
+     "action": "kick",
+     "actionAt": "Ayari",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#f1c453"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "Ayari",
+     "actionLag": 0.35
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.6199999999999999,
+      0.11,
+      41.45
+     ],
+     "untilAt": "Ayari",
+     "untilLag": 0.24000000000000002
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Ayari",
+     "lag": 0.24000000000000002,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       1.6199999999999999,
+       0.11,
+       41.45
+      ],
+      [
+       -0.5400000000000001,
+       1.0,
+       47.125
+      ],
+      [
+       -2.7,
+       0.5,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 0,
+     "to": 11,
+     "dur": 1.6,
+     "events": [
+      {
+       "min": 11,
+       "text": "11' Ayari · 0–1"
+      }
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "0–1",
+     "size": 260,
+     "endScale": 0.7,
+     "y": 1600,
+     "at": "One–nil",
+     "lag": -0.1,
+     "color": "#ff4d5e"
+    }
+   ],
+   "camFrom": {
+    "pos": [
+     4.4,
+     2.0,
+     34.5
+    ],
+    "tgt": [
+     0.5599999999999999,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.8,
+     1.8,
+     36.2
+    ],
+    "tgt": [
+     0.5599999999999999,
+     1.0,
+     52
+    ]
+   },
+   "vo": "A week later, Brighton come to the Etihad. Ayari scores after eleven minutes. One–nil."
+  },
+  {
+   "kicker": "Saturday · City Ground",
+   "headline": "Nottingham Forest [away].",
+   "accent": "#ff4d5e",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#dd0000",
+     "#ffffff",
+     "#dd0000",
+     "#1d1c22"
+    ],
+    "seed": 41
+   },
+   "lights": 0.75,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     26,
+     -44
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 4.5,
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 760,
+     "at": "seventh",
+     "label": "Forest v City",
+     "groups": [
+      {
+       "label": "November",
+       "value": 7,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "SAT",
+      "big": "7",
+      "bottom": "NOV"
+     }
+    }
+   ],
+   "vo": "Then, Saturday the seventh of November. Nottingham Forest away."
+  },
+  {
+   "kicker": "6 minutes",
+   "headline": "Cunha [steals it] and scores.",
+   "accent": "#ff4d5e",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#dd0000",
+     "#ffffff",
+     "#dd0000",
+     "#1d1c22"
+    ],
+    "seed": 41
+   },
+   "lights": 0.9,
+   "camFrom": {
+    "pos": [
+     2.8,
+     2.3,
+     24.5
+    ],
+    "tgt": [
+     -1.5,
+     0.9,
+     36
+    ]
+   },
+   "camera": {
+    "pos": [
+     2.0,
+     2.0,
+     26.5
+    ],
+    "tgt": [
+     -1.8,
+     0.9,
+     40
+    ]
+   },
+   "move": 4.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "x": -1.0,
+     "z": 30,
+     "label": "Gvardiol",
+     "labelAt": "Gvardiol",
+     "path": [
+      [
+       -0.4,
+       28.5
+      ],
+      [
+       -1.6,
+       32.6
+      ]
+     ],
+     "pathDur": 1.2,
+     "at": "Six"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#dd0000",
+      "shorts": "#ffffff",
+      "socks": "#dd0000",
+      "text": "#ffffff"
+     },
+     "skin": "#6b4630",
+     "hair": "#141010",
+     "x": -3.0,
+     "z": 34.6,
+     "label": "Jair Cunha",
+     "labelAt": "Jair",
+     "path": [
+      [
+       -3.2,
+       34.8
+      ],
+      [
+       -2.2,
+       33.8
+      ],
+      [
+       -1.9,
+       34.0
+      ]
+     ],
+     "pathDur": 0.7,
+     "at": "takes",
+     "lag": -0.3,
+     "action": "kick",
+     "actionAt": "scores",
+     "actionLag": -0.55,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "hops": []
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#f1c453"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "scores",
+     "actionLag": -0.05
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "at": "Six",
+     "point": [
+      -1.35,
+      0.11,
+      32.9
+     ],
+     "untilAt": "scores",
+     "untilLag": -0.21
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "scores",
+     "lag": -0.21,
+     "dur": 0.75,
+     "slowmo": false,
+     "points": [
+      [
+       -1.35,
+       0.11,
+       32.9
+      ],
+      [
+       -2.2,
+       0.6,
+       43
+      ],
+      [
+       -2.9,
+       0.3,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "pen",
+     "delay": 0,
+     "anchor": 0,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 0,
+       "cy": 0,
+       "rx": 0.5,
+       "ry": 0.16,
+       "at": "takes the ball",
+       "color": "#ffd23f",
+       "layer": "under"
+      },
+      {
+       "kind": "text",
+       "text": "LOST IT",
+       "x": 640,
+       "y": 1060,
+       "size": 64,
+       "rot": -0.08,
+       "at": "off Gvardiol",
+       "color": "#ffd23f"
+      }
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 0,
+     "to": 6,
+     "dur": 1.0,
+     "events": [
+      {
+       "min": 6,
+       "text": "6' Cunha · 1–0"
+      }
+     ]
+    }
+   ],
+   "vo": "Six minutes in, Jair Cunha takes the ball off Gvardiol and scores."
+  },
+  {
+   "kicker": "18 minutes",
+   "headline": "Delap. [Ex-City].",
+   "accent": "#ff4d5e",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#dd0000",
+     "#ffffff",
+     "#dd0000",
+     "#1d1c22"
+    ],
+    "seed": 41
+   },
+   "move": 4.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#dd0000",
+      "shorts": "#ffffff",
+      "socks": "#dd0000",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#4a3324",
+     "x": 0.9,
+     "z": 40.5,
+     "label": "Liam Delap",
+     "labelAt": "Delap",
+     "action": "kick",
+     "actionAt": "makes it two",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#f1c453"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "makes it two",
+     "actionLag": 0.35
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.12,
+      0.11,
+      40.95
+     ],
+     "untilAt": "makes it two",
+     "untilLag": 0.24000000000000002
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "makes it two",
+     "lag": 0.24000000000000002,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       1.12,
+       0.11,
+       40.95
+      ],
+      [
+       -0.74,
+       2.2,
+       46.875
+      ],
+      [
+       -2.6,
+       1.6,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "pcard",
+     "at": "Liam Delap",
+     "y": 1300,
+     "shiftX": 280,
+     "w": 320,
+     "h": 430,
+     "side": "right",
+     "tag": "Delap · ex-City",
+     "color": "#6cabdd",
+     "player": {
+      "name": "Delap",
+      "kit": {
+       "shirt": "#6cabdd",
+       "shorts": "#ffffff",
+       "socks": "#6cabdd",
+       "text": "#1c2c5b"
+      },
+      "skin": "#f0c8a8",
+      "hair": "#4a3324"
+     },
+     "hideAt": "makes it two",
+     "hideLag": 0.4
+    }
+   ],
+   "camFrom": {
+    "pos": [
+     3.9,
+     2.0,
+     34.0
+    ],
+    "tgt": [
+     0.36000000000000004,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.3,
+     1.8,
+     35.7
+    ],
+    "tgt": [
+     0.36000000000000004,
+     1.0,
+     52
+    ]
+   },
+   "vo": "Liam Delap, City's old striker, makes it two."
+  },
+  {
+   "kicker": "Second half",
+   "headline": "Then Delap [again]. 3–1.",
+   "accent": "#ff4d5e",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#dd0000",
+     "#ffffff",
+     "#dd0000",
+     "#1d1c22"
+    ],
+    "seed": 41
+   },
+   "camFrom": {
+    "pos": [
+     9,
+     3.2,
+     22
+    ],
+    "tgt": [
+     1.5,
+     0.9,
+     40
+    ]
+   },
+   "camera": {
+    "pos": [
+     7.5,
+     2.4,
+     29
+    ],
+    "tgt": [
+     0.8,
+     1.0,
+     48
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#dd0000",
+      "shorts": "#ffffff",
+      "socks": "#dd0000",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#4a3324",
+     "x": 5.5,
+     "z": 26,
+     "label": "Delap",
+     "labelAt": "Delap again",
+     "path": [
+      [
+       6.5,
+       24
+      ],
+      [
+       3.6,
+       36.6
+      ]
+     ],
+     "pathDur": 2.0,
+     "at": "Delap again",
+     "lag": -0.4,
+     "dribble": true,
+     "action": "kick",
+     "actionAt": "Three–one",
+     "actionLag": -0.85,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#c99a6e",
+     "hair": "#141010",
+     "x": 1.0,
+     "z": 31,
+     "path": [
+      [
+       0.6,
+       27
+      ],
+      [
+       2.2,
+       35
+      ]
+     ],
+     "pathDur": 2.2,
+     "at": "Delap again",
+     "lag": -0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#f1c453"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Three–one",
+     "actionLag": -0.3
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Three–one",
+     "lag": -0.51,
+     "dur": 0.55,
+     "slowmo": false,
+     "points": [
+      [
+       3.8,
+       0.11,
+       37.0
+      ],
+      [
+       3.2,
+       1.6,
+       45
+      ],
+      [
+       2.9,
+       2.0,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 46,
+     "to": 73,
+     "dur": 2.8,
+     "events": [
+      {
+       "min": 52,
+       "text": "52' Cherki · 2–1"
+      },
+      {
+       "min": 73,
+       "text": "73' Delap · 3–1"
+      }
+     ]
+    },
+    {
+     "type": "tickets",
+     "y": 1430,
+     "at": "Cherki",
+     "tickets": [
+      {
+       "comp": "Premier League",
+       "teams": "Villa v City",
+       "score": "2–1",
+       "date": "24 Oct 2026",
+       "color": "#670e36"
+      },
+      {
+       "comp": "Premier League",
+       "teams": "City v Brighton",
+       "score": "0–1",
+       "date": "31 Oct 2026",
+       "color": "#0057b8"
+      },
+      {
+       "comp": "Premier League",
+       "teams": "Forest v City",
+       "score": "3–1",
+       "date": "7 Nov 2026",
+       "color": "#dd0000"
+      }
+     ],
+     "done": 2,
+     "newAt": "Three–one",
+     "newLag": 0.2,
+     "stamp": "LOST",
+     "dx": 0,
+     "count": "{n} in a row"
+    }
+   ],
+   "vo": "Cherki pulls one back. Then Delap again, on the counter. Three–one."
+  },
+  {
+   "kicker": "The table",
+   "headline": "Arsenal [six points] clear.",
+   "accent": "#ef0107",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "focus": 0.6,
+   "lights": 0.7,
+   "camFrom": {
+    "pos": [
+     0,
+     30,
+     -50
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     20,
+     -34
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 4,
+   "players": [],
+   "card": [
+    {
+     "type": "table",
+     "y": 1050,
+     "delay": 0,
+     "scale": 1.3,
+     "moveAt": "Arsenal go",
+     "label": "Premier League · top",
+     "rows": [
+      {
+       "pos": 1,
+       "fromPos": 2,
+       "fromRow": 1,
+       "name": "Arsenal",
+       "color": "#ef0107",
+       "color2": "#ffffff",
+       "pts": 27,
+       "highlight": true
+      },
+      {
+       "pos": 2,
+       "fromPos": 1,
+       "fromRow": 0,
+       "name": "Man City",
+       "color": "#6cabdd",
+       "pts": 21
+      }
+     ],
+     "pill": "+6",
+     "pillRow": 0
+    }
+   ],
+   "vo": "Arsenal go six points clear at the top."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Blip, or [over]?",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 19
+   },
+   "lights": 0.6,
+   "orbit": {
+    "center": [
+     0,
+     1.2,
+     3
+    ],
+    "r": 5,
+    "from": -25,
+    "to": 20,
+    "h": 1.5,
+    "h2": 1.9,
+    "dur": 6
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.2,
+     3
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -1.3,
+     "z": 3.2,
+     "front": true,
+     "label": "City · 21 pts",
+     "labelDelay": 0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ef0107",
+      "shorts": "#ffffff",
+      "socks": "#ef0107",
+      "text": "#ffffff"
+     },
+     "skin": "#c99a6e",
+     "hair": "#141010",
+     "x": 1.3,
+     "z": 3.2,
+     "front": true,
+     "pose": "arms_up",
+     "label": "Arsenal · 27 pts",
+     "labelDelay": 0.5
+    }
+   ],
+   "card": [
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "So be honest",
+     "question": "City's title race?",
+     "options": [
+      {
+       "label": "Just a blip",
+       "color": "#6cabdd",
+       "fill": 0.5
+      },
+      {
+       "label": "It's over",
+       "color": "#ef0107",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So be honest: is this a blip, or is City's title race already over?",
+   "accent": "#6cabdd"
+  }
+ ]
+}

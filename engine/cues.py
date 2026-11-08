@@ -156,7 +156,9 @@ def _resolve_beat(b, rel):
                         it['circle']['t'] = round(max(0, rel(it['circle'].pop('at')) - base), 3)
             if isinstance(c.get('teamAt'), str):
                 c['teamAt'] = round(max(0, rel(c['teamAt']) - base), 3)
-        if c.get('type') in ('xg', 'swing'):
+        if c.get('type') == 'table' and isinstance(c.get('moveAt'), str):
+            c['moveT'] = round(max(0, rel(c.pop('moveAt')) + c.pop('moveLag', 0) - base), 3)
+        if c.get('type') in ('xg', 'swing', 'tally'):
             for it in c.get('items') or c.get('rows') or []:
                 if 'at' in it:
                     it['t'] = round(max(0, rel(it.pop('at')) + it.pop('lag', 0) - base), 3)

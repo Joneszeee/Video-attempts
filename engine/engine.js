@@ -1160,26 +1160,29 @@ const CARDS = {
     });
   },
   table(c, ct, cx, cy) {
+    if (c.scale && !c._scaling) { ctx.save(); ctx.translate(cx, cy); ctx.scale(c.scale, c.scale); c._scaling = true; try { CARDS.table(c, ct, 0, 0); } finally { c._scaling = false; ctx.restore(); } return; }
     const rows = c.rows, rh = 78, bw = 780, bh = 110 + rows.length * rh;
     cardBox(cx, cy, bw, bh, c.label);
     const top = cy - bh / 2 + 82;
+    const mk = c.moveT != null ? ease(pr(ct, c.moveT, 0.9)) : 1;   // table climb: rows slide from fromRow to their place
     rows.forEach((r, i) => {
-      const a = eOut(pr(ct, 0.25 + i * 0.12, 0.4));
+      const a = eOut(pr(ct, 0.25 + i * 0.12, 0.4)), slot = r.fromRow != null ? lerp(r.fromRow, i, mk) : i;
       ctx.save(); ctx.globalAlpha *= a;
-      const y = top + i * rh + rh / 2 + (1 - a) * 20, x0 = cx - bw / 2 + 50;
+      const y = top + slot * rh + rh / 2 + (1 - a) * 20, x0 = cx - bw / 2 + 50;
+      if (r.highlight && r.fromRow != null && mk > 0 && mk < 1) { ctx.save(); ctx.globalAlpha *= 0.35 * Math.sin(Math.PI * mk); ctx.fillStyle = S.accent; rrect(cx - bw / 2 + 16, y - rh / 2 + 6, bw - 32, rh - 12, 14); ctx.fill(); ctx.restore(); }
       font(500, 26, 'Mono', '0px'); ctx.fillStyle = '#6f7684'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-      ctx.fillText(String(r.pos), x0, y);
+      ctx.fillText(String(r.fromPos != null && mk < 0.5 ? r.fromPos : r.pos), x0, y);
       drawShirtIcon(x0 + 70, y, 46, r.color || '#888', r.color2);
       font(700, 30, 'Mono', '3px'); ctx.fillStyle = '#eef0f3';
       ctx.fillText(r.name.toUpperCase(), x0 + 115, y);
-      const v = countVal({ value: r.pts, from: r.from || 0 }, ct, 0.5, 1.3);
+      const v = c.moveT != null && r.from != null ? lerp(r.from, r.pts, mk) : countVal({ value: r.pts, from: r.from || 0 }, ct, 0.5, 1.3);
       font(800, 52, 'Inter', '0px'); ctx.textAlign = 'right';
       ctx.fillStyle = r.highlight ? S.accent : '#eef0f3';
       ctx.fillText(String(Math.round(v)), cx + bw / 2 - 50, y + 2);
       ctx.restore();
     });
     if (c.pill) {
-      const k = pr(ct, 1.9, 0.35), s = k > 0 ? eBack(k) : 0;
+      const k = pr(ct, c.moveT != null ? c.moveT + 1.0 : 1.9, 0.35), s = k > 0 ? eBack(k) : 0;
       if (s > 0) {
         const px = cx + bw / 2 - 200, py = top + (c.pillRow != null ? c.pillRow : 0.5) * rh + rh / 2;
         ctx.save(); ctx.translate(px, py); ctx.scale(s, s);
@@ -2783,6 +2786,7 @@ CARDS.tape.noSlide = true;
 // `done` are already filled; the next one fills at `newAt`/`newT` with a slam. `mark: "x"` (red cross) or "check" (green tick).
 // title, left/right labels for who the tally is about, `score` shows "done / n" big under the row.
 CARDS.tally = function (c, ct, cx, cy) {
+  if (c.items) return CARDS.tally.seq(c, ct, cx, cy);
   const n = c.n || 6, r = c.r || 58, gap = c.gap || 30, w = n * r * 2 + (n - 1) * gap, a = eOut(pr(ct, 0, 0.35));
   const filled = (c.done || 0) + (c.newT != null && ct >= c.newT ? 1 : 0);
   ctx.save(); ctx.globalAlpha *= a;
@@ -2815,6 +2819,35 @@ CARDS.tally = function (c, ct, cx, cy) {
   ctx.restore();
 };
 CARDS.tally.noSlide = true;
+// Sequence mode: each slot has its own mark and time, e.g. seven wins then three defeats.
+// items: [{mark: "check"|"x", t|at, label}], r, gap, title, score ("{w}–{l}" counts the marks shown so far), rows (slots per row, default all)
+CARDS.tally.seq = function (c, ct, cx, cy) {
+  const I = c.items, n = I.length, per = c.perRow || n, rowsN = Math.ceil(n / per), r = c.r || 40, gap = c.gap || 18, rg = c.rowGap || 34;
+  const w = per * r * 2 + (per - 1) * gap, h = rowsN * r * 2 + (rowsN - 1) * rg, a = eOut(pr(ct, 0, 0.3));
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.fillStyle = 'rgba(8,10,15,0.72)'; rrect(cx - w / 2 - 36, cy - h / 2 - (c.title ? 84 : 36), w + 72, h + (c.title ? 84 : 36) + (c.score ? 104 : 36), 28); ctx.fill();
+  if (c.title) { font(600, 24, 'Mono', '5px'); ctx.fillStyle = '#c9ced6'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(c.title.toUpperCase(), cx, cy - h / 2 - 34); }
+  let W = 0, L = 0;
+  I.forEach((it, i) => {
+    const col = i % per, row = Math.floor(i / per), x = cx - w / 2 + r + col * (2 * r + gap), y = cy - h / 2 + r + row * (2 * r + rg);
+    const k = pr(ct, it.t || 0, it.mark === 'x' ? 0.28 : 0.2), mc = it.mark === 'x' ? '#ff4d5e' : '#2ecc71';
+    ctx.lineWidth = 4; ctx.strokeStyle = k > 0 ? mc : 'rgba(255,255,255,0.22)'; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.stroke();
+    if (k > 0) {
+      if (it.mark === 'x') L++; else W++;
+      const sc = lerp(it.mark === 'x' ? 2.2 : 1.6, 1, eOut(k));
+      ctx.save(); ctx.translate(x, y); ctx.scale(sc, sc); ctx.globalAlpha *= Math.min(1, k * 2.5);
+      ctx.fillStyle = rgba(mc, 0.25); ctx.beginPath(); ctx.arc(0, 0, r - 3, 0, 7); ctx.fill();
+      ctx.strokeStyle = mc; ctx.lineWidth = r * 0.2; ctx.lineCap = 'round'; ctx.beginPath();
+      if (it.mark === 'x') { const q = r * 0.38; ctx.moveTo(-q, -q); ctx.lineTo(q, q); ctx.moveTo(q, -q); ctx.lineTo(-q, q); }
+      else { ctx.moveTo(-r * 0.4, 0); ctx.lineTo(-r * 0.1, r * 0.32); ctx.lineTo(r * 0.45, -r * 0.35); }
+      ctx.stroke(); ctx.restore();
+    }
+    if (it.label) { font(700, 17, 'Mono', '1px'); ctx.fillStyle = k > 0 ? '#f4f2ec' : '#7d838e'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(String(it.label).toUpperCase(), x, y + r + 26); }
+  });
+  if (c.score) { font(800, 50, 'Inter', '-1px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#f4f2ec';
+    ctx.fillText(c.score.replace('{w}', W).replace('{l}', L), cx, cy + h / 2 + 76); }
+  ctx.restore();
+};
 
 // The referee's red card: an arm swings up from the bottom of the frame holding the card, which glows and shakes.
 CARDS.redcard = function (c, ct, cx, cy) {
@@ -3216,7 +3249,8 @@ function cardEvents(c) {
     case 'flip': c.groups.forEach((g, i) => ticks(0.35 + i * 0.25, 1.3)); break;
     case 'big': ticks(0.25, (c.countDur || 1.3) * 0.85); ev.push({ t: 0.25 + (c.countDur || 1.3), type: 'impact' }); break;
     case 'vs': c.items.forEach((g, i) => ticks(0.35 + i * 0.3, 1.0)); break;
-    case 'table': ticks(0.5, 1.1); if (c.pill) ev.push({ t: 1.9, type: 'pop' }); break;
+    case 'table': ticks(0.5, 1.1); if (c.moveT != null) ev.push({ t: c.moveT, type: 'swipe' }); if (c.pill) ev.push({ t: c.moveT != null ? c.moveT + 1.0 : 1.9, type: 'pop' }); break;
+    case 'tally': if (c.items) c.items.forEach(it => ev.push({ t: it.t || 0, type: it.mark === 'x' ? 'impact' : 'pop' })); else if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
     case 'bars': c.rows.forEach((r, i) => ticks(0.4 + i * 0.35, 1.1)); break;
     case 'orb': ticks(0.3, 1.6); ev.push({ t: 2.1, type: 'impact' }); break;
     case 'ballnumber': ev.push({ t: 1.0, type: 'impact' }); if (c.count != null) ticks(0.3, 1.5); break;
@@ -3252,7 +3286,6 @@ function cardEvents(c) {
     case 'xg': c.items.forEach(it => { ticks((it.t || 0) + 0.05, (c.dur || 1.4) * 0.9); ev.push({ t: (it.t || 0) + (c.dur || 1.4), type: 'pop' }); }); break;
     case 'swing': c.rows.forEach((r, i) => { const t0 = r.t != null ? r.t : 0.2 + i * 0.6; ev.push({ t: t0, type: 'swipe' }); ticks(t0 + 0.35, 0.9); ev.push({ t: t0 + 1.35, type: 'pop' }); }); break;
     case 'pcard': ev.push({ t: 0, type: 'whoosh' }, { t: 0.45, type: 'pop' }); break;
-    case 'tally': if (c.newT != null) ev.push({ t: c.newT, type: 'impact' }); break;
     case 'photo': ev.push({ t: 0, type: 'whoosh' }); if (c.ripT != null) ev.push({ t: c.ripT, type: 'impact' }, { t: c.ripT, type: 'swish' }); break;
     case 'calendar': { const n = c.to - c.from; for (let i = 1; i <= n; i++) ev.push({ t: (c.start || 0.5) + Math.pow(i / n, 1 / 1.6) * (c.dur || 2.2), type: 'swipe' }); ev.push({ t: (c.start || 0.5) + (c.dur || 2.2), type: 'impact' }); break; }
     case 'letter': for (let t = 0.5; t < 0.5 + (c.write || 2.5); t += 0.12) ev.push({ t, type: 'tick' }); break;

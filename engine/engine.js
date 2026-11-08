@@ -84,6 +84,18 @@ function camInBeat(i, lt) {
     if (it) { const ct = b.start + lt - it.start; let sx = 0, sz = 0; for (let j = 0; j < 8; j++) { const p = webBall(it.obj, ct - j * 0.12).p; sx += p[0]; sz += p[2]; }
       const bx = sx / 8, bz = sz / 8; return { pos: [bx + (F.side || 0), F.h || 9, bz - (F.back || 14)], tgt: [bx, 0.5, bz + (F.ahead || 3)] }; }
   }
+  const base = camBase(i, lt);
+  if (!b._follow) return base;
+  // hype: once a goal-bound shot is struck, the camera swings after the ball (and creeps toward it), then holds on the net
+  const F = b._follow, u = F.slowmo === false ? pr(lt, F.t, F.dur) : ballSlow(pr(lt, F.t, F.dur)), P = F.pts;
+  const bw = [0, 1, 2].map(j => (1 - u) ** 2 * P[0][j] + 2 * (1 - u) * u * P[1][j] + u * u * P[2][j]);
+  const w = (F.amount || 0.6) * ease(pr(lt, F.t - 0.1, 0.4));
+  if (w <= 0) return base;
+  const tgt = lerp3(base.tgt, bw, w), d = sub(bw, base.pos);
+  return { pos: [base.pos[0] + d[0] * 0.12 * w, base.pos[1] + d[1] * 0.05 * w, base.pos[2] + d[2] * 0.12 * w], tgt };
+}
+function camBase(i, lt) {
+  const b = S.beats[i];
   const to = camPreset(b.camera);
   const from = (i === 0 || b.cut) ? camPreset(b.camFrom || b.camera) : camEnd(i - 1);
   const md = b.move != null ? b.move : Math.min(2.4, b.dur * 0.8);
@@ -839,6 +851,10 @@ function drawPlayers(cam, lt, players) {
       x = lerp(pts[i][0], pts[i + 1][0], f); z = lerp(pts[i][1], pts[i + 1][1], f);
       heading = [(pts[i + 1][0] - pts[i][0]) / (segs[i] || 1), (pts[i + 1][1] - pts[i][1]) / (segs[i] || 1)];
       walk = k > 0 && k < 1 ? 1 : 0;
+    } else if (p.action === 'kick' && p.runup !== false && p.actionDelay != null && S.cur && S.cur._hype) {   // hype: a short run-up into the strike
+      const rd = p.runupDur || 0.75, back = p.runup || 3.2, k = pr(lt, p.actionDelay - rd, rd), sd = p.foot === 'left' ? 1 : -1, dir = p.front ? -1 : 1;
+      x = lerp(x + sd * back * 0.35, x, k); z = lerp(z - dir * back, z, k);
+      heading = [-sd * 0.35, dir]; walk = k > 0 && k < 1 ? 1 : 0;
     } else if (p.enter === 'walk') {
       const k = pr(lt, p.delay || 0, p.walkDur || 1.8);
       x = lerp(p.fromX != null ? p.fromX : x, x, eOut(k));
@@ -3393,6 +3409,20 @@ window.loadSpec = async function (spec) {
     for (const p of b.punch || []) S.events.push({ t: b.start + p.t, type: 'whoosh' });
     if (b.freeze != null) S.events.push({ t: b.start + b.freeze, type: 'impact' });
     for (const p of b.playersArr || []) if (p.action === 'kick' && p.actionDelay != null && b.playersStart === b.start) S.events.push({ t: b.start + p.actionDelay + 0.42 * (p.actionDur || 1), type: 'pop' });
+  });
+  // hype (default on; spec or beat "hype": false to turn off): every goal-bound shot in a stadium gets a run-up, a punch-in at the strike,
+  // speed lines, a camera that follows the ball and a shake when it hits the net. Hand-made punch/shake on the beat are kept.
+  S.beats.forEach((b, i) => {
+    if (spec.hype === false || b.hype === false || !b.world || b.sceneObj.type !== 'stadium' || b.orbit) return;
+    const shots = b.cards.filter(it => it.obj.type === 'ballpath' && it.obj.world && it.obj.flash !== false && it.obj.saveBy == null && it.start >= b.start - 0.05);
+    if (!shots.length) return;
+    b._hype = true; if (!b.flashes) b.flashes = 8;   // phone flashes in the stands
+    const it = shots[shots.length - 1], c = it.obj, t0 = it.start - b.start, dur = c.dur || 1.6;
+    if (shots.length === 1) b._follow = { t: t0, dur, pts: c.points, slowmo: c.slowmo, amount: b.follow != null ? b.follow : 0.6 };
+    b.punch = (b.punch || []).concat(shots.map(s => ({ t: s.start - b.start - 0.04, amount: 0.13, dur: Math.min(1.4, (s.obj.dur || 1.6) + 0.7) })));
+    b.shake = (b.shake || []).concat(shots.map(s => ({ t: s.start - b.start + (s.obj.dur || 1.6), amount: 20 })));
+    b.speedlines = (b.speedlines || []).concat(shots.map(s => ({ t: s.start - b.start - 0.05, dur: 0.7, amount: 0.4 })));
+    for (const s of shots) S.events.push({ t: s.start - 0.04, type: 'whoosh' });
   });
   S.events = S.events.filter(e => e.t < S.dur);
   return window.getInfo();

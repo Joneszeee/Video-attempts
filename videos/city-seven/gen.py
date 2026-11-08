@@ -71,7 +71,7 @@ B.append({"kicker": "Saturday · City Ground", "headline": "Nottingham Forest [a
   "card": [{"type": "flip", "y": 760, "at": "seventh", "label": "Forest v City", "groups": [{"label": "November", "value": 7, "digits": 2}], "side": {"top": "SAT", "big": "7", "bottom": "NOV"}}]})
 # 7 Cunha steals and scores
 cun = [-2.0, 0.11, 34.0]; cend = [-2.9, 0.3, 52.8]
-B.append({"kicker": "6 minutes", "headline": "Cunha [steals it] and scores.", "accent": "#ff4d5e", "cut": True, "scene": S_FOR, "lights": 0.9,
+B.append({"kicker": "6 minutes", "headline": "Cunha [steals it] and scores.", "accent": "#ff4d5e", "cut": True, "scene": S_FOR, "lights": 0.9, "follow": 0.35,
   "camFrom": {"pos": [2.8, 2.3, 24.5], "tgt": [-1.5, 0.9, 36]}, "camera": {"pos": [2.0, 2.0, 26.5], "tgt": [-1.8, 0.9, 40]}, "move": 4.5, "moveEase": "linear",
   "players": [P(kit=CITY, skin="#f0c8a8", hair="#3a2a1a", x=-1.0, z=30, label="Gvardiol", labelAt="Gvardiol", path=[[-0.4, 28.5], [-1.6, 32.6]], pathDur=1.2, at="Six"),
               P(kit=FOR, skin="#6b4630", hair="#141010", x=-3.0, z=34.6, label="Jair Cunha", labelAt="Jair", path=[[-3.2, 34.8], [-2.2, 33.8], [-1.9, 34.0]], pathDur=0.7, at="takes", lag=-0.3,
@@ -90,10 +90,10 @@ B.append(dict({"kicker": "18 minutes", "headline": "Delap. [Ex-City].", "accent"
 # 9 Cherki, then Delap on the counter
 dl = [3.8, 0.11, 37.0]
 B.append({"kicker": "Second half", "headline": "Then Delap [again]. 3–1.", "accent": "#ff4d5e", "cut": True, "scene": S_FOR,
-  "camFrom": {"pos": [9, 3.2, 22], "tgt": [1.5, 0.9, 40]}, "camera": {"pos": [7.5, 2.4, 29], "tgt": [0.8, 1.0, 48]}, "move": 5, "moveEase": "linear",
-  "players": [P(kit=FOR, skin="#f0c8a8", hair="#4a3324", x=5.5, z=26, label="Delap", labelAt="Delap again", path=[[6.5, 24], [3.6, 36.6]], pathDur=2.0, at="Delap again", lag=-0.4, dribble=True,
+  "camFrom": {"pos": [7.5, 2.8, 18], "tgt": [3.0, 1.0, 40]}, "camera": {"pos": [6.0, 2.4, 25.5], "tgt": [1.5, 1.0, 48]}, "move": 5, "moveEase": "linear",
+  "players": [P(kit=FOR, skin="#f0c8a8", hair="#4a3324", x=5.8, z=28, label="Delap", labelAt="Delap again", path=[[5.8, 28], [3.6, 36.6]], pathDur=2.0, at="Delap again", lag=-0.4, dribble=True,
                 action="kick", actionAt="Three–one", actionLag=-0.85, actionDur=0.8, after="celebrate"),
-              P(kit=CITY, skin="#c99a6e", hair="#141010", x=1.0, z=31, path=[[0.6, 27], [2.2, 35]], pathDur=2.2, at="Delap again", lag=-0.2),
+              P(kit=CITY, skin="#c99a6e", hair="#141010", x=1.0, z=31, path=[[1.4, 29], [2.4, 35]], pathDur=2.2, at="Delap again", lag=-0.2),
               P(**DONNA, x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=-1, actionAt="Three–one", actionLag=-0.3)],
   "card": [{"type": "ballpath", "world": True, "at": "Three–one", "lag": -0.51, "dur": 0.55, "slowmo": False, "points": [dl, [3.2, 1.6, 45], [2.9, 2.0, 52.8]]},
            {"type": "clock", "y": 700, "scale": 0.75, "delay": 0, "from": 46, "to": 73, "dur": 2.8, "events": [{"min": 52, "text": "52' Cherki · 2–1"}, {"min": 73, "text": "73' Delap · 3–1"}]},

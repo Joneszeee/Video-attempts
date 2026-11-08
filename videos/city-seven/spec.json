@@ -441,6 +441,55 @@
      "dir": -1,
      "actionAt": "Jackson",
      "actionLag": 0.35
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -1.36,
+     "z": 44.35,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Jackson",
+     "actionLag": 0.04999999999999999,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 3.85,
+     "z": 48.7,
+     "front": true,
+     "action": "run",
+     "path": [
+      [
+       4.42,
+       47.7
+      ],
+      [
+       3.85,
+       48.7
+      ]
+     ],
+     "pathDur": 1.2,
+     "at": "Jackson",
+     "lag": -0.6
     }
    ],
    "card": [
@@ -596,6 +645,55 @@
      "dir": 1,
      "actionAt": "Ayari",
      "actionLag": 0.35
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -0.99,
+     "z": 44.09,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Ayari",
+     "actionLag": 0.04999999999999999,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0.57,
+     "z": 50.4,
+     "front": true,
+     "action": "run",
+     "path": [
+      [
+       1.13,
+       49.4
+      ],
+      [
+       0.57,
+       50.4
+      ]
+     ],
+     "pathDur": 1.2,
+     "at": "Ayari",
+     "lag": -0.6
     }
    ],
    "card": [
@@ -883,6 +981,35 @@
      "dir": 1,
      "actionAt": "scores",
      "actionLag": -0.05
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 1.2,
+     "z": 44.5,
+     "front": true,
+     "action": "run",
+     "path": [
+      [
+       1.6,
+       46.5
+      ],
+      [
+       0.6,
+       44.0
+      ]
+     ],
+     "pathDur": 1.0,
+     "at": "scores",
+     "lag": -0.9
     }
    ],
    "card": [
@@ -1027,6 +1154,55 @@
      "dir": 1,
      "actionAt": "makes it two",
      "actionLag": 0.35
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -1.35,
+     "z": 43.82,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "makes it two",
+     "actionLag": 0.04999999999999999,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0.54,
+     "z": 50.14,
+     "front": true,
+     "action": "run",
+     "path": [
+      [
+       1.11,
+       49.14
+      ],
+      [
+       0.54,
+       50.14
+      ]
+     ],
+     "pathDur": 1.2,
+     "at": "makes it two",
+     "lag": -0.6
     }
    ],
    "card": [
@@ -1220,6 +1396,26 @@
      "pathDur": 2.2,
      "at": "Delap again",
      "lag": -0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0.8,
+     "z": 45,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "Three–one",
+     "actionLag": -0.75,
+     "actionDur": 0.7
     },
     {
      "name": "",

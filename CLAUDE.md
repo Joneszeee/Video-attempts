@@ -142,6 +142,14 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
   (`camFrom` high and wide to one side, `camera` lower on the other side, `move` = beat length). The same action plays again from above with cinema bars.
   A runner can finish with a shot: `action: "kick"` timed to the end of his `path`, a `ball` at his feet until contact, then the `ballpath` past a wrong-way keeper.
 - **Always put a keeper in the goal** a player is running or shooting towards (`front`, `before: "ready"`).
+- **Shots are full of life (user: "more excited and more animated"). Built in as the engine's automatic hype pass:** every goal-bound world
+  `ballpath` in a stadium beat automatically gets a run-up (the kicker runs ~3m into the strike; `runup: false` / `runup` metres / `runupDur`
+  per player), a punch-in zoom and speed lines at contact, a camera that swings after the ball and creeps toward the net (beat `follow`,
+  default 0.6, lower it when the shooter is close to the camera), a shake when it hits the net and phone flashes in the stands.
+  Turn off with beat or spec `"hype": false`. Saves (`saveBy`) and `flash: false` shots are left alone.
+- **Defenders in every goal clip (user):** put one or two defenders around every shot unless the story says there were none: one closing
+  the shooter down and lunging (`dive`, short `actionDur`) as he strikes, one covering near goal. Keep them beside the ball's line, never on it
+  (helper `defenders()` in `videos/city-seven/gen.py`).
 - **Saves are auto-timed:** with `saveBy`, the engine sets the keeper's `actionDelay` so the catch lands at full stretch (70% of the dive) and he falls holding it.
 - **Strong foot:** `"foot": "left"` mirrors the kick and keeps the dribbled ball on his left (Messi is left-footed; check this for every named player).
 - **Dribbling:** a player with `"dribble": true` runs with the ball at his feet, pushed ahead on every other stride and depth-sorted with the players.

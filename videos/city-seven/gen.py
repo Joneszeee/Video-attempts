@@ -18,7 +18,15 @@ def P(**k):
     d = {"name": "", "num": None}; d.update(k); return d
 DONNA = dict(kit=CGK, skin="#e7b593", hair="#2a1a10", gloves="#f2f2f2")
 def mid(a, c, h): return [(a[0] + c[0]) / 2, h, (a[2] + c[2]) / 2]
-def goal(word, x, z, kit, skin, hair, label, end, gk, gdir, side=1, lag=-0.1, labelAt=None, h=1.0, dur=0.5, extra=None, foot=None):
+def defenders(b0, end, kit, word, lag=-0.1, skins=(("#e7b593", "#3a2a1a"), ("#8a5a3c", "#141010"))):
+    """Two defenders beside the shot's line (never on it): one closing the shooter down and lunging as he strikes, one covering near goal."""
+    import math
+    dx, dz = end[0] - b0[0], end[2] - b0[2]; L = math.hypot(dx, dz); nx, nz = -dz / L, dx / L
+    a = [b0[0] + dx * 0.28 + nx * 1.5, b0[2] + dz * 0.28 + nz * 1.5]
+    c = [b0[0] + dx * 0.72 - nx * 2.2, b0[2] + dz * 0.72 - nz * 2.2]
+    return [P(kit=kit, skin=skins[0][0], hair=skins[0][1], x=round(a[0], 2), z=round(a[1], 2), front=True, action="dive", dir=1 if nx > 0 else -1, actionAt=word, actionLag=lag + 0.15, actionDur=0.7),
+            P(kit=kit, skin=skins[1][0], hair=skins[1][1], x=round(c[0], 2), z=round(c[1], 2), front=True, action="run", path=[[round(c[0] - nx * 0.6, 2), round(c[1] - 1.0, 2)], [round(c[0], 2), round(c[1], 2)]], pathDur=1.2, at=word, lag=lag - 0.5)]
+def goal(word, x, z, kit, skin, hair, label, end, gk, gdir, side=1, lag=-0.1, labelAt=None, h=1.0, dur=0.5, extra=None, foot=None, defKit=None):
     """A shooter at (x, z) striking on `word` into the +z goal past a diving keeper; camera behind and to one side."""
     b0 = [x + 0.22, 0.11, z + 0.45]
     sh = P(kit=kit, skin=skin, hair=hair, x=x, z=z, label=label, labelAt=labelAt or word, action="kick", actionAt=word, actionLag=lag, actionDur=0.8, after="celebrate")
@@ -27,7 +35,7 @@ def goal(word, x, z, kit, skin, hair, label, end, gk, gdir, side=1, lag=-0.1, la
     cards = [{"type": "ball", "delay": 0, "point": b0, "untilAt": word, "untilLag": lag + 0.34},
              {"type": "ballpath", "world": True, "at": word, "lag": lag + 0.34, "dur": dur, "slowmo": False, "points": [b0, mid(b0, end, h), end]}]
     cam = {"camFrom": {"pos": [x + side * 3.0, 2.0, z - 6.5], "tgt": [x * 0.4, 1.0, 52]}, "camera": {"pos": [x + side * 2.4, 1.8, z - 4.8], "tgt": [x * 0.4, 1.0, 52]}}
-    return [sh, kp] + (extra or []), cards, cam
+    return [sh, kp] + (defenders(b0, end, defKit, word, lag) if defKit else []) + (extra or []), cards, cam
 B = []
 # 1 hook
 B.append({"kicker": "Premier League · 2026/27", "headline": "122 years. Nobody did [this].", "hookWords": True, "scene": S_CITY,
@@ -54,14 +62,14 @@ B.append({"kicker": "August to October", "headline": "Seven games. [Seven wins].
   "confetti": True, "confettiAt": "Seven wins", "confettiColors": ["#6cabdd", "#ffffff", "#1c2c5b"],
   "card": [{"type": "rain", "y": 1560, "at": "Seven games", "groups": [{"n": 7, "color": "#6cabdd", "at": "Seven wins", "dur": 0.8}], "cols": 7, "cell": 96, "icon": "ball", "empty": 0, "label": "Wins"}]})
 # 4 Villa
-pl, cards, cam = goal("Jackson", -1.2, 40, VILLA, "#5a3a28", "#141010", "Nicolas Jackson", [2.8, 0.6, 52.8], DONNA, -1, side=-1)
+pl, cards, cam = goal("Jackson", -1.2, 40, VILLA, "#5a3a28", "#141010", "Nicolas Jackson", [2.8, 0.6, 52.8], DONNA, -1, side=-1, defKit=CITY)
 pl[0].update(tag=2, tagLabel="Goals", tagAt="twice")
 B.append(dict({"kicker": "24 October · Villa Park", "headline": "Jackson twice. [Villa 2–1].", "accent": "#ff4d5e", "cut": True, "scene": S_VILLA, "move": 5, "moveEase": "linear",
   "players": pl, "card": cards + [{"type": "tickets", "y": 1560, "delay": 0, "tickets": [{"comp": "Premier League", "teams": "Villa v City", "score": "2–1", "date": "24 Oct 2026", "color": "#670e36"}],
      "done": 0, "newAt": "Villa win", "stamp": "LOST", "dx": 0}],
   "shake": [{"at": "Villa win", "lag": 0.6, "amount": 12}]}, **cam))
 # 5 Brighton
-pl, cards, cam = goal("Ayari", 1.4, 41, BRI, "#c99a6e", "#1d1410", "Yasin Ayari", [-2.7, 0.5, 52.8], DONNA, 1, side=1)
+pl, cards, cam = goal("Ayari", 1.4, 41, BRI, "#c99a6e", "#1d1410", "Yasin Ayari", [-2.7, 0.5, 52.8], DONNA, 1, side=1, defKit=CITY)
 B.append(dict({"kicker": "31 October · Etihad", "headline": "Brighton win at the [Etihad].", "accent": "#ff4d5e", "cut": True, "scene": S_CITY, "move": 5, "moveEase": "linear",
   "players": pl, "card": cards + [{"type": "clock", "y": 700, "scale": 0.75, "delay": 0, "from": 0, "to": 11, "dur": 1.6, "events": [{"min": 11, "text": "11' Ayari · 0–1"}]},
                                   {"type": "flytext", "text": "0–1", "size": 260, "endScale": 0.7, "y": 1600, "at": "One–nil", "lag": -0.1, "color": "#ff4d5e"}]}, **cam))
@@ -76,14 +84,15 @@ B.append({"kicker": "6 minutes", "headline": "Cunha [steals it] and scores.", "a
   "players": [P(kit=CITY, skin="#f0c8a8", hair="#3a2a1a", x=-1.0, z=30, label="Gvardiol", labelAt="Gvardiol", path=[[-0.4, 28.5], [-1.6, 32.6]], pathDur=1.2, at="Six"),
               P(kit=FOR, skin="#6b4630", hair="#141010", x=-3.0, z=34.6, label="Jair Cunha", labelAt="Jair", path=[[-3.2, 34.8], [-2.2, 33.8], [-1.9, 34.0]], pathDur=0.7, at="takes", lag=-0.3,
                 action="kick", actionAt="scores", actionLag=-0.55, actionDur=0.8, after="celebrate", hops=[]),
-              P(**DONNA, x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=1, actionAt="scores", actionLag=-0.05)],
+              P(**DONNA, x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=1, actionAt="scores", actionLag=-0.05),
+              P(kit=CITY, skin="#8a5a3c", hair="#141010", x=1.2, z=44.5, front=True, action="run", path=[[1.6, 46.5], [0.6, 44.0]], pathDur=1.0, at="scores", lag=-0.9)],
   "card": [{"type": "ball", "at": "Six", "point": [-1.35, 0.11, 32.9], "untilAt": "scores", "untilLag": -0.21},
            {"type": "ballpath", "world": True, "at": "scores", "lag": -0.21, "dur": 0.75, "slowmo": False, "points": [[-1.35, 0.11, 32.9], [-2.2, 0.6, 43], cend]},
            {"type": "pen", "delay": 0, "anchor": 0, "strokes": [{"kind": "ellipse", "cx": 0, "cy": 0, "rx": 0.5, "ry": 0.16, "at": "takes the ball", "color": "#ffd23f", "layer": "under"},
                                                              {"kind": "text", "text": "LOST IT", "x": 640, "y": 1060, "size": 64, "rot": -0.08, "at": "off Gvardiol", "color": "#ffd23f"}]},
            {"type": "clock", "y": 700, "scale": 0.75, "delay": 0, "from": 0, "to": 6, "dur": 1.0, "events": [{"min": 6, "text": "6' Cunha · 1–0"}]}]})
 # 8 Delap, City's old striker
-pl, cards, cam = goal("makes it two", 0.9, 40.5, FOR, "#f0c8a8", "#4a3324", "Liam Delap", [-2.6, 1.6, 52.8], DONNA, 1, side=1, labelAt="Delap", h=2.2)
+pl, cards, cam = goal("makes it two", 0.9, 40.5, FOR, "#f0c8a8", "#4a3324", "Liam Delap", [-2.6, 1.6, 52.8], DONNA, 1, side=1, labelAt="Delap", h=2.2, defKit=CITY)
 B.append(dict({"kicker": "18 minutes", "headline": "Delap. [Ex-City].", "accent": "#ff4d5e", "cut": True, "scene": S_FOR, "move": 4.5, "moveEase": "linear",
   "players": pl, "card": cards + [{"type": "pcard", "at": "Liam Delap", "y": 1300, "shiftX": 280, "w": 320, "h": 430, "side": "right", "tag": "Delap · ex-City", "color": ACC,
      "player": {"name": "Delap", "kit": CITY, "skin": "#f0c8a8", "hair": "#4a3324"}, "hideAt": "makes it two", "hideLag": 0.4}]}, **cam))
@@ -94,6 +103,7 @@ B.append({"kicker": "Second half", "headline": "Then Delap [again]. 3–1.", "ac
   "players": [P(kit=FOR, skin="#f0c8a8", hair="#4a3324", x=5.8, z=28, label="Delap", labelAt="Delap again", path=[[5.8, 28], [3.6, 36.6]], pathDur=2.0, at="Delap again", lag=-0.4, dribble=True,
                 action="kick", actionAt="Three–one", actionLag=-0.85, actionDur=0.8, after="celebrate"),
               P(kit=CITY, skin="#c99a6e", hair="#141010", x=1.0, z=31, path=[[1.4, 29], [2.4, 35]], pathDur=2.2, at="Delap again", lag=-0.2),
+              P(kit=CITY, skin="#e7b593", hair="#3a2a1a", x=0.8, z=45, front=True, action="dive", dir=1, actionAt="Three–one", actionLag=-0.75, actionDur=0.7),
               P(**DONNA, x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=-1, actionAt="Three–one", actionLag=-0.3)],
   "card": [{"type": "ballpath", "world": True, "at": "Three–one", "lag": -0.51, "dur": 0.55, "slowmo": False, "points": [dl, [3.2, 1.6, 45], [2.9, 2.0, 52.8]]},
            {"type": "clock", "y": 700, "scale": 0.75, "delay": 0, "from": 46, "to": 73, "dur": 2.8, "events": [{"min": 52, "text": "52' Cherki · 2–1"}, {"min": 73, "text": "73' Delap · 3–1"}]},

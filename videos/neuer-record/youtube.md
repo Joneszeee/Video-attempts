@@ -23,7 +23,7 @@ Follow for more football stories in under a minute.
 #Neuer #Bayern #Shorts
 
 ## Tags
-manuel neuer, neuer, neuer record, neuer injury, neuer mistake, bayern munich, fc bayern, mainz vs bayern, mainz 1-2 bayern, jonas urbig, neuer vs urbig, kimmich goal, harry kane, lennart karl, bundesliga, bernd dreher, oldest bayern player, var offside, football shorts, theo6k
+manuel neuer, neuer, neuer record, neuer injury, neuer mistake, bayern munich, fc bayern, mainz vs bayern, mainz 1-2 bayern, jonas urbig, neuer vs urbig, kimmich goal, harry kane, lennart karl, bundesliga, bernd dreher, oldest bayern player, var offside, football shorts, theo6k, neuer howler, neuer free kick, neuer limping off, neuer 40, goalkeeper mistake, goalkeeper howler, bayern goalkeeper, bayern vs mainz, mainz bayern highlights, bundesliga highlights, var drama
 
 ## Pinned comment
 Neuer or Urbig: who should be Bayern's number one now? 👇 And be honest about the new style!

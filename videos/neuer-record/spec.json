@@ -1212,13 +1212,13 @@
       }
      ],
      "hideAt": "On comes",
-     "hideLag": -0.1
+     "hideLag": -0.55
     }
    ],
    "shots": [
     {
      "at": "On comes",
-     "lag": -0.1,
+     "lag": -0.55,
      "cut": true,
      "lights": 0.9,
      "move": 3,

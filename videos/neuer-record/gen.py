@@ -86,8 +86,8 @@ B.append({"kicker": "40 minutes", "headline": "Lee scores. [1–1]?", "cut": Tru
 B.append({"kicker": "Injury", "headline": "Neuer [can't go on].", "accent": ACC, "cut": True, "scene": SC, "lights": 0.6,
   "camFrom": {"pos": [2.0, 1.4, 45.5], "tgt": [0.9, 0.5, 49.2]}, "camera": {"pos": [1.6, 1.2, 46.5], "tgt": [0.9, 0.5, 49.2]}, "move": 3.5,
   "players": [P(**NEUER, x=0.9, z=49.2, front=True, pose="hurt", mood="cross", label="Right foot", labelAt="right foot")],
-  "card": [{"type": "pen", "delay": 0, "anchor": 0, "strokes": [{"kind": "ellipse", "cx": 0.12, "cy": -0.05, "rx": 0.32, "ry": 0.12, "at": "right foot", "color": ACC, "layer": "under"}], "hideAt": "On comes", "hideLag": -0.1}],
-  "shots": [{"at": "On comes", "lag": -0.1, "cut": True, "lights": 0.9, "move": 3, "camFrom": {"pos": [-1, 1.6, -3.5], "tgt": [0, 1.2, 6]}, "camera": {"pos": [-0.6, 1.5, -2.4], "tgt": [0, 1.2, 6]},
+  "card": [{"type": "pen", "delay": 0, "anchor": 0, "strokes": [{"kind": "ellipse", "cx": 0.12, "cy": -0.05, "rx": 0.32, "ry": 0.12, "at": "right foot", "color": ACC, "layer": "under"}], "hideAt": "On comes", "hideLag": -0.55}],
+  "shots": [{"at": "On comes", "lag": -0.55, "cut": True, "lights": 0.9, "move": 3, "camFrom": {"pos": [-1, 1.6, -3.5], "tgt": [0, 1.2, 6]}, "camera": {"pos": [-0.6, 1.5, -2.4], "tgt": [0, 1.2, 6]},
      "players": [P(**URBIG, x=0, z=2.2, front=True, enter="walk", fromX=-6, fromZ=2.2, walkDur=1.4, label="Jonas Urbig", labelAt="Urbig", pose="keeper")]}]})
 # 9 VAR
 B.append({"kicker": "VAR check", "headline": "Lee was [offside].", "accent": "#3fa0ff", "cut": True, "scene": SC,

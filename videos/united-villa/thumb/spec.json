@@ -1,0 +1,143 @@
+{
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "outro": false,
+ "tail": 0,
+ "hype": false,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Premier League · Old Trafford",
+   "headline": "United came back. Still in the [drop zone].",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "camFrom": {
+    "pos": [
+     5.0,
+     1.9,
+     43.5
+    ],
+    "tgt": [
+     -0.8,
+     1.5,
+     51
+    ]
+   },
+   "camera": {
+    "pos": [
+     5.0,
+     1.9,
+     43.5
+    ],
+    "tgt": [
+     -0.8,
+     1.5,
+     51
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "lights": 1,
+   "flashes": 16,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0.9,
+     "z": 47.0,
+     "label": "Dorgu",
+     "labelDelay": 0.1,
+     "hops": [],
+     "action": "celebrate",
+     "actionDelay": -1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#95bfe5",
+      "shorts": "#670e36",
+      "socks": "#95bfe5",
+      "text": "#670e36"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 1.9,
+     "z": 47.8,
+     "front": true,
+     "hops": []
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0.2,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": -2,
+     "actionDur": 0.9
+    }
+   ],
+   "card": [
+    {
+     "type": "flytext",
+     "text": "4–4",
+     "size": 300,
+     "endScale": 0.7,
+     "y": 1250,
+     "delay": -3,
+     "color": "#ffffff",
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "18TH",
+     "sub": "relegation zone",
+     "color": "#ff4d5e",
+     "rot": -0.12,
+     "y": 1560,
+     "delay": -3,
+     "size": 150
+    }
+   ],
+   "confetti": true,
+   "confettiDelay": -3,
+   "confettiColors": [
+    "#da291c",
+    "#ffffff",
+    "#111111"
+   ],
+   "vo": "Thumbnail.",
+   "accent": "#ff4d5e"
+  }
+ ]
+}

@@ -266,6 +266,9 @@ Built so far from the idea list (reuse them):
 - **Dark analytics board** (from the user's thefinalthird.pro reference, `videos/united-roma`): the `tactic` card with `"theme": "dark"`. Numbered discs on a dark
   olive half pitch, `kind: "shot"` moves become dashed red lines with an arrowhead (`ball: false` to hide the ball), player `ring` highlights an unmarked man,
   `tags: [{at, x, y, text, color}]` pop event labels ("LOST IT", "11' · 0–1"), `showBall: false`, `awayText`. Boards and newspapers now slowly push in by themselves.
+- **Board geometry (user: shot lines must end in the goal, a penalty is taken from the spot):** on the `tactic` board aim shots at
+  `"to": "goal-left" | "goal" | "goal-right"` (inside the posts, never a hand-picked `[x, y]`), and a penalty starts `"from": "spot"` (drawn on the board)
+  with the taker's disc just behind it (about x 0.47, y 0.17). Goal line y≈0.03, box edge y≈0.22, goal mouth x 0.44–0.56. Keep tags in open grass, off the lines and discs.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.
 - **Half-time swing:** the `swing` card. Rows `[{label, from, to, at, decimals, good}]`: 1st-half number on the left, an arrow draws, the 2nd-half number counts and glows
   green (`good`) or red. Great for "what changed" tactics stories.

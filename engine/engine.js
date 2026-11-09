@@ -2424,7 +2424,14 @@ function drawCaptions(t) {
 
 // Whiteboard tactics board, "drawn from match reports": numbered discs, marker names, and the ball travelling
 // along hand-drawn pass lines. The view can zoom and follow the move (cam keyframes).
+// Board spots you can aim at by name, so shots always end in the goal (user: "the shot lines aren't even in the goal"):
+// "goal", "goal-left", "goal-right" (inside the posts, on the line), "spot" (penalty spot).
+function tacSpot(name, bw, bh) {
+  const m = 34, PW = bw - 2 * m, PH = bh - 2 * m, gy = (m - 4) / bh, half = PW * 0.045 / bw;
+  return { goal: [0.5, gy], 'goal-left': [0.5 - half, gy], 'goal-right': [0.5 + half, gy], spot: [0.5, (m + PH * 0.135) / bh] }[name];
+}
 function tacXY(c, p, bw, bh) {
+  if (typeof p === 'string') p = tacSpot(p, bw, bh) || [0.5, 0.03];
   const v = typeof p === 'number' ? [c.players[p].x + 0.035, c.players[p].y + 0.025] : p;
   return [(v[0] - 0.5) * bw, (v[1] - 0.5) * bh];
 }
@@ -2464,6 +2471,7 @@ CARDS.tactic = function (c, ct, cx, cy) {
   ctx.strokeRect(L + PW * 0.37, T, PW * 0.26, PH * 0.07);
   ctx.strokeRect(L + PW * 0.44, T - 14, PW * 0.12, 14);
   ctx.beginPath(); ctx.arc(L + PW / 2, T + PH * 0.2, PW * 0.12, 0.25 * Math.PI, 0.75 * Math.PI); ctx.stroke();
+  ctx.save(); ctx.fillStyle = ctx.strokeStyle; ctx.beginPath(); ctx.arc(L + PW / 2, T + PH * 0.135, 5, 0, 7); ctx.fill(); ctx.restore();   // penalty spot
   ctx.beginPath(); ctx.arc(L + PW / 2, T + PH, PW * 0.17, Math.PI, 2 * Math.PI); ctx.stroke();
   if (c.note !== false && !(dark && c.note == null)) { font(400, 22, 'Marker'); ctx.fillStyle = ink; ctx.textAlign = 'right'; ctx.fillText((c.note || 'Drawn from match reports').toUpperCase(), bw / 2 - 40, -bh / 2 + 26); }
   // pass lines drawn so far, X where each pass starts

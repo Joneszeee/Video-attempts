@@ -70,12 +70,14 @@ B.append({"kicker": "16 minutes · first half", "headline": "Bruno. Then [Tielem
 # 5 Villa 4-2: dark analytics board
 B.append({"kicker": "After the break", "headline": "McGinn. Goretzka. [4–2 Villa].", "cut": True, "scene": S_OT, "punch": [{"at": "punishes", "amount": 0.1, "dur": 1.6}, {"at": "Four–two", "amount": 0.14, "dur": 1.4}], "camFrom": "stand", "camera": "stand", "lights": 0.4, "focus": 0.75, "players": [],
   "card": {"type": "tactic", "theme": "dark", "y": 1180, "delay": 0, "note": False, "home": "#95bfe5", "away": "#da291c", "awayText": "#ffffff", "r": 34, "showBall": False,
-    "players": [{"n": "GK", "x": 0.5, "y": 0.05, "team": "away", "name": "Lammens", "label": "left"}, {"n": "", "x": 0.4, "y": 0.2, "team": "away", "name": "Yoro", "nameAt": "Yoro"},
-                {"n": 7, "x": 0.5, "y": 0.22, "team": "home", "name": "McGinn", "nameAt": "McGinn"}, {"n": 8, "x": 0.62, "y": 0.3, "team": "home", "name": "Goretzka", "nameAt": "Goretzka", "ring": "#95bfe5"}],
-    "moves": [{"from": 2, "to": [0.6, 0.0], "at": "McGinn scores", "dur": 0.5, "kind": "shot", "ball": False, "color": "#95bfe5"},
-              {"from": 3, "to": [0.42, 0.0], "at": "punishes", "dur": 0.5, "kind": "shot", "ball": False, "color": "#95bfe5"}],
-    "tags": [{"at": "McGinn", "x": 0.72, "y": 0.12, "text": "48' pen · 2–3", "color": "#670e36"},
-             {"at": "Yoro mistake", "x": 0.25, "y": 0.3, "text": "YORO ERROR", "color": "#da291c"},
+    "players": [{"n": "GK", "x": 0.5, "y": 0.045, "team": "away", "name": "Lammens", "label": "left"},
+                {"n": 7, "x": 0.47, "y": 0.17, "team": "home", "name": "McGinn", "nameAt": "McGinn", "label": "left"},
+                {"n": "", "x": 0.55, "y": 0.27, "team": "away", "name": "Yoro", "nameAt": "Yoro", "label": "left"},
+                {"n": 8, "x": 0.63, "y": 0.19, "team": "home", "name": "Goretzka", "nameAt": "Goretzka", "ring": "#95bfe5"}],
+    "moves": [{"from": "spot", "to": "goal-left", "at": "McGinn scores", "dur": 0.45, "kind": "shot", "ball": False, "color": "#95bfe5"},
+              {"from": 3, "to": "goal-right", "at": "punishes", "dur": 0.5, "kind": "shot", "ball": False, "color": "#95bfe5"}],
+    "tags": [{"at": "McGinn", "x": 0.74, "y": 0.4, "text": "48' pen · 2–3", "color": "#670e36"},
+             {"at": "Yoro mistake", "x": 0.4, "y": 0.34, "text": "YORO ERROR", "color": "#da291c"},
              {"at": "Four–two", "x": 0.5, "y": 0.62, "text": "MUN 2–4 AVL", "color": "#670e36"}]}})
 # 6 Zirkzee 92'
 pz, cz = shot("Zirkzee", -1.0, 41, MUN, "#e7b593", "#5a3a20", "Zirkzee", [2.8, 0.6, 52.8], defKit=AVL)

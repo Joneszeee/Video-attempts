@@ -85,7 +85,10 @@ Football version of its rules:
   **Something extraordinary happens before 3s**: a shot hits the net, a number races and locks, a stamp slams, a trophy shatters, a shirt rips.
   The claim lands at about 1.2–1.6s, word by word, big and high contrast. The first spoken word comes within 0.5s and it's the subject ("Mbappé…",
   "Harry Kane…"). It works on mute. It's about the viewer's world: their club, their rivalry, their opinion.
-- **For the hook, the headline builds word by word** (beat 1 `"hookWords": true`) instead of sitting there static. Frame 0 still shows the main visual for the thumbnail.
+- **The hook headline is fully readable on frame 0** (channel data: ~50% of viewers swipe in the first second, mostly on mute). With beat 1
+  `"hookWords": true` every word is already there and each one punches up and flashes in the accent colour in turn, roughly with the voice.
+  The engine also opens every video mid-move: a zoom-out burst and speed lines on frame 0 (`"hookZoom": false` in the spec turns both off).
+- **The first spoken word lands within ~0.1s.** `build.py` trims the silence ElevenLabs leaves before the first word and starts the voice 0.08s in.
 - **Write 3 hooks** with a 0.0 / 0.5 / 1.2 / 3.0s frame plan each, run the checklist, and pick one, naming the winning pattern.
 - **Motion check before every preview:** render stills every 0.5s and compare frames 1s apart (mean pixel difference). Anything under about 3
   (out of 255) is a static moment: add a camera push, a slower count or more action there. A replay shot can start part-way through the
@@ -97,6 +100,16 @@ Football version of its rules:
 
 **End screen.** It's automatic: about 1.8s after the last line, the final shot softly blurs and darkens and a small brand card fades in
 ("theo6k · follow for more football stories"). Keep it subtle and short. Optional spec keys: `"outroText"`, `"outroDur"`, `"outro": false`.
+
+## What the channel's analytics say (Nov 2026; re-check as data comes in)
+- Every Short stalls at 1–2.5k views because **only ~50% of viewers stay past the swipe** (Shorts need roughly 60–70%+ to get pushed).
+  Once people stay they watch: 55–67% average viewed, even on a 1:16 video. So the work is the **first second**, not the length.
+- Best: person-v-person conflict on big clubs ("Cunha won it… then Carrick sent him off": 2.5k, 67% viewed; "Mbappé has NEVER beaten Yamal").
+  Controversy gets the comments ("City… guilty on 114 charges": 9). Pure stat/record stories without a villain sit around 1k.
+- The hybrid Como video was the weakest (39% stayed, 42% viewed). Treat toy/hybrid as unproven; default to the normal style.
+- So: pick stories with a named conflict or a "you're wrong" claim on a big club; put that conflict in the frame-0 headline in plain words;
+  open mid-action (a shot already flying, a stamp slamming); add a **re-hook around the middle** ("But here's where it gets weird…") with a
+  pattern break on screen (cut, freeze, VHS, flytext); end on a question that splits fans, and reply to every comment in the first hour.
 
 ## Narration-synced animation: required on every video (viewer feedback)
 A viewer said a video felt like "listening instead of watching": the picture sat on one shot while the narrator talked about something

@@ -967,13 +967,14 @@ function drawHeadline(text, inT, outT, accent, wordT) {
     ctx.globalAlpha = a * (1 - o);
     const y = HL.y + li * HL.lh + (1 - a) * 30 - o * 14;
     for (const tk of line) {
-      if (wordT != null) {   // hook: the claim builds word by word and lands by ~1.5s (virality checklist)
-        const k = pr(wordT, 0.2 + idx * (1.2 / Math.max(1, n)), 0.22); idx++;
-        if (k <= 0) continue;
-        const w = ctx.measureText(tk.w).width, sc = 0.6 + 0.4 * eBack(k);
-        ctx.save(); ctx.globalAlpha *= Math.min(1, k * 2);
+      if (wordT != null) {   // hook: the whole claim is readable on frame 0 (half of viewers decide in the first second, on mute);
+        // each word then punches up in turn, roughly with the voice, so the text still moves
+        const k = pr(wordT, 0.1 + idx * (1.4 / Math.max(1, n)), 0.3); idx++;
+        const w = ctx.measureText(tk.w).width, pk = Math.sin(Math.PI * k), sc = 1 + 0.07 * pk;
+        ctx.save();
         ctx.translate(HL.x + tk.x + w / 2, y - HL.size * 0.35); ctx.scale(sc, sc); ctx.translate(-(HL.x + tk.x + w / 2), -(y - HL.size * 0.35));
         ctx.fillStyle = tk.acc ? (accent || S.accent) : '#f4f2ec'; ctx.fillText(tk.w, HL.x + tk.x, y);
+        if (!tk.acc && pk > 0) { ctx.globalAlpha *= 0.75 * pk; ctx.fillStyle = accent || S.accent; ctx.fillText(tk.w, HL.x + tk.x, y); }   // the word being said flashes
         ctx.restore(); continue;
       }
       ctx.fillStyle = tk.acc ? (accent || S.accent) : '#f4f2ec';
@@ -3375,6 +3376,8 @@ window.loadSpec = async function (spec) {
     return B;
   });
   // short, subtle end screen after the last beat
+  // the hook always opens with a burst of speed lines on frame 0 (unless the beat sets its own)
+  if (S.beats[0] && !S.beats[0].speedlines && spec.hookZoom !== false) S.beats[0].speedlines = [{ t: 0, dur: 0.8, amount: 0.5 }];
   S.outro = spec.outro === false ? null : { start: t, dur: spec.outroDur || 1.8 };
   if (S.outro) t += S.outro.dur;
   S.dur = t;
@@ -3472,8 +3475,9 @@ function polaroid(lt, label) {
 }
 
 // Punch-ins (quick zoom towards a point, e.g. on a kick) and impact shake, applied to the scene only.
-function cameraFX(b, lt) {
+function cameraFX(b, lt, hook) {
   let s = 1, cx = W / 2, cy = H * 0.58, dx = 0, dy = 0;
+  if (hook && S.spec.hookZoom !== false) s = 1 + 0.14 * (1 - eOut(pr(lt, 0, 0.9)));   // the video opens mid-move: a zoom-out burst from frame 0
   for (const p of b.punch || []) {
     const r = lt - p.t, d = p.dur || 1.2;
     if (r < 0 || r > d) continue;
@@ -3550,7 +3554,7 @@ function renderAt(t) {
     drawGoals(cam);
     drawPlayers(cam, ts - b.playersStart, b.playersArr);
   }
-  if (b.punch || b.shake) cameraFX(b, lts);
+  if (b.punch || b.shake || i === 0) cameraFX(b, lts, i === 0);
   S.t = t;
   if (b.freeze != null && lt > b.freeze) {   // drain the colour and flash white, like a paused broadcast
     const k = pr(lt, b.freeze, 0.3), fx = fullc.getContext('2d');

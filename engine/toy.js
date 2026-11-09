@@ -350,9 +350,11 @@ function drawToyHeadline(text, inT, outT, accent, wordT) {
     ctx.shadowColor = 'rgba(30,15,5,0.35)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 3;
     for (const tk of line) {
       let kk = 1;
-      if (wordT != null) { kk = pr(wordT, 0.2 + idx * (1.2 / Math.max(1, n)), 0.3); idx++; if (kk <= 0) continue; }
-      ctx.save(); ctx.globalAlpha *= eOut(kk);
-      ctx.fillStyle = tk.acc ? (accent || S.accent) : '#ffffff'; ctx.fillText(tk.w, HL.x + tk.x, y + (1 - eOut(kk)) * 18); ctx.restore();
+      let sc = 1;
+      if (wordT != null) { kk = pr(wordT, 0.1 + idx * (1.4 / Math.max(1, n)), 0.3); idx++; sc = 1 + 0.07 * Math.sin(Math.PI * kk); }   // readable on frame 0, words punch in turn
+      const ww = ctx.measureText(tk.w).width, cxw = HL.x + tk.x + ww / 2, cyw = y - size * 0.35;
+      ctx.save(); ctx.translate(cxw, cyw); ctx.scale(sc, sc); ctx.translate(-cxw, -cyw);
+      ctx.fillStyle = tk.acc ? (accent || S.accent) : '#ffffff'; ctx.fillText(tk.w, HL.x + tk.x, y); ctx.restore();
     }
     ctx.restore();
   });

@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / 'engine'))
 import cues  # noqa: E402
-VO_DELAY = 0.25  # seconds of picture before the voice starts
+VO_DELAY = 0.08  # seconds of picture before the voice starts (the first word must land within ~0.1s: half of viewers swipe in the first second)
 VO_LUFS = -16    # the voice is levelled to this before mixing
 SFX_UNDER = 12   # effects sit this many dB below the voice (user: the voice was drowned out)
 
@@ -82,6 +82,23 @@ def speed_up(vo, speed, outdir):
     if side.exists():
         st = json.loads(side.read_text())['starts']
         Path(str(out) + '.beats.json').write_text(json.dumps({'starts': [x / speed for x in st]}))
+    return out
+
+
+def trim_lead(vo, outdir):
+    """Cut the silence ElevenLabs leaves before the first word (keeps 30 ms), carrying line timings (.beats.json) across."""
+    sil = silences(vo, -40, 0.05)
+    lead = sil[0][1] if sil and sil[0][0] < 0.02 else 0.0
+    cut = round(lead - 0.03, 3)
+    if cut <= 0.02:
+        return vo
+    out = outdir / f'{Path(vo).stem}_trim.wav'
+    run(['ffmpeg', '-y', '-v', 'error', '-ss', str(cut), '-i', str(vo), '-ar', '48000', str(out)])
+    side = Path(str(vo) + '.beats.json')
+    if side.exists():
+        st = json.loads(side.read_text())['starts']
+        Path(str(out) + '.beats.json').write_text(json.dumps({'starts': [0.0] + [max(0.0, x - cut) for x in st[1:]]}))
+    print(f'trimmed {cut:.2f}s of silence before the first word')
     return out
 
 
@@ -147,6 +164,7 @@ def main():
             a.vo_speed = spec['voSpeed']
         if a.vo_speed != 1.0:
             a.vo = str(speed_up(Path(a.vo), a.vo_speed, outdir))
+        a.vo = str(trim_lead(Path(a.vo), outdir))
         speech = align(spec, a.vo)
     for b in spec['beats']:  # no voiceover yet: estimate from the words
         b.setdefault('duration', round(max(2.4, len(b.get('vo', '').split()) / 2.7 + 0.7), 3))

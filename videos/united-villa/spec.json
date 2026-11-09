@@ -1,0 +1,1674 @@
+{
+ "title": "Man United 4–4 Aston Villa",
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Premier League · Old Trafford",
+   "headline": "United came back. Still in the [drop zone].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "camFrom": {
+    "pos": [
+     6.5,
+     2.2,
+     41.5
+    ],
+    "tgt": [
+     -0.6,
+     1.6,
+     50.5
+    ]
+   },
+   "camera": {
+    "pos": [
+     5.0,
+     1.9,
+     43.5
+    ],
+    "tgt": [
+     -0.8,
+     1.5,
+     51
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "lights": 1,
+   "flashes": 16,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0.9,
+     "z": 47.0,
+     "label": "Dorgu",
+     "labelDelay": 0.1,
+     "hops": [
+      {
+       "t": -0.35,
+       "dur": 0.7,
+       "height": 0.6
+      }
+     ],
+     "action": "celebrate",
+     "actionDelay": 0.9
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#95bfe5",
+      "shorts": "#670e36",
+      "socks": "#95bfe5",
+      "text": "#670e36"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 1.9,
+     "z": 47.8,
+     "front": true,
+     "hops": [
+      {
+       "t": -0.3,
+       "dur": 0.6,
+       "height": 0.4
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0.2,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": -0.25,
+     "actionDur": 0.9
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": -0.4,
+     "dur": 0.7,
+     "slowmo": false,
+     "points": [
+      [
+       0.9,
+       2.25,
+       47.3
+      ],
+      [
+       -0.8500000000000001,
+       2.4,
+       50.05
+      ],
+      [
+       -2.6,
+       1.5,
+       52.8
+      ]
+     ],
+     "noShift": true
+    },
+    {
+     "type": "flytext",
+     "text": "4–4",
+     "size": 300,
+     "endScale": 0.7,
+     "y": 1450,
+     "delay": 0.45,
+     "color": "#ffffff",
+     "clear": false,
+     "hideAt": "relegation",
+     "hideLag": -0.3
+    },
+    {
+     "type": "stamp",
+     "text": "18TH",
+     "sub": "relegation zone",
+     "at": "relegation",
+     "lag": -0.2,
+     "color": "#ff4d5e",
+     "rot": -0.12,
+     "y": 1460
+    }
+   ],
+   "confetti": true,
+   "confettiDelay": 0.3,
+   "confettiColors": [
+    "#da291c",
+    "#ffffff",
+    "#111111"
+   ],
+   "freezeAt": "relegation zone",
+   "freezeLag": -0.1,
+   "vo": "Manchester United just scored twice in stoppage time to draw four–four. They're still in the relegation zone.",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "Sunday · Old Trafford",
+   "headline": "Aston Villa at [Old Trafford].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     24,
+     -42
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 4,
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 760,
+     "at": "eighth",
+     "label": "Man United v Aston Villa",
+     "groups": [
+      {
+       "label": "November",
+       "value": 8,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "SUN",
+      "big": "8",
+      "bottom": "NOV"
+     }
+    }
+   ],
+   "vo": "Sunday the eighth of November. Aston Villa at Old Trafford.",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "Inside 4 minutes",
+   "headline": "Two [Lammens] mistakes. 0–2.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "lights": 0.85,
+   "camFrom": {
+    "pos": [
+     -5.0,
+     2.4,
+     37
+    ],
+    "tgt": [
+     0,
+     1.0,
+     51
+    ]
+   },
+   "camera": {
+    "pos": [
+     -4.0,
+     2.1,
+     39
+    ],
+    "tgt": [
+     0.2,
+     1.0,
+     51
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2fae6b",
+      "shorts": "#1d1c22",
+      "socks": "#2fae6b",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 51.0,
+     "front": true,
+     "pose": "keeper",
+     "label": "Lammens",
+     "labelAt": "Lammens"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#95bfe5",
+      "shorts": "#670e36",
+      "socks": "#95bfe5",
+      "text": "#670e36"
+     },
+     "skin": "#c99a6e",
+     "hair": "#141010",
+     "x": -2.2,
+     "z": 44.5,
+     "label": "Alysson",
+     "labelAt": "Alysson",
+     "action": "kick",
+     "actionAt": "Alysson",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#95bfe5",
+      "shorts": "#670e36",
+      "socks": "#95bfe5",
+      "text": "#670e36"
+     },
+     "skin": "#5a3a28",
+     "hair": "#141010",
+     "x": 1.8,
+     "z": 43.5,
+     "label": "Nicolas Jackson",
+     "labelAt": "Jackson",
+     "action": "kick",
+     "actionAt": "Jackson",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -3.8,
+     "z": 47,
+     "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 3.6,
+     "z": 46.5,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.9800000000000002,
+      0.11,
+      44.95
+     ],
+     "untilAt": "Alysson",
+     "untilLag": 0.24000000000000002
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Alysson",
+     "lag": 0.24000000000000002,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.9800000000000002,
+       0.11,
+       44.95
+      ],
+      [
+       -1.4900000000000002,
+       1.0,
+       48.875
+      ],
+      [
+       -1.0,
+       0.4,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      2.02,
+      0.11,
+      43.95
+     ],
+     "untilAt": "Jackson",
+     "untilLag": 0.24000000000000002
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Jackson",
+     "lag": 0.24000000000000002,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       2.02,
+       0.11,
+       43.95
+      ],
+      [
+       2.46,
+       1.0,
+       48.375
+      ],
+      [
+       2.9,
+       0.6,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 0,
+     "to": 4,
+     "dur": 2.4,
+     "events": [
+      {
+       "min": 1,
+       "text": "1' Alysson · 0–1"
+      },
+      {
+       "min": 4,
+       "text": "4' Jackson · 0–2"
+      }
+     ]
+    },
+    {
+     "type": "pen",
+     "delay": 0,
+     "anchor": 0,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 0,
+       "cy": 0,
+       "rx": 0.5,
+       "ry": 0.16,
+       "at": "mistakes",
+       "color": "#ffd23f",
+       "layer": "under"
+      },
+      {
+       "kind": "text",
+       "text": "ERROR x2",
+       "x": 560,
+       "y": 1100,
+       "size": 66,
+       "rot": -0.08,
+       "at": "Lammens",
+       "color": "#ffd23f"
+      }
+     ]
+    }
+   ],
+   "vo": "Inside four minutes, it's two–nil. Alysson, then Nicolas Jackson, both after mistakes by Senne Lammens.",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "16 minutes · first half",
+   "headline": "Bruno. Then [Tielemans]. 2–2.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "camFrom": {
+    "pos": [
+     -3.2,
+     2.0,
+     33.5
+    ],
+    "tgt": [
+     0.6,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -2.4,
+     1.8,
+     35.5
+    ],
+    "tgt": [
+     0.6,
+     1.0,
+     52
+    ]
+   },
+   "move": 3,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0.1,
+     "z": 40.9,
+     "label": "Bruno Fernandes",
+     "labelAt": "Bruno",
+     "action": "kick",
+     "actionAt": "penalty",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "penalty",
+     "actionLag": 0.25
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.32,
+      0.11,
+      41.35
+     ],
+     "untilAt": "penalty",
+     "untilLag": 0.24000000000000002
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "penalty",
+     "lag": 0.24000000000000002,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       0.32,
+       0.11,
+       41.35
+      ],
+      [
+       1.6099999999999999,
+       1.0,
+       47.075
+      ],
+      [
+       2.9,
+       0.5,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "stack",
+     "y": 1640,
+     "delay": 0,
+     "size": 150,
+     "items": [
+      {
+       "value": 1,
+       "label": "16' Bruno · pen",
+       "at": "penalty",
+       "prefix": "",
+       "suffix": "–2"
+      }
+     ]
+    }
+   ],
+   "shots": [
+    {
+     "at": "Tielemans",
+     "lag": -0.35,
+     "cut": true,
+     "move": 3.5,
+     "moveEase": "linear",
+     "camFrom": {
+      "pos": [
+       5.5,
+       2.3,
+       30
+      ],
+      "tgt": [
+       0.5,
+       1.0,
+       51
+      ]
+     },
+     "camera": {
+      "pos": [
+       4.5,
+       2.0,
+       32.5
+      ],
+      "tgt": [
+       0.3,
+       1.0,
+       51
+      ]
+     },
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#da291c",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#c9a46a",
+       "x": 2.2,
+       "z": 36.5,
+       "label": "Tielemans · ex-Villa",
+       "labelAt": "Tielemans",
+       "action": "kick",
+       "actionAt": "old club",
+       "actionLag": -0.1,
+       "actionDur": 0.8,
+       "after": "celebrate"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#95bfe5",
+        "shorts": "#670e36",
+        "socks": "#95bfe5",
+        "text": "#670e36"
+       },
+       "skin": "#e7b593",
+       "hair": "#3a2a1a",
+       "x": -0.47,
+       "z": 40.92,
+       "front": true,
+       "action": "dive",
+       "dir": -1,
+       "actionAt": "old club",
+       "actionLag": 0.04999999999999999,
+       "actionDur": 0.7
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#95bfe5",
+        "shorts": "#670e36",
+        "socks": "#95bfe5",
+        "text": "#670e36"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "x": 0.75,
+       "z": 49.05,
+       "front": true,
+       "action": "run",
+       "path": [
+        [
+         1.32,
+         48.05
+        ],
+        [
+         0.75,
+         49.05
+        ]
+       ],
+       "pathDur": 1.2,
+       "at": "old club",
+       "lag": -0.6
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#f2c200",
+        "shorts": "#1d1c22",
+        "socks": "#f2c200",
+        "text": "#1d1c22"
+       },
+       "skin": "#e7b593",
+       "hair": "#2a1a10",
+       "gloves": "#f2f2f2",
+       "x": 0,
+       "z": 52.0,
+       "front": true,
+       "pose": "keeper",
+       "before": "ready",
+       "action": "dive",
+       "dir": 1,
+       "actionAt": "old club",
+       "actionLag": 0.35
+      }
+     ],
+     "card": [
+      {
+       "type": "ball",
+       "delay": 0,
+       "point": [
+        2.4200000000000004,
+        0.11,
+        36.95
+       ],
+       "untilAt": "old club",
+       "untilLag": 0.24000000000000002
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "old club",
+       "lag": 0.24000000000000002,
+       "dur": 0.65,
+       "slowmo": false,
+       "points": [
+        [
+         2.4200000000000004,
+         0.11,
+         36.95
+        ],
+        [
+         -0.18999999999999972,
+         2.6,
+         44.875
+        ],
+        [
+         -2.8,
+         1.8,
+         52.8
+        ]
+       ]
+      },
+      {
+       "type": "flytext",
+       "text": "2–2",
+       "size": 280,
+       "endScale": 0.7,
+       "y": 1560,
+       "at": "Two–two",
+       "lag": -0.1,
+       "color": "#ffffff",
+       "clear": false
+      }
+     ]
+    }
+   ],
+   "vo": "Bruno Fernandes scores a penalty. Then Youri Tielemans, against his old club. Two–two.",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "After the break",
+   "headline": "McGinn. Goretzka. [4–2 Villa].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "punch": [
+    {
+     "at": "punishes",
+     "amount": 0.1,
+     "dur": 1.6
+    },
+    {
+     "at": "Four–two",
+     "amount": 0.14,
+     "dur": 1.4
+    }
+   ],
+   "camFrom": "stand",
+   "camera": "stand",
+   "lights": 0.4,
+   "focus": 0.75,
+   "players": [],
+   "card": {
+    "type": "tactic",
+    "theme": "dark",
+    "y": 1180,
+    "delay": 0,
+    "note": false,
+    "home": "#95bfe5",
+    "away": "#da291c",
+    "awayText": "#ffffff",
+    "r": 34,
+    "showBall": false,
+    "players": [
+     {
+      "n": "GK",
+      "x": 0.5,
+      "y": 0.05,
+      "team": "away",
+      "name": "Lammens",
+      "label": "left"
+     },
+     {
+      "n": "",
+      "x": 0.4,
+      "y": 0.2,
+      "team": "away",
+      "name": "Yoro",
+      "nameAt": "Yoro"
+     },
+     {
+      "n": 7,
+      "x": 0.5,
+      "y": 0.22,
+      "team": "home",
+      "name": "McGinn",
+      "nameAt": "McGinn"
+     },
+     {
+      "n": 8,
+      "x": 0.62,
+      "y": 0.3,
+      "team": "home",
+      "name": "Goretzka",
+      "nameAt": "Goretzka",
+      "ring": "#95bfe5"
+     }
+    ],
+    "moves": [
+     {
+      "from": 2,
+      "to": [
+       0.6,
+       0.0
+      ],
+      "at": "McGinn scores",
+      "dur": 0.5,
+      "kind": "shot",
+      "ball": false,
+      "color": "#95bfe5"
+     },
+     {
+      "from": 3,
+      "to": [
+       0.42,
+       0.0
+      ],
+      "at": "punishes",
+      "dur": 0.5,
+      "kind": "shot",
+      "ball": false,
+      "color": "#95bfe5"
+     }
+    ],
+    "tags": [
+     {
+      "at": "McGinn",
+      "x": 0.72,
+      "y": 0.12,
+      "text": "48' pen · 2–3",
+      "color": "#670e36"
+     },
+     {
+      "at": "Yoro mistake",
+      "x": 0.25,
+      "y": 0.3,
+      "text": "YORO ERROR",
+      "color": "#da291c"
+     },
+     {
+      "at": "Four–two",
+      "x": 0.5,
+      "y": 0.62,
+      "text": "MUN 2–4 AVL",
+      "color": "#670e36"
+     }
+    ]
+   },
+   "vo": "After the break, McGinn scores a penalty. Then Goretzka punishes a Yoro mistake. Four–two Villa.",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "92 minutes",
+   "headline": "[Zirkzee]. 4–3.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "lights": 0.8,
+   "camFrom": {
+    "pos": [
+     -4.0,
+     2.2,
+     32
+    ],
+    "tgt": [
+     0,
+     1.0,
+     51
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.0,
+     2.0,
+     34.5
+    ],
+    "tgt": [
+     0.2,
+     1.0,
+     51
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#5a3a20",
+     "x": -1.0,
+     "z": 41,
+     "label": "Zirkzee",
+     "labelAt": "Zirkzee",
+     "action": "kick",
+     "actionAt": "Zirkzee",
+     "actionLag": -0.1,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#95bfe5",
+      "shorts": "#670e36",
+      "socks": "#95bfe5",
+      "text": "#670e36"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -1.21,
+     "z": 45.08,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Zirkzee",
+     "actionLag": 0.04999999999999999,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#95bfe5",
+      "shorts": "#670e36",
+      "socks": "#95bfe5",
+      "text": "#670e36"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 3.9,
+     "z": 48.96,
+     "front": true,
+     "action": "run",
+     "path": [
+      [
+       4.47,
+       47.96
+      ],
+      [
+       3.9,
+       48.96
+      ]
+     ],
+     "pathDur": 1.2,
+     "at": "Zirkzee",
+     "lag": -0.6
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Zirkzee",
+     "actionLag": 0.35
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.78,
+      0.11,
+      41.45
+     ],
+     "untilAt": "Zirkzee",
+     "untilLag": 0.24000000000000002
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Zirkzee",
+     "lag": 0.24000000000000002,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -0.78,
+       0.11,
+       41.45
+      ],
+      [
+       1.0099999999999998,
+       1.0,
+       47.125
+      ],
+      [
+       2.8,
+       0.6,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "clock",
+     "y": 700,
+     "scale": 0.75,
+     "delay": 0,
+     "from": 88,
+     "to": 92,
+     "dur": 1.2,
+     "phase": "STOPPAGE TIME",
+     "events": [
+      {
+       "min": 92,
+       "text": "92' Zirkzee · 3–4"
+      }
+     ]
+    }
+   ],
+   "vo": "Ninety-two minutes: Zirkzee. Four–three.",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "Deep into stoppage time",
+   "headline": "Dorgu. [4–4].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "letterbox": true,
+   "replayTag": "REPLAY",
+   "follow": 0.4,
+   "camFrom": {
+    "pos": [
+     -9,
+     7,
+     39
+    ],
+    "tgt": [
+     0,
+     0.8,
+     49
+    ]
+   },
+   "camera": {
+    "pos": [
+     6.5,
+     3.6,
+     42
+    ],
+    "tgt": [
+     -0.4,
+     1.0,
+     50
+    ]
+   },
+   "move": 5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0.9,
+     "z": 47.0,
+     "label": "Dorgu",
+     "labelAt": "Dorgu",
+     "hops": [
+      {
+       "at": "heads",
+       "lag": -0.35,
+       "dur": 0.7,
+       "height": 0.6
+      }
+     ],
+     "action": "celebrate",
+     "actionAt": "heads",
+     "actionLag": 0.6
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#95bfe5",
+      "shorts": "#670e36",
+      "socks": "#95bfe5",
+      "text": "#670e36"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 1.9,
+     "z": 47.8,
+     "front": true,
+     "hops": [
+      {
+       "at": "heads",
+       "lag": -0.3,
+       "dur": 0.6,
+       "height": 0.4
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#95bfe5",
+      "shorts": "#670e36",
+      "socks": "#95bfe5",
+      "text": "#670e36"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -1.8,
+     "z": 48.5,
+     "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "gloves": "#f2f2f2",
+     "x": 0.2,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "heads",
+     "actionLag": -0.1,
+     "actionDur": 0.9
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "x": -6,
+     "z": 30,
+     "path": [
+      [
+       -8,
+       26
+      ],
+      [
+       -2.5,
+       44
+      ]
+     ],
+     "pathDur": 1.6,
+     "at": "Dorgu",
+     "action": "run"
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "heads",
+     "lag": 0.0,
+     "dur": 0.7,
+     "slowmo": false,
+     "points": [
+      [
+       0.9,
+       2.25,
+       47.3
+      ],
+      [
+       -0.8500000000000001,
+       2.4,
+       50.05
+      ],
+      [
+       -2.6,
+       1.5,
+       52.8
+      ]
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "4–4",
+     "size": 320,
+     "endScale": 0.75,
+     "y": 1500,
+     "at": "Four–four",
+     "lag": -0.1,
+     "color": "#ffffff",
+     "clear": false
+    }
+   ],
+   "confetti": true,
+   "confettiAt": "Four–four",
+   "confettiColors": [
+    "#da291c",
+    "#ffffff",
+    "#111111"
+   ],
+   "vo": "Then, deep into stoppage time, Dorgu heads it in. Four–four!",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "The table",
+   "headline": "18th. Lowest since [1986].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "1986",
+   "vhsDur": 1.4,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "lights": 0.45,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     1.2,
+     2.6,
+     -6.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.3,
+     1.8,
+     -1.6
+    ],
+    "tgt": [
+     0,
+     1.25,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "punch": [
+    {
+     "at": "eighteenth",
+     "amount": 0.12,
+     "dur": 1.6
+    }
+   ],
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 2.2,
+     "front": true,
+     "label": "Man United · 18th",
+     "labelAt": "eighteenth"
+    }
+   ],
+   "card": [
+    {
+     "type": "big",
+     "at": "eighteenth",
+     "value": 18,
+     "suffix": "th",
+     "label": "Lowest after 10 games since 1986/87",
+     "y": 1560,
+     "style": "accent",
+     "size": 260
+    }
+   ],
+   "vo": "But here's the problem. United are eighteenth. Their lowest after ten games since 1986.",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "After the whistle",
+   "headline": "Keane tore into [Carrick].",
+   "cut": true,
+   "scene": {
+    "type": "booth",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111"
+    ],
+    "seed": 9,
+    "screenLeft": [
+     "KEANE",
+     "ON CARRICK"
+    ],
+    "screenRight": [
+     "MUN",
+     "18TH"
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1b1d24",
+     "tie": "#3a3f4b",
+     "skin": "#e7b593",
+     "hair": "#4a4038",
+     "headset": true,
+     "sx": 0.5,
+     "scale": 0.75,
+     "front": true,
+     "pose": "point",
+     "mood": "cross",
+     "label": "Roy Keane",
+     "labelAt": "Roy Keane"
+    }
+   ],
+   "card": [
+    {
+     "type": "newspaper",
+     "at": "Roy Keane",
+     "lag": -0.2,
+     "y": 1480,
+     "masthead": "THE MATCHDAY POST",
+     "dateline": "Monday 9 November 2026",
+     "headline": "KEANE TEARS\nINTO CARRICK",
+     "sub": "United 18th after 4–4 draw",
+     "color": "#2a2116",
+     "spin": 1.4,
+     "scale": 0.8
+    }
+   ],
+   "vo": "And after the whistle, it got worse. Roy Keane tore into Michael Carrick.",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "Michael Carrick",
+   "headline": "Resign? He [expects to stay].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "lights": 0.75,
+   "camFrom": {
+    "pos": [
+     -0.8,
+     1.5,
+     -2.8
+    ],
+    "tgt": [
+     0.1,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.3,
+     1.5,
+     -1.8
+    ],
+    "tgt": [
+     0.1,
+     1.3,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#7a1420",
+     "skin": "#efc9a8",
+     "hair": "#4a3324",
+     "x": 0.2,
+     "z": 2.0,
+     "front": true,
+     "label": "Michael Carrick",
+     "labelDelay": 0.2
+    }
+   ],
+   "card": [
+    {
+     "type": "stamp",
+     "text": "RESIGN?",
+     "sub": "asked on Sky",
+     "at": "resign",
+     "color": "#ff4d5e",
+     "rot": 0.1,
+     "y": 1500,
+     "hideAt": "expects",
+     "hideLag": -0.2
+    },
+    {
+     "type": "stamp",
+     "text": "STAYING",
+     "sub": "he says",
+     "at": "expects to stay",
+     "color": "#ffffff",
+     "rot": -0.1,
+     "y": 1500
+    }
+   ],
+   "vo": "Carrick was asked if he'd resign. He says he expects to stay.",
+   "accent": "#ff4d5e"
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Carrick: [stay or go]?",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "lights": 0.6,
+   "orbit": {
+    "center": [
+     0,
+     1.2,
+     3
+    ],
+    "r": 5,
+    "from": -25,
+    "to": 20,
+    "h": 1.5,
+    "h2": 1.9,
+    "dur": 6
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.2,
+     3
+    ]
+   },
+   "flashes": 8,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#7a1420",
+     "skin": "#efc9a8",
+     "hair": "#4a3324",
+     "x": -1.2,
+     "z": 3.2,
+     "front": true,
+     "label": "Carrick",
+     "labelDelay": 0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 1.3,
+     "z": 3.4,
+     "front": true,
+     "pose": "arms_up",
+     "label": "United · 18th",
+     "labelDelay": 0.5
+    }
+   ],
+   "card": [
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "So be honest",
+     "question": "Should Carrick stay?",
+     "options": [
+      {
+       "label": "Give him time",
+       "color": "#da291c",
+       "fill": 0.5
+      },
+      {
+       "label": "Time to go",
+       "color": "#9aa1ad",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So be honest: should Carrick stay, or is it time for United to move on?",
+   "accent": "#ff4d5e"
+  }
+ ]
+}

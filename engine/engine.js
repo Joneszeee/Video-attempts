@@ -695,6 +695,7 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
     ctx.beginPath(); ctx.ellipse(ps.px * u + Math.sin(ps.rot) * u * 0.3, 0, u * (0.17 + Math.abs(Math.sin(ps.rot)) * 0.3), u * 0.035, 0, 0, 7); ctx.fill();
     rigBody(u, p, t, walk > 0, { k, skin, hair, shirt, shorts, socks, txt });
     if (p.tag != null) drawTag(u, p, t);
+    drawNameLabel(u, p, t);
     ctx.restore();
     return;
   }
@@ -809,6 +810,18 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
   }
   if (armsUp && p.trophy) drawTrophy(0, -u * 1.2, u);
   if (p.tag != null) drawTag(u, p, t);
+  drawNameLabel(u, p, t);
+  ctx.restore();
+}
+// Name label: a small pill above a player's head (label, labelDelay|labelAt), so a player is named on screen the moment he's named in the voice.
+function drawNameLabel(u, p, t) {
+  if (!p.label) return;
+  const k = eBack(pr(t, p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3, 0.3)); if (k <= 0) return;
+  const fs = clamp(u * 0.075, 20, 40), y = -u * (p.tag != null ? 1.55 : 1.1);
+  ctx.save(); ctx.translate(0, y); ctx.scale(k, k); font(700, fs, 'Inter');
+  const w = ctx.measureText(p.label).width + fs * 1.1;
+  ctx.fillStyle = 'rgba(255,255,255,0.94)'; rrect(-w / 2, -fs * 0.8, w, fs * 1.6, fs * 0.8); ctx.fill();
+  ctx.fillStyle = '#16181d'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(p.label, 0, fs * 0.06);
   ctx.restore();
 }
 function drawTag(u, p, t) {
@@ -1819,6 +1832,72 @@ CARDS.stamp = function (c, ct, cx, cy) {
 };
 CARDS.stamp.noSlide = true;
 
+// Cross-off calendar (backlog item, built): a wall-calendar month whose days get crossed off one by one, for bans, suspensions, waits and countdowns.
+// {type: "crossoff", title: "SUSPENDED", days: 30, cols: 6, crossT|crossAt (when the crossing starts), dur (s for all days), color, caption ("{n} days")}
+CARDS.crossoff = function (c, ct, cx, cy) {
+  const days = c.days || 30, cols = c.cols || 6, rows = Math.ceil(days / cols), cell = c.cell || 104, w = cols * cell + 60, hh = 120, h = hh + rows * cell + 140;
+  const k = eBack(pr(ct, 0, 0.45)), col = c.color || '#d6283b', t0 = c.crossT != null ? c.crossT : 0.5, dur = c.dur || 1.6;
+  if (k <= 0) return;
+  const done = Math.floor(clamp((ct - t0) / dur, 0, 1) * days), fin = ct > t0 + dur, sh = fin ? Math.max(0, 1 - (ct - t0 - dur) / 0.3) * 7 * Math.sin(ct * 80) : 0;
+  ctx.save(); ctx.translate(cx + sh, cy); ctx.scale(k, k); ctx.rotate(-0.025 + 0.012 * Math.sin(ct * 1.4));
+  ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16;
+  ctx.fillStyle = '#f4efe2'; rrect(-w / 2, -h / 2, w, h, 18); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.save(); rrect(-w / 2, -h / 2, w, h, 18); ctx.clip(); ctx.fillStyle = col; ctx.fillRect(-w / 2, -h / 2, w, hh); ctx.restore();
+  for (const hx of [-w / 4, w / 4]) { ctx.fillStyle = '#2a2116'; ctx.beginPath(); ctx.arc(hx, -h / 2 + 4, 13, 0, 7); ctx.fill(); ctx.strokeStyle = '#c9c2b0'; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(hx, -h / 2 - 8, 16, Math.PI * 0.9, Math.PI * 2.1); ctx.stroke(); }
+  font(800, 50, 'Inter', '3px'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText((c.title || 'SUSPENDED').toUpperCase(), 0, -h / 2 + hh / 2 + 6);
+  for (let i = 0; i < days; i++) {
+    const x = -w / 2 + 30 + (i % cols + 0.5) * cell, y = -h / 2 + hh + 22 + (Math.floor(i / cols) + 0.5) * cell;
+    ctx.strokeStyle = 'rgba(42,33,22,0.14)'; ctx.lineWidth = 2; ctx.strokeRect(x - cell / 2 + 5, y - cell / 2 + 5, cell - 10, cell - 10);
+    font(700, 38, 'Inter'); ctx.fillStyle = i < done ? 'rgba(42,33,22,0.35)' : '#2a2116'; ctx.fillText(String(i + 1), x, y + 2);
+    const xk = pr(ct, t0 + i / days * dur, 0.14);
+    if (xk > 0) { const q = cell * 0.3; ctx.strokeStyle = col; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.beginPath();
+      ctx.moveTo(x - q, y - q); ctx.lineTo(x - q + 2 * q * Math.min(1, xk * 2), y - q + 2 * q * Math.min(1, xk * 2));
+      if (xk > 0.5) { const u = (xk - 0.5) * 2; ctx.moveTo(x + q, y - q); ctx.lineTo(x + q - 2 * q * u, y - q + 2 * q * u); } ctx.stroke(); }
+  }
+  font(800, 46, 'Inter', '-1px'); ctx.fillStyle = fin ? col : '#2a2116';
+  ctx.fillText((c.caption || '{n} days').replace('{n}', Math.max(done, fin ? days : done)), 0, h / 2 - 52);
+  ctx.restore();
+};
+CARDS.crossoff.noSlide = true;
+
+// Phone (the "it happened in a video / a post" moment): a smartphone slides up showing a video post with the player drawn inside,
+// a running timer, a progress bar and hearts floating up. We never put words in a real person's mouth: the caption is a plain fact.
+// {type: "phone", player: {...}, caption: "5 Nov 2026 · retirement announced", tag: "VIDEO", w, h, bg: [c1, c2], hearts: true}
+CARDS.phone = function (c, ct, cx, cy) {
+  const w = c.w || 470, h = c.h || 860, k = eBack(pr(ct, 0, 0.55)), bz = 16;
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(cx, cy + (1 - k) * 900); ctx.rotate((c.tilt != null ? c.tilt : 0.045) * (1 + 0.25 * Math.sin(ct * 1.6)));
+  const z = 1 + 0.02 * ct; ctx.scale(z, z);
+  ctx.shadowColor = 'rgba(0,0,0,0.65)'; ctx.shadowBlur = 50; ctx.shadowOffsetY = 22;
+  ctx.fillStyle = '#0c0d11'; rrect(-w / 2, -h / 2, w, h, 54); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = '#3a3d47'; ctx.lineWidth = 4; rrect(-w / 2, -h / 2, w, h, 54); ctx.stroke();
+  const sw = w - 2 * bz, shh = h - 2 * bz;
+  ctx.save(); rrect(-sw / 2, -shh / 2, sw, shh, 40); ctx.clip();
+  const bg = c.bg || ['#2a2f3a', '#0d0f14'], g = ctx.createLinearGradient(0, -shh / 2, 0, shh / 2); g.addColorStop(0, bg[0]); g.addColorStop(1, bg[1]);
+  ctx.fillStyle = g; ctx.fillRect(-sw / 2, -shh / 2, sw, shh);
+  const p = Object.assign({ front: true, chest: true }, c.player);
+  drawPlayer(0, shh * 0.98, shh * 1.3, p, ct, 0, 1);
+  const sd = ctx.createLinearGradient(0, shh * 0.1, 0, shh / 2); sd.addColorStop(0, 'rgba(8,9,12,0)'); sd.addColorStop(1, 'rgba(8,9,12,0.92)'); ctx.fillStyle = sd; ctx.fillRect(-sw / 2, 0, sw, shh / 2);
+  // top bar: live dot, tag, timer
+  const sec = Math.floor(ct * 1.0), tm = `0:${String(sec % 60).padStart(2, '0')}`;
+  ctx.fillStyle = Math.sin(ct * 7) > 0 ? '#ff3b4a' : '#7a1c24'; ctx.beginPath(); ctx.arc(-sw / 2 + 40, -shh / 2 + 78, 9, 0, 7); ctx.fill();
+  font(800, 24, 'Inter', '3px'); ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText((c.tag || 'VIDEO').toUpperCase(), -sw / 2 + 60, -shh / 2 + 80);
+  font(700, 24, 'Mono'); ctx.textAlign = 'right'; ctx.fillText(tm, sw / 2 - 34, -shh / 2 + 80);
+  // caption + progress
+  if (c.caption) { font(700, 27, 'Inter'); ctx.textAlign = 'left'; ctx.fillStyle = '#fff'; String(c.caption).split('\n').forEach((l, j) => ctx.fillText(l, -sw / 2 + 32, shh / 2 - 118 + j * 36)); }
+  ctx.fillStyle = 'rgba(255,255,255,0.25)'; rrect(-sw / 2 + 32, shh / 2 - 46, sw - 64, 7, 4); ctx.fill();
+  ctx.fillStyle = '#fff'; rrect(-sw / 2 + 32, shh / 2 - 46, (sw - 64) * Math.min(1, 0.08 + ct * 0.16), 7, 4); ctx.fill();
+  // hearts floating up the right side
+  if (c.hearts !== false) { const R = rng(5); for (let i = 0; i < 14; i++) { const t0 = 0.5 + i * 0.28 + R() * 0.2, a = ct - t0, dx = (R() - 0.5) * 50; if (a < 0 || a > 1.8) continue;
+    const hx = sw / 2 - 58 + dx + Math.sin(a * 5 + i) * 12, hy = shh / 2 - 170 - a * 300, hs = 15 + 9 * Math.sin(Math.min(1, a * 4) * Math.PI / 2);
+    ctx.save(); ctx.globalAlpha *= Math.max(0, 1 - a / 1.8); ctx.fillStyle = i % 3 ? '#ff4d6a' : '#ffffff'; ctx.translate(hx, hy); ctx.beginPath();
+    ctx.moveTo(0, hs * 0.9); ctx.bezierCurveTo(-hs * 1.5, -hs * 0.3, -hs * 0.6, -hs * 1.2, 0, -hs * 0.4); ctx.bezierCurveTo(hs * 0.6, -hs * 1.2, hs * 1.5, -hs * 0.3, 0, hs * 0.9); ctx.fill(); ctx.restore(); } }
+  ctx.restore();
+  ctx.fillStyle = '#0c0d11'; rrect(-56, -h / 2 + bz + 12, 112, 30, 15); ctx.fill();   // camera island
+  ctx.restore();
+};
+CARDS.phone.noSlide = true;
+
 // VAR offside check: the shot holds while two lines draw across the real pitch (drawn on the grass, under the players):
 // blue for the last defender (def = z in metres), red for the attacker (att), then the gap between them glows.
 // {type: "varlines", att, def, x0, x1, dur, gapAt (s, card time), label: "VAR · CHECKING OFFSIDE", y}
@@ -2278,7 +2357,7 @@ function rainLayout(c) {
   return { n, cols, cell, rows: Math.ceil(n / cols) };
 }
 function rainIcon(kind, x, y, r, col) {
-  if (kind === 'ball') { drawBall(x, y, r); return; }
+  if (kind === 'ball') { drawBall(x, y, r); if (col && col !== S.accent) { ctx.save(); ctx.globalAlpha *= 0.55; ctx.fillStyle = col; ctx.globalCompositeOperation = 'multiply'; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); ctx.restore(); } return; }   // a group colour tints the ball
   if (kind === 'doc') {
     ctx.fillStyle = col; rrect(x - r * 0.78, y - r, r * 1.56, r * 2, r * 0.18); ctx.fill();
     ctx.fillStyle = 'rgba(0,0,0,0.28)';
@@ -3297,6 +3376,8 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'crossoff': { ev.push({ t: 0, type: 'whoosh' }); const t0 = c.crossT != null ? c.crossT : 0.5, d = c.dur || 1.6; for (let t = t0; t < t0 + d; t += 0.07) ev.push({ t, type: 'tick' }); ev.push({ t: t0 + d, type: 'impact' }); break; }
+    case 'phone': ev.push({ t: 0, type: 'whoosh' }, { t: 0.5, type: 'pop' }); break;
     case 'varlines': ev.push({ t: 0, type: 'whoosh' }, { t: (c.dur || 0.7) + 0.1, type: 'whoosh' }, { t: c.gapAt != null ? c.gapAt : (c.dur || 0.7) * 2 + 0.2, type: 'tick' }); break;
     case 'redcard': ev.push({ t: 0.1, type: 'whoosh' }, { t: 0.45, type: 'impact' }); break;
     case 'passweb': { const pd = c.pass || 0.34, end = c.stopAt != null ? c.stopAt : (c.passFor || 6); for (let t = pd; t < end; t += pd) ev.push({ t, type: 'pop' });
@@ -3363,6 +3444,7 @@ window.loadSpec = async function (spec) {
     B.sceneObj = b.scene || (prev ? prev.sceneObj : { type: 'stadium' });
     B.world = B.sceneObj.type === 'stadium' || B.sceneObj.type === 'booth' ? buildWorld(B.sceneObj) : null;
     if (B.sceneObj.type === 'stage') buildStage(B.sceneObj);
+    if (b.split) B.splitWorld = buildWorld(b.split.scene);
     if (b.players === undefined && prev) { B.playersArr = prev.playersArr; B.playersStart = prev.playersStart; }
     else { B.playersArr = b.players || []; B.playersStart = B.start - (b.timeShift || 0); }   // timeShift: start the action part-way through (replays)
     B.kickerText = b.kicker !== undefined ? b.kicker : (prev ? prev.kickerText : '');
@@ -3535,6 +3617,39 @@ function drawFans(t, scene) {
   ctx.drawImage(bgc, 0, 0, W, H);
   ctx.restore();
 }
+// Split screen: the beat's own scene fills the left half and "split": {scene, players, camera, camFrom, move, lights} the right,
+// each with its own stadium, crowd, camera and lighting, divided by a glowing diagonal. Each half is centred on its camera's target.
+// "split.at" (a phrase) slides the right half in on that word; without it both halves are there from the first frame.
+let splitA = null, splitB = null;
+function drawSplit(b, ts, lts, lt) {
+  const sp = b.split;
+  if (!splitA) { splitA = document.createElement('canvas'); splitB = document.createElement('canvas'); for (const c of [splitA, splitB]) { c.width = W; c.height = H; } }
+  const ax = splitA.getContext('2d'), bx = splitB.getContext('2d');
+  ax.clearRect(0, 0, W, H); ax.drawImage(cv, 0, 0);
+  const to = camPreset(sp.camera), from = camPreset(sp.camFrom || sp.camera), k = pr(lts, 0, sp.move || b.dur);
+  const cam = mkCam(lerp3(from.pos, to.pos, k), lerp3(from.tgt, to.tgt, k));
+  S.cam = cam; ctx.clearRect(0, 0, W, H);
+  drawSky(sp.scene); drawPitch(cam, sp.scene); drawStadium(cam, ts, b.splitWorld); drawGoals(cam);
+  drawPlayers(cam, ts - b.playersStart, sp.players || []);
+  if (sp.lights != null && sp.lights < 1) { ctx.fillStyle = `rgba(4,6,10,${(1 - sp.lights) * 0.8})`; ctx.fillRect(0, 0, W, H); }
+  bx.clearRect(0, 0, W, H); bx.drawImage(cv, 0, 0);
+  const inK = sp.t != null ? eOut(pr(lt, sp.t, 0.45)) : 1, lean = sp.lean != null ? sp.lean : 70, mid = lerp(W + lean + 10, W / 2, inK);
+  ctx.clearRect(0, 0, W, H);
+  ctx.save(); ctx.translate(lerp(0, -W / 4, inK), 0); ctx.drawImage(splitA, 0, 0); ctx.restore();
+  ctx.save(); ctx.beginPath(); ctx.moveTo(mid + lean, 0); ctx.lineTo(W, 0); ctx.lineTo(W, H); ctx.lineTo(mid - lean, H); ctx.closePath(); ctx.clip();
+  ctx.translate(mid - W / 2 + W / 4, 0); ctx.drawImage(splitB, 0, 0); ctx.restore();
+  ctx.save(); ctx.strokeStyle = '#fff'; ctx.shadowColor = sp.glow || '#ffffff'; ctx.shadowBlur = 30; ctx.lineWidth = 8 + 2 * Math.sin(lt * 5);
+  ctx.beginPath(); ctx.moveTo(mid + lean, -10); ctx.lineTo(mid - lean, H + 10); ctx.stroke(); ctx.restore();
+}
+// Whip-pan transition: the new scene whips in sideways with a motion smear (beat "transition": "whip", "whipDir": 1|-1).
+function whipPan(lt, dir) {
+  const d = 0.34; if (lt >= d) return;
+  const k = eOut(lt / d), off = (1 - k) * W * 0.9 * (dir || 1), fx = fullc.getContext('2d');
+  fx.clearRect(0, 0, W, H); fx.drawImage(cv, 0, 0);
+  ctx.save(); ctx.fillStyle = '#05070b'; ctx.fillRect(0, 0, W, H);
+  for (let j = 7; j >= 0; j--) { ctx.globalAlpha = j === 0 ? 1 : 0.22; ctx.drawImage(fullc, off * (1 + j * 0.16), 0); if (j) ctx.drawImage(fullc, off * (1 + j * 0.16) - Math.sign(off || 1) * W, 0); }
+  ctx.restore();
+}
 function renderAt(t) {
   const i = beatIdx(t), b = S.beats[i], lt = t - b.start, next = S.beats[i + 1];
   const scene = b.sceneObj;
@@ -3561,6 +3676,7 @@ function renderAt(t) {
     drawStadium(cam, ts, b.world);
     drawGoals(cam);
     drawPlayers(cam, ts - b.playersStart, b.playersArr);
+    if (b.split) drawSplit(b, ts, lts, lt);
   }
   if (b.punch || b.shake || i === 0) cameraFX(b, lts, i === 0);
   S.t = t;
@@ -3603,6 +3719,7 @@ function renderAt(t) {
   if (scene.type === 'stadium' && b.fans) drawFans(t, scene);
   if (b.transition === 'polaroid' && lt < 1.2) polaroid(lt, b.polaroidLabel);
   if (b.transition === 'vhs') vhsRewind(lt, b.vhsLabel, b.vhsDur || 1.6);
+  if (b.transition === 'whip') whipPan(lt, b.whipDir);
   const blend = (key, def) => {
     const p = S.beats[i - 1], cur = b[key] != null ? b[key] : def;
     const from = p && !b.cut && p[key] != null ? p[key] : (p && !b.cut ? def : cur);

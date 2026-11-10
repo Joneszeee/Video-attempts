@@ -269,6 +269,17 @@ Built so far from the idea list (reuse them):
 - **Board geometry (user: shot lines must end in the goal, a penalty is taken from the spot):** on the `tactic` board aim shots at
   `"to": "goal-left" | "goal" | "goal-right"` (inside the posts, never a hand-picked `[x, y]`), and a penalty starts `"from": "spot"` (drawn on the board)
   with the taker's disc just behind it (about x 0.47, y 0.17). Goal line y≈0.03, box edge y≈0.22, goal mouth x 0.44–0.56. Keep tags in open grass, off the lines and discs.
+- **Split screen** (built for `videos/messi-ronaldo-bye`): beat `"split": {scene, players, camera, camFrom, move, lights, at}`. The beat's own scene
+  fills the left half and `split` the right, each with its own stadium, crowd colours, camera and lighting, divided by a glowing diagonal. Each half is
+  centred on its camera's target, so put each subject at x=0. `at` slides the right half in on a word. Great for contrasts and "X or Y?" endings; cards
+  sit on top (`dx` ±270 puts a stamp in one half).
+- **Whip-pan transition** (backlog item, built): beat `"transition": "whip"` (+ `"whipDir": -1`): the new scene whips in sideways with a motion smear.
+- **Cross-off calendar** (backlog item, built): the `crossoff` card. A wall-calendar month whose days get crossed off in red one by one:
+  `title`, `days`, `cols`, `crossAt`|`crossT`, `dur`, `caption` ("{n} days"). For bans, suspensions, waits. (`calendar` is the older tear-off date card.)
+- **Phone video** (built): the `phone` card. A smartphone slides up showing a video post with the player drawn inside, a blinking record dot, a running timer,
+  a progress bar and hearts floating up: `player`, `caption` ("\n" for lines; a plain fact, never invented words), `tag`, `w`, `h`, `bg`. For announcements made online.
+- **Name labels in the normal style:** a player with `label` (+ `labelAt`/`labelDelay`) gets a white name pill above his head (above the gold `tag` if he has one).
+- **Tinted rain balls:** a `rain` group's `color` now tints its footballs, so two teams' goals can rain into one counter.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.
 - **Half-time swing:** the `swing` card. Rows `[{label, from, to, at, decimals, good}]`: 1st-half number on the left, an arrow draws, the 2nd-half number counts and glows
   green (`good`) or red. Great for "what changed" tactics stories.

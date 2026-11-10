@@ -156,6 +156,8 @@ def _resolve_beat(b, rel):
                         it['circle']['t'] = round(max(0, rel(it['circle'].pop('at')) - base), 3)
             if isinstance(c.get('teamAt'), str):
                 c['teamAt'] = round(max(0, rel(c['teamAt']) - base), 3)
+        if c.get('type') == 'crossoff' and isinstance(c.get('crossAt'), str):
+            c['crossT'] = round(max(0, rel(c.pop('crossAt')) + c.pop('crossLag', 0) - base), 3)
         if c.get('type') == 'table' and isinstance(c.get('moveAt'), str):
             c['moveT'] = round(max(0, rel(c.pop('moveAt')) + c.pop('moveLag', 0) - base), 3)
         if c.get('type') in ('xg', 'swing', 'tally'):
@@ -206,6 +208,17 @@ def _resolve_beat(b, rel):
                 h['t'] = round(rel(h.pop('at')) + h.pop('lag', 0), 3)
         if 'actionAt' in p:  # e.g. the kick starts so the strike lands on the word: use "lag" to shift
             p['actionDelay'] = round(rel(p.pop('actionAt')) + p.pop('actionLag', 0), 3)
+    if isinstance(b.get('split'), dict):
+        sp = b['split']
+        if isinstance(sp.get('at'), str):
+            sp['t'] = round(rel(sp.pop('at')) + sp.pop('lag', 0), 3)
+        for p in sp.get('players') or []:
+            if 'at' in p:
+                p['delay'] = round(rel(p.pop('at')) + p.pop('lag', 0), 3)
+            if 'labelAt' in p:
+                p['labelDelay'] = rel(p.pop('labelAt'))
+            if 'actionAt' in p:
+                p['actionDelay'] = round(rel(p.pop('actionAt')) + p.pop('actionLag', 0), 3)
     if isinstance(b.get('confettiAt'), str):
         b['confettiDelay'] = round(rel(b.pop('confettiAt')), 3)
     if isinstance(b.get('freezeAt'), str):

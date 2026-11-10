@@ -1,0 +1,1367 @@
+{
+ "title": "Messi and Ronaldo say goodbye",
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Two goodbyes · 2026",
+   "headline": "Messi got a party. Ronaldo got a [row].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb",
+     "#f6d44a"
+    ],
+    "seed": 10
+   },
+   "accent": "#e03a4e",
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.3
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "flashes": 16,
+   "players": [
+    {
+     "name": "Messi",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#1d1c22",
+      "socks": "#ffffff",
+      "text": "#1d1c22",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e9bd9a",
+     "hair": "#5a3a22",
+     "foot": "left",
+     "x": 0,
+     "z": 2.6,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up"
+    }
+   ],
+   "split": {
+    "scene": {
+     "type": "stadium",
+     "crowd": [
+      "#c8102e",
+      "#0b6b3a",
+      "#c8102e",
+      "#f1c453"
+     ],
+     "seed": 7
+    },
+    "lights": 0.5,
+    "camFrom": {
+     "pos": [
+      0,
+      1.5,
+      -1.2
+     ],
+     "tgt": [
+      0,
+      1.2,
+      10
+     ]
+    },
+    "camera": {
+     "pos": [
+      0,
+      1.7,
+      -2.6
+     ],
+     "tgt": [
+      0,
+      1.2,
+      10
+     ]
+    },
+    "players": [
+     {
+      "name": "Ronaldo",
+      "num": 7,
+      "kit": {
+       "shirt": "#c8102e",
+       "shorts": "#0b6b3a",
+       "socks": "#c8102e",
+       "text": "#f1c453"
+      },
+      "skin": "#d9a67c",
+      "hair": "#1d1410",
+      "x": 0,
+      "z": 2.6
+     }
+    ]
+   },
+   "card": [
+    {
+     "type": "stamp",
+     "text": "FAREWELL",
+     "sub": "6 Oct 2026",
+     "at": "farewell",
+     "color": "#e9b949",
+     "rot": -0.1,
+     "size": 62,
+     "dx": -270,
+     "y": 1500
+    },
+    {
+     "type": "stamp",
+     "text": "FELL OUT",
+     "sub": "5 Nov 2026",
+     "at": "row",
+     "color": "#e03a4e",
+     "rot": 0.09,
+     "size": 62,
+     "dx": 266,
+     "y": 1500
+    }
+   ],
+   "vo": "Messi said goodbye to Argentina with a farewell match. Ronaldo left Portugal after a row with his coach."
+  },
+  {
+   "kicker": "November 2026",
+   "headline": "First time since [2003]: neither.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#3a4254",
+     "#8a93a6",
+     "#2a3040",
+     "#c9ced6"
+    ],
+    "seed": 3
+   },
+   "lights": 0.6,
+   "accent": "#e9b949",
+   "camFrom": {
+    "pos": [
+     0,
+     2.2,
+     -5.5
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -2.4
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "move": 6.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "Messi",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#1d1c22",
+      "socks": "#ffffff",
+      "text": "#1d1c22",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e9bd9a",
+     "hair": "#5a3a22",
+     "foot": "left",
+     "x": -1.3,
+     "z": 3,
+     "front": true,
+     "chest": true,
+     "ghost": true
+    },
+    {
+     "name": "Ronaldo",
+     "num": 7,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#0b6b3a",
+      "socks": "#c8102e",
+      "text": "#f1c453"
+     },
+     "skin": "#d9a67c",
+     "hair": "#1d1410",
+     "x": 1.3,
+     "z": 3,
+     "front": true,
+     "chest": true,
+     "ghost": true
+    }
+   ],
+   "card": [
+    {
+     "type": "big",
+     "at": "first time",
+     "lag": -0.3,
+     "from": 2026,
+     "value": 2003,
+     "countDur": 1.6,
+     "label": "Last break without both of them",
+     "y": 1560,
+     "size": 250
+    }
+   ],
+   "vo": "In November 2026, for the first time since 2003, there's an international break with neither of them."
+  },
+  {
+   "kicker": "Tuesday · Buenos Aires",
+   "headline": "Messi's last game: [3–0].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb",
+     "#f6d44a"
+    ],
+    "seed": 10
+   },
+   "accent": "#75aadb",
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     24,
+     -42
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 3.2,
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 760,
+     "at": "sixth",
+     "label": "Argentina v Benin",
+     "groups": [
+      {
+       "label": "October",
+       "value": 6,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "TUE",
+      "big": "6",
+      "bottom": "OCT"
+     }
+    }
+   ],
+   "shots": [
+    {
+     "at": "Messi's last game",
+     "lag": -0.2,
+     "cut": true,
+     "move": 4.5,
+     "moveEase": "linear",
+     "camFrom": {
+      "pos": [
+       3.2,
+       2.0,
+       33.5
+      ],
+      "tgt": [
+       0.4,
+       1.0,
+       52
+      ]
+     },
+     "camera": {
+      "pos": [
+       2.4,
+       1.8,
+       35.8
+      ],
+      "tgt": [
+       0.4,
+       1.0,
+       52
+      ]
+     },
+     "players": [
+      {
+       "name": "Messi",
+       "num": 10,
+       "kit": {
+        "shirt": "#75aadb",
+        "shorts": "#1d1c22",
+        "socks": "#ffffff",
+        "text": "#1d1c22",
+        "stripes": [
+         "#75aadb",
+         "#ffffff"
+        ]
+       },
+       "skin": "#e9bd9a",
+       "hair": "#5a3a22",
+       "foot": "left",
+       "x": 0,
+       "z": 41,
+       "action": "kick",
+       "actionAt": "penalty",
+       "actionLag": -0.1,
+       "actionDur": 0.8,
+       "after": "celebrate",
+       "label": "Messi",
+       "labelDelay": 0.2
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#2b2f3a",
+        "shorts": "#2b2f3a",
+        "socks": "#2b2f3a",
+        "text": "#ffffff"
+       },
+       "skin": "#6b4630",
+       "hair": "#141010",
+       "gloves": "#f2f2f2",
+       "x": 0,
+       "z": 52.0,
+       "front": true,
+       "pose": "keeper",
+       "before": "ready",
+       "action": "dive",
+       "dir": 1,
+       "actionAt": "penalty",
+       "actionLag": 0.3
+      }
+     ],
+     "card": [
+      {
+       "type": "ball",
+       "delay": 0,
+       "point": [
+        -0.22,
+        0.11,
+        41.45
+       ],
+       "untilAt": "penalty",
+       "untilLag": 0.24
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "penalty",
+       "lag": 0.24,
+       "dur": 0.5,
+       "slowmo": false,
+       "points": [
+        [
+         -0.22,
+         0.11,
+         41.45
+        ],
+        [
+         1.3399999999999999,
+         1.0,
+         47.125
+        ],
+        [
+         2.9,
+         0.6,
+         52.8
+        ]
+       ]
+      },
+      {
+       "type": "stack",
+       "y": 1640,
+       "delay": 0,
+       "size": 150,
+       "items": [
+        {
+         "value": 1,
+         "label": "Goal · penalty",
+         "at": "penalty",
+         "lag": 0.6
+        },
+        {
+         "value": 2,
+         "label": "Assists",
+         "at": "two assists"
+        },
+        {
+         "value": 3,
+         "label": "Argentina 3–0 Benin",
+         "at": "three–nil",
+         "suffix": "–0",
+         "gold": true
+        }
+       ]
+      }
+     ],
+     "confetti": true,
+     "confettiAt": "three–nil",
+     "confettiColors": [
+      "#75aadb",
+      "#ffffff",
+      "#f6d44a"
+     ]
+    }
+   ],
+   "vo": "Tuesday the sixth of October. Buenos Aires. Messi's last game: a penalty, two assists, three–nil over Benin."
+  },
+  {
+   "kicker": "Lionel Messi · Argentina",
+   "headline": "126 goals. 208 games. [A World Cup].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb",
+     "#f6d44a"
+    ],
+    "seed": 10
+   },
+   "accent": "#e9b949",
+   "flashes": 16,
+   "orbit": {
+    "center": [
+     0,
+     1.25,
+     2.4
+    ],
+    "r": 4.4,
+    "from": -32,
+    "to": 18,
+    "h": 1.3,
+    "h2": 1.7,
+    "dur": 6.5
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -1.8
+    ],
+    "tgt": [
+     0,
+     1.25,
+     2.4
+    ]
+   },
+   "players": [
+    {
+     "name": "Messi",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#1d1c22",
+      "socks": "#ffffff",
+      "text": "#1d1c22",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e9bd9a",
+     "hair": "#5a3a22",
+     "foot": "left",
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "chest": true,
+     "pose": "fists"
+    }
+   ],
+   "card": [
+    {
+     "type": "stack",
+     "y": 1600,
+     "delay": 0,
+     "size": 170,
+     "items": [
+      {
+       "value": 126,
+       "label": "Goals for Argentina",
+       "at": "hundred and twenty-six"
+      },
+      {
+       "value": 208,
+       "label": "Games",
+       "at": "two hundred and eight"
+      }
+     ],
+     "hideAt": "World Cup",
+     "hideLag": -0.25
+    },
+    {
+     "type": "trophies",
+     "at": "World Cup",
+     "lag": -0.25,
+     "floor": 1880,
+     "stagger": 0,
+     "rise": 0.55,
+     "items": [
+      {
+       "kind": "worldcup",
+       "sx": 0.5,
+       "h": 150,
+       "size": 230,
+       "label": "World Cup winner · 2022"
+      }
+     ]
+    }
+   ],
+   "confetti": true,
+   "confettiAt": "World Cup",
+   "confettiColors": [
+    "#75aadb",
+    "#ffffff",
+    "#f6d44a"
+   ],
+   "vo": "He leaves with a hundred and twenty-six goals in two hundred and eight games. And a World Cup."
+  },
+  {
+   "kicker": "Cristiano Ronaldo · Portugal",
+   "headline": "Ronaldo's goodbye? [Nothing like it].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "RONALDO",
+   "vhsDur": 1.0,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#0b6b3a",
+     "#c8102e",
+     "#f1c453"
+    ],
+    "seed": 7
+   },
+   "lights": 0.42,
+   "accent": "#e03a4e",
+   "camFrom": {
+    "pos": [
+     0.9,
+     1.7,
+     -2.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.2,
+     1.5,
+     -0.4
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "Ronaldo",
+     "num": 7,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#0b6b3a",
+      "socks": "#c8102e",
+      "text": "#f1c453"
+     },
+     "skin": "#d9a67c",
+     "hair": "#1d1410",
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "punch": [
+    {
+     "at": "nothing",
+     "amount": 0.14,
+     "dur": 1.4
+    }
+   ],
+   "shake": [
+    {
+     "at": "nothing",
+     "amount": 12
+    }
+   ],
+   "vo": "But Ronaldo's goodbye was nothing like that."
+  },
+  {
+   "kicker": "Portugal camp",
+   "headline": "He fell out with [the coach].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#0b6b3a",
+     "#c8102e",
+     "#f1c453"
+    ],
+    "seed": 7
+   },
+   "lights": 0.7,
+   "accent": "#e03a4e",
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -1.6
+    ],
+    "tgt": [
+     0,
+     1.25,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -0.8
+    ],
+    "tgt": [
+     0,
+     1.25,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "Ronaldo",
+     "num": 7,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#0b6b3a",
+      "socks": "#c8102e",
+      "text": "#f1c453"
+     },
+     "skin": "#d9a67c",
+     "hair": "#1d1410",
+     "x": -1.25,
+     "z": 3,
+     "front": true,
+     "chest": true,
+     "label": "Ronaldo",
+     "labelDelay": 0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#20232c",
+     "tie": "#0b6b3a",
+     "skin": "#e2b08c",
+     "hair": "#c9c9c9",
+     "x": 1.25,
+     "z": 3,
+     "front": true,
+     "label": "Jorge Jesus",
+     "labelAt": "Jorge Jesus",
+     "at": "new coach",
+     "lag": -0.2,
+     "enter": "walk",
+     "fromX": 7,
+     "fromZ": 3,
+     "walkDur": 1.0
+    }
+   ],
+   "card": [
+    {
+     "type": "pen",
+     "delay": 0,
+     "strokes": [
+      {
+       "kind": "x",
+       "cx": 540,
+       "cy": 960,
+       "r": 70,
+       "at": "fell out",
+       "color": "#e03a4e",
+       "width": 14
+      },
+      {
+       "kind": "text",
+       "text": "FELL OUT",
+       "x": 330,
+       "y": 1500,
+       "size": 96,
+       "rot": -0.05,
+       "at": "fell out",
+       "lag": 0.25,
+       "color": "#e03a4e"
+      }
+     ]
+    }
+   ],
+   "shots": [
+    {
+     "at": "A thirty-day",
+     "lag": -0.25,
+     "cut": true,
+     "lights": 0.5,
+     "focus": 0.6,
+     "move": 3.5,
+     "moveEase": "linear",
+     "camFrom": {
+      "pos": [
+       0,
+       30,
+       -50
+      ],
+      "tgt": [
+       0,
+       0,
+       5
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       22,
+       -38
+      ],
+      "tgt": [
+       0,
+       0,
+       8
+      ]
+     },
+     "players": [],
+     "card": [
+      {
+       "type": "crossoff",
+       "y": 1160,
+       "delay": 0,
+       "title": "Suspended",
+       "days": 30,
+       "cols": 6,
+       "crossT": 0.35,
+       "dur": 1.5,
+       "caption": "{n} days",
+       "clear": false
+      }
+     ]
+    }
+   ],
+   "vo": "He fell out with Portugal's new coach, Jorge Jesus. A thirty-day suspension followed."
+  },
+  {
+   "kicker": "Thursday · 5 November 2026",
+   "headline": "At 41, he's [done]. In a video.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#0b6b3a",
+     "#c8102e",
+     "#f1c453"
+    ],
+    "seed": 7
+   },
+   "lights": 0.6,
+   "focus": 0.25,
+   "accent": "#e03a4e",
+   "flashes": 10,
+   "camFrom": {
+    "pos": [
+     0,
+     44,
+     -74
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 660,
+     "at": "fifth",
+     "lag": -0.2,
+     "label": "Retirement announced",
+     "groups": [
+      {
+       "label": "November",
+       "value": 5,
+       "digits": 2
+      },
+      {
+       "label": "Age",
+       "value": 41,
+       "digits": 2
+      }
+     ]
+    },
+    {
+     "type": "phone",
+     "y": 1400,
+     "at": "announced",
+     "lag": -0.3,
+     "h": 860,
+     "w": 490,
+     "tag": "Video",
+     "caption": "5 Nov 2026\nInternational retirement",
+     "bg": [
+      "#3a1218",
+      "#0d0f14"
+     ],
+     "player": {
+      "name": "Ronaldo",
+      "num": 7,
+      "kit": {
+       "shirt": "#c8102e",
+       "shorts": "#0b6b3a",
+       "socks": "#c8102e",
+       "text": "#f1c453"
+      },
+      "skin": "#d9a67c",
+      "hair": "#1d1410"
+     },
+     "clear": false
+    }
+   ],
+   "punch": [
+    {
+     "at": "In a video",
+     "amount": 0.1,
+     "dur": 1.3,
+     "x": 540,
+     "y": 1400
+    }
+   ],
+   "vo": "On the fifth of November, at forty-one, he announced he was done. In a video."
+  },
+  {
+   "kicker": "Cristiano Ronaldo · Portugal",
+   "headline": "[146] goals. The men's record.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#0b6b3a",
+     "#c8102e",
+     "#f1c453"
+    ],
+    "seed": 7
+   },
+   "lights": 0.85,
+   "accent": "#e9b949",
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0,
+     1.9,
+     -5.2
+    ],
+    "tgt": [
+     0,
+     1.9,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.9,
+     10
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "Ronaldo",
+     "num": 7,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#0b6b3a",
+      "socks": "#c8102e",
+      "text": "#f1c453"
+     },
+     "skin": "#d9a67c",
+     "hair": "#1d1410",
+     "x": 0,
+     "z": 3.4,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up"
+    }
+   ],
+   "card": [
+    {
+     "type": "ballnumber",
+     "text": "146",
+     "y": 760,
+     "size": 330,
+     "at": "hundred and forty-six",
+     "lag": -0.5,
+     "label": "{n} goals for Portugal",
+     "count": 146
+    },
+    {
+     "type": "stamp",
+     "text": "RECORD",
+     "sub": "men's international football",
+     "at": "The most",
+     "color": "#e9b949",
+     "rot": -0.08,
+     "size": 90,
+     "y": 1640
+    }
+   ],
+   "vo": "He leaves with a hundred and forty-six goals. The most in men's international football."
+  },
+  {
+   "kicker": "Two careers",
+   "headline": "23 years. [21 years].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#3a4254",
+     "#8a93a6",
+     "#2a3040",
+     "#c9ced6"
+    ],
+    "seed": 3
+   },
+   "lights": 0.8,
+   "accent": "#75aadb",
+   "camFrom": {
+    "pos": [
+     0.8,
+     1.6,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.6,
+     1.5,
+     -2.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "Ronaldo",
+     "num": 7,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#0b6b3a",
+      "socks": "#c8102e",
+      "text": "#f1c453"
+     },
+     "skin": "#d9a67c",
+     "hair": "#1d1410",
+     "x": -1.3,
+     "z": 3,
+     "front": true,
+     "chest": true,
+     "tag": 23,
+     "tagLabel": "Years",
+     "tagAt": "Twenty-three",
+     "label": "2003–2026",
+     "labelAt": "Twenty-three"
+    },
+    {
+     "name": "Messi",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#1d1c22",
+      "socks": "#ffffff",
+      "text": "#1d1c22",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e9bd9a",
+     "hair": "#5a3a22",
+     "foot": "left",
+     "x": 1.3,
+     "z": 3,
+     "front": true,
+     "chest": true,
+     "tag": 21,
+     "tagLabel": "Years",
+     "tagAt": "Twenty-one",
+     "label": "2005–2026",
+     "labelAt": "Twenty-one"
+    }
+   ],
+   "card": [
+    {
+     "type": "tape",
+     "y": 1620,
+     "delay": 0,
+     "left": {
+      "name": "Ronaldo",
+      "color": "#c8102e"
+     },
+     "right": {
+      "name": "Messi",
+      "color": "#75aadb"
+     },
+     "rows": [
+      {
+       "label": "Years of international football",
+       "left": 23,
+       "right": 21,
+       "at": "Twenty-one",
+       "floor": 15
+      }
+     ]
+    }
+   ],
+   "vo": "Twenty-three years for Portugal. Twenty-one for Argentina."
+  },
+  {
+   "kicker": "Between them",
+   "headline": "Together: [272] goals.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#3a4254",
+     "#8a93a6",
+     "#2a3040",
+     "#c9ced6"
+    ],
+    "seed": 3
+   },
+   "lights": 0.5,
+   "focus": 0.5,
+   "accent": "#e9b949",
+   "camFrom": {
+    "pos": [
+     0,
+     34,
+     -56
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     24,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "rain",
+     "y": 1000,
+     "delay": 0,
+     "cols": 16,
+     "cell": 56,
+     "icon": "ball",
+     "label": "International goals",
+     "clear": false,
+     "groups": [
+      {
+       "n": 126,
+       "color": "#75aadb",
+       "t": 0,
+       "dur": 1.1
+      },
+      {
+       "n": 146,
+       "color": "#e03a4e",
+       "t": 1.2,
+       "dur": 1.3
+      }
+     ]
+    }
+   ],
+   "punch": [
+    {
+     "at": "international goals",
+     "amount": 0.12,
+     "dur": 1.6,
+     "x": 540,
+     "y": 1100
+    }
+   ],
+   "shake": [
+    {
+     "at": "international goals",
+     "lag": 0.5,
+     "amount": 14
+    }
+   ],
+   "flashes": 12,
+   "vo": "Between them: two hundred and seventy-two international goals."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Final answer: [Messi or Ronaldo]?",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb",
+     "#f6d44a"
+    ],
+    "seed": 10
+   },
+   "accent": "#e9b949",
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.4
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "Messi",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#1d1c22",
+      "socks": "#ffffff",
+      "text": "#1d1c22",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e9bd9a",
+     "hair": "#5a3a22",
+     "foot": "left",
+     "x": 0,
+     "z": 2.6,
+     "front": true,
+     "chest": true,
+     "pose": "fists"
+    }
+   ],
+   "split": {
+    "scene": {
+     "type": "stadium",
+     "crowd": [
+      "#c8102e",
+      "#0b6b3a",
+      "#c8102e",
+      "#f1c453"
+     ],
+     "seed": 7
+    },
+    "camFrom": {
+     "pos": [
+      0,
+      1.5,
+      -2.6
+     ],
+     "tgt": [
+      0,
+      1.3,
+      10
+     ]
+    },
+    "camera": {
+     "pos": [
+      0,
+      1.45,
+      -1.4
+     ],
+     "tgt": [
+      0,
+      1.3,
+      10
+     ]
+    },
+    "players": [
+     {
+      "name": "Ronaldo",
+      "num": 7,
+      "kit": {
+       "shirt": "#c8102e",
+       "shorts": "#0b6b3a",
+       "socks": "#c8102e",
+       "text": "#f1c453"
+      },
+      "skin": "#d9a67c",
+      "hair": "#1d1410",
+      "x": 0,
+      "z": 2.6,
+      "front": true,
+      "chest": true,
+      "pose": "arms_up"
+     }
+    ],
+    "at": "who was",
+    "lag": -0.6
+   },
+   "card": [
+    {
+     "type": "poll",
+     "y": 1580,
+     "at": "Messi or Ronaldo",
+     "lag": -0.6,
+     "question": "Better international?",
+     "options": [
+      {
+       "label": "Messi",
+       "color": "#75aadb",
+       "fill": 0.5
+      },
+      {
+       "label": "Ronaldo",
+       "color": "#c8102e",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So, final answer: who was the better international, Messi or Ronaldo?"
+  }
+ ]
+}

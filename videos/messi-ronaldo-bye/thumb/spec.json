@@ -1,0 +1,154 @@
+{
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Two goodbyes · 2026",
+   "headline": "Messi got a party. Ronaldo got a [row].",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb",
+     "#f6d44a"
+    ],
+    "seed": 10
+   },
+   "accent": "#e03a4e",
+   "camFrom": {
+    "pos": [
+     0,
+     1.45,
+     -1.3
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.3
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "flashes": 16,
+   "players": [
+    {
+     "name": "Messi",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#1d1c22",
+      "socks": "#ffffff",
+      "text": "#1d1c22",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e9bd9a",
+     "hair": "#5a3a22",
+     "foot": "left",
+     "x": 0,
+     "z": 2.6,
+     "front": true,
+     "chest": true,
+     "pose": "arms_up"
+    }
+   ],
+   "split": {
+    "scene": {
+     "type": "stadium",
+     "crowd": [
+      "#c8102e",
+      "#0b6b3a",
+      "#c8102e",
+      "#f1c453"
+     ],
+     "seed": 7
+    },
+    "lights": 0.5,
+    "camFrom": {
+     "pos": [
+      0,
+      1.7,
+      -2.6
+     ],
+     "tgt": [
+      0,
+      1.2,
+      10
+     ]
+    },
+    "camera": {
+     "pos": [
+      0,
+      1.7,
+      -2.6
+     ],
+     "tgt": [
+      0,
+      1.2,
+      10
+     ]
+    },
+    "players": [
+     {
+      "name": "Ronaldo",
+      "num": 7,
+      "kit": {
+       "shirt": "#c8102e",
+       "shorts": "#0b6b3a",
+       "socks": "#c8102e",
+       "text": "#f1c453"
+      },
+      "skin": "#d9a67c",
+      "hair": "#1d1410",
+      "x": 0,
+      "z": 2.6
+     }
+    ]
+   },
+   "card": [
+    {
+     "type": "stamp",
+     "text": "FAREWELL",
+     "sub": "6 Oct 2026",
+     "color": "#e9b949",
+     "rot": -0.1,
+     "size": 70,
+     "dx": -270,
+     "y": 1500,
+     "delay": -3
+    },
+    {
+     "type": "stamp",
+     "text": "FELL OUT",
+     "sub": "5 Nov 2026",
+     "color": "#e03a4e",
+     "rot": 0.09,
+     "size": 70,
+     "dx": 266,
+     "y": 1500,
+     "delay": -3
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

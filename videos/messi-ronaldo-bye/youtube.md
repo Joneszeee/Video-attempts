@@ -23,7 +23,7 @@ Follow for more football stories in under a minute.
 #Messi #Ronaldo #Shorts
 
 ## Tags
-messi, ronaldo, messi vs ronaldo, cristiano ronaldo, lionel messi, messi retires, ronaldo retires, ronaldo portugal, messi argentina, messi farewell, ronaldo jorge jesus, ronaldo suspended, messi last game, argentina, portugal, goat debate, cr7, leo messi, international goals, world cup, ronaldo 146 goals, messi 126 goals, international break, football, soccer, football shorts, theo6k, goat, messi or ronaldo, football history, ronaldo retirement, messi goodbye
+messi, ronaldo, messi vs ronaldo, cristiano ronaldo, lionel messi, messi retires, ronaldo retires, ronaldo portugal, messi argentina, messi farewell, ronaldo jorge jesus, ronaldo suspended, messi last game, argentina, portugal, goat debate, cr7, leo messi, international goals, world cup, ronaldo 146 goals, messi 126 goals, international break, football, soccer, football shorts, theo6k, goat, messi or ronaldo, football history, ronaldo retirement, messi goodbye, cr7 retires
 
 ## Pinned comment
 Final answer, no sitting on the fence: Messi or Ronaldo? 👇

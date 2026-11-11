@@ -1832,6 +1832,110 @@ CARDS.stamp = function (c, ct, cx, cy) {
 };
 CARDS.stamp.noSlide = true;
 
+// Team sheet (backlog "formation" item, built): a pitch card where the players pop into formation one by one, with an optional empty,
+// pulsing slot for the man left out. {type: "lineup", title, items: [{name, x, y, color, text, t|at}], empty: {x, y, label, t|at}, w, instant}
+// x, y are 0–1 on the pitch (y 0 = attacking end at the top).
+CARDS.lineup = function (c, ct, cx, cy) {
+  const w = c.w || 800, h = w * 1.22, k = eBack(pr(ct, 0, 0.45)), sc = w / 800;
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(k * (1 + 0.012 * ct), k * (1 + 0.012 * ct)); ctx.rotate(c.tilt != null ? c.tilt : -0.015);
+  ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16;
+  ctx.fillStyle = '#12301c'; rrect(-w / 2, -h / 2, w, h, 26 * sc); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.save(); rrect(-w / 2, -h / 2, w, h, 26 * sc); ctx.clip();
+  for (let i = 0; i < 8; i++) { ctx.fillStyle = i % 2 ? '#1f6b3a' : '#237a41'; ctx.fillRect(-w / 2, -h / 2 + i * h / 8, w, h / 8); }
+  ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.lineWidth = 4 * sc; const m = 26 * sc;
+  ctx.strokeRect(-w / 2 + m, -h / 2 + m, w - 2 * m, h - 2 * m);
+  ctx.strokeRect(-w * 0.28, -h / 2 + m, w * 0.56, h * 0.15); ctx.strokeRect(-w * 0.12, -h / 2 + m, w * 0.24, h * 0.055);
+  ctx.beginPath(); ctx.arc(0, h / 2 - m, w * 0.16, Math.PI, 2 * Math.PI); ctx.stroke();
+  ctx.restore();
+  if (c.title) { font(800, 30 * sc, 'Inter', `${3 * sc}px`); const tw = ctx.measureText(c.title.toUpperCase()).width + 44 * sc;
+    ctx.fillStyle = '#0d1016'; rrect(-tw / 2, -h / 2 - 30 * sc, tw, 60 * sc, 30 * sc); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.title.toUpperCase(), 0, -h / 2 + 2 * sc); }
+  const r = (c.r || 40) * sc;
+  (c.items || []).forEach((it, i) => {
+    const tt = it.t != null ? it.t : 0.25 + i * 0.07; if (!c.instant && ct <= tt) return;
+    const pk = c.instant ? 1 : eBack(pr(ct, tt, 0.28));
+    const x = (it.x - 0.5) * (w - 2 * m), y = (it.y - 0.5) * (h - 2 * m), hot = !c.instant && it.t != null && ct - it.t < 0.9;
+    ctx.save(); ctx.translate(x, y + Math.sin(ct * 2 + i) * 2 * sc); ctx.scale(pk, pk);
+    if (hot) { ctx.strokeStyle = '#f1c453'; ctx.lineWidth = 5 * sc; ctx.globalAlpha = 1 - (ct - it.t) / 0.9; ctx.beginPath(); ctx.arc(0, 0, r + (ct - it.t) * 60 * sc, 0, 7); ctx.stroke(); ctx.globalAlpha = 1; }
+    ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.arc(2 * sc, 5 * sc, r, 0, 7); ctx.fill();
+    ctx.fillStyle = it.color || '#f4f4f2'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 3 * sc; ctx.beginPath(); ctx.arc(0, 0, r - 5 * sc, 0, 7); ctx.stroke();
+    font(700, 21 * sc, 'Inter'); const nw = ctx.measureText(it.name).width + 22 * sc;
+    ctx.fillStyle = 'rgba(13,16,22,0.92)'; rrect(-nw / 2, r + 6 * sc, nw, 32 * sc, 16 * sc); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(it.name, 0, r + 23 * sc);
+    ctx.restore();
+  });
+  if (c.empty) { const e = c.empty, ek = c.instant && e.t == null ? 1 : eBack(pr(ct, e.t != null ? e.t : 1.2, 0.3));
+    if (ek > 0) { const x = (e.x - 0.5) * (w - 2 * m), y = (e.y - 0.5) * (h - 2 * m), pu = 1 + 0.1 * Math.sin(ct * 7);
+      ctx.save(); ctx.translate(x, y); ctx.scale(ek * pu, ek * pu);
+      ctx.fillStyle = 'rgba(214,40,59,0.22)'; ctx.beginPath(); ctx.arc(0, 0, r * 1.15, 0, 7); ctx.fill();
+      ctx.setLineDash([10 * sc, 8 * sc]); ctx.strokeStyle = '#ff4d5e'; ctx.lineWidth = 5 * sc; ctx.beginPath(); ctx.arc(0, 0, r * 1.15, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+      font(800, 44 * sc, 'Inter'); ctx.fillStyle = '#ff4d5e'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('?', 0, 3 * sc);
+      if (e.label) { font(800, 23 * sc, 'Inter', `${2 * sc}px`); const nw = ctx.measureText(e.label.toUpperCase()).width + 26 * sc;
+        ctx.fillStyle = '#d6283b'; rrect(-nw / 2, r * 1.15 + 8 * sc, nw, 36 * sc, 18 * sc); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(e.label.toUpperCase(), 0, r * 1.15 + 27 * sc); }
+      ctx.restore(); } }
+  ctx.restore();
+};
+CARDS.lineup.noSlide = true;
+
+// Ballot box: voting slips fly in and drop through the slot while the box bounces. {type: "ballot", title, sub, color, n, dur, shiftX}
+CARDS.ballot = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.4)), col = c.color || '#f1c453', n = c.n || 16, dur = c.dur || 2.2, bw = c.w || 340, bh = bw * 0.8;
+  if (k <= 0) return;
+  let bounce = 0; const R = rng(c.seed || 12);
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k);
+  const slips = [];
+  for (let i = 0; i < n; i++) { const t0 = 0.35 + i / n * dur, a = (ct - t0) / 0.55, sx = (R() - 0.5) * 700, sy = -520 - R() * 260, rot = (R() - 0.5) * 2;
+    if (a > 0 && a < 1) slips.push({ a, sx, sy, rot }); if (a >= 1 && a < 1.3) bounce = Math.max(bounce, 1 - (a - 1) / 0.3); }
+  for (const sl of slips) { const e = sl.a * sl.a, x = lerp(sl.sx, 0, eOut(sl.a)), y = lerp(sl.sy, -bh / 2 - 6, e);
+    ctx.save(); ctx.translate(x, y); ctx.rotate(sl.rot * (1 - sl.a)); ctx.scale(1, lerp(1, 0.35, pr(sl.a, 0.8, 0.2)));
+    ctx.fillStyle = '#f7f3e8'; rrect(-52, -36, 104, 72, 8); ctx.fill();
+    ctx.strokeStyle = col; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-20, 0); ctx.lineTo(-6, 14); ctx.lineTo(22, -16); ctx.stroke(); ctx.restore(); }
+  ctx.translate(0, bounce * 8);
+  ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 36; ctx.shadowOffsetY = 14;
+  ctx.fillStyle = '#171a22'; rrect(-bw / 2, -bh / 2, bw, bh, 22); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.fillStyle = col; rrect(-bw / 2, -bh / 2, bw, 26, 13); ctx.fill();
+  ctx.fillStyle = '#05060a'; rrect(-bw * 0.3, -bh / 2 + 6, bw * 0.6, 12, 6); ctx.fill();
+  font(800, 40, 'Inter', '1px'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText((c.title || 'VOTES').toUpperCase(), 0, -6);
+  if (c.sub) { font(600, 23, 'Mono', '3px'); ctx.fillStyle = col; ctx.fillText(c.sub.toUpperCase(), 0, 50); }
+  ctx.restore();
+};
+CARDS.ballot.noSlide = true;
+
+// Photo finish: two bars race to a chequered line with the numbers counting; the loser stops just short and the gap is called out.
+// {type: "photofinish", title, rows: [{name, value, color}] (winner first or second, either), floor, dur, suffix: "%", decimals: 1, gap: "0.8%", gapT|gapAt}
+CARDS.photofinish = function (c, ct, cx, cy) {
+  const w = c.w || 960, rows = c.rows, rh = 150, h = rows.length * rh + 130, k = eOut(pr(ct, 0, 0.4)), dur = c.dur || 1.8, dec = c.decimals != null ? c.decimals : 1;
+  const mx = Math.max(...rows.map(r => r.value)), fl = c.floor != null ? c.floor : mx * 0.9, x0 = -w / 2 + 40, L = w - 270, t0 = 0.35;
+  const gT = c.gapT != null ? c.gapT : t0 + dur + 0.25, done = ct > t0 + dur;
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy + (1 - k) * 40);
+  ctx.fillStyle = 'rgba(8,10,15,0.82)'; rrect(-w / 2, -h / 2, w, h, 26); ctx.fill();
+  if (c.title) { font(600, 24, 'Mono', '5px'); ctx.fillStyle = '#c9ced6'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.title.toUpperCase(), 0, -h / 2 + 46); }
+  const fx = x0 + L;   // finish line
+  for (let i = 0; i < Math.ceil((h - 110) / 16); i++) for (let j = 0; j < 2; j++) { ctx.fillStyle = (i + j) % 2 ? '#fff' : '#111'; ctx.fillRect(fx + j * 16, -h / 2 + 84 + i * 16, 16, 16); }
+  const tips = [];
+  rows.forEach((r, i) => {
+    const y = -h / 2 + 100 + i * rh + rh / 2, frac = clamp((r.value - fl) / (mx - fl), 0, 1), e = ease(pr(ct, t0, dur));
+    const wob = done ? 0 : Math.sin(ct * 9 + i * 2) * 0.012 * (1 - e), len = L * clamp(e * (0.25 + 0.75 * frac) + wob + (e >= 1 ? 0 : 0), 0, 1) * (e < 1 ? 1 : 1);
+    const full = L * (0.25 + 0.75 * frac), cur = Math.min(full, Math.max(0, len / (0.25 + 0.75 * frac) * (0.25 + 0.75 * frac)));
+    font(800, 34, 'Inter'); ctx.fillStyle = '#f4f2ec'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(r.name, x0, y - 44);
+    ctx.fillStyle = 'rgba(255,255,255,0.08)'; rrect(x0, y - 16, L, 44, 22); ctx.fill();
+    ctx.fillStyle = r.color || '#6cabdd'; rrect(x0, y - 16, Math.max(44, cur), 44, 22); ctx.fill();
+    drawBall(x0 + Math.max(44, cur) - 4, y + 6, 26);
+    font(800, 44, 'Inter', '-1px'); ctx.textAlign = 'right'; ctx.fillStyle = done && r.value === mx ? '#f1c453' : '#f4f2ec';
+    ctx.fillText((r.value * e).toFixed(dec) + (c.suffix != null ? c.suffix : '%'), w / 2 - 30, y + 8);
+    tips.push([x0 + Math.max(44, cur), y + 6]);
+  });
+  if (done) { const fk = 1 - pr(ct, t0 + dur, 0.35); if (fk > 0) { ctx.fillStyle = `rgba(255,255,255,${0.6 * fk})`; rrect(-w / 2, -h / 2, w, h, 26); ctx.fill(); } }
+  if (c.gap && ct >= gT && tips.length > 1) { const gk = eBack(pr(ct, gT, 0.3)), a = tips.reduce((p, q) => p[0] < q[0] ? p : q), bx = (a[0] + fx) / 2 + 14, pu = 1 + 0.08 * Math.sin(ct * 8);
+    ctx.strokeStyle = '#ff4d5e'; ctx.lineWidth = 6; ctx.setLineDash([8, 8]); ctx.beginPath(); ctx.moveTo(a[0] + 22, a[1] - 60); ctx.lineTo(a[0] + 22, a[1] + 60); ctx.stroke(); ctx.setLineDash([]);
+    ctx.save(); ctx.translate(bx + 10, a[1]); ctx.scale(gk * pu, gk * pu); font(900, 46, 'Inter'); const tw = ctx.measureText(c.gap).width + 40;
+    ctx.fillStyle = '#d6283b'; rrect(-tw / 2, -32, tw, 64, 14); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.gap, 0, 3); ctx.restore(); }
+  ctx.restore();
+};
+CARDS.photofinish.noSlide = true;
+
 // Cross-off calendar (backlog item, built): a wall-calendar month whose days get crossed off one by one, for bans, suspensions, waits and countdowns.
 // {type: "crossoff", title: "SUSPENDED", days: 30, cols: 6, crossT|crossAt (when the crossing starts), dur (s for all days), color, caption ("{n} days")}
 CARDS.crossoff = function (c, ct, cx, cy) {
@@ -3376,6 +3480,9 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'lineup': ev.push({ t: 0, type: 'whoosh' }); if (!c.instant) (c.items || []).forEach((it, i) => ev.push({ t: it.t != null ? it.t : 0.25 + i * 0.07, type: it.t != null ? 'pop' : 'tick' })); if (c.empty) ev.push({ t: c.empty.t != null ? c.empty.t : 1.2, type: 'impact' }); break;
+    case 'ballot': { ev.push({ t: 0, type: 'pop' }); const n = c.n || 16, d = c.dur || 2.2; for (let i = 0; i < n; i += 2) ev.push({ t: 0.9 + i / n * d, type: 'tick' }); break; }
+    case 'photofinish': { const d = c.dur || 1.8; ev.push({ t: 0.3, type: 'whoosh' }); for (let t = 0.4; t < 0.35 + d; t += 0.08) ev.push({ t, type: 'tick' }); ev.push({ t: 0.35 + d, type: 'impact' }); if (c.gap) ev.push({ t: c.gapT != null ? c.gapT : 0.6 + d, type: 'pop' }); break; }
     case 'crossoff': { ev.push({ t: 0, type: 'whoosh' }); const t0 = c.crossT != null ? c.crossT : 0.5, d = c.dur || 1.6; for (let t = t0; t < t0 + d; t += 0.07) ev.push({ t, type: 'tick' }); ev.push({ t: t0 + d, type: 'impact' }); break; }
     case 'phone': ev.push({ t: 0, type: 'whoosh' }, { t: 0.5, type: 'pop' }); break;
     case 'varlines': ev.push({ t: 0, type: 'whoosh' }, { t: (c.dur || 0.7) + 0.1, type: 'whoosh' }, { t: c.gapAt != null ? c.gapAt : (c.dur || 0.7) * 2 + 0.2, type: 'tick' }); break;

@@ -1,0 +1,1316 @@
+{
+ "title": "Kane left out of the World XI",
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Ballon d'Or winner · 2026",
+   "headline": "Best in the world. [Not in the XI].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c9a227",
+     "#ffffff",
+     "#1b2a4a",
+     "#c9a227"
+    ],
+    "seed": 8
+   },
+   "accent": "#ff4d5e",
+   "flashes": 16,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.0
+    ],
+    "tgt": [
+     0,
+     1.45,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.1
+    ],
+    "tgt": [
+     0,
+     1.45,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1a1d26",
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "x": 0,
+     "z": 2.6,
+     "front": true,
+     "pose": "arms_up"
+    }
+   ],
+   "split": {
+    "scene": {
+     "type": "stadium",
+     "crowd": [
+      "#2a3040",
+      "#4da3ff",
+      "#8a93a6",
+      "#1b2233"
+     ],
+     "seed": 5
+    },
+    "lights": 0.45,
+    "camFrom": {
+     "pos": [
+      0,
+      30,
+      -50
+     ],
+     "tgt": [
+      0,
+      0,
+      5
+     ]
+    },
+    "camera": {
+     "pos": [
+      0,
+      22,
+      -38
+     ],
+     "tgt": [
+      0,
+      0,
+      8
+     ]
+    },
+    "players": []
+   },
+   "card": [
+    {
+     "type": "trophies",
+     "delay": -1.1,
+     "floor": 800,
+     "stagger": 0,
+     "items": [
+      {
+       "kind": "ballondor",
+       "sx": 0.25,
+       "h": 0,
+       "size": 130
+      }
+     ]
+    },
+    {
+     "type": "lineup",
+     "title": "Players' World XI",
+     "items": [
+      {
+       "name": "Raya",
+       "x": 0.5,
+       "y": 0.9,
+       "color": "#f2c200"
+      },
+      {
+       "name": "Hakimi",
+       "x": 0.2,
+       "y": 0.68,
+       "color": "#1b2a4a"
+      },
+      {
+       "name": "Cubarsí",
+       "x": 0.5,
+       "y": 0.7,
+       "color": "#a50044"
+      },
+      {
+       "name": "N. Mendes",
+       "x": 0.8,
+       "y": 0.68,
+       "color": "#1b2a4a"
+      },
+      {
+       "name": "Vitinha",
+       "x": 0.22,
+       "y": 0.47,
+       "color": "#1b2a4a"
+      },
+      {
+       "name": "Rodri",
+       "x": 0.5,
+       "y": 0.49,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "Bellingham",
+       "x": 0.78,
+       "y": 0.47,
+       "color": "#f4f4f2"
+      },
+      {
+       "name": "Mbappé",
+       "x": 0.32,
+       "y": 0.13,
+       "color": "#f4f4f2"
+      },
+      {
+       "name": "Haaland",
+       "x": 0.68,
+       "y": 0.13,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "Yamal",
+       "x": 0.86,
+       "y": 0.27,
+       "color": "#a50044"
+      },
+      {
+       "name": "Messi",
+       "x": 0.14,
+       "y": 0.27,
+       "color": "#f7b5cd"
+      }
+     ],
+     "clear": false,
+     "instant": true,
+     "delay": -1,
+     "w": 480,
+     "shiftX": 268,
+     "y": 1130,
+     "empty": {
+      "x": 0.5,
+      "y": 0.3,
+      "label": "Kane",
+      "t": 0
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "BEST",
+     "sub": "journalists",
+     "at": "best player",
+     "color": "#e9b949",
+     "rot": -0.1,
+     "size": 62,
+     "dx": -270,
+     "y": 1600
+    },
+    {
+     "type": "stamp",
+     "text": "LEFT OUT",
+     "sub": "players",
+     "at": "left him out",
+     "color": "#ff4d5e",
+     "rot": 0.08,
+     "size": 62,
+     "dx": 268,
+     "y": 1600
+    }
+   ],
+   "shake": [
+    {
+     "at": "left him out",
+     "lag": 0.16,
+     "amount": 14
+    }
+   ],
+   "vo": "Journalists voted Harry Kane the best player in the world. Footballers just left him out of their best eleven."
+  },
+  {
+   "kicker": "Monday · 9 November 2026",
+   "headline": "The players [vote].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a3040",
+     "#4da3ff",
+     "#8a93a6",
+     "#1b2233"
+    ],
+    "seed": 5
+   },
+   "accent": "#4da3ff",
+   "lights": 0.8,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     26,
+     -44
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 3,
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 760,
+     "at": "ninth",
+     "lag": -0.3,
+     "label": "FIFPRO World XI",
+     "groups": [
+      {
+       "label": "November",
+       "value": 9,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "MON",
+      "big": "9",
+      "bottom": "NOV"
+     }
+    }
+   ],
+   "shots": [
+    {
+     "at": "FIFPRO names",
+     "lag": -0.1,
+     "cut": true,
+     "transition": "whip",
+     "whipDir": -1,
+     "lights": 0.55,
+     "focus": 0.5,
+     "move": 5,
+     "moveEase": "linear",
+     "camFrom": {
+      "pos": [
+       0,
+       30,
+       -50
+      ],
+      "tgt": [
+       0,
+       0,
+       5
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       18,
+       -32
+      ],
+      "tgt": [
+       0,
+       0,
+       8
+      ]
+     },
+     "players": [],
+     "card": [
+      {
+       "type": "ballot",
+       "y": 1250,
+       "delay": 0,
+       "title": "World XI",
+       "sub": "Players' vote",
+       "color": "#4da3ff",
+       "n": 26,
+       "dur": 3.4,
+       "w": 420
+      },
+      {
+       "type": "flytext",
+       "text": "THOUSANDS",
+       "size": 150,
+       "endScale": 0.62,
+       "y": 760,
+       "at": "thousands",
+       "color": "#ffffff",
+       "clear": false
+      }
+     ]
+    }
+   ],
+   "vo": "Monday the ninth of November, 2026. FIFPRO names its World Eleven, chosen by thousands of professional players."
+  },
+  {
+   "kicker": "The front four",
+   "headline": "Mbappé. Haaland. Yamal. [Messi].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a3040",
+     "#4da3ff",
+     "#8a93a6",
+     "#1b2233"
+    ],
+    "seed": 5
+   },
+   "accent": "#e9b949",
+   "lights": 0.5,
+   "focus": 0.5,
+   "camFrom": {
+    "pos": [
+     0,
+     26,
+     -44
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     20,
+     -34
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "lineup",
+     "title": "FIFPRO World XI · 2026",
+     "items": [
+      {
+       "name": "Raya",
+       "x": 0.5,
+       "y": 0.9,
+       "color": "#f2c200"
+      },
+      {
+       "name": "Hakimi",
+       "x": 0.2,
+       "y": 0.68,
+       "color": "#1b2a4a"
+      },
+      {
+       "name": "Cubarsí",
+       "x": 0.5,
+       "y": 0.7,
+       "color": "#a50044"
+      },
+      {
+       "name": "N. Mendes",
+       "x": 0.8,
+       "y": 0.68,
+       "color": "#1b2a4a"
+      },
+      {
+       "name": "Vitinha",
+       "x": 0.22,
+       "y": 0.47,
+       "color": "#1b2a4a"
+      },
+      {
+       "name": "Rodri",
+       "x": 0.5,
+       "y": 0.49,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "Bellingham",
+       "x": 0.78,
+       "y": 0.47,
+       "color": "#f4f4f2"
+      },
+      {
+       "name": "Mbappé",
+       "x": 0.32,
+       "y": 0.13,
+       "color": "#f4f4f2",
+       "at": "Mbappé"
+      },
+      {
+       "name": "Haaland",
+       "x": 0.68,
+       "y": 0.13,
+       "color": "#6cabdd",
+       "at": "Haaland"
+      },
+      {
+       "name": "Yamal",
+       "x": 0.86,
+       "y": 0.27,
+       "color": "#a50044",
+       "at": "Yamal"
+      },
+      {
+       "name": "Messi",
+       "x": 0.14,
+       "y": 0.27,
+       "color": "#f7b5cd",
+       "at": "Lionel Messi"
+      }
+     ],
+     "clear": false,
+     "delay": 0,
+     "y": 1180,
+     "w": 780
+    }
+   ],
+   "shots": [
+    {
+     "at": "in for a record",
+     "lag": -0.15,
+     "cut": true,
+     "transition": "whip",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#f7b5cd",
+       "#1d1c22",
+       "#f7b5cd",
+       "#ffffff"
+      ],
+      "seed": 22
+     },
+     "lights": 1,
+     "focus": 0,
+     "flashes": 16,
+     "orbit": {
+      "center": [
+       0,
+       1.25,
+       2.4
+      ],
+      "r": 4.2,
+      "from": -28,
+      "to": 12,
+      "h": 1.3,
+      "h2": 1.6,
+      "dur": 3.5
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.6,
+       -1.8
+      ],
+      "tgt": [
+       0,
+       1.25,
+       2.4
+      ]
+     },
+     "players": [
+      {
+       "name": "Messi",
+       "num": 10,
+       "kit": {
+        "shirt": "#f7b5cd",
+        "shorts": "#1d1c22",
+        "socks": "#f7b5cd",
+        "text": "#1d1c22"
+       },
+       "skin": "#e9bd9a",
+       "hair": "#5a3a22",
+       "x": 0,
+       "z": 2.4,
+       "front": true,
+       "chest": true,
+       "pose": "fists",
+       "tag": 18,
+       "tagLabel": "World XIs",
+       "tagDelay": 0.25
+      }
+     ],
+     "card": [
+      {
+       "type": "stamp",
+       "text": "RECORD",
+       "sub": "18th World XI",
+       "at": "eighteenth",
+       "color": "#e9b949",
+       "rot": -0.08,
+       "size": 100,
+       "y": 1600
+      }
+     ],
+     "confetti": true,
+     "confettiDelay": 0.3,
+     "confettiColors": [
+      "#f7b5cd",
+      "#ffffff",
+      "#e9b949"
+     ]
+    }
+   ],
+   "vo": "Up front: Mbappé. Haaland. Yamal. And Lionel Messi, in for a record eighteenth time."
+  },
+  {
+   "kicker": "The man missing",
+   "headline": "One name missing: [Harry Kane].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a3040",
+     "#4da3ff",
+     "#8a93a6",
+     "#1b2233"
+    ],
+    "seed": 5
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.45,
+   "focus": 0.5,
+   "camFrom": {
+    "pos": [
+     0,
+     22,
+     -38
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     16,
+     -28
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 3,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "lineup",
+     "title": "FIFPRO World XI · 2026",
+     "items": [
+      {
+       "name": "Raya",
+       "x": 0.5,
+       "y": 0.9,
+       "color": "#f2c200"
+      },
+      {
+       "name": "Hakimi",
+       "x": 0.2,
+       "y": 0.68,
+       "color": "#1b2a4a"
+      },
+      {
+       "name": "Cubarsí",
+       "x": 0.5,
+       "y": 0.7,
+       "color": "#a50044"
+      },
+      {
+       "name": "N. Mendes",
+       "x": 0.8,
+       "y": 0.68,
+       "color": "#1b2a4a"
+      },
+      {
+       "name": "Vitinha",
+       "x": 0.22,
+       "y": 0.47,
+       "color": "#1b2a4a"
+      },
+      {
+       "name": "Rodri",
+       "x": 0.5,
+       "y": 0.49,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "Bellingham",
+       "x": 0.78,
+       "y": 0.47,
+       "color": "#f4f4f2"
+      },
+      {
+       "name": "Mbappé",
+       "x": 0.32,
+       "y": 0.13,
+       "color": "#f4f4f2"
+      },
+      {
+       "name": "Haaland",
+       "x": 0.68,
+       "y": 0.13,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "Yamal",
+       "x": 0.86,
+       "y": 0.27,
+       "color": "#a50044"
+      },
+      {
+       "name": "Messi",
+       "x": 0.14,
+       "y": 0.27,
+       "color": "#f7b5cd"
+      }
+     ],
+     "clear": false,
+     "instant": true,
+     "delay": 0,
+     "y": 1180,
+     "w": 780,
+     "empty": {
+      "x": 0.5,
+      "y": 0.3,
+      "label": "Kane · 5th",
+      "t": 0.15
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "LEFT OUT",
+     "delay": 0.7,
+     "color": "#ff4d5e",
+     "rot": -0.09,
+     "size": 110,
+     "y": 1730
+    }
+   ],
+   "punch": [
+    {
+     "t": 0.15,
+     "amount": 0.16,
+     "dur": 1.6,
+     "x": 540,
+     "y": 900
+    }
+   ],
+   "shake": [
+    {
+     "t": 0.86,
+     "amount": 16
+    }
+   ],
+   "vo": "One name is missing: Harry Kane."
+  },
+  {
+   "kicker": "26 October 2026 · London",
+   "headline": "He won the [Ballon d'Or].",
+   "cut": true,
+   "transition": "polaroid",
+   "polaroidLabel": "2 weeks earlier",
+   "scene": {
+    "type": "stage"
+   },
+   "accent": "#e9b949",
+   "focus": 0.35,
+   "zoomFrom": 1.0,
+   "zoom": 1.14,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1a1d26",
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "sx": 0.5,
+     "sy": 1640,
+     "scale": 1.15,
+     "front": true,
+     "pose": "arms_up"
+    }
+   ],
+   "card": [
+    {
+     "type": "trophies",
+     "delay": 0.1,
+     "floor": 1000,
+     "stagger": 0,
+     "rise": 0.5,
+     "items": [
+      {
+       "kind": "ballondor",
+       "sx": 0.5,
+       "h": 0,
+       "size": 190
+      }
+     ],
+     "hideAt": "He beat",
+     "hideLag": -0.2
+    },
+    {
+     "type": "tape",
+     "y": 900,
+     "at": "He beat",
+     "lag": -0.2,
+     "left": {
+      "name": "Kane",
+      "color": "#dc052d"
+     },
+     "right": {
+      "name": "Mbappé",
+      "color": "#f4f4f2"
+     },
+     "rows": [
+      {
+       "label": "Ballon d'Or points",
+       "left": 1055,
+       "right": 1027,
+       "t": 0.2,
+       "floor": 950
+      }
+     ],
+     "caption": "+28",
+     "captionAt": "twenty-eight"
+    }
+   ],
+   "confetti": true,
+   "confettiDelay": 0.2,
+   "confettiColors": [
+    "#e9b949",
+    "#ffffff"
+   ],
+   "vo": "Just two weeks earlier, he won the Ballon d'Or. He beat Mbappé by twenty-eight points."
+  },
+  {
+   "kicker": "Two different votes",
+   "headline": "Journalists v [players].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "THE TWIST",
+   "vhsDur": 0.9,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a3040",
+     "#4da3ff",
+     "#8a93a6",
+     "#1b2233"
+    ],
+    "seed": 5
+   },
+   "accent": "#4da3ff",
+   "lights": 0.5,
+   "focus": 0.45,
+   "camFrom": {
+    "pos": [
+     0,
+     34,
+     -56
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     16,
+     -28
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "ballot",
+     "y": 1200,
+     "shiftX": -262,
+     "at": "That award",
+     "title": "Ballon d'Or",
+     "sub": "Journalists",
+     "color": "#e9b949",
+     "n": 12,
+     "dur": 2.6,
+     "w": 400,
+     "seed": 4,
+     "clear": false
+    },
+    {
+     "type": "ballot",
+     "y": 1200,
+     "shiftX": 262,
+     "at": "This team",
+     "title": "World XI",
+     "sub": "Players",
+     "color": "#4da3ff",
+     "n": 14,
+     "dur": 2.0,
+     "w": 400,
+     "seed": 9,
+     "clear": false
+    },
+    {
+     "type": "flytext",
+     "text": "VS",
+     "size": 170,
+     "endScale": 0.6,
+     "y": 1200,
+     "at": "This team",
+     "lag": 0.2,
+     "color": "#ffffff",
+     "clear": false
+    }
+   ],
+   "vo": "But here's the twist. That award is voted for by journalists. This team is picked by players."
+  },
+  {
+   "kicker": "The forwards' vote",
+   "headline": "Kane finished [fifth].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#dc052d",
+     "#ffffff",
+     "#dc052d",
+     "#1d1c22"
+    ],
+    "seed": 14
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.6,
+   "camFrom": {
+    "pos": [
+     0.8,
+     1.6,
+     -2.8
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.1,
+     1.5,
+     -0.8
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 3.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "Kane",
+     "num": 9,
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": [
+    {
+     "type": "big",
+     "at": "fifth",
+     "lag": -0.5,
+     "from": 1,
+     "value": 5,
+     "countDur": 0.6,
+     "suffix": "th",
+     "label": "Top four make the team",
+     "y": 1560,
+     "style": "accent",
+     "size": 280
+    }
+   ],
+   "freezeAt": "fifth",
+   "freezeLag": 0.25,
+   "vo": "And among the forwards, Kane finished fifth."
+  },
+  {
+   "kicker": "Share of the vote",
+   "headline": "27.6% v [28.4%].",
+   "cut": true,
+   "scene": {
+    "type": "booth",
+    "crowd": [
+     "#dc052d",
+     "#6cabdd",
+     "#ffffff"
+    ],
+    "seed": 9,
+    "screenLeft": [
+     "KANE",
+     "5TH"
+    ],
+    "screenRight": [
+     "HAALAND",
+     "4TH"
+    ]
+   },
+   "accent": "#e9b949",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2b2f3a",
+      "shorts": "#2b2f3a",
+      "socks": "#2b2f3a",
+      "text": "#ffffff"
+     },
+     "skin": "#e2b08c",
+     "hair": "#3a2a1a",
+     "headset": true,
+     "sx": 0.5,
+     "scale": 0.75,
+     "front": true,
+     "pose": "think"
+    }
+   ],
+   "card": [
+    {
+     "type": "photofinish",
+     "y": 800,
+     "delay": 0,
+     "title": "Forwards · share of the players' vote",
+     "dur": 3.2,
+     "floor": 26.8,
+     "gap": "0.8%",
+     "gapAt": "twenty-eight point four",
+     "gapLag": 0.9,
+     "rows": [
+      {
+       "name": "Harry Kane · 5th",
+       "value": 27.6,
+       "color": "#dc052d"
+      },
+      {
+       "name": "Erling Haaland · 4th",
+       "value": 28.4,
+       "color": "#6cabdd"
+      }
+     ],
+     "clear": false
+    }
+   ],
+   "vo": "He got twenty-seven point six percent of the vote. Haaland got twenty-eight point four."
+  },
+  {
+   "kicker": "The gap",
+   "headline": "Less than [one percent].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#dc052d",
+     "#ffffff",
+     "#dc052d",
+     "#1d1c22"
+    ],
+    "seed": 14
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.4,
+   "camFrom": {
+    "pos": [
+     -1.0,
+     1.7,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.2,
+     1.5,
+     -1.2
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 3,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "Kane",
+     "num": 9,
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": [
+    {
+     "type": "flytext",
+     "text": "0.8%",
+     "size": 330,
+     "endScale": 0.8,
+     "y": 1560,
+     "at": "less than",
+     "lag": -0.2,
+     "color": "#ff4d5e",
+     "clear": false
+    }
+   ],
+   "shake": [
+    {
+     "at": "less than",
+     "lag": 0.25,
+     "amount": 18
+    }
+   ],
+   "speedlines": [
+    {
+     "at": "less than",
+     "lag": -0.2,
+     "dur": 0.9,
+     "amount": 0.6
+    }
+   ],
+   "vo": "He missed out by less than one percent."
+  },
+  {
+   "kicker": "History",
+   "headline": "It had [never] happened.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c9a227",
+     "#ffffff",
+     "#1b2a4a",
+     "#c9a227"
+    ],
+    "seed": 8
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     0,
+     40,
+     -66
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     14,
+     -26
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "newspaper",
+     "delay": 0.1,
+     "y": 1120,
+     "masthead": "THE FOOTBALL ECHO",
+     "dateline": "Tuesday 10 November 2026",
+     "headline": "BALLON D'OR WINNER\nLEFT OUT OF WORLD XI",
+     "sub": "A first in the award's history",
+     "color": "#2a2116",
+     "spin": 1.4,
+     "scale": 0.92
+    },
+    {
+     "type": "stamp",
+     "text": "FIRST EVER",
+     "at": "Until now",
+     "color": "#ff4d5e",
+     "rot": -0.1,
+     "size": 110,
+     "y": 1660
+    }
+   ],
+   "vo": "No Ballon d'Or winner had ever been left out of the World Eleven. Until now."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Who got it [right]?",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#dc052d",
+     "#ffffff",
+     "#dc052d",
+     "#1d1c22"
+    ],
+    "seed": 14
+   },
+   "accent": "#e9b949",
+   "flashes": 12,
+   "orbit": {
+    "center": [
+     0,
+     1.25,
+     2.6
+    ],
+    "r": 4.6,
+    "from": -26,
+    "to": 18,
+    "h": 1.4,
+    "h2": 1.8,
+    "dur": 6
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     2.6
+    ]
+   },
+   "players": [
+    {
+     "name": "Kane",
+     "num": 9,
+     "kit": {
+      "shirt": "#dc052d",
+      "shorts": "#dc052d",
+      "socks": "#dc052d",
+      "text": "#ffffff"
+     },
+     "skin": "#e9b896",
+     "hair": "#8a6a45",
+     "x": 0,
+     "z": 2.6,
+     "front": true,
+     "chest": true,
+     "pose": "fists"
+    }
+   ],
+   "card": [
+    {
+     "type": "stamp",
+     "text": "BEST",
+     "sub": "journalists",
+     "delay": 0.3,
+     "color": "#e9b949",
+     "rot": -0.1,
+     "size": 58,
+     "dx": -300,
+     "y": 1290
+    },
+    {
+     "type": "stamp",
+     "text": "5TH",
+     "sub": "players",
+     "delay": 0.8,
+     "color": "#4da3ff",
+     "rot": 0.08,
+     "size": 58,
+     "dx": 300,
+     "y": 1290
+    },
+    {
+     "type": "poll",
+     "y": 1600,
+     "at": "the journalists",
+     "lag": -0.3,
+     "question": "Who got it right?",
+     "options": [
+      {
+       "label": "Journalists",
+       "color": "#e9b949",
+       "fill": 0.5
+      },
+      {
+       "label": "Players",
+       "color": "#4da3ff",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So who got it right: the journalists, or the players?"
+  }
+ ]
+}

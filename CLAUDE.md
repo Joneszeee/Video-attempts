@@ -280,6 +280,14 @@ Built so far from the idea list (reuse them):
   a progress bar and hearts floating up: `player`, `caption` ("\n" for lines; a plain fact, never invented words), `tag`, `w`, `h`, `bg`. For announcements made online.
 - **Name labels in the normal style:** a player with `label` (+ `labelAt`/`labelDelay`) gets a white name pill above his head (above the gold `tag` if he has one).
 - **Tinted rain balls:** a `rain` group's `color` now tints its footballs, so two teams' goals can rain into one counter.
+- **Team sheet** (backlog formation item, built for `videos/kane-snub`): the `lineup` card. A pitch card where players pop into formation:
+  `items: [{name, x, y, color, at}]` (x, y 0–1, attack at the top; an item with `at` pops on its word with a gold ring), `title`, `w`, `instant: true`
+  (all there at once), `empty: {x, y, label, at|t}` = a pulsing red dashed "?" slot for the man left out.
+- **Ballot box** (built): the `ballot` card. Voting slips fly in and drop through the slot while the box bounces: `title`, `sub`, `color`, `n`, `dur`, `w`,
+  `shiftX` (two side by side for "who voted for what").
+- **Photo finish** (built): the `photofinish` card. Two bars race to a chequered line while the numbers count; the loser stops short and a red badge
+  calls out the gap: `rows: [{name, value, color}]`, `floor` (exaggerates a small gap), `dur`, `gap: "0.8%"`, `gapAt`, `suffix`, `decimals`.
+- **Faster switches (user):** cut or whip-pan about every 2–3s (never under 2s), and give long lines a second shot. Alternate transition types.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.
 - **Half-time swing:** the `swing` card. Rows `[{label, from, to, at, decimals, good}]`: 1st-half number on the left, an arrow draws, the 2nd-half number counts and glows
   green (`good`) or red. Great for "what changed" tactics stories.

@@ -1,0 +1,95 @@
+{
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Manchester United · manager search",
+   "headline": "United's saviour? [Zero trophies] in England.",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.8,
+   "flashes": 14,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -0.6
+    ],
+    "tgt": [
+     0,
+     1.4,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -0.6
+    ],
+    "tgt": [
+     0,
+     1.4,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#7a1420",
+     "skin": "#e2b08c",
+     "hair": "#3a3a3e",
+     "x": 0,
+     "z": 2.4,
+     "front": true,
+     "label": "Mauricio Pochettino",
+     "labelDelay": 0,
+     "pose": "think"
+    }
+   ],
+   "card": [
+    {
+     "type": "stamp",
+     "text": "18TH",
+     "sub": "Man United",
+     "delay": -3,
+     "color": "#ff4d5e",
+     "rot": -0.1,
+     "size": 110,
+     "dx": -250,
+     "y": 1620
+    },
+    {
+     "type": "stamp",
+     "text": "0",
+     "sub": "trophies in England",
+     "color": "#e9b949",
+     "rot": 0.08,
+     "size": 130,
+     "dx": 260,
+     "y": 1620,
+     "delay": -3
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

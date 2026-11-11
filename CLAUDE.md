@@ -398,6 +398,9 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
   `flash: false` = saved or not a goal (the ball disappears at the end); `slowmo: false` gives constant speed. Chain several for save → rebound → goal.
 - `receipt`: a thermal receipt that prints line by line (money stories). `title`, `sub`, `lines: [[label, value, accent?]]`, `total: [label, value]`, `step`.
 - `stamp`: a rubber stamp that slams down with a shake ("GUILTY", "APPEALED"). `text`, `sub`, `rot`, `size`, `color`, `dx`.
+  Stamps are solid and clean on a dark backing plate (the sub line gets its own dark pill). **Never add grunge/ink-speckle textures to any graphic**
+  (user: the speckled stamps looked "mouldy", you couldn't read them). Never use `destination-out` on the main canvas either: it erases the frame
+  behind the card and shows up as black holes.
 - `vs` also takes `size` (number size) and `colW` (column width) so wide values like "80/80" don't collide.
 - `meter`: a vertical tube filling with balls. `value`, `max`, `markers: [{label, value}]`, `icon: {kind, label, dx}`
 

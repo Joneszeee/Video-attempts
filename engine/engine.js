@@ -1818,17 +1818,17 @@ CARDS.stamp = function (c, ct, cx, cy) {
   const col = c.color || '#d6283b', size = c.size || 120;
   ctx.save();
   ctx.translate(cx + (c.dx || 0) + shake, cy + shake * 0.5); ctx.rotate(c.rot != null ? c.rot : -0.16); ctx.scale(sc, sc);
-  ctx.globalAlpha *= Math.min(1, k * 1.6) * 0.92;
+  ctx.globalAlpha *= Math.min(1, k * 1.6);
   font(900, size, 'Inter', '6px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   const tw = ctx.measureText(c.text).width + 70, th = size * 1.25;
+  ctx.fillStyle = 'rgba(8,10,15,0.55)'; rrect(-tw / 2, -th / 2, tw, th, 18); ctx.fill();   // dark backing so the stamp reads on any background
   ctx.strokeStyle = col; ctx.lineWidth = 10; rrect(-tw / 2, -th / 2, tw, th, 18); ctx.stroke();
   ctx.lineWidth = 3; rrect(-tw / 2 + 14, -th / 2 + 14, tw - 28, th - 28, 10); ctx.stroke();
   ctx.fillStyle = col; ctx.fillText(c.text, 0, 6);
-  if (c.sub) { font(800, size * 0.22, 'Mono', '4px'); ctx.fillText(c.sub.toUpperCase(), 0, th / 2 + size * 0.28); }
-  ctx.globalCompositeOperation = 'destination-out';
-  const R = rng(13);
-  for (let i = 0; i < 260; i++) { ctx.fillStyle = `rgba(0,0,0,${0.3 + R() * 0.5})`; ctx.beginPath(); ctx.arc((R() - 0.5) * tw, (R() - 0.5) * th, 1 + R() * 3, 0, 7); ctx.fill(); }
-  ctx.restore();
+  if (c.sub) { font(800, size * 0.22, 'Mono', '4px'); const sw = ctx.measureText(c.sub.toUpperCase()).width + size * 0.3, sy = th / 2 + size * 0.28;
+    ctx.fillStyle = 'rgba(8,10,15,0.6)'; rrect(-sw / 2, sy - size * 0.18, sw, size * 0.36, size * 0.18); ctx.fill();
+    ctx.fillStyle = col; ctx.fillText(c.sub.toUpperCase(), 0, sy); }
+  ctx.restore();   // no ink-speckle texture (user: it punched black holes through the frame and looked mouldy)
 };
 CARDS.stamp.noSlide = true;
 
@@ -3109,7 +3109,7 @@ function chalkLine(x1, y1, x2, y2, k, seed, w, col) {
   ctx.beginPath(); ctx.moveTo(x1, y1); const steps = 10;
   for (let i = 1; i <= steps; i++) { const u = i / steps; ctx.lineTo(lerp(x1, xe, u) + (R() - 0.5) * 3, lerp(y1, ye, u) + (R() - 0.5) * 3); }
   ctx.stroke();
-  ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.lineWidth = 2;   // chalk grain
+  ctx.strokeStyle = 'rgba(20,32,26,0.45)'; ctx.lineWidth = 2;   // chalk grain, painted in board colour (erasing pixels punched holes through the frame)
   for (let i = 0; i < 6; i++) { const u = R(); ctx.beginPath(); ctx.moveTo(lerp(x1, xe, u) - 4, lerp(y1, ye, u) - 3); ctx.lineTo(lerp(x1, xe, u) + 3, lerp(y1, ye, u) + 2); ctx.stroke(); }
   ctx.restore();
 }

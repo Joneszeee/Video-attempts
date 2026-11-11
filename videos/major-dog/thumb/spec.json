@@ -1,0 +1,76 @@
+{
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Manchester United · 1901",
+   "headline": "United exist because a [dog got lost].",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#e9b949",
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0,
+     1.7,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.0,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.0,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "dog",
+     "y": 1330,
+     "delay": -3,
+     "scale": 1.9,
+     "box": true,
+     "label": "Major",
+     "clear": false,
+     "mode": "sit"
+    },
+    {
+     "type": "stamp",
+     "text": "LOST DOG",
+     "sub": "1901 · saved Man United",
+     "color": "#ff4d5e",
+     "rot": -0.1,
+     "size": 130,
+     "y": 1720,
+     "delay": -3
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

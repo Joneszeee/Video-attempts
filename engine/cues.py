@@ -164,6 +164,8 @@ def _resolve_beat(b, rel):
             c['crossT'] = round(max(0, rel(c.pop('crossAt')) + c.pop('crossLag', 0) - base), 3)
         if c.get('type') == 'gauge' and isinstance(c.get('settleAt'), str):
             c['settleT'] = round(max(0, rel(c.pop('settleAt')) + c.pop('settleLag', 0) - base), 3)
+        if c.get('type') == 'shirtflip' and isinstance(c.get('flipAt'), str):
+            c['flipT'] = round(max(0, rel(c.pop('flipAt')) + c.pop('flipLag', 0) - base), 3)
         if c.get('type') == 'table' and isinstance(c.get('moveAt'), str):
             c['moveT'] = round(max(0, rel(c.pop('moveAt')) + c.pop('moveLag', 0) - base), 3)
         if c.get('type') in ('xg', 'swing', 'tally'):

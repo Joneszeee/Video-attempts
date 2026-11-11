@@ -1832,6 +1832,94 @@ CARDS.stamp = function (c, ct, cx, cy) {
 };
 CARDS.stamp.noSlide = true;
 
+// Dog (built for the Major story): a big St Bernard, side on. mode "trot" runs from x `from` to `to` (px) over `dur` with legs going;
+// mode "sit" sits and wags. `box: true` hangs a collection box on his collar and `coins: true` drops coins into it. {scale, label, dir}
+function drawDog(x, y, s, t, o) {
+  const moving = o.moving, ph = t * 11, bob = moving ? Math.abs(Math.sin(ph)) * 8 : Math.sin(t * 2.2) * 2, d = o.dir || 1;
+  ctx.save(); ctx.translate(x, y - bob * s); ctx.scale(s * d, s);
+  ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.ellipse(10, 118 + bob, 170, 20, 0, 0, 7); ctx.fill();
+  if (o.sit) { ctx.translate(110, 118); ctx.rotate(-0.2); ctx.translate(-110, -118); }   // sitting: haunches down, chest up
+  const W = '#f4efe6', Br = '#8a4b22', Dk = '#3a2414';
+  const wag = Math.sin(t * (moving ? 14 : 9)) * 0.35;   // tail
+  ctx.save(); ctx.translate(-150, -30); ctx.rotate(-0.9 + wag); ctx.fillStyle = Br; rrect(-14, -90, 28, 100, 14); ctx.fill(); ctx.fillStyle = W; ctx.beginPath(); ctx.arc(0, -86, 15, 0, 7); ctx.fill(); ctx.restore();
+  const leg = (lx, off, back) => { const a = moving ? Math.sin(ph + off) * 0.55 : (o.sit && back ? 1.1 : 0); ctx.save(); ctx.translate(lx, 30); ctx.rotate(a);
+    ctx.fillStyle = back ? Br : W; rrect(-20, 0, 40, o.sit && back ? 60 : 90, 18); ctx.fill(); ctx.fillStyle = W; rrect(-24, (o.sit && back ? 60 : 90) - 16, 52, 22, 11); ctx.fill(); ctx.restore(); };
+  leg(-110, Math.PI, true); leg(80, 0, false);
+  ctx.save();
+  ctx.fillStyle = W; ctx.beginPath(); ctx.ellipse(-10, 0, 165, 78, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = Br; ctx.beginPath(); ctx.ellipse(-50, -22, 105, 58, 0, Math.PI, 2 * Math.PI); ctx.fill(); ctx.beginPath(); ctx.ellipse(-70, -10, 80, 50, 0.2, 0, 7); ctx.fill();
+  ctx.restore();
+  leg(-80, 0, true); leg(110, Math.PI, false);
+  const hy = o.sit ? -95 : -70, hx = 150;
+  ctx.fillStyle = W; ctx.beginPath(); ctx.ellipse(118, -20 + (o.sit ? -20 : 0), 62, 70, 0.5, 0, 7); ctx.fill();   // neck/chest
+  if (o.box) { ctx.fillStyle = '#c8102e'; rrect(96, hy + 62, 78, 16, 8); ctx.fill();   // collar
+    ctx.fillStyle = '#7a4a1e'; rrect(104, hy + 76, 62, 56, 8); ctx.fill(); ctx.fillStyle = '#f1c453'; rrect(118, hy + 84, 34, 7, 3); ctx.fill();
+    font(900, 26, 'Inter'); ctx.fillStyle = '#f1c453'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.save(); ctx.translate(135, hy + 112); ctx.scale(d, 1); ctx.fillText('£', 0, 0); ctx.restore(); }
+  ctx.fillStyle = W; ctx.beginPath(); ctx.arc(hx, hy, 62, 0, 7); ctx.fill();   // head
+  ctx.fillStyle = Br; ctx.beginPath(); ctx.ellipse(hx - 28, hy - 22, 40, 44, 0.3, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(hx + 34, hy - 30, 26, 30, -0.3, 0, 7); ctx.fill();
+  ctx.fillStyle = W; rrect(hx - 4, hy - 62, 16, 60, 8); ctx.fill();   // blaze
+  ctx.fillStyle = Dk; ctx.save(); ctx.translate(hx - 52, hy - 10); ctx.rotate(0.25 + (moving ? Math.sin(ph) * 0.2 : 0)); rrect(-22, 0, 40, 76, 20); ctx.fill(); ctx.restore();   // ear
+  ctx.fillStyle = W; ctx.beginPath(); ctx.ellipse(hx + 46, hy + 22, 44, 32, 0, 0, 7); ctx.fill();   // muzzle
+  ctx.fillStyle = '#16181d'; ctx.beginPath(); ctx.ellipse(hx + 84, hy + 8, 14, 11, 0, 0, 7); ctx.fill(); ctx.beginPath(); ctx.arc(hx + 14, hy - 14, 7, 0, 7); ctx.fill();
+  ctx.fillStyle = '#e86a7a'; rrect(hx + 44, hy + 40, 22, 26 + Math.sin(t * 12) * 5, 11); ctx.fill();   // tongue
+  ctx.restore();
+}
+CARDS.dog = function (c, ct, cx, cy) {
+  const s = c.scale || 1, dur = c.dur || 3, trot = c.mode !== 'sit', k = trot ? pr(ct, 0, dur) : 1;
+  const x = trot ? lerp(c.from != null ? c.from : -300, c.to != null ? c.to : W + 300, k) : cx, a = trot ? 1 : eBack(pr(ct, 0, 0.4));
+  if (a <= 0) return;
+  const moving = trot && k < 1, d = c.dir || (trot && (c.to != null ? c.to : W + 300) < (c.from != null ? c.from : -300) ? -1 : 1);
+  ctx.save(); ctx.globalAlpha *= Math.min(1, a);
+  drawDog(x, cy, s * (trot ? 1 : a), ct, { moving, sit: !trot || (c.sitAfter && !moving), box: c.box, dir: d });
+  if (c.coins) { const R = rng(4); for (let i = 0; i < (c.coinN || 8); i++) { const t0 = 0.4 + i * (c.coinStep || 0.45), u = (ct - t0) / 0.5; R(); if (u < 0 || u > 1) continue;
+    const bx = x + 135 * s * d, by = cy - 30 * s, sx = bx + (R() - 0.5) * 300, yy = lerp(by - 380 * s, by, u * u), xx = lerp(sx, bx, u);
+    ctx.fillStyle = '#f1c453'; ctx.strokeStyle = '#a8801f'; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(xx, yy, 20 * s, 20 * s * Math.abs(Math.cos(u * 9)) + 3, 0, 0, 7); ctx.fill(); ctx.stroke(); } }
+  if (c.label && (!trot || !moving)) { font(700, 34, 'Inter'); const tw = ctx.measureText(c.label).width + 40, ly = cy - 250 * s;
+    ctx.fillStyle = 'rgba(255,255,255,0.94)'; rrect(x - tw / 2, ly - 28, tw, 56, 28); ctx.fill(); ctx.fillStyle = '#16181d'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.label, x, ly + 2); }
+  ctx.restore();
+};
+CARDS.dog.noSlide = true;
+
+// Debt ledger: an old paper page; rows write themselves in ink and the total counts up in red and gets underlined.
+// {type: "ledger", title, rows: [[label, value]], total: {label, value, prefix}, step}
+CARDS.ledger = function (c, ct, cx, cy) {
+  const w = c.w || 820, rows = c.rows || [], rh = 84, h = 230 + rows.length * rh + 190, k = eBack(pr(ct, 0, 0.45)), step = c.step || 0.45;
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(k * (1 + 0.012 * ct), k * (1 + 0.012 * ct)); ctx.rotate(-0.02);
+  ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16; ctx.fillStyle = '#efe4c8'; rrect(-w / 2, -h / 2, w, h, 10); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = 'rgba(90,60,20,0.25)'; ctx.lineWidth = 2; for (let i = 0; i <= rows.length + 1; i++) { const y = -h / 2 + 210 + i * rh; ctx.beginPath(); ctx.moveTo(-w / 2 + 40, y); ctx.lineTo(w / 2 - 40, y); ctx.stroke(); }
+  ctx.strokeStyle = 'rgba(180,40,40,0.4)'; ctx.beginPath(); ctx.moveTo(w / 2 - 250, -h / 2 + 130); ctx.lineTo(w / 2 - 250, h / 2 - 40); ctx.stroke();
+  ctx.fillStyle = '#2a2116'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; font(700, 46, 'Georgia, serif'); ctx.fillText(c.title || 'ACCOUNTS', 0, -h / 2 + 76);
+  if (c.sub) { font(500, 24, 'Mono', '4px'); ctx.fillText(c.sub.toUpperCase(), 0, -h / 2 + 126); }
+  rows.forEach((r, i) => { const rk = pr(ct, 0.5 + i * step, 0.4); if (rk <= 0) return; const y = -h / 2 + 210 + i * rh + rh / 2;
+    ctx.save(); ctx.beginPath(); ctx.rect(-w / 2, y - rh / 2, w * rk, rh); ctx.clip(); font(400, 40, 'Marker'); ctx.fillStyle = '#23324f'; ctx.textAlign = 'left'; ctx.fillText(r[0], -w / 2 + 56, y);
+    ctx.textAlign = 'right'; ctx.fillText(r[1], w / 2 - 56, y); ctx.restore(); });
+  const tt = 0.5 + rows.length * step + 0.2, tk = pr(ct, tt, 0.9);
+  if (tk > 0 && c.total) { const y = h / 2 - 110, v = Math.round(c.total.value * ease(tk));
+    font(700, 40, 'Georgia, serif'); ctx.fillStyle = '#2a2116'; ctx.textAlign = 'left'; ctx.fillText(c.total.label || 'DEBT', -w / 2 + 56, y);
+    font(900, 92, 'Inter', '-2px'); ctx.fillStyle = '#c0202f'; ctx.textAlign = 'right'; ctx.fillText((c.total.prefix || '£') + v.toLocaleString('en-GB'), w / 2 - 56, y + 4);
+    if (tk >= 1) { const uk = pr(ct, tt + 0.9, 0.3); ctx.strokeStyle = '#c0202f'; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(w / 2 - 430, y + 62); ctx.lineTo(w / 2 - 430 + 380 * uk, y + 62 + 6 * Math.sin(uk * 3)); ctx.stroke(); } }
+  ctx.restore();
+};
+CARDS.ledger.noSlide = true;
+
+// Shirt flip (backlog "shirt morph", built): a big shirt spins round and comes back as another kit, with the club name changing underneath.
+// {type: "shirtflip", from: {color, color2, name}, to: {color, color2, name}, flipT|flipAt, size}
+CARDS.shirtflip = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.45)), ft = c.flipT != null ? c.flipT : 1.2, fk = ease(pr(ct, ft, 0.7)), size = c.size || 520;
+  if (k <= 0) return;
+  const ang = fk * Math.PI * 3, sx = Math.cos(ang), cur = fk < 0.5 ? c.from : c.to, glow = fk >= 1 ? Math.max(0, 1 - (ct - ft - 0.7) / 0.5) : 0;
+  ctx.save(); ctx.translate(cx, cy + Math.sin(ct * 2) * 6); ctx.scale(k, k);
+  if (glow > 0) { const g = ctx.createRadialGradient(0, 0, 0, 0, 0, size); g.addColorStop(0, `rgba(255,255,255,${0.7 * glow})`); g.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = g; ctx.fillRect(-size, -size, 2 * size, 2 * size); }
+  ctx.save(); ctx.scale(Math.abs(sx) < 0.06 ? 0.06 : sx, 1); ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16;
+  drawShirtIcon(0, 0, size, cur.color, cur.color2); ctx.restore();
+  font(900, 66, 'Inter', '-1px'); const tw = ctx.measureText(cur.name).width + 70, pk = fk >= 1 ? 1 + 0.08 * Math.sin(Math.min(1, (ct - ft - 0.7) / 0.3) * Math.PI) : 1;
+  ctx.save(); ctx.translate(0, size * 0.62); ctx.scale(pk, pk); ctx.fillStyle = 'rgba(8,10,15,0.85)'; rrect(-tw / 2, -52, tw, 104, 22); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(cur.name, 0, 4); ctx.restore();
+  ctx.restore();
+};
+CARDS.shirtflip.noSlide = true;
+
 // Career path: a winding road of club stops; a marker travels to each stop as it's named and a result chip pops beside it.
 // {type: "career", title, items: [{name, color, result, good, t|at}]} (an item without t is already reached)
 CARDS.career = function (c, ct, cx, cy) {
@@ -3560,6 +3648,9 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'dog': if (c.coins) for (let i = 0; i < (c.coinN || 8); i++) ev.push({ t: 0.9 + i * (c.coinStep || 0.45), type: 'tick' }); else ev.push({ t: 0, type: 'pop' }); break;
+    case 'ledger': { ev.push({ t: 0, type: 'whoosh' }); const tt = 0.5 + (c.rows || []).length * (c.step || 0.45) + 0.2; for (let t = tt; t < tt + 0.9; t += 0.07) ev.push({ t, type: 'tick' }); ev.push({ t: tt + 0.9, type: 'impact' }); break; }
+    case 'shirtflip': { const ft = c.flipT != null ? c.flipT : 1.2; ev.push({ t: 0, type: 'pop' }, { t: ft, type: 'whoosh' }, { t: ft + 0.7, type: 'impact' }); break; }
     case 'career': ev.push({ t: 0, type: 'whoosh' }); (c.items || []).forEach(it => { if (it.t != null) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: 'pop' }); }); break;
     case 'leak': { ev.push({ t: 0, type: 'pop' }); const n = c.value || 10, d = c.dur || 2.4; for (let i = 0; i < n; i++) ev.push({ t: 0.4 + i / n * d, type: 'tick' }); ev.push({ t: 0.4 + d, type: 'impact' }); break; }
     case 'gauge': { const st = c.settleT != null ? c.settleT : 1.6; ev.push({ t: 0, type: 'whoosh' }); for (let t = 0.3; t < st; t += 0.16) ev.push({ t, type: 'tick' }); ev.push({ t: st + 0.6, type: 'impact' }); break; }

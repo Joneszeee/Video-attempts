@@ -295,6 +295,14 @@ Built so far from the idea list (reuse them):
   (name on the bucket), `label`, `color`. For goals conceded.
 - **Verdict gauge** (built): the `gauge` card. A half-dial with labelled `zones: [{label, color}]`; the needle swings wildly then settles at `value` (0–1)
   on `settleAt`, and a `verdict` plate pops. For "the verdict" beats in opinion videos; back the verdict with facts shown earlier.
+- **Dog** (built for `videos/major-dog`): the `dog` card, a big St Bernard side on. `mode: "trot"` runs `from` → `to` (px) over `dur` (add `sitAfter`),
+  `mode: "sit"` sits and wags; `box: true` = collection box on his collar, `coins: true` (+ `coinN`, `coinStep`) drops coins into it; `scale`, `label`, `dir`.
+- **Debt ledger** (built): the `ledger` card. An old paper page: `rows: [[label, value]]` write themselves in ink, then `total: {label, value}` counts up in
+  red and gets underlined. For debts, fines and old money stories.
+- **Shirt flip** (backlog shirt morph, built): the `shirtflip` card. A big shirt spins and comes back as another kit with the name changing underneath:
+  `from`/`to: {color, color2, name}`, `flipAt`. For renamed clubs, transfers and rebrands.
+- **History stories:** check the club's own site and at least one other source; drop quotes and details only one retelling has; say "the story goes"
+  for parts that are legend.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.
 - **Half-time swing:** the `swing` card. Rows `[{label, from, to, at, decimals, good}]`: 1st-half number on the left, an arrow draws, the 2nd-half number counts and glows
   green (`good`) or red. Great for "what changed" tactics stories.

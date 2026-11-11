@@ -1832,6 +1832,86 @@ CARDS.stamp = function (c, ct, cx, cy) {
 };
 CARDS.stamp.noSlide = true;
 
+// Career path: a winding road of club stops; a marker travels to each stop as it's named and a result chip pops beside it.
+// {type: "career", title, items: [{name, color, result, good, t|at}]} (an item without t is already reached)
+CARDS.career = function (c, ct, cx, cy) {
+  const I = c.items, n = I.length, w = c.w || 900, rh = c.rowH || 200, h = n * rh + 150, k = eOut(pr(ct, 0, 0.4));
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy + (1 - k) * 40); ctx.scale(1 + 0.022 * ct, 1 + 0.022 * ct);
+  ctx.fillStyle = 'rgba(8,10,15,0.84)'; rrect(-w / 2, -h / 2, w, h, 28); ctx.fill();
+  if (c.title) { font(600, 24, 'Mono', '5px'); ctx.fillStyle = '#c9ced6'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.title.toUpperCase(), 0, -h / 2 + 48); }
+  const P = i => [(i % 2 ? 1 : -1) * w * 0.3 * 0 - w / 2 + 110, -h / 2 + 130 + i * rh + rh * 0.3];
+  const arr = i => I[i].t == null ? -1 : I[i].t;   // -1 = already there
+  let prog = 0; for (let i = 0; i < n; i++) { const t = arr(i); prog = Math.max(prog, t < 0 ? i : (ct >= t ? i - 1 + ease(pr(ct, t, 0.6)) : -1)); }
+  ctx.strokeStyle = 'rgba(255,255,255,0.16)'; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.setLineDash([2, 22]);
+  ctx.beginPath(); ctx.moveTo(...P(0)); for (let i = 1; i < n; i++) ctx.lineTo(...P(i)); ctx.stroke(); ctx.setLineDash([]);
+  if (prog > 0) { ctx.strokeStyle = '#f1c453'; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(...P(0)); const f = Math.floor(prog);
+    for (let i = 1; i <= f; i++) ctx.lineTo(...P(i)); if (f < n - 1) { const a = P(f), b2 = P(f + 1); ctx.lineTo(lerp(a[0], b2[0], prog - f), lerp(a[1], b2[1], prog - f)); } ctx.stroke(); }
+  I.forEach((it, i) => {
+    const [x, y] = P(i), t = arr(i), on = t < 0 || ct >= t + 0.5, pk = t < 0 ? 1 : eBack(pr(ct, t + 0.5, 0.3));
+    ctx.fillStyle = on ? (it.color || '#888') : 'rgba(255,255,255,0.12)'; ctx.beginPath(); ctx.arc(x, y, 44, 0, 7); ctx.fill();
+    ctx.strokeStyle = on ? '#fff' : 'rgba(255,255,255,0.25)'; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(x, y, 44, 0, 7); ctx.stroke();
+    font(800, 44, 'Inter', '-1px'); ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillStyle = on ? '#f4f2ec' : '#6f7684'; ctx.fillText(it.name, x + 76, y - 22);
+    if (it.sub) { font(500, 23, 'Mono', '2px'); ctx.fillStyle = '#8d94a1'; ctx.fillText(it.sub.toUpperCase(), x + 78, y - 64); }
+    if (on && it.result && pk > 0) { font(800, 28, 'Inter', '1px'); const tw = ctx.measureText(it.result).width + 36;
+      ctx.save(); ctx.translate(x + 76, y + 34); ctx.scale(pk, pk); ctx.fillStyle = it.good ? '#1f8a4c' : '#d6283b'; rrect(0, -24, tw, 48, 24); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.fillText(it.result, 18, 2); ctx.restore(); }
+  });
+  if (prog >= 0) { const f = Math.min(n - 1, Math.floor(prog)), a = P(f), b2 = P(Math.min(n - 1, f + 1)), x = lerp(a[0], b2[0], prog - f), y = lerp(a[1], b2[1], prog - f);
+    ctx.fillStyle = '#f1c453'; ctx.shadowColor = '#f1c453'; ctx.shadowBlur = 24; ctx.beginPath(); ctx.arc(x, y, 18 + 3 * Math.sin(ct * 8), 0, 7); ctx.fill(); ctx.shadowBlur = 0; }
+  ctx.restore();
+};
+CARDS.career.noSlide = true;
+
+// Leaky bucket: footballs pour out of holes in a bucket while a counter races, for goals conceded.
+// {type: "leak", value: 19, label, sub, dur, color}
+CARDS.leak = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.45)), n = c.value || 10, dur = c.dur || 2.4, col = c.color || '#da291c', t0 = 0.4;
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k);
+  const R = rng(c.seed || 6); let out = 0;
+  const holes = [[-120, 40], [110, 10], [-40, 120], [70, 130], [0, 30]];
+  for (let i = 0; i < n; i++) { const t = t0 + i / n * dur, a = ct - t, hl = holes[i % holes.length], vx = (hl[0] < 0 ? -1 : 1) * (120 + R() * 160), wob = R();
+    if (a < 0) continue; out++;
+    const x = hl[0] + vx * a, y = hl[1] + 620 * a * a - 60 * a; if (y > 620) continue;
+    ctx.save(); ctx.globalAlpha *= Math.max(0, 1 - a / 1.3); drawBall(x, y, 30 + wob * 6); ctx.restore(); }
+  const sway = Math.sin(ct * 3) * 0.03; ctx.save(); ctx.rotate(sway);
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 36; ctx.shadowOffsetY = 14;
+  ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(-230, -150); ctx.lineTo(230, -150); ctx.lineTo(170, 190); ctx.lineTo(-170, 190); ctx.closePath(); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.fillStyle = 'rgba(255,255,255,0.14)'; ctx.beginPath(); ctx.moveTo(-230, -150); ctx.lineTo(-150, -150); ctx.lineTo(-115, 190); ctx.lineTo(-170, 190); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = '#f4f2ec'; rrect(-250, -180, 500, 44, 22); ctx.fill();
+  ctx.strokeStyle = '#c9ced6'; ctx.lineWidth = 10; ctx.beginPath(); ctx.arc(0, -170, 230, Math.PI * 1.08, Math.PI * 1.92); ctx.stroke();
+  for (const hl of holes) { ctx.fillStyle = '#0b0d12'; ctx.beginPath(); ctx.ellipse(hl[0] * 0.9, hl[1] * 0.75 + 10, 26, 22, 0, 0, 7); ctx.fill(); }
+  if (c.sub) { font(800, 34, 'Inter', '3px'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.sub.toUpperCase(), 0, -90); }
+  ctx.restore();
+  font(900, 210, 'Inter', '-6px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; const g = ctx.createLinearGradient(0, 260, 0, 440); g.addColorStop(0, '#ff8a94'); g.addColorStop(1, '#d6283b');
+  ctx.fillStyle = g; ctx.shadowColor = 'rgba(214,40,59,0.5)'; ctx.shadowBlur = 30; ctx.fillText(String(Math.min(n, out)), 0, 440); ctx.shadowBlur = 0;
+  if (c.label) { font(600, 26, 'Mono', '5px'); ctx.fillStyle = '#e6e8ec'; ctx.fillText(c.label.toUpperCase(), 0, 496); }
+  ctx.restore();
+};
+CARDS.leak.noSlide = true;
+
+// Verdict gauge: a half-dial with labelled zones; the needle swings wildly, then settles on the verdict.
+// {type: "gauge", title, zones: [{label, color}], value: 0–1 (where the needle lands), settleT|settleAt, verdict}
+CARDS.gauge = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.45)), R0 = c.r || 360, Z = c.zones, st = c.settleT != null ? c.settleT : 1.6;
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k);
+  ctx.fillStyle = 'rgba(8,10,15,0.84)'; rrect(-R0 - 70, -R0 - 120, 2 * R0 + 140, R0 + 300, 30); ctx.fill();
+  if (c.title) { font(600, 24, 'Mono', '5px'); ctx.fillStyle = '#c9ced6'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.title.toUpperCase(), 0, -R0 - 74); }
+  Z.forEach((z, i) => { const a0 = Math.PI + i / Z.length * Math.PI, a1 = Math.PI + (i + 1) / Z.length * Math.PI;
+    ctx.strokeStyle = z.color; ctx.lineWidth = 70; ctx.beginPath(); ctx.arc(0, 0, R0 - 35, a0 + 0.012, a1 - 0.012); ctx.stroke();
+    const am = (a0 + a1) / 2; ctx.save(); ctx.translate(Math.cos(am) * (R0 - 35), Math.sin(am) * (R0 - 35)); ctx.rotate(am + Math.PI / 2);
+    font(800, 25, 'Inter', '1px'); ctx.fillStyle = '#0d1016'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(z.label.toUpperCase(), 0, 2); ctx.restore(); });
+  const sk = pr(ct, st, 0.9), wild = 0.5 + 0.42 * Math.sin(ct * 5.2) * Math.cos(ct * 1.7), v = lerp(wild, c.value, sk >= 1 ? 1 : eOut(sk)) + (sk >= 1 ? 0.006 * Math.sin(ct * 9) : 0), an = Math.PI + v * Math.PI;
+  ctx.strokeStyle = '#f4f2ec'; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(Math.cos(an) * (R0 - 90), Math.sin(an) * (R0 - 90)); ctx.stroke();
+  ctx.fillStyle = '#f4f2ec'; ctx.beginPath(); ctx.arc(0, 0, 26, 0, 7); ctx.fill();
+  if (c.verdict && sk > 0.6) { const vk = eBack(pr(ct, st + 0.55, 0.3)); font(900, 60, 'Inter', '-1px'); const tw = ctx.measureText(c.verdict).width + 60;
+    ctx.save(); ctx.translate(0, 100); ctx.scale(vk, vk); ctx.fillStyle = c.verdictColor || '#f1c453'; rrect(-tw / 2, -46, tw, 92, 20); ctx.fill();
+    ctx.fillStyle = '#0d1016'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.verdict, 0, 4); ctx.restore(); }
+  ctx.restore();
+};
+CARDS.gauge.noSlide = true;
+
 // Team sheet (backlog "formation" item, built): a pitch card where the players pop into formation one by one, with an optional empty,
 // pulsing slot for the man left out. {type: "lineup", title, items: [{name, x, y, color, text, t|at}], empty: {x, y, label, t|at}, w, instant}
 // x, y are 0–1 on the pitch (y 0 = attacking end at the top).
@@ -3480,6 +3560,9 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'career': ev.push({ t: 0, type: 'whoosh' }); (c.items || []).forEach(it => { if (it.t != null) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: 'pop' }); }); break;
+    case 'leak': { ev.push({ t: 0, type: 'pop' }); const n = c.value || 10, d = c.dur || 2.4; for (let i = 0; i < n; i++) ev.push({ t: 0.4 + i / n * d, type: 'tick' }); ev.push({ t: 0.4 + d, type: 'impact' }); break; }
+    case 'gauge': { const st = c.settleT != null ? c.settleT : 1.6; ev.push({ t: 0, type: 'whoosh' }); for (let t = 0.3; t < st; t += 0.16) ev.push({ t, type: 'tick' }); ev.push({ t: st + 0.6, type: 'impact' }); break; }
     case 'lineup': ev.push({ t: 0, type: 'whoosh' }); if (!c.instant) (c.items || []).forEach((it, i) => ev.push({ t: it.t != null ? it.t : 0.25 + i * 0.07, type: it.t != null ? 'pop' : 'tick' })); if (c.empty) ev.push({ t: c.empty.t != null ? c.empty.t : 1.2, type: 'impact' }); break;
     case 'ballot': { ev.push({ t: 0, type: 'pop' }); const n = c.n || 16, d = c.dur || 2.2; for (let i = 0; i < n; i += 2) ev.push({ t: 0.9 + i / n * d, type: 'tick' }); break; }
     case 'photofinish': { const d = c.dur || 1.8; ev.push({ t: 0.3, type: 'whoosh' }); for (let t = 0.4; t < 0.35 + d; t += 0.08) ev.push({ t, type: 'tick' }); ev.push({ t: 0.35 + d, type: 'impact' }); if (c.gap) ev.push({ t: c.gapT != null ? c.gapT : 0.6 + d, type: 'pop' }); break; }

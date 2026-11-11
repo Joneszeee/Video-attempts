@@ -288,6 +288,13 @@ Built so far from the idea list (reuse them):
 - **Photo finish** (built): the `photofinish` card. Two bars race to a chequered line while the numbers count; the loser stops short and a red badge
   calls out the gap: `rows: [{name, value, color}]`, `floor` (exaggerates a small gap), `dur`, `gap: "0.8%"`, `gapAt`, `suffix`, `decimals`.
 - **Faster switches (user):** cut or whip-pan about every 2–3s (never under 2s), and give long lines a second shot. Alternate transition types.
+- **Career path** (built for `videos/poch-united`): the `career` card. A road of club stops; a gold marker travels to each stop on its word and a
+  result chip pops beside it (red, or green with `good: true`): `title`, `items: [{name, sub, color, result, good, at}]` (no `at` = already reached,
+  `t: 99` = not yet). Repeat it across beats with more stops reached for a manager's or player's CV.
+- **Leaky bucket** (built): the `leak` card. Footballs pour out of holes in a club-coloured bucket while a red counter races: `value`, `dur`, `sub`
+  (name on the bucket), `label`, `color`. For goals conceded.
+- **Verdict gauge** (built): the `gauge` card. A half-dial with labelled `zones: [{label, color}]`; the needle swings wildly then settles at `value` (0–1)
+  on `settleAt`, and a `verdict` plate pops. For "the verdict" beats in opinion videos; back the verdict with facts shown earlier.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.
 - **Half-time swing:** the `swing` card. Rows `[{label, from, to, at, decimals, good}]`: 1st-half number on the left, an arrow draws, the 2nd-half number counts and glows
   green (`good`) or red. Great for "what changed" tactics stories.

@@ -149,7 +149,7 @@ def _resolve_beat(b, rel):
             c['empty']['t'] = round(max(0, rel(c['empty'].pop('at')) + c['empty'].pop('lag', 0) - base), 3)
         if c.get('type') == 'photofinish' and isinstance(c.get('gapAt'), str):
             c['gapT'] = round(max(0, rel(c.pop('gapAt')) + c.pop('gapLag', 0) - base), 3)
-        if c.get('type') in ('whiteboard', 'toytable', 'toyresults', 'toydoors', 'ruler', 'lineup'):
+        if c.get('type') in ('whiteboard', 'toytable', 'toyresults', 'toydoors', 'ruler', 'lineup', 'career'):
             for lst in (c.get('lines') or [], c.get('zones') or [], c.get('moves') or [], c.get('items') or [], c.get('doors') or [], c.get('markers') or []):
                 for it in lst:
                     if 'at' in it:
@@ -162,6 +162,8 @@ def _resolve_beat(b, rel):
                 c['teamAt'] = round(max(0, rel(c['teamAt']) - base), 3)
         if c.get('type') == 'crossoff' and isinstance(c.get('crossAt'), str):
             c['crossT'] = round(max(0, rel(c.pop('crossAt')) + c.pop('crossLag', 0) - base), 3)
+        if c.get('type') == 'gauge' and isinstance(c.get('settleAt'), str):
+            c['settleT'] = round(max(0, rel(c.pop('settleAt')) + c.pop('settleLag', 0) - base), 3)
         if c.get('type') == 'table' and isinstance(c.get('moveAt'), str):
             c['moveT'] = round(max(0, rel(c.pop('moveAt')) + c.pop('moveLag', 0) - base), 3)
         if c.get('type') in ('xg', 'swing', 'tally'):

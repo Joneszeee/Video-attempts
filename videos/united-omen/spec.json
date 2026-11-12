@@ -366,13 +366,14 @@
     "seed": 21
    },
    "accent": "#ff4d5e",
-   "lights": 0.4,
-   "focus": 0.5,
+   "lights": 0.55,
+   "focus": 0.2,
+   "fans": true,
    "camFrom": {
     "pos": [
-     6,
-     14,
-     -30
+     16,
+     16,
+     -34
     ],
     "tgt": [
      0,
@@ -382,9 +383,9 @@
    },
    "camera": {
     "pos": [
-     -6,
-     10,
-     -22
+     -16,
+     8,
+     -18
     ],
     "tgt": [
      0,
@@ -444,6 +445,22 @@
      "amount": 14
     }
    ],
+   "punch": [
+    {
+     "t": 0.2,
+     "amount": 0.14,
+     "dur": 2.6,
+     "x": 380,
+     "y": 1200
+    },
+    {
+     "at": "Fulham",
+     "amount": 0.14,
+     "dur": 2.6,
+     "x": 700,
+     "y": 1200
+    }
+   ],
    "vo": "Norwich, 2019. Relegated. Fulham, 2020. Relegated."
   },
   {
@@ -461,13 +478,14 @@
     "seed": 21
    },
    "accent": "#ff4d5e",
-   "lights": 0.5,
-   "focus": 0.45,
+   "lights": 0.6,
+   "focus": 0.2,
+   "flashes": 10,
    "camFrom": {
     "pos": [
-     0,
-     30,
-     -50
+     -14,
+     26,
+     -44
     ],
     "tgt": [
      0,
@@ -477,9 +495,9 @@
    },
    "camera": {
     "pos": [
-     0,
-     18,
-     -32
+     12,
+     12,
+     -24
     ],
     "tgt": [
      0,
@@ -574,10 +592,17 @@
    ],
    "punch": [
     {
+     "t": 0,
+     "amount": 0.1,
+     "dur": 1.6,
+     "x": 540,
+     "y": 950
+    },
+    {
      "at": "Burnley",
      "lag": 1.2,
-     "amount": 0.1,
-     "dur": 1.0,
+     "amount": 0.14,
+     "dur": 1.4,
      "x": 540,
      "y": 950
     },
@@ -830,13 +855,13 @@
     "seed": 21
    },
    "accent": "#2ecc71",
-   "lights": 0.6,
-   "focus": 0.45,
+   "lights": 0.65,
+   "focus": 0.2,
    "camFrom": {
     "pos": [
-     0,
-     18,
-     -32
+     -14,
+     10,
+     -22
     ],
     "tgt": [
      0,
@@ -846,9 +871,9 @@
    },
    "camera": {
     "pos": [
-     0,
+     14,
      30,
-     -50
+     -48
     ],
     "tgt": [
      0,
@@ -899,8 +924,15 @@
    ],
    "punch": [
     {
-     "at": "Thirty-seven",
+     "at": "after ten",
      "amount": 0.1,
+     "dur": 2.2,
+     "x": 540,
+     "y": 1200
+    },
+    {
+     "at": "Thirty-seven",
+     "amount": 0.12,
      "dur": 1.4,
      "x": 540,
      "y": 1300

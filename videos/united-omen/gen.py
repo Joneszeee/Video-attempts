@@ -35,15 +35,15 @@ B.append({"kicker": "The stat", "headline": "[7 points] from 10 games.", "cut": 
            fates({i: {"t": 99} for i in range(5)}, y=1250, at="Here are", lag=0.1, title="The last five teams")],
   "punch": [{"at": "Here are", "lag": 0.2, "amount": 0.08, "dur": 1.6, "x": 540, "y": 1150}]})
 # 3 trapdoor: Norwich, Fulham
-B.append({"kicker": "2019 · 2020", "headline": "Norwich. Fulham. [Gone].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_DARK, "accent": RED, "lights": 0.4, "focus": 0.5,
-  "camFrom": {"pos": [6, 14, -30], "tgt": [0, 0, 8]}, "camera": {"pos": [-6, 10, -22], "tgt": [0, 0, 8]}, "move": 6, "moveEase": "linear", "players": [],
+B.append({"kicker": "2019 · 2020", "headline": "Norwich. Fulham. [Gone].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_DARK, "accent": RED, "lights": 0.55, "focus": 0.2, "fans": True,
+  "camFrom": {"pos": [16, 16, -34], "tgt": [0, 0, 8]}, "camera": {"pos": [-16, 8, -18], "tgt": [0, 0, 8]}, "move": 6, "moveEase": "linear", "players": [],
   "card": [{"type": "trapdoor", "y": 1300, "scale": 1.35, "delay": 0, "clear": False, "items": [{"name": "Norwich · 2019/20", "badge": BG["NOR"], "at": "Norwich", "lag": 1.25}, {"name": "Fulham · 2020/21", "badge": BG["FUL"], "at": "Fulham", "lag": 1.25}]}],
-  "shake": [{"at": "Norwich", "lag": 1.3, "amount": 14}, {"at": "Fulham", "lag": 1.3, "amount": 14}]})
+  "shake": [{"at": "Norwich", "lag": 1.3, "amount": 14}, {"at": "Fulham", "lag": 1.3, "amount": 14}], "punch": [{"t": 0.2, "amount": 0.14, "dur": 2.6, "x": 380, "y": 1200}, {"at": "Fulham", "amount": 0.14, "dur": 2.6, "x": 700, "y": 1200}]})
 # 4 fates board: Burnley, West Ham
-B.append({"kicker": "2021 · 2025", "headline": "Burnley. West Ham. [Gone].", "cut": True, "scene": S_DARK, "accent": RED, "lights": 0.5, "focus": 0.45,
-  "camFrom": HI, "camera": MID, "move": 6, "moveEase": "linear", "players": [],
+B.append({"kicker": "2021 · 2025", "headline": "Burnley. West Ham. [Gone].", "cut": True, "scene": S_DARK, "accent": RED, "lights": 0.6, "focus": 0.2, "flashes": 10,
+  "camFrom": {"pos": [-14, 26, -44], "tgt": [0, 0, 5]}, "camera": {"pos": [12, 12, -24], "tgt": [0, 0, 8]}, "move": 6, "moveEase": "linear", "players": [],
   "card": [fates({2: {"at": "Burnley", "lag": 0.75}, 3: {"t": 99}, 4: {"at": "West Ham", "lag": 0.75}}, y=950, delay=0, count="relegated")],
-  "punch": [{"at": "Burnley", "lag": 1.2, "amount": 0.1, "dur": 1.0, "x": 540, "y": 950}, {"at": "West Ham", "lag": 1.2, "amount": 0.12, "dur": 1.0, "x": 900, "y": 950}]})
+  "punch": [{"t": 0, "amount": 0.1, "dur": 1.6, "x": 540, "y": 950}, {"at": "Burnley", "lag": 1.2, "amount": 0.14, "dur": 1.4, "x": 540, "y": 950}, {"at": "West Ham", "lag": 1.2, "amount": 0.12, "dur": 1.0, "x": 900, "y": 950}]})
 # 5 Palace survive
 B.append({"kicker": "2024/25 · the exception", "headline": "Only [Palace] stayed up.", "cut": True, "transition": "whip", "scene": S_CRY, "accent": GREEN, "confetti": True, "confettiAt": "stayed up", "flashes": 14,
   "orbit": {"center": [0, 1.2, 3], "r": 5.2, "from": -30, "to": 20, "h": 1.4, "h2": 1.9, "dur": 5}, "camera": {"pos": [0, 1.7, -2], "tgt": [0, 1.2, 3]},
@@ -58,12 +58,12 @@ B.append({"kicker": "Man United · 2026/27", "headline": "United: [18th].", "cut
             "rows": [{"pos": 18, "name": "Man United", "color": "#da291c", "pts": 8, "highlight": True}, {"pos": 19, "name": "Sunderland", "color": "#eb172b", "color2": "#ffffff", "pts": 8}, {"pos": 20, "name": "Crystal Palace", "color": "#1b458f", "color2": "#c4122e", "pts": 7}]}],
   "shake": [{"at": "Eighteenth", "amount": 12}]})
 # 7 re-hook: 88 teams
-B.append({"kicker": "But here's the hope", "headline": "88 teams. [37 stayed up].", "cut": True, "transition": "whip", "scene": S_DARK, "accent": GREEN, "lights": 0.6, "focus": 0.45,
-  "camFrom": MID, "camera": HI, "move": 8, "moveEase": "linear", "players": [],
+B.append({"kicker": "But here's the hope", "headline": "88 teams. [37 stayed up].", "cut": True, "transition": "whip", "scene": S_DARK, "accent": GREEN, "lights": 0.65, "focus": 0.2,
+  "camFrom": {"pos": [-14, 10, -22], "tgt": [0, 0, 8]}, "camera": {"pos": [14, 30, -48], "tgt": [0, 0, 5]}, "move": 8, "moveEase": "linear", "players": [],
   "card": [{"type": "flytext", "text": "BUT…", "size": 260, "settle": False, "y": 900, "delay": 0, "color": GREEN, "clear": False},
            {"type": "rain", "y": 1100, "at": "Eighty-eight", "lag": -0.3, "cols": 11, "cell": 78, "icon": "dot", "label": "Stayed up", "clear": False,
             "groups": [{"n": 51, "color": "#d6283b", "t": 0, "dur": 1.6}, {"n": 37, "color": GREEN, "at": "Thirty-seven", "lag": -0.4, "dur": 1.0}]}],
-  "punch": [{"at": "Thirty-seven", "amount": 0.1, "dur": 1.4, "x": 540, "y": 1300}]})
+  "punch": [{"at": "after ten", "amount": 0.1, "dur": 2.2, "x": 540, "y": 1200}, {"at": "Thirty-seven", "amount": 0.12, "dur": 1.4, "x": 540, "y": 1300}]})
 # 8 coin flip
 B.append({"kicker": "The odds", "headline": "[42%] survive.", "cut": True, "scene": S_OT, "accent": GOLD, "lights": 0.45, "focus": 0.5,
   "camFrom": {"pos": [-8, 12, -26], "tgt": [0, 0, 8]}, "camera": {"pos": [6, 16, -30], "tgt": [0, 0, 8]}, "move": 5, "moveEase": "linear", "players": [],

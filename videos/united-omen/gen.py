@@ -61,7 +61,7 @@ B.append({"kicker": "Man United · 2026/27", "headline": "United: [18th].", "cut
 B.append({"kicker": "But here's the hope", "headline": "88 teams. [37 stayed up].", "cut": True, "transition": "whip", "scene": S_DARK, "accent": GREEN, "lights": 0.65, "focus": 0.2,
   "camFrom": {"pos": [-14, 10, -22], "tgt": [0, 0, 8]}, "camera": {"pos": [14, 30, -48], "tgt": [0, 0, 5]}, "move": 8, "moveEase": "linear", "players": [],
   "card": [{"type": "flytext", "text": "BUT…", "size": 260, "settle": False, "y": 900, "delay": 0, "color": GREEN, "clear": False},
-           {"type": "rain", "y": 1100, "at": "Eighty-eight", "lag": -0.3, "cols": 11, "cell": 78, "icon": "dot", "label": "Stayed up", "clear": False,
+           {"type": "rain", "y": 1100, "at": "Eighty-eight", "lag": -0.3, "cols": 11, "cell": 78, "icon": "dot", "label": "Teams · green stayed up", "clear": False,
             "groups": [{"n": 51, "color": "#d6283b", "t": 0, "dur": 1.6}, {"n": 37, "color": GREEN, "at": "Thirty-seven", "lag": -0.4, "dur": 1.0}]}],
   "punch": [{"at": "after ten", "amount": 0.1, "dur": 2.2, "x": 540, "y": 1200}, {"at": "Thirty-seven", "amount": 0.12, "dur": 1.4, "x": 540, "y": 1300}]})
 # 8 coin flip

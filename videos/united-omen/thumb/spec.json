@@ -1,0 +1,159 @@
+{
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Premier League · the omen",
+   "headline": "United: [one point] from a relegation start.",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.6,
+   "flashes": 10,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -0.8
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -0.8
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 3.4,
+     "front": true,
+     "label": "Man United · 8 pts",
+     "labelDelay": 0,
+     "pose": "think"
+    }
+   ],
+   "card": [
+    {
+     "type": "fates",
+     "title": "7 points after 10 games",
+     "items": [
+      {
+       "name": "Norwich",
+       "sub": "2019/20",
+       "badge": {
+        "colors": [
+         "#fff200",
+         "#00a650",
+         "#00a650"
+        ],
+        "text": "NCFC"
+       },
+       "fate": "down"
+      },
+      {
+       "name": "Fulham",
+       "sub": "2020/21",
+       "badge": {
+        "colors": [
+         "#ffffff",
+         "#111111",
+         "#cc0000"
+        ],
+        "text": "FFC"
+       },
+       "fate": "down"
+      },
+      {
+       "name": "Burnley",
+       "sub": "2021/22",
+       "badge": {
+        "colors": [
+         "#6c1d45",
+         "#99d6ea",
+         "#99d6ea"
+        ],
+        "text": "BFC"
+       },
+       "fate": "down"
+      },
+      {
+       "name": "Palace",
+       "sub": "2024/25",
+       "badge": {
+        "colors": [
+         "#1b458f",
+         "#c4122e"
+        ],
+        "text": "CPFC",
+        "style": "stripes"
+       },
+       "fate": "up"
+      },
+      {
+       "name": "West Ham",
+       "sub": "2025/26",
+       "badge": {
+        "colors": [
+         "#7a263a",
+         "#1bb1e7",
+         "#1bb1e7"
+        ],
+        "text": "WHU"
+       },
+       "fate": "down"
+      }
+     ],
+     "clear": false,
+     "y": 1560,
+     "delay": -3
+    },
+    {
+     "type": "shout",
+     "text": "4 OF 5 WENT DOWN",
+     "y": 1810,
+     "size": 150,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

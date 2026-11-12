@@ -1832,6 +1832,77 @@ CARDS.stamp = function (c, ct, cx, cy) {
 };
 CARDS.stamp.noSlide = true;
 
+// Fate tiles: a row of club tiles (stylised shield + season) that flip to RELEGATED (red) or STAYED UP (green) on their word.
+// {type: "fates", title, items: [{name, sub, badge: {colors, text, style}, fate: "down"|"up", t|at}]} (no t = already revealed; t: 99 = still "?")
+CARDS.fates = function (c, ct, cx, cy) {
+  const I = c.items, n = I.length, gap = 14, tw = Math.min(200, (W - 60 - gap * (n - 1)) / n), th = tw * 1.5, tot = n * tw + (n - 1) * gap, k = eOut(pr(ct, 0, 0.4));
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy + (1 - k) * 40);
+  if (c.title) { font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.title.toUpperCase(), 0, -th / 2 - 40); }
+  I.forEach((it, i) => {
+    const x = -tot / 2 + tw / 2 + i * (tw + gap), t = it.t, fk = t == null ? 1 : ease(pr(ct, t, 0.5)), done = fk >= 0.5, sx = Math.abs(Math.cos(fk * Math.PI)) || 0.02;
+    const col = !done ? '#2a2f3a' : it.fate === 'up' ? '#1f8a4c' : '#b3202f', pop = t != null && fk >= 1 ? 1 + 0.08 * Math.sin(Math.min(1, (ct - t - 0.5) / 0.3) * Math.PI) : 1;
+    ctx.save(); ctx.translate(x, 0); ctx.scale(sx * pop, pop);
+    ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 10; ctx.fillStyle = col; rrect(-tw / 2, -th / 2, tw, th, 18); ctx.fill(); ctx.shadowColor = 'transparent';
+    font(700, tw * 0.12, 'Inter'); ctx.fillStyle = 'rgba(255,255,255,0.85)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(it.sub || '', 0, -th / 2 + tw * 0.16);
+    if (it.badge) drawBadge(0, -th * 0.06, tw * 0.62, it.badge);
+    font(800, tw * 0.125, 'Inter'); ctx.fillStyle = '#fff'; ctx.fillText(done ? (it.fate === 'up' ? 'STAYED UP' : 'RELEGATED') : '?', 0, th / 2 - tw * 0.3);
+    font(700, tw * 0.13, 'Inter'); ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.fillText(it.name, 0, th / 2 - tw * 0.13);
+    ctx.restore();
+  });
+  if (c.count) {   // big running count of the relegated ones underneath
+    let nd = 0, last = -9; I.forEach(it => { const t = it.t == null ? -9 : it.t + 0.5; if (it.fate !== 'up' && ct >= t) { nd++; last = Math.max(last, t); } });
+    const pk = 1 + 0.25 * Math.max(0, 1 - (ct - last) / 0.3);
+    ctx.save(); ctx.translate(0, th / 2 + 190); ctx.scale(pk, pk); font(900, 230, 'Inter', '-4px'); ctx.fillStyle = '#ff4d5e'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(nd, 0, 0); ctx.restore();
+    font(600, 26, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.fillText(String(c.count === true ? 'relegated' : c.count).toUpperCase(), 0, th / 2 + 340);
+  }
+  ctx.restore();
+};
+CARDS.fates.noSlide = true;
+
+// Trapdoor: club shields stand on a stage floor; on its word the doors under one swing open and it drops out of sight.
+// {type: "trapdoor", items: [{name, badge, t|at, stay: true (the doors rattle but hold, a green glow)}]}
+CARDS.trapdoor = function (c, ct, cx, cy) {
+  const I = c.items, n = I.length, sp = Math.min(330, 900 / n), k = eOut(pr(ct, 0, 0.4)), fw = sp * n + 80;
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy); ctx.scale(c.scale || 1, c.scale || 1);
+  ctx.fillStyle = '#3b2a1c'; rrect(-fw / 2, 0, fw, 46, 10); ctx.fill(); ctx.fillStyle = '#5a4230'; rrect(-fw / 2, 0, fw, 14, 7); ctx.fill();
+  I.forEach((it, i) => {
+    const x = (i - (n - 1) / 2) * sp, t = it.t != null ? it.t : 0.8, a = ct - t, dw = 110, open = it.stay ? 0 : ease(pr(ct, t, 0.25));
+    ctx.fillStyle = '#05060a'; ctx.fillRect(x - dw, 0, 2 * dw, 46);
+    for (const sd of [-1, 1]) { ctx.save(); ctx.translate(x + sd * dw, 4); ctx.rotate(sd * (-open * 1.35 + (it.stay && a > 0 && a < 0.5 ? Math.sin(a * 40) * 0.05 : 0))); ctx.fillStyle = '#6b4f38'; ctx.fillRect(sd > 0 ? -dw + 2 : 0, -4, dw - 2, 16); ctx.restore(); }
+    const fall = it.stay || a < 0.12 ? 0 : (a - 0.12) * (a - 0.12) * 2600, wob = a > -0.5 && a < 0 ? Math.sin(ct * 40) * 4 : 0, bob = Math.sin(ct * 2.4 + i) * 4;
+    if (fall < 900) { ctx.save(); ctx.beginPath(); ctx.rect(-600, -700, 1200, 700 + (fall > 0 ? 46 : 0)); if (fall > 0) ctx.clip();
+      if (it.stay && a > 0) { const g = ctx.createRadialGradient(x, -150, 0, x, -150, 220); g.addColorStop(0, 'rgba(46,204,113,0.5)'); g.addColorStop(1, 'rgba(46,204,113,0)'); ctx.fillStyle = g; ctx.fillRect(x - 220, -370, 440, 440); }
+      ctx.translate(x + wob, -150 + bob + fall); ctx.rotate(fall > 0 ? Math.min(0.5, fall / 900) * (i % 2 ? 1 : -1) : 0); drawBadge(0, 0, 230, it.badge);
+      ctx.restore(); }
+    font(800, 34, 'Inter'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; const tw = ctx.measureText(it.name).width + 40;
+    ctx.fillStyle = 'rgba(8,10,15,0.85)'; rrect(x - tw / 2, 70, tw, 56, 28); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(it.name, x, 99);
+    if (a > 0.35) { const rk = eBack(pr(ct, t + 0.35, 0.3)), lab = it.stay ? 'STAYED UP' : 'RELEGATED'; font(900, 36, 'Inter', '2px'); const lw = ctx.measureText(lab).width + 44;
+      ctx.save(); ctx.translate(x, 170); ctx.scale(rk, rk); ctx.fillStyle = it.stay ? '#1f8a4c' : '#d6283b'; rrect(-lw / 2, -30, lw, 60, 14); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(lab, 0, 3); ctx.restore(); }
+  });
+  ctx.restore();
+};
+CARDS.trapdoor.noSlide = true;
+
+// Coin flip: a gold coin spins in the air and lands showing a number, for "it's close to 50/50" odds.
+// {type: "coin", text: "42%", label, landT|landAt, sub}
+CARDS.coin = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.4)), lt = c.landT != null ? c.landT : 1.6, fk = pr(ct, 0.2, lt - 0.2), landed = ct >= lt, R0 = c.r || 210;
+  if (k <= 0) return;
+  const h = landed ? 0 : Math.sin(fk * Math.PI) * 420, spin = landed ? 0 : fk * Math.PI * 9, sy = landed ? 1 : Math.cos(spin), bounce = landed ? Math.max(0, 1 - (ct - lt) / 0.4) * Math.abs(Math.sin((ct - lt) * 22)) * 30 : 0;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k);
+  ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.beginPath(); ctx.ellipse(0, R0 + 40, R0 * (0.9 - h / 1200), 26, 0, 0, 7); ctx.fill();
+  ctx.save(); ctx.translate(0, -h - bounce); ctx.scale(1, Math.abs(sy) < 0.05 ? 0.05 : sy);
+  const g = ctx.createLinearGradient(-R0, -R0, R0, R0); g.addColorStop(0, '#ffe58a'); g.addColorStop(0.5, '#f1c453'); g.addColorStop(1, '#a8801f');
+  ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, R0, 0, 7); ctx.fill(); ctx.strokeStyle = '#8a6a1a'; ctx.lineWidth = 12; ctx.beginPath(); ctx.arc(0, 0, R0 - 18, 0, 7); ctx.stroke();
+  font(900, R0 * 0.62, 'Inter', '-3px'); ctx.fillStyle = '#5a4210'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(landed || sy > 0 ? (c.text || '?') : '?', 0, -6);
+  if (c.sub) { font(800, R0 * 0.13, 'Inter', '3px'); ctx.fillText(c.sub.toUpperCase(), 0, R0 * 0.48); }
+  ctx.restore();
+  if (c.label && landed) { const lk = eBack(pr(ct, lt + 0.15, 0.3)); font(800, 44, 'Inter'); const tw = ctx.measureText(c.label).width + 56;
+    ctx.save(); ctx.translate(0, R0 + 130); ctx.scale(lk, lk); ctx.fillStyle = 'rgba(8,10,15,0.85)'; rrect(-tw / 2, -40, tw, 80, 20); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.label, 0, 3); ctx.restore(); }
+  ctx.restore();
+};
+CARDS.coin.noSlide = true;
+
 // Dog (built for the Major story): a big St Bernard, side on. mode "trot" runs from x `from` to `to` (px) over `dur` with legs going;
 // mode "sit" sits and wags. `box: true` hangs a collection box on his collar and `coins: true` drops coins into it. {scale, label, dir}
 function drawDog(x, y, s, t, o) {
@@ -3648,6 +3719,9 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
+    case 'fates': (c.items || []).forEach(it => { if (it.t != null && it.t < 90) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: it.fate === 'up' ? 'pop' : 'impact' }); }); break;
+    case 'trapdoor': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.8; ev.push({ t, type: it.stay ? 'pop' : 'impact' }); if (!it.stay) ev.push({ t: t + 0.15, type: 'whoosh' }); }); break;
+    case 'coin': { const lt = c.landT != null ? c.landT : 1.6; ev.push({ t: 0.2, type: 'whoosh' }); for (let t = 0.3; t < lt; t += 0.12) ev.push({ t, type: 'tick' }); ev.push({ t: lt, type: 'impact' }); break; }
     case 'dog': if (c.coins) for (let i = 0; i < (c.coinN || 8); i++) ev.push({ t: 0.9 + i * (c.coinStep || 0.45), type: 'tick' }); else ev.push({ t: 0, type: 'pop' }); break;
     case 'ledger': { ev.push({ t: 0, type: 'whoosh' }); const tt = 0.5 + (c.rows || []).length * (c.step || 0.45) + 0.2; for (let t = tt; t < tt + 0.9; t += 0.07) ev.push({ t, type: 'tick' }); ev.push({ t: tt + 0.9, type: 'impact' }); break; }
     case 'shirtflip': { const ft = c.flipT != null ? c.flipT : 1.2; ev.push({ t: 0, type: 'pop' }, { t: ft, type: 'whoosh' }, { t: ft + 0.7, type: 'impact' }); break; }

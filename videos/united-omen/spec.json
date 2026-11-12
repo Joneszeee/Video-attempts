@@ -1,0 +1,1219 @@
+{
+ "title": "United and the seven-point omen",
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Premier League · the omen",
+   "headline": "United: [one point] from a relegation start.",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.6,
+   "flashes": 10,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     0.4
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -0.8
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 3.4,
+     "front": true,
+     "enter": "walk",
+     "fromZ": 4.6,
+     "walkDur": 2.4,
+     "label": "Man United · 8 pts",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "fates",
+     "title": "7 points after 10 games",
+     "items": [
+      {
+       "name": "Norwich",
+       "sub": "2019/20",
+       "badge": {
+        "colors": [
+         "#fff200",
+         "#00a650",
+         "#00a650"
+        ],
+        "text": "NCFC"
+       },
+       "fate": "down",
+       "t": 0.15
+      },
+      {
+       "name": "Fulham",
+       "sub": "2020/21",
+       "badge": {
+        "colors": [
+         "#ffffff",
+         "#111111",
+         "#cc0000"
+        ],
+        "text": "FFC"
+       },
+       "fate": "down",
+       "t": 0.4
+      },
+      {
+       "name": "Burnley",
+       "sub": "2021/22",
+       "badge": {
+        "colors": [
+         "#6c1d45",
+         "#99d6ea",
+         "#99d6ea"
+        ],
+        "text": "BFC"
+       },
+       "fate": "down",
+       "t": 0.65
+      },
+      {
+       "name": "Palace",
+       "sub": "2024/25",
+       "badge": {
+        "colors": [
+         "#1b458f",
+         "#c4122e"
+        ],
+        "text": "CPFC",
+        "style": "stripes"
+       },
+       "fate": "up",
+       "t": 1.15
+      },
+      {
+       "name": "West Ham",
+       "sub": "2025/26",
+       "badge": {
+        "colors": [
+         "#7a263a",
+         "#1bb1e7",
+         "#1bb1e7"
+        ],
+        "text": "WHU"
+       },
+       "fate": "down",
+       "t": 0.9
+      }
+     ],
+     "clear": false,
+     "y": 1560,
+     "delay": -0.05
+    },
+    {
+     "type": "stamp",
+     "text": "4 OF 5",
+     "sub": "relegated",
+     "at": "four of the last",
+     "color": "#ff4d5e",
+     "rot": -0.08,
+     "size": 100,
+     "y": 1800
+    }
+   ],
+   "shake": [
+    {
+     "at": "four of the last",
+     "lag": 0.16,
+     "amount": 16
+    }
+   ],
+   "punch": [
+    {
+     "at": "relegated",
+     "amount": 0.12,
+     "dur": 1.2,
+     "x": 540,
+     "y": 1560
+    }
+   ],
+   "vo": "Manchester United are one point better off than a start that got four of the last five teams relegated."
+  },
+  {
+   "kicker": "The stat",
+   "headline": "[7 points] from 10 games.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.4,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     18,
+     -32
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "rain",
+     "y": 640,
+     "at": "ten Premier",
+     "lag": -0.4,
+     "groups": [
+      {
+       "n": 10,
+       "color": "#ffffff",
+       "t": 0,
+       "dur": 0.9
+      }
+     ],
+     "cols": 10,
+     "cell": 90,
+     "icon": "ball",
+     "empty": 0,
+     "label": "Games",
+     "hideAt": "Here are",
+     "hideLag": -0.1
+    },
+    {
+     "type": "big",
+     "at": "seven points",
+     "lag": -0.3,
+     "value": 7,
+     "label": "Points",
+     "y": 1040,
+     "size": 260,
+     "hideAt": "Here are",
+     "hideLag": -0.1
+    },
+    {
+     "type": "fates",
+     "title": "The last five teams",
+     "items": [
+      {
+       "name": "Norwich",
+       "sub": "2019/20",
+       "badge": {
+        "colors": [
+         "#fff200",
+         "#00a650",
+         "#00a650"
+        ],
+        "text": "NCFC"
+       },
+       "fate": "down",
+       "t": 99
+      },
+      {
+       "name": "Fulham",
+       "sub": "2020/21",
+       "badge": {
+        "colors": [
+         "#ffffff",
+         "#111111",
+         "#cc0000"
+        ],
+        "text": "FFC"
+       },
+       "fate": "down",
+       "t": 99
+      },
+      {
+       "name": "Burnley",
+       "sub": "2021/22",
+       "badge": {
+        "colors": [
+         "#6c1d45",
+         "#99d6ea",
+         "#99d6ea"
+        ],
+        "text": "BFC"
+       },
+       "fate": "down",
+       "t": 99
+      },
+      {
+       "name": "Palace",
+       "sub": "2024/25",
+       "badge": {
+        "colors": [
+         "#1b458f",
+         "#c4122e"
+        ],
+        "text": "CPFC",
+        "style": "stripes"
+       },
+       "fate": "up",
+       "t": 99
+      },
+      {
+       "name": "West Ham",
+       "sub": "2025/26",
+       "badge": {
+        "colors": [
+         "#7a263a",
+         "#1bb1e7",
+         "#1bb1e7"
+        ],
+        "text": "WHU"
+       },
+       "fate": "down",
+       "t": 99
+      }
+     ],
+     "clear": false,
+     "y": 1250,
+     "at": "Here are",
+     "lag": 0.1
+    }
+   ],
+   "punch": [
+    {
+     "at": "Here are",
+     "lag": 0.2,
+     "amount": 0.08,
+     "dur": 1.6,
+     "x": 540,
+     "y": 1150
+    }
+   ],
+   "vo": "The start: seven points from the first ten Premier League games. Here are the last five teams to do it."
+  },
+  {
+   "kicker": "2019 · 2020",
+   "headline": "Norwich. Fulham. [Gone].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.4,
+   "focus": 0.5,
+   "camFrom": {
+    "pos": [
+     6,
+     14,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     -6,
+     10,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "trapdoor",
+     "y": 1300,
+     "scale": 1.35,
+     "delay": 0,
+     "clear": false,
+     "items": [
+      {
+       "name": "Norwich · 2019/20",
+       "badge": {
+        "colors": [
+         "#fff200",
+         "#00a650",
+         "#00a650"
+        ],
+        "text": "NCFC"
+       },
+       "at": "Norwich",
+       "lag": 1.25
+      },
+      {
+       "name": "Fulham · 2020/21",
+       "badge": {
+        "colors": [
+         "#ffffff",
+         "#111111",
+         "#cc0000"
+        ],
+        "text": "FFC"
+       },
+       "at": "Fulham",
+       "lag": 1.25
+      }
+     ]
+    }
+   ],
+   "shake": [
+    {
+     "at": "Norwich",
+     "lag": 1.3,
+     "amount": 14
+    },
+    {
+     "at": "Fulham",
+     "lag": 1.3,
+     "amount": 14
+    }
+   ],
+   "vo": "Norwich, 2019. Relegated. Fulham, 2020. Relegated."
+  },
+  {
+   "kicker": "2021 · 2025",
+   "headline": "Burnley. West Ham. [Gone].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.5,
+   "focus": 0.45,
+   "camFrom": {
+    "pos": [
+     0,
+     30,
+     -50
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     18,
+     -32
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "fates",
+     "title": "7 points after 10 games",
+     "items": [
+      {
+       "name": "Norwich",
+       "sub": "2019/20",
+       "badge": {
+        "colors": [
+         "#fff200",
+         "#00a650",
+         "#00a650"
+        ],
+        "text": "NCFC"
+       },
+       "fate": "down"
+      },
+      {
+       "name": "Fulham",
+       "sub": "2020/21",
+       "badge": {
+        "colors": [
+         "#ffffff",
+         "#111111",
+         "#cc0000"
+        ],
+        "text": "FFC"
+       },
+       "fate": "down"
+      },
+      {
+       "name": "Burnley",
+       "sub": "2021/22",
+       "badge": {
+        "colors": [
+         "#6c1d45",
+         "#99d6ea",
+         "#99d6ea"
+        ],
+        "text": "BFC"
+       },
+       "fate": "down",
+       "at": "Burnley",
+       "lag": 0.75
+      },
+      {
+       "name": "Palace",
+       "sub": "2024/25",
+       "badge": {
+        "colors": [
+         "#1b458f",
+         "#c4122e"
+        ],
+        "text": "CPFC",
+        "style": "stripes"
+       },
+       "fate": "up",
+       "t": 99
+      },
+      {
+       "name": "West Ham",
+       "sub": "2025/26",
+       "badge": {
+        "colors": [
+         "#7a263a",
+         "#1bb1e7",
+         "#1bb1e7"
+        ],
+        "text": "WHU"
+       },
+       "fate": "down",
+       "at": "West Ham",
+       "lag": 0.75
+      }
+     ],
+     "clear": false,
+     "y": 950,
+     "delay": 0,
+     "count": "relegated"
+    }
+   ],
+   "punch": [
+    {
+     "at": "Burnley",
+     "lag": 1.2,
+     "amount": 0.1,
+     "dur": 1.0,
+     "x": 540,
+     "y": 950
+    },
+    {
+     "at": "West Ham",
+     "lag": 1.2,
+     "amount": 0.12,
+     "dur": 1.0,
+     "x": 900,
+     "y": 950
+    }
+   ],
+   "vo": "Burnley, 2021. Relegated. West Ham, 2025. Relegated."
+  },
+  {
+   "kicker": "2024/25 · the exception",
+   "headline": "Only [Palace] stayed up.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#1b458f",
+     "#c4122e",
+     "#1b458f",
+     "#ffffff"
+    ],
+    "seed": 15
+   },
+   "accent": "#2ecc71",
+   "confetti": true,
+   "confettiAt": "stayed up",
+   "flashes": 14,
+   "orbit": {
+    "center": [
+     0,
+     1.2,
+     3
+    ],
+    "r": 5.2,
+    "from": -30,
+    "to": 20,
+    "h": 1.4,
+    "h2": 1.9,
+    "dur": 5
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.2,
+     3
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1b458f",
+      "shorts": "#1b458f",
+      "socks": "#1b458f",
+      "text": "#ffffff",
+      "stripes": [
+       "#c4122e",
+       "#1b458f"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 3,
+     "front": true,
+     "action": "celebrate",
+     "pose": "fists"
+    }
+   ],
+   "card": [
+    {
+     "type": "trapdoor",
+     "y": 1620,
+     "delay": 0,
+     "clear": false,
+     "items": [
+      {
+       "name": "Crystal Palace · 2024/25",
+       "badge": {
+        "colors": [
+         "#1b458f",
+         "#c4122e"
+        ],
+        "text": "CPFC",
+        "style": "stripes"
+       },
+       "stay": true,
+       "at": "stayed up",
+       "lag": -0.1
+      }
+     ]
+    }
+   ],
+   "vo": "Only Crystal Palace, in 2024, stayed up."
+  },
+  {
+   "kicker": "Man United · 2026/27",
+   "headline": "United: [18th].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "NOW",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.5,
+   "camFrom": {
+    "pos": [
+     1.4,
+     1.7,
+     -3.0
+    ],
+    "tgt": [
+     0.6,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.9,
+     1.5,
+     -0.6
+    ],
+    "tgt": [
+     0.6,
+     1.3,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 1.3,
+     "z": 2.8,
+     "front": true,
+     "pose": "think"
+    }
+   ],
+   "card": [
+    {
+     "type": "stack",
+     "y": 1150,
+     "shiftX": -230,
+     "delay": 0,
+     "size": 150,
+     "items": [
+      {
+       "value": 10,
+       "label": "Games",
+       "at": "Ten games"
+      },
+      {
+       "value": 1,
+       "label": "Win",
+       "at": "One win"
+      },
+      {
+       "value": 8,
+       "label": "Points",
+       "at": "Eight points",
+       "color": "#ff4d5e"
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "y": 1700,
+     "at": "Eighteenth",
+     "lag": -0.5,
+     "label": "Premier League · bottom three",
+     "clear": false,
+     "rows": [
+      {
+       "pos": 18,
+       "name": "Man United",
+       "color": "#da291c",
+       "pts": 8,
+       "highlight": true
+      },
+      {
+       "pos": 19,
+       "name": "Sunderland",
+       "color": "#eb172b",
+       "color2": "#ffffff",
+       "pts": 8
+      },
+      {
+       "pos": 20,
+       "name": "Crystal Palace",
+       "color": "#1b458f",
+       "color2": "#c4122e",
+       "pts": 7
+      }
+     ]
+    }
+   ],
+   "shake": [
+    {
+     "at": "Eighteenth",
+     "amount": 12
+    }
+   ],
+   "vo": "Now look at Manchester United. Ten games. One win. Eight points. Eighteenth."
+  },
+  {
+   "kicker": "But here's the hope",
+   "headline": "88 teams. [37 stayed up].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#2ecc71",
+   "lights": 0.6,
+   "focus": 0.45,
+   "camFrom": {
+    "pos": [
+     0,
+     18,
+     -32
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     30,
+     -50
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "flytext",
+     "text": "BUT…",
+     "size": 260,
+     "settle": false,
+     "y": 900,
+     "delay": 0,
+     "color": "#2ecc71",
+     "clear": false
+    },
+    {
+     "type": "rain",
+     "y": 1100,
+     "at": "Eighty-eight",
+     "lag": -0.3,
+     "cols": 11,
+     "cell": 78,
+     "icon": "dot",
+     "label": "Stayed up",
+     "clear": false,
+     "groups": [
+      {
+       "n": 51,
+       "color": "#d6283b",
+       "t": 0,
+       "dur": 1.6
+      },
+      {
+       "n": 37,
+       "color": "#2ecc71",
+       "at": "Thirty-seven",
+       "lag": -0.4,
+       "dur": 1.0
+      }
+     ]
+    }
+   ],
+   "punch": [
+    {
+     "at": "Thirty-seven",
+     "amount": 0.1,
+     "dur": 1.4,
+     "x": 540,
+     "y": 1300
+    }
+   ],
+   "vo": "But here's the hope. Eighty-eight teams have had seven points or fewer after ten games. Thirty-seven stayed up."
+  },
+  {
+   "kicker": "The odds",
+   "headline": "[42%] survive.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#e9b949",
+   "lights": 0.45,
+   "focus": 0.5,
+   "camFrom": {
+    "pos": [
+     -8,
+     12,
+     -26
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     6,
+     16,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "coin",
+     "y": 1200,
+     "delay": 0,
+     "text": "42%",
+     "sub": "stayed up",
+     "label": "Almost a coin flip",
+     "landAt": "forty-two",
+     "landLag": 0.25,
+     "clear": false
+    }
+   ],
+   "shake": [
+    {
+     "at": "forty-two",
+     "lag": 0.3,
+     "amount": 14
+    }
+   ],
+   "vo": "That's forty-two percent. Almost a coin flip."
+  },
+  {
+   "kicker": "Premier League · since 1992",
+   "headline": "United: [never] relegated.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#e9b949",
+   "flashes": 16,
+   "camFrom": {
+    "pos": [
+     0,
+     0.9,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     1.5,
+     4
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.2,
+     -0.4
+    ],
+    "tgt": [
+     0,
+     1.4,
+     4
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 4,
+     "front": true,
+     "enter": "walk",
+     "fromZ": 9,
+     "walkDur": 3,
+     "pose": "wings"
+    }
+   ],
+   "card": [
+    {
+     "type": "flytext",
+     "text": "NEVER",
+     "size": 300,
+     "endScale": 0.7,
+     "y": 1500,
+     "at": "never",
+     "lag": -0.2,
+     "color": "#e9b949",
+     "clear": false
+    },
+    {
+     "type": "vs",
+     "y": 1740,
+     "at": "never",
+     "lag": 0.3,
+     "items": [
+      {
+       "label": "PL seasons",
+       "value": 35
+      },
+      {
+       "label": "Relegations",
+       "value": 0,
+       "accent": true
+      }
+     ]
+    }
+   ],
+   "vo": "And United have never been relegated from the Premier League."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Are United in a [relegation fight]?",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.8,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 2.8,
+     "front": true,
+     "pose": "think"
+    }
+   ],
+   "split": {
+    "scene": {
+     "type": "stadium",
+     "crowd": [
+      "#2a2f3a",
+      "#444b5a",
+      "#1c2029",
+      "#3a4050"
+     ],
+     "seed": 21
+    },
+    "lights": 0.4,
+    "camFrom": {
+     "pos": [
+      0,
+      10,
+      -24
+     ],
+     "tgt": [
+      0,
+      2,
+      8
+     ]
+    },
+    "camera": {
+     "pos": [
+      0,
+      6,
+      -16
+     ],
+     "tgt": [
+      0,
+      2,
+      8
+     ]
+    },
+    "move": 6,
+    "players": []
+   },
+   "card": [
+    {
+     "type": "trapdoor",
+     "y": 1050,
+     "shiftX": 270,
+     "dx": 270,
+     "delay": 0.2,
+     "clear": false,
+     "items": [
+      {
+       "name": "United?",
+       "badge": {
+        "colors": [
+         "#da291c",
+         "#111111",
+         "#fbe122"
+        ],
+        "text": "MUFC"
+       },
+       "t": 99
+      }
+     ]
+    },
+    {
+     "type": "poll",
+     "y": 1600,
+     "at": "really",
+     "lag": -0.6,
+     "question": "United in a relegation fight?",
+     "options": [
+      {
+       "label": "Yes, real danger",
+       "color": "#da291c",
+       "fill": 0.5
+      },
+      {
+       "label": "No chance",
+       "color": "#9aa1ad",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So be honest: are United really in a relegation fight?"
+  }
+ ]
+}

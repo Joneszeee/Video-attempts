@@ -149,7 +149,7 @@ def _resolve_beat(b, rel):
             c['empty']['t'] = round(max(0, rel(c['empty'].pop('at')) + c['empty'].pop('lag', 0) - base), 3)
         if c.get('type') == 'photofinish' and isinstance(c.get('gapAt'), str):
             c['gapT'] = round(max(0, rel(c.pop('gapAt')) + c.pop('gapLag', 0) - base), 3)
-        if c.get('type') in ('whiteboard', 'toytable', 'toyresults', 'toydoors', 'ruler', 'lineup', 'career'):
+        if c.get('type') in ('whiteboard', 'toytable', 'toyresults', 'toydoors', 'ruler', 'lineup', 'career', 'fates', 'trapdoor'):
             for lst in (c.get('lines') or [], c.get('zones') or [], c.get('moves') or [], c.get('items') or [], c.get('doors') or [], c.get('markers') or []):
                 for it in lst:
                     if 'at' in it:
@@ -166,6 +166,8 @@ def _resolve_beat(b, rel):
             c['settleT'] = round(max(0, rel(c.pop('settleAt')) + c.pop('settleLag', 0) - base), 3)
         if c.get('type') == 'shirtflip' and isinstance(c.get('flipAt'), str):
             c['flipT'] = round(max(0, rel(c.pop('flipAt')) + c.pop('flipLag', 0) - base), 3)
+        if c.get('type') == 'coin' and isinstance(c.get('landAt'), str):
+            c['landT'] = round(max(0, rel(c.pop('landAt')) + c.pop('landLag', 0) - base), 3)
         if c.get('type') == 'table' and isinstance(c.get('moveAt'), str):
             c['moveT'] = round(max(0, rel(c.pop('moveAt')) + c.pop('moveLag', 0) - base), 3)
         if c.get('type') in ('xg', 'swing', 'tally'):

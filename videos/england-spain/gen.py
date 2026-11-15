@@ -113,18 +113,17 @@ B.append({"kicker": "75' · Spain pour forward", "headline": "Williams. [2–3].
 # 9 Trafford saves
 s0 = [-1.5, 0.11, 43.45]
 B.append({"kicker": "James Trafford", "headline": "Trafford [keeps them out].", "cut": True, "transition": "whip", "scene": S_MAD, "accent": GREEN, "hype": False,
-  "camFrom": {"pos": [4.4, 2.2, 37], "tgt": [0.2, 1.2, 52]}, "camera": {"pos": [3.4, 2.0, 40], "tgt": [0.2, 1.2, 52]}, "move": 3, "moveEase": "linear",
+  "camFrom": {"pos": [4.4, 2.2, 37], "tgt": [0.2, 1.2, 52]}, "camera": {"pos": [3.2, 1.9, 41], "tgt": [0.2, 1.2, 52]}, "move": 3.6, "moveEase": "linear",
   "players": [S(skin="#e7b593", hair="#3a2a1a", x=-1.7, z=43, action="kick", actionDelay=0.3, actionDur=0.8),
               P(kit=GKE, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=-1, label="James Trafford", labelDelay=0.2),
               E(skin="#8a5a3c", hair="#141010", x=1.6, z=46.5, front=True), E(skin="#f0c8a8", hair="#5a3a22", x=-3.2, z=47.2, front=True)],
   "card": [bug([2, 3], "90+'", red="away"),
            {"type": "ball", "delay": 0, "point": s0, "until": 0.64},
            {"type": "ballpath", "world": True, "delay": 0.64, "dur": 0.55, "slowmo": False, "saveBy": 1, "flash": False, "points": [s0, [0.4, 1.4, 48], [2.3, 1.3, 52.0]]}],
-  "shots": [{"at": "England win", "lag": -0.15, "cut": True, "kicker": "Full time", "headline": "England win. [Top of the group].", "hype": False, "confetti": True, "flashes": 16,
-     "orbit": {"center": [0, 1.25, 3], "r": 5.2, "from": -30, "to": 15, "h": 1.4, "h2": 1.9, "dur": 5}, "camera": {"pos": [0, 1.7, -2], "tgt": [0, 1.25, 3]},
-     "players": [E(skin="#e7b593", hair="#3a2a1a", x=-1.1, z=3, front=True, pose="fists", action="celebrate"), E(skin="#8a5a3c", hair="#141010", x=1.1, z=3.3, front=True, action="celebrate"), P(kit=GKE, skin="#f0c8a8", hair="#3a2a1a", x=0, z=4.6, front=True, action="celebrate")],
-     "card": [bug([2, 3], "FT", red="away", y=610),
-              {"type": "stamp", "text": "TOP OF THE GROUP", "sub": "Nations League · Group A3", "at": "top the group", "lag": -0.2, "color": GOLD, "rot": -0.06, "size": 76, "y": 1680}]}]})
+  "confetti": True, "confettiAt": "England win", "flashes": 16,
+  "shake": [{"t": 1.2, "amount": 10}]})
+B[-1]["card"] += [{"type": "stamp", "text": "ENGLAND WIN", "sub": "top of Group A3", "at": "England win", "lag": -0.1, "color": GOLD, "rot": -0.06, "size": 84, "y": 1680}]
+B[-1]["players"][2]["after"] = "celebrate"; B[-1]["players"][3]["after"] = "celebrate"
 # 10 the question
 B.append({"kicker": "Your call", "headline": "Penalty and red: [fair or harsh]?", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_MAD, "accent": GOLD, "lights": 0.5, "focus": 0.3,
   "camFrom": {"pos": [-8, 14, -28], "tgt": [0, 0, 8]}, "camera": {"pos": [8, 20, -36], "tgt": [0, 0, 8]}, "move": 6, "moveEase": "linear", "players": [],

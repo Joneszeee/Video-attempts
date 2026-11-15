@@ -1757,9 +1757,9 @@
    },
    "camera": {
     "pos": [
-     3.4,
-     2.0,
-     40
+     3.2,
+     1.9,
+     41
     ],
     "tgt": [
      0.2,
@@ -1767,7 +1767,7 @@
      52
     ]
    },
-   "move": 3,
+   "move": 3.6,
    "moveEase": "linear",
    "players": [
     {
@@ -1822,7 +1822,8 @@
      "hair": "#141010",
      "x": 1.6,
      "z": 46.5,
-     "front": true
+     "front": true,
+     "after": "celebrate"
     },
     {
      "name": "",
@@ -1837,7 +1838,8 @@
      "hair": "#5a3a22",
      "x": -3.2,
      "z": 47.2,
-     "front": true
+     "front": true,
+     "after": "celebrate"
     }
    ],
    "card": [
@@ -1896,127 +1898,26 @@
        52.0
       ]
      ]
+    },
+    {
+     "type": "stamp",
+     "text": "ENGLAND WIN",
+     "sub": "top of Group A3",
+     "at": "England win",
+     "lag": -0.1,
+     "color": "#e9b949",
+     "rot": -0.06,
+     "size": 84,
+     "y": 1680
     }
    ],
-   "shots": [
+   "confetti": true,
+   "confettiAt": "England win",
+   "flashes": 16,
+   "shake": [
     {
-     "at": "England win",
-     "lag": -0.15,
-     "cut": true,
-     "kicker": "Full time",
-     "headline": "England win. [Top of the group].",
-     "hype": false,
-     "confetti": true,
-     "flashes": 16,
-     "orbit": {
-      "center": [
-       0,
-       1.25,
-       3
-      ],
-      "r": 5.2,
-      "from": -30,
-      "to": 15,
-      "h": 1.4,
-      "h2": 1.9,
-      "dur": 5
-     },
-     "camera": {
-      "pos": [
-       0,
-       1.7,
-       -2
-      ],
-      "tgt": [
-       0,
-       1.25,
-       3
-      ]
-     },
-     "players": [
-      {
-       "name": "",
-       "num": null,
-       "kit": {
-        "shirt": "#ffffff",
-        "shorts": "#1c2c5b",
-        "socks": "#ffffff",
-        "text": "#1c2c5b"
-       },
-       "skin": "#e7b593",
-       "hair": "#3a2a1a",
-       "x": -1.1,
-       "z": 3,
-       "front": true,
-       "pose": "fists",
-       "action": "celebrate"
-      },
-      {
-       "name": "",
-       "num": null,
-       "kit": {
-        "shirt": "#ffffff",
-        "shorts": "#1c2c5b",
-        "socks": "#ffffff",
-        "text": "#1c2c5b"
-       },
-       "skin": "#8a5a3c",
-       "hair": "#141010",
-       "x": 1.1,
-       "z": 3.3,
-       "front": true,
-       "action": "celebrate"
-      },
-      {
-       "name": "",
-       "num": null,
-       "kit": {
-        "shirt": "#2ecc71",
-        "shorts": "#1d1c22",
-        "socks": "#2ecc71",
-        "text": "#1d1c22"
-       },
-       "skin": "#f0c8a8",
-       "hair": "#3a2a1a",
-       "x": 0,
-       "z": 4.6,
-       "front": true,
-       "action": "celebrate"
-      }
-     ],
-     "card": [
-      {
-       "type": "scorebug",
-       "y": 610,
-       "delay": 0,
-       "home": {
-        "name": "ESP",
-        "color": "#c60b1e"
-       },
-       "away": {
-        "name": "ENG",
-        "color": "#ffffff"
-       },
-       "score": [
-        2,
-        3
-       ],
-       "min": "FT",
-       "clear": false,
-       "red": "away"
-      },
-      {
-       "type": "stamp",
-       "text": "TOP OF THE GROUP",
-       "sub": "Nations League · Group A3",
-       "at": "top the group",
-       "lag": -0.2,
-       "color": "#e9b949",
-       "rot": -0.06,
-       "size": 76,
-       "y": 1680
-      }
-     ]
+     "t": 1.2,
+     "amount": 10
     }
    ],
    "vo": "But James Trafford keeps them out. England win, and top the group."

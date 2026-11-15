@@ -1,0 +1,100 @@
+{
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Spain 2–3 England · Nations League",
+   "headline": "England end Spain's [43-game] run.",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#e9b949",
+   "lights": 0.8,
+   "flashes": 16,
+   "camFrom": {
+    "pos": [
+     0.9,
+     1.5,
+     -1.0
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.9,
+     1.5,
+     -1.0
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 2.3,
+     "z": 3.6,
+     "front": true,
+     "action": "celebrate",
+     "label": "England · 10 men",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "streak",
+     "y": 1100,
+     "shiftX": -140,
+     "delay": -5,
+     "n": 43,
+     "cols": 8,
+     "cell": 88,
+     "fill": 1.1,
+     "title": "Spain · games unbeaten",
+     "broken": "OVER",
+     "brokenLabel": "after 43 games",
+     "clear": false,
+     "breakT": 6.3
+    },
+    {
+     "type": "shout",
+     "text": "WITH 10 MEN",
+     "y": 1780,
+     "size": 150,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

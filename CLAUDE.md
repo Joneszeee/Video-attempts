@@ -197,6 +197,7 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
 - **Use the theatre stage sparingly** (user: it felt overused). Prefer stadiums, booth and studio; at most 1–2 stage beats per video.
 - **TV analysis pen** (`pen` card): circles, arrows and handwritten notes that draw themselves over the original players. Example: `videos/klose-16`.
 - **60fps** is the default render.
+- **Card sounds never outlast their shot** (user: the dot-grid pops ran on into the next scene). The engine drops any card sound that falls after the card leaves the screen, and a long row of dots/tickets is a short roll of pops (max ~1.4s). Pre-filled dots are silent.
 
 Built so far from the idea list (reuse them):
 - **Polaroid flashback:** set `"transition": "polaroid", "polaroidLabel": "Germany 2006"` on a beat. The scene starts as a sepia instant photo and grows to full frame.

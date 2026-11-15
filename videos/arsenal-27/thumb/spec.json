@@ -1,0 +1,160 @@
+{
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Premier League · the title race",
+   "headline": "Arsenal: [27 points]. Only four teams had more.",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ef0107",
+     "#ffffff",
+     "#ef0107",
+     "#9a0006"
+    ],
+    "seed": 5
+   },
+   "accent": "#e9b949",
+   "lights": 0.75,
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -0.8
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -0.8
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ef0107",
+      "shorts": "#ffffff",
+      "socks": "#ef0107",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 3.4,
+     "front": true,
+     "label": "Arsenal · 27 pts",
+     "labelDelay": 0,
+     "pose": "fists"
+    }
+   ],
+   "card": [
+    {
+     "type": "fates",
+     "title": "More than 27 points after 10 games",
+     "items": [
+      {
+       "name": "Chelsea",
+       "sub": "2005/06",
+       "badge": {
+        "colors": [
+         "#034694",
+         "#ffffff",
+         "#034694"
+        ],
+        "text": "CFC"
+       },
+       "fate": "win"
+      },
+      {
+       "name": "Man City",
+       "sub": "2011/12",
+       "badge": {
+        "colors": [
+         "#6cabdd",
+         "#ffffff",
+         "#1c2c5b"
+        ],
+        "text": "MCFC"
+       },
+       "fate": "win"
+      },
+      {
+       "name": "Man City",
+       "sub": "2017/18",
+       "badge": {
+        "colors": [
+         "#6cabdd",
+         "#ffffff",
+         "#1c2c5b"
+        ],
+        "text": "MCFC"
+       },
+       "fate": "win"
+      },
+      {
+       "name": "Liverpool",
+       "sub": "2019/20",
+       "badge": {
+        "colors": [
+         "#c8102e",
+         "#f6eb61",
+         "#00b2a9"
+        ],
+        "text": "LFC"
+       },
+       "fate": "win"
+      },
+      {
+       "name": "Arsenal",
+       "sub": "2026/27",
+       "badge": {
+        "colors": [
+         "#ef0107",
+         "#ffffff",
+         "#9c824a"
+        ],
+        "text": "AFC"
+       },
+       "fate": "win",
+       "t": 99
+      }
+     ],
+     "clear": false,
+     "y": 1560,
+     "delay": -3
+    },
+    {
+     "type": "shout",
+     "text": "ONLY 4 HAD MORE",
+     "y": 1800,
+     "size": 150,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

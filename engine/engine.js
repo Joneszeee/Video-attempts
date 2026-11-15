@@ -3775,7 +3775,9 @@ function cardEvents(c) {
     case 'meter': ticks(0.4, (c.countDur || 2.2) * 0.85); ev.push({ t: 0.4 + (c.countDur || 2.2), type: 'impact' }); break;
     case 'dots': {
       const n = c.states ? c.states.length : c.n;
-      for (let i = 0; i < n; i++) ev.push({ t: 0.4 + i * (c.step || 0.17), type: 'pop' });
+      // pre-filled dots make no sound, and a long row of dots is a short roll of pops (at most ~1.4s), never a long drumbeat
+      const m = n - (c.filled || 0), stp = Math.min(c.step || 0.17, 1.4 / Math.max(1, m));
+      for (let i = 0; i < m; i++) ev.push({ t: 0.4 + i * stp, type: 'pop' });
       break;
     }
   }
@@ -3832,7 +3834,10 @@ window.loadSpec = async function (spec) {
     if (i > 0 && (b.cut || b.headline !== S.beats[i - 1].headline)) S.events.push({ t: Math.max(0, b.start - 0.12), type: b.cut ? 'whoosh' : 'swish' });
     for (const it of b.cards) {
       if (i > 0 && S.beats[i - 1].cards.includes(it)) continue;
-      for (const e of cardEvents(it.obj)) S.events.push({ t: it.start + e.t, type: e.type });
+      // a card's sounds never run past the shot it is on screen in (user: an effect overlapped the next scene)
+      let endJ = i + 1; while (endJ < S.beats.length && S.beats[endJ].cards.includes(it)) endJ++;
+      const cardEnd = endJ < S.beats.length ? S.beats[endJ].start : S.dur;
+      for (const e of cardEvents(it.obj)) if (it.start + e.t < cardEnd - 0.05) S.events.push({ t: it.start + e.t, type: e.type });
     }
     if (b.confetti && !(i > 0 && S.beats[i - 1].confetti)) S.events.push({ t: b.confettiStart, type: 'crowd' });
   });

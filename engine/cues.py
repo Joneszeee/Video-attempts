@@ -166,6 +166,8 @@ def _resolve_beat(b, rel):
             c['settleT'] = round(max(0, rel(c.pop('settleAt')) + c.pop('settleLag', 0) - base), 3)
         if c.get('type') == 'shirtflip' and isinstance(c.get('flipAt'), str):
             c['flipT'] = round(max(0, rel(c.pop('flipAt')) + c.pop('flipLag', 0) - base), 3)
+        if c.get('type') == 'stopwatch' and isinstance(c.get('lockAt'), str):
+            c['lockT'] = round(max(0.4, rel(c.pop('lockAt')) + c.pop('lockLag', 0) - base), 3)
         if c.get('type') == 'coin' and isinstance(c.get('landAt'), str):
             c['landT'] = round(max(0, rel(c.pop('landAt')) + c.pop('landLag', 0) - base), 3)
         if c.get('type') == 'table' and isinstance(c.get('moveAt'), str):

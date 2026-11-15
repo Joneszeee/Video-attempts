@@ -1832,6 +1832,48 @@ CARDS.stamp = function (c, ct, cx, cy) {
 };
 CARDS.stamp.noSlide = true;
 
+// Stopwatch (backlog item): a chrome stopwatch whose hand races round and locks on a value with a jolt, while the readout counts.
+// {type: "stopwatch", value: 20, max: 60, unit: "MIN", prefix: "<", dur: 1.6, lockT|lockAt, label, color, r}
+CARDS.stopwatch = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.4)), R0 = c.r || 230, col = c.color || '#ff4d5e', max = c.max || 60, dur = c.dur || 1.6, lt = c.lockT != null ? c.lockT : 0.3 + dur;
+  if (k <= 0) return;
+  const run = clamp((ct - 0.3) / Math.max(0.1, lt - 0.3), 0, 1), locked = ct >= lt, v = c.value * eOut(run), jolt = locked ? Math.max(0, 1 - (ct - lt) / 0.35) : 0;
+  ctx.save(); ctx.translate(cx + (locked ? 0 : Math.sin(ct * 50) * 2), cy); ctx.scale(k * (1 + jolt * 0.1), k * (1 + jolt * 0.1));
+  ctx.fillStyle = '#c9ced6'; rrect(-26, -R0 - 62, 52, 50, 10); ctx.fill(); ctx.fillStyle = '#8d939d'; rrect(-40, -R0 - 84, 80, 30, 10); ctx.fill();   // crown
+  ctx.save(); ctx.rotate(0.7); ctx.fillStyle = '#c9ced6'; rrect(-16, -R0 - 40, 32, 36, 8); ctx.fill(); ctx.restore();
+  ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16;
+  const g = ctx.createLinearGradient(-R0, -R0, R0, R0); g.addColorStop(0, '#f2f4f7'); g.addColorStop(1, '#8d939d'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, R0 + 22, 0, 7); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.fillStyle = '#12151c'; ctx.beginPath(); ctx.arc(0, 0, R0, 0, 7); ctx.fill();
+  const a1 = -Math.PI / 2 + v / max * Math.PI * 2;
+  ctx.fillStyle = col; ctx.globalAlpha *= 0.3; ctx.beginPath(); ctx.moveTo(0, 0); ctx.arc(0, 0, R0 - 8, -Math.PI / 2, a1); ctx.closePath(); ctx.fill(); ctx.globalAlpha /= 0.3;   // swept wedge
+  for (let i = 0; i < 60; i++) { const a = i / 60 * Math.PI * 2, big = i % 5 === 0; ctx.strokeStyle = big ? '#fff' : 'rgba(255,255,255,0.4)'; ctx.lineWidth = big ? 6 : 3;
+    ctx.beginPath(); ctx.moveTo(Math.cos(a) * (R0 - (big ? 34 : 20)), Math.sin(a) * (R0 - (big ? 34 : 20))); ctx.lineTo(Math.cos(a) * (R0 - 10), Math.sin(a) * (R0 - 10)); ctx.stroke(); }
+  ctx.strokeStyle = col; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-Math.cos(a1) * 30, -Math.sin(a1) * 30); ctx.lineTo(Math.cos(a1) * (R0 - 44), Math.sin(a1) * (R0 - 44)); ctx.stroke();
+  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(0, 0, 14, 0, 7); ctx.fill();
+  font(900, R0 * 0.3, 'Inter', '-2px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = locked ? col : '#fff';
+  ctx.fillText((locked && c.prefix ? c.prefix : '') + Math.round(v) + (c.unit ? ' ' + c.unit : ''), 0, R0 * 0.48);
+  if (c.label) { font(800, 40, 'Inter'); const tw = ctx.measureText(c.label).width + 56; ctx.fillStyle = 'rgba(8,10,15,0.88)'; rrect(-tw / 2, R0 + 50, tw, 74, 20); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(c.label, 0, R0 + 89); }
+  ctx.restore();
+};
+CARDS.stopwatch.noSlide = true;
+
+// Countdown rank banner: a giant "#5" slams in, then the name and club slide out beside it (for top-five countdowns).
+// {type: "rank", n: 5, name, sub, color, gold: true (number one)}
+CARDS.rank = function (c, ct, cx, cy) {
+  const a = pr(ct, 0, 0.28), sc = lerp(3.2, 1, eOut(a)), col = c.gold ? '#f1c453' : (c.color || '#ffffff'), tk = eOut(pr(ct, 0.22, 0.35));
+  if (a <= 0) return;
+  ctx.save(); ctx.translate(cx, cy);
+  font(800, 62, 'Inter'); const nw = ctx.measureText(c.name || '').width; font(600, 30, 'Mono', '3px'); const sw = ctx.measureText((c.sub || '').toUpperCase()).width;
+  const numW = 250, tw = Math.max(nw, sw) + 60, tot = numW + tw * tk, x0 = -tot / 2;
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 12; ctx.fillStyle = 'rgba(8,10,15,0.9)'; rrect(x0, -80, tot, 160, 26); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.fillStyle = c.gold ? '#f1c453' : (c.color2 || '#d6283b'); rrect(x0, -80, numW, 160, 26); ctx.fill();
+  ctx.save(); ctx.translate(x0 + numW / 2, 4); ctx.scale(sc, sc); ctx.globalAlpha *= Math.min(1, a * 2); font(900, 130, 'Inter', '-4px'); ctx.fillStyle = c.gold ? '#1a1405' : '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('#' + c.n, 0, 0); ctx.restore();
+  if (tk > 0) { ctx.save(); ctx.beginPath(); ctx.rect(x0 + numW, -80, tw * tk, 160); ctx.clip(); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    font(800, 62, 'Inter'); ctx.fillStyle = col; ctx.fillText(c.name || '', x0 + numW + 30, -18); font(600, 30, 'Mono', '3px'); ctx.fillStyle = 'rgba(255,255,255,0.75)'; ctx.fillText((c.sub || '').toUpperCase(), x0 + numW + 30, 40); ctx.restore(); }
+  ctx.restore();
+};
+CARDS.rank.noSlide = true;
+
 // Fate tiles: a row of club tiles (stylised shield + season) that flip to RELEGATED (red) or STAYED UP (green) on their word.
 // {type: "fates", title, items: [{name, sub, badge: {colors, text, style}, fate: "down"|"up", t|at}]} (no t = already revealed; t: 99 = still "?")
 CARDS.fates = function (c, ct, cx, cy) {
@@ -3721,6 +3763,8 @@ function cardEvents(c) {
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'fates': (c.items || []).forEach(it => { if (it.t != null && it.t < 90) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: it.fate === 'up' || it.fate === 'win' ? 'pop' : 'impact' }); }); break;
     case 'trapdoor': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.8; ev.push({ t, type: it.stay ? 'pop' : 'impact' }); if (!it.stay) ev.push({ t: t + 0.15, type: 'whoosh' }); }); break;
+    case 'stopwatch': { const lt = c.lockT != null ? c.lockT : 0.3 + (c.dur || 1.6); for (let t = 0.3; t < lt - 0.05; t += 0.09) ev.push({ t, type: 'tick' }); ev.push({ t: lt, type: 'impact' }); break; }
+    case 'rank': ev.push({ t: 0.2, type: 'impact' }); break;
     case 'coin': { const lt = c.landT != null ? c.landT : 1.6; ev.push({ t: 0.2, type: 'whoosh' }); for (let t = 0.3; t < lt; t += 0.12) ev.push({ t, type: 'tick' }); ev.push({ t: lt, type: 'impact' }); break; }
     case 'dog': if (c.coins) for (let i = 0; i < (c.coinN || 8); i++) ev.push({ t: 0.9 + i * (c.coinStep || 0.45), type: 'tick' }); else ev.push({ t: 0, type: 'pop' }); break;
     case 'ledger': { ev.push({ t: 0, type: 'whoosh' }); const tt = 0.5 + (c.rows || []).length * (c.step || 0.45) + 0.2; for (let t = tt; t < tt + 0.9; t += 0.07) ev.push({ t, type: 'tick' }); ev.push({ t: tt + 0.9, type: 'impact' }); break; }

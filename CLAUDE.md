@@ -308,6 +308,10 @@ Built so far from the idea list (reuse them):
 - **Trapdoor** (built): the `trapdoor` card. Club shields stand on a stage floor; on its word the doors under one swing open and it drops out of
   sight with a RELEGATED tag (`stay: true` = the doors rattle but hold, green glow, STAYED UP). `items: [{name, badge, at|t, stay, tag, tagColor}]` (`tag` replaces the RELEGATED label, e.g. "2ND PLACE"), `scale`.
 - **Coin flip** (built): the `coin` card. A gold coin spins up and lands on `text` ("42%") at `landAt`, with `sub` on the coin and a `label` pill. For near 50/50 odds.
+- **Stopwatch** (backlog item, built for `videos/fastest-sackings`): the `stopwatch` card. A chrome stopwatch whose hand races round and locks with a jolt
+  while the readout counts: `value`, `max` (dial, default 60), `unit` ("MIN"), `prefix` ("<", shown once locked), `lockAt`|`lockT`, `label`, `color`, `r`.
+- **Countdown rank banner** (built): the `rank` card. A giant "#5" slams in and the name and club slide out beside it: `n`, `name`, `sub`, `gold: true` for number one.
+  For top-five countdowns; give every entry its own scene and graphic under the banner.
 - **History stories:** check the club's own site and at least one other source; drop quotes and details only one retelling has; say "the story goes"
   for parts that are legend.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.

@@ -1840,17 +1840,17 @@ CARDS.fates = function (c, ct, cx, cy) {
   if (c.title) { font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.title.toUpperCase(), 0, -th / 2 - 40); }
   I.forEach((it, i) => {
     const x = -tot / 2 + tw / 2 + i * (tw + gap), t = it.t, fk = t == null ? 1 : ease(pr(ct, t, 0.5)), done = fk >= 0.5, sx = Math.abs(Math.cos(fk * Math.PI)) || 0.02;
-    const col = !done ? '#2a2f3a' : it.fate === 'up' ? '#1f8a4c' : '#b3202f', pop = t != null && fk >= 1 ? 1 + 0.08 * Math.sin(Math.min(1, (ct - t - 0.5) / 0.3) * Math.PI) : 1;
+    const FT = { up: ['#1f8a4c', 'STAYED UP'], down: ['#b3202f', 'RELEGATED'], win: ['#b8892a', 'CHAMPIONS'], second: ['#4a5160', '2ND'] }, fd = FT[it.fate] || FT.down, col = !done ? '#2a2f3a' : fd[0], pop = t != null && fk >= 1 ? 1 + 0.08 * Math.sin(Math.min(1, (ct - t - 0.5) / 0.3) * Math.PI) : 1;
     ctx.save(); ctx.translate(x, 0); ctx.scale(sx * pop, pop);
     ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 10; ctx.fillStyle = col; rrect(-tw / 2, -th / 2, tw, th, 18); ctx.fill(); ctx.shadowColor = 'transparent';
     font(700, tw * 0.12, 'Inter'); ctx.fillStyle = 'rgba(255,255,255,0.85)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(it.sub || '', 0, -th / 2 + tw * 0.16);
     if (it.badge) drawBadge(0, -th * 0.06, tw * 0.62, it.badge);
-    font(800, tw * 0.125, 'Inter'); ctx.fillStyle = '#fff'; ctx.fillText(done ? (it.fate === 'up' ? 'STAYED UP' : 'RELEGATED') : '?', 0, th / 2 - tw * 0.3);
+    font(800, tw * 0.125, 'Inter'); ctx.fillStyle = '#fff'; ctx.fillText(done ? (it.label || fd[1]) : '?', 0, th / 2 - tw * 0.3);
     font(700, tw * 0.13, 'Inter'); ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.fillText(it.name, 0, th / 2 - tw * 0.13);
     ctx.restore();
   });
   if (c.count) {   // big running count of the relegated ones underneath
-    let nd = 0, last = -9; I.forEach(it => { const t = it.t == null ? -9 : it.t + 0.5; if (it.fate !== 'up' && ct >= t) { nd++; last = Math.max(last, t); } });
+    let nd = 0, last = -9; I.forEach(it => { const t = it.t == null ? -9 : it.t + 0.5; if (it.fate !== 'up' && it.fate !== 'win' && ct >= t) { nd++; last = Math.max(last, t); } });
     const pk = 1 + 0.25 * Math.max(0, 1 - (ct - last) / 0.3);
     ctx.save(); ctx.translate(0, th / 2 + 190); ctx.scale(pk, pk); font(900, 230, 'Inter', '-4px'); ctx.fillStyle = '#ff4d5e'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(nd, 0, 0); ctx.restore();
     font(600, 26, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.fillText(String(c.count === true ? 'relegated' : c.count).toUpperCase(), 0, th / 2 + 340);
@@ -1876,8 +1876,8 @@ CARDS.trapdoor = function (c, ct, cx, cy) {
       ctx.restore(); }
     font(800, 34, 'Inter'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; const tw = ctx.measureText(it.name).width + 40;
     ctx.fillStyle = 'rgba(8,10,15,0.85)'; rrect(x - tw / 2, 70, tw, 56, 28); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(it.name, x, 99);
-    if (a > 0.35) { const rk = eBack(pr(ct, t + 0.35, 0.3)), lab = it.stay ? 'STAYED UP' : 'RELEGATED'; font(900, 36, 'Inter', '2px'); const lw = ctx.measureText(lab).width + 44;
-      ctx.save(); ctx.translate(x, 170); ctx.scale(rk, rk); ctx.fillStyle = it.stay ? '#1f8a4c' : '#d6283b'; rrect(-lw / 2, -30, lw, 60, 14); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(lab, 0, 3); ctx.restore(); }
+    if (a > 0.35) { const rk = eBack(pr(ct, t + 0.35, 0.3)), lab = it.tag || (it.stay ? 'STAYED UP' : 'RELEGATED'); font(900, 36, 'Inter', '2px'); const lw = ctx.measureText(lab).width + 44;
+      ctx.save(); ctx.translate(x, 170); ctx.scale(rk, rk); ctx.fillStyle = it.tagColor || (it.stay ? '#1f8a4c' : '#d6283b'); rrect(-lw / 2, -30, lw, 60, 14); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(lab, 0, 3); ctx.restore(); }
   });
   ctx.restore();
 };
@@ -3719,7 +3719,7 @@ function cardEvents(c) {
     case 'ballpath': ev.push({ t: 0, type: 'swish' }); if (c.flash !== false) ev.push({ t: c.dur || 1.6, type: 'crowd' }); else ev.push({ t: c.dur || 1.6, type: 'pop' }); break;
     case 'receipt': { const n = (c.lines || []).length + (c.total ? 1 : 0) + 1; for (let i = 0; i < n; i++) for (let t = 0.2 + i * (c.step || 0.45); t < 0.2 + i * (c.step || 0.45) + 0.25; t += 0.03) ev.push({ t, type: 'tick' }); break; }
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
-    case 'fates': (c.items || []).forEach(it => { if (it.t != null && it.t < 90) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: it.fate === 'up' ? 'pop' : 'impact' }); }); break;
+    case 'fates': (c.items || []).forEach(it => { if (it.t != null && it.t < 90) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: it.fate === 'up' || it.fate === 'win' ? 'pop' : 'impact' }); }); break;
     case 'trapdoor': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.8; ev.push({ t, type: it.stay ? 'pop' : 'impact' }); if (!it.stay) ev.push({ t: t + 0.15, type: 'whoosh' }); }); break;
     case 'coin': { const lt = c.landT != null ? c.landT : 1.6; ev.push({ t: 0.2, type: 'whoosh' }); for (let t = 0.3; t < lt; t += 0.12) ev.push({ t, type: 'tick' }); ev.push({ t: lt, type: 'impact' }); break; }
     case 'dog': if (c.coins) for (let i = 0; i < (c.coinN || 8); i++) ev.push({ t: 0.9 + i * (c.coinStep || 0.45), type: 'tick' }); else ev.push({ t: 0, type: 'pop' }); break;

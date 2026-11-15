@@ -1,0 +1,1209 @@
+{
+ "title": "Arsenal's 27 points",
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Premier League · the title race",
+   "headline": "Arsenal: [27 points]. Only four teams had more.",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ef0107",
+     "#ffffff",
+     "#ef0107",
+     "#9a0006"
+    ],
+    "seed": 5
+   },
+   "accent": "#e9b949",
+   "lights": 0.75,
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     0.4
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -0.8
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ef0107",
+      "shorts": "#ffffff",
+      "socks": "#ef0107",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 3.4,
+     "front": true,
+     "enter": "walk",
+     "fromZ": 4.6,
+     "walkDur": 2.4,
+     "label": "Arsenal · 27 pts",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "fates",
+     "title": "More than 27 points after 10 games",
+     "items": [
+      {
+       "name": "Chelsea",
+       "sub": "2005/06",
+       "badge": {
+        "colors": [
+         "#034694",
+         "#ffffff",
+         "#034694"
+        ],
+        "text": "CFC"
+       },
+       "fate": "win",
+       "t": 0.2
+      },
+      {
+       "name": "Man City",
+       "sub": "2011/12",
+       "badge": {
+        "colors": [
+         "#6cabdd",
+         "#ffffff",
+         "#1c2c5b"
+        ],
+        "text": "MCFC"
+       },
+       "fate": "win",
+       "t": 0.5
+      },
+      {
+       "name": "Man City",
+       "sub": "2017/18",
+       "badge": {
+        "colors": [
+         "#6cabdd",
+         "#ffffff",
+         "#1c2c5b"
+        ],
+        "text": "MCFC"
+       },
+       "fate": "win",
+       "t": 0.8
+      },
+      {
+       "name": "Liverpool",
+       "sub": "2019/20",
+       "badge": {
+        "colors": [
+         "#c8102e",
+         "#f6eb61",
+         "#00b2a9"
+        ],
+        "text": "LFC"
+       },
+       "fate": "win",
+       "t": 1.1
+      },
+      {
+       "name": "Arsenal",
+       "sub": "2026/27",
+       "badge": {
+        "colors": [
+         "#ef0107",
+         "#ffffff",
+         "#9c824a"
+        ],
+        "text": "AFC"
+       },
+       "fate": "win",
+       "t": 99
+      }
+     ],
+     "clear": false,
+     "y": 1560,
+     "delay": -0.05
+    },
+    {
+     "type": "stamp",
+     "text": "4 OF 4",
+     "sub": "won the league",
+     "at": "All four",
+     "color": "#e9b949",
+     "rot": -0.08,
+     "size": 100,
+     "y": 1800
+    }
+   ],
+   "shake": [
+    {
+     "at": "All four",
+     "lag": 0.16,
+     "amount": 14
+    }
+   ],
+   "punch": [
+    {
+     "at": "twenty-seven",
+     "amount": 0.1,
+     "dur": 1.2,
+     "x": 540,
+     "y": 1560
+    }
+   ],
+   "vo": "Arsenal have twenty-seven points after ten games. Only four teams ever had more. All four won the league."
+  },
+  {
+   "kicker": "More than 27 after 10",
+   "headline": "Four teams. [Four titles].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.25,
+   "camFrom": {
+    "pos": [
+     -14,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     14,
+     22,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "trophies",
+     "at": "Chelsea",
+     "lag": -0.2,
+     "floor": 1300,
+     "stagger": 0,
+     "rise": 0.55,
+     "items": [
+      {
+       "kind": "cup",
+       "sx": 0.14,
+       "h": 230,
+       "size": 170,
+       "label": "Chelsea",
+       "text": "2005/06"
+      }
+     ],
+     "clear": false
+    },
+    {
+     "type": "trophies",
+     "at": "Manchester City, 2011",
+     "lag": -0.2,
+     "floor": 1300,
+     "stagger": 0,
+     "rise": 0.55,
+     "items": [
+      {
+       "kind": "cup",
+       "sx": 0.38,
+       "h": 230,
+       "size": 170,
+       "label": "Man City",
+       "text": "2011/12"
+      }
+     ],
+     "clear": false
+    },
+    {
+     "type": "trophies",
+     "at": "City again",
+     "lag": -0.2,
+     "floor": 1300,
+     "stagger": 0,
+     "rise": 0.55,
+     "items": [
+      {
+       "kind": "cup",
+       "sx": 0.62,
+       "h": 230,
+       "size": 170,
+       "label": "Man City",
+       "text": "2017/18"
+      }
+     ],
+     "clear": false
+    },
+    {
+     "type": "trophies",
+     "at": "Liverpool",
+     "lag": -0.2,
+     "floor": 1300,
+     "stagger": 0,
+     "rise": 0.55,
+     "items": [
+      {
+       "kind": "cup",
+       "sx": 0.86,
+       "h": 230,
+       "size": 170,
+       "label": "Liverpool",
+       "text": "2019/20"
+      }
+     ],
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "CHAMPIONS",
+     "sub": "every one",
+     "at": "every one",
+     "lag": -0.3,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 90,
+     "y": 1740
+    }
+   ],
+   "punch": [
+    {
+     "at": "Liverpool",
+     "lag": 0.2,
+     "amount": 0.1,
+     "dur": 1.6,
+     "x": 540,
+     "y": 1300
+    }
+   ],
+   "vo": "Chelsea, 2005. Manchester City, 2011. City again, 2017. Liverpool, 2019. Champions, every one."
+  },
+  {
+   "kicker": "Arsenal · 2026/27",
+   "headline": "[9] wins. [1] loss. [7] clean sheets.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0057b8",
+     "#ffffff",
+     "#0057b8",
+     "#9fc5ee"
+    ],
+    "seed": 18
+   },
+   "accent": "#2ecc71",
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     4.2,
+     2.2,
+     36
+    ],
+    "tgt": [
+     0.2,
+     1.2,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.4,
+     2.0,
+     38.5
+    ],
+    "tgt": [
+     0.2,
+     1.2,
+     52
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#0057b8",
+      "socks": "#ffffff",
+      "text": "#0057b8",
+      "stripes": [
+       "#0057b8",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -1.0,
+     "z": 41,
+     "action": "kick",
+     "actionDelay": 2.6,
+     "actionDur": 0.8
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 2.65
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ef0107",
+      "shorts": "#ffffff",
+      "socks": "#ef0107",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 1.4,
+     "z": 45.5,
+     "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ef0107",
+      "shorts": "#ffffff",
+      "socks": "#ef0107",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "x": -2.6,
+     "z": 46.5,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "dots",
+     "states": [
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "hit",
+      "miss"
+     ],
+     "label": "Arsenal's first 10",
+     "y": 760,
+     "step": 0.22,
+     "delay": 0.3,
+     "clear": false
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.78,
+      0.11,
+      41.45
+     ],
+     "until": 3.0
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 3.0,
+     "dur": 0.6,
+     "slowmo": false,
+     "saveBy": 1,
+     "flash": false,
+     "points": [
+      [
+       -0.78,
+       0.11,
+       41.45
+      ],
+      [
+       0.6,
+       1.4,
+       47
+      ],
+      [
+       2.4,
+       1.3,
+       52.0
+      ]
+     ]
+    },
+    {
+     "type": "big",
+     "at": "Seven clean",
+     "lag": -0.3,
+     "from": 0,
+     "value": 7,
+     "countDur": 0.9,
+     "label": "Clean sheets",
+     "y": 1620,
+     "size": 240
+    }
+   ],
+   "shake": [
+    {
+     "at": "Seven clean",
+     "lag": 0.3,
+     "amount": 10
+    }
+   ],
+   "vo": "Now look at Arsenal. Nine wins. One defeat, three–nil at Brighton. Seven clean sheets."
+  },
+  {
+   "kicker": "The table",
+   "headline": "[5 points] clear. [72%] to win it.",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "TABLE",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ef0107",
+     "#ffffff",
+     "#ef0107",
+     "#9a0006"
+    ],
+    "seed": 5
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.4,
+   "camFrom": {
+    "pos": [
+     0,
+     30,
+     -50
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     18,
+     -32
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "table",
+     "y": 900,
+     "delay": 0,
+     "scale": 1.2,
+     "label": "Premier League · top three",
+     "pill": "+5",
+     "pillRow": 0,
+     "rows": [
+      {
+       "pos": 1,
+       "name": "Arsenal",
+       "color": "#ef0107",
+       "color2": "#ffffff",
+       "pts": 27,
+       "highlight": true
+      },
+      {
+       "pos": 2,
+       "name": "Brighton",
+       "color": "#0057b8",
+       "color2": "#ffffff",
+       "pts": 22
+      },
+      {
+       "pos": 3,
+       "name": "Man City",
+       "color": "#6cabdd",
+       "pts": 21
+      }
+     ],
+     "clear": false
+    },
+    {
+     "type": "big",
+     "at": "seventy-two",
+     "lag": -0.3,
+     "from": 0,
+     "value": 72,
+     "suffix": "%",
+     "countDur": 0.9,
+     "label": "Opta: Arsenal title chance",
+     "y": 1560,
+     "size": 240,
+     "clear": false
+    }
+   ],
+   "punch": [
+    {
+     "at": "Brighton",
+     "amount": 0.1,
+     "dur": 1.4,
+     "x": 540,
+     "y": 1000
+    },
+    {
+     "at": "seventy-two",
+     "amount": 0.1,
+     "dur": 1.4,
+     "x": 540,
+     "y": 1560
+    }
+   ],
+   "vo": "They're five points clear. Brighton are second. And Opta gives Arsenal a seventy-two percent chance of the title."
+  },
+  {
+   "kicker": "But here's the problem",
+   "headline": "Sounds perfect. [But].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "BUT",
+   "vhsDur": 0.9,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ef0107",
+     "#ffffff",
+     "#ef0107",
+     "#9a0006"
+    ],
+    "seed": 5
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.3,
+   "camFrom": {
+    "pos": [
+     1.2,
+     1.5,
+     -2.8
+    ],
+    "tgt": [
+     0.4,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.5,
+     1.4,
+     -0.8
+    ],
+    "tgt": [
+     0.4,
+     1.3,
+     10
+    ]
+   },
+   "move": 3.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ef0107",
+      "shorts": "#ffffff",
+      "socks": "#ef0107",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0.9,
+     "z": 2.8,
+     "front": true,
+     "pose": "think"
+    }
+   ],
+   "card": [
+    {
+     "type": "flytext",
+     "text": "BUT…",
+     "size": 360,
+     "endScale": 0.9,
+     "y": 1450,
+     "delay": 0.3,
+     "color": "#ff4d5e",
+     "clear": false
+    }
+   ],
+   "shake": [
+    {
+     "at": "problem",
+     "amount": 14
+    }
+   ],
+   "vo": "Sounds perfect. But here's the problem."
+  },
+  {
+   "kicker": "2022 · 2026",
+   "headline": "Same start. [27] points.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -1.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ef0107",
+      "shorts": "#ffffff",
+      "socks": "#ef0107",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 2.8,
+     "front": true
+    }
+   ],
+   "split": {
+    "scene": {
+     "type": "stadium",
+     "crowd": [
+      "#ef0107",
+      "#ffffff",
+      "#ef0107",
+      "#9a0006"
+     ],
+     "seed": 5
+    },
+    "lights": 0.8,
+    "camFrom": {
+     "pos": [
+      0,
+      1.5,
+      -2.2
+     ],
+     "tgt": [
+      0,
+      1.3,
+      10
+     ]
+    },
+    "camera": {
+     "pos": [
+      0,
+      1.5,
+      -1.0
+     ],
+     "tgt": [
+      0,
+      1.3,
+      10
+     ]
+    },
+    "move": 5,
+    "players": [
+     {
+      "name": "",
+      "num": null,
+      "kit": {
+       "shirt": "#ef0107",
+       "shorts": "#ffffff",
+       "socks": "#ef0107",
+       "text": "#ffffff"
+      },
+      "skin": "#8a5a3c",
+      "hair": "#141010",
+      "x": 0,
+      "z": 2.8,
+      "front": true
+     }
+    ],
+    "at": "The same"
+   },
+   "card": [
+    {
+     "type": "big",
+     "at": "2022",
+     "lag": -0.2,
+     "from": 0,
+     "value": 27,
+     "countDur": 0.7,
+     "label": "Arsenal · 2022/23",
+     "y": 1500,
+     "shiftX": -270,
+     "size": 190,
+     "clear": false
+    },
+    {
+     "type": "big",
+     "at": "The same",
+     "lag": -0.1,
+     "from": 0,
+     "value": 27,
+     "countDur": 0.7,
+     "label": "Arsenal · 2026/27",
+     "y": 1500,
+     "shiftX": 270,
+     "size": 190,
+     "clear": false
+    }
+   ],
+   "vo": "In 2022, Arsenal had exactly twenty-seven points after ten games. The same start."
+  },
+  {
+   "kicker": "2022/23",
+   "headline": "[248] days on top.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ef0107",
+     "#ffffff",
+     "#ef0107",
+     "#9a0006"
+    ],
+    "seed": 5
+   },
+   "accent": "#e9b949",
+   "lights": 0.5,
+   "focus": 0.45,
+   "camFrom": {
+    "pos": [
+     0,
+     30,
+     -50
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     14,
+     -28
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "rain",
+     "y": 980,
+     "at": "two hundred",
+     "lag": -0.6,
+     "groups": [
+      {
+       "n": 248,
+       "color": "#e9b949",
+       "t": 0,
+       "dur": 2.6
+      }
+     ],
+     "cols": 20,
+     "cell": 46,
+     "icon": "dot",
+     "label": "Days top of the table",
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "NO TITLE",
+     "sub": "most ever without winning it",
+     "at": "didn't win",
+     "lag": -0.3,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 100,
+     "y": 1640
+    }
+   ],
+   "shake": [
+    {
+     "at": "didn't win",
+     "lag": 0.2,
+     "amount": 14
+    }
+   ],
+   "vo": "They led the league for two hundred and forty-eight days. More than any team that didn't win it."
+  },
+  {
+   "kicker": "2022/23",
+   "headline": "Second. [5 points] behind.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.4,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     10,
+     16,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     -8,
+     9,
+     -20
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "trapdoor",
+     "y": 1250,
+     "scale": 1.2,
+     "delay": 0,
+     "clear": false,
+     "items": [
+      {
+       "name": "Arsenal · 2022/23",
+       "badge": {
+        "colors": [
+         "#ef0107",
+         "#ffffff",
+         "#9c824a"
+        ],
+        "text": "AFC"
+       },
+       "at": "finished second",
+       "lag": 0.3,
+       "tag": "2ND PLACE",
+       "tagColor": "#6b7280"
+      }
+     ]
+    },
+    {
+     "type": "big",
+     "at": "Five points",
+     "lag": -0.2,
+     "from": 0,
+     "value": 5,
+     "countDur": 0.6,
+     "label": "points behind Man City",
+     "y": 1700,
+     "size": 200,
+     "clear": false
+    }
+   ],
+   "shake": [
+    {
+     "at": "finished second",
+     "lag": 0.4,
+     "amount": 14
+    }
+   ],
+   "vo": "They finished second. Five points behind Manchester City."
+  },
+  {
+   "kicker": "The season",
+   "headline": "10 games down. [28] to go.",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "REWIND",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ef0107",
+     "#ffffff",
+     "#ef0107",
+     "#9a0006"
+    ],
+    "seed": 5
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.4,
+   "camFrom": {
+    "pos": [
+     -10,
+     20,
+     -34
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     10,
+     12,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "dots",
+     "n": 38,
+     "filled": 10,
+     "cols": 10,
+     "y": 900,
+     "label": "Premier League season: 38 games",
+     "caption": "28 still to play",
+     "delay": 0.2,
+     "clear": false
+    }
+   ],
+   "punch": [
+    {
+     "at": "better than anyone",
+     "amount": 0.1,
+     "dur": 1.4,
+     "x": 540,
+     "y": 900
+    }
+   ],
+   "vo": "The title is never won after ten games. Arsenal know that better than anyone."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Champions, or [2023 again]?",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ef0107",
+     "#ffffff",
+     "#ef0107",
+     "#9a0006"
+    ],
+    "seed": 5
+   },
+   "accent": "#e9b949",
+   "flashes": 12,
+   "orbit": {
+    "center": [
+     0,
+     1.25,
+     3
+    ],
+    "r": 5,
+    "from": -25,
+    "to": 18,
+    "h": 1.5,
+    "h2": 1.9,
+    "dur": 6
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     3
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ef0107",
+      "shorts": "#ffffff",
+      "socks": "#ef0107",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 3.4,
+     "front": true,
+     "pose": "fists",
+     "label": "Arsenal fans?",
+     "labelDelay": 0.2
+    }
+   ],
+   "card": [
+    {
+     "type": "ballot",
+     "y": 1580,
+     "at": "champions",
+     "lag": -0.3,
+     "title": "Champions",
+     "sub": "Arsenal",
+     "color": "#e9b949",
+     "n": 14,
+     "dur": 2.4,
+     "w": 300,
+     "shiftX": -190
+    },
+    {
+     "type": "ballot",
+     "y": 1580,
+     "at": "twenty twenty-three",
+     "lag": -0.2,
+     "title": "2023 again",
+     "sub": "Collapse",
+     "color": "#ff4d5e",
+     "n": 14,
+     "dur": 2.0,
+     "w": 300,
+     "shiftX": 190,
+     "seed": 7
+    }
+   ],
+   "vo": "So be honest, Arsenal fans: champions, or twenty twenty-three again?"
+  }
+ ]
+}

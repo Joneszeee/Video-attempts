@@ -312,6 +312,11 @@ Built so far from the idea list (reuse them):
   while the readout counts: `value`, `max` (dial, default 60), `unit` ("MIN"), `prefix` ("<", shown once locked), `lockAt`|`lockT`, `label`, `color`, `r`.
 - **Countdown rank banner** (built): the `rank` card. A giant "#5" slams in and the name and club slide out beside it: `n`, `name`, `sub`, `gold: true` for number one.
   For top-five countdowns; give every entry its own scene and graphic under the banner.
+- **Shattering streak** (built for `videos/england-spain`): the `streak` card. A grid of green ticks counts up to `n`; on `breakAt` a red X slams into the next slot
+  and every tick drops away while the counter turns to `broken` ("OVER"): `cols`, `cell`, `fill` (seconds), `title`, `label`, `brokenLabel`. A "something breaks" hook for ended runs.
+- **TV score bug** (built): the `scorebug` card. `home`/`away: {name, color}`, `score: [h, a]`, `from` + `goalAt` (the changed number pops gold on the word), `min` ("63'"),
+  `red: "home"|"away"` (red-card square). Put one on every beat of a match story so the score and minute are always on screen.
+- **Fouled player:** `action: "fall"` (pitches forward and stays down), timed with `actionAt`. Pair it with a defender's `slide` for a foul. Example: `videos/england-spain` beat 5.
 - **History stories:** check the club's own site and at least one other source; drop quotes and details only one retelling has; say "the story goes"
   for parts that are legend.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.

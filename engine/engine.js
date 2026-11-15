@@ -535,6 +535,11 @@ const ACTIONS = {
     [0.45, { L: [-0.15, 0.15], R: [0.3, 0.4], AL: [Math.PI - 0.2, 0], AR: [Math.PI + 0.15, 0], hy: -0.22, rot: 1.25, px: 0.55 }],
     [0.7, { L: [-0.1, 0.2], R: [0.35, 0.5], AL: [Math.PI - 0.1, 0], AR: [Math.PI + 0.2, 0], hy: 0.12, rot: 1.5, px: 0.78 }],
     [1.0, { L: [-0.05, 0.3], R: [0.3, 0.5], AL: [Math.PI - 0.3, 0.2], AR: [Math.PI + 0.1, 0.2], hy: 0.4, rot: 1.56, px: 0.86 }]] },
+  fall: { dur: 0.8, keys: [   // tripped or fouled: pitches forward, arms out, lands flat and stays down
+    [0.0, { L: [-0.1, 0.5], R: [0.15, 0.2], AL: [-0.4, 0.5], AR: [0.5, 0.5] }],
+    [0.3, { L: [-0.45, 0.6], R: [0.2, 0.3], AL: [-1.3, 0.3], AR: [1.5, 0.3], rot: 0.55, hy: 0.04, px: 0.15 }],
+    [0.7, { L: [-0.2, 0.25], R: [0.25, 0.4], AL: [Math.PI - 0.45, 0.1], AR: [Math.PI + 0.25, 0.1], rot: 1.35, hy: 0.36, px: 0.45 }],
+    [1.0, { L: [-0.1, 0.15], R: [0.2, 0.3], AL: [Math.PI - 0.3, 0.2], AR: [Math.PI + 0.15, 0.2], rot: 1.52, hy: 0.43, px: 0.55 }]] },
   slide: { dur: 1.1, keys: [   // sliding tackle: drop, lean back, leading leg out, skid along the grass, then settle
     [0.0, { L: [-0.15, 0.4], R: [0.25, 0.5], AL: [-0.5, 0.6], AR: [0.5, 0.6], lean: 0.15, hy: 0.04 }],
     [0.2, { L: [0.5, 0.9], R: [1.2, 0.1], AL: [-1.9, 0.3], AR: [1.0, 0.5], rot: 0.55, hy: 0.18, px: 0.1 }],
@@ -1831,6 +1836,53 @@ CARDS.stamp = function (c, ct, cx, cy) {
   ctx.restore();   // no ink-speckle texture (user: it punched black holes through the frame and looked mouldy)
 };
 CARDS.stamp.noSlide = true;
+
+// Unbeaten streak that shatters: a grid of green ticks counts up to n, then on breakAt a red X slams into the next slot,
+// the frame shakes and every tick drops away. {type: "streak", n: 43, cols: 11, title, label: "games unbeaten", fill: seconds, breakAt|breakT}
+CARDS.streak = function (c, ct, cx, cy) {
+  const n = c.n, cols = c.cols || 11, cell = c.cell || 78, rows = Math.ceil((n + 1) / cols), w = cols * cell, fill = c.fill != null ? c.fill : 1.2, bt = c.breakT != null ? c.breakT : 99, k = eOut(pr(ct, 0, 0.35));
+  if (k <= 0) return;
+  const R = rng(c.seed || 5), broke = ct >= bt, shown = Math.min(n, Math.floor(n * clamp((ct - 0.1) / Math.max(0.01, fill), 0, 1)));
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy);
+  if (c.title) { font(600, 26, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.title.toUpperCase(), 0, -rows * cell / 2 - 44); }
+  for (let i = 0; i <= n; i++) {
+    const x = -w / 2 + cell / 2 + (i % cols) * cell, y = -rows * cell / 2 + cell / 2 + Math.floor(i / cols) * cell, r = cell * 0.4, vx = (R() - 0.5) * 500, d0 = R() * 0.25, sp = (R() - 0.5) * 8;
+    if (i === n) { if (broke) { const a = pr(ct, bt, 0.2), sc = lerp(3, 1, eOut(a)); ctx.save(); ctx.translate(x, y); ctx.scale(sc, sc); ctx.fillStyle = '#d6283b'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-r * 0.42, -r * 0.42); ctx.lineTo(r * 0.42, r * 0.42); ctx.moveTo(r * 0.42, -r * 0.42); ctx.lineTo(-r * 0.42, r * 0.42); ctx.stroke(); ctx.restore(); }
+      else { ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 3; ctx.setLineDash([8, 8]); ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.stroke(); ctx.setLineDash([]); }
+      continue; }
+    if (i >= shown) { ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.stroke(); continue; }
+    const ft = broke ? Math.max(0, ct - bt - 0.12 - d0) : 0, fy = ft * ft * 2400, fx = vx * ft, pop = i === shown - 1 && !broke ? 1.25 : 1;
+    if (fy > 1700) continue;
+    ctx.save(); ctx.translate(x + fx, y + fy); ctx.rotate(sp * ft); ctx.scale(pop, pop); ctx.fillStyle = broke ? '#5d6470' : '#2ecc71'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(-r * 0.45, 0); ctx.lineTo(-r * 0.1, r * 0.35); ctx.lineTo(r * 0.48, -r * 0.35); ctx.stroke(); ctx.restore();
+  }
+  const by = rows * cell / 2 + 110; font(900, 170, 'Inter', '-4px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = broke ? '#ff4d5e' : '#fff';
+  const jl = broke ? 1 + 0.2 * Math.max(0, 1 - (ct - bt) / 0.3) : 1; ctx.save(); ctx.translate(0, by); ctx.scale(jl, jl); ctx.fillText(broke ? (c.broken || 'OVER') : shown, 0, 0); ctx.restore();
+  font(600, 26, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.fillText((broke ? (c.brokenLabel || 'after ' + n + ' games') : (c.label || 'games unbeaten')).toUpperCase(), 0, by + 120);
+  ctx.restore();
+};
+CARDS.streak.noSlide = true;
+
+// TV score bug: two team chips with the score between them and the match minute; a goal pops the changed number, a red card adds a red square.
+// {type: "scorebug", home: {name: "ESP", color}, away: {name: "ENG", color}, score: [0, 1], from: [0, 0], goalAt|goalT, min: "45'", red: "away"}
+CARDS.scorebug = function (c, ct, cx, cy) {
+  const k = eOut(pr(ct, 0, 0.3)), gt = c.goalT != null ? c.goalT : 0.5, sc = c.from && ct < gt ? c.from : c.score, w = 620, h = 104;
+  if (k <= 0) return;
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy - (1 - k) * 30);
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 8; ctx.fillStyle = 'rgba(8,10,15,0.92)'; rrect(-w / 2, -h / 2, w, h, 20); ctx.fill(); ctx.shadowColor = 'transparent';
+  [[c.home, -1, 0], [c.away, 1, 1]].forEach(([tm, sd, i]) => {
+    ctx.fillStyle = tm.color; rrect(sd < 0 ? -w / 2 + 10 : w / 2 - 28, -h / 2 + 12, 18, h - 24, 8); ctx.fill();
+    font(800, 50, 'Inter', '1px'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(tm.name, sd * 190, 3);
+    if (c.red === (i ? 'away' : 'home')) { ctx.fillStyle = '#e0202f'; rrect(sd * 190 - 14, -h / 2 - 40, 28, 38, 5); ctx.fill(); }
+    const ch = c.from && c.from[i] !== c.score[i] && ct >= gt, pp = ch ? 1 + 0.6 * Math.max(0, 1 - (ct - gt) / 0.35) : 1;
+    ctx.save(); ctx.translate(sd * 52, 3); ctx.scale(pp, pp); font(900, 68, 'Inter'); ctx.fillStyle = ch && ct - gt < 1.2 ? '#f1c453' : '#fff'; ctx.fillText(sc[i], 0, 0); ctx.restore();
+  });
+  font(900, 50, 'Inter'); ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.fillText('–', 0, 0);
+  if (c.min) { font(700, 30, 'Mono'); const mw = ctx.measureText(c.min).width + 36; ctx.fillStyle = '#d6283b'; rrect(-mw / 2, h / 2 - 6, mw, 46, 12); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(c.min, 0, h / 2 + 18); }
+  ctx.restore();
+};
+CARDS.scorebug.noSlide = true;
 
 // Stopwatch (backlog item): a chrome stopwatch whose hand races round and locks on a value with a jolt, while the readout counts.
 // {type: "stopwatch", value: 20, max: 60, unit: "MIN", prefix: "<", dur: 1.6, lockT|lockAt, label, color, r}
@@ -3763,6 +3815,8 @@ function cardEvents(c) {
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'fates': (c.items || []).forEach(it => { if (it.t != null && it.t < 90) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: it.fate === 'up' || it.fate === 'win' ? 'pop' : 'impact' }); }); break;
     case 'trapdoor': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.8; ev.push({ t, type: it.stay ? 'pop' : 'impact' }); if (!it.stay) ev.push({ t: t + 0.15, type: 'whoosh' }); }); break;
+    case 'streak': { const f = c.fill != null ? c.fill : 1.2; for (let t = 0.1; t < f; t += 0.07) ev.push({ t, type: 'tick' }); if (c.breakT != null) ev.push({ t: c.breakT, type: 'impact' }, { t: c.breakT + 0.15, type: 'whoosh' }); break; }
+    case 'scorebug': if (c.from) ev.push({ t: c.goalT != null ? c.goalT : 0.5, type: 'pop' }); break;
     case 'stopwatch': { const lt = c.lockT != null ? c.lockT : 0.3 + (c.dur || 1.6); for (let t = 0.3; t < lt - 0.05; t += 0.09) ev.push({ t, type: 'tick' }); ev.push({ t: lt, type: 'impact' }); break; }
     case 'rank': ev.push({ t: 0.2, type: 'impact' }); break;
     case 'coin': { const lt = c.landT != null ? c.landT : 1.6; ev.push({ t: 0.2, type: 'whoosh' }); for (let t = 0.3; t < lt; t += 0.12) ev.push({ t, type: 'tick' }); ev.push({ t: lt, type: 'impact' }); break; }

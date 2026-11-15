@@ -1,0 +1,2111 @@
+{
+ "title": "Spain 2-3 England",
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Spain 2–3 England · Nations League",
+   "headline": "England end Spain's [43-game] run.",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#e9b949",
+   "lights": 0.8,
+   "flashes": 16,
+   "camFrom": {
+    "pos": [
+     0.9,
+     1.5,
+     0.2
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.9,
+     1.5,
+     -1.0
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 2.3,
+     "z": 3.6,
+     "front": true,
+     "action": "celebrate",
+     "label": "England · 10 men",
+     "labelAt": "ten men"
+    }
+   ],
+   "card": [
+    {
+     "type": "streak",
+     "y": 1100,
+     "shiftX": -140,
+     "delay": -0.9,
+     "n": 43,
+     "cols": 8,
+     "cell": 88,
+     "fill": 1.1,
+     "title": "Spain · games unbeaten",
+     "breakAt": "unbeaten run",
+     "breakLag": 0.1,
+     "broken": "OVER",
+     "brokenLabel": "after 43 games",
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "10 MEN",
+     "sub": "in Madrid",
+     "at": "ten men",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.08,
+     "size": 100,
+     "dx": 240,
+     "y": 1760
+    }
+   ],
+   "shake": [
+    {
+     "at": "unbeaten run",
+     "lag": 0.15,
+     "amount": 20
+    },
+    {
+     "at": "ten men",
+     "lag": 0.06,
+     "amount": 12
+    }
+   ],
+   "vo": "England just ended Spain's forty-three-game unbeaten run. In Madrid. With ten men."
+  },
+  {
+   "kicker": "Madrid · Sunday 15 November 2026",
+   "headline": "World champions. Unbeaten since [March 2024].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     16,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 700,
+     "delay": 0.2,
+     "label": "Nations League · Group A3",
+     "groups": [
+      {
+       "label": "November",
+       "value": 15,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "SUN",
+      "big": "15",
+      "bottom": "NOV"
+     }
+    },
+    {
+     "type": "trophies",
+     "at": "world champions",
+     "lag": -0.3,
+     "floor": 1500,
+     "stagger": 0,
+     "rise": 0.55,
+     "items": [
+      {
+       "kind": "worldcup",
+       "sx": 0.5,
+       "h": 160,
+       "size": 210,
+       "label": "Spain · World Cup 2026"
+      }
+     ],
+     "clear": false
+    },
+    {
+     "type": "big",
+     "at": "hadn't lost",
+     "lag": -0.2,
+     "from": 0,
+     "value": 43,
+     "countDur": 0.9,
+     "label": "Games unbeaten · since March 2024",
+     "y": 1740,
+     "size": 170,
+     "clear": false
+    }
+   ],
+   "vo": "Sunday the fifteenth of November, 2026. Spain, the world champions, hadn't lost since March 2024."
+  },
+  {
+   "kicker": "45' · penalty",
+   "headline": "Kane from the spot. [0–1].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#e9b949",
+   "follow": 0.5,
+   "camFrom": {
+    "pos": [
+     -3.6,
+     2.0,
+     33.5
+    ],
+    "tgt": [
+     0.5,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.0,
+     1.8,
+     35.5
+    ],
+    "tgt": [
+     0.5,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8905a",
+     "x": 0,
+     "z": 41.0,
+     "label": "Harry Kane",
+     "labelDelay": 0.2,
+     "action": "kick",
+     "actionAt": "from the spot",
+     "actionLag": -0.35,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 2.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "from the spot",
+     "actionLag": 0.05
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#1c2c7a",
+      "socks": "#c60b1e",
+      "text": "#ffc400"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -6,
+     "z": 36.5
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#1c2c7a",
+      "socks": "#c60b1e",
+      "text": "#ffc400"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 6.5,
+     "z": 36.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 4.5,
+     "z": 35.8
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "ESP",
+      "color": "#c60b1e"
+     },
+     "away": {
+      "name": "ENG",
+      "color": "#ffffff"
+     },
+     "score": [
+      0,
+      1
+     ],
+     "min": "45'",
+     "clear": false,
+     "from": [
+      0,
+      0
+     ],
+     "goalAt": "from the spot",
+     "goalLag": 0.35
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.22,
+      0.11,
+      41.5
+     ],
+     "untilAt": "from the spot",
+     "untilLag": -0.01
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "from the spot",
+     "lag": -0.01,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       0.22,
+       0.11,
+       41.5
+      ],
+      [
+       1.61,
+       0.9,
+       46.9
+      ],
+      [
+       3.0,
+       0.5,
+       52.3
+      ]
+     ]
+    }
+   ],
+   "vo": "Just before half-time, Harry Kane scores from the spot. One–nil England."
+  },
+  {
+   "kicker": "53' · 57'",
+   "headline": "Konsa. Then White. [0–3].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#e9b949",
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     6,
+     2.5,
+     39.5
+    ],
+    "tgt": [
+     -0.5,
+     1.5,
+     49.5
+    ]
+   },
+   "camera": {
+    "pos": [
+     5,
+     2.2,
+     41.5
+    ],
+    "tgt": [
+     -0.5,
+     1.5,
+     49.5
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -1.2,
+     "z": 46.5,
+     "front": true,
+     "label": "Ezri Konsa",
+     "labelAt": "Ezri",
+     "hops": [
+      {
+       "at": "heads in",
+       "lag": -0.3,
+       "dur": 0.6,
+       "height": 0.3
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "heads in",
+     "actionLag": 0.05
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#1c2c7a",
+      "socks": "#c60b1e",
+      "text": "#ffc400"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 0.6,
+     "z": 47.4,
+     "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#1c2c7a",
+      "socks": "#c60b1e",
+      "text": "#ffc400"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "x": -3.4,
+     "z": 48.2,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "ESP",
+      "color": "#c60b1e"
+     },
+     "away": {
+      "name": "ENG",
+      "color": "#ffffff"
+     },
+     "score": [
+      0,
+      2
+     ],
+     "min": "53'",
+     "clear": false,
+     "from": [
+      0,
+      1
+     ],
+     "goalAt": "heads in",
+     "goalLag": 0.35
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "heads in",
+     "lag": -0.9,
+     "dur": 0.9,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       -14,
+       0.2,
+       44
+      ],
+      [
+       -7.6,
+       5.5,
+       45.25
+      ],
+      [
+       -1.2,
+       2.25,
+       46.5
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "heads in",
+     "lag": 0.0,
+     "dur": 0.4,
+     "slowmo": false,
+     "points": [
+      [
+       -1.2,
+       2.25,
+       46.5
+      ],
+      [
+       0.7999999999999999,
+       1.9,
+       49.4
+      ],
+      [
+       2.8,
+       1.2,
+       52.3
+      ]
+     ]
+    }
+   ],
+   "shake": [
+    {
+     "at": "heads in",
+     "lag": 0.42,
+     "amount": 12
+    }
+   ],
+   "shots": [
+    {
+     "at": "Four minutes",
+     "lag": -0.1,
+     "cut": true,
+     "transition": "whip",
+     "kicker": "57' · Bellingham → White",
+     "follow": 0.5,
+     "hype": true,
+     "camFrom": {
+      "pos": [
+       6.8,
+       2.0,
+       33
+      ],
+      "tgt": [
+       0,
+       1.0,
+       52
+      ]
+     },
+     "camera": {
+      "pos": [
+       6.2,
+       1.8,
+       35
+      ],
+      "tgt": [
+       0,
+       1.0,
+       52
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#ffffff",
+        "shorts": "#1c2c5b",
+        "socks": "#ffffff",
+        "text": "#1c2c5b"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#3a2a1a",
+       "x": 3.0,
+       "z": 40,
+       "label": "Ben White",
+       "labelAt": "Ben White",
+       "action": "kick",
+       "actionAt": "Three–nil",
+       "actionLag": -0.75,
+       "actionDur": 0.8,
+       "after": "celebrate"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#f2c200",
+        "shorts": "#1d1c22",
+        "socks": "#f2c200",
+        "text": "#1d1c22"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#3a2a1a",
+       "gloves": "#f2f2f2",
+       "x": 0,
+       "z": 52.0,
+       "front": true,
+       "pose": "keeper",
+       "before": "ready",
+       "action": "dive",
+       "dir": 1,
+       "actionAt": "Three–nil",
+       "actionLag": -0.3
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#ffffff",
+        "shorts": "#1c2c5b",
+        "socks": "#ffffff",
+        "text": "#1c2c5b"
+       },
+       "skin": "#c99b7a",
+       "hair": "#141010",
+       "x": -5,
+       "z": 37.5,
+       "label": "Bellingham",
+       "labelAt": "Bellingham"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#c60b1e",
+        "shorts": "#1c2c7a",
+        "socks": "#c60b1e",
+        "text": "#ffc400"
+       },
+       "skin": "#e7b593",
+       "hair": "#141010",
+       "x": 4.9,
+       "z": 43.2,
+       "front": true,
+       "action": "dive",
+       "dir": -1,
+       "actionAt": "Three–nil",
+       "actionLag": -0.6,
+       "actionDur": 0.7
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#c60b1e",
+        "shorts": "#1c2c7a",
+        "socks": "#c60b1e",
+        "text": "#ffc400"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "x": -1.8,
+       "z": 47.5,
+       "front": true
+      }
+     ],
+     "card": [
+      {
+       "type": "scorebug",
+       "y": 520,
+       "delay": 0,
+       "home": {
+        "name": "ESP",
+        "color": "#c60b1e"
+       },
+       "away": {
+        "name": "ENG",
+        "color": "#ffffff"
+       },
+       "score": [
+        0,
+        3
+       ],
+       "min": "57'",
+       "clear": false,
+       "from": [
+        0,
+        2
+       ],
+       "goalAt": "Three–nil",
+       "goalLag": 0.1
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "Bellingham",
+       "lag": 0.1,
+       "dur": 0.7,
+       "slowmo": false,
+       "flash": false,
+       "points": [
+        [
+         -4.6,
+         0.11,
+         37.9
+        ],
+        [
+         -0.8,
+         0.3,
+         39.4
+        ],
+        [
+         3.22,
+         0.11,
+         40.45
+        ]
+       ]
+      },
+      {
+       "type": "ball",
+       "at": "Bellingham",
+       "lag": 0.8,
+       "point": [
+        3.22,
+        0.11,
+        40.45
+       ],
+       "untilAt": "Three–nil",
+       "untilLag": -0.41
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "Three–nil",
+       "lag": -0.41,
+       "dur": 0.5,
+       "slowmo": false,
+       "points": [
+        [
+         3.22,
+         0.11,
+         40.45
+        ],
+        [
+         0.16000000000000014,
+         0.8,
+         46.375
+        ],
+        [
+         -2.9,
+         0.4,
+         52.3
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "vo": "Fifty-three minutes: Ezri Konsa heads in a second. Four minutes later, Bellingham finds Ben White. Three–nil."
+  },
+  {
+   "kicker": "63' · the turn",
+   "headline": "Then it [all changes].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "63'",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.7,
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     -4.5,
+     2.3,
+     25.5
+    ],
+    "tgt": [
+     1.6,
+     1.0,
+     36
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.6,
+     1.9,
+     29.5
+    ],
+    "tgt": [
+     1.2,
+     1.0,
+     38
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#1c2c7a",
+      "socks": "#c60b1e",
+      "text": "#ffc400"
+     },
+     "skin": "#b98a66",
+     "hair": "#141010",
+     "foot": "left",
+     "dribble": true,
+     "x": 2.2,
+     "z": 32.6,
+     "path": [
+      [
+       2.2,
+       32.6
+      ],
+      [
+       1.2,
+       35.5
+      ],
+      [
+       0.4,
+       38.6
+      ]
+     ],
+     "pathDur": 1.7,
+     "at": "Lamine Yamal",
+     "lag": -0.2,
+     "label": "Lamine Yamal",
+     "labelAt": "Lamine Yamal",
+     "action": "fall",
+     "actionAt": "brings him down",
+     "actionLag": 0.05
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "x": 5.5,
+     "z": 36,
+     "path": [
+      [
+       5.5,
+       36
+      ],
+      [
+       3.2,
+       37.8
+      ],
+      [
+       0.9,
+       38.9
+      ]
+     ],
+     "pathDur": 1.3,
+     "at": "Elliot Anderson",
+     "lag": 0.1,
+     "label": "Elliot Anderson",
+     "labelAt": "Elliot Anderson",
+     "action": "slide",
+     "dir": 1,
+     "actionAt": "brings him down",
+     "actionLag": -0.35,
+     "actionDur": 1.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 3.4,
+     "z": 32.2,
+     "front": true,
+     "label": "Quansah",
+     "labelAt": "Quansah",
+     "pose": "think"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready"
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "ESP",
+      "color": "#c60b1e"
+     },
+     "away": {
+      "name": "ENG",
+      "color": "#ffffff"
+     },
+     "score": [
+      0,
+      3
+     ],
+     "min": "63'",
+     "clear": false
+    },
+    {
+     "type": "pen",
+     "delay": 0,
+     "anchor": 2,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "at": "loses the ball",
+       "dur": 0.4,
+       "cx": 0,
+       "cy": 0,
+       "rx": 0.6,
+       "ry": 0.2,
+       "color": "#ff4d5e",
+       "width": 9,
+       "layer": "under"
+      }
+     ]
+    },
+    {
+     "type": "flytext",
+     "text": "FOUL",
+     "size": 280,
+     "endScale": 0.7,
+     "y": 1600,
+     "at": "brings him down",
+     "lag": 0.25,
+     "color": "#ff4d5e",
+     "clear": false
+    }
+   ],
+   "shake": [
+    {
+     "at": "brings him down",
+     "lag": 0.2,
+     "amount": 18
+    }
+   ],
+   "punch": [
+    {
+     "at": "Lamine Yamal",
+     "amount": 0.3,
+     "dur": 5,
+     "anchor": 0
+    }
+   ],
+   "freezeAt": "brings him down",
+   "freezeLag": 0.75,
+   "vo": "Then it all changes. Quansah loses the ball. Lamine Yamal runs through, and Elliot Anderson brings him down."
+  },
+  {
+   "kicker": "63' · 65'",
+   "headline": "Penalty [and] a red card.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.75,
+   "follow": 0.4,
+   "camFrom": {
+    "pos": [
+     3.6,
+     2.0,
+     33.5
+    ],
+    "tgt": [
+     -0.5,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.0,
+     1.8,
+     35.5
+    ],
+    "tgt": [
+     -0.5,
+     1.0,
+     52
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#1c2c7a",
+      "socks": "#c60b1e",
+      "text": "#ffc400"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "foot": "left",
+     "x": 0,
+     "z": 41.0,
+     "label": "Oyarzabal",
+     "labelAt": "Oyarzabal",
+     "action": "kick",
+     "actionAt": "Oyarzabal scores",
+     "actionLag": 0.15,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 2.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "Oyarzabal scores",
+     "actionLag": 0.55
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "x": -6.5,
+     "z": 37,
+     "label": "Anderson · off",
+     "labelAt": "red card"
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "ESP",
+      "color": "#c60b1e"
+     },
+     "away": {
+      "name": "ENG",
+      "color": "#ffffff"
+     },
+     "score": [
+      1,
+      3
+     ],
+     "min": "65'",
+     "clear": false,
+     "from": [
+      0,
+      3
+     ],
+     "goalAt": "Oyarzabal scores",
+     "goalLag": 0.95,
+     "red": "away"
+    },
+    {
+     "type": "flytext",
+     "text": "PENALTY",
+     "size": 200,
+     "endScale": 0.7,
+     "y": 760,
+     "delay": 0.05,
+     "color": "#e9b949",
+     "clear": false,
+     "hideAt": "Oyarzabal",
+     "hideLag": -0.1
+    },
+    {
+     "type": "redcard",
+     "at": "straight red",
+     "lag": -0.3,
+     "dx": -230,
+     "y": 1500,
+     "label": "63' Anderson",
+     "hideAt": "Oyarzabal",
+     "hideLag": 0.1
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.22,
+      0.11,
+      41.5
+     ],
+     "untilAt": "Oyarzabal scores",
+     "untilLag": 0.49
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Oyarzabal scores",
+     "lag": 0.49,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -0.22,
+       0.11,
+       41.5
+      ],
+      [
+       -1.61,
+       0.8,
+       46.9
+      ],
+      [
+       -3.0,
+       0.4,
+       52.3
+      ]
+     ]
+    }
+   ],
+   "vo": "Penalty. And a straight red card. Oyarzabal scores. Three–one."
+  },
+  {
+   "kicker": "After the game",
+   "headline": "Tuchel: why [both]?",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "booth",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "screenLeft": [
+     "ESP 2–3 ENG",
+     "FT"
+    ],
+    "screenRight": [
+     "63'",
+     "RED + PEN"
+    ]
+   },
+   "accent": "#e9b949",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#1c2c5b",
+     "skin": "#e2b08c",
+     "hair": "#5a4a3a",
+     "sx": 0.5,
+     "scale": 1,
+     "label": "Thomas Tuchel",
+     "labelDelay": 0.2
+    }
+   ],
+   "card": [
+    {
+     "type": "scales",
+     "y": 1500,
+     "at": "why it had",
+     "lag": -0.2,
+     "left": {
+      "name": "Penalty",
+      "value": 1,
+      "color": "#e9b949",
+      "text": "PEN"
+     },
+     "right": {
+      "name": "Red card",
+      "value": 1.25,
+      "color": "#d6283b",
+      "text": "RED"
+     },
+     "tilt": 0.15,
+     "clear": false
+    }
+   ],
+   "vo": "Thomas Tuchel asked afterwards why it had to be both: a penalty and a red."
+  },
+  {
+   "kicker": "75' · Spain pour forward",
+   "headline": "Williams. [2–3].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#ff4d5e",
+   "follow": 0.5,
+   "camFrom": {
+    "pos": [
+     -7,
+     2.0,
+     35
+    ],
+    "tgt": [
+     0,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -6.2,
+     1.8,
+     37.5
+    ],
+    "tgt": [
+     0,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#1c2c7a",
+      "socks": "#c60b1e",
+      "text": "#ffc400"
+     },
+     "skin": "#6a4630",
+     "hair": "#141010",
+     "x": -2.0,
+     "z": 43,
+     "label": "Nico Williams",
+     "labelAt": "Nico",
+     "action": "kick",
+     "actionAt": "three–two",
+     "actionLag": -0.75,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "three–two",
+     "actionLag": -0.3
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#1c2c7a",
+      "socks": "#c60b1e",
+      "text": "#ffc400"
+     },
+     "skin": "#b98a66",
+     "hair": "#141010",
+     "x": 9,
+     "z": 41,
+     "label": "Yamal",
+     "labelAt": "Nico"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -3.9,
+     "z": 46,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "three–two",
+     "actionLag": -0.6,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.6,
+     "z": 48,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "ESP",
+      "color": "#c60b1e"
+     },
+     "away": {
+      "name": "ENG",
+      "color": "#ffffff"
+     },
+     "score": [
+      2,
+      3
+     ],
+     "min": "75'",
+     "clear": false,
+     "from": [
+      1,
+      3
+     ],
+     "goalAt": "three–two",
+     "goalLag": 0.1,
+     "red": "away"
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Nico",
+     "lag": -0.1,
+     "dur": 0.8,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       8.6,
+       0.11,
+       41.4
+      ],
+      [
+       3,
+       2.2,
+       43
+      ],
+      [
+       -2.22,
+       0.11,
+       43.45
+      ]
+     ]
+    },
+    {
+     "type": "ball",
+     "at": "Nico",
+     "lag": 0.7,
+     "point": [
+      -2.22,
+      0.11,
+      43.45
+     ],
+     "untilAt": "three–two",
+     "untilLag": -0.41
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "three–two",
+     "lag": -0.41,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -2.22,
+       0.11,
+       43.45
+      ],
+      [
+       0.33999999999999986,
+       0.9,
+       47.875
+      ],
+      [
+       2.9,
+       0.5,
+       52.3
+      ]
+     ]
+    }
+   ],
+   "shots": [
+    {
+     "at": "Spain finish",
+     "lag": -0.1,
+     "cut": true,
+     "kicker": "Spain's shots",
+     "camFrom": {
+      "pos": [
+       0,
+       46,
+       22
+      ],
+      "tgt": [
+       0,
+       0,
+       46
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       40,
+       26
+      ],
+      "tgt": [
+       0,
+       0,
+       46
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [],
+     "lights": 0.7,
+     "card": [
+      {
+       "type": "scorebug",
+       "y": 520,
+       "delay": 0,
+       "home": {
+        "name": "ESP",
+        "color": "#c60b1e"
+       },
+       "away": {
+        "name": "ENG",
+        "color": "#ffffff"
+       },
+       "score": [
+        2,
+        3
+       ],
+       "min": "90'",
+       "clear": false,
+       "red": "away"
+      },
+      {
+       "type": "shotmap",
+       "delay": 0.1,
+       "scale": 2.2,
+       "step": 0.06,
+       "color": "#ffc400",
+       "shots": [
+        {
+         "x": -8,
+         "z": 36
+        },
+        {
+         "x": 4,
+         "z": 34
+        },
+        {
+         "x": -2,
+         "z": 40
+        },
+        {
+         "x": 9,
+         "z": 39
+        },
+        {
+         "x": -11,
+         "z": 43
+        },
+        {
+         "x": 1,
+         "z": 44
+        },
+        {
+         "x": 6,
+         "z": 45
+        },
+        {
+         "x": -5,
+         "z": 46
+        },
+        {
+         "x": 12,
+         "z": 41
+        },
+        {
+         "x": -1,
+         "z": 37
+        },
+        {
+         "x": 3,
+         "z": 47
+        },
+        {
+         "x": -7,
+         "z": 41
+        },
+        {
+         "x": 8,
+         "z": 35
+        },
+        {
+         "x": 0,
+         "z": 42
+        },
+        {
+         "x": -3,
+         "z": 33
+        },
+        {
+         "x": 5,
+         "z": 40
+        },
+        {
+         "x": -9,
+         "z": 47
+        },
+        {
+         "x": 10,
+         "z": 46
+        },
+        {
+         "x": 2,
+         "z": 36
+        },
+        {
+         "x": -6,
+         "z": 38
+        },
+        {
+         "x": 7,
+         "z": 43
+        },
+        {
+         "x": -12,
+         "z": 39
+        },
+        {
+         "x": 0,
+         "z": 48
+        }
+       ]
+      },
+      {
+       "type": "big",
+       "at": "twenty-three",
+       "lag": -0.3,
+       "from": 0,
+       "value": 23,
+       "countDur": 0.8,
+       "label": "Spain shots · England 9",
+       "y": 1640,
+       "size": 220,
+       "clear": false
+      }
+     ]
+    }
+   ],
+   "vo": "Seventy-five minutes: Nico Williams makes it three–two. Spain finish with twenty-three shots."
+  },
+  {
+   "kicker": "James Trafford",
+   "headline": "Trafford [keeps them out].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#2ecc71",
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     4.4,
+     2.2,
+     37
+    ],
+    "tgt": [
+     0.2,
+     1.2,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.4,
+     2.0,
+     40
+    ],
+    "tgt": [
+     0.2,
+     1.2,
+     52
+    ]
+   },
+   "move": 3,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c60b1e",
+      "shorts": "#1c2c7a",
+      "socks": "#c60b1e",
+      "text": "#ffc400"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -1.7,
+     "z": 43,
+     "action": "kick",
+     "actionDelay": 0.3,
+     "actionDur": 0.8
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "label": "James Trafford",
+     "labelDelay": 0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 1.6,
+     "z": 46.5,
+     "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "x": -3.2,
+     "z": 47.2,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "ESP",
+      "color": "#c60b1e"
+     },
+     "away": {
+      "name": "ENG",
+      "color": "#ffffff"
+     },
+     "score": [
+      2,
+      3
+     ],
+     "min": "90+'",
+     "clear": false,
+     "red": "away"
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.5,
+      0.11,
+      43.45
+     ],
+     "until": 0.64
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.64,
+     "dur": 0.55,
+     "slowmo": false,
+     "saveBy": 1,
+     "flash": false,
+     "points": [
+      [
+       -1.5,
+       0.11,
+       43.45
+      ],
+      [
+       0.4,
+       1.4,
+       48
+      ],
+      [
+       2.3,
+       1.3,
+       52.0
+      ]
+     ]
+    }
+   ],
+   "shots": [
+    {
+     "at": "England win",
+     "lag": -0.15,
+     "cut": true,
+     "kicker": "Full time",
+     "headline": "England win. [Top of the group].",
+     "hype": false,
+     "confetti": true,
+     "flashes": 16,
+     "orbit": {
+      "center": [
+       0,
+       1.25,
+       3
+      ],
+      "r": 5.2,
+      "from": -30,
+      "to": 15,
+      "h": 1.4,
+      "h2": 1.9,
+      "dur": 5
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.7,
+       -2
+      ],
+      "tgt": [
+       0,
+       1.25,
+       3
+      ]
+     },
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#ffffff",
+        "shorts": "#1c2c5b",
+        "socks": "#ffffff",
+        "text": "#1c2c5b"
+       },
+       "skin": "#e7b593",
+       "hair": "#3a2a1a",
+       "x": -1.1,
+       "z": 3,
+       "front": true,
+       "pose": "fists",
+       "action": "celebrate"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#ffffff",
+        "shorts": "#1c2c5b",
+        "socks": "#ffffff",
+        "text": "#1c2c5b"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "x": 1.1,
+       "z": 3.3,
+       "front": true,
+       "action": "celebrate"
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#2ecc71",
+        "shorts": "#1d1c22",
+        "socks": "#2ecc71",
+        "text": "#1d1c22"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#3a2a1a",
+       "x": 0,
+       "z": 4.6,
+       "front": true,
+       "action": "celebrate"
+      }
+     ],
+     "card": [
+      {
+       "type": "scorebug",
+       "y": 610,
+       "delay": 0,
+       "home": {
+        "name": "ESP",
+        "color": "#c60b1e"
+       },
+       "away": {
+        "name": "ENG",
+        "color": "#ffffff"
+       },
+       "score": [
+        2,
+        3
+       ],
+       "min": "FT",
+       "clear": false,
+       "red": "away"
+      },
+      {
+       "type": "stamp",
+       "text": "TOP OF THE GROUP",
+       "sub": "Nations League · Group A3",
+       "at": "top the group",
+       "lag": -0.2,
+       "color": "#e9b949",
+       "rot": -0.06,
+       "size": 76,
+       "y": 1680
+      }
+     ]
+    }
+   ],
+   "vo": "But James Trafford keeps them out. England win, and top the group."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Penalty and red: [fair or harsh]?",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c60b1e",
+     "#ffc400",
+     "#c60b1e",
+     "#ffffff"
+    ],
+    "seed": 14
+   },
+   "accent": "#e9b949",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     -8,
+     14,
+     -28
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     8,
+     20,
+     -36
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "redcard",
+     "delay": 0.1,
+     "dx": 250,
+     "y": 1100
+    },
+    {
+     "type": "flytext",
+     "text": "PENALTY +",
+     "size": 150,
+     "endScale": 0.7,
+     "y": 780,
+     "shiftX": -170,
+     "delay": 0.1,
+     "color": "#e9b949",
+     "clear": false
+    },
+    {
+     "type": "poll",
+     "y": 1620,
+     "at": "Fair",
+     "lag": -0.4,
+     "question": "Penalty and a red card?",
+     "options": [
+      {
+       "label": "Fair",
+       "color": "#c60b1e",
+       "fill": 0.5
+      },
+      {
+       "label": "Too harsh",
+       "color": "#1c2c5b",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So be honest: a penalty and a red card. Fair, or too harsh?"
+  }
+ ]
+}

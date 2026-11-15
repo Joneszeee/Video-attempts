@@ -1,0 +1,107 @@
+{
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Premier League · shortest reigns",
+   "headline": "Sacked in [under 20 minutes].",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#dd0000",
+     "#ffffff",
+     "#dd0000",
+     "#8a0000"
+    ],
+    "seed": 9
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.7,
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     -1.1,
+     1.5,
+     -0.9
+    ],
+    "tgt": [
+     -0.9,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -1.1,
+     1.5,
+     -0.9
+    ],
+    "tgt": [
+     -0.9,
+     1.35,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#7a1420",
+     "skin": "#e2b08c",
+     "hair": "#8a8a8e",
+     "front": true,
+     "x": -1.9,
+     "z": 3.4,
+     "label": "Ange Postecoglou",
+     "labelDelay": 0,
+     "pose": "think"
+    }
+   ],
+   "card": [
+    {
+     "type": "stopwatch",
+     "y": 1330,
+     "shiftX": 200,
+     "delay": -4,
+     "value": 20,
+     "max": 60,
+     "unit": "MIN",
+     "prefix": "<",
+     "label": "After the final whistle",
+     "r": 210,
+     "clear": false,
+     "lockT": 1.0
+    },
+    {
+     "type": "stamp",
+     "text": "SACKED",
+     "sub": "39 days",
+     "color": "#ff4d5e",
+     "rot": -0.09,
+     "size": 110,
+     "dx": 200,
+     "y": 1750,
+     "delay": -3
+    },
+    {
+     "type": "shout",
+     "text": "NOT EVEN THE FASTEST",
+     "y": 700,
+     "size": 120,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

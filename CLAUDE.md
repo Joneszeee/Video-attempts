@@ -320,6 +320,7 @@ Built so far from the idea list (reuse them):
 - **Draw pot** (built for `videos/england-next`): the `drawpot` card. Lottery balls tumble in a glass bowl; on `pickAt` one rises out, grows and shows its name
   (or `pickText: "?"`) with a `pickLabel` pill: `balls: [{text: "BEL", color, color2}]`, `pick` (index), `title`, `r`, `ballR`. For cup draws and "who's next" stories.
 - **Fate tiles with custom labels:** a `fates` item takes `label` ("CAN'T", "POSSIBLE", "RUNNER-UP") with `fate: "down"|"up"`, so the same tiles work for draw rules.
+- **Ticket stub text always fits** (user: the date ran past the ticket's edges). The engine shrinks the stub date to the ticket's height; still keep it short ("Wembley · Sept 2026").
 - **`tickets` card keys** (it crashed once on the wrong ones): the list is `tickets: [...]` (not `items`), with `done` = how many are already shown and `newT`/`newAt` for the next.
 - **History stories:** check the club's own site and at least one other source; drop quotes and details only one retelling has; say "the story goes"
   for parts that are legend.

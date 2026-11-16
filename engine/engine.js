@@ -3523,7 +3523,8 @@ CARDS.tickets = function (c, ct, cx, cy) {
     font(700, 20, 'Mono', '3px'); ctx.fillText(tk.comp.toUpperCase(), -tw / 2 + 50, -th / 2 + 44);
     font(800, 36, 'Inter', '-0.5px'); ctx.fillText(tk.teams, -tw / 2 + 50, -th / 2 + 96);
     font(800, 52, 'Inter', '-1px'); ctx.fillText(tk.score, -tw / 2 + 50, -th / 2 + 160);
-    ctx.save(); ctx.translate(tw / 2 - 60, 0); ctx.rotate(-Math.PI / 2); font(700, 18, 'Mono', '3px'); ctx.textAlign = 'center'; ctx.fillText(tk.date.toUpperCase(), 0, 6); ctx.restore();
+    ctx.save(); ctx.translate(tw / 2 - 60, 0); ctx.rotate(-Math.PI / 2); { let fs = 18; font(700, fs, 'Mono', '3px'); const dw = ctx.measureText(tk.date.toUpperCase()).width; if (dw > th - 36) { fs = Math.max(10, fs * (th - 36) / dw); font(700, fs, 'Mono', '2px'); } }   // the stub date always fits inside the ticket
+    ctx.textAlign = 'center'; ctx.fillText(tk.date.toUpperCase(), 0, 6); ctx.restore();
     if (c.stamp && k >= 1) {
       const sk = isNew ? pr(ct, c.newT + 0.45, 0.2) : 1;
       if (sk > 0) {

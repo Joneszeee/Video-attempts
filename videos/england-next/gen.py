@@ -39,7 +39,7 @@ B.append({"kicker": "The group stage", "headline": "[5] wins. [19] goals. One de
   "camFrom": {"pos": [-12, 14, -28], "tgt": [0, 0, 8]}, "camera": {"pos": [10, 22, -40], "tgt": [0, 0, 6]}, "move": 8, "moveEase": "linear", "players": [],
   "card": [{"type": "dots", "states": ["hit", "miss", "hit", "hit", "hit", "hit"], "label": "England · six group games", "y": 780, "step": 0.14, "delay": 0.1, "clear": False},
            {"type": "rain", "y": 1250, "at": "Nineteen", "lag": -0.4, "groups": [{"n": 19, "color": "#ffffff", "t": 0, "dur": 1.0}], "cols": 10, "cell": 86, "icon": "ball", "empty": 0, "label": "Goals", "clear": False, "hideAt": "The only", "hideLag": 0.2},
-           {"type": "tickets", "y": 1250, "at": "The only", "lag": 0.3, "done": 0, "newT": 0.1, "tw": 760, "th": 280, "tickets": [{"comp": "Nations League", "teams": "England v Spain", "score": "2–3", "date": "Wembley · September 2026", "color": "#c60b1e"}], "stamp": "LOST", "clear": False}]})
+           {"type": "tickets", "y": 1250, "at": "The only", "lag": 0.3, "done": 0, "newT": 0.1, "tw": 760, "th": 280, "tickets": [{"comp": "Nations League", "teams": "England v Spain", "score": "2–3", "date": "Wembley · Sept 2026", "color": "#c60b1e"}], "stamp": "LOST", "clear": False}]})
 # 3 the table
 B.append({"kicker": "Group A3 · final table", "headline": "Level on [15]. Top on goal difference.", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_DARK, "accent": GOLD, "lights": 0.55, "focus": 0.3,
   "camFrom": {"pos": [-14, 12, -24], "tgt": [0, 0, 8]}, "camera": {"pos": [14, 26, -44], "tgt": [0, 0, 5]}, "move": 6, "moveEase": "linear", "players": [], "focus": 0.15, "flashes": 10,

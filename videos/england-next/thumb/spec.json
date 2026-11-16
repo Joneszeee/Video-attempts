@@ -1,0 +1,131 @@
+{
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "England · Nations League",
+   "headline": "England top the group. [Who's next]?",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 3
+   },
+   "accent": "#e9b949",
+   "lights": 0.8,
+   "flashes": 16,
+   "camFrom": {
+    "pos": [
+     -0.9,
+     1.5,
+     -1.0
+    ],
+    "tgt": [
+     -0.9,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.9,
+     1.5,
+     -1.0
+    ],
+    "tgt": [
+     -0.9,
+     1.35,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -1.75,
+     "z": 3.6,
+     "front": true,
+     "action": "celebrate",
+     "label": "England",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "drawpot",
+     "y": 1330,
+     "shiftX": 210,
+     "delay": -3,
+     "r": 270,
+     "balls": [
+      {
+       "text": "BEL",
+       "color": "#c8102e",
+       "color2": "#111111"
+      },
+      {
+       "text": "GER",
+       "color": "#f4f4f2",
+       "color2": "#111111",
+       "text2": "#fff"
+      },
+      {
+       "text": "NED",
+       "color": "#f36c21",
+       "color2": "#1c2c7a"
+      },
+      {
+       "text": "POR",
+       "color": "#c8102e",
+       "color2": "#046a38"
+      },
+      {
+       "text": "GRE",
+       "color": "#0d5eaf",
+       "color2": "#ffffff"
+      },
+      {
+       "text": "?",
+       "color": "#e9b949",
+       "color2": "#8a6a1a"
+      }
+     ],
+     "pick": 5,
+     "pickText": "?",
+     "pickLabel": "Quarter-final opponent",
+     "title": "The draw",
+     "clear": false,
+     "pickT": 0.5
+    },
+    {
+     "type": "shout",
+     "text": "WHO'S NEXT?",
+     "y": 1790,
+     "size": 150,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

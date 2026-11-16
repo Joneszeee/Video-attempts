@@ -69,7 +69,7 @@ B.append({"kicker": "But here's the twist", "headline": "United won at Anfield: 
 B.append({"kicker": "The curse", "headline": "It can be broken. [Not by him].", "cut": True, "scene": S_ANF, "accent": RED, "lights": 0.4,
   "camFrom": {"pos": [0.9, 1.6, -3.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0.2, 1.45, -0.9], "tgt": [0, 1.3, 10]}, "move": 4, "moveEase": "linear",
   "players": [poch(x=0, z=2.9, pose="think")],
-  "card": [{"type": "scales", "y": 1560, "delay": 0.2, "left": {"name": "United at Anfield", "value": 1, "color": GREEN, "text": "WON"}, "right": {"name": "Pochettino v Liverpool", "value": 1.6, "color": "#d6283b", "text": "9 YRS"}, "tilt": 0.2, "arm": 250, "clear": False}],
+  "card": [{"type": "scales", "y": 1560, "delay": 0.2, "left": {"name": "United", "value": 1, "color": GREEN, "text": "WON"}, "right": {"name": "Pochettino", "value": 1.6, "color": "#d6283b", "text": "9 YRS"}, "tilt": 0.2, "arm": 250, "clear": False}],
   "punch": [{"at": "Just not", "amount": 0.14, "dur": 1.4}]})
 # 8 lose / win
 B.append({"kicker": "What's at stake", "headline": "Lose: bottom three. [Win: a new era].", "cut": True, "transition": "whip", "scene": S_OT, "accent": GOLD, "lights": 0.4,

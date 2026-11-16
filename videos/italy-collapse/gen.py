@@ -60,8 +60,8 @@ B.append({"kicker": "The collapse", "headline": "Three goals in [11 minutes].", 
   "camFrom": {"pos": [-1.5, 3.2, 31.5], "tgt": [0, 1.2, 50]}, "camera": {"pos": [1.0, 2.7, 34.5], "tgt": [0, 1.2, 50]}, "move": 6, "moveEase": "linear", "players": pl,
   "card": cards + [bug([3, 1], "11 MIN", [0, 1], "De Cuyper", 0.6),
                    {"type": "timeline", "y": 1560, "delay": 0.1, "title": "Belgium v Italy · not to scale", "clear": False,
-                    "events": [{"pos": 0.22, "label": "Esposito", "color": "#0b5fc0", "t": 0.05}, {"pos": 0.5, "label": "De Cuyper", "color": "#c8102e", "at": "De Cuyper", "lag": 0.3}, {"pos": 0.6, "label": "Ngoy", "color": "#c8102e", "at": "Ngoy", "lag": 0.3}, {"pos": 0.7, "label": "Doku", "color": "#c8102e", "at": "Doku", "lag": 0.3}],
-                    "bracket": {"from": 0.5, "to": 0.7, "label": "11 MIN", "at": "Three goals"}}],
+                    "events": [{"pos": 0.22, "label": "Esposito", "color": "#0b5fc0", "t": 0.05}, {"pos": 0.48, "label": "De Cuyper", "color": "#c8102e", "at": "De Cuyper", "lag": 0.3}, {"pos": 0.62, "label": "Ngoy", "color": "#c8102e", "at": "Ngoy", "lag": 0.3}, {"pos": 0.76, "label": "Doku", "color": "#c8102e", "at": "Doku", "lag": 0.3}],
+                    "bracket": {"from": 0.48, "to": 0.76, "label": "11 MIN", "at": "Three goals"}}],
   "shake": [{"at": "De Cuyper", "lag": 0.6, "amount": 10}, {"at": "Ngoy", "lag": 0.6, "amount": 10}, {"at": "Doku", "lag": 0.6, "amount": 14}]})
 # 5 Moreira 4-1, first to third, out
 B.append({"kicker": "Full time", "headline": "4–1. From first to [third]. Out.", "cut": True, "transition": "whip", "scene": S_BEL, "accent": RED, "lights": 0.5, "focus": 0.3,

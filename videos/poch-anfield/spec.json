@@ -888,13 +888,13 @@
      "y": 1560,
      "delay": 0.2,
      "left": {
-      "name": "United at Anfield",
+      "name": "United",
       "value": 1,
       "color": "#2ecc71",
       "text": "WON"
      },
      "right": {
-      "name": "Pochettino v Liverpool",
+      "name": "Pochettino",
       "value": 1.6,
       "color": "#d6283b",
       "text": "9 YRS"

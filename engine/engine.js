@@ -1853,10 +1853,10 @@ CARDS.ladder = function (c, ct, cx, cy) {
     const x = (i - (n - 1) / 2) * (w - 60) / n, t = it.t != null ? it.t : 0.3, g = eOut(pr(ct, t, it.dur || 0.9)), v = it.value * g, y = yOf(v), col = it.done ? '#6b7280' : (it.color || '#fff');
     if (ct < t) { font(700, 28, 'Inter'); ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.fillText(it.name, x, bot + 44); return; }
     const gr = ctx.createLinearGradient(0, bot, 0, y); gr.addColorStop(0, 'rgba(255,255,255,0.12)'); gr.addColorStop(1, col); ctx.fillStyle = gr; rrect(x - colW / 2, y, colW, bot - y, 12); ctx.fill();
-    font(900, 60, 'Inter', '-1px'); ctx.fillStyle = '#fff'; ctx.fillText(Math.round(v), x, y - 44);
+    const tightV = y - top < 110; font(900, 60, 'Inter', '-1px'); ctx.fillStyle = '#fff'; ctx.fillText(Math.round(v), x, tightV ? y + 52 : y - 44);   // near the record line the number sits inside the bar
     font(700, 28, 'Inter'); ctx.fillStyle = it.done ? 'rgba(255,255,255,0.55)' : '#fff'; ctx.fillText(it.name, x, bot + 44);
     if (it.note && g >= 1) { const nk = eBack(pr(ct, t + (it.dur || 0.9) + 0.1, 0.3)); font(800, 26, 'Inter'); const tw = ctx.measureText(it.note).width + 30;
-      const tight = y - top < 190; ctx.save(); ctx.translate(x, tight ? y + 44 : (y + top) / 2 - 30); ctx.scale(nk, nk); ctx.fillStyle = it.done ? '#4a5160' : '#d6283b'; rrect(-tw / 2, -24, tw, 48, 12); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(it.note, 0, 2); ctx.restore();
+      const tight = y - top < 190; ctx.save(); ctx.translate(x, tight ? y + (y - top < 110 ? 116 : 44) : (y + top) / 2 - 30); ctx.scale(nk, nk); ctx.fillStyle = it.done ? '#4a5160' : '#d6283b'; rrect(-tw / 2, -24, tw, 48, 12); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(it.note, 0, 2); ctx.restore();
       if (nk > 0.5 && !tight) { ctx.strokeStyle = 'rgba(255,255,255,0.4)'; ctx.setLineDash([6, 8]); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, y - 84); ctx.lineTo(x, top + 8); ctx.stroke(); ctx.setLineDash([]); } }
   });
   ctx.restore();

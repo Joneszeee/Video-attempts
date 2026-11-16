@@ -735,21 +735,21 @@
        "t": 0.05
       },
       {
-       "pos": 0.5,
+       "pos": 0.48,
        "label": "De Cuyper",
        "color": "#c8102e",
        "at": "De Cuyper",
        "lag": 0.3
       },
       {
-       "pos": 0.6,
+       "pos": 0.62,
        "label": "Ngoy",
        "color": "#c8102e",
        "at": "Ngoy",
        "lag": 0.3
       },
       {
-       "pos": 0.7,
+       "pos": 0.76,
        "label": "Doku",
        "color": "#c8102e",
        "at": "Doku",
@@ -757,8 +757,8 @@
       }
      ],
      "bracket": {
-      "from": 0.5,
-      "to": 0.7,
+      "from": 0.48,
+      "to": 0.76,
       "label": "11 MIN",
       "at": "Three goals"
      }

@@ -1,0 +1,1460 @@
+{
+ "title": "England top the group: what next?",
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "England · Nations League",
+   "headline": "England top the group. [Who's next]?",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 3
+   },
+   "accent": "#e9b949",
+   "lights": 0.8,
+   "flashes": 16,
+   "camFrom": {
+    "pos": [
+     -0.9,
+     1.5,
+     0.2
+    ],
+    "tgt": [
+     -0.9,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.9,
+     1.5,
+     -1.0
+    ],
+    "tgt": [
+     -0.9,
+     1.35,
+     10
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": -1.75,
+     "z": 3.6,
+     "front": true,
+     "action": "celebrate",
+     "label": "England",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "drawpot",
+     "y": 1330,
+     "shiftX": 210,
+     "delay": -0.5,
+     "r": 270,
+     "balls": [
+      {
+       "text": "BEL",
+       "color": "#c8102e",
+       "color2": "#111111"
+      },
+      {
+       "text": "GER",
+       "color": "#f4f4f2",
+       "color2": "#111111",
+       "text2": "#fff"
+      },
+      {
+       "text": "NED",
+       "color": "#f36c21",
+       "color2": "#1c2c7a"
+      },
+      {
+       "text": "POR",
+       "color": "#c8102e",
+       "color2": "#046a38"
+      },
+      {
+       "text": "GRE",
+       "color": "#0d5eaf",
+       "color2": "#ffffff"
+      },
+      {
+       "text": "?",
+       "color": "#e9b949",
+       "color2": "#8a6a1a"
+      }
+     ],
+     "pick": 5,
+     "pickText": "?",
+     "pickAt": "Now comes",
+     "pickLag": 0.1,
+     "pickLabel": "Quarter-final opponent",
+     "title": "The draw",
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "TOP",
+     "sub": "Group A3",
+     "at": "topped the group",
+     "lag": -0.1,
+     "color": "#e9b949",
+     "rot": -0.08,
+     "size": 110,
+     "dx": -270,
+     "y": 1760
+    }
+   ],
+   "shake": [
+    {
+     "at": "topped the group",
+     "lag": 0.06,
+     "amount": 12
+    },
+    {
+     "at": "Now comes",
+     "lag": 0.55,
+     "amount": 10
+    }
+   ],
+   "vo": "England beat the world champions and topped the group. Now comes the draw that decides everything."
+  },
+  {
+   "kicker": "The group stage",
+   "headline": "[5] wins. [19] goals. One defeat.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 3
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     -12,
+     14,
+     -28
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     10,
+     22,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "dots",
+     "states": [
+      "hit",
+      "miss",
+      "hit",
+      "hit",
+      "hit",
+      "hit"
+     ],
+     "label": "England · six group games",
+     "y": 780,
+     "step": 0.14,
+     "delay": 0.1,
+     "clear": false
+    },
+    {
+     "type": "rain",
+     "y": 1250,
+     "at": "Nineteen",
+     "lag": -0.4,
+     "groups": [
+      {
+       "n": 19,
+       "color": "#ffffff",
+       "t": 0,
+       "dur": 1.0
+      }
+     ],
+     "cols": 10,
+     "cell": 86,
+     "icon": "ball",
+     "empty": 0,
+     "label": "Goals",
+     "clear": false,
+     "hideAt": "The only",
+     "hideLag": 0.2
+    },
+    {
+     "type": "tickets",
+     "y": 1250,
+     "at": "The only",
+     "lag": 0.3,
+     "done": 0,
+     "newT": 0.1,
+     "tw": 760,
+     "th": 280,
+     "tickets": [
+      {
+       "comp": "Nations League",
+       "teams": "England v Spain",
+       "score": "2–3",
+       "date": "Wembley · September 2026",
+       "color": "#c60b1e"
+      }
+     ],
+     "stamp": "LOST",
+     "clear": false
+    }
+   ],
+   "vo": "Five wins from six. Nineteen goals. The only defeat? Spain, at Wembley, back in September."
+  },
+  {
+   "kicker": "Group A3 · final table",
+   "headline": "Level on [15]. Top on goal difference.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.15,
+   "camFrom": {
+    "pos": [
+     -14,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     14,
+     26,
+     -44
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "flashes": 10,
+   "punch": [
+    {
+     "t": 0.2,
+     "amount": 0.12,
+     "dur": 2.4,
+     "x": 540,
+     "y": 900
+    }
+   ],
+   "card": [
+    {
+     "type": "table",
+     "y": 900,
+     "delay": 0,
+     "scale": 1.25,
+     "label": "Nations League · Group A3",
+     "pill": "+13",
+     "pillRow": 0,
+     "clear": false,
+     "rows": [
+      {
+       "pos": 1,
+       "name": "England",
+       "color": "#ffffff",
+       "color2": "#1c2c5b",
+       "pts": 15,
+       "highlight": true
+      },
+      {
+       "pos": 2,
+       "name": "Spain",
+       "color": "#c60b1e",
+       "color2": "#ffc400",
+       "pts": 15
+      },
+      {
+       "pos": 3,
+       "name": "Croatia",
+       "color": "#ffffff",
+       "color2": "#c8102e",
+       "pts": 6
+      },
+      {
+       "pos": 4,
+       "name": "Czechia",
+       "color": "#c8102e",
+       "color2": "#1c2c7a",
+       "pts": 0
+      }
+     ]
+    },
+    {
+     "type": "tape",
+     "y": 1560,
+     "at": "goal difference",
+     "lag": -0.5,
+     "left": {
+      "name": "England",
+      "color": "#ffffff"
+     },
+     "right": {
+      "name": "Spain",
+      "color": "#c60b1e"
+     },
+     "rows": [
+      {
+       "label": "Goal difference",
+       "left": 13,
+       "right": 8
+      }
+     ],
+     "clear": false
+    }
+   ],
+   "vo": "Both finished on fifteen points. England went top on goal difference."
+  },
+  {
+   "kicker": "The prize",
+   "headline": "Seeded. [Second leg at home].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 3
+   },
+   "accent": "#e9b949",
+   "flashes": 14,
+   "camFrom": {
+    "pos": [
+     0,
+     0.9,
+     -2.8
+    ],
+    "tgt": [
+     0,
+     1.5,
+     4
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.2,
+     -0.4
+    ],
+    "tgt": [
+     0,
+     1.4,
+     4
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 4,
+     "front": true,
+     "enter": "walk",
+     "fromZ": 9,
+     "walkDur": 3,
+     "pose": "wings"
+    }
+   ],
+   "card": [
+    {
+     "type": "flytext",
+     "text": "SEEDED",
+     "size": 240,
+     "endScale": 0.7,
+     "y": 1500,
+     "at": "seeded",
+     "lag": -0.2,
+     "color": "#e9b949",
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "2ND LEG",
+     "sub": "at home",
+     "at": "second leg",
+     "lag": -0.1,
+     "color": "#ffffff",
+     "rot": -0.07,
+     "size": 90,
+     "y": 1740
+    }
+   ],
+   "shake": [
+    {
+     "at": "second leg",
+     "lag": 0.06,
+     "amount": 10
+    }
+   ],
+   "vo": "The prize: a seeded place in the quarter-finals. And the second leg at home."
+  },
+  {
+   "kicker": "The draw rules",
+   "headline": "Not Spain. [Not France].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "THE DRAW",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.5,
+   "focus": 0.25,
+   "camFrom": {
+    "pos": [
+     -14,
+     24,
+     -42
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     12,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "flashes": 8,
+   "card": [
+    {
+     "type": "fates",
+     "title": "England's quarter-final draw",
+     "items": [
+      {
+       "name": "Spain",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#c60b1e",
+         "#ffc400",
+         "#ffc400"
+        ],
+        "text": "ESP"
+       },
+       "fate": "down",
+       "label": "CAN'T",
+       "at": "Spain",
+       "lag": 0.1
+      },
+      {
+       "name": "France",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#1c2c7a",
+         "#ffffff",
+         "#c8102e"
+        ],
+        "text": "FRA"
+       },
+       "fate": "down",
+       "label": "CAN'T",
+       "at": "France",
+       "lag": 0.1
+      },
+      {
+       "name": "Belgium",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#c8102e",
+         "#111111",
+         "#fdda24"
+        ],
+        "text": "BEL"
+       },
+       "t": 99
+      },
+      {
+       "name": "Ger / Ned",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#f4f4f2",
+         "#111111",
+         "#c8102e"
+        ],
+        "text": "GER"
+       },
+       "t": 99
+      },
+      {
+       "name": "Portugal",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#c8102e",
+         "#046a38",
+         "#fdda24"
+        ],
+        "text": "POR"
+       },
+       "t": 99
+      }
+     ],
+     "clear": false,
+     "y": 1000,
+     "delay": 0
+    },
+    {
+     "type": "stamp",
+     "text": "BLOCKED",
+     "sub": "same group · both group winners",
+     "at": "France",
+     "lag": 0.7,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 100,
+     "y": 1560
+    }
+   ],
+   "punch": [
+    {
+     "at": "Spain",
+     "lag": 0.5,
+     "amount": 0.12,
+     "dur": 1.2,
+     "x": 200,
+     "y": 1000
+    },
+    {
+     "at": "France",
+     "lag": 0.5,
+     "amount": 0.12,
+     "dur": 1.2,
+     "x": 380,
+     "y": 1000
+    }
+   ],
+   "vo": "England can't draw Spain. And they can't draw France, who won their group too."
+  },
+  {
+   "kicker": "Belgium 4–1 Italy",
+   "headline": "Belgium: [four] past Italy.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#fdda24",
+     "#111111",
+     "#c8102e"
+    ],
+    "seed": 26
+   },
+   "accent": "#ff4d5e",
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     -1.5,
+     3.2,
+     31.5
+    ],
+    "tgt": [
+     0,
+     1.2,
+     50
+    ]
+   },
+   "camera": {
+    "pos": [
+     1.0,
+     2.7,
+     34.5
+    ],
+    "tgt": [
+     0,
+     1.2,
+     50
+    ]
+   },
+   "move": 4.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -3.6,
+     "z": 41.5,
+     "action": "kick",
+     "actionDelay": 0.16,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 1.4,
+     "z": 40.6,
+     "action": "kick",
+     "actionDelay": 0.91,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#141010",
+     "x": -1.2,
+     "z": 43.2,
+     "action": "kick",
+     "actionDelay": 1.66,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#6a4630",
+     "hair": "#141010",
+     "x": 3.8,
+     "z": 42.4,
+     "action": "kick",
+     "actionDelay": 2.41,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": 0.55
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -3.5,
+     "z": 46.5,
+     "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#c99b7a",
+     "hair": "#3a2a1a",
+     "x": 1.6,
+     "z": 47.3,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -3.38,
+      0.11,
+      41.95
+     ],
+     "until": 0.5
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.5,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       -3.38,
+       0.11,
+       41.95
+      ],
+      [
+       -3.09,
+       1.0,
+       47.125
+      ],
+      [
+       -2.8,
+       0.6,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.6199999999999999,
+      0.11,
+      41.050000000000004
+     ],
+     "until": 1.25
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 1.25,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       1.6199999999999999,
+       0.11,
+       41.050000000000004
+      ],
+      [
+       2.26,
+       1.0,
+       46.675
+      ],
+      [
+       2.9,
+       1.2,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.98,
+      0.11,
+      43.650000000000006
+     ],
+     "until": 2.0
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 2.0,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       -0.98,
+       0.11,
+       43.650000000000006
+      ],
+      [
+       0.81,
+       1.0,
+       47.975
+      ],
+      [
+       2.6,
+       0.4,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      4.02,
+      0.11,
+      42.85
+     ],
+     "until": 2.75
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 2.75,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       4.02,
+       0.11,
+       42.85
+      ],
+      [
+       0.5599999999999998,
+       1.0,
+       47.575
+      ],
+      [
+       -2.9,
+       1.4,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "BEL",
+      "color": "#c8102e"
+     },
+     "away": {
+      "name": "ITA",
+      "color": "#0b5fc0"
+     },
+     "score": [
+      4,
+      1
+     ],
+     "min": "FT",
+     "clear": false
+    },
+    {
+     "type": "big",
+     "delay": 0.4,
+     "from": 0,
+     "value": 4,
+     "countDur": 3.4,
+     "label": "Belgium goals v Italy",
+     "y": 1650,
+     "size": 230,
+     "style": "accent",
+     "clear": false
+    }
+   ],
+   "shake": [
+    {
+     "t": 0.95,
+     "amount": 9
+    },
+    {
+     "t": 1.7,
+     "amount": 9
+    },
+    {
+     "t": 2.45,
+     "amount": 9
+    },
+    {
+     "t": 3.2,
+     "amount": 12
+    }
+   ],
+   "vo": "But they can get Belgium, who just put four past Italy."
+  },
+  {
+   "kicker": "The other pots",
+   "headline": "Germany? [Netherlands]? Portugal?",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.25,
+   "camFrom": {
+    "pos": [
+     12,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     -12,
+     22,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "fates",
+     "title": "England's quarter-final draw",
+     "items": [
+      {
+       "name": "Spain",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#c60b1e",
+         "#ffc400",
+         "#ffc400"
+        ],
+        "text": "ESP"
+       },
+       "fate": "down",
+       "label": "CAN'T"
+      },
+      {
+       "name": "France",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#1c2c7a",
+         "#ffffff",
+         "#c8102e"
+        ],
+        "text": "FRA"
+       },
+       "fate": "down",
+       "label": "CAN'T"
+      },
+      {
+       "name": "Belgium",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#c8102e",
+         "#111111",
+         "#fdda24"
+        ],
+        "text": "BEL"
+       },
+       "fate": "up",
+       "label": "POSSIBLE"
+      },
+      {
+       "name": "Ger / Ned",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#f4f4f2",
+         "#111111",
+         "#c8102e"
+        ],
+        "text": "GER"
+       },
+       "fate": "up",
+       "label": "RUNNER-UP",
+       "at": "Germany",
+       "lag": -0.1
+      },
+      {
+       "name": "Portugal",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#c8102e",
+         "#046a38",
+         "#fdda24"
+        ],
+        "text": "POR"
+       },
+       "fate": "up",
+       "label": "RUNNER-UP",
+       "at": "Portugal",
+       "lag": -0.1
+      }
+     ],
+     "clear": false,
+     "y": 760,
+     "delay": 0
+    },
+    {
+     "type": "drawpot",
+     "y": 1500,
+     "delay": 0.2,
+     "r": 250,
+     "balls": [
+      {
+       "text": "BEL",
+       "color": "#c8102e",
+       "color2": "#111111"
+      },
+      {
+       "text": "GER",
+       "color": "#f4f4f2",
+       "color2": "#111111",
+       "text2": "#fff"
+      },
+      {
+       "text": "NED",
+       "color": "#f36c21",
+       "color2": "#1c2c7a"
+      },
+      {
+       "text": "POR",
+       "color": "#c8102e",
+       "color2": "#046a38"
+      },
+      {
+       "text": "GRE",
+       "color": "#0d5eaf",
+       "color2": "#ffffff"
+      }
+     ],
+     "title": "Possible opponents",
+     "clear": false
+    }
+   ],
+   "vo": "Or the runner-up from the group with Germany and the Netherlands. Or from Portugal's group."
+  },
+  {
+   "kicker": "The dates",
+   "headline": "Draw: [Friday 20 November].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 3
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     16,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 700,
+     "at": "Friday",
+     "lag": -0.3,
+     "label": "Quarter-final draw",
+     "groups": [
+      {
+       "label": "November",
+       "value": 20,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "FRI",
+      "big": "20",
+      "bottom": "NOV"
+     }
+    },
+    {
+     "type": "tickets",
+     "y": 1200,
+     "at": "The ties",
+     "lag": 0,
+     "done": 1,
+     "tw": 720,
+     "th": 250,
+     "dx": 0,
+     "tickets": [
+      {
+       "comp": "Quarter-final · 1st leg",
+       "teams": "? v England",
+       "score": "AWAY",
+       "date": "25–27 March 2027",
+       "color": "#1c2c5b"
+      }
+     ],
+     "clear": false
+    },
+    {
+     "type": "tickets",
+     "y": 1520,
+     "at": "two legs",
+     "lag": -0.3,
+     "done": 1,
+     "tw": 720,
+     "th": 250,
+     "dx": 0,
+     "tickets": [
+      {
+       "comp": "Quarter-final · 2nd leg",
+       "teams": "England v ?",
+       "score": "HOME",
+       "date": "28–30 March 2027",
+       "color": "#c8102e"
+      }
+     ],
+     "clear": false
+    }
+   ],
+   "vo": "The draw is on Friday the twentieth of November. The ties are in March, over two legs."
+  },
+  {
+   "kicker": "The finals",
+   "headline": "A trophy England have [never won].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 3
+   },
+   "accent": "#e9b949",
+   "lights": 0.5,
+   "flashes": 16,
+   "camFrom": {
+    "pos": [
+     0,
+     20,
+     -36
+    ],
+    "tgt": [
+     0,
+     2,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     9,
+     -20
+    ],
+    "tgt": [
+     0,
+     2,
+     8
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "career",
+     "title": "England's road",
+     "y": 1000,
+     "w": 900,
+     "rowH": 190,
+     "clear": false,
+     "items": [
+      {
+       "name": "Group A3",
+       "sub": "Top",
+       "color": "#1c2c5b",
+       "result": "Won",
+       "good": true
+      },
+      {
+       "name": "Quarter-final",
+       "sub": "March 2027",
+       "color": "#1c2c5b",
+       "result": "Two legs",
+       "at": "Win that",
+       "good": true
+      },
+      {
+       "name": "Finals",
+       "sub": "Semi-final and final",
+       "color": "#b8892a",
+       "result": "Never won",
+       "at": "the finals"
+      }
+     ]
+    },
+    {
+     "type": "trophies",
+     "at": "never won",
+     "lag": -0.4,
+     "floor": 1860,
+     "stagger": 0,
+     "rise": 0.55,
+     "items": [
+      {
+       "kind": "cup",
+       "sx": 0.5,
+       "h": 110,
+       "size": 190,
+       "label": "Nations League"
+      }
+     ],
+     "clear": false
+    }
+   ],
+   "vo": "Win that, and England are in the finals of a competition they've never won."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Who do you [want]?",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 3
+   },
+   "accent": "#e9b949",
+   "flashes": 12,
+   "orbit": {
+    "center": [
+     0,
+     1.25,
+     3
+    ],
+    "r": 5.2,
+    "from": -28,
+    "to": 16,
+    "h": 1.5,
+    "h2": 1.9,
+    "dur": 6
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     3
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 3.4,
+     "front": true,
+     "pose": "fists"
+    }
+   ],
+   "card": [
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "Belgium",
+     "lag": -0.5,
+     "question": "England's quarter-final?",
+     "options": [
+      {
+       "label": "Belgium",
+       "color": "#c8102e",
+       "fill": 0.4
+      },
+      {
+       "label": "Germany",
+       "color": "#5d6470",
+       "fill": 0.4
+      },
+      {
+       "label": "Netherlands",
+       "color": "#f36c21",
+       "fill": 0.4
+      }
+     ]
+    }
+   ],
+   "vo": "So who do you want: Belgium, Germany, or the Netherlands?"
+  }
+ ]
+}

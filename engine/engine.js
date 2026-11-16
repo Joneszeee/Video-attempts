@@ -1837,6 +1837,35 @@ CARDS.stamp = function (c, ct, cx, cy) {
 };
 CARDS.stamp.noSlide = true;
 
+// Draw pot: lottery balls tumble inside a glass bowl; on pickAt one ball rises out of the top, grows and shows its name (or "?").
+// {type: "drawpot", balls: [{text: "BEL", color, color2}], pick: index, pickText: "?", pickAt|pickT, title, r}
+CARDS.drawpot = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.45)), R0 = c.r || 290, B = c.balls, pt = c.pickT != null ? c.pickT : 99, br = c.ballR || 78;
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k);
+  if (c.title) { font(600, 26, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.title.toUpperCase(), 0, -R0 - 60); }
+  ctx.fillStyle = '#2a2f3a'; rrect(-R0 * 0.55, R0 * 0.92, R0 * 1.1, 46, 16); ctx.fill();   // base
+  const g = ctx.createRadialGradient(-R0 * 0.3, -R0 * 0.4, R0 * 0.1, 0, 0, R0); g.addColorStop(0, 'rgba(255,255,255,0.22)'); g.addColorStop(1, 'rgba(160,200,255,0.08)');
+  ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, R0, 0, 7); ctx.fill();
+  const ball = (x, y, r, b, rot, txt) => { ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+    ctx.shadowColor = 'rgba(0,0,0,0.4)'; ctx.shadowBlur = 14; ctx.shadowOffsetY = 5; ctx.fillStyle = b.color || '#fff'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.save(); ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.clip(); ctx.fillStyle = b.color2 || '#111'; ctx.fillRect(-r, r * 0.42, 2 * r, r); ctx.restore();
+    font(900, r * (String(txt).length > 3 ? 0.42 : 0.58), 'Inter'); ctx.fillStyle = b.text2 || '#fff'; ctx.strokeStyle = 'rgba(0,0,0,0.55)'; ctx.lineWidth = r * 0.12; ctx.lineJoin = 'round'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.strokeText(txt, 0, -r * 0.08); ctx.fillText(txt, 0, -r * 0.08);
+    ctx.restore(); };
+  B.forEach((b, i) => {
+    if (i === c.pick && ct >= pt) return;
+    const sp = 2.2 + (i * 0.37) % 1.1, ph = i * 2.1, rr = (R0 - br - 8) * (0.45 + 0.5 * Math.abs(Math.sin(ct * 1.3 + i * 1.7)));
+    ball(Math.cos(ct * sp + ph) * rr, Math.sin(ct * sp * 1.13 + ph * 1.4) * rr * 0.9 + R0 * 0.05, br, b, ct * (i % 2 ? 3 : -3), b.text);
+  });
+  ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.lineWidth = 8; ctx.beginPath(); ctx.arc(0, 0, R0, 0, 7); ctx.stroke();
+  ctx.strokeStyle = 'rgba(255,255,255,0.5)'; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(0, 0, R0 - 26, -2.5, -1.9); ctx.stroke();   // glass highlight
+  if (c.pick != null && ct >= pt) { const a = eOut(pr(ct, pt, 0.5)), sc = lerp(1, c.pickScale || 1.9, a), y = lerp(-R0 * 0.3, -R0 - br * 1.5, a), wob = Math.sin((ct - pt) * 6) * 0.06;
+    ball(0, y, br * sc, B[c.pick], wob, c.pickText != null ? c.pickText : B[c.pick].text);
+    if (c.pickLabel) { const lk = eBack(pr(ct, pt + 0.4, 0.3)); font(800, 42, 'Inter'); const tw = ctx.measureText(c.pickLabel).width + 56; ctx.save(); ctx.translate(0, y + br * sc + 60); ctx.scale(lk, lk); ctx.fillStyle = 'rgba(8,10,15,0.9)'; rrect(-tw / 2, -38, tw, 76, 20); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.pickLabel, 0, 3); ctx.restore(); } }
+  ctx.restore();
+};
+CARDS.drawpot.noSlide = true;
+
 // Unbeaten streak that shatters: a grid of green ticks counts up to n, then on breakAt a red X slams into the next slot,
 // the frame shakes and every tick drops away. {type: "streak", n: 43, cols: 11, title, label: "games unbeaten", fill: seconds, breakAt|breakT}
 CARDS.streak = function (c, ct, cx, cy) {
@@ -3815,6 +3844,7 @@ function cardEvents(c) {
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'fates': (c.items || []).forEach(it => { if (it.t != null && it.t < 90) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: it.fate === 'up' || it.fate === 'win' ? 'pop' : 'impact' }); }); break;
     case 'trapdoor': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.8; ev.push({ t, type: it.stay ? 'pop' : 'impact' }); if (!it.stay) ev.push({ t: t + 0.15, type: 'whoosh' }); }); break;
+    case 'drawpot': for (let t = 0.3; t < Math.min(c.pickT != null ? c.pickT : 2.5, 3); t += 0.22) ev.push({ t, type: 'tick' }); if (c.pickT != null) ev.push({ t: c.pickT, type: 'whoosh' }, { t: c.pickT + 0.45, type: 'pop' }); break;
     case 'streak': { const f = c.fill != null ? c.fill : 1.2; for (let t = 0.1; t < f; t += 0.07) ev.push({ t, type: 'tick' }); if (c.breakT != null) ev.push({ t: c.breakT, type: 'impact' }, { t: c.breakT + 0.15, type: 'whoosh' }); break; }
     case 'scorebug': if (c.from) ev.push({ t: c.goalT != null ? c.goalT : 0.5, type: 'pop' }); break;
     case 'stopwatch': { const lt = c.lockT != null ? c.lockT : 0.3 + (c.dur || 1.6); for (let t = 0.3; t < lt - 0.05; t += 0.09) ev.push({ t, type: 'tick' }); ev.push({ t: lt, type: 'impact' }); break; }

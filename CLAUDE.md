@@ -317,6 +317,10 @@ Built so far from the idea list (reuse them):
 - **TV score bug** (built): the `scorebug` card. `home`/`away: {name, color}`, `score: [h, a]`, `from` + `goalAt` (the changed number pops gold on the word), `min` ("63'"),
   `red: "home"|"away"` (red-card square). Put one on every beat of a match story so the score and minute are always on screen.
 - **Fouled player:** `action: "fall"` (pitches forward and stays down), timed with `actionAt`. Pair it with a defender's `slide` for a foul. Example: `videos/england-spain` beat 5.
+- **Draw pot** (built for `videos/england-next`): the `drawpot` card. Lottery balls tumble in a glass bowl; on `pickAt` one rises out, grows and shows its name
+  (or `pickText: "?"`) with a `pickLabel` pill: `balls: [{text: "BEL", color, color2}]`, `pick` (index), `title`, `r`, `ballR`. For cup draws and "who's next" stories.
+- **Fate tiles with custom labels:** a `fates` item takes `label` ("CAN'T", "POSSIBLE", "RUNNER-UP") with `fate: "down"|"up"`, so the same tiles work for draw rules.
+- **`tickets` card keys** (it crashed once on the wrong ones): the list is `tickets: [...]` (not `items`), with `done` = how many are already shown and `newT`/`newAt` for the next.
 - **History stories:** check the club's own site and at least one other source; drop quotes and details only one retelling has; say "the story goes"
   for parts that are legend.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.

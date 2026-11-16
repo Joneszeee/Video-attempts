@@ -1,0 +1,98 @@
+{
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "International goals · the record",
+   "headline": "Nobody is catching [Ronaldo's 146].",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#046a38",
+     "#c8102e",
+     "#fdda24"
+    ],
+    "seed": 8
+   },
+   "accent": "#e9b949",
+   "lights": 0.85,
+   "flashes": 18,
+   "follow": 0.5,
+   "camFrom": {
+    "pos": [
+     0,
+     1.75,
+     -1.9
+    ],
+    "tgt": [
+     0,
+     1.75,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.75,
+     -1.9
+    ],
+    "tgt": [
+     0,
+     1.75,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": 7,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#046a38",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#c99b7a",
+     "hair": "#141010",
+     "x": 0,
+     "z": 3.6,
+     "front": true,
+     "chest": true,
+     "action": "siu",
+     "actionDelay": -2,
+     "label": "Cristiano Ronaldo",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "big",
+     "delay": -3,
+     "value": 146,
+     "label": "International goals · men's record",
+     "y": 1560,
+     "size": 280,
+     "clear": false
+    },
+    {
+     "type": "shout",
+     "text": "NOBODY IS CLOSE",
+     "y": 1830,
+     "size": 130,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail.",
+   "cut": true
+  }
+ ]
+}

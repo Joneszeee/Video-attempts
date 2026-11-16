@@ -1,0 +1,117 @@
+{
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Belgium 4–1 Italy · Nations League",
+   "headline": "Italy led. [11 minutes] later: 3–1 down.",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#fdda24",
+     "#111111",
+     "#c8102e"
+    ],
+    "seed": 26
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.75,
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0.9,
+     1.5,
+     -0.9
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.9,
+     1.5,
+     -0.9
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 1.6,
+     "z": 3.5,
+     "front": true,
+     "pose": "think",
+     "label": "Italy",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 640,
+     "delay": -3,
+     "home": {
+      "name": "BEL",
+      "color": "#c8102e"
+     },
+     "away": {
+      "name": "ITA",
+      "color": "#0b5fc0"
+     },
+     "score": [
+      3,
+      1
+     ],
+     "min": "11 MIN",
+     "clear": false
+    },
+    {
+     "type": "stopwatch",
+     "y": 1300,
+     "shiftX": -200,
+     "delay": -4,
+     "value": 11,
+     "max": 15,
+     "unit": "MIN",
+     "label": "From 0–1 to 3–1",
+     "r": 210,
+     "clear": false,
+     "lockT": 1.0
+    },
+    {
+     "type": "shout",
+     "text": "3 GOALS IN 11 MINUTES",
+     "y": 1790,
+     "size": 120,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

@@ -1,0 +1,141 @@
+{
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Liverpool v Man United · Sunday 22 November",
+   "headline": "No win v Liverpool in [9 years]. Next: Anfield.",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#ffffff",
+     "#c8102e",
+     "#8a0b1f"
+    ],
+    "seed": 6
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.7,
+   "flashes": 14,
+   "camFrom": {
+    "pos": [
+     -1.0,
+     1.5,
+     -0.9
+    ],
+    "tgt": [
+     -1.0,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -1.0,
+     1.5,
+     -0.9
+    ],
+    "tgt": [
+     -1.0,
+     1.35,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#7a1420",
+     "skin": "#e2b08c",
+     "hair": "#3a3a3e",
+     "front": true,
+     "x": -1.6,
+     "z": 3.5,
+     "label": "Pochettino",
+     "labelDelay": 0,
+     "pose": "think"
+    }
+   ],
+   "card": [
+    {
+     "type": "tally",
+     "y": 1240,
+     "shiftX": 215,
+     "delay": -4,
+     "r": 62,
+     "gap": 16,
+     "perRow": 3,
+     "title": "v Liverpool",
+     "score": "{l} years · no win",
+     "clear": false,
+     "items": [
+      {
+       "label": "2018",
+       "mark": "x",
+       "t": 0.25
+      },
+      {
+       "label": "2019",
+       "mark": "x",
+       "t": 0.41000000000000003
+      },
+      {
+       "label": "2020",
+       "mark": "x",
+       "t": 0.5700000000000001
+      },
+      {
+       "label": "2021",
+       "mark": "x",
+       "t": 0.73
+      },
+      {
+       "label": "2022",
+       "mark": "x",
+       "t": 0.89
+      },
+      {
+       "label": "2023",
+       "mark": "x",
+       "t": 1.05
+      },
+      {
+       "label": "2024",
+       "mark": "x",
+       "t": 1.21
+      },
+      {
+       "label": "2025",
+       "mark": "x",
+       "t": 1.37
+      },
+      {
+       "label": "2026",
+       "mark": "x",
+       "t": 1.53
+      }
+     ]
+    },
+    {
+     "type": "shout",
+     "text": "FIRST GAME: ANFIELD",
+     "y": 1790,
+     "size": 120,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

@@ -6,7 +6,7 @@ Re-hook at line 6 (VHS "TWIST"): United won at Anfield last season.
 
 ## Fact check (Sky, ESPN, beIN, Paddy Power fixture list, Goal, Premier League)
 - Carrick sacked 15 games into a two-year deal; Sky: United's worst start to a Premier League season. United 18th: 10 games, 1 win, 8 points.
-- Pochettino confirmed; joins Wednesday 18 November; first game Liverpool v Man United, Anfield, Sunday 22 November, 16:30 (one listing says 21 Nov: re-check).
+- Pochettino confirmed; joins Wednesday 18 November; first game Liverpool v Man United, Anfield, Sunday 22 November, 16:30 GMT, live on Sky Sports (confirmed by Liverpool's fixture update; older 21 Nov listings were provisional).
 - "Nine years since he last beat Liverpool" (manutdnews); the 2017 win was with Tottenham (4–1, October 2017: from memory, not searched).
 - United won 2–1 at Anfield in October 2025, their first win there since January 2016 (Rooney).
 - A defeat keeps United in the bottom three whatever else happens (they are 18th on 8 points).

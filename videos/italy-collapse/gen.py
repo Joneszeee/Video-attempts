@@ -49,15 +49,15 @@ B.append({"kicker": "Belgium 0–1 Italy", "headline": "Pio Esposito. [0–1].",
            {"type": "ball", "delay": 0, "point": e0, "untilAt": "puts them ahead", "untilLag": 0.04},
            {"type": "ballpath", "world": True, "at": "puts them ahead", "lag": 0.04, "dur": 0.5, "slowmo": False, "points": [e0, mid(e0, ee, 0.9), ee]}]})
 # 4 the collapse: three goals, barrage + timeline
-shots = [(-3.4, 41.5, [-2.8, 0.6, 52.3], "De Cuyper", "De Cuyper"), (1.6, 40.8, [2.9, 1.2, 52.3], "Ngoy", "Ngoy"), (3.9, 42.6, [-2.9, 1.0, 52.3], "Doku", "Doku")]
+shots = [(-2.3, 42.0, [-2.8, 0.6, 52.3], "De Cuyper", "De Cuyper"), (0.3, 41.2, [2.9, 1.2, 52.3], "Ngoy", "Ngoy"), (2.5, 42.8, [-2.9, 1.0, 52.3], "Doku", "Doku")]
 pl, cards = [], []
 for i, (x, z, end, name, word) in enumerate(shots):
     b0 = [x + 0.22, 0.11, z + 0.45]
     pl.append(P(kit=BEL, skin=["#f0c8a8", "#8a5a3c", "#6a4630"][i], hair="#141010", x=x, z=z, label=name, labelAt=word, action="kick", actionAt=word, actionLag=-0.2, actionDur=0.8, after="celebrate", runup=False))
     cards += [{"type": "ball", "delay": 0, "point": b0, "untilAt": word, "untilLag": 0.14}, {"type": "ballpath", "world": True, "at": word, "lag": 0.14, "dur": 0.45, "slowmo": False, "points": [b0, mid(b0, end, 1.0), end]}]
-pl += [keeper(GKI, 1, "De Cuyper", 0.2), P(kit=ITA, skin="#e7b593", hair="#141010", x=-1.2, z=46.8, front=True), P(kit=ITA, skin="#c99b7a", hair="#3a2a1a", x=2.6, z=47.4, front=True)]
+pl += [keeper(GKI, 1, "De Cuyper", 0.2), P(kit=ITA, skin="#e7b593", hair="#141010", x=-1.0, z=47.2, front=True), P(kit=ITA, skin="#c99b7a", hair="#3a2a1a", x=3.7, z=47.8, front=True)]
 B.append({"kicker": "The collapse", "headline": "Three goals in [11 minutes].", "cut": True, "transition": "vhs", "vhsLabel": "THEN", "vhsDur": 0.7, "scene": S_BEL, "accent": RED, "hype": False,
-  "camFrom": {"pos": [-1.5, 3.2, 31.5], "tgt": [0, 1.2, 50]}, "camera": {"pos": [1.0, 2.7, 34.5], "tgt": [0, 1.2, 50]}, "move": 6, "moveEase": "linear", "players": pl,
+  "camFrom": {"pos": [-1.2, 3.4, 29.5], "tgt": [0, 1.2, 50]}, "camera": {"pos": [0.8, 3.0, 32.0], "tgt": [0, 1.2, 50]}, "move": 6, "moveEase": "linear", "players": pl,
   "card": cards + [bug([3, 1], "11 MIN", [0, 1], "De Cuyper", 0.6),
                    {"type": "timeline", "y": 1560, "delay": 0.1, "title": "Belgium v Italy · not to scale", "clear": False,
                     "events": [{"pos": 0.22, "label": "Esposito", "color": "#0b5fc0", "t": 0.05}, {"pos": 0.48, "label": "De Cuyper", "color": "#c8102e", "at": "De Cuyper", "lag": 0.3}, {"pos": 0.62, "label": "Ngoy", "color": "#c8102e", "at": "Ngoy", "lag": 0.3}, {"pos": 0.76, "label": "Doku", "color": "#c8102e", "at": "Doku", "lag": 0.3}],
@@ -66,8 +66,8 @@ B.append({"kicker": "The collapse", "headline": "Three goals in [11 minutes].", 
 # 5 Moreira 4-1, first to third, out
 B.append({"kicker": "Full time", "headline": "4–1. From first to [third]. Out.", "cut": True, "transition": "whip", "scene": S_BEL, "accent": RED, "lights": 0.5, "focus": 0.3,
   "camFrom": {"pos": [-14, 12, -24], "tgt": [0, 0, 8]}, "camera": {"pos": [14, 24, -42], "tgt": [0, 0, 5]}, "move": 7, "moveEase": "linear", "players": [], "flashes": 8,
-  "card": [bug([4, 1], "FT", [3, 1], "a fourth", 0.1, y=560),
-           {"type": "table", "y": 1000, "delay": 0.2, "scale": 1.2, "label": "Group A1 · final", "moveAt": "from first", "clear": False,
+  "card": [bug([4, 1], "FT", [3, 1], "a fourth", 0.1, y=650),
+           {"type": "table", "y": 1080, "delay": 0.2, "scale": 1.2, "label": "Group A1 · final", "moveAt": "from first", "clear": False,
             "rows": [{"pos": 1, "fromPos": 2, "fromRow": 1, "name": "France", "color": "#1c2c7a", "color2": "#ffffff", "pts": ""}, {"pos": 2, "fromPos": 3, "fromRow": 2, "name": "Belgium", "color": "#c8102e", "color2": "#111111", "pts": ""},
                      {"pos": 3, "fromPos": 1, "fromRow": 0, "name": "Italy", "color": "#0b5fc0", "color2": "#ffffff", "pts": "", "highlight": True}]},
            {"type": "trapdoor", "y": 1620, "at": "they're out", "lag": -0.7, "scale": 0.9, "clear": False, "items": [{"name": "Italy", "badge": BG_ITA, "at": "they're out", "lag": -0.1, "tag": "OUT"}]}],
@@ -81,7 +81,7 @@ B.append({"kicker": "The bigger picture", "headline": "Three World Cups [missed]
   "shake": [{"at": "missed three", "lag": 0.5, "amount": 12}]})
 # 7 Bosnia play-off; Mancini back
 B.append({"kicker": "March 2026 · play-off", "headline": "Lost to Bosnia on [penalties].", "cut": True, "transition": "polaroid", "polaroidLabel": "March 2026", "scene": S_DARK, "accent": RED, "hype": False,
-  "camFrom": {"pos": [4.2, 2.2, 36], "tgt": [0.2, 1.2, 52]}, "camera": {"pos": [3.4, 2.0, 38.5], "tgt": [0.2, 1.2, 52]}, "move": 3.5, "moveEase": "linear",
+  "camFrom": {"pos": [2.4, 2.1, 33.5], "tgt": [0, 1.2, 52]}, "camera": {"pos": [1.9, 1.9, 35.5], "tgt": [0, 1.2, 52]}, "move": 3.5, "moveEase": "linear",
   "players": [P(kit=ITA, skin="#e7b593", hair="#141010", x=-0.2, z=41.0, action="kick", actionDelay=0.5, actionDur=0.8, runup=2),
               P(kit=GKB, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=-1)],
   "card": [{"type": "ball", "delay": 0, "point": [0.02, 0.11, 41.5], "until": 0.84},

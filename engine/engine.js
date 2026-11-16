@@ -535,6 +535,11 @@ const ACTIONS = {
     [0.45, { L: [-0.15, 0.15], R: [0.3, 0.4], AL: [Math.PI - 0.2, 0], AR: [Math.PI + 0.15, 0], hy: -0.22, rot: 1.25, px: 0.55 }],
     [0.7, { L: [-0.1, 0.2], R: [0.35, 0.5], AL: [Math.PI - 0.1, 0], AR: [Math.PI + 0.2, 0], hy: 0.12, rot: 1.5, px: 0.78 }],
     [1.0, { L: [-0.05, 0.3], R: [0.3, 0.5], AL: [Math.PI - 0.3, 0.2], AR: [Math.PI + 0.1, 0.2], hy: 0.4, rot: 1.56, px: 0.86 }]] },
+  block: { dur: 0.7, keys: [   // an outfield defender's block: stays upright and sticks a leg out (never a goalkeeper-style dive)
+    [0.0, { L: [-0.12, 0.2], R: [0.12, 0.2], AL: [-0.5, 0.4], AR: [0.5, 0.4], hy: 0.03 }],
+    [0.35, { L: [-0.16, 0.12], R: [1.0, 0.02], AL: [-0.95, 0.25], AR: [0.75, 0.3], lean: -0.14, px: 0.1, hy: 0.05 }],
+    [0.7, { L: [-0.16, 0.12], R: [1.05, 0.0], AL: [-1.0, 0.25], AR: [0.8, 0.3], lean: -0.16, px: 0.12, hy: 0.05 }],
+    [1.0, { L: [-0.1, 0.05], R: [0.3, 0.1], AL: [-0.4, 0.3], AR: [0.4, 0.3], lean: -0.04, px: 0.06 }]] },
   fall: { dur: 0.8, keys: [   // tripped or fouled: pitches forward, arms out, lands flat and stays down
     [0.0, { L: [-0.1, 0.5], R: [0.15, 0.2], AL: [-0.4, 0.5], AR: [0.5, 0.5] }],
     [0.3, { L: [-0.45, 0.6], R: [0.2, 0.3], AL: [-1.3, 0.3], AR: [1.5, 0.3], rot: 0.55, hy: 0.04, px: 0.15 }],
@@ -570,12 +575,18 @@ function loopPose(name, t) {
     const ph = t / 0.7 * Math.PI * 2, j = Math.abs(Math.sin(ph));
     return { ...P0, L: [-0.12, 0.3 * j], R: [0.12, 0.3 * j], AL: [Math.PI - 0.35 + 0.15 * Math.sin(ph * 2), 0.1], AR: [Math.PI + 0.35 - 0.15 * Math.sin(ph * 2), 0.1], hy: -0.09 * j };
   }
+  if (name === 'siu') {   // jump, then land with legs wide and both arms thrown down and out, and hold it
+    const j = Math.min(1, t / 0.5), air = Math.sin(Math.PI * j), land = ease(clamp((t - 0.42) / 0.16, 0, 1)), pulse = t > 0.6 ? 0.012 * Math.sin((t - 0.6) * 3) : 0;
+    return { ...P0, L: [lerp(-0.1, -0.34, land), 0.5 * air * (1 - land)], R: [lerp(0.1, 0.34, land), 0.5 * air * (1 - land)],
+      AL: [lerp(-(Math.PI - 0.5), -0.62, land), 0.05], AR: [lerp(Math.PI - 0.5, 0.62, land), 0.05], hy: -0.32 * air * (1 - land * 0.9) + 0.03 * land + pulse, lean: -0.05 * land };
+  }
   if (name === 'ready') return { ...P0, L: [-0.25, 0.25], R: [0.25, 0.25], AL: [-0.9, 0.4], AR: [0.9, 0.4], hy: 0.05 + 0.01 * Math.sin(t * 6) };
   const b = Math.sin(t * 2.6);
   return { ...P0, AL: [-0.16 - 0.03 * b, 0.25], AR: [0.16 + 0.03 * b, 0.25], hy: 0.004 * b };
 }
 function poseFor(p, t, walking) {
-  const d = p.actionDelay != null ? p.actionDelay : 0, A = ACTIONS[p.action];
+  // only a goalkeeper dives: an outfield player's "dive" becomes a standing block with a leg out (user: defenders must not dive like keepers)
+  const d = p.actionDelay != null ? p.actionDelay : 0, A = ACTIONS[p.action === 'dive' && p.pose !== 'keeper' && !p.gloves ? 'block' : p.action];
   if (A) {
     const dur = p.actionDur || A.dur;
     const act = f => {
@@ -594,6 +605,7 @@ function poseFor(p, t, walking) {
     } else ps = pre(t);
     return withHops(p, ps, t);
   }
+  if (p.action === 'siu' && !walking) return withHops(p, t < d ? loopPose('idle', t) : loopPose('siu', t - d), t);   // siu: starts at actionDelay / actionAt, then holds
   return withHops(p, walking ? loopPose('run', t) : loopPose(p.action || 'idle', t), t);
 }
 function withHops(p, ps, t) {   // "hops": [{t, dur}] — a small jump (e.g. hurdling a slide tackle)
@@ -3791,9 +3803,10 @@ CARDS.scales = function (c, ct, cx, cy) {
     ctx.fillRect(px - 130, py + drop - 6, 260, 8);
     // the player's name plate sitting in the pan
     ctx.fillStyle = o.color || '#dc052d'; rrect(px - 100, py + drop - 92, 200, 82, 14); ctx.fill();
-    font(800, 34, 'Inter'); ctx.fillStyle = o.text || '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    { let fs = 34; font(800, fs, 'Inter'); const nw = ctx.measureText(o.name.toUpperCase()).width; if (nw > 180) font(800, Math.max(16, fs * 180 / nw), 'Inter'); }   // the name always fits the plate
+    ctx.fillStyle = /^#|^rgb/.test(o.text || '') ? o.text : '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText(o.name.toUpperCase(), px, py + drop - 64);
-    font(700, 26, 'Mono', '2px'); ctx.fillText(Math.round(o.value * eOut(pr(ct, 0.3, 1.2))).toLocaleString('en-GB') + ' PTS', px, py + drop - 30);
+    font(700, 26, 'Mono', '2px'); ctx.fillText(o.sub != null ? String(o.sub).toUpperCase() : Math.round(o.value * eOut(pr(ct, 0.3, 1.2))).toLocaleString('en-GB') + ' PTS', px, py + drop - 30);
   }
   ctx.restore();
 };

@@ -327,6 +327,15 @@ Built so far from the idea list (reuse them):
 - **Match timeline** (built for `videos/italy-collapse`): the `timeline` card. A 0–90 minute bar; goal pins drop on their words and a pulsing red `bracket: {from, to, label, at}`
   marks a spell ("11 MIN"): `events: [{pos: 0–1, label, color, at|t}]`, `title`. If the exact minutes aren't known, say "not to scale" in the title.
 - **Table without points:** a `table` row with `pts: ""` shows positions only (use it when the points aren't confirmed).
+- **Only goalkeepers dive (user: "why is the defender going to save the ball?").** An outfield player's `action: "dive"` is now drawn as a standing block with a leg stuck out
+  (`block`); the keeper is whoever has `pose: "keeper"` or `gloves`. Nothing to change in specs.
+- **The shooter is on screen for the whole run-up and strike (user: "the player takes the shot off screen. Why?").** Behind-the-shooter camera: `camFrom` about
+  `[x ± 3.0, 2.2, z − 9]`, `camera` about `[x ± 2.4, 1.9, z − 6.3]`, target `[0.4x, 1, 52]`, and `runup: 1.6`. Check stills at the start of the run-up, not just after the goal.
+- **Celebrations fit the player (user: Ronaldo "jumping up and down like a goofball").** Named stars score first, then celebrate in character. `action: "siu"`
+  (+ `actionDelay`/`actionAt`) = jump, then land legs wide with both arms thrown down and out, and hold. Use the generic `celebrate` loop only for unnamed players.
+- **Everything stays on the page (user).** Before every final, look at stills of each beat for cards cut off at an edge, text hidden behind another card, and stacked
+  numbers drifting behind a table. `stack` history rises about 400px above its `y`, so keep that space clear. `scales` names now shrink to fit the plate, and
+  `left`/`right` take `sub` (the line under the name; without it the card prints "N PTS") and `text` must be a colour.
 - **History stories:** check the club's own site and at least one other source; drop quotes and details only one retelling has; say "the story goes"
   for parts that are legend.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.

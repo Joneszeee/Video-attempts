@@ -507,3 +507,69 @@ Follow @theo6k for more football stories in under a minute.
 
 #england #threelions #nationsleague #tuchel #harrykane #belgium #germany #netherlands #football #soccer #footballreels #reels
 ```
+
+---
+
+# Nobody is catching Ronaldo's 146
+
+### TikTok
+```
+Cristiano Ronaldo's record will never be broken: 146 international goals, and nobody playing today is even close 🐐 Kane has 93 and is 33. Mbappé has 67. Haaland has 66 and would still need about eight more years. Will anyone ever catch 146: Kane, Mbappé, Haaland or nobody? 👇 #ronaldo #cr7 #kane #mbappe #haaland #football #footballtiktok
+```
+
+### Instagram
+```
+Cristiano Ronaldo's record will never be broken: 146 international goals, and nobody playing today is even close 🐐
+
+Ronaldo retired from Portugal on 5 November 2026 after 23 years and 234 games. Messi finished on 126. Of the players still going, Harry Kane has 93 and needs 53 more at 33, Kylian Mbappé has 67, and Erling Haaland has 66 at more than a goal a game. Even at that rate Haaland needs 80 more, which is roughly eight years of internationals (our estimate). Ronaldo is also the first player to score at six World Cups.
+
+Will anyone ever catch 146: Kane, Mbappé, Haaland or nobody? Tell me in the comments 👇
+
+Follow @theo6k for more football stories in under a minute.
+
+#ronaldo #cr7 #cristianoronaldo #portugal #kane #mbappe #haaland #messi #football #soccer #footballreels #reels
+```
+
+---
+
+# Pochettino's first game: Anfield
+
+### TikTok
+```
+Mauricio Pochettino hasn't beaten Liverpool in nine years… and his first game as Man United manager is at Anfield 😳 United are 18th, Carrick is gone, and Pochettino gets four days to prepare. The twist: United won 2–1 at Anfield last season. Pochettino's curse, or a new United? 👇 #manutd #pochettino #liverpool #anfield #premierleague #football #footballtiktok
+```
+
+### Instagram
+```
+Mauricio Pochettino hasn't beaten Liverpool in nine years… and his first game as Man United manager is at Anfield 😳
+
+United are 18th with one win and eight points from ten games. Michael Carrick was sacked after 15 games, and Pochettino takes over on Wednesday 18 November, four days before Liverpool away. His last win over Liverpool was in 2017 with Tottenham. But United won 2–1 at Anfield last season, their first win there since January 2016. Lose, and United stay in the bottom three.
+
+Pochettino's curse, or a new United? Tell me in the comments 👇
+
+Follow @theo6k for more football stories in under a minute.
+
+#manutd #mufc #pochettino #liverpool #lfc #anfield #premierleague #carrick #football #soccer #footballreels #reels
+```
+
+---
+
+# Italy's 11-minute collapse
+
+### TikTok
+```
+Italy were winning. Eleven minutes later they were 3–1 down… and it gets worse 😬 Top of the group at kick-off, third and out by full time. Three World Cups missed in a row, and Mancini's return hasn't stopped the fall. Is this the worst Italy team of all time? 👇 #italy #azzurri #belgium #nationsleague #mancini #football #footballtiktok
+```
+
+### Instagram
+```
+Italy were winning. Eleven minutes later they were 3–1 down… and it gets worse 😬
+
+On Sunday 15 November 2026 Italy went to Belgium top of their Nations League group. Pio Esposito put them ahead, then De Cuyper, Ngoy and Doku scored three in eleven minutes and Moreira made it 4–1. Italy dropped from first to third and are out. This is the team that missed three World Cups in a row, lost a play-off to Bosnia on penalties in March, and brought Roberto Mancini back to fix it. Four World Cups won, none since 2006.
+
+Is this the worst Italy team of all time? Tell me in the comments 👇
+
+Follow @theo6k for more football stories in under a minute.
+
+#italy #azzurri #italia #mancini #belgium #doku #nationsleague #worldcup #football #soccer #footballreels #reels
+```

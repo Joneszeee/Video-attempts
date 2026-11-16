@@ -28,15 +28,15 @@ B.append({"kicker": "Liverpool v Man United · Sunday 22 November", "headline": 
 # 2 United 18th
 B.append({"kicker": "Premier League · after 10 games", "headline": "United are [18th].", "cut": True, "transition": "whip", "scene": S_OT, "accent": RED, "lights": 0.5, "focus": 0.3,
   "camFrom": {"pos": [-12, 14, -28], "tgt": [0, 0, 8]}, "camera": {"pos": [10, 22, -40], "tgt": [0, 0, 6]}, "move": 6, "moveEase": "linear", "players": [],
-  "card": [{"type": "table", "y": 820, "delay": 0, "scale": 1.2, "label": "Premier League · bottom three", "clear": False,
+  "card": [{"type": "table", "y": 760, "delay": 0, "scale": 1.15, "label": "Premier League · bottom three", "clear": False,
             "rows": [{"pos": 18, "name": "Man United", "color": "#da291c", "pts": 8, "highlight": True}, {"pos": 19, "name": "Sunderland", "color": "#eb172b", "color2": "#ffffff", "pts": 8}, {"pos": 20, "name": "Crystal Palace", "color": "#1b458f", "color2": "#c4122e", "pts": 7}]},
-           {"type": "stack", "y": 1520, "delay": 0, "size": 210, "items": [{"value": 10, "label": "Games", "at": "Ten games"}, {"value": 1, "label": "Win", "at": "one win", "color": RED}, {"value": 8, "label": "Points", "at": "eight points", "color": RED}]}]})
+           {"type": "stack", "y": 1700, "delay": 0, "size": 190, "items": [{"value": 10, "label": "Games", "at": "Ten games"}, {"value": 1, "label": "Win", "at": "one win", "color": RED}, {"value": 8, "label": "Points", "at": "eight points", "color": RED}]}]})
 # 3 Carrick sacked after 15 games
 B.append({"kicker": "Michael Carrick", "headline": "Sacked after [15 games].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_OT, "accent": RED, "lights": 0.55,
-  "camFrom": {"pos": [2.1, 1.6, -2.6], "tgt": [0.9, 1.3, 10]}, "camera": {"pos": [1.2, 1.5, -0.8], "tgt": [0.9, 1.3, 10]}, "move": 6, "moveEase": "linear",
-  "players": [P(outfit="suit", suitColor="#1c1f28", tie="#1c2c5b", skin="#f0c8a8", hair="#3a2a1a", front=True, x=1.5, z=2.9, label="Michael Carrick", labelDelay=0.2)],
-  "card": [{"type": "dots", "n": 15, "cols": 5, "y": 1150, "shiftX": -160, "label": "Games in charge", "step": 0.1, "delay": 0.2, "clear": False},
-           {"type": "stamp", "text": "SACKED", "sub": "worst Premier League start", "at": "sacked", "lag": 0.1, "color": RED, "rot": -0.08, "size": 96, "y": 1680}],
+  "camFrom": {"pos": [1.0, 1.6, -2.8], "tgt": [0, 1.25, 10]}, "camera": {"pos": [0.3, 1.5, -1.2], "tgt": [0, 1.25, 10]}, "move": 6, "moveEase": "linear",
+  "players": [P(outfit="suit", suitColor="#1c1f28", tie="#1c2c5b", skin="#f0c8a8", hair="#3a2a1a", front=True, x=0, z=2.9, label="Michael Carrick", labelDelay=0.2)],
+  "card": [{"type": "dots", "n": 15, "y": 1500, "label": "Games in charge", "step": 0.1, "delay": 0.2, "clear": False},
+           {"type": "stamp", "text": "SACKED", "sub": "worst Premier League start", "at": "sacked", "lag": 0.1, "color": RED, "rot": -0.08, "size": 96, "y": 1790}],
   "shake": [{"at": "sacked", "lag": 0.26, "amount": 14}], "freezeAt": "worst start", "freezeLag": 0.2})
 # 4 the dates: 18 Nov -> 4 days -> Anfield
 B.append({"kicker": "The week", "headline": "Four days to [Anfield].", "cut": True, "transition": "whip", "scene": S_ANF, "accent": GOLD, "lights": 0.6, "focus": 0.25,
@@ -47,8 +47,8 @@ B.append({"kicker": "The week", "headline": "Four days to [Anfield].", "cut": Tr
 # 5 last win over Liverpool: 2017, with Tottenham
 t0 = [1.22, 0.11, 41.45]; te = [-2.8, 0.7, 52.3]
 B.append({"kicker": "October 2017", "headline": "His last win over Liverpool: [2017].", "cut": True, "transition": "polaroid", "polaroidLabel": "Tottenham 2017", "scene": S_TOT, "accent": GOLD, "follow": 0.5,
-  "camFrom": {"pos": [5.6, 2.0, 34], "tgt": [0, 1.0, 52]}, "camera": {"pos": [5.0, 1.8, 36.4], "tgt": [0, 1.0, 52]}, "move": 5, "moveEase": "linear",
-  "players": [P(kit=TOT, skin="#f0c8a8", hair="#b8905a", x=1.0, z=41, action="kick", actionAt="2017", actionLag=-0.6, actionDur=0.8, after="celebrate"),
+  "camFrom": {"pos": [4.0, 2.2, 32.0], "tgt": [0.4, 1.0, 52]}, "camera": {"pos": [3.4, 1.9, 34.7], "tgt": [0.4, 1.0, 52]}, "move": 5, "moveEase": "linear",
+  "players": [P(kit=TOT, skin="#f0c8a8", hair="#b8905a", x=1.0, z=41, action="kick", actionAt="2017", actionLag=-0.6, actionDur=0.8, after="celebrate", runup=1.6),
               P(kit=GK, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=1, actionAt="2017", actionLag=-0.15),
               P(kit=LIV, skin="#e7b593", hair="#141010", x=3.0, z=44.3, front=True, action="dive", dir=-1, actionAt="2017", actionLag=-0.45, actionDur=0.7), P(kit=LIV, skin="#8a5a3c", hair="#141010", x=-2.4, z=47.6, front=True)],
   "card": [{"type": "ball", "delay": 0, "point": t0, "untilAt": "2017", "untilLag": -0.26},
@@ -57,8 +57,8 @@ B.append({"kicker": "October 2017", "headline": "His last win over Liverpool: [2
 # 6 the twist: United won at Anfield last season, 2-1
 u0 = [-1.78, 0.11, 42.45]; ue = [2.9, 1.0, 52.3]
 B.append({"kicker": "But here's the twist", "headline": "United won at Anfield: [1–2].", "cut": True, "transition": "vhs", "vhsLabel": "TWIST", "vhsDur": 0.9, "scene": S_ANF, "accent": GREEN, "follow": 0.5,
-  "camFrom": {"pos": [-6.4, 2.0, 35], "tgt": [0, 1.0, 52]}, "camera": {"pos": [-5.6, 1.8, 37.4], "tgt": [0, 1.0, 52]}, "move": 5, "moveEase": "linear",
-  "players": [P(kit=MUA, skin="#8a5a3c", hair="#141010", x=-2.0, z=42, action="kick", actionAt="Two–one", actionLag=-0.6, actionDur=0.8, after="celebrate"),
+  "camFrom": {"pos": [-5.0, 2.2, 33.0], "tgt": [-0.8, 1.0, 52]}, "camera": {"pos": [-4.4, 1.9, 35.7], "tgt": [-0.8, 1.0, 52]}, "move": 5, "moveEase": "linear",
+  "players": [P(kit=MUA, skin="#8a5a3c", hair="#141010", x=-2.0, z=42, action="kick", actionAt="Two–one", actionLag=-0.6, actionDur=0.8, after="celebrate", runup=1.6),
               P(kit=GK, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=-1, actionAt="Two–one", actionLag=-0.15),
               P(kit=LIV, skin="#e7b593", hair="#141010", x=-3.9, z=45.3, front=True, action="dive", dir=1, actionAt="Two–one", actionLag=-0.45, actionDur=0.7), P(kit=LIV, skin="#f0c8a8", hair="#5a3a22", x=2.4, z=48, front=True)],
   "card": [{"type": "scorebug", "y": 610, "delay": 0, "home": {"name": "LIV", "color": "#c8102e"}, "away": {"name": "MUN", "color": "#f4f4f2"}, "score": [1, 2], "from": [1, 1], "goalAt": "Two–one", "goalLag": 0.3, "min": "OCT 2025", "clear": False},
@@ -69,7 +69,7 @@ B.append({"kicker": "But here's the twist", "headline": "United won at Anfield: 
 B.append({"kicker": "The curse", "headline": "It can be broken. [Not by him].", "cut": True, "scene": S_ANF, "accent": RED, "lights": 0.4,
   "camFrom": {"pos": [0.9, 1.6, -3.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0.2, 1.45, -0.9], "tgt": [0, 1.3, 10]}, "move": 4, "moveEase": "linear",
   "players": [poch(x=0, z=2.9, pose="think")],
-  "card": [{"type": "scales", "y": 1560, "delay": 0.2, "left": {"name": "United", "value": 1, "color": GREEN, "text": "WON"}, "right": {"name": "Pochettino", "value": 1.6, "color": "#d6283b", "text": "9 YRS"}, "tilt": 0.2, "arm": 250, "clear": False}],
+  "card": [{"type": "scales", "y": 1480, "delay": 0.2, "left": {"name": "United", "value": 1, "color": "#1f8a4c", "sub": "won there"}, "right": {"name": "Pochettino", "value": 1.6, "color": "#d6283b", "sub": "9 years"}, "tilt": 0.2, "arm": 250, "clear": False}],
   "punch": [{"at": "Just not", "amount": 0.14, "dur": 1.4}]})
 # 8 lose / win
 B.append({"kicker": "What's at stake", "headline": "Lose: bottom three. [Win: a new era].", "cut": True, "transition": "whip", "scene": S_OT, "accent": GOLD, "lights": 0.4,

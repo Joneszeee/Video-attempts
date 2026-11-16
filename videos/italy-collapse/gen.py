@@ -41,8 +41,8 @@ B.append({"kicker": "Brussels · Sunday 15 November 2026", "headline": "Italy ar
 # 3 Esposito 0-1
 e0 = [-1.78, 0.11, 41.45]; ee = [2.9, 0.6, 52.3]
 B.append({"kicker": "Belgium 0–1 Italy", "headline": "Pio Esposito. [0–1].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_BEL, "accent": GREEN, "follow": 0.5,
-  "camFrom": {"pos": [-6.4, 2.0, 34], "tgt": [0, 1.0, 52]}, "camera": {"pos": [-5.6, 1.8, 36.4], "tgt": [0, 1.0, 52]}, "move": 4, "moveEase": "linear",
-  "players": [P(kit=ITA, skin="#e7b593", hair="#141010", x=-2.0, z=41, label="Pio Esposito", labelDelay=0.1, action="kick", actionAt="puts them ahead", actionLag=-0.3, actionDur=0.8, after="celebrate"),
+  "camFrom": {"pos": [-5.0, 2.2, 32.0], "tgt": [-0.8, 1.0, 52]}, "camera": {"pos": [-4.4, 1.9, 34.7], "tgt": [-0.8, 1.0, 52]}, "move": 4, "moveEase": "linear",
+  "players": [P(kit=ITA, skin="#e7b593", hair="#141010", x=-2.0, z=41, label="Pio Esposito", labelDelay=0.1, action="kick", actionAt="puts them ahead", actionLag=-0.3, actionDur=0.8, after="celebrate", runup=1.6),
               keeper(GKB, -1, "puts them ahead", 0.15),
               P(kit=BEL, skin="#8a5a3c", hair="#141010", x=-3.9, z=44.4, front=True, action="dive", dir=1, actionAt="puts them ahead", actionLag=-0.15, actionDur=0.7), P(kit=BEL, skin="#f0c8a8", hair="#5a3a22", x=2.4, z=47.6, front=True)],
   "card": [bug([0, 1], "1ST HALF", [0, 0], "puts them ahead", 0.6),

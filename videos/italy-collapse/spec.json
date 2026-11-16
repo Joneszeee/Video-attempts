@@ -253,24 +253,24 @@
    "follow": 0.5,
    "camFrom": {
     "pos": [
-     -6.4,
-     2.0,
-     34
+     -5.0,
+     2.2,
+     32.0
     ],
     "tgt": [
-     0,
+     -0.8,
      1.0,
      52
     ]
    },
    "camera": {
     "pos": [
-     -5.6,
-     1.8,
-     36.4
+     -4.4,
+     1.9,
+     34.7
     ],
     "tgt": [
-     0,
+     -0.8,
      1.0,
      52
     ]
@@ -297,7 +297,8 @@
      "actionAt": "puts them ahead",
      "actionLag": -0.3,
      "actionDur": 0.8,
-     "after": "celebrate"
+     "after": "celebrate",
+     "runup": 1.6
     },
     {
      "name": "",

@@ -21,35 +21,36 @@
    "accent": "#e9b949",
    "lights": 0.85,
    "flashes": 18,
+   "follow": 0.5,
    "camFrom": {
     "pos": [
-     0.9,
-     1.5,
-     0.3
+     -5.0,
+     2.2,
+     32.0
     ],
     "tgt": [
-     0.9,
-     1.35,
-     10
+     -0.8,
+     1.0,
+     52
     ]
    },
    "camera": {
     "pos": [
-     0.9,
-     1.5,
-     -0.9
+     -4.4,
+     1.9,
+     34.7
     ],
     "tgt": [
-     0.9,
-     1.35,
-     10
+     -0.8,
+     1.0,
+     52
     ]
    },
-   "move": 8,
+   "move": 3,
    "moveEase": "linear",
    "players": [
     {
-     "name": "",
+     "name": "Ronaldo",
      "num": 7,
      "kit": {
       "shirt": "#c8102e",
@@ -59,54 +60,214 @@
      },
      "skin": "#c99b7a",
      "hair": "#141010",
-     "x": 1.7,
-     "z": 3.5,
-     "front": true,
-     "chest": true,
-     "action": "celebrate",
+     "x": -2.0,
+     "z": 41,
      "label": "Ronaldo",
-     "labelDelay": 0
+     "labelDelay": 0,
+     "action": "kick",
+     "actionDelay": 0.55,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 1.0
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1c2c7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -3.9,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": 0.7,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1c2c7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.4,
+     "z": 47.6,
+     "front": true
     }
    ],
    "card": [
     {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.78,
+      0.11,
+      41.45
+     ],
+     "until": 0.89
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.89,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.78,
+       0.11,
+       41.45
+      ],
+      [
+       0.5599999999999999,
+       1.0,
+       46.875
+      ],
+      [
+       2.9,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
      "type": "big",
+     "id": "c146",
      "delay": -0.6,
      "from": 0,
      "value": 146,
-     "countDur": 2.4,
+     "countDur": 2.6,
      "label": "International goals",
-     "y": 1250,
-     "shiftX": -210,
-     "size": 290,
+     "y": 1560,
+     "size": 280,
      "clear": false
-    },
-    {
-     "type": "stamp",
-     "text": "UNBREAKABLE?",
-     "sub": "nobody is close",
-     "at": "Nobody playing",
-     "lag": 0,
-     "color": "#e9b949",
-     "rot": -0.07,
-     "size": 84,
-     "y": 1740
     }
    ],
-   "shake": [
+   "shots": [
     {
-     "t": 1.85,
-     "amount": 14
-    },
-    {
-     "at": "Nobody playing",
-     "lag": 0.16,
-     "amount": 12
+     "at": "One hundred and forty-six",
+     "lag": -0.25,
+     "cut": true,
+     "hype": false,
+     "camFrom": {
+      "pos": [
+       0,
+       1.3,
+       -1.6
+      ],
+      "tgt": [
+       0,
+       1.35,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.4,
+       -0.4
+      ],
+      "tgt": [
+       0,
+       1.35,
+       10
+      ]
+     },
+     "move": 6,
+     "moveEase": "linear",
+     "players": [
+      {
+       "name": "",
+       "num": 7,
+       "kit": {
+        "shirt": "#c8102e",
+        "shorts": "#046a38",
+        "socks": "#c8102e",
+        "text": "#fdda24"
+       },
+       "skin": "#c99b7a",
+       "hair": "#141010",
+       "x": 0,
+       "z": 3.6,
+       "front": true,
+       "chest": true,
+       "action": "siu",
+       "actionDelay": 0.15,
+       "label": "Cristiano Ronaldo",
+       "labelDelay": 0.9
+      }
+     ],
+     "card": [
+      {
+       "type": "big",
+       "delay": -3,
+       "value": 146,
+       "label": "International goals · men's record",
+       "y": 1560,
+       "size": 280,
+       "clear": false
+      },
+      {
+       "type": "stamp",
+       "text": "UNBREAKABLE?",
+       "sub": "nobody is close",
+       "at": "Nobody playing",
+       "lag": 0,
+       "color": "#e9b949",
+       "rot": -0.07,
+       "size": 84,
+       "y": 1800
+      }
+     ],
+     "shake": [
+      {
+       "t": 0.62,
+       "amount": 16
+      },
+      {
+       "at": "Nobody playing",
+       "lag": 0.16,
+       "amount": 12
+      }
+     ],
+     "confetti": true
     }
    ],
    "vo": "Cristiano Ronaldo's record will never be broken. One hundred and forty-six international goals. Nobody playing today is even close."
   },
   {
+   "confetti": false,
    "kicker": "5 November 2026",
    "headline": "Ronaldo [retires] from Portugal.",
    "cut": true,
@@ -307,24 +468,24 @@
    "follow": 0.5,
    "camFrom": {
     "pos": [
-     -6.4,
-     2.0,
-     34
+     -5.0,
+     2.2,
+     32.0
     ],
     "tgt": [
-     0,
+     -0.8,
      1.0,
      52
     ]
    },
    "camera": {
     "pos": [
-     -5.6,
-     1.8,
-     36.4
+     -4.4,
+     1.9,
+     34.7
     ],
     "tgt": [
-     0,
+     -0.8,
      1.0,
      52
     ]
@@ -351,7 +512,8 @@
      "actionAt": "ninety-three",
      "actionLag": -0.6,
      "actionDur": 0.8,
-     "after": "celebrate"
+     "after": "celebrate",
+     "runup": 1.6
     },
     {
      "name": "",
@@ -597,24 +759,24 @@
    "follow": 0.5,
    "camFrom": {
     "pos": [
-     5.6,
-     2.0,
-     35
+     4.0,
+     2.2,
+     33.0
     ],
     "tgt": [
-     0,
+     0.4,
      1.0,
      52
     ]
    },
    "camera": {
     "pos": [
-     5.0,
-     1.8,
-     37.4
+     3.4,
+     1.9,
+     35.7
     ],
     "tgt": [
-     0,
+     0.4,
      1.0,
      52
     ]
@@ -642,7 +804,8 @@
      "actionAt": "sixty-six",
      "actionLag": -0.6,
      "actionDur": 0.8,
-     "after": "celebrate"
+     "after": "celebrate",
+     "runup": 1.6
     },
     {
      "name": "",

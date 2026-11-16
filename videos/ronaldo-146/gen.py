@@ -28,15 +28,24 @@ def ladder(states, **k):
 NOW = {"t": 0, "dur": 0.01}
 CLOSE = lambda x=0: dict(camFrom={"pos": [x + 1.2, 1.6, -2.6], "tgt": [x, 1.3, 10]}, camera={"pos": [x + 0.3, 1.5, -0.8], "tgt": [x, 1.3, 10]}, move=6, moveEase="linear")
 B = []
-# 1 hook: counter races to 146 and locks, UNBREAKABLE
-B.append({"kicker": "International goals · the record", "headline": "Nobody is catching [Ronaldo's 146].", "hookWords": True, "scene": S_POR, "accent": GOLD, "lights": 0.85, "flashes": 18,
-  "camFrom": {"pos": [0.9, 1.5, 0.3], "tgt": [0.9, 1.35, 10]}, "camera": {"pos": [0.9, 1.5, -0.9], "tgt": [0.9, 1.35, 10]}, "move": 8, "moveEase": "linear",
-  "players": [P(kit=POR, num=7, skin="#c99b7a", hair="#141010", x=1.7, z=3.5, front=True, chest=True, action="celebrate", label="Ronaldo", labelDelay=0)],
-  "card": [{"type": "big", "delay": -0.6, "from": 0, "value": 146, "countDur": 2.4, "label": "International goals", "y": 1250, "shiftX": -210, "size": 290, "clear": False},
-           {"type": "stamp", "text": "UNBREAKABLE?", "sub": "nobody is close", "at": "Nobody playing", "lag": 0, "color": GOLD, "rot": -0.07, "size": 84, "y": 1740}],
-  "shake": [{"t": 1.85, "amount": 14}, {"at": "Nobody playing", "lag": 0.16, "amount": 12}]})
+# 1 hook: Ronaldo scores, then the siu as the counter locks on 146
+r0 = [-1.78, 0.11, 41.45]; re = [2.9, 1.0, 52.3]
+B.append({"kicker": "International goals · the record", "headline": "Nobody is catching [Ronaldo's 146].", "hookWords": True, "scene": S_POR, "accent": GOLD, "lights": 0.85, "flashes": 18, "follow": 0.5,
+  "camFrom": {"pos": [-5.0, 2.2, 32.0], "tgt": [-0.8, 1.0, 52]}, "camera": {"pos": [-4.4, 1.9, 34.7], "tgt": [-0.8, 1.0, 52]}, "move": 3, "moveEase": "linear",
+  "players": [P(kit=POR, num=7, name="Ronaldo", skin="#c99b7a", hair="#141010", x=-2.0, z=41, label="Ronaldo", labelDelay=0, action="kick", actionDelay=0.55, actionDur=0.8, after="celebrate", runup=1.6),
+              P(kit=GK, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=-1, actionDelay=1.0),
+              P(kit=FRA, skin="#e7b593", hair="#141010", x=-3.9, z=44.4, front=True, action="dive", dir=1, actionDelay=0.7, actionDur=0.7), P(kit=FRA, skin="#8a5a3c", hair="#141010", x=2.4, z=47.6, front=True)],
+  "card": [{"type": "ball", "delay": 0, "point": r0, "until": 0.89},
+           {"type": "ballpath", "world": True, "delay": 0.89, "dur": 0.5, "slowmo": False, "points": [r0, mid(r0, re, 1.0), re]},
+           {"type": "big", "id": "c146", "delay": -0.6, "from": 0, "value": 146, "countDur": 2.6, "label": "International goals", "y": 1560, "size": 280, "clear": False}],
+  "shots": [{"at": "One hundred and forty-six", "lag": -0.25, "cut": True, "hype": False,
+     "camFrom": {"pos": [0, 1.3, -1.6], "tgt": [0, 1.35, 10]}, "camera": {"pos": [0, 1.4, -0.4], "tgt": [0, 1.35, 10]}, "move": 6, "moveEase": "linear",
+     "players": [P(kit=POR, num=7, skin="#c99b7a", hair="#141010", x=0, z=3.6, front=True, chest=True, action="siu", actionDelay=0.15, label="Cristiano Ronaldo", labelDelay=0.9)],
+     "card": [{"type": "big", "delay": -3, "value": 146, "label": "International goals · men's record", "y": 1560, "size": 280, "clear": False},
+              {"type": "stamp", "text": "UNBREAKABLE?", "sub": "nobody is close", "at": "Nobody playing", "lag": 0, "color": GOLD, "rot": -0.07, "size": 84, "y": 1800}],
+     "shake": [{"t": 0.62, "amount": 16}, {"at": "Nobody playing", "lag": 0.16, "amount": 12}], "confetti": True}]})
 # 2 retired: 23 years, 234 games
-B.append({"kicker": "5 November 2026", "headline": "Ronaldo [retires] from Portugal.", "cut": True, "transition": "whip", "scene": S_POR, "accent": GOLD, "lights": 0.55, "focus": 0.3,
+B.append({"confetti": False, "kicker": "5 November 2026", "headline": "Ronaldo [retires] from Portugal.", "cut": True, "transition": "whip", "scene": S_POR, "accent": GOLD, "lights": 0.55, "focus": 0.3,
   "camFrom": {"pos": [0, 60, -95], "tgt": [0, 0, 0]}, "camera": {"pos": [0, 16, -30], "tgt": [0, 0, 10]}, "move": 8, "moveEase": "linear", "players": [],
   "card": [{"type": "flip", "y": 680, "delay": 0.1, "label": "Retired from Portugal", "groups": [{"label": "November", "value": 5, "digits": 2}], "side": {"top": "THU", "big": "05", "bottom": "NOV"}},
            {"type": "stack", "y": 1400, "delay": 0, "size": 190, "items": [{"value": 23, "label": "Years", "at": "Twenty-three"}, {"value": 234, "label": "Games for Portugal", "at": "Two hundred"}, {"value": 146, "label": "Goals", "t": 99}]}]})
@@ -48,8 +57,8 @@ B[-1]["card"][0]["items"] = [dict(ROW[0], at="Lionel Messi", lag=0.1)]
 # 4 Kane 93
 k0 = [-1.78, 0.11, 41.45]; ke = [2.9, 0.6, 52.3]
 B.append({"kicker": "England", "headline": "Kane: [93]. Needs 53 more.", "cut": True, "transition": "whip", "scene": S_ENG, "accent": RED, "follow": 0.5,
-  "camFrom": {"pos": [-6.4, 2.0, 34], "tgt": [0, 1.0, 52]}, "camera": {"pos": [-5.6, 1.8, 36.4], "tgt": [0, 1.0, 52]}, "move": 5, "moveEase": "linear",
-  "players": [P(kit=ENG, skin="#f0c8a8", hair="#b8905a", x=-2.0, z=41, label="Harry Kane · 33", labelAt="Harry Kane", action="kick", actionAt="ninety-three", actionLag=-0.6, actionDur=0.8, after="celebrate"),
+  "camFrom": {"pos": [-5.0, 2.2, 32.0], "tgt": [-0.8, 1.0, 52]}, "camera": {"pos": [-4.4, 1.9, 34.7], "tgt": [-0.8, 1.0, 52]}, "move": 5, "moveEase": "linear",
+  "players": [P(kit=ENG, skin="#f0c8a8", hair="#b8905a", x=-2.0, z=41, label="Harry Kane · 33", labelAt="Harry Kane", action="kick", actionAt="ninety-three", actionLag=-0.6, actionDur=0.8, after="celebrate", runup=1.6),
               P(kit=GK, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=-1, actionAt="ninety-three", actionLag=-0.15),
               P(kit=FRA, skin="#e7b593", hair="#141010", x=-3.9, z=44.4, front=True, action="dive", dir=1, actionAt="ninety-three", actionLag=-0.45, actionDur=0.7), P(kit=FRA, skin="#8a5a3c", hair="#141010", x=2.4, z=47.6, front=True)],
   "card": [{"type": "ball", "delay": 0, "point": k0, "untilAt": "ninety-three", "untilLag": -0.26},
@@ -63,8 +72,8 @@ B.append({"kicker": "France", "headline": "Mbappé: [67]. Not halfway.", "cut": 
 # 6 Haaland 66, a goal a game
 h0 = [1.22, 0.11, 42.45]; he = [-2.9, 1.0, 52.3]
 B.append({"kicker": "Norway", "headline": "Haaland: [66]. A goal a game.", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_NOR, "accent": GOLD, "follow": 0.5,
-  "camFrom": {"pos": [5.6, 2.0, 35], "tgt": [0, 1.0, 52]}, "camera": {"pos": [5.0, 1.8, 37.4], "tgt": [0, 1.0, 52]}, "move": 4, "moveEase": "linear",
-  "players": [P(kit=NOR, skin="#f0c8a8", hair="#e8d28a", foot="left", x=1.0, z=42, label="Erling Haaland · 26", labelDelay=0.2, action="kick", actionAt="sixty-six", actionLag=-0.6, actionDur=0.8, after="celebrate"),
+  "camFrom": {"pos": [4.0, 2.2, 33.0], "tgt": [0.4, 1.0, 52]}, "camera": {"pos": [3.4, 1.9, 35.7], "tgt": [0.4, 1.0, 52]}, "move": 4, "moveEase": "linear",
+  "players": [P(kit=NOR, skin="#f0c8a8", hair="#e8d28a", foot="left", x=1.0, z=42, label="Erling Haaland · 26", labelDelay=0.2, action="kick", actionAt="sixty-six", actionLag=-0.6, actionDur=0.8, after="celebrate", runup=1.6),
               P(kit=GK, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=1, actionAt="sixty-six", actionLag=-0.15),
               P(kit=ENG, skin="#e7b593", hair="#141010", x=3.0, z=45.2, front=True, action="dive", dir=-1, actionAt="sixty-six", actionLag=-0.45, actionDur=0.7), P(kit=ENG, skin="#8a5a3c", hair="#141010", x=-2.4, z=48, front=True)],
   "card": [{"type": "ball", "delay": 0, "point": h0, "untilAt": "sixty-six", "untilLag": -0.26},

@@ -1213,7 +1213,7 @@ const CARDS = {
       const v = c.moveT != null && r.from != null ? lerp(r.from, r.pts, mk) : countVal({ value: r.pts, from: r.from || 0 }, ct, 0.5, 1.3);
       font(800, 52, 'Inter', '0px'); ctx.textAlign = 'right';
       ctx.fillStyle = r.highlight ? S.accent : '#eef0f3';
-      ctx.fillText(String(Math.round(v)), cx + bw / 2 - 50, y + 2);
+      if (r.pts !== '' && r.pts != null) ctx.fillText(String(Math.round(v)), cx + bw / 2 - 50, y + 2);   // pts: "" = a table without points (positions only)
       ctx.restore();
     });
     if (c.pill) {
@@ -1836,6 +1836,56 @@ CARDS.stamp = function (c, ct, cx, cy) {
   ctx.restore();   // no ink-speckle texture (user: it punched black holes through the frame and looked mouldy)
 };
 CARDS.stamp.noSlide = true;
+
+// Goal ladder: columns race up a ladder towards a record line at the top; each stops short and a red chip shows the gap.
+// {type: "ladder", max: 146, maxLabel: "Ronaldo · 146", items: [{name, value, color, at|t, note, done: true (retired, grey)}], h, w}
+CARDS.ladder = function (c, ct, cx, cy) {
+  const I = c.items, n = I.length, w = c.w || 940, h = c.h || 900, colW = Math.min(170, (w - 40) / n - 24), k = eOut(pr(ct, 0, 0.4)), max = c.max;
+  if (k <= 0) return;
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy);
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 12; ctx.fillStyle = 'rgba(8,10,15,0.82)'; rrect(-w / 2, -h / 2, w, h, 28); ctx.fill(); ctx.shadowColor = 'transparent';
+  const top = -h / 2 + 130, bot = h / 2 - 110, yOf = v => lerp(bot, top, v / max);
+  for (let v = 0; v <= max; v += c.step || 25) { ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-w / 2 + 30, yOf(v)); ctx.lineTo(w / 2 - 30, yOf(v)); ctx.stroke(); }
+  const pulse = 0.6 + 0.4 * Math.sin(ct * 4);   // the record line glows
+  ctx.strokeStyle = '#f1c453'; ctx.lineWidth = 7; ctx.shadowColor = '#f1c453'; ctx.shadowBlur = 24 * pulse; ctx.beginPath(); ctx.moveTo(-w / 2 + 30, top); ctx.lineTo(w / 2 - 30, top); ctx.stroke(); ctx.shadowColor = 'transparent';
+  font(900, 46, 'Inter'); ctx.fillStyle = '#f1c453'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.maxLabel || String(max), 0, top - 56);
+  I.forEach((it, i) => {
+    const x = (i - (n - 1) / 2) * (w - 60) / n, t = it.t != null ? it.t : 0.3, g = eOut(pr(ct, t, it.dur || 0.9)), v = it.value * g, y = yOf(v), col = it.done ? '#6b7280' : (it.color || '#fff');
+    if (ct < t) { font(700, 28, 'Inter'); ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.fillText(it.name, x, bot + 44); return; }
+    const gr = ctx.createLinearGradient(0, bot, 0, y); gr.addColorStop(0, 'rgba(255,255,255,0.12)'); gr.addColorStop(1, col); ctx.fillStyle = gr; rrect(x - colW / 2, y, colW, bot - y, 12); ctx.fill();
+    font(900, 60, 'Inter', '-1px'); ctx.fillStyle = '#fff'; ctx.fillText(Math.round(v), x, y - 44);
+    font(700, 28, 'Inter'); ctx.fillStyle = it.done ? 'rgba(255,255,255,0.55)' : '#fff'; ctx.fillText(it.name, x, bot + 44);
+    if (it.note && g >= 1) { const nk = eBack(pr(ct, t + (it.dur || 0.9) + 0.1, 0.3)); font(800, 26, 'Inter'); const tw = ctx.measureText(it.note).width + 30;
+      const tight = y - top < 190; ctx.save(); ctx.translate(x, tight ? y + 44 : (y + top) / 2 - 30); ctx.scale(nk, nk); ctx.fillStyle = it.done ? '#4a5160' : '#d6283b'; rrect(-tw / 2, -24, tw, 48, 12); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(it.note, 0, 2); ctx.restore();
+      if (nk > 0.5 && !tight) { ctx.strokeStyle = 'rgba(255,255,255,0.4)'; ctx.setLineDash([6, 8]); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, y - 84); ctx.lineTo(x, top + 8); ctx.stroke(); ctx.setLineDash([]); } }
+  });
+  ctx.restore();
+};
+CARDS.ladder.noSlide = true;
+
+// Match timeline: a 0-90 minute bar; goal pins drop onto it on their words and a glowing bracket marks a spell ("11 MIN").
+// {type: "timeline", title, events: [{pos: 0..1, label, color, at|t, up: true}], bracket: {from, to, label, at|t}, left: "0'", right: "90'"}
+CARDS.timeline = function (c, ct, cx, cy) {
+  const w = c.w || 920, k = eOut(pr(ct, 0, 0.4));
+  if (k <= 0) return;
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy);
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 12; ctx.fillStyle = 'rgba(8,10,15,0.85)'; rrect(-w / 2 - 40, -230, w + 80, 460, 28); ctx.fill(); ctx.shadowColor = 'transparent';
+  if (c.title) { font(600, 26, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.title.toUpperCase(), 0, -185); }
+  ctx.fillStyle = 'rgba(255,255,255,0.18)'; rrect(-w / 2, -8, w, 16, 8); ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,0.5)'; ctx.fillRect(-2, -22, 4, 44);
+  font(600, 24, 'Mono'); ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.fillText(c.left || "0'", -w / 2, 44); ctx.fillText(c.right || "90'", w / 2, 44); ctx.fillText('HT', 0, 44);
+  const B = c.bracket;
+  if (B) { const bt = B.t != null ? B.t : 99, bk = eOut(pr(ct, bt, 0.5)); if (bk > 0) { const x0 = -w / 2 + B.from * w - 26, x1 = -w / 2 + lerp(B.from, B.to, bk) * w + 26, pl = 0.6 + 0.4 * Math.sin(ct * 5);
+      ctx.fillStyle = 'rgba(214,40,59,' + (0.28 * pl + 0.1) + ')'; rrect(x0, -120, x1 - x0, 150, 14); ctx.fill(); ctx.strokeStyle = '#ff4d5e'; ctx.lineWidth = 5; rrect(x0, -120, x1 - x0, 150, 14); ctx.stroke();
+      if (bk >= 1) { const lk = eBack(pr(ct, bt + 0.5, 0.3)); font(900, 54, 'Inter'); const tw = ctx.measureText(B.label).width + 50; ctx.save(); ctx.translate((x0 + x1) / 2, 130); ctx.scale(lk, lk); ctx.fillStyle = '#d6283b'; rrect(-tw / 2, -44, tw, 88, 18); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(B.label, 0, 3); ctx.restore(); } } }
+  (c.events || []).forEach(e => { const t = e.t != null ? e.t : 0.4, a = pr(ct, t, 0.35); if (a <= 0) return;
+    const x = -w / 2 + e.pos * w, y = lerp(-420, -52, eOut(a)) + (a >= 1 ? 0 : 0), col = e.color || '#fff', sq = a >= 1 ? 1 + 0.15 * Math.max(0, 1 - (ct - t - 0.35) / 0.2) : 1;
+    ctx.save(); ctx.translate(x, y); ctx.scale(sq, sq); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(0, 0, 30, 0, 7); ctx.fill(); ctx.beginPath(); ctx.moveTo(-14, 24); ctx.lineTo(0, 52); ctx.lineTo(14, 24); ctx.fill();
+    ctx.fillStyle = '#12151c'; ctx.beginPath(); ctx.arc(0, 0, 13, 0, 7); ctx.fill(); ctx.restore();
+    if (a >= 1 && e.label) { font(800, 26, 'Inter'); ctx.fillStyle = '#fff'; ctx.save(); ctx.translate(x + 8, y - 44); ctx.rotate(-0.6); ctx.textAlign = 'left'; ctx.fillText(e.label, 0, 0); ctx.restore(); ctx.textAlign = 'center'; } });
+  ctx.restore();
+};
+CARDS.timeline.noSlide = true;
 
 // Draw pot: lottery balls tumble inside a glass bowl; on pickAt one ball rises out of the top, grows and shows its name (or "?").
 // {type: "drawpot", balls: [{text: "BEL", color, color2}], pick: index, pickText: "?", pickAt|pickT, title, r}
@@ -3845,6 +3895,8 @@ function cardEvents(c) {
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'fates': (c.items || []).forEach(it => { if (it.t != null && it.t < 90) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: it.fate === 'up' || it.fate === 'win' ? 'pop' : 'impact' }); }); break;
     case 'trapdoor': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.8; ev.push({ t, type: it.stay ? 'pop' : 'impact' }); if (!it.stay) ev.push({ t: t + 0.15, type: 'whoosh' }); }); break;
+    case 'ladder': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.3; if (t < 90) ev.push({ t, type: 'whoosh' }, { t: t + (it.dur || 0.9), type: it.done ? 'pop' : 'impact' }); }); break;
+    case 'timeline': (c.events || []).forEach(e => { const t = e.t != null ? e.t : 0.4; ev.push({ t: t + 0.35, type: 'impact' }); }); if (c.bracket && c.bracket.t != null) ev.push({ t: c.bracket.t, type: 'whoosh' }, { t: c.bracket.t + 0.5, type: 'impact' }); break;
     case 'drawpot': for (let t = 0.3; t < Math.min(c.pickT != null ? c.pickT : 2.5, 3); t += 0.22) ev.push({ t, type: 'tick' }); if (c.pickT != null) ev.push({ t: c.pickT, type: 'whoosh' }, { t: c.pickT + 0.45, type: 'pop' }); break;
     case 'streak': { const f = c.fill != null ? c.fill : 1.2; for (let t = 0.1; t < f; t += 0.07) ev.push({ t, type: 'tick' }); if (c.breakT != null) ev.push({ t: c.breakT, type: 'impact' }, { t: c.breakT + 0.15, type: 'whoosh' }); break; }
     case 'scorebug': if (c.from) ev.push({ t: c.goalT != null ? c.goalT : 0.5, type: 'pop' }); break;

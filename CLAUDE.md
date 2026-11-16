@@ -322,6 +322,11 @@ Built so far from the idea list (reuse them):
 - **Fate tiles with custom labels:** a `fates` item takes `label` ("CAN'T", "POSSIBLE", "RUNNER-UP") with `fate: "down"|"up"`, so the same tiles work for draw rules.
 - **Ticket stub text always fits** (user: the date ran past the ticket's edges). The engine shrinks the stub date to the ticket's height; still keep it short ("Wembley · Sept 2026").
 - **`tickets` card keys** (it crashed once on the wrong ones): the list is `tickets: [...]` (not `items`), with `done` = how many are already shown and `newT`/`newAt` for the next.
+- **Goal ladder** (built for `videos/ronaldo-146`): the `ladder` card. Columns race up towards a glowing record line and stop short, with a red "53 short" chip in the gap:
+  `max`, `maxLabel`, `items: [{name, value, color, at|t, note, done: true (retired, grey)}]`, `w`, `h`. Repeat it across beats with more columns revealed (`t: 0, dur: 0.01` = already there).
+- **Match timeline** (built for `videos/italy-collapse`): the `timeline` card. A 0–90 minute bar; goal pins drop on their words and a pulsing red `bracket: {from, to, label, at}`
+  marks a spell ("11 MIN"): `events: [{pos: 0–1, label, color, at|t}]`, `title`. If the exact minutes aren't known, say "not to scale" in the title.
+- **Table without points:** a `table` row with `pts: ""` shows positions only (use it when the points aren't confirmed).
 - **History stories:** check the club's own site and at least one other source; drop quotes and details only one retelling has; say "the story goes"
   for parts that are legend.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.

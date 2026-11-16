@@ -1,0 +1,1519 @@
+{
+ "title": "Italy's 11-minute collapse",
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Belgium 4–1 Italy · Nations League",
+   "headline": "Italy led. [11 minutes] later: 3–1 down.",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#fdda24",
+     "#111111",
+     "#c8102e"
+    ],
+    "seed": 26
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.75,
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0.9,
+     1.5,
+     0.3
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.9,
+     1.5,
+     -0.9
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 1.6,
+     "z": 3.5,
+     "front": true,
+     "pose": "think",
+     "label": "Italy",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 640,
+     "delay": 0,
+     "home": {
+      "name": "BEL",
+      "color": "#c8102e"
+     },
+     "away": {
+      "name": "ITA",
+      "color": "#0b5fc0"
+     },
+     "score": [
+      3,
+      1
+     ],
+     "min": "11 MIN",
+     "clear": false,
+     "from": [
+      0,
+      1
+     ],
+     "goalAt": "Eleven minutes",
+     "goalLag": 0.5
+    },
+    {
+     "type": "stopwatch",
+     "y": 1300,
+     "shiftX": -200,
+     "delay": -0.3,
+     "value": 11,
+     "max": 15,
+     "unit": "MIN",
+     "lockAt": "Eleven minutes",
+     "lockLag": 0.5,
+     "label": "From 0–1 to 3–1",
+     "r": 210,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "COLLAPSE",
+     "sub": "and it gets worse",
+     "at": "it gets worse",
+     "lag": -0.2,
+     "color": "#ff4d5e",
+     "rot": -0.08,
+     "size": 96,
+     "y": 1780
+    }
+   ],
+   "shake": [
+    {
+     "at": "Eleven minutes",
+     "lag": 0.55,
+     "amount": 18
+    },
+    {
+     "at": "it gets worse",
+     "lag": -0.04,
+     "amount": 12
+    }
+   ],
+   "vo": "Italy were winning. Eleven minutes later, they were three–one down. And it gets worse."
+  },
+  {
+   "kicker": "Brussels · Sunday 15 November 2026",
+   "headline": "Italy arrive [top of the group].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#fdda24",
+     "#111111",
+     "#c8102e"
+    ],
+    "seed": 26
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     16,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 680,
+     "delay": 0.1,
+     "label": "Nations League · Group A1",
+     "groups": [
+      {
+       "label": "November",
+       "value": 15,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "SUN",
+      "big": "15",
+      "bottom": "NOV"
+     }
+    },
+    {
+     "type": "table",
+     "y": 1380,
+     "at": "top of",
+     "lag": -0.5,
+     "scale": 1.2,
+     "label": "Group A1 · before kick-off",
+     "clear": false,
+     "rows": [
+      {
+       "pos": 1,
+       "name": "Italy",
+       "color": "#0b5fc0",
+       "color2": "#ffffff",
+       "pts": "",
+       "highlight": true
+      },
+      {
+       "pos": 2,
+       "name": "France",
+       "color": "#1c2c7a",
+       "color2": "#ffffff",
+       "pts": ""
+      },
+      {
+       "pos": 3,
+       "name": "Belgium",
+       "color": "#c8102e",
+       "color2": "#111111",
+       "pts": ""
+      }
+     ]
+    }
+   ],
+   "vo": "Sunday the fifteenth of November, 2026. Italy go to Belgium top of their Nations League group."
+  },
+  {
+   "kicker": "Belgium 0–1 Italy",
+   "headline": "Pio Esposito. [0–1].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#fdda24",
+     "#111111",
+     "#c8102e"
+    ],
+    "seed": 26
+   },
+   "accent": "#2ecc71",
+   "follow": 0.5,
+   "camFrom": {
+    "pos": [
+     -6.4,
+     2.0,
+     34
+    ],
+    "tgt": [
+     0,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -5.6,
+     1.8,
+     36.4
+    ],
+    "tgt": [
+     0,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -2.0,
+     "z": 41,
+     "label": "Pio Esposito",
+     "labelDelay": 0.1,
+     "action": "kick",
+     "actionAt": "puts them ahead",
+     "actionLag": -0.3,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "puts them ahead",
+     "actionLag": 0.15
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -3.9,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "puts them ahead",
+     "actionLag": -0.15,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "x": 2.4,
+     "z": 47.6,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "BEL",
+      "color": "#c8102e"
+     },
+     "away": {
+      "name": "ITA",
+      "color": "#0b5fc0"
+     },
+     "score": [
+      0,
+      1
+     ],
+     "min": "1ST HALF",
+     "clear": false,
+     "from": [
+      0,
+      0
+     ],
+     "goalAt": "puts them ahead",
+     "goalLag": 0.6
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.78,
+      0.11,
+      41.45
+     ],
+     "untilAt": "puts them ahead",
+     "untilLag": 0.04
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "puts them ahead",
+     "lag": 0.04,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.78,
+       0.11,
+       41.45
+      ],
+      [
+       0.5599999999999999,
+       0.9,
+       46.875
+      ],
+      [
+       2.9,
+       0.6,
+       52.3
+      ]
+     ]
+    }
+   ],
+   "vo": "Pio Esposito puts them ahead. Everything is going to plan."
+  },
+  {
+   "kicker": "The collapse",
+   "headline": "Three goals in [11 minutes].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "THEN",
+   "vhsDur": 0.7,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#fdda24",
+     "#111111",
+     "#c8102e"
+    ],
+    "seed": 26
+   },
+   "accent": "#ff4d5e",
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     -1.5,
+     3.2,
+     31.5
+    ],
+    "tgt": [
+     0,
+     1.2,
+     50
+    ]
+   },
+   "camera": {
+    "pos": [
+     1.0,
+     2.7,
+     34.5
+    ],
+    "tgt": [
+     0,
+     1.2,
+     50
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#141010",
+     "x": -3.4,
+     "z": 41.5,
+     "label": "De Cuyper",
+     "labelAt": "De Cuyper",
+     "action": "kick",
+     "actionAt": "De Cuyper",
+     "actionLag": -0.2,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 1.6,
+     "z": 40.8,
+     "label": "Ngoy",
+     "labelAt": "Ngoy",
+     "action": "kick",
+     "actionAt": "Ngoy",
+     "actionLag": -0.2,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#c8102e",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#6a4630",
+     "hair": "#141010",
+     "x": 3.9,
+     "z": 42.6,
+     "label": "Doku",
+     "labelAt": "Doku",
+     "action": "kick",
+     "actionAt": "Doku",
+     "actionLag": -0.2,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": false
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f2c200",
+      "shorts": "#1d1c22",
+      "socks": "#f2c200",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "De Cuyper",
+     "actionLag": 0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -1.2,
+     "z": 46.8,
+     "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#c99b7a",
+     "hair": "#3a2a1a",
+     "x": 2.6,
+     "z": 47.4,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -3.1799999999999997,
+      0.11,
+      41.95
+     ],
+     "untilAt": "De Cuyper",
+     "untilLag": 0.14
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "De Cuyper",
+     "lag": 0.14,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       -3.1799999999999997,
+       0.11,
+       41.95
+      ],
+      [
+       -2.9899999999999998,
+       1.0,
+       47.125
+      ],
+      [
+       -2.8,
+       0.6,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.82,
+      0.11,
+      41.25
+     ],
+     "untilAt": "Ngoy",
+     "untilLag": 0.14
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Ngoy",
+     "lag": 0.14,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       1.82,
+       0.11,
+       41.25
+      ],
+      [
+       2.36,
+       1.0,
+       46.775
+      ],
+      [
+       2.9,
+       1.2,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      4.12,
+      0.11,
+      43.050000000000004
+     ],
+     "untilAt": "Doku",
+     "untilLag": 0.14
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Doku",
+     "lag": 0.14,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       4.12,
+       0.11,
+       43.050000000000004
+      ],
+      [
+       0.6100000000000001,
+       1.0,
+       47.675
+      ],
+      [
+       -2.9,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "BEL",
+      "color": "#c8102e"
+     },
+     "away": {
+      "name": "ITA",
+      "color": "#0b5fc0"
+     },
+     "score": [
+      3,
+      1
+     ],
+     "min": "11 MIN",
+     "clear": false,
+     "from": [
+      0,
+      1
+     ],
+     "goalAt": "De Cuyper",
+     "goalLag": 0.6
+    },
+    {
+     "type": "timeline",
+     "y": 1560,
+     "delay": 0.1,
+     "title": "Belgium v Italy · not to scale",
+     "clear": false,
+     "events": [
+      {
+       "pos": 0.22,
+       "label": "Esposito",
+       "color": "#0b5fc0",
+       "t": 0.05
+      },
+      {
+       "pos": 0.5,
+       "label": "De Cuyper",
+       "color": "#c8102e",
+       "at": "De Cuyper",
+       "lag": 0.3
+      },
+      {
+       "pos": 0.6,
+       "label": "Ngoy",
+       "color": "#c8102e",
+       "at": "Ngoy",
+       "lag": 0.3
+      },
+      {
+       "pos": 0.7,
+       "label": "Doku",
+       "color": "#c8102e",
+       "at": "Doku",
+       "lag": 0.3
+      }
+     ],
+     "bracket": {
+      "from": 0.5,
+      "to": 0.7,
+      "label": "11 MIN",
+      "at": "Three goals"
+     }
+    }
+   ],
+   "shake": [
+    {
+     "at": "De Cuyper",
+     "lag": 0.6,
+     "amount": 10
+    },
+    {
+     "at": "Ngoy",
+     "lag": 0.6,
+     "amount": 10
+    },
+    {
+     "at": "Doku",
+     "lag": 0.6,
+     "amount": 14
+    }
+   ],
+   "vo": "Then De Cuyper scores. Then Ngoy. Then Doku. Three goals in eleven minutes."
+  },
+  {
+   "kicker": "Full time",
+   "headline": "4–1. From first to [third]. Out.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#fdda24",
+     "#111111",
+     "#c8102e"
+    ],
+    "seed": 26
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     -14,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     14,
+     24,
+     -42
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "flashes": 8,
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "BEL",
+      "color": "#c8102e"
+     },
+     "away": {
+      "name": "ITA",
+      "color": "#0b5fc0"
+     },
+     "score": [
+      4,
+      1
+     ],
+     "min": "FT",
+     "clear": false,
+     "from": [
+      3,
+      1
+     ],
+     "goalAt": "a fourth",
+     "goalLag": 0.1
+    },
+    {
+     "type": "table",
+     "y": 1000,
+     "delay": 0.2,
+     "scale": 1.2,
+     "label": "Group A1 · final",
+     "moveAt": "from first",
+     "clear": false,
+     "rows": [
+      {
+       "pos": 1,
+       "fromPos": 2,
+       "fromRow": 1,
+       "name": "France",
+       "color": "#1c2c7a",
+       "color2": "#ffffff",
+       "pts": ""
+      },
+      {
+       "pos": 2,
+       "fromPos": 3,
+       "fromRow": 2,
+       "name": "Belgium",
+       "color": "#c8102e",
+       "color2": "#111111",
+       "pts": ""
+      },
+      {
+       "pos": 3,
+       "fromPos": 1,
+       "fromRow": 0,
+       "name": "Italy",
+       "color": "#0b5fc0",
+       "color2": "#ffffff",
+       "pts": "",
+       "highlight": true
+      }
+     ]
+    },
+    {
+     "type": "trapdoor",
+     "y": 1620,
+     "at": "they're out",
+     "lag": -0.7,
+     "scale": 0.9,
+     "clear": false,
+     "items": [
+      {
+       "name": "Italy",
+       "badge": {
+        "colors": [
+         "#0b5fc0",
+         "#ffffff",
+         "#0a8a4a"
+        ],
+        "text": "ITA"
+       },
+       "at": "they're out",
+       "lag": -0.1,
+       "tag": "OUT"
+      }
+     ]
+    }
+   ],
+   "shake": [
+    {
+     "at": "they're out",
+     "lag": 0,
+     "amount": 14
+    }
+   ],
+   "vo": "Moreira adds a fourth. Four–one. Italy drop from first to third, and they're out."
+  },
+  {
+   "kicker": "The bigger picture",
+   "headline": "Three World Cups [missed].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b5fc0",
+     "#ffffff",
+     "#0b5fc0",
+     "#0a8a4a"
+    ],
+    "seed": 19
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.4,
+   "camFrom": {
+    "pos": [
+     -0.3,
+     1.6,
+     -3.0
+    ],
+    "tgt": [
+     -0.9,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.8,
+     1.45,
+     -0.9
+    ],
+    "tgt": [
+     -0.9,
+     1.3,
+     10
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -1.9,
+     "z": 2.9,
+     "front": true,
+     "pose": "think"
+    }
+   ],
+   "card": [
+    {
+     "type": "tally",
+     "y": 1300,
+     "shiftX": 200,
+     "at": "missed three",
+     "lag": -0.5,
+     "r": 70,
+     "gap": 20,
+     "perRow": 3,
+     "title": "World Cups",
+     "score": "{l} in a row",
+     "clear": false,
+     "items": [
+      {
+       "label": "2018",
+       "mark": "x",
+       "t": 0.2
+      },
+      {
+       "label": "2022",
+       "mark": "x",
+       "t": 0.55
+      },
+      {
+       "label": "2026",
+       "mark": "x",
+       "t": 0.9
+      }
+     ]
+    }
+   ],
+   "shake": [
+    {
+     "at": "missed three",
+     "lag": 0.5,
+     "amount": 12
+    }
+   ],
+   "vo": "And this is the team that has missed three World Cups in a row."
+  },
+  {
+   "kicker": "March 2026 · play-off",
+   "headline": "Lost to Bosnia on [penalties].",
+   "cut": true,
+   "transition": "polaroid",
+   "polaroidLabel": "March 2026",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     4.2,
+     2.2,
+     36
+    ],
+    "tgt": [
+     0.2,
+     1.2,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.4,
+     2.0,
+     38.5
+    ],
+    "tgt": [
+     0.2,
+     1.2,
+     52
+    ]
+   },
+   "move": 3.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -0.2,
+     "z": 41.0,
+     "action": "kick",
+     "actionDelay": 0.5,
+     "actionDur": 0.8,
+     "runup": 2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      0.02,
+      0.11,
+      41.5
+     ],
+     "until": 0.84
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.84,
+     "dur": 0.55,
+     "slowmo": false,
+     "saveBy": 1,
+     "flash": false,
+     "points": [
+      [
+       0.02,
+       0.11,
+       41.5
+      ],
+      [
+       1.2,
+       1.2,
+       47
+      ],
+      [
+       2.3,
+       1.2,
+       52.0
+      ]
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "PENALTIES",
+     "sub": "Bosnia 4–1 on pens",
+     "at": "on penalties",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 84,
+     "y": 1640
+    }
+   ],
+   "shots": [
+    {
+     "at": "Roberto Mancini",
+     "lag": -0.1,
+     "cut": true,
+     "transition": "whip",
+     "kicker": "July 2026",
+     "headline": "Mancini returns to [fix it].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#0b5fc0",
+       "#ffffff",
+       "#0b5fc0",
+       "#0a8a4a"
+      ],
+      "seed": 19
+     },
+     "accent": "#e9b949",
+     "lights": 0.7,
+     "camFrom": {
+      "pos": [
+       1.2,
+       1.6,
+       -2.6
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0.3,
+       1.5,
+       -0.8
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "outfit": "suit",
+       "suitColor": "#1c2a4a",
+       "tie": "#0b5fc0",
+       "skin": "#e2b08c",
+       "hair": "#c9ced6",
+       "front": true,
+       "x": 0,
+       "z": 2.9,
+       "enter": "walk",
+       "fromZ": 4.4,
+       "walkDur": 1.6,
+       "label": "Roberto Mancini",
+       "labelDelay": 0.2
+      }
+     ],
+     "card": [
+      {
+       "type": "flytext",
+       "text": "FIX IT",
+       "size": 220,
+       "endScale": 0.7,
+       "y": 1620,
+       "at": "to fix it",
+       "lag": -0.2,
+       "color": "#e9b949",
+       "clear": false
+      }
+     ]
+    }
+   ],
+   "vo": "In March, they lost a play-off to Bosnia on penalties. Roberto Mancini came back to fix it."
+  },
+  {
+   "kicker": "Four months later",
+   "headline": "Italy are [still falling].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.4,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     8,
+     16,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     -8,
+     10,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "crossoff",
+     "y": 950,
+     "delay": 0.1,
+     "title": "Months of Mancini",
+     "days": 4,
+     "cols": 4,
+     "cell": 150,
+     "crossT": 0.2,
+     "dur": 1.0,
+     "caption": "{n} months",
+     "clear": false
+    },
+    {
+     "type": "trapdoor",
+     "y": 1560,
+     "delay": 0.1,
+     "scale": 1.0,
+     "clear": false,
+     "items": [
+      {
+       "name": "Italy",
+       "badge": {
+        "colors": [
+         "#0b5fc0",
+         "#ffffff",
+         "#0a8a4a"
+        ],
+        "text": "ITA"
+       },
+       "at": "still falling",
+       "lag": -0.2,
+       "tag": "STILL FALLING"
+      }
+     ]
+    }
+   ],
+   "shake": [
+    {
+     "at": "still falling",
+     "lag": -0.1,
+     "amount": 14
+    }
+   ],
+   "vo": "Four months later, Italy are still falling."
+  },
+  {
+   "kicker": "Italy · World Cups",
+   "headline": "Four won. [None since 2006].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b5fc0",
+     "#ffffff",
+     "#0b5fc0",
+     "#0a8a4a"
+    ],
+    "seed": 19
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.25,
+   "camFrom": {
+    "pos": [
+     0,
+     20,
+     -36
+    ],
+    "tgt": [
+     0,
+     2,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     9,
+     -20
+    ],
+    "tgt": [
+     0,
+     2,
+     8
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "flashes": 10,
+   "card": [
+    {
+     "type": "shelf",
+     "y": 1050,
+     "delay": 0.1,
+     "title": "Italy's World Cups",
+     "slots": 4,
+     "clear": false,
+     "items": [
+      {
+       "kind": "worldcup",
+       "label": "1934",
+       "t": 0.2
+      },
+      {
+       "kind": "worldcup",
+       "label": "1938",
+       "t": 0.45
+      },
+      {
+       "kind": "worldcup",
+       "label": "1982",
+       "t": 0.7
+      },
+      {
+       "kind": "worldcup",
+       "label": "2006",
+       "t": 0.95
+      }
+     ]
+    },
+    {
+     "type": "big",
+     "at": "None since",
+     "lag": -0.2,
+     "from": 0,
+     "value": 20,
+     "countDur": 0.8,
+     "suffix": " yrs",
+     "label": "Since Italy last won it",
+     "y": 1700,
+     "size": 190,
+     "style": "accent",
+     "clear": false
+    }
+   ],
+   "vo": "Four World Cups won. None since 2006."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "The [worst] Italy team ever?",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b5fc0",
+     "#ffffff",
+     "#0b5fc0",
+     "#0a8a4a"
+    ],
+    "seed": 19
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.6,
+   "orbit": {
+    "center": [
+     0,
+     1.25,
+     3
+    ],
+    "r": 5.2,
+    "from": -28,
+    "to": 16,
+    "h": 1.5,
+    "h2": 1.9,
+    "dur": 6
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     3
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b5fc0",
+      "shorts": "#ffffff",
+      "socks": "#0b5fc0",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 0,
+     "z": 3.3,
+     "front": true,
+     "pose": "think"
+    }
+   ],
+   "card": [
+    {
+     "type": "poll",
+     "y": 1580,
+     "at": "worst Italy",
+     "lag": -0.5,
+     "question": "Worst Italy team of all time?",
+     "options": [
+      {
+       "label": "Yes",
+       "color": "#d6283b",
+       "fill": 0.5
+      },
+      {
+       "label": "No, it's been worse",
+       "color": "#0b5fc0",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So be honest: is this the worst Italy team of all time?"
+  }
+ ]
+}

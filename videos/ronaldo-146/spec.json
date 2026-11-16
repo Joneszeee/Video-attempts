@@ -1,0 +1,1104 @@
+{
+ "title": "Nobody is catching Ronaldo's 146",
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "International goals · the record",
+   "headline": "Nobody is catching [Ronaldo's 146].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#046a38",
+     "#c8102e",
+     "#fdda24"
+    ],
+    "seed": 8
+   },
+   "accent": "#e9b949",
+   "lights": 0.85,
+   "flashes": 18,
+   "camFrom": {
+    "pos": [
+     0.9,
+     1.5,
+     0.3
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.9,
+     1.5,
+     -0.9
+    ],
+    "tgt": [
+     0.9,
+     1.35,
+     10
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": 7,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#046a38",
+      "socks": "#c8102e",
+      "text": "#fdda24"
+     },
+     "skin": "#c99b7a",
+     "hair": "#141010",
+     "x": 1.7,
+     "z": 3.5,
+     "front": true,
+     "chest": true,
+     "action": "celebrate",
+     "label": "Ronaldo",
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "big",
+     "delay": -0.6,
+     "from": 0,
+     "value": 146,
+     "countDur": 2.4,
+     "label": "International goals",
+     "y": 1250,
+     "shiftX": -210,
+     "size": 290,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "UNBREAKABLE?",
+     "sub": "nobody is close",
+     "at": "Nobody playing",
+     "lag": 0,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 84,
+     "y": 1740
+    }
+   ],
+   "shake": [
+    {
+     "t": 1.85,
+     "amount": 14
+    },
+    {
+     "at": "Nobody playing",
+     "lag": 0.16,
+     "amount": 12
+    }
+   ],
+   "vo": "Cristiano Ronaldo's record will never be broken. One hundred and forty-six international goals. Nobody playing today is even close."
+  },
+  {
+   "kicker": "5 November 2026",
+   "headline": "Ronaldo [retires] from Portugal.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#046a38",
+     "#c8102e",
+     "#fdda24"
+    ],
+    "seed": 8
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     16,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 680,
+     "delay": 0.1,
+     "label": "Retired from Portugal",
+     "groups": [
+      {
+       "label": "November",
+       "value": 5,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "THU",
+      "big": "05",
+      "bottom": "NOV"
+     }
+    },
+    {
+     "type": "stack",
+     "y": 1400,
+     "delay": 0,
+     "size": 190,
+     "items": [
+      {
+       "value": 23,
+       "label": "Years",
+       "at": "Twenty-three"
+      },
+      {
+       "value": 234,
+       "label": "Games for Portugal",
+       "at": "Two hundred"
+      },
+      {
+       "value": 146,
+       "label": "Goals",
+       "t": 99
+      }
+     ]
+    }
+   ],
+   "vo": "On the fifth of November, 2026, Ronaldo retired from Portugal. Twenty-three years. Two hundred and thirty-four games."
+  },
+  {
+   "kicker": "Second all-time",
+   "headline": "Messi: [126]. Also done.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#75aadb",
+     "#ffffff",
+     "#75aadb",
+     "#fdda24"
+    ],
+    "seed": 12
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "camFrom": {
+    "pos": [
+     0.19999999999999996,
+     1.6,
+     -2.6
+    ],
+    "tgt": [
+     -1.0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.7,
+     1.5,
+     -0.8
+    ],
+    "tgt": [
+     -1.0,
+     1.3,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": 10,
+     "kit": {
+      "shirt": "#75aadb",
+      "shorts": "#111111",
+      "socks": "#ffffff",
+      "text": "#111111",
+      "stripes": [
+       "#75aadb",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e8b896",
+     "hair": "#4a3020",
+     "x": -1.6,
+     "z": 2.9,
+     "front": true,
+     "ghost": true,
+     "label": "Lionel Messi",
+     "labelAt": "Lionel"
+    }
+   ],
+   "card": [
+    {
+     "type": "ladder",
+     "max": 146,
+     "maxLabel": "Ronaldo · 146",
+     "items": [
+      {
+       "name": "Messi",
+       "value": 126,
+       "done": true,
+       "note": "retired",
+       "at": "Lionel Messi",
+       "lag": 0.1
+      }
+     ],
+     "h": 760,
+     "clear": false,
+     "y": 1180,
+     "shiftX": 150,
+     "w": 640
+    }
+   ],
+   "vo": "Second on the list? Lionel Messi, on one hundred and twenty-six. And he's stopped too."
+  },
+  {
+   "kicker": "England",
+   "headline": "Kane: [93]. Needs 53 more.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 3
+   },
+   "accent": "#ff4d5e",
+   "follow": 0.5,
+   "camFrom": {
+    "pos": [
+     -6.4,
+     2.0,
+     34
+    ],
+    "tgt": [
+     0,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -5.6,
+     1.8,
+     36.4
+    ],
+    "tgt": [
+     0,
+     1.0,
+     52
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8905a",
+     "x": -2.0,
+     "z": 41,
+     "label": "Harry Kane · 33",
+     "labelAt": "Harry Kane",
+     "action": "kick",
+     "actionAt": "ninety-three",
+     "actionLag": -0.6,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "ninety-three",
+     "actionLag": -0.15
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1c2c7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -3.9,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "ninety-three",
+     "actionLag": -0.45,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1c2c7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.4,
+     "z": 47.6,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.78,
+      0.11,
+      41.45
+     ],
+     "untilAt": "ninety-three",
+     "untilLag": -0.26
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "ninety-three",
+     "lag": -0.26,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.78,
+       0.11,
+       41.45
+      ],
+      [
+       0.5599999999999999,
+       0.9,
+       46.875
+      ],
+      [
+       2.9,
+       0.6,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "stack",
+     "y": 1680,
+     "shiftX": -200,
+     "delay": 0,
+     "size": 170,
+     "items": [
+      {
+       "value": 93,
+       "label": "Goals for England",
+       "at": "ninety-three",
+       "lag": 0.2
+      },
+      {
+       "value": 53,
+       "label": "Still needed",
+       "at": "fifty-three",
+       "color": "#ff4d5e"
+      },
+      {
+       "value": 33,
+       "label": "His age",
+       "at": "thirty-three",
+       "color": "#ff4d5e"
+      }
+     ]
+    }
+   ],
+   "vo": "So who's left? Harry Kane has ninety-three. He needs fifty-three more. And he's thirty-three."
+  },
+  {
+   "kicker": "France",
+   "headline": "Mbappé: [67]. Not halfway.",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#1c2c7a",
+     "#ffffff",
+     "#c8102e",
+     "#1c2c7a"
+    ],
+    "seed": 17
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.55,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     -12,
+     22,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     10,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "flashes": 8,
+   "card": [
+    {
+     "type": "ladder",
+     "max": 146,
+     "maxLabel": "Ronaldo · 146",
+     "items": [
+      {
+       "name": "Messi",
+       "value": 126,
+       "done": true,
+       "note": "retired",
+       "t": 0,
+       "dur": 0.01
+      },
+      {
+       "name": "Kane",
+       "value": 93,
+       "color": "#ffffff",
+       "note": "53 short",
+       "t": 0,
+       "dur": 0.01
+      },
+      {
+       "name": "Mbappé",
+       "value": 67,
+       "color": "#3b5bdb",
+       "note": "79 short",
+       "at": "sixty-seven",
+       "lag": -0.5
+      },
+      {
+       "name": "Haaland",
+       "value": 66,
+       "color": "#c8102e",
+       "note": "80 short",
+       "t": 99
+      }
+     ],
+     "h": 820,
+     "clear": false,
+     "y": 1050
+    }
+   ],
+   "punch": [
+    {
+     "at": "halfway",
+     "amount": 0.1,
+     "dur": 1.2,
+     "x": 640,
+     "y": 1050
+    }
+   ],
+   "vo": "Kylian Mbappé has sixty-seven. He's not even halfway."
+  },
+  {
+   "kicker": "Norway",
+   "headline": "Haaland: [66]. A goal a game.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#ffffff",
+     "#1c2c7a",
+     "#c8102e"
+    ],
+    "seed": 29
+   },
+   "accent": "#e9b949",
+   "follow": 0.5,
+   "camFrom": {
+    "pos": [
+     5.6,
+     2.0,
+     35
+    ],
+    "tgt": [
+     0,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     5.0,
+     1.8,
+     37.4
+    ],
+    "tgt": [
+     0,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#ffffff",
+      "socks": "#1c2c7a",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#e8d28a",
+     "foot": "left",
+     "x": 1.0,
+     "z": 42,
+     "label": "Erling Haaland · 26",
+     "labelDelay": 0.2,
+     "action": "kick",
+     "actionAt": "sixty-six",
+     "actionLag": -0.6,
+     "actionDur": 0.8,
+     "after": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "sixty-six",
+     "actionLag": -0.15
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 3.0,
+     "z": 45.2,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "sixty-six",
+     "actionLag": -0.45,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -2.4,
+     "z": 48,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.22,
+      0.11,
+      42.45
+     ],
+     "untilAt": "sixty-six",
+     "untilLag": -0.26
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "sixty-six",
+     "lag": -0.26,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       1.22,
+       0.11,
+       42.45
+      ],
+      [
+       -0.84,
+       1.0,
+       47.375
+      ],
+      [
+       -2.9,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "big",
+     "at": "sixty-six",
+     "lag": 0.2,
+     "from": 0,
+     "value": 66,
+     "countDur": 0.7,
+     "label": "Goals for Norway · more than one a game",
+     "y": 1620,
+     "size": 230,
+     "clear": false
+    }
+   ],
+   "vo": "Erling Haaland has sixty-six, at more than a goal a game."
+  },
+  {
+   "kicker": "The maths",
+   "headline": "[80] more goals. About 8 years.",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "BUT",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     12,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     -12,
+     22,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "flashes": 8,
+   "card": [
+    {
+     "type": "ladder",
+     "max": 146,
+     "maxLabel": "Ronaldo · 146",
+     "items": [
+      {
+       "name": "Messi",
+       "value": 126,
+       "done": true,
+       "note": "retired",
+       "t": 0,
+       "dur": 0.01
+      },
+      {
+       "name": "Kane",
+       "value": 93,
+       "color": "#ffffff",
+       "note": "53 short",
+       "t": 0,
+       "dur": 0.01
+      },
+      {
+       "name": "Mbappé",
+       "value": 67,
+       "color": "#3b5bdb",
+       "note": "79 short",
+       "t": 0,
+       "dur": 0.01
+      },
+      {
+       "name": "Haaland",
+       "value": 66,
+       "color": "#c8102e",
+       "note": "80 short",
+       "at": "eighty more",
+       "lag": -0.6
+      }
+     ],
+     "h": 760,
+     "clear": false,
+     "y": 930
+    },
+    {
+     "type": "crossoff",
+     "y": 1600,
+     "at": "around eight",
+     "lag": -0.5,
+     "title": "Years of internationals",
+     "days": 8,
+     "cols": 8,
+     "cell": 96,
+     "crossT": 0.3,
+     "dur": 1.2,
+     "caption": "about {n} years · an estimate",
+     "clear": false
+    }
+   ],
+   "vo": "But even at that rate, he needs eighty more goals. That's around eight years of internationals."
+  },
+  {
+   "kicker": "Only Ronaldo",
+   "headline": "Scored at [six] World Cups.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#046a38",
+     "#c8102e",
+     "#fdda24"
+    ],
+    "seed": 8
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "focus": 0.25,
+   "camFrom": {
+    "pos": [
+     0,
+     20,
+     -36
+    ],
+    "tgt": [
+     0,
+     2,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     9,
+     -20
+    ],
+    "tgt": [
+     0,
+     2,
+     8
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "flashes": 14,
+   "card": [
+    {
+     "type": "tally",
+     "at": "six different",
+     "lag": -0.5,
+     "y": 880,
+     "r": 62,
+     "gap": 18,
+     "perRow": 6,
+     "title": "World Cups Ronaldo scored at",
+     "mark": "check",
+     "n": 6,
+     "done": 0,
+     "items": [
+      {
+       "label": "2006",
+       "t": 0.15
+      },
+      {
+       "label": "2010",
+       "t": 0.35
+      },
+      {
+       "label": "2014",
+       "t": 0.55
+      },
+      {
+       "label": "2018",
+       "t": 0.7500000000000001
+      },
+      {
+       "label": "2022",
+       "t": 0.9500000000000001
+      },
+      {
+       "label": "2026",
+       "t": 1.15
+      }
+     ],
+     "score": "{w} World Cups",
+     "clear": false
+    },
+    {
+     "type": "trophies",
+     "at": "Nobody else",
+     "lag": -0.3,
+     "floor": 1760,
+     "stagger": 0,
+     "rise": 0.55,
+     "items": [
+      {
+       "kind": "boot",
+       "sx": 0.5,
+       "h": 160,
+       "size": 300,
+       "label": "First to score at six"
+      }
+     ],
+     "clear": false
+    }
+   ],
+   "vo": "And Ronaldo scored in six different World Cups. Nobody else has done that either."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Will anyone catch [146]?",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#c8102e",
+     "#046a38",
+     "#c8102e",
+     "#fdda24"
+    ],
+    "seed": 8
+   },
+   "accent": "#e9b949",
+   "flashes": 12,
+   "orbit": {
+    "center": [
+     0,
+     1.25,
+     3
+    ],
+    "r": 5.4,
+    "from": -28,
+    "to": 16,
+    "h": 1.5,
+    "h2": 1.9,
+    "dur": 7
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     3
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#b8905a",
+     "x": -1.7,
+     "z": 3.3,
+     "front": true,
+     "label": "Kane",
+     "labelAt": "Kane"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1c2c7a",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 3.6,
+     "front": true,
+     "label": "Mbappé",
+     "labelAt": "Mbappé"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#ffffff",
+      "socks": "#1c2c7a",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#e8d28a",
+     "x": 1.7,
+     "z": 3.3,
+     "front": true,
+     "label": "Haaland",
+     "labelAt": "Haaland"
+    }
+   ],
+   "card": [
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "Kane",
+     "lag": -0.4,
+     "question": "Who catches Ronaldo's 146?",
+     "options": [
+      {
+       "label": "Kane",
+       "color": "#1c2c5b",
+       "fill": 0.3
+      },
+      {
+       "label": "Mbappé",
+       "color": "#3b5bdb",
+       "fill": 0.3
+      },
+      {
+       "label": "Haaland",
+       "color": "#c8102e",
+       "fill": 0.3
+      },
+      {
+       "label": "Nobody",
+       "color": "#b8892a",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So be honest: will anyone ever catch a hundred and forty-six? Kane, Mbappé, Haaland… or nobody?"
+  }
+ ]
+}

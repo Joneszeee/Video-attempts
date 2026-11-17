@@ -1,0 +1,1489 @@
+{
+ "title": "Germany 5-0 Netherlands",
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Germany 5–0 Netherlands · Nations League",
+   "headline": "Xavi's first defeat: [5–0] to Klopp.",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f2",
+     "#111111",
+     "#dd0000",
+     "#ffce00"
+    ],
+    "seed": 13
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.75,
+   "flashes": 16,
+   "camFrom": {
+    "pos": [
+     0,
+     1.45,
+     -0.9
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.9
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#f36c21",
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "front": true,
+     "x": -1.0,
+     "z": 3.4,
+     "label": "Xavi",
+     "labelDelay": 0,
+     "pose": "think"
+    },
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#111111",
+     "skin": "#f0c8a8",
+     "hair": "#c9b28a",
+     "front": true,
+     "x": 1.05,
+     "z": 3.6,
+     "enter": "walk",
+     "fromZ": 6.5,
+     "walkDur": 1.4,
+     "at": "Jürgen Klopp",
+     "lag": -0.3,
+     "label": "Jürgen Klopp",
+     "labelAt": "Jürgen Klopp",
+     "pose": "fists"
+    }
+   ],
+   "card": [
+    {
+     "type": "sinking",
+     "y": 1560,
+     "delay": -0.2,
+     "badge": {
+      "colors": [
+       "#f36c21",
+       "#1c2c7a",
+       "#ffffff"
+      ],
+      "text": "NED"
+     },
+     "label": "Netherlands · goals conceded",
+     "w": 460,
+     "h": 520,
+     "badgeH": 220,
+     "clear": false,
+     "steps": [
+      {
+       "t": 0.35
+      },
+      {
+       "t": 0.85
+      },
+      {
+       "t": 1.35
+      },
+      {
+       "t": 1.85
+      },
+      {
+       "t": 2.35
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "5–0",
+     "sub": "Xavi's first defeat",
+     "at": "Five–nil",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.08,
+     "size": 120,
+     "y": 640
+    }
+   ],
+   "shake": [
+    {
+     "t": 2.6,
+     "amount": 14
+    },
+    {
+     "at": "Five–nil",
+     "lag": 0.06,
+     "amount": 18
+    }
+   ],
+   "vo": "Xavi had never lost as Netherlands manager. Then he met Jürgen Klopp's Germany. Five–nil."
+  },
+  {
+   "kicker": "Berlin · Monday 16 November 2026",
+   "headline": "Three days earlier: [7–0] winners.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f2",
+     "#111111",
+     "#dd0000",
+     "#ffce00"
+    ],
+    "seed": 13
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -95
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     16,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     10
+    ]
+   },
+   "move": 8,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "flip",
+     "y": 680,
+     "delay": 0.1,
+     "label": "Nations League · Group A2",
+     "groups": [
+      {
+       "label": "November",
+       "value": 16,
+       "digits": 2
+      }
+     ],
+     "side": {
+      "top": "MON",
+      "big": "16",
+      "bottom": "NOV"
+     }
+    },
+    {
+     "type": "tickets",
+     "y": 1380,
+     "at": "Three days",
+     "lag": -0.1,
+     "done": 0,
+     "newT": 0.1,
+     "tw": 760,
+     "th": 270,
+     "dx": 0,
+     "stamp": "7–0",
+     "clear": false,
+     "tickets": [
+      {
+       "comp": "Nations League · 13 November",
+       "teams": "Netherlands v Greece",
+       "score": "7–0",
+       "date": "3 days earlier",
+       "color": "#f36c21"
+      }
+     ]
+    }
+   ],
+   "vo": "Monday the sixteenth of November, 2026. Berlin. Three days earlier, the Netherlands had beaten Greece seven–nil."
+  },
+  {
+   "kicker": "41'",
+   "headline": "Scherhant. [1–0].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f2",
+     "#111111",
+     "#dd0000",
+     "#ffce00"
+    ],
+    "seed": 13
+   },
+   "accent": "#e9b949",
+   "camFrom": {
+    "pos": [
+     -5.0,
+     2.2,
+     32
+    ],
+    "tgt": [
+     -0.8,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -4.4,
+     1.9,
+     34.7
+    ],
+    "tgt": [
+     -0.8,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#111111",
+      "socks": "#f4f4f2",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "x": -2.0,
+     "z": 41,
+     "label": "Derry Scherhant",
+     "labelDelay": 0.1,
+     "action": "kick",
+     "actionAt": "Scherhant scores",
+     "actionLag": -0.2,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Scherhant scores",
+     "actionLag": 0.25
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f36c21",
+      "shorts": "#f36c21",
+      "socks": "#f36c21",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -0.10000000000000009,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Scherhant scores",
+     "actionLag": -0.05000000000000002,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f36c21",
+      "shorts": "#f36c21",
+      "socks": "#f36c21",
+      "text": "#111111"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -2.32,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.78,
+      0.11,
+      41.45
+     ],
+     "untilAt": "Scherhant scores",
+     "untilLag": 0.14
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Scherhant scores",
+     "lag": 0.14,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.78,
+       0.11,
+       41.45
+      ],
+      [
+       0.5599999999999999,
+       0.9,
+       46.875
+      ],
+      [
+       2.9,
+       0.6,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "GER",
+      "color": "#f4f4f2"
+     },
+     "away": {
+      "name": "NED",
+      "color": "#f36c21"
+     },
+     "score": [
+      1,
+      0
+     ],
+     "min": "41'",
+     "clear": false,
+     "from": [
+      0,
+      0
+     ],
+     "goalAt": "Scherhant scores",
+     "goalLag": 0.7
+    }
+   ],
+   "vo": "For forty minutes, nothing. Then Derry Scherhant scores. One–nil."
+  },
+  {
+   "kicker": "60'",
+   "headline": "Wirtz. [2–0].",
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f2",
+     "#111111",
+     "#dd0000",
+     "#ffce00"
+    ],
+    "seed": 13
+   },
+   "accent": "#e9b949",
+   "camFrom": {
+    "pos": [
+     4.2,
+     2.2,
+     33
+    ],
+    "tgt": [
+     0.48,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.6,
+     1.9,
+     35.7
+    ],
+    "tgt": [
+     0.48,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#111111",
+      "socks": "#f4f4f2",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "x": 1.2,
+     "z": 42,
+     "label": "Florian Wirtz",
+     "labelDelay": 0.1,
+     "action": "kick",
+     "actionAt": "makes it two",
+     "actionLag": -0.5,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "makes it two",
+     "actionLag": -0.04999999999999999
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f36c21",
+      "shorts": "#f36c21",
+      "socks": "#f36c21",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -0.7,
+     "z": 45.4,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "makes it two",
+     "actionLag": -0.35,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f36c21",
+      "shorts": "#f36c21",
+      "socks": "#f36c21",
+      "text": "#111111"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.32,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.42,
+      0.11,
+      42.45
+     ],
+     "untilAt": "makes it two",
+     "untilLag": -0.15999999999999998
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "makes it two",
+     "lag": -0.15999999999999998,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       1.42,
+       0.11,
+       42.45
+      ],
+      [
+       -0.74,
+       0.9,
+       47.375
+      ],
+      [
+       -2.9,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "GER",
+      "color": "#f4f4f2"
+     },
+     "away": {
+      "name": "NED",
+      "color": "#f36c21"
+     },
+     "score": [
+      2,
+      0
+     ],
+     "min": "60'",
+     "clear": false,
+     "from": [
+      1,
+      0
+     ],
+     "goalAt": "makes it two",
+     "goalLag": 0.4
+    }
+   ],
+   "vo": "On the hour, Florian Wirtz makes it two."
+  },
+  {
+   "kicker": "65' · 71'",
+   "headline": "Schlotterbeck. Wirtz. [4–0].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f2",
+     "#111111",
+     "#dd0000",
+     "#ffce00"
+    ],
+    "seed": 13
+   },
+   "accent": "#e9b949",
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     6,
+     2.5,
+     39.5
+    ],
+    "tgt": [
+     -0.5,
+     1.5,
+     49.5
+    ]
+   },
+   "camera": {
+    "pos": [
+     5,
+     2.2,
+     41.5
+    ],
+    "tgt": [
+     -0.5,
+     1.5,
+     49.5
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#111111",
+      "socks": "#f4f4f2",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a3a",
+     "x": -1.2,
+     "z": 46.5,
+     "front": true,
+     "label": "Schlotterbeck",
+     "labelDelay": 0.1,
+     "hops": [
+      {
+       "at": "heads in",
+       "lag": -0.3,
+       "dur": 0.6,
+       "height": 0.3
+      }
+     ],
+     "action": "idle"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#1d1c22",
+      "socks": "#2ecc71",
+      "text": "#1d1c22"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "heads in",
+     "actionLag": 0.05
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f36c21",
+      "shorts": "#f36c21",
+      "socks": "#f36c21",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 0.7,
+     "z": 47.6,
+     "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f36c21",
+      "shorts": "#f36c21",
+      "socks": "#f36c21",
+      "text": "#111111"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -3.4,
+     "z": 48.2,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "GER",
+      "color": "#f4f4f2"
+     },
+     "away": {
+      "name": "NED",
+      "color": "#f36c21"
+     },
+     "score": [
+      3,
+      0
+     ],
+     "min": "65'",
+     "clear": false,
+     "from": [
+      2,
+      0
+     ],
+     "goalAt": "heads in",
+     "goalLag": 0.4,
+     "hideAt": "Then Wirtz",
+     "hideLag": 0.1
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "heads in",
+     "lag": -0.9,
+     "dur": 0.9,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       -14,
+       0.2,
+       44
+      ],
+      [
+       -7.6,
+       5.5,
+       45.25
+      ],
+      [
+       -1.2,
+       2.25,
+       46.5
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "heads in",
+     "lag": 0.0,
+     "dur": 0.4,
+     "slowmo": false,
+     "points": [
+      [
+       -1.2,
+       2.25,
+       46.5
+      ],
+      [
+       0.7999999999999999,
+       1.9,
+       49.4
+      ],
+      [
+       2.8,
+       1.2,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 520,
+     "delay": 0,
+     "home": {
+      "name": "GER",
+      "color": "#f4f4f2"
+     },
+     "away": {
+      "name": "NED",
+      "color": "#f36c21"
+     },
+     "score": [
+      4,
+      0
+     ],
+     "min": "71'",
+     "clear": false,
+     "from": [
+      3,
+      0
+     ],
+     "goalAt": "Four",
+     "goalLag": -0.1,
+     "at": "Then Wirtz",
+     "lag": 0.1
+    },
+    {
+     "type": "flytext",
+     "text": "4–0",
+     "size": 300,
+     "endScale": 0.7,
+     "y": 1600,
+     "at": "Four",
+     "lag": -0.15,
+     "color": "#e9b949",
+     "clear": false
+    }
+   ],
+   "shake": [
+    {
+     "at": "heads in",
+     "lag": 0.42,
+     "amount": 12
+    },
+    {
+     "at": "Four",
+     "lag": 0.05,
+     "amount": 14
+    }
+   ],
+   "vo": "Five minutes later, Schlotterbeck heads in a third. Then Wirtz again. Four."
+  },
+  {
+   "kicker": "77'",
+   "headline": "Four goals in [17 minutes].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "5–0",
+   "vhsDur": 0.7,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f2",
+     "#111111",
+     "#dd0000",
+     "#ffce00"
+    ],
+    "seed": 13
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.55,
+   "focus": 0.25,
+   "camFrom": {
+    "pos": [
+     -14,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     14,
+     24,
+     -42
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "flashes": 12,
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "GER",
+      "color": "#f4f4f2"
+     },
+     "away": {
+      "name": "NED",
+      "color": "#f36c21"
+     },
+     "score": [
+      5,
+      0
+     ],
+     "min": "77'",
+     "clear": false,
+     "from": [
+      4,
+      0
+     ],
+     "goalAt": "the fifth",
+     "goalLag": 0.2
+    },
+    {
+     "type": "timeline",
+     "y": 1020,
+     "delay": 0.1,
+     "title": "Germany's five goals",
+     "clear": false,
+     "events": [
+      {
+       "pos": 0.456,
+       "label": "41'",
+       "color": "#f4f4f2",
+       "t": 0.05
+      },
+      {
+       "pos": 0.667,
+       "label": "60'",
+       "color": "#f4f4f2",
+       "t": 0.2
+      },
+      {
+       "pos": 0.722,
+       "label": "65'",
+       "color": "#f4f4f2",
+       "t": 0.35
+      },
+      {
+       "pos": 0.789,
+       "label": "71'",
+       "color": "#f4f4f2",
+       "t": 0.5
+      },
+      {
+       "pos": 0.856,
+       "label": "77' Gruda",
+       "color": "#e9b949",
+       "at": "the fifth",
+       "lag": -0.1
+      }
+     ],
+     "bracket": {
+      "from": 0.667,
+      "to": 0.856,
+      "label": "17 MIN",
+      "at": "Four goals"
+     }
+    },
+    {
+     "type": "sinking",
+     "y": 1620,
+     "delay": 0.1,
+     "badge": {
+      "colors": [
+       "#f36c21",
+       "#1c2c7a",
+       "#ffffff"
+      ],
+      "text": "NED"
+     },
+     "label": "Netherlands",
+     "w": 420,
+     "h": 360,
+     "badgeH": 170,
+     "from": 4,
+     "steps": [
+      {
+       "at": "the fifth",
+       "lag": 0.1
+      }
+     ],
+     "clear": false
+    }
+   ],
+   "shake": [
+    {
+     "at": "the fifth",
+     "lag": 0.3,
+     "amount": 12
+    }
+   ],
+   "vo": "Brajan Gruda adds the fifth. Four goals in seventeen minutes."
+  },
+  {
+   "kicker": "Cologne · 1959",
+   "headline": "Their heaviest defeat since [1959].",
+   "cut": true,
+   "transition": "polaroid",
+   "polaroidLabel": "Cologne 1959",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#444b5a",
+     "#1c2029",
+     "#3a4050"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.55,
+   "focus": 0.25,
+   "camFrom": {
+    "pos": [
+     8,
+     16,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     -8,
+     10,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "big",
+     "delay": 0.2,
+     "from": 2026,
+     "value": 1959,
+     "countDur": 1.2,
+     "label": "The last time the Dutch lost by five or more",
+     "y": 820,
+     "size": 250,
+     "clear": false
+    },
+    {
+     "type": "scorebug",
+     "y": 1300,
+     "at": "West Germany",
+     "lag": -0.2,
+     "home": {
+      "name": "FRG",
+      "color": "#f4f4f2"
+     },
+     "away": {
+      "name": "NED",
+      "color": "#f36c21"
+     },
+     "score": [
+      7,
+      0
+     ],
+     "from": [
+      0,
+      0
+     ],
+     "goalAt": "Seven–nil",
+     "goalLag": -0.1,
+     "min": "1959",
+     "clear": false
+    },
+    {
+     "type": "big",
+     "at": "Seven–nil",
+     "lag": 0.3,
+     "from": 0,
+     "value": 67,
+     "countDur": 0.7,
+     "suffix": " yrs",
+     "label": "ago",
+     "y": 1640,
+     "size": 190,
+     "style": "accent",
+     "clear": false
+    }
+   ],
+   "shake": [
+    {
+     "at": "Seven–nil",
+     "lag": 0,
+     "amount": 12
+    }
+   ],
+   "vo": "It's the Netherlands' heaviest defeat since 1959. That was against West Germany too. Seven–nil."
+  },
+  {
+   "kicker": "And here's the strange part",
+   "headline": "Three teams. [11 points] each.",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "BUT",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f2",
+     "#111111",
+     "#dd0000",
+     "#ffce00"
+    ],
+    "seed": 13
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.2,
+   "camFrom": {
+    "pos": [
+     14,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     -14,
+     24,
+     -42
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 9,
+   "moveEase": "linear",
+   "players": [],
+   "flashes": 8,
+   "card": [
+    {
+     "type": "table",
+     "y": 900,
+     "at": "Germany, the",
+     "lag": -0.4,
+     "scale": 1.25,
+     "label": "Group A2 · final table",
+     "clear": false,
+     "rows": [
+      {
+       "pos": 1,
+       "name": "Germany",
+       "color": "#f4f4f2",
+       "color2": "#111111",
+       "pts": 11,
+       "highlight": true
+      },
+      {
+       "pos": 2,
+       "name": "Netherlands",
+       "color": "#f36c21",
+       "pts": 11
+      },
+      {
+       "pos": 3,
+       "name": "Greece",
+       "color": "#0d5eaf",
+       "color2": "#ffffff",
+       "pts": 11
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "TOP",
+     "sub": "Germany · on head-to-head",
+     "at": "Germany top",
+     "lag": -0.1,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 90,
+     "y": 1380
+    },
+    {
+     "type": "stamp",
+     "text": "THROUGH",
+     "sub": "the Netherlands · second",
+     "at": "still go through",
+     "lag": -0.2,
+     "color": "#f36c21",
+     "rot": 0.05,
+     "size": 84,
+     "y": 1660
+    }
+   ],
+   "punch": [
+    {
+     "at": "eleven points",
+     "amount": 0.1,
+     "dur": 1.4,
+     "x": 800,
+     "y": 900
+    }
+   ],
+   "vo": "And here's the strange part. Germany, the Netherlands and Greece all finish on eleven points. Germany top the group. The Dutch still go through."
+  },
+  {
+   "kicker": "What it means for England",
+   "headline": "Not Germany. [Maybe the Dutch].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#c8102e",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 3
+   },
+   "accent": "#e9b949",
+   "lights": 0.8,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -1.3
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ffffff",
+      "shorts": "#1c2c5b",
+      "socks": "#ffffff",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 3.2,
+     "front": true,
+     "pose": "think",
+     "label": "England",
+     "labelDelay": 0.1
+    }
+   ],
+   "card": [
+    {
+     "type": "fates",
+     "title": "England's quarter-final draw · Friday",
+     "items": [
+      {
+       "name": "Germany",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#f4f4f2",
+         "#111111",
+         "#c8102e"
+        ],
+        "text": "GER"
+       },
+       "fate": "down",
+       "label": "CAN'T",
+       "at": "can't face",
+       "lag": -0.2
+      },
+      {
+       "name": "Netherlands",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#f36c21",
+         "#1c2c7a",
+         "#ffffff"
+        ],
+        "text": "NED"
+       },
+       "fate": "up",
+       "label": "POSSIBLE",
+       "at": "the Netherlands can",
+       "lag": -0.2
+      },
+      {
+       "name": "Belgium",
+       "sub": "",
+       "badge": {
+        "colors": [
+         "#c8102e",
+         "#111111",
+         "#fdda24"
+        ],
+        "text": "BEL"
+       },
+       "fate": "up",
+       "label": "POSSIBLE",
+       "at": "the Netherlands can",
+       "lag": 0.3
+      }
+     ],
+     "clear": false,
+     "y": 1600,
+     "delay": 0
+    }
+   ],
+   "vo": "So Germany can't face England in the quarter-finals. But the Netherlands can."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Klopp's Germany: [the team to beat]?",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f2",
+     "#111111",
+     "#dd0000",
+     "#ffce00"
+    ],
+    "seed": 13
+   },
+   "accent": "#e9b949",
+   "flashes": 14,
+   "confetti": true,
+   "orbit": {
+    "center": [
+     0,
+     1.25,
+     3
+    ],
+    "r": 5.2,
+    "from": -28,
+    "to": 16,
+    "h": 1.5,
+    "h2": 1.9,
+    "dur": 6
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2
+    ],
+    "tgt": [
+     0,
+     1.25,
+     3
+    ]
+   },
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#111111",
+     "skin": "#f0c8a8",
+     "hair": "#c9b28a",
+     "front": true,
+     "x": 0,
+     "z": 3.2,
+     "pose": "fists",
+     "label": "Jürgen Klopp",
+     "labelDelay": 0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#111111",
+      "socks": "#f4f4f2",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "x": -1.9,
+     "z": 4.2,
+     "front": true,
+     "action": "celebrate"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#111111",
+      "socks": "#f4f4f2",
+      "text": "#111111"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 1.9,
+     "z": 4.2,
+     "front": true,
+     "action": "celebrate"
+    }
+   ],
+   "card": [
+    {
+     "type": "poll",
+     "y": 1600,
+     "at": "team to beat",
+     "lag": -0.6,
+     "question": "Is Germany the team to beat?",
+     "options": [
+      {
+       "label": "Yes",
+       "color": "#b8892a",
+       "fill": 0.5
+      },
+      {
+       "label": "No, still Spain",
+       "color": "#c60b1e",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So be honest: is Klopp's Germany the team to beat?"
+  }
+ ]
+}

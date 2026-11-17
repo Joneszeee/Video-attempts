@@ -336,6 +336,8 @@ Built so far from the idea list (reuse them):
 - **Everything stays on the page (user).** Before every final, look at stills of each beat for cards cut off at an edge, text hidden behind another card, and stacked
   numbers drifting behind a table. `stack` history rises about 400px above its `y`, so keep that space clear. `scales` names now shrink to fit the plate, and
   `left`/`right` take `sub` (the line under the name; without it the card prints "N PTS") and `text` must be a colour.
+- **Sinking shield** (built for `videos/germany-five`): the `sinking` card. A team's shield floats on water and sinks one notch per goal against it, with bubbles and a
+  red counter: `badge`, `steps: [{t|at}]`, `from` (notches already sunk), `label`, `w`, `h`, `badgeH`. For heavy defeats and collapses.
 - **History stories:** check the club's own site and at least one other source; drop quotes and details only one retelling has; say "the story goes"
   for parts that are legend.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.

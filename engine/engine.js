@@ -1849,6 +1849,29 @@ CARDS.stamp = function (c, ct, cx, cy) {
 };
 CARDS.stamp.noSlide = true;
 
+// Sinking shield: a team's shield floats on water and sinks one notch on every goal against it, with bubbles, while a counter ticks.
+// {type: "sinking", badge, steps: [{t|at}], label: "Goals conceded", w, h, from: 0 (notches already sunk)}
+CARDS.sinking = function (c, ct, cx, cy) {
+  const w = c.w || 440, h = c.h || 560, k = eOut(pr(ct, 0, 0.4)), S0 = c.steps || [], n = S0.length + (c.from || 0);
+  if (k <= 0) return;
+  let lvl = c.from || 0, last = -9; S0.forEach(st => { const t = st.t != null ? st.t : 99; if (ct >= t) { lvl += ease(pr(ct, t, 0.45)); last = Math.max(last, t); } });
+  const cnt = (c.from || 0) + S0.filter(st => ct >= (st.t != null ? st.t : 99)).length, bh = c.badgeH || 260, water = -h / 2 + h * 0.42;
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy);
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 12; ctx.fillStyle = '#0d1420'; rrect(-w / 2, -h / 2, w, h, 28); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.save(); rrect(-w / 2, -h / 2, w, h, 28); ctx.clip();
+  const by = water - bh * 0.62 + (lvl / Math.max(1, n)) * (bh * 1.05) + Math.sin(ct * 2.2) * 6, tilt = Math.sin(ct * 1.7) * 0.05 + (lvl / Math.max(1, n)) * 0.22;
+  ctx.save(); ctx.translate(0, by + bh / 2); ctx.rotate(tilt); drawBadge(0, 0, bh, c.badge); ctx.restore();
+  const g = ctx.createLinearGradient(0, water, 0, h / 2); g.addColorStop(0, 'rgba(40,120,200,0.78)'); g.addColorStop(1, 'rgba(8,30,70,0.96)'); ctx.fillStyle = g;
+  ctx.beginPath(); ctx.moveTo(-w / 2, h / 2); for (let x = -w / 2; x <= w / 2; x += 20) ctx.lineTo(x, water + Math.sin(x * 0.03 + ct * 3) * 8 + Math.sin(x * 0.07 - ct * 2) * 4); ctx.lineTo(w / 2, h / 2); ctx.closePath(); ctx.fill();
+  const R = rng(c.seed || 3); for (let i = 0; i < 14; i++) { const bx = (R() - 0.5) * bh * 0.9, sp = 60 + R() * 90, ph = R() * 3, a = ct - last; if (a < 0 || a > 1.6) continue; const yy = by + bh * 0.8 - ((a * sp + ph * 40) % (bh * 1.2));
+    if (yy > water + 6) { ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(bx, yy, 5 + R() * 7, 0, 7); ctx.stroke(); } }
+  ctx.restore();
+  const pop = 1 + 0.3 * Math.max(0, 1 - (ct - last) / 0.3); ctx.save(); ctx.translate(0, h / 2 - 118); ctx.scale(pop, pop); font(900, 150, 'Inter', '-3px'); ctx.fillStyle = '#ff4d5e'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(cnt, 0, 0); ctx.restore();
+  font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.fillText((c.label || 'Goals conceded').toUpperCase(), 0, h / 2 - 34);
+  ctx.restore();
+};
+CARDS.sinking.noSlide = true;
+
 // Goal ladder: columns race up a ladder towards a record line at the top; each stops short and a red chip shows the gap.
 // {type: "ladder", max: 146, maxLabel: "Ronaldo · 146", items: [{name, value, color, at|t, note, done: true (retired, grey)}], h, w}
 CARDS.ladder = function (c, ct, cx, cy) {
@@ -3908,6 +3931,7 @@ function cardEvents(c) {
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'fates': (c.items || []).forEach(it => { if (it.t != null && it.t < 90) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: it.fate === 'up' || it.fate === 'win' ? 'pop' : 'impact' }); }); break;
     case 'trapdoor': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.8; ev.push({ t, type: it.stay ? 'pop' : 'impact' }); if (!it.stay) ev.push({ t: t + 0.15, type: 'whoosh' }); }); break;
+    case 'sinking': (c.steps || []).forEach(st => { if (st.t != null && st.t < 90) ev.push({ t: st.t, type: 'impact' }); }); break;
     case 'ladder': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.3; if (t < 90) ev.push({ t, type: 'whoosh' }, { t: t + (it.dur || 0.9), type: it.done ? 'pop' : 'impact' }); }); break;
     case 'timeline': (c.events || []).forEach(e => { const t = e.t != null ? e.t : 0.4; ev.push({ t: t + 0.35, type: 'impact' }); }); if (c.bracket && c.bracket.t != null) ev.push({ t: c.bracket.t, type: 'whoosh' }, { t: c.bracket.t + 0.5, type: 'impact' }); break;
     case 'drawpot': for (let t = 0.3; t < Math.min(c.pickT != null ? c.pickT : 2.5, 3); t += 0.22) ev.push({ t, type: 'tick' }); if (c.pickT != null) ev.push({ t: c.pickT, type: 'whoosh' }, { t: c.pickT + 0.45, type: 'pop' }); break;

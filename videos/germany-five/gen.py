@@ -65,10 +65,10 @@ B.append({"kicker": "65' · 71'", "headline": "Schlotterbeck. Wirtz. [4–0].", 
   "players": [P(kit=GER, skin="#f0c8a8", hair="#8a6a3a", x=-1.2, z=46.5, front=True, label="Schlotterbeck", labelDelay=0.1, hops=[{"at": "heads in", "lag": -0.3, "dur": 0.6, "height": 0.3}], action="idle"),
               P(kit=GKN, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=-1, actionAt="heads in", actionLag=0.05),
               P(kit=NED, skin="#e7b593", hair="#141010", x=0.7, z=47.6, front=True), P(kit=NED, skin="#8a5a3c", hair="#141010", x=-3.4, z=48.2, front=True)],
-  "card": [bug([3, 0], "65'", [2, 0], "heads in", 0.4, hideAt="Then Wirtz", hideLag=0.1),
+  "card": [bug([3, 0], "65'", [2, 0], "heads in", 0.4, hideAt="Then Wirtz", hideLag=0.1, y=620),
            {"type": "ballpath", "world": True, "at": "heads in", "lag": -0.9, "dur": 0.9, "slowmo": False, "flash": False, "points": [c0, mid(c0, hd, 5.5), hd]},
            {"type": "ballpath", "world": True, "at": "heads in", "lag": 0.0, "dur": 0.4, "slowmo": False, "points": [hd, mid(hd, e2, 1.9), e2]},
-           dict(bug([4, 0], "71'", [3, 0], "Four", -0.1), at="Then Wirtz", lag=0.1),
+           dict(bug([4, 0], "71'", [3, 0], "Four", -0.1, y=620), at="Then Wirtz", lag=0.1),
            {"type": "flytext", "text": "4–0", "size": 300, "endScale": 0.7, "y": 1600, "at": "Four", "lag": -0.15, "color": GOLD, "clear": False}],
   "shake": [{"at": "heads in", "lag": 0.42, "amount": 12}, {"at": "Four", "lag": 0.05, "amount": 14}]})
 # 6 Gruda 77': four goals in 17 minutes (timeline with the real minutes)

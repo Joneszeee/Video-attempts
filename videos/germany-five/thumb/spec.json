@@ -1,0 +1,143 @@
+{
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "Germany 5–0 Netherlands · Nations League",
+   "headline": "Xavi's first defeat: [5–0] to Klopp.",
+   "hookWords": false,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f4f4f2",
+     "#111111",
+     "#dd0000",
+     "#ffce00"
+    ],
+    "seed": 13
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.75,
+   "flashes": 16,
+   "camFrom": {
+    "pos": [
+     0,
+     1.45,
+     -1.9
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.9
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#f36c21",
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "front": true,
+     "x": -1.0,
+     "z": 3.4,
+     "label": "Xavi",
+     "labelDelay": 0,
+     "pose": "think",
+     "delay": 0
+    },
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#111111",
+     "skin": "#f0c8a8",
+     "hair": "#c9b28a",
+     "front": true,
+     "x": 1.05,
+     "z": 3.6,
+     "label": "Jürgen Klopp",
+     "pose": "fists",
+     "delay": 0,
+     "labelDelay": 0
+    }
+   ],
+   "card": [
+    {
+     "type": "sinking",
+     "y": 1560,
+     "delay": -4,
+     "badge": {
+      "colors": [
+       "#f36c21",
+       "#1c2c7a",
+       "#ffffff"
+      ],
+      "text": "NED"
+     },
+     "label": "Netherlands · goals conceded",
+     "w": 460,
+     "h": 520,
+     "badgeH": 220,
+     "clear": false,
+     "steps": [
+      {
+       "t": 0.1
+      },
+      {
+       "t": 0.2
+      },
+      {
+       "t": 0.3
+      },
+      {
+       "t": 0.4
+      },
+      {
+       "t": 0.5
+      }
+     ]
+    },
+    {
+     "type": "shout",
+     "text": "5–0",
+     "y": 780,
+     "size": 260,
+     "delay": -3,
+     "rot": -0.05,
+     "clear": false
+    },
+    {
+     "type": "shout",
+     "text": "XAVI'S FIRST DEFEAT",
+     "y": 1850,
+     "size": 110,
+     "delay": -3,
+     "rot": -0.03,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

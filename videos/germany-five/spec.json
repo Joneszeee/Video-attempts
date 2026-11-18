@@ -738,7 +738,7 @@
    "card": [
     {
      "type": "scorebug",
-     "y": 520,
+     "y": 620,
      "delay": 0,
      "home": {
       "name": "GER",
@@ -816,7 +816,7 @@
     },
     {
      "type": "scorebug",
-     "y": 520,
+     "y": 620,
      "delay": 0,
      "home": {
       "name": "GER",

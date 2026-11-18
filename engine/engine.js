@@ -3961,7 +3961,7 @@ CARDS.simhud = function (c, ct, cx, cy) {
   ctx.fillStyle = 'rgba(0,0,0,0.05)'; for (let y = top; y < bot; y += 6) ctx.fillRect(m, y, W - 2 * m, 2);   // faint scanlines
   // the label sits bottom-left, the run counter bottom-right, so nothing fights the headline or the cards
   const runs = c.runs || 10000, c0 = c.countT != null ? c.countT : 0.1, k = c.dur === 0 ? 1 : Math.pow(pr(ct, c0, c.dur || 2.2), 1.6);
-  const n = Math.round(runs * k), y = c.y || bot - 70;
+  const n = Math.round(runs * k), y = Math.min(c.y || bot - 75, bot - 75);   // always inside the corner brackets (user: the brackets ran through SIM and the counter)
   font(800, 30, 'Mono', '5px'); ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
   if (Math.floor(ct * 2.5) % 2 === 0) { ctx.fillStyle = '#ff3b4e'; ctx.beginPath(); ctx.arc(m + 42, y, 10, 0, 7); ctx.fill(); }
   ctx.fillStyle = col; ctx.fillText(c.label || 'SIM', m + 62, y + 2);

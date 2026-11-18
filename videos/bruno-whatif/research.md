@@ -105,3 +105,19 @@ Simulated table (real position, points in brackets):
 
 ## Limits
 Deleting a goal doesn't replay the match: the opponent might have played differently, and someone else might have scored. The video states the rules on screen.
+
+## Version 2 (user's request): a stand-in replaces Bruno
+
+**Who plays his role** (central attacking midfield), with their real Premier League output in that season (minutes from ESPN line-ups and substitutions):
+- 2024/25: Mason Mount (619 min, 1 G) + Christian Eriksen (1,054 min, 2 A; his 1 penalty excluded) → 0.16 non-penalty goals + assists per 90.
+- 2025/26: Mason Mount (1,017 min, 3 G) → 0.27 per 90.
+- Bruno for comparison: 0.46 (2024/25) and 0.78 (2025/26) per 90, excluding penalties.
+
+**Method:** Bruno's goals and assists are deleted as before. In each match the stand-in plays Bruno's real minutes and adds goals at his real rate (random, Poisson). He also takes all 9 penalties Bruno took (7 scored, 2 missed) at 75%. Every other result stays real. Both seasons are run 10,000 times and the 20-team table is rebuilt each time.
+
+| Season | Real | With the stand-in (10,000 runs) |
+|---|---|---|
+| 2024/25 | 15th, 42 pts | avg 36 pts (80% of runs between 33 and 40); 17th in 75% of runs, 16th in 21%; never relegated |
+| 2025/26 | 3rd, 71 pts | avg 53 pts (80% between 48 and 58); most likely 11th (32%) or 6th (28%); top 4 in 2% of runs, top 5 in 7% |
+
+**Sensitivity:** even a stand-in at 0.5 per 90 (better than any of United's real options in that role) gives 2025/26 an average finish of 5.4th and 59 pts, and 2024/25 14th on 44 pts.

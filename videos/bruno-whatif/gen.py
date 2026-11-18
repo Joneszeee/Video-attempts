@@ -25,10 +25,10 @@ B.append({"kicker": "Man United · 10,000 simulations", "headline": "No Bruno? U
   "players": [P(**BRUNO, x=0, z=3.3, front=True, chest=True, vanishAt="Bruno Fernandes", vanishLag=0.2, vanishDur=1.8)],
   "card": [hud("Man United · without Bruno", runs=10000, dur=0, y=1700)],
   "glitch": [{"t": 0.0, "dur": 0.35, "amount": 0.6}],
-  "shots": [{"at": "In ten thousand", "lag": -0.15, "cut": True, "transition": "whip", "scene": S_SIM, "lights": 0.55, "focus": 0.35,
-     "camFrom": {"pos": [10, 18, -30], "tgt": [0, 0, 6]}, "camera": {"pos": [-10, 14, -24], "tgt": [0, 0, 6]}, "move": 5, "moveEase": "linear", "players": [],
+  "shots": [{"at": "In ten thousand", "lag": -0.15, "cut": True, "transition": "whip", "scene": S_SIM, "lights": 0.55, "focus": 0.2,
+     "camFrom": {"pos": [24, 20, -30], "tgt": [0, 0, 6]}, "camera": {"pos": [-22, 12, -18], "tgt": [0, 0, 6]}, "move": 5.5, "moveEase": "linear", "players": [],
      "card": [hud("2025/26 · without Bruno", countT=0.1, dur=2.2, y=1760),
-              {"type": "simrun", "y": 1180, "delay": 0, "countT": 0.1, "dur": 2.4, "title": "2025/26 · where United finish", "positions": [1, 20], "real": 3,
+              {"type": "simrun", "y": 1180, "delay": 0, "countT": 0.1, "title": "2025/26 · where United finish", "positions": [1, 20], "real": 3, "dur": 3.0,
                "dist": {3: 0.2, 4: 2.0, 5: 4.8, 6: 28.4, 7: 5.0, 8: 2.5, 9: 1.9, 10: 7.5, 11: 31.7, 12: 4.7, 13: 2.5, 14: 4.9, 15: 1.3, 16: 2.5, 17: 0.1},
                "zone": {"from": 1, "to": 5, "label": "UCL", "color": GREEN}, "stamp": {"text": "7%", "sub": "of 10,000 runs"}, "stampAt": "seven percent", "stampLag": -0.1, "clear": False}],
      "shake": [{"at": "seven percent", "lag": 0.0, "amount": 14}]}]})
@@ -77,18 +77,18 @@ B.append({"kicker": "2024/25 · the real season", "headline": "Real United: [15t
 
 # 6 2024/25 simulated: about 36 points, 17th in 3 of 4 runs, never relegated
 B.append({"kicker": "2024/25 · with the stand-in", "headline": "Simulated: [17th] in 3 of 4 runs.", "cut": True, "transition": "whip", "scene": S_SIM, "accent": RED, "lights": 0.5, "focus": 0.35,
-  "camFrom": {"pos": [0, 50, -60], "tgt": [0, 0, 8]}, "camera": {"pos": [-18, 22, -36], "tgt": [0, 0, 8]}, "move": 7, "moveEase": "linear", "players": [],
+  "camFrom": {"pos": [26, 40, -50], "tgt": [0, 0, 8]}, "camera": {"pos": [-26, 16, -26], "tgt": [0, 0, 8]}, "move": 7, "moveEase": "linear", "players": [],
   "card": [hud("2024/25 · without Bruno", countT=0.1, dur=1.8, y=1760),
            {"type": "big", "at": "thirty-six points", "lag": -0.6, "from": 42, "value": 36, "countDur": 0.8, "label": "points on average (real: 42)", "y": 640, "size": 170, "style": "accent", "clear": False},
-           {"type": "simrun", "y": 1240, "at": "With the stand-in", "lag": 0.2, "countT": 0.1, "dur": 1.8, "title": "2024/25 · where United finish", "positions": [10, 20], "real": 15,
+           {"type": "simrun", "y": 1240, "at": "With the stand-in", "lag": 0.2, "countT": 0.1, "dur": 2.6, "title": "2024/25 · where United finish", "positions": [10, 20], "real": 15,
             "dist": {14: 1.5, 15: 2.0, 16: 21.4, 17: 75.1}, "zone": {"from": 18, "to": 20, "label": "Relegation", "color": "#8a2a34"}, "peakColor": RED,
             "stamp": {"text": "75%", "sub": "17th", "color": RED, "pos": 17}, "stampAt": "three out of four", "stampLag": -0.1, "stampSize": 100, "clear": False}],
-  "glitch": [{"t": 0.0, "dur": 0.3, "amount": 0.7}]})
+  "glitch": [{"t": 0.0, "dur": 0.3, "amount": 0.7}], "shake": [{"at": "three out of four", "lag": 0.0, "amount": 12}]})
 
 # 7 re-hook: VHS to 2025/26, Bruno threads the pass, goal; 21 assists, a Premier League record
 bf = [-5.78, 0.11, 30.45]; sf = [2.2, 0.11, 39.4]; gend = [-2.6, 0.8, 52.3]
 B.append({"kicker": "2025/26 · the good season", "headline": "Then Bruno broke [a record].", "cut": True, "transition": "vhs", "vhsLabel": "2025/26", "vhsDur": 1.2, "scene": S_OT, "accent": GOLD,
-  "camFrom": {"pos": [-17, 5, 19], "tgt": [-2.5, 1, 37]}, "camera": {"pos": [-14, 4, 25], "tgt": [-1, 1, 42]}, "move": 6.5, "moveEase": "linear", "follow": 0.3,
+  "camFrom": {"pos": [-11.5, 3.0, 22.5], "tgt": [-2, 1, 37]}, "camera": {"pos": [-9.5, 2.7, 26.0], "tgt": [-0.5, 1, 41]}, "move": 6.5, "moveEase": "linear", "follow": 0.3,
   "players": [P(**BRUNO, x=-6, z=30, action="kick", actionAt="Bruno set up", actionLag=-0.35, actionDur=0.8, runup=1.2, label="Bruno", labelDelay=0.2),
               P(kit=MUN, skin="#8a5a3c", hair="#141010", num=30, x=2.0, z=39.0, action="kick", actionAt="Bruno set up", actionLag=0.62, actionDur=0.8, runup=1.4, after="celebrate"),
               P(kit=GK, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=1, actionAt="Bruno set up", actionLag=1.0),
@@ -97,14 +97,14 @@ B.append({"kicker": "2025/26 · the good season", "headline": "Then Bruno broke 
   "card": [{"type": "ball", "delay": 0, "point": bf, "untilAt": "Bruno set up", "untilLag": -0.01},
            {"type": "ballpath", "world": True, "at": "Bruno set up", "lag": -0.01, "dur": 0.9, "slowmo": False, "flash": False, "points": [bf, mid(bf, sf, 0.3), sf]},
            {"type": "ballpath", "world": True, "at": "Bruno set up", "lag": 0.95, "dur": 0.5, "slowmo": False, "points": [sf, mid(sf, gend, 1.0), gend]},
-           {"type": "big", "at": "twenty-one goals", "lag": -0.9, "from": 0, "value": 21, "countDur": 1.0, "label": "Bruno assists · 2025/26", "y": 1450, "size": 220, "clear": False},
+           {"type": "big", "at": "twenty-one goals", "lag": -0.9, "from": 0, "value": 21, "countDur": 1.0, "label": "Bruno assists · 2025/26", "y": 650, "size": 200, "clear": False},
            {"type": "stamp", "text": "RECORD", "sub": "most in a Premier League season", "at": "A Premier League record", "lag": 0.0, "color": GOLD, "rot": -0.07, "size": 96, "y": 1720}],
   "shake": [{"at": "A Premier League record", "lag": 0.05, "amount": 14}], "flashes": 12})
 
 # 8 ghost replay: the same move with Mount, and the pass never arrives; Mount's rate about a third of Bruno's
 mf = [-5.78, 0.11, 30.45]; cut_ = [1.0, 0.11, 36.2]
 B.append({"kicker": "2025/26 · the simulation", "headline": "Same move. [No Bruno].", "cut": True, "scene": S_OT, "accent": RED, "lights": 0.6, "letterbox": True, "replayTag": "SIMULATION", "hype": False,
-  "camFrom": {"pos": [-17, 5, 19], "tgt": [-2.5, 1, 37]}, "camera": {"pos": [-15, 4.5, 22.5], "tgt": [-2, 1, 38]}, "move": 4, "moveEase": "linear",
+  "camFrom": {"pos": [-11.5, 3.0, 22.5], "tgt": [-2, 1, 36]}, "camera": {"pos": [-10.5, 2.8, 24.5], "tgt": [-1.5, 1, 36.5]}, "move": 4, "moveEase": "linear",
   "players": [P(**MOUNT, x=-6, z=30, action="kick", actionDelay=0.35, actionDur=0.8, label="Mount", labelDelay=0.1),
               P(kit=MUN, skin="#8a5a3c", hair="#141010", num=30, x=2.0, z=39.0, action="idle"),
               P(kit=GK, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready"),

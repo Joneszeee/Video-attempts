@@ -3984,6 +3984,7 @@ CARDS.simrun = function (c, ct, cx, cy) {
   const vals = []; for (let q = p0; q <= p1; q++) vals.push(+(c.dist[q] || 0));
   const mx = Math.max(...vals), x0 = cx - w / 2, base = cy + h / 2;
   ctx.save(); ctx.globalAlpha *= a;
+  const pz = 1 + Math.min(0.1, 0.018 * ct); ctx.translate(cx, cy); ctx.scale(pz, pz); ctx.translate(-cx, -cy);   // slow push-in, so the settled chart never sits still
   ctx.fillStyle = 'rgba(8,10,15,0.78)'; rrect(x0 - 40, cy - h / 2 - 150, w + 80, h + 260, 30); ctx.fill();
   ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.lineWidth = 2; ctx.stroke();
   font(700, 26, 'Mono', '4px'); ctx.fillStyle = '#9aa1ad'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
@@ -4039,6 +4040,7 @@ CARDS.odds = function (c, ct, cx, cy) {
   const order = Array.from({ length: N }, (_, i) => i).sort((p, q) => webHash(p, 3) - webHash(q, 3)), litSet = new Map(order.slice(0, lit).map((v, k) => [v, k]));
   const x0 = cx - gw / 2, y0 = cy - (rows * cell + (rows - 1) * gap) / 2;
   ctx.save();
+  const pz = 1 + Math.min(0.08, 0.016 * ct); ctx.translate(cx, cy); ctx.scale(pz, pz); ctx.translate(-cx, -cy);
   if (c.title) { font(800, 30, 'Mono', '4px'); ctx.fillStyle = '#e8e8ea'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.globalAlpha *= eOut(pr(ct, 0, 0.3)); ctx.fillText(c.title.toUpperCase(), cx, y0 - 40); ctx.globalAlpha = 1; }
   for (let i = 0; i < N; i++) {
     const r = Math.floor(i / cols), q = i % cols, x = x0 + q * (cell + gap), y = y0 + r * (cell + gap);

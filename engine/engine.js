@@ -3900,7 +3900,7 @@ function drawPixelPlayer(x, y, u, p, t, walk, alpha, k) {
   if (x1 <= x0 || y1 <= y0) return;
   const g = clamp(1 - k / 0.25, 0, 1);   // glitch phase: RGB split and torn slices before he breaks up
   const R = rng(Math.floor(t * 24) * 13 + 5);
-  if (k < 0.22) {
+  if (k < 0.22 && !p.noGlitch) {
     ctx.save();
     const sl = Math.max(6, Math.round(u * 0.05));
     for (let yy = y0; yy < y1; yy += sl) { const dx = R() < 0.35 ? (R() - 0.5) * u * 0.35 * (1 - g * 0.5) : 0; ctx.drawImage(pxCan, x0, yy, x1 - x0, sl, x0 + dx, yy, x1 - x0, sl); }
@@ -3917,7 +3917,7 @@ function drawPixelPlayer(x, y, u, p, t, walk, alpha, k) {
     const cxp = Math.min(iw - 1, bx - x0 + (bs >> 1)), cyp = Math.min(y1 - y0 - 1, by - y0 + (bs >> 1));
     if (img[(cyp * iw + cxp) * 4 + 3] < 40) continue;
     const h = webHash(i, j), h2 = webHash(j + 7, i + 3), h3 = webHash(i + 11, j + 17);
-    const st = 0.22 + 0.33 * (1 - (by - y0) / (y1 - y0)) + 0.25 * h;   // head and shoulders go first
+    const hf = (by - y0) / (y1 - y0), st = 0.22 + 0.33 * (p.pixelFrom === 'top' ? hf : 1 - hf) + 0.25 * h;   // feet go first, the head last (pixelFrom: 'top' = head first)
     const q = clamp((k - st) / 0.28, 0, 1);
     if (q >= 1) continue;
     const dx = (h2 - 0.5) * u * 0.9 * q, dy = -u * (0.4 + h3 * 0.9) * q * q, s = bs * (1 - 0.4 * q);

@@ -342,7 +342,7 @@ Built so far from the idea list (reuse them):
   for parts that are legend.
 - **"What if" simulation kit** (built for `videos/bruno-whatif`):
   - **Player deleted into pixels:** a player with `vanishAt` (+ `vanishLag`, `vanishDur` default 1.3s) glitches (torn slices, colour split), then breaks into
-    blocks that drift up and fade in the accent colour (`pixelColor`); `appearAt`/`appearDelay` plays it backwards (he builds back up). Comes with a glitch sound.
+    blocks that drift up and fade in the accent colour (`pixelColor`); `appearAt`/`appearDelay` plays it backwards (he builds back up). Feet go first, the head last (`pixelFrom: "top"` reverses it; `noGlitch` skips the torn-slice phase, for thumbnails). Comes with a glitch sound.
   - **Screen glitch:** beat `"glitch": [{"at"|"t", "dur", "amount"}]`, a short digital tear over the whole frame (a pattern break or a "simulation" cut).
   - **Simulation HUD:** the `simhud` card. Corner brackets under the headline, a blinking "● SIM" tag bottom-left with `sub`, and a run counter + bar bottom-right
     (`runs`, `countT|countAt` + `dur`; `dur: 0` = already finished). Put it on every simulated beat so the viewer always knows what's real.

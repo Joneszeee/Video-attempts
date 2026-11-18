@@ -1,0 +1,104 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "",
+   "headline": "",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.8,
+   "camFrom": {
+    "pos": [
+     0,
+     1.3,
+     1.35
+    ],
+    "tgt": [
+     0,
+     1.15,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.3,
+     1.35
+    ],
+    "tgt": [
+     0,
+     1.15,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "FERNANDES",
+     "num": 8,
+     "kit": {
+      "shirt": "#da291c",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#d9a37c",
+     "hair": "#2a1a10",
+     "x": 0,
+     "z": 3.3,
+     "front": true,
+     "chest": true,
+     "vanishDur": 4,
+     "vanishDelay": 0,
+     "noGlitch": true
+    }
+   ],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": -3,
+     "sub": "Man United · without Bruno",
+     "dur": 0,
+     "y": 1720,
+     "clear": false,
+     "top": 470
+    },
+    {
+     "type": "shout",
+     "text": "NO BRUNO?",
+     "y": 330,
+     "size": 190,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    },
+    {
+     "type": "shout",
+     "text": "UNITED MISS\nTHE CHAMPIONS LEAGUE",
+     "y": 1500,
+     "size": 96,
+     "delay": -3,
+     "rot": -0.03,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail.",
+   "hookWords": false,
+   "flashes": 10
+  }
+ ]
+}

@@ -1,0 +1,2809 @@
+{
+ "2024": [
+  {
+   "id": "704279",
+   "date": "2024-08-16",
+   "home": "Manchester United",
+   "away": "Fulham",
+   "hs": 1,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "87'",
+     "team": "Manchester United",
+     "scorer": "Joshua Zirkzee",
+     "assist": "Alejandro Garnacho",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Fulham 0. Joshua Zirkzee (Manchester United) left footed shot from the centre of the box to the bottom left corner. Assisted by Alejandro Garnacho with a cross."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704291",
+   "date": "2024-08-24",
+   "home": "Brighton & Hove Albion",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "32'",
+     "team": "Brighton & Hove Albion",
+     "scorer": "Danny Welbeck",
+     "assist": "Kaoru Mitoma",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brighton and Hove Albion 1, Manchester United 0. Danny Welbeck (Brighton and Hove Albion) right footed shot from very close range to the bottom right corner. Assisted by Kaoru Mitoma."
+    },
+    {
+     "min": "60'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": "Noussair Mazraoui",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brighton and Hove Albion 1, Manchester United 1. Amad Diallo (Manchester United) left footed shot from the right side of the box to the bottom right corner. Assisted by Noussair Mazraoui."
+    },
+    {
+     "min": "90'+5'",
+     "team": "Brighton & Hove Albion",
+     "scorer": "Jo\u00e3o Pedro",
+     "assist": "Simon Adingra",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brighton and Hove Albion 2, Manchester United 1. Jo\u00e3o Pedro (Brighton and Hove Albion) header from very close range to the bottom left corner. Assisted by Simon Adingra following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704305",
+   "date": "2024-09-01",
+   "home": "Manchester United",
+   "away": "Liverpool",
+   "hs": 0,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "35'",
+     "team": "Liverpool",
+     "scorer": "Luis D\u00edaz",
+     "assist": "Mohamed Salah",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Liverpool 1. Luis D\u00edaz (Liverpool) header from the left side of the six yard box to the top left corner. Assisted by Mohamed Salah."
+    },
+    {
+     "min": "42'",
+     "team": "Liverpool",
+     "scorer": "Luis D\u00edaz",
+     "assist": "Mohamed Salah",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Liverpool 2. Luis D\u00edaz (Liverpool) right footed shot from the centre of the box to the bottom right corner. Assisted by Mohamed Salah."
+    },
+    {
+     "min": "56'",
+     "team": "Liverpool",
+     "scorer": "Mohamed Salah",
+     "assist": "Dominik Szoboszlai",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Liverpool 3. Mohamed Salah (Liverpool) left footed shot from the centre of the box to the bottom right corner. Assisted by Dominik Szoboszlai."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704316",
+   "date": "2024-09-14",
+   "home": "Southampton",
+   "away": "Manchester United",
+   "hs": 0,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "35'",
+     "team": "Manchester United",
+     "scorer": "Matthijs de Ligt",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Southampton 0, Manchester United 1. Matthijs de Ligt (Manchester United) header from the centre of the box to the bottom left corner. Assisted by Bruno Fernandes with a cross following a corner."
+    },
+    {
+     "min": "41'",
+     "team": "Manchester United",
+     "scorer": "Marcus Rashford",
+     "assist": "Amad Diallo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Southampton 0, Manchester United 2. Marcus Rashford (Manchester United) right footed shot from outside the box to the bottom right corner. Assisted by Amad Diallo following a corner."
+    },
+    {
+     "min": "90'+6'",
+     "team": "Manchester United",
+     "scorer": "Alejandro Garnacho",
+     "assist": "Diogo Dalot",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Southampton 0, Manchester United 3. Alejandro Garnacho (Manchester United) right footed shot from the centre of the box to the top right corner. Assisted by Diogo Dalot."
+    }
+   ],
+   "pens_missed": [
+    {
+     "min": "33'",
+     "type": "Penalty - Saved",
+     "text": "Penalty saved. Cameron Archer (Southampton) right footed shot saved in the bottom left corner."
+    }
+   ]
+  },
+  {
+   "id": "704321",
+   "date": "2024-09-21",
+   "home": "Crystal Palace",
+   "away": "Manchester United",
+   "hs": 0,
+   "as_": 0,
+   "goals": [],
+   "pens_missed": []
+  },
+  {
+   "id": "704335",
+   "date": "2024-09-29",
+   "home": "Manchester United",
+   "away": "Tottenham Hotspur",
+   "hs": 0,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "3'",
+     "team": "Tottenham Hotspur",
+     "scorer": "Brennan Johnson",
+     "assist": "Micky van de Ven",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Tottenham Hotspur 1. Brennan Johnson (Tottenham Hotspur) right footed shot from very close range to the centre of the goal. Assisted by Micky van de Ven following a fast break."
+    },
+    {
+     "min": "47'",
+     "team": "Tottenham Hotspur",
+     "scorer": "Dejan Kulusevski",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Tottenham Hotspur 2. Dejan Kulusevski (Tottenham Hotspur) left footed shot from the right side of the six yard box to the bottom left corner following a fast break."
+    },
+    {
+     "min": "77'",
+     "team": "Tottenham Hotspur",
+     "scorer": "Dominic Solanke",
+     "assist": "Pape Sarr",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Tottenham Hotspur 3. Dominic Solanke (Tottenham Hotspur) right footed shot from very close range to the centre of the goal. Assisted by Pape Sarr following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704347",
+   "date": "2024-10-06",
+   "home": "Aston Villa",
+   "away": "Manchester United",
+   "hs": 0,
+   "as_": 0,
+   "goals": [],
+   "pens_missed": []
+  },
+  {
+   "id": "704352",
+   "date": "2024-10-19",
+   "home": "Manchester United",
+   "away": "Brentford",
+   "hs": 2,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "45'+5'",
+     "team": "Brentford",
+     "scorer": "Ethan Pinnock",
+     "assist": "Mikkel Damsgaard",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Brentford 1. Ethan Pinnock (Brentford) header from very close range to the top left corner. Assisted by Mikkel Damsgaard with a cross following a corner."
+    },
+    {
+     "min": "47'",
+     "team": "Manchester United",
+     "scorer": "Alejandro Garnacho",
+     "assist": "Marcus Rashford",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Brentford 1. Alejandro Garnacho (Manchester United) right footed shot from the left side of the six yard box to the bottom left corner. Assisted by Marcus Rashford with a cross."
+    },
+    {
+     "min": "62'",
+     "team": "Manchester United",
+     "scorer": "Rasmus H\u00f8jlund",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Brentford 1. Rasmus H\u00f8jlund (Manchester United) left footed shot from the centre of the box to the bottom right corner. Assisted by Bruno Fernandes."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704366",
+   "date": "2024-10-27",
+   "home": "West Ham United",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "74'",
+     "team": "West Ham United",
+     "scorer": "Crysencio Summerville",
+     "assist": "Danny Ings",
+     "pen": false,
+     "og": false,
+     "text": "Goal! West Ham United 1, Manchester United 0. Crysencio Summerville (West Ham United) right footed shot from the left side of the six yard box to the bottom left corner. Assisted by Danny Ings."
+    },
+    {
+     "min": "81'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Joshua Zirkzee",
+     "pen": false,
+     "og": false,
+     "text": "Goal! West Ham United 1, Manchester United 1. Casemiro (Manchester United) header from very close range to the top left corner. Assisted by Joshua Zirkzee following a corner."
+    },
+    {
+     "min": "90'+2'",
+     "team": "West Ham United",
+     "scorer": "Jarrod Bowen",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! West Ham United 2, Manchester United 1. Jarrod Bowen (West Ham United) converts the penalty with a left footed shot to the bottom right corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704378",
+   "date": "2024-11-03",
+   "home": "Manchester United",
+   "away": "Chelsea",
+   "hs": 1,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "70'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Manchester United 1, Chelsea 0. Bruno Fernandes (Manchester United) converts the penalty with a right footed shot to the bottom left corner."
+    },
+    {
+     "min": "74'",
+     "team": "Chelsea",
+     "scorer": "Mois\u00e9s Caicedo",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Chelsea 1. Mois\u00e9s Caicedo (Chelsea) right footed shot from the centre of the box to the bottom left corner following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704386",
+   "date": "2024-11-10",
+   "home": "Manchester United",
+   "away": "Leicester City",
+   "hs": 3,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "17'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": "Amad Diallo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Leicester City 0. Bruno Fernandes (Manchester United) right footed shot from outside the box to the bottom right corner. Assisted by Amad Diallo."
+    },
+    {
+     "min": "38'",
+     "team": "Manchester United",
+     "scorer": "Victor Kristiansen",
+     "assist": null,
+     "pen": false,
+     "og": true,
+     "text": "Own Goal by Victor Kristiansen, Leicester City. Manchester United 2, Leicester City 0."
+    },
+    {
+     "min": "82'",
+     "team": "Manchester United",
+     "scorer": "Alejandro Garnacho",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Leicester City 0. Alejandro Garnacho (Manchester United) right footed shot from outside the box to the top right corner. Assisted by Bruno Fernandes."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704389",
+   "date": "2024-11-24",
+   "home": "Ipswich Town",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "2'",
+     "team": "Manchester United",
+     "scorer": "Marcus Rashford",
+     "assist": "Amad Diallo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Ipswich Town 0, Manchester United 1. Marcus Rashford (Manchester United) left footed shot from the centre of the box to the bottom right corner. Assisted by Amad Diallo with a cross."
+    },
+    {
+     "min": "43'",
+     "team": "Ipswich Town",
+     "scorer": "Omari Hutchinson",
+     "assist": "Wes Burns",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Ipswich Town 1, Manchester United 1. Omari Hutchinson (Ipswich Town) left footed shot from outside the box to the top left corner. Assisted by Wes Burns."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704407",
+   "date": "2024-12-01",
+   "home": "Manchester United",
+   "away": "Everton",
+   "hs": 4,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "34'",
+     "team": "Manchester United",
+     "scorer": "Marcus Rashford",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Everton 0. Marcus Rashford (Manchester United) right footed shot from the centre of the box to the centre of the goal. Assisted by Bruno Fernandes with a cross following a corner."
+    },
+    {
+     "min": "41'",
+     "team": "Manchester United",
+     "scorer": "Joshua Zirkzee",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Everton 0. Joshua Zirkzee (Manchester United) left footed shot from the centre of the box to the centre of the goal. Assisted by Bruno Fernandes."
+    },
+    {
+     "min": "46'",
+     "team": "Manchester United",
+     "scorer": "Marcus Rashford",
+     "assist": "Amad Diallo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Everton 0. Marcus Rashford (Manchester United) right footed shot from the right side of the box to the bottom right corner. Assisted by Amad Diallo following a fast break."
+    },
+    {
+     "min": "64'",
+     "team": "Manchester United",
+     "scorer": "Joshua Zirkzee",
+     "assist": "Amad Diallo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 4, Everton 0. Joshua Zirkzee (Manchester United) right footed shot from the centre of the box to the centre of the goal. Assisted by Amad Diallo."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704410",
+   "date": "2024-12-04",
+   "home": "Arsenal",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "54'",
+     "team": "Arsenal",
+     "scorer": "Jurri\u00ebn Timber",
+     "assist": "Declan Rice",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Arsenal 1, Manchester United 0. Jurri\u00ebn Timber (Arsenal) header from the left side of the six yard box to the centre of the goal. Assisted by Declan Rice with a cross following a corner."
+    },
+    {
+     "min": "73'",
+     "team": "Arsenal",
+     "scorer": "William Saliba",
+     "assist": "Thomas Partey",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Arsenal 2, Manchester United 0. William Saliba (Arsenal) with an attempt from very close range to the bottom left corner. Assisted by Thomas Partey with a headed pass following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704419",
+   "date": "2024-12-07",
+   "home": "Manchester United",
+   "away": "Nottingham Forest",
+   "hs": 2,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "2'",
+     "team": "Nottingham Forest",
+     "scorer": "Nikola Milenkovic",
+     "assist": "Elliot Anderson",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Nottingham Forest 1. Nikola Milenkovic (Nottingham Forest) header from the centre of the box to the top right corner. Assisted by Elliot Anderson with a cross following a corner."
+    },
+    {
+     "min": "18'",
+     "team": "Manchester United",
+     "scorer": "Rasmus H\u00f8jlund",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Nottingham Forest 1. Rasmus H\u00f8jlund (Manchester United) left footed shot from the centre of the box to the centre of the goal."
+    },
+    {
+     "min": "47'",
+     "team": "Nottingham Forest",
+     "scorer": "Morgan Gibbs-White",
+     "assist": "Callum Hudson-Odoi",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Nottingham Forest 2. Morgan Gibbs-White (Nottingham Forest) right footed shot from outside the box to the centre of the goal. Assisted by Callum Hudson-Odoi."
+    },
+    {
+     "min": "54'",
+     "team": "Nottingham Forest",
+     "scorer": "Chris Wood",
+     "assist": "Morgan Gibbs-White",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Nottingham Forest 3. Chris Wood (Nottingham Forest) header from very close range to the bottom right corner. Assisted by Morgan Gibbs-White with a cross."
+    },
+    {
+     "min": "61'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": "Amad Diallo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Nottingham Forest 3. Bruno Fernandes (Manchester United) right footed shot from outside the box to the bottom left corner. Assisted by Amad Diallo following a fast break."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704434",
+   "date": "2024-12-15",
+   "home": "Manchester City",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "36'",
+     "team": "Manchester City",
+     "scorer": "Josko Gvardiol",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester City 1, Manchester United 0. Josko Gvardiol (Manchester City) header from the centre of the box to the centre of the goal following a corner."
+    },
+    {
+     "min": "88'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Manchester City 1, Manchester United 1. Bruno Fernandes (Manchester United) converts the penalty with a right footed shot to the bottom right corner."
+    },
+    {
+     "min": "90'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": "Lisandro Mart\u00ednez",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester City 1, Manchester United 2. Amad Diallo (Manchester United) left footed shot from a difficult angle on the left to the centre of the goal. Assisted by Lisandro Mart\u00ednez with a through ball."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704440",
+   "date": "2024-12-22",
+   "home": "Manchester United",
+   "away": "AFC Bournemouth",
+   "hs": 0,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "29'",
+     "team": "AFC Bournemouth",
+     "scorer": "Dean Huijsen",
+     "assist": "Ryan Christie",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Bournemouth 1. Dean Huijsen (Bournemouth) header from the centre of the box to the bottom left corner. Assisted by Ryan Christie with a cross following a set piece situation."
+    },
+    {
+     "min": "61'",
+     "team": "AFC Bournemouth",
+     "scorer": "Justin Kluivert",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Manchester United 0, Bournemouth 2. Justin Kluivert (Bournemouth) converts the penalty with a right footed shot to the high centre of the goal."
+    },
+    {
+     "min": "63'",
+     "team": "AFC Bournemouth",
+     "scorer": "Antoine Semenyo",
+     "assist": "Dango Ouattara",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Bournemouth 3. Antoine Semenyo (Bournemouth) left footed shot from the centre of the box to the bottom left corner. Assisted by Dango Ouattara following a fast break."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704455",
+   "date": "2024-12-26",
+   "home": "Wolverhampton Wanderers",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "58'",
+     "team": "Wolverhampton Wanderers",
+     "scorer": "Matheus Cunha",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Wolverhampton Wanderers 1, Manchester United 0. Matheus Cunha (Wolverhampton Wanderers) right footed shot from a difficult angle and long range on the left to the top right corner following a corner."
+    },
+    {
+     "min": "90'+9'",
+     "team": "Wolverhampton Wanderers",
+     "scorer": "Hwang Hee-Chan",
+     "assist": "Matheus Cunha",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Wolverhampton Wanderers 2, Manchester United 0. Hwang Hee-Chan (Wolverhampton Wanderers) right footed shot from the centre of the box to the bottom right corner. Assisted by Matheus Cunha following a fast break."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704468",
+   "date": "2024-12-30",
+   "home": "Manchester United",
+   "away": "Newcastle United",
+   "hs": 0,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "4'",
+     "team": "Newcastle United",
+     "scorer": "Alexander Isak",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Newcastle United 1. Alexander Isak (Newcastle United) header from very close range to the bottom right corner."
+    },
+    {
+     "min": "19'",
+     "team": "Newcastle United",
+     "scorer": "Joelinton",
+     "assist": "Anthony Gordon",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Newcastle United 2. Joelinton (Newcastle United) with an attempt from very close range to the bottom left corner. Assisted by Anthony Gordon with a cross."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704475",
+   "date": "2025-01-05",
+   "home": "Liverpool",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "52'",
+     "team": "Manchester United",
+     "scorer": "Lisandro Mart\u00ednez",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Liverpool 0, Manchester United 1. Lisandro Mart\u00ednez (Manchester United) left footed shot from the left side of the box to the high centre of the goal. Assisted by Bruno Fernandes with a through ball."
+    },
+    {
+     "min": "59'",
+     "team": "Liverpool",
+     "scorer": "Cody Gakpo",
+     "assist": "Alexis Mac Allister",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Liverpool 1, Manchester United 1. Cody Gakpo (Liverpool) right footed shot from a difficult angle on the left to the high centre of the goal. Assisted by Alexis Mac Allister."
+    },
+    {
+     "min": "70'",
+     "team": "Liverpool",
+     "scorer": "Mohamed Salah",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Liverpool 2, Manchester United 1. Mohamed Salah (Liverpool) converts the penalty with a left footed shot to the bottom right corner."
+    },
+    {
+     "min": "80'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Liverpool 2, Manchester United 2. Amad Diallo (Manchester United) left footed shot from the centre of the box to the centre of the goal."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704488",
+   "date": "2025-01-16",
+   "home": "Manchester United",
+   "away": "Southampton",
+   "hs": 3,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "43'",
+     "team": "Southampton",
+     "scorer": "Manuel Ugarte",
+     "assist": null,
+     "pen": false,
+     "og": true,
+     "text": "Own Goal by Manuel Ugarte, Manchester United. Manchester United 0, Southampton 1."
+    },
+    {
+     "min": "82'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Southampton 1. Amad Diallo (Manchester United) right footed shot from the centre of the box to the bottom right corner."
+    },
+    {
+     "min": "90'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": "Christian Eriksen",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Southampton 1. Amad Diallo (Manchester United) left footed shot from the centre of the box to the bottom right corner. Assisted by Christian Eriksen with a through ball."
+    },
+    {
+     "min": "90'+4'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Southampton 1. Amad Diallo (Manchester United) right footed shot from the centre of the box to the bottom right corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704497",
+   "date": "2025-01-19",
+   "home": "Manchester United",
+   "away": "Brighton & Hove Albion",
+   "hs": 1,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "5'",
+     "team": "Brighton & Hove Albion",
+     "scorer": "Yankuba Minteh",
+     "assist": "Kaoru Mitoma",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Brighton and Hove Albion 1. Yankuba Minteh (Brighton and Hove Albion) right footed shot from the centre of the box to the high centre of the goal. Assisted by Kaoru Mitoma."
+    },
+    {
+     "min": "23'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Manchester United 1, Brighton and Hove Albion 1. Bruno Fernandes (Manchester United) converts the penalty with a right footed shot to the centre of the goal."
+    },
+    {
+     "min": "60'",
+     "team": "Brighton & Hove Albion",
+     "scorer": "Kaoru Mitoma",
+     "assist": "Yankuba Minteh",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Brighton and Hove Albion 2. Kaoru Mitoma (Brighton and Hove Albion) right footed shot from very close range to the bottom left corner. Assisted by Yankuba Minteh."
+    },
+    {
+     "min": "76'",
+     "team": "Brighton & Hove Albion",
+     "scorer": "Georginio Rutter",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Brighton and Hove Albion 3. Georginio Rutter (Brighton and Hove Albion) left footed shot from the centre of the box to the centre of the goal."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704503",
+   "date": "2025-01-26",
+   "home": "Fulham",
+   "away": "Manchester United",
+   "hs": 0,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "78'",
+     "team": "Manchester United",
+     "scorer": "Lisandro Mart\u00ednez",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Fulham 0, Manchester United 1. Lisandro Mart\u00ednez (Manchester United) left footed shot from outside the box to the top right corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704516",
+   "date": "2025-02-02",
+   "home": "Manchester United",
+   "away": "Crystal Palace",
+   "hs": 0,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "64'",
+     "team": "Crystal Palace",
+     "scorer": "Jean-Philippe Mateta",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Crystal Palace 1. Jean-Philippe Mateta (Crystal Palace) right footed shot from very close range to the centre of the goal following a set piece situation."
+    },
+    {
+     "min": "89'",
+     "team": "Crystal Palace",
+     "scorer": "Jean-Philippe Mateta",
+     "assist": "Daniel Mu\u00f1oz",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Crystal Palace 2. Jean-Philippe Mateta (Crystal Palace) right footed shot from the centre of the box to the centre of the goal. Assisted by Daniel Mu\u00f1oz following a fast break."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704524",
+   "date": "2025-02-16",
+   "home": "Tottenham Hotspur",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "13'",
+     "team": "Tottenham Hotspur",
+     "scorer": "James Maddison",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Tottenham Hotspur 1, Manchester United 0. James Maddison (Tottenham Hotspur) right footed shot from very close range to the bottom right corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704530",
+   "date": "2025-02-22",
+   "home": "Everton",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "19'",
+     "team": "Everton",
+     "scorer": "Beto",
+     "assist": "Abdoulaye Doucour\u00e9",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Everton 1, Manchester United 0. Beto (Everton) left footed shot from the centre of the box to the high centre of the goal. Assisted by Abdoulaye Doucour\u00e9 with a headed pass following a corner."
+    },
+    {
+     "min": "33'",
+     "team": "Everton",
+     "scorer": "Abdoulaye Doucour\u00e9",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Everton 2, Manchester United 0. Abdoulaye Doucour\u00e9 (Everton) header from very close range to the centre of the goal following a fast break."
+    },
+    {
+     "min": "72'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Everton 2, Manchester United 1. Bruno Fernandes (Manchester United) from a free kick with a right footed shot to the bottom right corner."
+    },
+    {
+     "min": "80'",
+     "team": "Manchester United",
+     "scorer": "Manuel Ugarte",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Everton 2, Manchester United 2. Manuel Ugarte (Manchester United) left footed shot from the centre of the box to the bottom left corner following a set piece situation."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704546",
+   "date": "2025-02-26",
+   "home": "Manchester United",
+   "away": "Ipswich Town",
+   "hs": 3,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "4'",
+     "team": "Ipswich Town",
+     "scorer": "Jaden Philogene",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Ipswich Town 1. Jaden Philogene (Ipswich Town) left footed shot from very close range to the centre of the goal."
+    },
+    {
+     "min": "22'",
+     "team": "Manchester United",
+     "scorer": "Sam Morsy",
+     "assist": null,
+     "pen": false,
+     "og": true,
+     "text": "Own Goal by Sam Morsy, Ipswich Town. Manchester United 1, Ipswich Town 1."
+    },
+    {
+     "min": "26'",
+     "team": "Manchester United",
+     "scorer": "Matthijs de Ligt",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Ipswich Town 1. Matthijs de Ligt (Manchester United) left footed shot from very close range to the top left corner following a corner."
+    },
+    {
+     "min": "45'+2'",
+     "team": "Ipswich Town",
+     "scorer": "Jaden Philogene",
+     "assist": "Axel Tuanzebe",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Ipswich Town 2. Jaden Philogene (Ipswich Town) left footed shot from long range on the right to the bottom left corner. Assisted by Axel Tuanzebe."
+    },
+    {
+     "min": "47'",
+     "team": "Manchester United",
+     "scorer": "Harry Maguire",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Ipswich Town 2. Harry Maguire (Manchester United) header from the centre of the box to the bottom left corner. Assisted by Bruno Fernandes with a cross following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704555",
+   "date": "2025-03-09",
+   "home": "Manchester United",
+   "away": "Arsenal",
+   "hs": 1,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "45'+2'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Arsenal 0. Bruno Fernandes (Manchester United) from a free kick with a right footed shot to the top right corner."
+    },
+    {
+     "min": "74'",
+     "team": "Arsenal",
+     "scorer": "Declan Rice",
+     "assist": "Jurri\u00ebn Timber",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Arsenal 1. Declan Rice (Arsenal) right footed shot from the right side of the box to the bottom left corner. Assisted by Jurri\u00ebn Timber."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704562",
+   "date": "2025-03-16",
+   "home": "Leicester City",
+   "away": "Manchester United",
+   "hs": 0,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "28'",
+     "team": "Manchester United",
+     "scorer": "Rasmus H\u00f8jlund",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Leicester City 0, Manchester United 1. Rasmus H\u00f8jlund (Manchester United) right footed shot from the right side of the box to the bottom left corner. Assisted by Bruno Fernandes with a through ball following a fast break."
+    },
+    {
+     "min": "67'",
+     "team": "Manchester United",
+     "scorer": "Alejandro Garnacho",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Leicester City 0, Manchester United 2. Alejandro Garnacho (Manchester United) right footed shot from the centre of the box to the bottom right corner. Assisted by Bruno Fernandes."
+    },
+    {
+     "min": "90'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": "Diogo Dalot",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Leicester City 0, Manchester United 3. Bruno Fernandes (Manchester United) right footed shot from outside the box to the bottom left corner. Assisted by Diogo Dalot."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704569",
+   "date": "2025-04-01",
+   "home": "Nottingham Forest",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "5'",
+     "team": "Nottingham Forest",
+     "scorer": "Anthony Elanga",
+     "assist": "Ryan Yates",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Nottingham Forest 1, Manchester United 0. Anthony Elanga (Nottingham Forest) left footed shot from the centre of the box to the bottom right corner. Assisted by Ryan Yates following a fast break."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704581",
+   "date": "2025-04-06",
+   "home": "Manchester United",
+   "away": "Manchester City",
+   "hs": 0,
+   "as_": 0,
+   "goals": [],
+   "pens_missed": []
+  },
+  {
+   "id": "704590",
+   "date": "2025-04-13",
+   "home": "Newcastle United",
+   "away": "Manchester United",
+   "hs": 4,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "24'",
+     "team": "Newcastle United",
+     "scorer": "Sandro Tonali",
+     "assist": "Alexander Isak",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Newcastle United 1, Manchester United 0. Sandro Tonali (Newcastle United) right footed shot from the centre of the box to the bottom left corner. Assisted by Alexander Isak."
+    },
+    {
+     "min": "37'",
+     "team": "Manchester United",
+     "scorer": "Alejandro Garnacho",
+     "assist": "Diogo Dalot",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Newcastle United 1, Manchester United 1. Alejandro Garnacho (Manchester United) left footed shot from the centre of the box to the bottom left corner. Assisted by Diogo Dalot following a fast break."
+    },
+    {
+     "min": "49'",
+     "team": "Newcastle United",
+     "scorer": "Harvey Barnes",
+     "assist": "Jacob Murphy",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Newcastle United 2, Manchester United 1. Harvey Barnes (Newcastle United) left footed shot from very close range to the centre of the goal. Assisted by Jacob Murphy."
+    },
+    {
+     "min": "64'",
+     "team": "Newcastle United",
+     "scorer": "Harvey Barnes",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Newcastle United 3, Manchester United 1. Harvey Barnes (Newcastle United) right footed shot from the centre of the box to the top right corner."
+    },
+    {
+     "min": "77'",
+     "team": "Newcastle United",
+     "scorer": "Bruno Guimar\u00e3es",
+     "assist": "Joelinton",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Newcastle United 4, Manchester United 1. Bruno Guimar\u00e3es (Newcastle United) right footed shot from the centre of the box to the bottom right corner. Assisted by Joelinton with a headed pass."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704600",
+   "date": "2025-04-20",
+   "home": "Manchester United",
+   "away": "Wolverhampton Wanderers",
+   "hs": 0,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "77'",
+     "team": "Wolverhampton Wanderers",
+     "scorer": "Pablo Sarabia",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Wolverhampton Wanderers 1. Pablo Sarabia (Wolverhampton Wanderers) from a free kick with a left footed shot to the top right corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704609",
+   "date": "2025-04-27",
+   "home": "AFC Bournemouth",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "23'",
+     "team": "AFC Bournemouth",
+     "scorer": "Antoine Semenyo",
+     "assist": "Evanilson",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Bournemouth 1, Manchester United 0. Antoine Semenyo (Bournemouth) left footed shot from the centre of the box to the bottom right corner. Assisted by Evanilson."
+    },
+    {
+     "min": "90'+6'",
+     "team": "Manchester United",
+     "scorer": "Rasmus H\u00f8jlund",
+     "assist": "Manuel Ugarte",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Bournemouth 1, Manchester United 1. Rasmus H\u00f8jlund (Manchester United) right footed shot from very close range to the bottom left corner. Assisted by Manuel Ugarte."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704621",
+   "date": "2025-05-04",
+   "home": "Brentford",
+   "away": "Manchester United",
+   "hs": 4,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "14'",
+     "team": "Manchester United",
+     "scorer": "Mason Mount",
+     "assist": "Alejandro Garnacho",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 0, Manchester United 1. Mason Mount (Manchester United) right footed shot from the centre of the box to the centre of the goal. Assisted by Alejandro Garnacho with a cross."
+    },
+    {
+     "min": "27'",
+     "team": "Brentford",
+     "scorer": "Luke Shaw",
+     "assist": null,
+     "pen": false,
+     "og": true,
+     "text": "Own Goal by Luke Shaw, Manchester United. Brentford 1, Manchester United 1."
+    },
+    {
+     "min": "33'",
+     "team": "Brentford",
+     "scorer": "Kevin Schade",
+     "assist": "Christian N\u00f8rgaard",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 2, Manchester United 1. Kevin Schade (Brentford) header from very close range to the centre of the goal. Assisted by Christian N\u00f8rgaard with a cross."
+    },
+    {
+     "min": "70'",
+     "team": "Brentford",
+     "scorer": "Kevin Schade",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 3, Manchester United 1. Kevin Schade (Brentford) header from very close range to the bottom left corner."
+    },
+    {
+     "min": "74'",
+     "team": "Brentford",
+     "scorer": "Yoane Wissa",
+     "assist": "Michael Kayode",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 4, Manchester United 1. Yoane Wissa (Brentford) right footed shot from the centre of the box to the centre of the goal. Assisted by Michael Kayode."
+    },
+    {
+     "min": "82'",
+     "team": "Manchester United",
+     "scorer": "Alejandro Garnacho",
+     "assist": "Christian Eriksen",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 4, Manchester United 2. Alejandro Garnacho (Manchester United) right footed shot from outside the box to the top right corner. Assisted by Christian Eriksen."
+    },
+    {
+     "min": "90'+5'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": "Manuel Ugarte",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 4, Manchester United 3. Amad Diallo (Manchester United) left footed shot from the right side of the box to the centre of the goal. Assisted by Manuel Ugarte."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704633",
+   "date": "2025-05-11",
+   "home": "Manchester United",
+   "away": "West Ham United",
+   "hs": 0,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "26'",
+     "team": "West Ham United",
+     "scorer": "Tom\u00e1s Soucek",
+     "assist": "Mohammed Kudus",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, West Ham United 1. Tom\u00e1s Soucek (West Ham United) left footed shot from very close range to the bottom right corner. Assisted by Mohammed Kudus."
+    },
+    {
+     "min": "57'",
+     "team": "West Ham United",
+     "scorer": "Jarrod Bowen",
+     "assist": "Aaron Wan-Bissaka",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, West Ham United 2. Jarrod Bowen (West Ham United) left footed shot from the centre of the box to the bottom right corner. Assisted by Aaron Wan-Bissaka."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704643",
+   "date": "2025-05-16",
+   "home": "Chelsea",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "71'",
+     "team": "Chelsea",
+     "scorer": "Marc Cucurella",
+     "assist": "Reece James",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Chelsea 1, Manchester United 0. Marc Cucurella (Chelsea) header from the centre of the box to the bottom right corner. Assisted by Reece James."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "704658",
+   "date": "2025-05-25",
+   "home": "Manchester United",
+   "away": "Aston Villa",
+   "hs": 2,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "76'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Aston Villa 0. Amad Diallo (Manchester United) header from the right side of the six yard box to the bottom left corner. Assisted by Bruno Fernandes with a through ball."
+    },
+    {
+     "min": "87'",
+     "team": "Manchester United",
+     "scorer": "Christian Eriksen",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Manchester United 2, Aston Villa 0. Christian Eriksen (Manchester United) converts the penalty with a right footed shot to the centre of the goal."
+    }
+   ],
+   "pens_missed": []
+  }
+ ],
+ "2025": [
+  {
+   "id": "740604",
+   "date": "2025-08-17",
+   "home": "Manchester United",
+   "away": "Arsenal",
+   "hs": 0,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "13'",
+     "team": "Arsenal",
+     "scorer": "Riccardo Calafiori",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Arsenal 1. Riccardo Calafiori (Arsenal) header from very close range to the bottom right corner following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740612",
+   "date": "2025-08-24",
+   "home": "Fulham",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "58'",
+     "team": "Manchester United",
+     "scorer": "Rodrigo Muniz",
+     "assist": null,
+     "pen": false,
+     "og": true,
+     "text": "Own Goal by Rodrigo Muniz, Fulham. Fulham 0, Manchester United 1."
+    },
+    {
+     "min": "73'",
+     "team": "Fulham",
+     "scorer": "Emile Smith Rowe",
+     "assist": "Alex Iwobi",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Fulham 1, Manchester United 1. Emile Smith Rowe (Fulham) right footed shot from very close range to the bottom left corner. Assisted by Alex Iwobi with a through ball."
+    }
+   ],
+   "pens_missed": [
+    {
+     "min": "38'",
+     "type": "Penalty - Missed",
+     "text": "Penalty missed. Bruno Fernandes (Manchester United) right footed shot is too high."
+    }
+   ]
+  },
+  {
+   "id": "740621",
+   "date": "2025-08-30",
+   "home": "Manchester United",
+   "away": "Burnley",
+   "hs": 3,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "27'",
+     "team": "Manchester United",
+     "scorer": "Josh Cullen",
+     "assist": null,
+     "pen": false,
+     "og": true,
+     "text": "Own Goal by Josh Cullen, Burnley. Manchester United 1, Burnley 0."
+    },
+    {
+     "min": "55'",
+     "team": "Burnley",
+     "scorer": "Lyle Foster",
+     "assist": "Jacob Bruun Larsen",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Burnley 1. Lyle Foster (Burnley) right footed shot from the centre of the box to the centre of the goal. Assisted by Jacob Bruun Larsen with a cross."
+    },
+    {
+     "min": "57'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Diogo Dalot",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Burnley 1. Bryan Mbeumo (Manchester United) left footed shot from the centre of the box to the centre of the goal. Assisted by Diogo Dalot."
+    },
+    {
+     "min": "66'",
+     "team": "Burnley",
+     "scorer": "Jaidon Anthony",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Burnley 2. Jaidon Anthony (Burnley) left footed shot from very close range to the centre of the goal."
+    },
+    {
+     "min": "90'+7'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Manchester United 3, Burnley 2. Bruno Fernandes (Manchester United) converts the penalty with a right footed shot to the bottom left corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740630",
+   "date": "2025-09-14",
+   "home": "Manchester City",
+   "away": "Manchester United",
+   "hs": 3,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "18'",
+     "team": "Manchester City",
+     "scorer": "Phil Foden",
+     "assist": "J\u00e9r\u00e9my Doku",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester City 1, Manchester United 0. Phil Foden (Manchester City) header from the centre of the box to the bottom left corner. Assisted by J\u00e9r\u00e9my Doku."
+    },
+    {
+     "min": "53'",
+     "team": "Manchester City",
+     "scorer": "Erling Haaland",
+     "assist": "J\u00e9r\u00e9my Doku",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester City 2, Manchester United 0. Erling Haaland (Manchester City) left footed shot from the left side of the box to the centre of the goal. Assisted by J\u00e9r\u00e9my Doku with a through ball."
+    },
+    {
+     "min": "68'",
+     "team": "Manchester City",
+     "scorer": "Erling Haaland",
+     "assist": "Bernardo Silva",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester City 3, Manchester United 0. Erling Haaland (Manchester City) left footed shot from the centre of the box to the bottom left corner. Assisted by Bernardo Silva with a through ball following a fast break."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740645",
+   "date": "2025-09-20",
+   "home": "Manchester United",
+   "away": "Chelsea",
+   "hs": 2,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "14'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": "Patrick Dorgu",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Chelsea 0. Bruno Fernandes (Manchester United) right footed shot from very close range to the centre of the goal. Assisted by Patrick Dorgu with a headed pass."
+    },
+    {
+     "min": "37'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Harry Maguire",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Chelsea 0. Casemiro (Manchester United) header from the right side of the six yard box to the centre of the goal. Assisted by Harry Maguire following a corner."
+    },
+    {
+     "min": "80'",
+     "team": "Chelsea",
+     "scorer": "Trevoh Chalobah",
+     "assist": "Reece James",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Chelsea 1. Trevoh Chalobah (Chelsea) header from the centre of the box to the bottom right corner. Assisted by Reece James with a cross following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740649",
+   "date": "2025-09-27",
+   "home": "Brentford",
+   "away": "Manchester United",
+   "hs": 3,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "8'",
+     "team": "Brentford",
+     "scorer": "Igor Thiago",
+     "assist": "Jordan Henderson",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 1, Manchester United 0. Igor Thiago (Brentford) left footed shot from the centre of the box to the top left corner. Assisted by Jordan Henderson with a through ball following a fast break."
+    },
+    {
+     "min": "20'",
+     "team": "Brentford",
+     "scorer": "Igor Thiago",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 2, Manchester United 0. Igor Thiago (Brentford) left footed shot from the centre of the box to the bottom left corner."
+    },
+    {
+     "min": "26'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 2, Manchester United 1. Benjamin Sesko (Manchester United) left footed shot from very close range to the high centre of the goal."
+    },
+    {
+     "min": "90'+5'",
+     "team": "Brentford",
+     "scorer": "Mathias Jensen",
+     "assist": "Yehor Yarmoliuk",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brentford 3, Manchester United 1. Mathias Jensen (Brentford) right footed shot from outside the box to the high centre of the goal. Assisted by Yehor Yarmoliuk following a fast break."
+    }
+   ],
+   "pens_missed": [
+    {
+     "min": "76'",
+     "type": "Penalty - Saved",
+     "text": "Penalty saved. Bruno Fernandes (Manchester United) right footed shot saved in the bottom right corner by Caoimh\u00edn Kelleher (Brentford)."
+    }
+   ]
+  },
+  {
+   "id": "740663",
+   "date": "2025-10-04",
+   "home": "Manchester United",
+   "away": "Sunderland",
+   "hs": 2,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "8'",
+     "team": "Manchester United",
+     "scorer": "Mason Mount",
+     "assist": "Bryan Mbeumo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Sunderland 0. Mason Mount (Manchester United) right footed shot from the centre of the box to the bottom right corner. Assisted by Bryan Mbeumo with a cross."
+    },
+    {
+     "min": "31'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Sunderland 0. Benjamin Sesko (Manchester United) right footed shot from very close range to the bottom left corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740670",
+   "date": "2025-10-19",
+   "home": "Liverpool",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "2'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Amad Diallo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Liverpool 0, Manchester United 1. Bryan Mbeumo (Manchester United) right footed shot from the right side of the box to the bottom right corner. Assisted by Amad Diallo with a through ball."
+    },
+    {
+     "min": "78'",
+     "team": "Liverpool",
+     "scorer": "Cody Gakpo",
+     "assist": "Federico Chiesa",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Liverpool 1, Manchester United 1. Cody Gakpo (Liverpool) right footed shot from very close range to the top left corner. Assisted by Federico Chiesa."
+    },
+    {
+     "min": "84'",
+     "team": "Manchester United",
+     "scorer": "Harry Maguire",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Liverpool 1, Manchester United 2. Harry Maguire (Manchester United) header from the centre of the box to the bottom left corner. Assisted by Bruno Fernandes with a cross following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740683",
+   "date": "2025-10-25",
+   "home": "Manchester United",
+   "away": "Brighton & Hove Albion",
+   "hs": 4,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "24'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": "Casemiro",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Brighton and Hove Albion 0. Matheus Cunha (Manchester United) right footed shot from outside the box to the bottom right corner. Assisted by Casemiro."
+    },
+    {
+     "min": "34'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Luke Shaw",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Brighton and Hove Albion 0. Casemiro (Manchester United) right footed shot from outside the box to the bottom left corner. Assisted by Luke Shaw."
+    },
+    {
+     "min": "61'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Benjamin Sesko",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Brighton and Hove Albion 0. Bryan Mbeumo (Manchester United) left footed shot from the centre of the box to the bottom right corner. Assisted by Benjamin Sesko."
+    },
+    {
+     "min": "74'",
+     "team": "Brighton & Hove Albion",
+     "scorer": "Danny Welbeck",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Brighton and Hove Albion 1. Danny Welbeck (Brighton and Hove Albion) from a free kick with a right footed shot to the high centre of the goal."
+    },
+    {
+     "min": "90'+2'",
+     "team": "Brighton & Hove Albion",
+     "scorer": "Charalambos Kostoulas",
+     "assist": "James Milner",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Brighton and Hove Albion 2. Charalampos Kostoulas (Brighton and Hove Albion) header from the right side of the six yard box to the centre of the goal. Assisted by James Milner with a cross following a corner."
+    },
+    {
+     "min": "90'+6'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Ayden Heaven",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 4, Brighton and Hove Albion 2. Bryan Mbeumo (Manchester United) left footed shot from the centre of the box to the high centre of the goal. Assisted by Ayden Heaven."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740692",
+   "date": "2025-11-01",
+   "home": "Nottingham Forest",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "34'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Nottingham Forest 0, Manchester United 1. Casemiro (Manchester United) header from the centre of the box to the bottom left corner. Assisted by Bruno Fernandes with a cross following a corner."
+    },
+    {
+     "min": "48'",
+     "team": "Nottingham Forest",
+     "scorer": "Morgan Gibbs-White",
+     "assist": "Ryan Yates",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Nottingham Forest 1, Manchester United 1. Morgan Gibbs-White (Nottingham Forest) header from the centre of the box to the bottom right corner. Assisted by Ryan Yates with a cross."
+    },
+    {
+     "min": "50'",
+     "team": "Nottingham Forest",
+     "scorer": "Nicol\u00f2 Savona",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Nottingham Forest 2, Manchester United 1. Nicol\u00f2 Savona (Nottingham Forest) left footed shot from very close range to the centre of the goal."
+    },
+    {
+     "min": "81'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Nottingham Forest 2, Manchester United 2. Amad Diallo (Manchester United) left footed shot from outside the box to the bottom left corner following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740705",
+   "date": "2025-11-08",
+   "home": "Tottenham Hotspur",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "32'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Amad Diallo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Tottenham Hotspur 0, Manchester United 1. Bryan Mbeumo (Manchester United) header from the centre of the box to the top left corner. Assisted by Amad Diallo with a cross."
+    },
+    {
+     "min": "84'",
+     "team": "Tottenham Hotspur",
+     "scorer": "Mathys Tel",
+     "assist": "Destiny Udogie",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Tottenham Hotspur 1, Manchester United 1. Mathys Tel (Tottenham Hotspur) right footed shot from the centre of the box to the top right corner. Assisted by Destiny Udogie with a cross."
+    },
+    {
+     "min": "90'+1'",
+     "team": "Tottenham Hotspur",
+     "scorer": "Richarlison",
+     "assist": "Wilson Odobert",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Tottenham Hotspur 2, Manchester United 1. Richarlison (Tottenham Hotspur) header from the centre of the box to the bottom right corner. Assisted by Wilson Odobert following a corner."
+    },
+    {
+     "min": "90'+6'",
+     "team": "Manchester United",
+     "scorer": "Matthijs de Ligt",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Tottenham Hotspur 2, Manchester United 2. Matthijs de Ligt (Manchester United) header from the right side of the six yard box to the top right corner. Assisted by Bruno Fernandes with a cross following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740711",
+   "date": "2025-11-24",
+   "home": "Manchester United",
+   "away": "Everton",
+   "hs": 0,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "29'",
+     "team": "Everton",
+     "scorer": "Kiernan Dewsbury-Hall",
+     "assist": "James Garner",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Everton 1. Kiernan Dewsbury-Hall (Everton) right footed shot from the centre of the box to the top right corner. Assisted by James Garner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740725",
+   "date": "2025-11-30",
+   "home": "Crystal Palace",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "36'",
+     "team": "Crystal Palace",
+     "scorer": "Jean-Philippe Mateta",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Crystal Palace 1, Manchester United 0. Jean-Philippe Mateta (Crystal Palace) converts the penalty with a right footed shot to the bottom right corner."
+    },
+    {
+     "min": "54'",
+     "team": "Manchester United",
+     "scorer": "Joshua Zirkzee",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Crystal Palace 1, Manchester United 1. Joshua Zirkzee (Manchester United) left footed shot from a difficult angle on the left to the bottom right corner. Assisted by Bruno Fernandes following a set piece situation."
+    },
+    {
+     "min": "63'",
+     "team": "Manchester United",
+     "scorer": "Mason Mount",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Crystal Palace 1, Manchester United 2. Mason Mount (Manchester United) right footed shot from outside the box to the bottom left corner. Assisted by Bruno Fernandes following a set piece situation."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740735",
+   "date": "2025-12-04",
+   "home": "Manchester United",
+   "away": "West Ham United",
+   "hs": 1,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "58'",
+     "team": "Manchester United",
+     "scorer": "Diogo Dalot",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, West Ham United 0. Diogo Dalot (Manchester United) right footed shot from the centre of the box to the centre of the goal."
+    },
+    {
+     "min": "83'",
+     "team": "West Ham United",
+     "scorer": "Soungoutou Magassa",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, West Ham United 1. Soungoutou Magassa (West Ham United) right footed shot from the centre of the box to the bottom left corner following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740737",
+   "date": "2025-12-08",
+   "home": "Wolverhampton Wanderers",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 4,
+   "goals": [
+    {
+     "min": "25'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": "Matheus Cunha",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Wolverhampton Wanderers 0, Manchester United 1. Bruno Fernandes (Manchester United) right footed shot from the centre of the box to the bottom right corner. Assisted by Matheus Cunha."
+    },
+    {
+     "min": "45'+2'",
+     "team": "Wolverhampton Wanderers",
+     "scorer": "Jean-Ricner Bellegarde",
+     "assist": "David M\u00f8ller Wolfe",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Wolverhampton Wanderers 1, Manchester United 1. Jean-Ricner Bellegarde (Wolverhampton Wanderers) right footed shot from the centre of the box to the bottom right corner. Assisted by David M\u00f8ller Wolfe."
+    },
+    {
+     "min": "51'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Diogo Dalot",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Wolverhampton Wanderers 1, Manchester United 2. Bryan Mbeumo (Manchester United) right footed shot from the centre of the box to the bottom right corner. Assisted by Diogo Dalot following a fast break."
+    },
+    {
+     "min": "62'",
+     "team": "Manchester United",
+     "scorer": "Mason Mount",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Wolverhampton Wanderers 1, Manchester United 3. Mason Mount (Manchester United) right footed shot from the centre of the box to the centre of the goal. Assisted by Bruno Fernandes with a through ball."
+    },
+    {
+     "min": "82'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Wolverhampton Wanderers 1, Manchester United 4. Bruno Fernandes (Manchester United) converts the penalty with a right footed shot to the bottom left corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740751",
+   "date": "2025-12-15",
+   "home": "Manchester United",
+   "away": "AFC Bournemouth",
+   "hs": 4,
+   "as_": 4,
+   "goals": [
+    {
+     "min": "13'",
+     "team": "Manchester United",
+     "scorer": "Amad Diallo",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Bournemouth 0. Amad Diallo (Manchester United) header from very close range to the bottom right corner."
+    },
+    {
+     "min": "40'",
+     "team": "AFC Bournemouth",
+     "scorer": "Antoine Semenyo",
+     "assist": "Adam Smith",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Bournemouth 1. Antoine Semenyo (Bournemouth) right footed shot from the right side of the box to the bottom left corner. Assisted by Adam Smith."
+    },
+    {
+     "min": "45'+4'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Bournemouth 1. Casemiro (Manchester United) header from the right side of the six yard box to the bottom right corner. Assisted by Bruno Fernandes with a cross following a corner."
+    },
+    {
+     "min": "46'",
+     "team": "AFC Bournemouth",
+     "scorer": "Evanilson",
+     "assist": "Marcus Tavernier",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Bournemouth 2. Evanilson (Bournemouth) left footed shot from the centre of the box to the bottom right corner. Assisted by Marcus Tavernier following a fast break."
+    },
+    {
+     "min": "52'",
+     "team": "AFC Bournemouth",
+     "scorer": "Marcus Tavernier",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Bournemouth 3. Marcus Tavernier (Bournemouth) from a free kick with a left footed shot to the bottom left corner."
+    },
+    {
+     "min": "77'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Bournemouth 3. Bruno Fernandes (Manchester United) from a free kick with a right footed shot to the top right corner."
+    },
+    {
+     "min": "79'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 4, Bournemouth 3. Matheus Cunha (Manchester United) right footed shot from the centre of the box to the bottom left corner."
+    },
+    {
+     "min": "84'",
+     "team": "AFC Bournemouth",
+     "scorer": "Junior Kroupi",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 4, Bournemouth 4. Junior Kroupi (Bournemouth) left footed shot from the centre of the box to the bottom left corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740765",
+   "date": "2025-12-21",
+   "home": "Aston Villa",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "45'",
+     "team": "Aston Villa",
+     "scorer": "Morgan Rogers",
+     "assist": "John McGinn",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Aston Villa 1, Manchester United 0. Morgan Rogers (Aston Villa) right footed shot from the left side of the box to the top right corner. Assisted by John McGinn."
+    },
+    {
+     "min": "45'+3'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": "Patrick Dorgu",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Aston Villa 1, Manchester United 1. Matheus Cunha (Manchester United) right footed shot from the left side of the box to the bottom right corner. Assisted by Patrick Dorgu."
+    },
+    {
+     "min": "57'",
+     "team": "Aston Villa",
+     "scorer": "Morgan Rogers",
+     "assist": "Ollie Watkins",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Aston Villa 2, Manchester United 1. Morgan Rogers (Aston Villa) right footed shot from the left side of the box to the top right corner. Assisted by Ollie Watkins."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740769",
+   "date": "2025-12-26",
+   "home": "Manchester United",
+   "away": "Newcastle United",
+   "hs": 1,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "24'",
+     "team": "Manchester United",
+     "scorer": "Patrick Dorgu",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Newcastle United 0. Patrick Dorgu (Manchester United) left footed shot from the centre of the box to the bottom left corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740782",
+   "date": "2025-12-30",
+   "home": "Manchester United",
+   "away": "Wolverhampton Wanderers",
+   "hs": 1,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "27'",
+     "team": "Manchester United",
+     "scorer": "Joshua Zirkzee",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Wolverhampton Wanderers 0. Joshua Zirkzee (Manchester United) left footed shot from outside the box to the centre of the goal."
+    },
+    {
+     "min": "45'",
+     "team": "Wolverhampton Wanderers",
+     "scorer": "Ladislav Krejc\u00ed",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Wolverhampton Wanderers 1. Ladislav Krejc\u00ed (Wolverhampton Wanderers) header from the centre of the box to the bottom right corner following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740791",
+   "date": "2026-01-04",
+   "home": "Leeds United",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "62'",
+     "team": "Leeds United",
+     "scorer": "Brenden Aaronson",
+     "assist": "Pascal Struijk",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Leeds United 1, Manchester United 0. Brenden Aaronson (Leeds United) left footed shot from the centre of the box to the bottom right corner. Assisted by Pascal Struijk following a fast break."
+    },
+    {
+     "min": "65'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": "Joshua Zirkzee",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Leeds United 1, Manchester United 1. Matheus Cunha (Manchester United) right footed shot from the right side of the box to the bottom left corner. Assisted by Joshua Zirkzee."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740799",
+   "date": "2026-01-07",
+   "home": "Burnley",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "13'",
+     "team": "Burnley",
+     "scorer": "Ayden Heaven",
+     "assist": null,
+     "pen": false,
+     "og": true,
+     "text": "Own Goal by Ayden Heaven, Manchester United. Burnley 1, Manchester United 0."
+    },
+    {
+     "min": "50'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Burnley 1, Manchester United 1. Benjamin Sesko (Manchester United) right footed shot from the centre of the box to the bottom left corner. Assisted by Bruno Fernandes with a through ball."
+    },
+    {
+     "min": "60'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": "Patrick Dorgu",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Burnley 1, Manchester United 2. Benjamin Sesko (Manchester United) right footed shot from the centre of the box to the centre of the goal. Assisted by Patrick Dorgu with a cross."
+    },
+    {
+     "min": "66'",
+     "team": "Burnley",
+     "scorer": "Jaidon Anthony",
+     "assist": "Marcus Edwards",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Burnley 2, Manchester United 2. Jaidon Anthony (Burnley) left footed shot from the right side of the box to the top left corner. Assisted by Marcus Edwards."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740811",
+   "date": "2026-01-17",
+   "home": "Manchester United",
+   "away": "Manchester City",
+   "hs": 2,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "65'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Manchester City 0. Bryan Mbeumo (Manchester United) left footed shot from the centre of the box to the bottom right corner. Assisted by Bruno Fernandes following a fast break."
+    },
+    {
+     "min": "76'",
+     "team": "Manchester United",
+     "scorer": "Patrick Dorgu",
+     "assist": "Matheus Cunha",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Manchester City 0. Patrick Dorgu (Manchester United) left footed shot from the centre of the box to the top right corner. Assisted by Matheus Cunha with a cross."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740816",
+   "date": "2026-01-25",
+   "home": "Arsenal",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "29'",
+     "team": "Arsenal",
+     "scorer": "Lisandro Mart\u00ednez",
+     "assist": null,
+     "pen": false,
+     "og": true,
+     "text": "Own Goal by Lisandro Mart\u00ednez, Manchester United. Arsenal 1, Manchester United 0."
+    },
+    {
+     "min": "37'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Arsenal 1, Manchester United 1. Bryan Mbeumo (Manchester United) right footed shot from the centre of the box to the centre of the goal."
+    },
+    {
+     "min": "50'",
+     "team": "Manchester United",
+     "scorer": "Patrick Dorgu",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Arsenal 1, Manchester United 2. Patrick Dorgu (Manchester United) left footed shot from outside the box to the bottom left corner. Assisted by Bruno Fernandes."
+    },
+    {
+     "min": "84'",
+     "team": "Arsenal",
+     "scorer": "Mikel Merino",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Arsenal 2, Manchester United 2. Mikel Merino (Arsenal) right footed shot from very close range to the centre of the goal following a corner."
+    },
+    {
+     "min": "87'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": "Kobbie Mainoo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Arsenal 2, Manchester United 3. Matheus Cunha (Manchester United) right footed shot from outside the box to the bottom right corner. Assisted by Kobbie Mainoo."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740833",
+   "date": "2026-02-01",
+   "home": "Manchester United",
+   "away": "Fulham",
+   "hs": 3,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "19'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Fulham 0. Casemiro (Manchester United) header from very close range to the top right corner. Assisted by Bruno Fernandes with a cross following a set piece situation."
+    },
+    {
+     "min": "56'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": "Casemiro",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Fulham 0. Matheus Cunha (Manchester United) right footed shot from the right side of the box to the high centre of the goal. Assisted by Casemiro with a through ball."
+    },
+    {
+     "min": "85'",
+     "team": "Fulham",
+     "scorer": "Ra\u00fal Jim\u00e9nez",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Manchester United 2, Fulham 1. Ra\u00fal Jim\u00e9nez (Fulham) converts the penalty with a right footed shot to the top left corner."
+    },
+    {
+     "min": "90'+1'",
+     "team": "Fulham",
+     "scorer": "Kevin",
+     "assist": "Ryan Sessegnon",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Fulham 2. Kevin (Fulham) right footed shot from outside the box to the top right corner. Assisted by Ryan Sessegnon."
+    },
+    {
+     "min": "90'+4'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Fulham 2. Benjamin Sesko (Manchester United) right footed shot from the centre of the box to the top right corner. Assisted by Bruno Fernandes with a cross."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740843",
+   "date": "2026-02-07",
+   "home": "Manchester United",
+   "away": "Tottenham Hotspur",
+   "hs": 2,
+   "as_": 0,
+   "goals": [
+    {
+     "min": "38'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Kobbie Mainoo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Tottenham Hotspur 0. Bryan Mbeumo (Manchester United) left footed shot from the centre of the box to the bottom right corner. Assisted by Kobbie Mainoo following a corner."
+    },
+    {
+     "min": "81'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": "Diogo Dalot",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Tottenham Hotspur 0. Bruno Fernandes (Manchester United) right footed shot from the centre of the box to the bottom right corner. Assisted by Diogo Dalot with a cross."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740855",
+   "date": "2026-02-10",
+   "home": "West Ham United",
+   "away": "Manchester United",
+   "hs": 1,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "50'",
+     "team": "West Ham United",
+     "scorer": "Tom\u00e1s Soucek",
+     "assist": "Jarrod Bowen",
+     "pen": false,
+     "og": false,
+     "text": "Goal! West Ham United 1, Manchester United 0. Tom\u00e1s Soucek (West Ham United) left footed shot from very close range to the bottom left corner. Assisted by Jarrod Bowen."
+    },
+    {
+     "min": "90'+6'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": "Bryan Mbeumo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! West Ham United 1, Manchester United 1. Benjamin Sesko (Manchester United) right footed shot from the centre of the box to the top right corner. Assisted by Bryan Mbeumo with a cross."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740856",
+   "date": "2026-02-23",
+   "home": "Everton",
+   "away": "Manchester United",
+   "hs": 0,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "71'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": "Bryan Mbeumo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Everton 0, Manchester United 1. Benjamin Sesko (Manchester United) right footed shot from the centre of the box to the bottom right corner. Assisted by Bryan Mbeumo following a fast break."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740875",
+   "date": "2026-03-01",
+   "home": "Manchester United",
+   "away": "Crystal Palace",
+   "hs": 2,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "4'",
+     "team": "Crystal Palace",
+     "scorer": "Maxence Lacroix",
+     "assist": "Brennan Johnson",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Crystal Palace 1. Maxence Lacroix (Crystal Palace) header from the centre of the box to the bottom left corner. Assisted by Brennan Johnson with a cross following a corner."
+    },
+    {
+     "min": "57'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Manchester United 1, Crystal Palace 1. Bruno Fernandes (Manchester United) converts the penalty with a right footed shot to the bottom right corner."
+    },
+    {
+     "min": "65'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Crystal Palace 1. Benjamin Sesko (Manchester United) header from the centre of the box to the bottom right corner. Assisted by Bruno Fernandes with a cross."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740883",
+   "date": "2026-03-04",
+   "home": "Newcastle United",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "45'+6'",
+     "team": "Newcastle United",
+     "scorer": "Anthony Gordon",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Newcastle United 1, Manchester United 0. Anthony Gordon (Newcastle United) converts the penalty with a right footed shot to the centre of the goal."
+    },
+    {
+     "min": "45'+9'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Newcastle United 1, Manchester United 1. Casemiro (Manchester United) header from the centre of the box to the centre of the goal. Assisted by Bruno Fernandes with a cross following a set piece situation."
+    },
+    {
+     "min": "90'",
+     "team": "Newcastle United",
+     "scorer": "William Osula",
+     "assist": "Kieran Trippier",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Newcastle United 2, Manchester United 1. William Osula (Newcastle United) left footed shot from the right side of the box to the bottom left corner. Assisted by Kieran Trippier following a fast break."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740892",
+   "date": "2026-03-15",
+   "home": "Manchester United",
+   "away": "Aston Villa",
+   "hs": 3,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "53'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Aston Villa 0. Casemiro (Manchester United) header from the right side of the six yard box to the bottom left corner. Assisted by Bruno Fernandes with a cross following a corner."
+    },
+    {
+     "min": "64'",
+     "team": "Aston Villa",
+     "scorer": "Ross Barkley",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Aston Villa 1. Ross Barkley (Aston Villa) left footed shot from the centre of the box to the bottom left corner following a corner."
+    },
+    {
+     "min": "71'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Aston Villa 1. Matheus Cunha (Manchester United) right footed shot from the left side of the box to the bottom right corner. Assisted by Bruno Fernandes with a through ball."
+    },
+    {
+     "min": "81'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Aston Villa 1. Benjamin Sesko (Manchester United) right footed shot from the centre of the box to the bottom left corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740897",
+   "date": "2026-03-20",
+   "home": "AFC Bournemouth",
+   "away": "Manchester United",
+   "hs": 2,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "61'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Bournemouth 0, Manchester United 1. Bruno Fernandes (Manchester United) converts the penalty with a right footed shot to the bottom left corner."
+    },
+    {
+     "min": "67'",
+     "team": "AFC Bournemouth",
+     "scorer": "Ryan Christie",
+     "assist": "Adrien Truffert",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Bournemouth 1, Manchester United 1. Ryan Christie (Bournemouth) right footed shot from the centre of the box to the bottom right corner. Assisted by Adrien Truffert."
+    },
+    {
+     "min": "71'",
+     "team": "Manchester United",
+     "scorer": "James Hill",
+     "assist": null,
+     "pen": false,
+     "og": true,
+     "text": "Own Goal by James Hill, Bournemouth. Bournemouth 1, Manchester United 2."
+    },
+    {
+     "min": "81'",
+     "team": "AFC Bournemouth",
+     "scorer": "Junior Kroupi",
+     "assist": null,
+     "pen": true,
+     "og": false,
+     "text": "Goal! Bournemouth 2, Manchester United 2. Junior Kroupi (Bournemouth) converts the penalty with a right footed shot to the bottom left corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740912",
+   "date": "2026-04-13",
+   "home": "Manchester United",
+   "away": "Leeds United",
+   "hs": 1,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "5'",
+     "team": "Leeds United",
+     "scorer": "Noah Okafor",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Leeds United 1. Noah Okafor (Leeds United) right footed shot from the centre of the box to the bottom right corner."
+    },
+    {
+     "min": "29'",
+     "team": "Leeds United",
+     "scorer": "Noah Okafor",
+     "assist": "Brenden Aaronson",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 0, Leeds United 2. Noah Okafor (Leeds United) right footed shot from outside the box to the bottom right corner. Assisted by Brenden Aaronson."
+    },
+    {
+     "min": "69'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Leeds United 2. Casemiro (Manchester United) header from the left side of the six yard box to the centre of the goal. Assisted by Bruno Fernandes with a cross following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740922",
+   "date": "2026-04-18",
+   "home": "Chelsea",
+   "away": "Manchester United",
+   "hs": 0,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "43'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Chelsea 0, Manchester United 1. Matheus Cunha (Manchester United) right footed shot from the centre of the box to the top right corner. Assisted by Bruno Fernandes with a cross."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740932",
+   "date": "2026-04-27",
+   "home": "Manchester United",
+   "away": "Brentford",
+   "hs": 2,
+   "as_": 1,
+   "goals": [
+    {
+     "min": "11'",
+     "team": "Manchester United",
+     "scorer": "Casemiro",
+     "assist": "Harry Maguire",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Brentford 0. Casemiro (Manchester United) header from the right side of the six yard box to the top right corner. Assisted by Harry Maguire with a headed pass following a corner."
+    },
+    {
+     "min": "43'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Brentford 0. Benjamin Sesko (Manchester United) right footed shot from the centre of the box to the high centre of the goal. Assisted by Bruno Fernandes following a fast break."
+    },
+    {
+     "min": "87'",
+     "team": "Brentford",
+     "scorer": "Mathias Jensen",
+     "assist": "Reiss Nelson",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Brentford 1. Mathias Jensen (Brentford) right footed shot from outside the box to the bottom left corner. Assisted by Reiss Nelson following a corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740943",
+   "date": "2026-05-03",
+   "home": "Manchester United",
+   "away": "Liverpool",
+   "hs": 3,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "6'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Liverpool 0. Matheus Cunha (Manchester United) left footed shot from the centre of the box to the bottom right corner following a corner."
+    },
+    {
+     "min": "14'",
+     "team": "Manchester United",
+     "scorer": "Benjamin Sesko",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Liverpool 0. Benjamin Sesko (Manchester United) with an attempt from very close range to the centre of the goal."
+    },
+    {
+     "min": "47'",
+     "team": "Liverpool",
+     "scorer": "Dominik Szoboszlai",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Liverpool 1. Dominik Szoboszlai (Liverpool) left footed shot from the centre of the box to the bottom right corner following a fast break."
+    },
+    {
+     "min": "56'",
+     "team": "Liverpool",
+     "scorer": "Cody Gakpo",
+     "assist": "Dominik Szoboszlai",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Liverpool 2. Cody Gakpo (Liverpool) left footed shot from the centre of the box to the centre of the goal. Assisted by Dominik Szoboszlai."
+    },
+    {
+     "min": "77'",
+     "team": "Manchester United",
+     "scorer": "Kobbie Mainoo",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Liverpool 2. Kobbie Mainoo (Manchester United) right footed shot from outside the box to the bottom left corner."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740953",
+   "date": "2026-05-09",
+   "home": "Sunderland",
+   "away": "Manchester United",
+   "hs": 0,
+   "as_": 0,
+   "goals": [],
+   "pens_missed": []
+  },
+  {
+   "id": "740963",
+   "date": "2026-05-17",
+   "home": "Manchester United",
+   "away": "Nottingham Forest",
+   "hs": 3,
+   "as_": 2,
+   "goals": [
+    {
+     "min": "5'",
+     "team": "Manchester United",
+     "scorer": "Luke Shaw",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Nottingham Forest 0. Luke Shaw (Manchester United) left footed shot from the left side of the box to the bottom right corner."
+    },
+    {
+     "min": "53'",
+     "team": "Nottingham Forest",
+     "scorer": "Morato",
+     "assist": "Elliot Anderson",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 1, Nottingham Forest 1. Morato (Nottingham Forest) header from very close range to the bottom left corner. Assisted by Elliot Anderson with a cross following a corner."
+    },
+    {
+     "min": "55'",
+     "team": "Manchester United",
+     "scorer": "Matheus Cunha",
+     "assist": null,
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 2, Nottingham Forest 1. Matheus Cunha (Manchester United) right footed shot from the centre of the box to the bottom right corner.Goal confirmed following VAR Review."
+    },
+    {
+     "min": "76'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Nottingham Forest 1. Bryan Mbeumo (Manchester United) left footed shot from the centre of the box to the bottom left corner. Assisted by Bruno Fernandes with a cross."
+    },
+    {
+     "min": "78'",
+     "team": "Nottingham Forest",
+     "scorer": "Morgan Gibbs-White",
+     "assist": "Elliot Anderson",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Manchester United 3, Nottingham Forest 2. Morgan Gibbs-White (Nottingham Forest) left footed shot from the centre of the box to the bottom left corner. Assisted by Elliot Anderson."
+    }
+   ],
+   "pens_missed": []
+  },
+  {
+   "id": "740966",
+   "date": "2026-05-24",
+   "home": "Brighton & Hove Albion",
+   "away": "Manchester United",
+   "hs": 0,
+   "as_": 3,
+   "goals": [
+    {
+     "min": "33'",
+     "team": "Manchester United",
+     "scorer": "Patrick Dorgu",
+     "assist": "Bruno Fernandes",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brighton and Hove Albion 0, Manchester United 1. Patrick Dorgu (Manchester United) header from the centre of the box to the high centre of the goal. Assisted by Bruno Fernandes with a cross following a corner."
+    },
+    {
+     "min": "44'",
+     "team": "Manchester United",
+     "scorer": "Bryan Mbeumo",
+     "assist": "Amad Diallo",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brighton and Hove Albion 0, Manchester United 2. Bryan Mbeumo (Manchester United) left footed shot from very close range to the bottom left corner. Assisted by Amad Diallo."
+    },
+    {
+     "min": "48'",
+     "team": "Manchester United",
+     "scorer": "Bruno Fernandes",
+     "assist": "Patrick Dorgu",
+     "pen": false,
+     "og": false,
+     "text": "Goal! Brighton and Hove Albion 0, Manchester United 3. Bruno Fernandes (Manchester United) right footed shot from the right side of the box to the bottom left corner. Assisted by Patrick Dorgu following a fast break.Goal awarded following VAR Review."
+    }
+   ],
+   "pens_missed": []
+  }
+ ]
+}

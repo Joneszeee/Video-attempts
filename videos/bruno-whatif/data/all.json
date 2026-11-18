@@ -1,0 +1,6086 @@
+{
+"2024-25": [
+{
+"date": "Aug 16",
+"home": "Man United",
+"away": "Fulham",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Aug 17",
+"home": "Ipswich",
+"away": "Liverpool",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Aug 17",
+"home": "Arsenal",
+"away": "Wolves",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Aug 17",
+"home": "Everton",
+"away": "Brighton",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Aug 17",
+"home": "Newcastle",
+"away": "Southampton",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Aug 17",
+"home": "Forest",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 17",
+"home": "West Ham",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Aug 18",
+"home": "Brentford",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 18",
+"home": "Chelsea",
+"away": "Man City",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Aug 19",
+"home": "Leicester",
+"away": "Tottenham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 24",
+"home": "Brighton",
+"away": "Man United",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 24",
+"home": "Crystal Palace",
+"away": "West Ham",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Aug 24",
+"home": "Fulham",
+"away": "Leicester",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 24",
+"home": "Man City",
+"away": "Ipswich",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 24",
+"home": "Southampton",
+"away": "Forest",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 24",
+"home": "Tottenham",
+"away": "Everton",
+"hs": 4,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Aug 24",
+"home": "Aston Villa",
+"away": "Arsenal",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Aug 25",
+"home": "Bournemouth",
+"away": "Newcastle",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 25",
+"home": "Wolves",
+"away": "Chelsea",
+"hs": 2,
+"as_": 6,
+"scorers": ""
+},
+{
+"date": "Aug 25",
+"home": "Liverpool",
+"away": "Brentford",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Aug 31",
+"home": "Arsenal",
+"away": "Brighton",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 31",
+"home": "Brentford",
+"away": "Southampton",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 31",
+"home": "Everton",
+"away": "Bournemouth",
+"hs": 2,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Aug 31",
+"home": "Ipswich",
+"away": "Fulham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 31",
+"home": "Leicester",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Aug 31",
+"home": "Forest",
+"away": "Wolves",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Aug 31",
+"home": "West Ham",
+"away": "Man City",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Sep 1",
+"home": "Chelsea",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 1",
+"home": "Newcastle",
+"away": "Tottenham",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 1",
+"home": "Man United",
+"away": "Liverpool",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Sep 14",
+"home": "Southampton",
+"away": "Man United",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Sep 14",
+"home": "Brighton",
+"away": "Ipswich",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Sep 14",
+"home": "Crystal Palace",
+"away": "Leicester",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Sep 14",
+"home": "Fulham",
+"away": "West Ham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 14",
+"home": "Liverpool",
+"away": "Forest",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 14",
+"home": "Man City",
+"away": "Brentford",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 14",
+"home": "Aston Villa",
+"away": "Everton",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Sep 14",
+"home": "Bournemouth",
+"away": "Chelsea",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 15",
+"home": "Tottenham",
+"away": "Arsenal",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 15",
+"home": "Wolves",
+"away": "Newcastle",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Sep 21",
+"home": "West Ham",
+"away": "Chelsea",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Sep 21",
+"home": "Aston Villa",
+"away": "Wolves",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 21",
+"home": "Fulham",
+"away": "Newcastle",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 21",
+"home": "Leicester",
+"away": "Everton",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 21",
+"home": "Liverpool",
+"away": "Bournemouth",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Sep 21",
+"home": "Southampton",
+"away": "Ipswich",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 21",
+"home": "Tottenham",
+"away": "Brentford",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 21",
+"home": "Crystal Palace",
+"away": "Man United",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Sep 22",
+"home": "Brighton",
+"away": "Forest",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Sep 22",
+"home": "Man City",
+"away": "Arsenal",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Sep 28",
+"home": "Newcastle",
+"away": "Man City",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 28",
+"home": "Arsenal",
+"away": "Leicester",
+"hs": 4,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Sep 28",
+"home": "Brentford",
+"away": "West Ham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 28",
+"home": "Chelsea",
+"away": "Brighton",
+"hs": 4,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Sep 28",
+"home": "Everton",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 28",
+"home": "Forest",
+"away": "Fulham",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Sep 28",
+"home": "Wolves",
+"away": "Liverpool",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Sep 29",
+"home": "Ipswich",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Sep 29",
+"home": "Man United",
+"away": "Tottenham",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Sep 30",
+"home": "Bournemouth",
+"away": "Southampton",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 5",
+"home": "Crystal Palace",
+"away": "Liverpool",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 5",
+"home": "Arsenal",
+"away": "Southampton",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 5",
+"home": "Brentford",
+"away": "Wolves",
+"hs": 5,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Oct 5",
+"home": "Leicester",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Oct 5",
+"home": "Man City",
+"away": "Fulham",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Oct 5",
+"home": "West Ham",
+"away": "Ipswich",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 5",
+"home": "Everton",
+"away": "Newcastle",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Oct 6",
+"home": "Aston Villa",
+"away": "Man United",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Oct 6",
+"home": "Chelsea",
+"away": "Forest",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 6",
+"home": "Brighton",
+"away": "Tottenham",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Oct 19",
+"home": "Tottenham",
+"away": "West Ham",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 19",
+"home": "Fulham",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Oct 19",
+"home": "Ipswich",
+"away": "Everton",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Oct 19",
+"home": "Man United",
+"away": "Brentford",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 19",
+"home": "Newcastle",
+"away": "Brighton",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 19",
+"home": "Southampton",
+"away": "Leicester",
+"hs": 2,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Oct 19",
+"home": "Bournemouth",
+"away": "Arsenal",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Oct 20",
+"home": "Wolves",
+"away": "Man City",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Oct 20",
+"home": "Liverpool",
+"away": "Chelsea",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 21",
+"home": "Forest",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Oct 25",
+"home": "Leicester",
+"away": "Forest",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Oct 26",
+"home": "Aston Villa",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 26",
+"home": "Brentford",
+"away": "Ipswich",
+"hs": 4,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Oct 26",
+"home": "Brighton",
+"away": "Wolves",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Oct 26",
+"home": "Man City",
+"away": "Southampton",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Oct 26",
+"home": "Everton",
+"away": "Fulham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 27",
+"home": "Chelsea",
+"away": "Newcastle",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 27",
+"home": "Crystal Palace",
+"away": "Tottenham",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Oct 27",
+"home": "West Ham",
+"away": "Man United",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Oct 27",
+"home": "Arsenal",
+"away": "Liverpool",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Nov 2",
+"home": "Newcastle",
+"away": "Arsenal",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 2",
+"home": "Bournemouth",
+"away": "Man City",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 2",
+"home": "Ipswich",
+"away": "Leicester",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 2",
+"home": "Liverpool",
+"away": "Brighton",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 2",
+"home": "Forest",
+"away": "West Ham",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 2",
+"home": "Southampton",
+"away": "Everton",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 2",
+"home": "Wolves",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Nov 3",
+"home": "Tottenham",
+"away": "Aston Villa",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 3",
+"home": "Man United",
+"away": "Chelsea",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 4",
+"home": "Fulham",
+"away": "Brentford",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 9",
+"home": "Brentford",
+"away": "Bournemouth",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Nov 9",
+"home": "Crystal Palace",
+"away": "Fulham",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Nov 9",
+"home": "West Ham",
+"away": "Everton",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 9",
+"home": "Wolves",
+"away": "Southampton",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 9",
+"home": "Brighton",
+"away": "Man City",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 9",
+"home": "Liverpool",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 10",
+"home": "Man United",
+"away": "Leicester",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 10",
+"home": "Forest",
+"away": "Newcastle",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Nov 10",
+"home": "Tottenham",
+"away": "Ipswich",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Nov 10",
+"home": "Chelsea",
+"away": "Arsenal",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 23",
+"home": "Leicester",
+"away": "Chelsea",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Nov 23",
+"home": "Bournemouth",
+"away": "Brighton",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Nov 23",
+"home": "Arsenal",
+"away": "Forest",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 23",
+"home": "Aston Villa",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Nov 23",
+"home": "Everton",
+"away": "Brentford",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 23",
+"home": "Fulham",
+"away": "Wolves",
+"hs": 1,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Nov 23",
+"home": "Man City",
+"away": "Tottenham",
+"hs": 0,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Nov 24",
+"home": "Southampton",
+"away": "Liverpool",
+"hs": 2,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Nov 24",
+"home": "Ipswich",
+"away": "Man United",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 25",
+"home": "Newcastle",
+"away": "West Ham",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Nov 29",
+"home": "Brighton",
+"away": "Southampton",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 30",
+"home": "Brentford",
+"away": "Leicester",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 30",
+"home": "Crystal Palace",
+"away": "Newcastle",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Nov 30",
+"home": "Forest",
+"away": "Ipswich",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 30",
+"home": "Wolves",
+"away": "Bournemouth",
+"hs": 2,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Nov 30",
+"home": "West Ham",
+"away": "Arsenal",
+"hs": 2,
+"as_": 5,
+"scorers": ""
+},
+{
+"date": "Dec 1",
+"home": "Chelsea",
+"away": "Aston Villa",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 1",
+"home": "Man United",
+"away": "Everton",
+"hs": 4,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 1",
+"home": "Tottenham",
+"away": "Fulham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 1",
+"home": "Liverpool",
+"away": "Man City",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 3",
+"home": "Ipswich",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 3",
+"home": "Leicester",
+"away": "West Ham",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 4",
+"home": "Everton",
+"away": "Wolves",
+"hs": 4,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 4",
+"home": "Man City",
+"away": "Forest",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 4",
+"home": "Newcastle",
+"away": "Liverpool",
+"hs": 3,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Dec 4",
+"home": "Southampton",
+"away": "Chelsea",
+"hs": 1,
+"as_": 5,
+"scorers": ""
+},
+{
+"date": "Dec 4",
+"home": "Arsenal",
+"away": "Man United",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 4",
+"home": "Aston Villa",
+"away": "Brentford",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 5",
+"home": "Fulham",
+"away": "Brighton",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 5",
+"home": "Bournemouth",
+"away": "Tottenham",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 7",
+"home": "Aston Villa",
+"away": "Southampton",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 7",
+"home": "Brentford",
+"away": "Newcastle",
+"hs": 4,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 7",
+"home": "Crystal Palace",
+"away": "Man City",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 7",
+"home": "Man United",
+"away": "Forest",
+"hs": 2,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Dec 8",
+"home": "Fulham",
+"away": "Arsenal",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 8",
+"home": "Ipswich",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 8",
+"home": "Leicester",
+"away": "Brighton",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 8",
+"home": "Tottenham",
+"away": "Chelsea",
+"hs": 3,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Dec 9",
+"home": "West Ham",
+"away": "Wolves",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 14",
+"home": "Arsenal",
+"away": "Everton",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 14",
+"home": "Liverpool",
+"away": "Fulham",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 14",
+"home": "Newcastle",
+"away": "Leicester",
+"hs": 4,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 14",
+"home": "Wolves",
+"away": "Ipswich",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 14",
+"home": "Forest",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 15",
+"home": "Brighton",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Dec 15",
+"home": "Man City",
+"away": "Man United",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 15",
+"home": "Chelsea",
+"away": "Brentford",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 15",
+"home": "Southampton",
+"away": "Tottenham",
+"hs": 0,
+"as_": 5,
+"scorers": ""
+},
+{
+"date": "Dec 16",
+"home": "Bournemouth",
+"away": "West Ham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 21",
+"home": "Aston Villa",
+"away": "Man City",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 21",
+"home": "Brentford",
+"away": "Forest",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 21",
+"home": "Ipswich",
+"away": "Newcastle",
+"hs": 0,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Dec 21",
+"home": "West Ham",
+"away": "Brighton",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 21",
+"home": "Crystal Palace",
+"away": "Arsenal",
+"hs": 1,
+"as_": 5,
+"scorers": ""
+},
+{
+"date": "Dec 22",
+"home": "Everton",
+"away": "Chelsea",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 22",
+"home": "Fulham",
+"away": "Southampton",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 22",
+"home": "Leicester",
+"away": "Wolves",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Dec 22",
+"home": "Man United",
+"away": "Bournemouth",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Dec 22",
+"home": "Tottenham",
+"away": "Liverpool",
+"hs": 3,
+"as_": 6,
+"scorers": ""
+},
+{
+"date": "Dec 26",
+"home": "Man City",
+"away": "Everton",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 26",
+"home": "Bournemouth",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 26",
+"home": "Chelsea",
+"away": "Fulham",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 26",
+"home": "Newcastle",
+"away": "Aston Villa",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 26",
+"home": "Forest",
+"away": "Tottenham",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 26",
+"home": "Southampton",
+"away": "West Ham",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 26",
+"home": "Wolves",
+"away": "Man United",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 26",
+"home": "Liverpool",
+"away": "Leicester",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 27",
+"home": "Brighton",
+"away": "Brentford",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 27",
+"home": "Arsenal",
+"away": "Ipswich",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 29",
+"home": "Leicester",
+"away": "Man City",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 29",
+"home": "Crystal Palace",
+"away": "Southampton",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Dec 29",
+"home": "Everton",
+"away": "Forest",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 29",
+"home": "Fulham",
+"away": "Bournemouth",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 29",
+"home": "Tottenham",
+"away": "Wolves",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 29",
+"home": "West Ham",
+"away": "Liverpool",
+"hs": 0,
+"as_": 5,
+"scorers": ""
+},
+{
+"date": "Dec 30",
+"home": "Aston Villa",
+"away": "Brighton",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Dec 30",
+"home": "Ipswich",
+"away": "Chelsea",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 30",
+"home": "Man United",
+"away": "Newcastle",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 1",
+"home": "Brentford",
+"away": "Arsenal",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Jan 4",
+"home": "Tottenham",
+"away": "Newcastle",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 4",
+"home": "Southampton",
+"away": "Brentford",
+"hs": 0,
+"as_": 5,
+"scorers": ""
+},
+{
+"date": "Jan 4",
+"home": "Crystal Palace",
+"away": "Chelsea",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 4",
+"home": "Bournemouth",
+"away": "Everton",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 4",
+"home": "Aston Villa",
+"away": "Leicester",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 4",
+"home": "Man City",
+"away": "West Ham",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 4",
+"home": "Brighton",
+"away": "Arsenal",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 5",
+"home": "Fulham",
+"away": "Ipswich",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 5",
+"home": "Liverpool",
+"away": "Man United",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 6",
+"home": "Wolves",
+"away": "Forest",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Jan 14",
+"home": "West Ham",
+"away": "Fulham",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 14",
+"home": "Brentford",
+"away": "Man City",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 14",
+"home": "Chelsea",
+"away": "Bournemouth",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 14",
+"home": "Forest",
+"away": "Liverpool",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 15",
+"home": "Everton",
+"away": "Aston Villa",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 15",
+"home": "Leicester",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 15",
+"home": "Newcastle",
+"away": "Wolves",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 15",
+"home": "Arsenal",
+"away": "Tottenham",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 16",
+"home": "Ipswich",
+"away": "Brighton",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 16",
+"home": "Man United",
+"away": "Southampton",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 18",
+"home": "Newcastle",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Jan 18",
+"home": "West Ham",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 18",
+"home": "Leicester",
+"away": "Fulham",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 18",
+"home": "Brentford",
+"away": "Liverpool",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 18",
+"home": "Arsenal",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 19",
+"home": "Man United",
+"away": "Brighton",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Jan 19",
+"home": "Forest",
+"away": "Southampton",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 19",
+"home": "Everton",
+"away": "Tottenham",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 19",
+"home": "Ipswich",
+"away": "Man City",
+"hs": 0,
+"as_": 6,
+"scorers": ""
+},
+{
+"date": "Jan 20",
+"home": "Chelsea",
+"away": "Wolves",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 25",
+"home": "Liverpool",
+"away": "Ipswich",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 25",
+"home": "Wolves",
+"away": "Arsenal",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 25",
+"home": "Brighton",
+"away": "Everton",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 25",
+"home": "Southampton",
+"away": "Newcastle",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Jan 25",
+"home": "Bournemouth",
+"away": "Forest",
+"hs": 5,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 25",
+"home": "Man City",
+"away": "Chelsea",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 26",
+"home": "Crystal Palace",
+"away": "Brentford",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 26",
+"home": "Tottenham",
+"away": "Leicester",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Jan 26",
+"home": "Aston Villa",
+"away": "West Ham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Jan 26",
+"home": "Fulham",
+"away": "Man United",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 1",
+"home": "Forest",
+"away": "Brighton",
+"hs": 7,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 1",
+"home": "Newcastle",
+"away": "Fulham",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 1",
+"home": "Everton",
+"away": "Leicester",
+"hs": 4,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 1",
+"home": "Bournemouth",
+"away": "Liverpool",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 1",
+"home": "Ipswich",
+"away": "Southampton",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 1",
+"home": "Wolves",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 2",
+"home": "Man United",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 2",
+"home": "Brentford",
+"away": "Tottenham",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 2",
+"home": "Arsenal",
+"away": "Man City",
+"hs": 5,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 3",
+"home": "Chelsea",
+"away": "West Ham",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 12",
+"home": "Everton",
+"away": "Liverpool",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 14",
+"home": "Brighton",
+"away": "Chelsea",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 15",
+"home": "Leicester",
+"away": "Arsenal",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 15",
+"home": "Southampton",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Feb 15",
+"home": "West Ham",
+"away": "Brentford",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 15",
+"home": "Aston Villa",
+"away": "Ipswich",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 15",
+"home": "Man City",
+"away": "Newcastle",
+"hs": 4,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 15",
+"home": "Fulham",
+"away": "Forest",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 15",
+"home": "Crystal Palace",
+"away": "Everton",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 16",
+"home": "Liverpool",
+"away": "Wolves",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 16",
+"home": "Tottenham",
+"away": "Man United",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 19",
+"home": "Aston Villa",
+"away": "Liverpool",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 21",
+"home": "Leicester",
+"away": "Brentford",
+"hs": 0,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Feb 22",
+"home": "Everton",
+"away": "Man United",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 22",
+"home": "Ipswich",
+"away": "Tottenham",
+"hs": 1,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Feb 22",
+"home": "Fulham",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 22",
+"home": "Arsenal",
+"away": "West Ham",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 22",
+"home": "Bournemouth",
+"away": "Wolves",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 22",
+"home": "Southampton",
+"away": "Brighton",
+"hs": 0,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Feb 22",
+"home": "Aston Villa",
+"away": "Chelsea",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 23",
+"home": "Newcastle",
+"away": "Forest",
+"hs": 4,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Feb 23",
+"home": "Man City",
+"away": "Liverpool",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 25",
+"home": "Brighton",
+"away": "Bournemouth",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 25",
+"home": "Crystal Palace",
+"away": "Aston Villa",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 25",
+"home": "Wolves",
+"away": "Fulham",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 25",
+"home": "Chelsea",
+"away": "Southampton",
+"hs": 4,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 26",
+"home": "Forest",
+"away": "Arsenal",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 26",
+"home": "Brentford",
+"away": "Everton",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 26",
+"home": "Tottenham",
+"away": "Man City",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Feb 26",
+"home": "Man United",
+"away": "Ipswich",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Feb 26",
+"home": "Liverpool",
+"away": "Newcastle",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 27",
+"home": "West Ham",
+"away": "Leicester",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 8",
+"home": "Forest",
+"away": "Man City",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 8",
+"home": "Brighton",
+"away": "Fulham",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Mar 8",
+"home": "Crystal Palace",
+"away": "Ipswich",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 8",
+"home": "Liverpool",
+"away": "Southampton",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Mar 8",
+"home": "Brentford",
+"away": "Aston Villa",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Mar 8",
+"home": "Wolves",
+"away": "Everton",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Mar 9",
+"home": "Tottenham",
+"away": "Bournemouth",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Mar 9",
+"home": "Chelsea",
+"away": "Leicester",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 9",
+"home": "Man United",
+"away": "Arsenal",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Mar 10",
+"home": "West Ham",
+"away": "Newcastle",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Mar 15",
+"home": "Everton",
+"away": "West Ham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Mar 15",
+"home": "Ipswich",
+"away": "Forest",
+"hs": 2,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Mar 15",
+"home": "Man City",
+"away": "Brighton",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Mar 15",
+"home": "Southampton",
+"away": "Wolves",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Mar 15",
+"home": "Bournemouth",
+"away": "Brentford",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Mar 16",
+"home": "Arsenal",
+"away": "Chelsea",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 16",
+"home": "Fulham",
+"away": "Tottenham",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 16",
+"home": "Leicester",
+"away": "Man United",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Apr 1",
+"home": "Arsenal",
+"away": "Fulham",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 1",
+"home": "Wolves",
+"away": "West Ham",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 1",
+"home": "Forest",
+"away": "Man United",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 2",
+"home": "Bournemouth",
+"away": "Ipswich",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 2",
+"home": "Brighton",
+"away": "Aston Villa",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Apr 2",
+"home": "Man City",
+"away": "Leicester",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 2",
+"home": "Newcastle",
+"away": "Brentford",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 2",
+"home": "Southampton",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 2",
+"home": "Liverpool",
+"away": "Everton",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 3",
+"home": "Chelsea",
+"away": "Tottenham",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 5",
+"home": "Everton",
+"away": "Arsenal",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 5",
+"home": "Crystal Palace",
+"away": "Brighton",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 5",
+"home": "Ipswich",
+"away": "Wolves",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 5",
+"home": "West Ham",
+"away": "Bournemouth",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 5",
+"home": "Aston Villa",
+"away": "Forest",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 6",
+"home": "Brentford",
+"away": "Chelsea",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 6",
+"home": "Fulham",
+"away": "Liverpool",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 6",
+"home": "Tottenham",
+"away": "Southampton",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 6",
+"home": "Man United",
+"away": "Man City",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 7",
+"home": "Leicester",
+"away": "Newcastle",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Apr 12",
+"home": "Man City",
+"away": "Crystal Palace",
+"hs": 5,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 12",
+"home": "Brighton",
+"away": "Leicester",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 12",
+"home": "Forest",
+"away": "Everton",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 12",
+"home": "Southampton",
+"away": "Aston Villa",
+"hs": 0,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "Apr 12",
+"home": "Arsenal",
+"away": "Brentford",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 13",
+"home": "Chelsea",
+"away": "Ipswich",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 13",
+"home": "Liverpool",
+"away": "West Ham",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 13",
+"home": "Wolves",
+"away": "Tottenham",
+"hs": 4,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 13",
+"home": "Newcastle",
+"away": "Man United",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 14",
+"home": "Bournemouth",
+"away": "Fulham",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 16",
+"home": "Newcastle",
+"away": "Crystal Palace",
+"hs": 5,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 19",
+"home": "Brentford",
+"away": "Brighton",
+"hs": 4,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 19",
+"home": "Crystal Palace",
+"away": "Bournemouth",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 19",
+"home": "Everton",
+"away": "Man City",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 19",
+"home": "West Ham",
+"away": "Southampton",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 19",
+"home": "Aston Villa",
+"away": "Newcastle",
+"hs": 4,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 20",
+"home": "Fulham",
+"away": "Chelsea",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 20",
+"home": "Ipswich",
+"away": "Arsenal",
+"hs": 0,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "Apr 20",
+"home": "Man United",
+"away": "Wolves",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 20",
+"home": "Leicester",
+"away": "Liverpool",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 21",
+"home": "Tottenham",
+"away": "Forest",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 22",
+"home": "Man City",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 23",
+"home": "Arsenal",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 26",
+"home": "Chelsea",
+"away": "Everton",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 26",
+"home": "Brighton",
+"away": "West Ham",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 26",
+"home": "Newcastle",
+"away": "Ipswich",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 26",
+"home": "Southampton",
+"away": "Fulham",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "Apr 26",
+"home": "Wolves",
+"away": "Leicester",
+"hs": 3,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 27",
+"home": "Bournemouth",
+"away": "Man United",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "Apr 27",
+"home": "Liverpool",
+"away": "Tottenham",
+"hs": 5,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 1",
+"home": "Forest",
+"away": "Brentford",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 2",
+"home": "Man City",
+"away": "Wolves",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 3",
+"home": "Aston Villa",
+"away": "Fulham",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 3",
+"home": "Everton",
+"away": "Ipswich",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 3",
+"home": "Leicester",
+"away": "Southampton",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 3",
+"home": "Arsenal",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 4",
+"home": "Brentford",
+"away": "Man United",
+"hs": 4,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "May 4",
+"home": "Brighton",
+"away": "Newcastle",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 4",
+"home": "West Ham",
+"away": "Tottenham",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 4",
+"home": "Chelsea",
+"away": "Liverpool",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 5",
+"home": "Crystal Palace",
+"away": "Forest",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 10",
+"home": "Fulham",
+"away": "Everton",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "May 10",
+"home": "Ipswich",
+"away": "Brentford",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 10",
+"home": "Southampton",
+"away": "Man City",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 10",
+"home": "Wolves",
+"away": "Brighton",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 10",
+"home": "Bournemouth",
+"away": "Aston Villa",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 11",
+"home": "Newcastle",
+"away": "Chelsea",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 11",
+"home": "Man United",
+"away": "West Ham",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 11",
+"home": "Forest",
+"away": "Leicester",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 11",
+"home": "Tottenham",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 11",
+"home": "Liverpool",
+"away": "Arsenal",
+"hs": 2,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 16",
+"home": "Aston Villa",
+"away": "Tottenham",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 16",
+"home": "Chelsea",
+"away": "Man United",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 18",
+"home": "Everton",
+"away": "Southampton",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 18",
+"home": "West Ham",
+"away": "Forest",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 18",
+"home": "Brentford",
+"away": "Fulham",
+"hs": 2,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "May 18",
+"home": "Leicester",
+"away": "Ipswich",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 18",
+"home": "Arsenal",
+"away": "Newcastle",
+"hs": 1,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 19",
+"home": "Brighton",
+"away": "Liverpool",
+"hs": 3,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 20",
+"home": "Crystal Palace",
+"away": "Wolves",
+"hs": 4,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 20",
+"home": "Man City",
+"away": "Bournemouth",
+"hs": 3,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Bournemouth",
+"away": "Leicester",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Fulham",
+"away": "Man City",
+"hs": 0,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Ipswich",
+"away": "West Ham",
+"hs": 1,
+"as_": 3,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Liverpool",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Man United",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Newcastle",
+"away": "Everton",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Forest",
+"away": "Chelsea",
+"hs": 0,
+"as_": 1,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Southampton",
+"away": "Arsenal",
+"hs": 1,
+"as_": 2,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Tottenham",
+"away": "Brighton",
+"hs": 1,
+"as_": 4,
+"scorers": ""
+},
+{
+"date": "May 25",
+"home": "Wolves",
+"away": "Brentford",
+"hs": 1,
+"as_": 1,
+"scorers": ""
+}
+],
+"2025-26": [
+{
+"date": "Aug 15",
+"home": "Liverpool",
+"away": "Bournemouth",
+"hs": 4,
+"as_": 2,
+"scorers": "(Hugo EKITIKE 37', Cody GAKPO 49', Federico Chiesa 88', MOHAMED SALAH 90+4'; Antoine SEMENYO 64', 76')"
+},
+{
+"date": "Aug 16",
+"home": "Aston Villa",
+"away": "Newcastle",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Aug 16",
+"home": "Sunderland",
+"away": "West Ham",
+"hs": 3,
+"as_": 0,
+"scorers": "(Eliezer Mayenda 61', Daniel BALLARD 73', Wilson Isidor 90+2')"
+},
+{
+"date": "Aug 16",
+"home": "Brighton",
+"away": "Fulham",
+"hs": 1,
+"as_": 1,
+"scorers": "(Matt ORILEY 55'(p); RODRIGO MUNIZ 90+7')"
+},
+{
+"date": "Aug 16",
+"home": "Tottenham",
+"away": "Burnley",
+"hs": 3,
+"as_": 0,
+"scorers": "(RICHARLISON 10', 60', Brennan JOHNSON 66')"
+},
+{
+"date": "Aug 16",
+"home": "Wolves",
+"away": "Man City",
+"hs": 0,
+"as_": 4,
+"scorers": "(Erling HAALAND 34', 61', Tijjani REIJNDERS 37', Rayan CHERKI 81')"
+},
+{
+"date": "Aug 17",
+"home": "Chelsea",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Aug 17",
+"home": "Forest",
+"away": "Brentford",
+"hs": 3,
+"as_": 1,
+"scorers": "(Chris WOOD 5', 45+2', Dan NDOYE 42'; IGOR THIAGO 78'(p))"
+},
+{
+"date": "Aug 17",
+"home": "Man United",
+"away": "Arsenal",
+"hs": 0,
+"as_": 1,
+"scorers": "(Riccardo Calafiori 13')"
+},
+{
+"date": "Aug 18",
+"home": "Leeds",
+"away": "Everton",
+"hs": 1,
+"as_": 0,
+"scorers": "(Lukas NMECHA 84'(p))"
+},
+{
+"date": "Aug 22",
+"home": "West Ham",
+"away": "Chelsea",
+"hs": 1,
+"as_": 5,
+"scorers": "(LUCAS PAQUETA 6'; JOAO PEDRO 15', PEDRO NETO 23', Enzo FERNANDEZ 34', Moises CAICEDO 54', Trevoh CHALOBAH 58')"
+},
+{
+"date": "Aug 23",
+"home": "Man City",
+"away": "Tottenham",
+"hs": 0,
+"as_": 2,
+"scorers": "(Brennan JOHNSON 35', JOAO PALHINHA 45+2')"
+},
+{
+"date": "Aug 23",
+"home": "Burnley",
+"away": "Sunderland",
+"hs": 2,
+"as_": 0,
+"scorers": "(Joshua CULLEN 47', Jaidon Anthony 88')"
+},
+{
+"date": "Aug 23",
+"home": "Brentford",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 0,
+"scorers": "(Dango OUATTARA 12')"
+},
+{
+"date": "Aug 23",
+"home": "Bournemouth",
+"away": "Wolves",
+"hs": 1,
+"as_": 0,
+"scorers": "(Marcus Tavernier 4')"
+},
+{
+"date": "Aug 23",
+"home": "Arsenal",
+"away": "Leeds",
+"hs": 5,
+"as_": 0,
+"scorers": "(Jurrien TIMBER 34', 56', Bukayo SAKA 45+1', Viktor GYOKERES 48', 90+5'(p))"
+},
+{
+"date": "Aug 24",
+"home": "Crystal Palace",
+"away": "Forest",
+"hs": 1,
+"as_": 1,
+"scorers": "(Ismaila SARR 37'; Callum HUDSON-ODOI 57')"
+},
+{
+"date": "Aug 24",
+"home": "Everton",
+"away": "Brighton",
+"hs": 2,
+"as_": 0,
+"scorers": "(Iliman NDIAYE 23', James Garner 52')"
+},
+{
+"date": "Aug 24",
+"home": "Fulham",
+"away": "Man United",
+"hs": 1,
+"as_": 1,
+"scorers": "(Emile Smith Rowe 73'; RODRIGO MUNIZ 58'(og))"
+},
+{
+"date": "Aug 25",
+"home": "Newcastle",
+"away": "Liverpool",
+"hs": 2,
+"as_": 3,
+"scorers": "(BRUNO GUIMARAES 57', William Osula 88'; Ryan GRAVENBERCH 35', Hugo EKITIKE 46', Rio Ngumoha 90+10')"
+},
+{
+"date": "Aug 30",
+"home": "Chelsea",
+"away": "Fulham",
+"hs": 2,
+"as_": 0,
+"scorers": "(JOAO PEDRO 45+9', Enzo FERNANDEZ 56'(p))"
+},
+{
+"date": "Aug 30",
+"home": "Tottenham",
+"away": "Bournemouth",
+"hs": 0,
+"as_": 1,
+"scorers": "(Francisco Evanilson de Lima Barbosa 5')"
+},
+{
+"date": "Aug 30",
+"home": "Sunderland",
+"away": "Brentford",
+"hs": 2,
+"as_": 1,
+"scorers": "(Enzo LE FEE 82'(p), Wilson Isidor 90+6'; IGOR THIAGO 77')"
+},
+{
+"date": "Aug 30",
+"home": "Man United",
+"away": "Burnley",
+"hs": 3,
+"as_": 2,
+"scorers": "(Joshua CULLEN 27'(og), Bryan MBEUMO 57', BRUNO FERNANDES 90+7'(p); Lyle FOSTER 55', Jaidon Anthony 66')"
+},
+{
+"date": "Aug 30",
+"home": "Wolves",
+"away": "Everton",
+"hs": 2,
+"as_": 3,
+"scorers": "(HWANG Heechan 21', Rodrigo Gomes 79'; BETO 7', Iliman NDIAYE 33', Kiernan Dewsbury-Hall 55')"
+},
+{
+"date": "Aug 30",
+"home": "Leeds",
+"away": "Newcastle",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Aug 31",
+"home": "Brighton",
+"away": "Man City",
+"hs": 2,
+"as_": 1,
+"scorers": "(James MILNER 67'(p), Brajan Gruda 89'; Erling HAALAND 34')"
+},
+{
+"date": "Aug 31",
+"home": "Forest",
+"away": "West Ham",
+"hs": 0,
+"as_": 3,
+"scorers": "(Jarrod BOWEN 84', LUCAS PAQUETA 88'(p), Callum Wilson 90+1')"
+},
+{
+"date": "Aug 31",
+"home": "Liverpool",
+"away": "Arsenal",
+"hs": 1,
+"as_": 0,
+"scorers": "(Dominik Szoboszlai 83')"
+},
+{
+"date": "Aug 31",
+"home": "Aston Villa",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 3,
+"scorers": "(Jean-Philippe MATETA 21'(p), Marc GUEHI 68', Ismaila SARR 78')"
+},
+{
+"date": "Sep 13",
+"home": "Arsenal",
+"away": "Forest",
+"hs": 3,
+"as_": 0,
+"scorers": "(Martin ZUBIMENDI 32', 79', Viktor GYOKERES 46')"
+},
+{
+"date": "Sep 13",
+"home": "Newcastle",
+"away": "Wolves",
+"hs": 1,
+"as_": 0,
+"scorers": "(Nick WOLTEMADE 29')"
+},
+{
+"date": "Sep 13",
+"home": "Bournemouth",
+"away": "Brighton",
+"hs": 2,
+"as_": 1,
+"scorers": "(Alex Scott 18', Antoine SEMENYO 61'(p); Kaoru MITOMA 48')"
+},
+{
+"date": "Sep 13",
+"home": "Crystal Palace",
+"away": "Sunderland",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Sep 13",
+"home": "Fulham",
+"away": "Leeds",
+"hs": 1,
+"as_": 0,
+"scorers": "(Gabriel GUDMUNDSSON 90+4'(og))"
+},
+{
+"date": "Sep 13",
+"home": "Everton",
+"away": "Aston Villa",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Sep 13",
+"home": "West Ham",
+"away": "Tottenham",
+"hs": 0,
+"as_": 3,
+"scorers": "(Pape Matar SARR 47', Lucas BERGVALL 57', Micky VAN DE VEN 64')"
+},
+{
+"date": "Sep 13",
+"home": "Brentford",
+"away": "Chelsea",
+"hs": 2,
+"as_": 2,
+"scorers": "(Kevin SCHADE 35', F\u00e1bio Carvalho 90+3'; Cole PALMER 61', Moises CAICEDO 85')"
+},
+{
+"date": "Sep 14",
+"home": "Burnley",
+"away": "Liverpool",
+"hs": 0,
+"as_": 1,
+"scorers": "(MOHAMED SALAH 90+5'(p))"
+},
+{
+"date": "Sep 14",
+"home": "Man City",
+"away": "Man United",
+"hs": 3,
+"as_": 0,
+"scorers": "(Phil FODEN 18', Erling HAALAND 53', 68')"
+},
+{
+"date": "Sep 20",
+"home": "Liverpool",
+"away": "Everton",
+"hs": 2,
+"as_": 1,
+"scorers": "(Ryan GRAVENBERCH 10', Hugo EKITIKE 29'; Idrissa Gana GUEYE 58')"
+},
+{
+"date": "Sep 20",
+"home": "Burnley",
+"away": "Forest",
+"hs": 1,
+"as_": 1,
+"scorers": "(Jaidon Anthony 20'; Neco WILLIAMS 2')"
+},
+{
+"date": "Sep 20",
+"home": "Brighton",
+"away": "Tottenham",
+"hs": 2,
+"as_": 2,
+"scorers": "(Yankuba MINTEH 8', Yasin AYARI 31'; RICHARLISON 43', Jan Paul VAN HECKE 82'(og))"
+},
+{
+"date": "Sep 20",
+"home": "Wolves",
+"away": "Leeds",
+"hs": 1,
+"as_": 3,
+"scorers": "(Ladislav KREJCI 8'; Dominic Calvert-Lewin 31', Anton STACH 39', Noah OKAFOR 45')"
+},
+{
+"date": "Sep 20",
+"home": "West Ham",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 2,
+"scorers": "(Jarrod BOWEN 49'; Jean-Philippe MATETA 37', Tyrick Mitchell 68')"
+},
+{
+"date": "Sep 20",
+"home": "Man United",
+"away": "Chelsea",
+"hs": 2,
+"as_": 1,
+"scorers": "(BRUNO FERNANDES 14', CASEMIRO 37'; Trevoh CHALOBAH 80')"
+},
+{
+"date": "Sep 20",
+"home": "Fulham",
+"away": "Brentford",
+"hs": 3,
+"as_": 1,
+"scorers": "(Alex IWOBI 38', Harry WILSON 40', Ethan PINNOCK 50'(og); Mikkel DAMSGAARD 20')"
+},
+{
+"date": "Sep 21",
+"home": "Sunderland",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 1,
+"scorers": "(Wilson Isidor 75'; Matty CASH 67')"
+},
+{
+"date": "Sep 21",
+"home": "Bournemouth",
+"away": "Newcastle",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Sep 21",
+"home": "Arsenal",
+"away": "Man City",
+"hs": 1,
+"as_": 1,
+"scorers": "(GABRIEL MARTINELLI 90+3'; Erling HAALAND 9')"
+},
+{
+"date": "Sep 27",
+"home": "Brentford",
+"away": "Man United",
+"hs": 3,
+"as_": 1,
+"scorers": "(IGOR THIAGO 8', 20', Mathias JENSEN 90+5'; Benjamin SESKO 26')"
+},
+{
+"date": "Sep 27",
+"home": "Crystal Palace",
+"away": "Liverpool",
+"hs": 2,
+"as_": 1,
+"scorers": "(Ismaila SARR 9', Eddie Nketiah 90+7'; Federico Chiesa 87')"
+},
+{
+"date": "Sep 27",
+"home": "Chelsea",
+"away": "Brighton",
+"hs": 1,
+"as_": 3,
+"scorers": "(Enzo FERNANDEZ 24'; Danny WELBECK 77', 90+10', Maxim DE CUYPER 90+2')"
+},
+{
+"date": "Sep 27",
+"home": "Man City",
+"away": "Burnley",
+"hs": 5,
+"as_": 1,
+"scorers": "(Maxime ESTEVE 12'(og), 65'(og), MATHEUS NUNES 61', Erling HAALAND 90', 90+3'; Jaidon Anthony 38')"
+},
+{
+"date": "Sep 27",
+"home": "Leeds",
+"away": "Bournemouth",
+"hs": 2,
+"as_": 2,
+"scorers": "(Joe RODON 37', Sean Longstaff 54'; Antoine SEMENYO 26', Eli Junior KROUPI 90+3')"
+},
+{
+"date": "Sep 27",
+"home": "Forest",
+"away": "Sunderland",
+"hs": 0,
+"as_": 1,
+"scorers": "(Omar ALDERETE 38')"
+},
+{
+"date": "Sep 27",
+"home": "Tottenham",
+"away": "Wolves",
+"hs": 1,
+"as_": 1,
+"scorers": "(JOAO PALHINHA 90+4'; Santiago BUENO 54')"
+},
+{
+"date": "Sep 28",
+"home": "Aston Villa",
+"away": "Fulham",
+"hs": 3,
+"as_": 1,
+"scorers": "(Ollie WATKINS 37', John McGinn 49', Emiliano BUENDIA 51'; Raul JIMENEZ 3')"
+},
+{
+"date": "Sep 28",
+"home": "Newcastle",
+"away": "Arsenal",
+"hs": 1,
+"as_": 2,
+"scorers": "(Nick WOLTEMADE 34'; Mikel MERINO 84', GABRIEL MAGALHAES 90+6')"
+},
+{
+"date": "Sep 29",
+"home": "Everton",
+"away": "West Ham",
+"hs": 1,
+"as_": 1,
+"scorers": "(Michael Keane 18'; Jarrod BOWEN 65')"
+},
+{
+"date": "Oct 3",
+"home": "Bournemouth",
+"away": "Fulham",
+"hs": 3,
+"as_": 1,
+"scorers": "(Antoine SEMENYO 78', 90+6', Justin KLUIVERT 84'; Kouassi Ryan Sessegnon 70')"
+},
+{
+"date": "Oct 4",
+"home": "Leeds",
+"away": "Tottenham",
+"hs": 1,
+"as_": 2,
+"scorers": "(Noah OKAFOR 34'; Mathys TEL 23', Mohammed KUDUS 57')"
+},
+{
+"date": "Oct 4",
+"home": "Man United",
+"away": "Sunderland",
+"hs": 2,
+"as_": 0,
+"scorers": "(Mason MOUNT 8', Benjamin SESKO 31')"
+},
+{
+"date": "Oct 4",
+"home": "Arsenal",
+"away": "West Ham",
+"hs": 2,
+"as_": 0,
+"scorers": "(Declan RICE 38', Bukayo SAKA 67'(p))"
+},
+{
+"date": "Oct 4",
+"home": "Chelsea",
+"away": "Liverpool",
+"hs": 2,
+"as_": 1,
+"scorers": "(Moises CAICEDO 14', ESTEVAO 90+5'; Cody GAKPO 63')"
+},
+{
+"date": "Oct 5",
+"home": "Newcastle",
+"away": "Forest",
+"hs": 2,
+"as_": 0,
+"scorers": "(BRUNO GUIMARAES 58', Nick WOLTEMADE 84'(p))"
+},
+{
+"date": "Oct 5",
+"home": "Aston Villa",
+"away": "Burnley",
+"hs": 2,
+"as_": 1,
+"scorers": "(Donyell Malen 25', 63'; Lesley UGOCHUKWU 78')"
+},
+{
+"date": "Oct 5",
+"home": "Wolves",
+"away": "Brighton",
+"hs": 1,
+"as_": 1,
+"scorers": "(Bart Verbruggen 21'(og); Jan Paul VAN HECKE 86')"
+},
+{
+"date": "Oct 5",
+"home": "Everton",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 1,
+"scorers": "(Iliman NDIAYE 76'(p), Jack GREALISH 90+3'; Daniel MUNOZ 37')"
+},
+{
+"date": "Oct 5",
+"home": "Brentford",
+"away": "Man City",
+"hs": 0,
+"as_": 1,
+"scorers": "(Erling HAALAND 9')"
+},
+{
+"date": "Oct 18",
+"home": "Forest",
+"away": "Chelsea",
+"hs": 0,
+"as_": 3,
+"scorers": "(Josh Acheampong 49', PEDRO NETO 52', Reece JAMES 84')"
+},
+{
+"date": "Oct 18",
+"home": "Sunderland",
+"away": "Wolves",
+"hs": 2,
+"as_": 0,
+"scorers": "(Nordi MUKIELE 16', Ladislav KREJCI 90+2'(og))"
+},
+{
+"date": "Oct 18",
+"home": "Brighton",
+"away": "Newcastle",
+"hs": 2,
+"as_": 1,
+"scorers": "(Danny WELBECK 41', 84'; Nick WOLTEMADE 76')"
+},
+{
+"date": "Oct 18",
+"home": "Man City",
+"away": "Everton",
+"hs": 2,
+"as_": 0,
+"scorers": "(Erling HAALAND 58', 63')"
+},
+{
+"date": "Oct 18",
+"home": "Crystal Palace",
+"away": "Bournemouth",
+"hs": 3,
+"as_": 3,
+"scorers": "(Jean-Philippe MATETA 64', 69', 90+7'(p); Eli Junior KROUPI 7', 38', Ryan Christie 89')"
+},
+{
+"date": "Oct 18",
+"home": "Burnley",
+"away": "Leeds",
+"hs": 2,
+"as_": 0,
+"scorers": "(Lesley UGOCHUKWU 18', Loum TCHAOUNA 68')"
+},
+{
+"date": "Oct 18",
+"home": "Fulham",
+"away": "Arsenal",
+"hs": 0,
+"as_": 1,
+"scorers": "(Leandro TROSSARD 58')"
+},
+{
+"date": "Oct 19",
+"home": "Tottenham",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 2,
+"scorers": "(Rodrigo BENTANCUR 5'; Morgan ROGERS 37', Emiliano BUENDIA 77')"
+},
+{
+"date": "Oct 19",
+"home": "Liverpool",
+"away": "Man United",
+"hs": 1,
+"as_": 2,
+"scorers": "(Cody GAKPO 78'; Bryan MBEUMO 2', Harry MAGUIRE 84')"
+},
+{
+"date": "Oct 20",
+"home": "West Ham",
+"away": "Brentford",
+"hs": 0,
+"as_": 2,
+"scorers": "(IGOR THIAGO 43', Mathias JENSEN 90+4')"
+},
+{
+"date": "Oct 24",
+"home": "Leeds",
+"away": "West Ham",
+"hs": 2,
+"as_": 1,
+"scorers": "(Brenden AARONSON 3', Joe RODON 15'; Mateus Fernandes 90')"
+},
+{
+"date": "Oct 25",
+"home": "Chelsea",
+"away": "Sunderland",
+"hs": 1,
+"as_": 2,
+"scorers": "(Alejandro GARNACHO 4'; Wilson Isidor 22', Chemsdine TALBI 90+3')"
+},
+{
+"date": "Oct 25",
+"home": "Newcastle",
+"away": "Fulham",
+"hs": 2,
+"as_": 1,
+"scorers": "(Jacob Murphy 18', BRUNO GUIMARAES 90'; Sasa LUKIC 56')"
+},
+{
+"date": "Oct 25",
+"home": "Man United",
+"away": "Brighton",
+"hs": 4,
+"as_": 2,
+"scorers": "(MATHEUS CUNHA 24', CASEMIRO 34', Bryan MBEUMO 61', 90+6'; Danny WELBECK 74', Charalampos Kostoulas 90+2')"
+},
+{
+"date": "Oct 25",
+"home": "Brentford",
+"away": "Liverpool",
+"hs": 3,
+"as_": 2,
+"scorers": "(Dango OUATTARA 5', Kevin SCHADE 45', IGOR THIAGO 60'(p); Milos KERKEZ 45+5', MOHAMED SALAH 89')"
+},
+{
+"date": "Oct 26",
+"home": "Aston Villa",
+"away": "Man City",
+"hs": 1,
+"as_": 0,
+"scorers": "(Matty CASH 19')"
+},
+{
+"date": "Oct 26",
+"home": "Arsenal",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 0,
+"scorers": "(Eberechi EZE 39')"
+},
+{
+"date": "Oct 26",
+"home": "Wolves",
+"away": "Burnley",
+"hs": 2,
+"as_": 3,
+"scorers": "(Jorgen STRAND LARSEN 42'(p), Marshall MUNETSI 45+4'; Zian Flemming 14', 30', Lyle FOSTER 90+5')"
+},
+{
+"date": "Oct 26",
+"home": "Bournemouth",
+"away": "Forest",
+"hs": 2,
+"as_": 0,
+"scorers": "(Marcus Tavernier 25', Eli Junior KROUPI 40')"
+},
+{
+"date": "Oct 26",
+"home": "Everton",
+"away": "Tottenham",
+"hs": 0,
+"as_": 3,
+"scorers": "(Micky VAN DE VEN 19', 45+6', Pape Matar SARR 89')"
+},
+{
+"date": "Nov 1",
+"home": "Fulham",
+"away": "Wolves",
+"hs": 3,
+"as_": 0,
+"scorers": "(Kouassi Ryan Sessegnon 9', Harry WILSON 62', Yerson MOSQUERA 75'(og))"
+},
+{
+"date": "Nov 1",
+"home": "Crystal Palace",
+"away": "Brentford",
+"hs": 2,
+"as_": 0,
+"scorers": "(Jean-Philippe MATETA 30', Nathan COLLINS 51'(og))"
+},
+{
+"date": "Nov 1",
+"home": "Forest",
+"away": "Man United",
+"hs": 2,
+"as_": 2,
+"scorers": "(Morgan GIBBS WHITE 48', Nicolo SAVONA 50'; CASEMIRO 34', Amad DIALLO 81')"
+},
+{
+"date": "Nov 1",
+"home": "Burnley",
+"away": "Arsenal",
+"hs": 0,
+"as_": 2,
+"scorers": "(Viktor GYOKERES 14', Declan RICE 35')"
+},
+{
+"date": "Nov 1",
+"home": "Brighton",
+"away": "Leeds",
+"hs": 3,
+"as_": 0,
+"scorers": "(Danny WELBECK 11', Diego GOMEZ 64', 70')"
+},
+{
+"date": "Nov 1",
+"home": "Tottenham",
+"away": "Chelsea",
+"hs": 0,
+"as_": 1,
+"scorers": "(JOAO PEDRO 34')"
+},
+{
+"date": "Nov 1",
+"home": "Liverpool",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 0,
+"scorers": "(MOHAMED SALAH 45+1', Ryan GRAVENBERCH 58')"
+},
+{
+"date": "Nov 2",
+"home": "West Ham",
+"away": "Newcastle",
+"hs": 3,
+"as_": 1,
+"scorers": "(LUCAS PAQUETA 35', Sven Botman 45+5'(og), Tomas SOUCEK 90+7'; Jacob Murphy 4')"
+},
+{
+"date": "Nov 2",
+"home": "Man City",
+"away": "Bournemouth",
+"hs": 3,
+"as_": 1,
+"scorers": "(Erling HAALAND 17', 33', Nico OREILLY 60'; Tyler ADAMS 25')"
+},
+{
+"date": "Nov 3",
+"home": "Sunderland",
+"away": "Everton",
+"hs": 1,
+"as_": 1,
+"scorers": "(Granit XHAKA 46'; Iliman NDIAYE 15')"
+},
+{
+"date": "Nov 8",
+"home": "Tottenham",
+"away": "Man United",
+"hs": 2,
+"as_": 2,
+"scorers": "(Mathys TEL 84', RICHARLISON 90+1'; Bryan MBEUMO 32', Matthijs DE LIGT 90+6')"
+},
+{
+"date": "Nov 8",
+"home": "Everton",
+"away": "Fulham",
+"hs": 2,
+"as_": 0,
+"scorers": "(Idrissa Gana GUEYE 45+4', Michael Keane 81')"
+},
+{
+"date": "Nov 8",
+"home": "West Ham",
+"away": "Burnley",
+"hs": 3,
+"as_": 2,
+"scorers": "(Callum Wilson 44', Tomas SOUCEK 77', Kyle Walker-Peters 87'; Zian Flemming 35', Joshua CULLEN 90+7')"
+},
+{
+"date": "Nov 8",
+"home": "Sunderland",
+"away": "Arsenal",
+"hs": 2,
+"as_": 2,
+"scorers": "(Daniel BALLARD 36', Brian BROBBEY 90+4'; Bukayo SAKA 54', Leandro TROSSARD 74')"
+},
+{
+"date": "Nov 8",
+"home": "Chelsea",
+"away": "Wolves",
+"hs": 3,
+"as_": 0,
+"scorers": "(Malo GUSTO 51', JOAO PEDRO 65', PEDRO NETO 73')"
+},
+{
+"date": "Nov 9",
+"home": "Forest",
+"away": "Leeds",
+"hs": 3,
+"as_": 1,
+"scorers": "(Ibrahim SANGARE 15', Morgan GIBBS WHITE 68', Elliot ANDERSON 90+1'(p); Lukas NMECHA 13')"
+},
+{
+"date": "Nov 9",
+"home": "Aston Villa",
+"away": "Bournemouth",
+"hs": 4,
+"as_": 0,
+"scorers": "(Emiliano BUENDIA 28', Amadou ONANA 40', Ross Barkley 77', Donyell Malen 82')"
+},
+{
+"date": "Nov 9",
+"home": "Brentford",
+"away": "Newcastle",
+"hs": 3,
+"as_": 1,
+"scorers": "(Kevin SCHADE 56', IGOR THIAGO 78'(p), 90+5'; Harvey Barnes 27')"
+},
+{
+"date": "Nov 9",
+"home": "Crystal Palace",
+"away": "Brighton",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Nov 9",
+"home": "Man City",
+"away": "Liverpool",
+"hs": 3,
+"as_": 0,
+"scorers": "(Erling HAALAND 29', Nico GONZALEZ 45+3', Jeremy DOKU 63')"
+},
+{
+"date": "Nov 22",
+"home": "Burnley",
+"away": "Chelsea",
+"hs": 0,
+"as_": 2,
+"scorers": "(PEDRO NETO 37', Enzo FERNANDEZ 88')"
+},
+{
+"date": "Nov 22",
+"home": "Liverpool",
+"away": "Forest",
+"hs": 0,
+"as_": 3,
+"scorers": "(MURILLO 33', Nicolo SAVONA 46', Morgan GIBBS WHITE 78')"
+},
+{
+"date": "Nov 22",
+"home": "Wolves",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 2,
+"scorers": "(Daniel MUNOZ 63', Yeremy PINO 69')"
+},
+{
+"date": "Nov 22",
+"home": "Fulham",
+"away": "Sunderland",
+"hs": 1,
+"as_": 0,
+"scorers": "(Raul JIMENEZ 84')"
+},
+{
+"date": "Nov 22",
+"home": "Bournemouth",
+"away": "West Ham",
+"hs": 2,
+"as_": 2,
+"scorers": "(Marcus Tavernier 69'(p), Enes UNAL 81'; Callum Wilson 11', 35')"
+},
+{
+"date": "Nov 22",
+"home": "Brighton",
+"away": "Brentford",
+"hs": 2,
+"as_": 1,
+"scorers": "(Danny WELBECK 71', Jack Hinshelwood 84'; IGOR THIAGO 29'(p))"
+},
+{
+"date": "Nov 22",
+"home": "Newcastle",
+"away": "Man City",
+"hs": 2,
+"as_": 1,
+"scorers": "(Harvey Barnes 63', 70'; RUBEN DIAS 68')"
+},
+{
+"date": "Nov 23",
+"home": "Leeds",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 2,
+"scorers": "(Lukas NMECHA 8'; Morgan ROGERS 48', 75')"
+},
+{
+"date": "Nov 23",
+"home": "Arsenal",
+"away": "Tottenham",
+"hs": 4,
+"as_": 1,
+"scorers": "(Leandro TROSSARD 36', Eberechi EZE 41', 46', 76'; RICHARLISON 55')"
+},
+{
+"date": "Nov 24",
+"home": "Man United",
+"away": "Everton",
+"hs": 0,
+"as_": 1,
+"scorers": "(Kiernan Dewsbury-Hall 29')"
+},
+{
+"date": "Nov 29",
+"home": "Sunderland",
+"away": "Bournemouth",
+"hs": 3,
+"as_": 2,
+"scorers": "(Enzo LE FEE 30'(p), Bertrand TRAORE 46', Brian BROBBEY 69'; Amine Adli 7', Tyler ADAMS 15')"
+},
+{
+"date": "Nov 29",
+"home": "Man City",
+"away": "Leeds",
+"hs": 3,
+"as_": 2,
+"scorers": "(Phil FODEN 1', 90+1', Josko GVARDIOL 25'; Dominic Calvert-Lewin 49', Lukas NMECHA 68')"
+},
+{
+"date": "Nov 29",
+"home": "Brentford",
+"away": "Burnley",
+"hs": 3,
+"as_": 1,
+"scorers": "(IGOR THIAGO 81'(p), 86', Dango OUATTARA 90+2'; Zian Flemming 85'(p))"
+},
+{
+"date": "Nov 29",
+"home": "Everton",
+"away": "Newcastle",
+"hs": 1,
+"as_": 4,
+"scorers": "(Kiernan Dewsbury-Hall 69'; Malick THIAW 1', 58', Lewis Miley 25', Nick WOLTEMADE 45')"
+},
+{
+"date": "Nov 29",
+"home": "Tottenham",
+"away": "Fulham",
+"hs": 1,
+"as_": 2,
+"scorers": "(Mohammed KUDUS 59'; Kenny TETE 4', Harry WILSON 6')"
+},
+{
+"date": "Nov 30",
+"home": "Crystal Palace",
+"away": "Man United",
+"hs": 1,
+"as_": 2,
+"scorers": "(Jean-Philippe MATETA 36'(p); Joshua ZIRKZEE 54', Mason MOUNT 63')"
+},
+{
+"date": "Nov 30",
+"home": "West Ham",
+"away": "Liverpool",
+"hs": 0,
+"as_": 2,
+"scorers": "(Alexander Isak 60', Cody GAKPO 90+2')"
+},
+{
+"date": "Nov 30",
+"home": "Aston Villa",
+"away": "Wolves",
+"hs": 1,
+"as_": 0,
+"scorers": "(Boubacar KAMARA 67')"
+},
+{
+"date": "Nov 30",
+"home": "Forest",
+"away": "Brighton",
+"hs": 0,
+"as_": 2,
+"scorers": "(Maxim DE CUYPER 45+1', Stefanos Tzimas 88')"
+},
+{
+"date": "Nov 30",
+"home": "Chelsea",
+"away": "Arsenal",
+"hs": 1,
+"as_": 1,
+"scorers": "(Trevoh CHALOBAH 48'; Mikel MERINO 59')"
+},
+{
+"date": "Dec 2",
+"home": "Bournemouth",
+"away": "Everton",
+"hs": 0,
+"as_": 1,
+"scorers": "(Jack GREALISH 78')"
+},
+{
+"date": "Dec 2",
+"home": "Fulham",
+"away": "Man City",
+"hs": 4,
+"as_": 5,
+"scorers": "(Emile Smith Rowe 45+2', Alex IWOBI 57', Samuel CHUKWUEZE 72', 78'; Erling HAALAND 17', Tijjani REIJNDERS 37', Phil FODEN 44', 48', Sander BERGE 54'(og))"
+},
+{
+"date": "Dec 2",
+"home": "Newcastle",
+"away": "Tottenham",
+"hs": 2,
+"as_": 2,
+"scorers": "(BRUNO GUIMARAES 71', Anthony GORDON 86'(p); Cristian ROMERO 78', 90+5')"
+},
+{
+"date": "Dec 3",
+"home": "Wolves",
+"away": "Forest",
+"hs": 0,
+"as_": 1,
+"scorers": "(IGOR JESUS 72')"
+},
+{
+"date": "Dec 3",
+"home": "Arsenal",
+"away": "Brentford",
+"hs": 2,
+"as_": 0,
+"scorers": "(Mikel MERINO 11', Bukayo SAKA 90+1')"
+},
+{
+"date": "Dec 3",
+"home": "Brighton",
+"away": "Aston Villa",
+"hs": 3,
+"as_": 4,
+"scorers": "(Jan Paul VAN HECKE 9', 83', Pau TORRES 29'(og); Ollie WATKINS 37', 45+7', Amadou ONANA 60', Donyell Malen 78')"
+},
+{
+"date": "Dec 3",
+"home": "Burnley",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 1,
+"scorers": "(Daniel MUNOZ 44')"
+},
+{
+"date": "Dec 3",
+"home": "Leeds",
+"away": "Chelsea",
+"hs": 3,
+"as_": 1,
+"scorers": "(Jaka Bijol 6', Ao TANAKA 43', Dominic Calvert-Lewin 72'; PEDRO NETO 50')"
+},
+{
+"date": "Dec 3",
+"home": "Liverpool",
+"away": "Sunderland",
+"hs": 1,
+"as_": 1,
+"scorers": "(Nordi MUKIELE 81'(og); Chemsdine TALBI 67')"
+},
+{
+"date": "Dec 4",
+"home": "Man United",
+"away": "West Ham",
+"hs": 1,
+"as_": 1,
+"scorers": "(DIOGO DALOT 58'; Soungoutou MAGASSA 83')"
+},
+{
+"date": "Dec 6",
+"home": "Aston Villa",
+"away": "Arsenal",
+"hs": 2,
+"as_": 1,
+"scorers": "(Matty CASH 36', Emiliano BUENDIA 90+5'; Leandro TROSSARD 52')"
+},
+{
+"date": "Dec 6",
+"home": "Bournemouth",
+"away": "Chelsea",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 6",
+"home": "Man City",
+"away": "Sunderland",
+"hs": 3,
+"as_": 0,
+"scorers": "(RUBEN DIAS 31', Josko GVARDIOL 35', Phil FODEN 65')"
+},
+{
+"date": "Dec 6",
+"home": "Everton",
+"away": "Forest",
+"hs": 3,
+"as_": 0,
+"scorers": "(Nikola MILENKOVIC 2'(og), Thierno Barry 45+3', Kiernan Dewsbury-Hall 80')"
+},
+{
+"date": "Dec 6",
+"home": "Tottenham",
+"away": "Brentford",
+"hs": 2,
+"as_": 0,
+"scorers": "(RICHARLISON 25', Xavi SIMONS 43')"
+},
+{
+"date": "Dec 6",
+"home": "Newcastle",
+"away": "Burnley",
+"hs": 2,
+"as_": 1,
+"scorers": "(BRUNO GUIMARAES 31', Anthony GORDON 45+8'(p); Zian Flemming 90+4'(p))"
+},
+{
+"date": "Dec 6",
+"home": "Leeds",
+"away": "Liverpool",
+"hs": 3,
+"as_": 3,
+"scorers": "(Dominic Calvert-Lewin 73'(p), Anton STACH 75', Ao TANAKA 90+6'; Hugo EKITIKE 48', 50', Dominik Szoboszlai 80')"
+},
+{
+"date": "Dec 7",
+"home": "Brighton",
+"away": "West Ham",
+"hs": 1,
+"as_": 1,
+"scorers": "(Georginio Rutter 90+1'; Jarrod BOWEN 73')"
+},
+{
+"date": "Dec 7",
+"home": "Fulham",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 2,
+"scorers": "(Harry WILSON 38'; Eddie Nketiah 20', Marc GUEHI 87')"
+},
+{
+"date": "Dec 8",
+"home": "Wolves",
+"away": "Man United",
+"hs": 1,
+"as_": 4,
+"scorers": "(Jean-Ricner Bellegarde 45+2'; BRUNO FERNANDES 25', 82'(p), Bryan MBEUMO 51', Mason MOUNT 62')"
+},
+{
+"date": "Dec 13",
+"home": "Chelsea",
+"away": "Everton",
+"hs": 2,
+"as_": 0,
+"scorers": "(Cole PALMER 21', Malo GUSTO 45')"
+},
+{
+"date": "Dec 13",
+"home": "Liverpool",
+"away": "Brighton",
+"hs": 2,
+"as_": 0,
+"scorers": "(Hugo EKITIKE 1', 60')"
+},
+{
+"date": "Dec 13",
+"home": "Burnley",
+"away": "Fulham",
+"hs": 2,
+"as_": 3,
+"scorers": "(Lesley UGOCHUKWU 21', Oliver SONNE 86'; Emile Smith Rowe 9', Calvin BASSEY 31', Harry WILSON 58')"
+},
+{
+"date": "Dec 13",
+"home": "Arsenal",
+"away": "Wolves",
+"hs": 2,
+"as_": 1,
+"scorers": "(Sam Johnstone 70'(og), Yerson MOSQUERA 90+4'(og); Tolu AROKODARE 90')"
+},
+{
+"date": "Dec 14",
+"home": "Forest",
+"away": "Tottenham",
+"hs": 3,
+"as_": 0,
+"scorers": "(Callum HUDSON-ODOI 28', 50', Ibrahim SANGARE 79')"
+},
+{
+"date": "Dec 14",
+"home": "Sunderland",
+"away": "Newcastle",
+"hs": 1,
+"as_": 0,
+"scorers": "(Nick WOLTEMADE 46'(og))"
+},
+{
+"date": "Dec 14",
+"home": "Crystal Palace",
+"away": "Man City",
+"hs": 0,
+"as_": 3,
+"scorers": "(Erling HAALAND 41', 89'(p), Phil FODEN 69')"
+},
+{
+"date": "Dec 14",
+"home": "West Ham",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 3,
+"scorers": "(Mateus Fernandes 1', Jarrod BOWEN 24'; Konstantinos Mavropanos 9'(og), Morgan ROGERS 50', 79')"
+},
+{
+"date": "Dec 14",
+"home": "Brentford",
+"away": "Leeds",
+"hs": 1,
+"as_": 1,
+"scorers": "(Jordan HENDERSON 70'; Dominic Calvert-Lewin 82')"
+},
+{
+"date": "Dec 15",
+"home": "Man United",
+"away": "Bournemouth",
+"hs": 4,
+"as_": 4,
+"scorers": "(Amad DIALLO 13', CASEMIRO 45+4', BRUNO FERNANDES 77', MATHEUS CUNHA 79'; Antoine SEMENYO 40', Francisco Evanilson de Lima Barbosa 46', Marcus Tavernier 52', Eli Junior KROUPI 84')"
+},
+{
+"date": "Dec 20",
+"home": "Newcastle",
+"away": "Chelsea",
+"hs": 2,
+"as_": 2,
+"scorers": "(Nick WOLTEMADE 4', 20'; Reece JAMES 49', JOAO PEDRO 66')"
+},
+{
+"date": "Dec 20",
+"home": "Bournemouth",
+"away": "Burnley",
+"hs": 1,
+"as_": 1,
+"scorers": "(Antoine SEMENYO 67'; Armando Broja 90')"
+},
+{
+"date": "Dec 20",
+"home": "Wolves",
+"away": "Brentford",
+"hs": 0,
+"as_": 2,
+"scorers": "(Keane Lewis-Potter 63', 83')"
+},
+{
+"date": "Dec 20",
+"home": "Brighton",
+"away": "Sunderland",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 20",
+"home": "Man City",
+"away": "West Ham",
+"hs": 3,
+"as_": 0,
+"scorers": "(Erling HAALAND 5', 69', Tijjani REIJNDERS 38')"
+},
+{
+"date": "Dec 20",
+"home": "Tottenham",
+"away": "Liverpool",
+"hs": 1,
+"as_": 2,
+"scorers": "(RICHARLISON 83'; Alexander Isak 56', Hugo EKITIKE 66')"
+},
+{
+"date": "Dec 20",
+"home": "Leeds",
+"away": "Crystal Palace",
+"hs": 4,
+"as_": 1,
+"scorers": "(Dominic Calvert-Lewin 38', 45+4', Ethan AMPADU 60', Anton STACH 90+11'; Justin DEVENNY 90+2'(p))"
+},
+{
+"date": "Dec 20",
+"home": "Everton",
+"away": "Arsenal",
+"hs": 0,
+"as_": 1,
+"scorers": "(Viktor GYOKERES 27'(p))"
+},
+{
+"date": "Dec 21",
+"home": "Aston Villa",
+"away": "Man United",
+"hs": 2,
+"as_": 1,
+"scorers": "(Morgan ROGERS 45', 57'; MATHEUS CUNHA 45+3')"
+},
+{
+"date": "Dec 22",
+"home": "Fulham",
+"away": "Forest",
+"hs": 1,
+"as_": 0,
+"scorers": "(Raul JIMENEZ 45+5'(p))"
+},
+{
+"date": "Dec 26",
+"home": "Man United",
+"away": "Newcastle",
+"hs": 1,
+"as_": 0,
+"scorers": "(Patrick DORGU 24')"
+},
+{
+"date": "Dec 27",
+"home": "Forest",
+"away": "Man City",
+"hs": 1,
+"as_": 2,
+"scorers": "(Omari HUTCHINSON 54'; Tijjani REIJNDERS 48', Rayan CHERKI 83')"
+},
+{
+"date": "Dec 27",
+"home": "West Ham",
+"away": "Fulham",
+"hs": 0,
+"as_": 1,
+"scorers": "(Raul JIMENEZ 85')"
+},
+{
+"date": "Dec 27",
+"home": "Brentford",
+"away": "Bournemouth",
+"hs": 4,
+"as_": 1,
+"scorers": "(Kevin SCHADE 7', 51', 90+6', Djordje PETROVIC 39'(og); Antoine SEMENYO 75')"
+},
+{
+"date": "Dec 27",
+"home": "Arsenal",
+"away": "Brighton",
+"hs": 2,
+"as_": 1,
+"scorers": "(Martin ODEGAARD 14', Georginio Rutter 52'(og); Diego GOMEZ 64')"
+},
+{
+"date": "Dec 27",
+"home": "Liverpool",
+"away": "Wolves",
+"hs": 2,
+"as_": 1,
+"scorers": "(Ryan GRAVENBERCH 41', Florian WIRTZ 42'; Santiago BUENO 51')"
+},
+{
+"date": "Dec 27",
+"home": "Burnley",
+"away": "Everton",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Dec 27",
+"home": "Chelsea",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 2,
+"scorers": "(JOAO PEDRO 37'; Ollie WATKINS 63', 84')"
+},
+{
+"date": "Dec 28",
+"home": "Sunderland",
+"away": "Leeds",
+"hs": 1,
+"as_": 1,
+"scorers": "(Simon ADINGRA 28'; Dominic Calvert-Lewin 47')"
+},
+{
+"date": "Dec 28",
+"home": "Crystal Palace",
+"away": "Tottenham",
+"hs": 0,
+"as_": 1,
+"scorers": "(Archie Gray 42')"
+},
+{
+"date": "Dec 30",
+"home": "Burnley",
+"away": "Newcastle",
+"hs": 1,
+"as_": 3,
+"scorers": "(Josh Laurent 23'; JOELINTON 2', Yoane WISSA 7', BRUNO GUIMARAES 90+3')"
+},
+{
+"date": "Dec 30",
+"home": "West Ham",
+"away": "Brighton",
+"hs": 2,
+"as_": 2,
+"scorers": "(Jarrod BOWEN 10', LUCAS PAQUETA 45+4'(p); Danny WELBECK 32'(p), Joel VELTMAN 61')"
+},
+{
+"date": "Dec 30",
+"home": "Forest",
+"away": "Everton",
+"hs": 0,
+"as_": 2,
+"scorers": "(James Garner 19', Thierno Barry 79')"
+},
+{
+"date": "Dec 30",
+"home": "Chelsea",
+"away": "Bournemouth",
+"hs": 2,
+"as_": 2,
+"scorers": "(Cole PALMER 15'(p), Enzo FERNANDEZ 23'; David BROOKS 6', Justin KLUIVERT 27')"
+},
+{
+"date": "Dec 30",
+"home": "Man United",
+"away": "Wolves",
+"hs": 1,
+"as_": 1,
+"scorers": "(Joshua ZIRKZEE 27'; Ladislav KREJCI 45')"
+},
+{
+"date": "Dec 30",
+"home": "Arsenal",
+"away": "Aston Villa",
+"hs": 4,
+"as_": 1,
+"scorers": "(GABRIEL MAGALHAES 48', Martin ZUBIMENDI 52', Leandro TROSSARD 69', GABRIEL JESUS 78'; Ollie WATKINS 90+4')"
+},
+{
+"date": "Jan 1",
+"home": "Liverpool",
+"away": "Leeds",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 1",
+"home": "Crystal Palace",
+"away": "Fulham",
+"hs": 1,
+"as_": 1,
+"scorers": "(Jean-Philippe MATETA 39'; Thomas CAIRNEY 80')"
+},
+{
+"date": "Jan 1",
+"home": "Sunderland",
+"away": "Man City",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 1",
+"home": "Brentford",
+"away": "Tottenham",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 3",
+"home": "Aston Villa",
+"away": "Forest",
+"hs": 3,
+"as_": 1,
+"scorers": "(Ollie WATKINS 45+1', John McGinn 49', 73'; Morgan GIBBS WHITE 61')"
+},
+{
+"date": "Jan 3",
+"home": "Wolves",
+"away": "West Ham",
+"hs": 3,
+"as_": 0,
+"scorers": "(Jhon ARIAS 4', HWANG Heechan 31'(p), Mateus Man\u00e9 41')"
+},
+{
+"date": "Jan 3",
+"home": "Brighton",
+"away": "Burnley",
+"hs": 2,
+"as_": 0,
+"scorers": "(Georginio Rutter 29', Yasin AYARI 47')"
+},
+{
+"date": "Jan 3",
+"home": "Bournemouth",
+"away": "Arsenal",
+"hs": 2,
+"as_": 3,
+"scorers": "(Francisco Evanilson de Lima Barbosa 10', Eli Junior KROUPI 76'; GABRIEL MAGALHAES 16', Declan RICE 54', 71')"
+},
+{
+"date": "Jan 4",
+"home": "Leeds",
+"away": "Man United",
+"hs": 1,
+"as_": 1,
+"scorers": "(Brenden AARONSON 62'; MATHEUS CUNHA 65')"
+},
+{
+"date": "Jan 4",
+"home": "Tottenham",
+"away": "Sunderland",
+"hs": 1,
+"as_": 1,
+"scorers": "(Ben DAVIES 30'; Brian BROBBEY 80')"
+},
+{
+"date": "Jan 4",
+"home": "Newcastle",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 0,
+"scorers": "(BRUNO GUIMARAES 71', Malick THIAW 78')"
+},
+{
+"date": "Jan 4",
+"home": "Everton",
+"away": "Brentford",
+"hs": 2,
+"as_": 4,
+"scorers": "(BETO 66', Thierno Barry 90+1'; IGOR THIAGO 11', 51', 88', Nathan COLLINS 50')"
+},
+{
+"date": "Jan 4",
+"home": "Fulham",
+"away": "Liverpool",
+"hs": 2,
+"as_": 2,
+"scorers": "(Harry WILSON 17', Harrison Reed 90+7'; Florian WIRTZ 57', Cody GAKPO 90+4')"
+},
+{
+"date": "Jan 4",
+"home": "Man City",
+"away": "Chelsea",
+"hs": 1,
+"as_": 1,
+"scorers": "(Tijjani REIJNDERS 42'; Enzo FERNANDEZ 90+4')"
+},
+{
+"date": "Jan 6",
+"home": "West Ham",
+"away": "Forest",
+"hs": 1,
+"as_": 2,
+"scorers": "(MURILLO 13'(og); Nicolas DOMINGUEZ 55', Morgan GIBBS WHITE 89'(p))"
+},
+{
+"date": "Jan 7",
+"home": "Fulham",
+"away": "Chelsea",
+"hs": 2,
+"as_": 1,
+"scorers": "(Raul JIMENEZ 55', Harry WILSON 81'; Liam Delap 72')"
+},
+{
+"date": "Jan 7",
+"home": "Brentford",
+"away": "Sunderland",
+"hs": 3,
+"as_": 0,
+"scorers": "(IGOR THIAGO 30', 65', Yehor YARMOLIUK 73')"
+},
+{
+"date": "Jan 7",
+"home": "Bournemouth",
+"away": "Tottenham",
+"hs": 3,
+"as_": 2,
+"scorers": "(Francisco Evanilson de Lima Barbosa 22', Eli Junior KROUPI 36', Antoine SEMENYO 90+5'; Mathys TEL 5', JOAO PALHINHA 78')"
+},
+{
+"date": "Jan 7",
+"home": "Man City",
+"away": "Brighton",
+"hs": 1,
+"as_": 1,
+"scorers": "(Erling HAALAND 41'(p); Kaoru MITOMA 60')"
+},
+{
+"date": "Jan 7",
+"home": "Everton",
+"away": "Wolves",
+"hs": 1,
+"as_": 1,
+"scorers": "(Michael Keane 17'; Mateus Man\u00e9 69')"
+},
+{
+"date": "Jan 7",
+"home": "Crystal Palace",
+"away": "Aston Villa",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 7",
+"home": "Burnley",
+"away": "Man United",
+"hs": 2,
+"as_": 2,
+"scorers": "(Ayden Heaven 13'(og), Jaidon Anthony 66'; Benjamin SESKO 50', 60')"
+},
+{
+"date": "Jan 7",
+"home": "Newcastle",
+"away": "Leeds",
+"hs": 4,
+"as_": 3,
+"scorers": "(Harvey Barnes 36', 90+12', JOELINTON 54', BRUNO GUIMARAES 90+1'(p); Brenden AARONSON 32', 79', Dominic Calvert-Lewin 45+5'(p))"
+},
+{
+"date": "Jan 8",
+"home": "Arsenal",
+"away": "Liverpool",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 17",
+"home": "Man United",
+"away": "Man City",
+"hs": 2,
+"as_": 0,
+"scorers": "(Bryan MBEUMO 65', Patrick DORGU 76')"
+},
+{
+"date": "Jan 17",
+"home": "Tottenham",
+"away": "West Ham",
+"hs": 1,
+"as_": 2,
+"scorers": "(Cristian ROMERO 64'; Crysencio SUMMERVILLE 15', Callum Wilson 90+3')"
+},
+{
+"date": "Jan 17",
+"home": "Leeds",
+"away": "Fulham",
+"hs": 1,
+"as_": 0,
+"scorers": "(Lukas NMECHA 90+1')"
+},
+{
+"date": "Jan 17",
+"home": "Chelsea",
+"away": "Brentford",
+"hs": 2,
+"as_": 0,
+"scorers": "(JOAO PEDRO 26', Cole PALMER 76'(p))"
+},
+{
+"date": "Jan 17",
+"home": "Sunderland",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 1,
+"scorers": "(Enzo LE FEE 33', Brian BROBBEY 71'; Yeremy PINO 30')"
+},
+{
+"date": "Jan 17",
+"home": "Liverpool",
+"away": "Burnley",
+"hs": 1,
+"as_": 1,
+"scorers": "(Florian WIRTZ 42'; Marcus Edwards 65')"
+},
+{
+"date": "Jan 17",
+"home": "Forest",
+"away": "Arsenal",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 18",
+"home": "Wolves",
+"away": "Newcastle",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Jan 18",
+"home": "Aston Villa",
+"away": "Everton",
+"hs": 0,
+"as_": 1,
+"scorers": "(Thierno Barry 59')"
+},
+{
+"date": "Jan 19",
+"home": "Brighton",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 1,
+"scorers": "(Charalampos Kostoulas 90+1'; Marcus Tavernier 32'(p))"
+},
+{
+"date": "Jan 24",
+"home": "West Ham",
+"away": "Sunderland",
+"hs": 3,
+"as_": 1,
+"scorers": "(Crysencio SUMMERVILLE 14', Jarrod BOWEN 28'(p), Mateus Fernandes 43'; Brian BROBBEY 66')"
+},
+{
+"date": "Jan 24",
+"home": "Man City",
+"away": "Wolves",
+"hs": 2,
+"as_": 0,
+"scorers": "(OMAR MARMOUSH 6', Antoine SEMENYO 45+2')"
+},
+{
+"date": "Jan 24",
+"home": "Fulham",
+"away": "Brighton",
+"hs": 2,
+"as_": 1,
+"scorers": "(Samuel CHUKWUEZE 72', Harry WILSON 90+2'; Yasin AYARI 28')"
+},
+{
+"date": "Jan 24",
+"home": "Burnley",
+"away": "Tottenham",
+"hs": 2,
+"as_": 2,
+"scorers": "(Axel Tuanzebe 45', Lyle FOSTER 76'; Micky VAN DE VEN 38', Cristian ROMERO 90')"
+},
+{
+"date": "Jan 24",
+"home": "Bournemouth",
+"away": "Liverpool",
+"hs": 3,
+"as_": 2,
+"scorers": "(Francisco Evanilson de Lima Barbosa 26', \u00c1lex Jim\u00e9nez 33', Amine Adli 90+5'; Virgil VAN DIJK 45', Dominik Szoboszlai 80')"
+},
+{
+"date": "Jan 25",
+"home": "Brentford",
+"away": "Forest",
+"hs": 0,
+"as_": 2,
+"scorers": "(IGOR JESUS 12', Taiwo Awoniyi 79')"
+},
+{
+"date": "Jan 25",
+"home": "Newcastle",
+"away": "Aston Villa",
+"hs": 0,
+"as_": 2,
+"scorers": "(Emiliano BUENDIA 19', Ollie WATKINS 88')"
+},
+{
+"date": "Jan 25",
+"home": "Crystal Palace",
+"away": "Chelsea",
+"hs": 1,
+"as_": 3,
+"scorers": "(Chris RICHARDS 88'; ESTEVAO 34', JOAO PEDRO 50', Enzo FERNANDEZ 64'(p))"
+},
+{
+"date": "Jan 25",
+"home": "Arsenal",
+"away": "Man United",
+"hs": 2,
+"as_": 3,
+"scorers": "(Lisandro MARTINEZ 29'(og), Mikel MERINO 84'; Bryan MBEUMO 37', Patrick DORGU 50', MATHEUS CUNHA 87')"
+},
+{
+"date": "Jan 26",
+"home": "Everton",
+"away": "Leeds",
+"hs": 1,
+"as_": 1,
+"scorers": "(Thierno Barry 76'; James Justin 28')"
+},
+{
+"date": "Jan 31",
+"home": "Leeds",
+"away": "Arsenal",
+"hs": 0,
+"as_": 4,
+"scorers": "(Martin ZUBIMENDI 27', Noni MADUEKE 38', Viktor GYOKERES 69', GABRIEL JESUS 86')"
+},
+{
+"date": "Jan 31",
+"home": "Brighton",
+"away": "Everton",
+"hs": 1,
+"as_": 1,
+"scorers": "(Pascal GROSS 73'; BETO 90+7')"
+},
+{
+"date": "Jan 31",
+"home": "Wolves",
+"away": "Bournemouth",
+"hs": 0,
+"as_": 2,
+"scorers": "(Eli Junior KROUPI 33', Alex Scott 90+1')"
+},
+{
+"date": "Jan 31",
+"home": "Chelsea",
+"away": "West Ham",
+"hs": 3,
+"as_": 2,
+"scorers": "(JOAO PEDRO 57', Marc CUCURELLA 70', Enzo FERNANDEZ 90+2'; Jarrod BOWEN 7', Crysencio SUMMERVILLE 36')"
+},
+{
+"date": "Jan 31",
+"home": "Liverpool",
+"away": "Newcastle",
+"hs": 4,
+"as_": 1,
+"scorers": "(Hugo EKITIKE 41', 43', Florian WIRTZ 67', Ibrahima KONATE 90+3'; Anthony GORDON 36')"
+},
+{
+"date": "Feb 1",
+"home": "Forest",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 1,
+"scorers": "(Morgan GIBBS WHITE 5'; Ismaila SARR 45+2'(p))"
+},
+{
+"date": "Feb 1",
+"home": "Man United",
+"away": "Fulham",
+"hs": 3,
+"as_": 2,
+"scorers": "(CASEMIRO 19', MATHEUS CUNHA 56', Benjamin SESKO 90+4'; Raul JIMENEZ 85'(p), Kevin 90+1')"
+},
+{
+"date": "Feb 1",
+"home": "Aston Villa",
+"away": "Brentford",
+"hs": 0,
+"as_": 1,
+"scorers": "(Dango OUATTARA 45+1')"
+},
+{
+"date": "Feb 1",
+"home": "Tottenham",
+"away": "Man City",
+"hs": 2,
+"as_": 2,
+"scorers": "(Dominic Solanke 53', 70'; Rayan CHERKI 11', Antoine SEMENYO 44')"
+},
+{
+"date": "Feb 2",
+"home": "Sunderland",
+"away": "Burnley",
+"hs": 3,
+"as_": 0,
+"scorers": "(Axel Tuanzebe 9'(og), Habib DIARRA 32', Chemsdine TALBI 72')"
+},
+{
+"date": "Feb 6",
+"home": "Leeds",
+"away": "Forest",
+"hs": 3,
+"as_": 1,
+"scorers": "(Jayden Bogle 26', Noah OKAFOR 30', Dominic Calvert-Lewin 49'; Lorenzo LUCCA 86')"
+},
+{
+"date": "Feb 7",
+"home": "Man United",
+"away": "Tottenham",
+"hs": 2,
+"as_": 0,
+"scorers": "(Bryan MBEUMO 38', BRUNO FERNANDES 81')"
+},
+{
+"date": "Feb 7",
+"home": "Burnley",
+"away": "West Ham",
+"hs": 0,
+"as_": 2,
+"scorers": "(Crysencio SUMMERVILLE 13', Valentin CASTELLANOS 26')"
+},
+{
+"date": "Feb 7",
+"home": "Fulham",
+"away": "Everton",
+"hs": 1,
+"as_": 2,
+"scorers": "(Vitaliy MYKOLENKO 18'(og); Kiernan Dewsbury-Hall 75', Bernd Leno 83'(og))"
+},
+{
+"date": "Feb 7",
+"home": "Wolves",
+"away": "Chelsea",
+"hs": 1,
+"as_": 3,
+"scorers": "(Tolu AROKODARE 54'; Cole PALMER 13'(p), 35'(p), 38')"
+},
+{
+"date": "Feb 7",
+"home": "Bournemouth",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 1,
+"scorers": "(RAYAN 55'; Morgan ROGERS 22')"
+},
+{
+"date": "Feb 7",
+"home": "Arsenal",
+"away": "Sunderland",
+"hs": 3,
+"as_": 0,
+"scorers": "(Martin ZUBIMENDI 42', Viktor GYOKERES 66', 90+3')"
+},
+{
+"date": "Feb 7",
+"home": "Newcastle",
+"away": "Brentford",
+"hs": 2,
+"as_": 3,
+"scorers": "(Sven Botman 24', BRUNO GUIMARAES 79'(p); Vitaly Janelt 37', IGOR THIAGO 45+2'(p), Dango OUATTARA 85')"
+},
+{
+"date": "Feb 8",
+"home": "Brighton",
+"away": "Crystal Palace",
+"hs": 0,
+"as_": 1,
+"scorers": "(Ismaila SARR 61')"
+},
+{
+"date": "Feb 8",
+"home": "Liverpool",
+"away": "Man City",
+"hs": 1,
+"as_": 2,
+"scorers": "(Dominik Szoboszlai 74'; BERNARDO SILVA 84', Erling HAALAND 90+3'(p))"
+},
+{
+"date": "Feb 10",
+"home": "Chelsea",
+"away": "Leeds",
+"hs": 2,
+"as_": 2,
+"scorers": "(JOAO PEDRO 24', Cole PALMER 58'(p); Lukas NMECHA 67'(p), Noah OKAFOR 73')"
+},
+{
+"date": "Feb 10",
+"home": "Tottenham",
+"away": "Newcastle",
+"hs": 1,
+"as_": 2,
+"scorers": "(Archie Gray 64'; Malick THIAW 45+5', Jacob Ramsey 68')"
+},
+{
+"date": "Feb 10",
+"home": "Everton",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 2,
+"scorers": "(Iliman NDIAYE 42'(p); RAYAN 61', Amine Adli 64')"
+},
+{
+"date": "Feb 10",
+"home": "West Ham",
+"away": "Man United",
+"hs": 1,
+"as_": 1,
+"scorers": "(Tomas SOUCEK 50'; Benjamin SESKO 90+6')"
+},
+{
+"date": "Feb 11",
+"home": "Aston Villa",
+"away": "Brighton",
+"hs": 1,
+"as_": 0,
+"scorers": "(Jack Hinshelwood 86'(og))"
+},
+{
+"date": "Feb 11",
+"home": "Man City",
+"away": "Fulham",
+"hs": 3,
+"as_": 0,
+"scorers": "(Antoine SEMENYO 24', Nico OREILLY 30', Erling HAALAND 39')"
+},
+{
+"date": "Feb 11",
+"home": "Forest",
+"away": "Wolves",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 11",
+"home": "Crystal Palace",
+"away": "Burnley",
+"hs": 2,
+"as_": 3,
+"scorers": "(Jorgen STRAND LARSEN 17', 33'; Hannibal MEJBRI 40', Jaidon Anthony 44', Jefferson LERMA 45+2'(og))"
+},
+{
+"date": "Feb 11",
+"home": "Sunderland",
+"away": "Liverpool",
+"hs": 0,
+"as_": 1,
+"scorers": "(Virgil VAN DIJK 61')"
+},
+{
+"date": "Feb 12",
+"home": "Brentford",
+"away": "Arsenal",
+"hs": 1,
+"as_": 1,
+"scorers": "(Keane Lewis-Potter 71'; Noni MADUEKE 61')"
+},
+{
+"date": "Feb 18",
+"home": "Wolves",
+"away": "Arsenal",
+"hs": 2,
+"as_": 2,
+"scorers": "(Hugo BUENO 61', Tom Edozie 90+4'; Bukayo SAKA 5', Piero HINCAPIE 56')"
+},
+{
+"date": "Feb 21",
+"home": "Aston Villa",
+"away": "Leeds",
+"hs": 1,
+"as_": 1,
+"scorers": "(Tammy ABRAHAM 88'; Anton STACH 31')"
+},
+{
+"date": "Feb 21",
+"home": "Chelsea",
+"away": "Burnley",
+"hs": 1,
+"as_": 1,
+"scorers": "(JOAO PEDRO 4'; Zian Flemming 90+3')"
+},
+{
+"date": "Feb 21",
+"home": "Brentford",
+"away": "Brighton",
+"hs": 0,
+"as_": 2,
+"scorers": "(Diego GOMEZ 30', Danny WELBECK 45+1')"
+},
+{
+"date": "Feb 21",
+"home": "West Ham",
+"away": "Bournemouth",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Feb 21",
+"home": "Man City",
+"away": "Newcastle",
+"hs": 2,
+"as_": 1,
+"scorers": "(Nico OREILLY 14', 27'; Lewis Hall 22')"
+},
+{
+"date": "Feb 22",
+"home": "Forest",
+"away": "Liverpool",
+"hs": 0,
+"as_": 1,
+"scorers": "(Alexis MAC ALLISTER 90+7')"
+},
+{
+"date": "Feb 22",
+"home": "Sunderland",
+"away": "Fulham",
+"hs": 1,
+"as_": 3,
+"scorers": "(Enzo LE FEE 76'(p); Raul JIMENEZ 54', 61'(p), Alex IWOBI 85')"
+},
+{
+"date": "Feb 22",
+"home": "Crystal Palace",
+"away": "Wolves",
+"hs": 1,
+"as_": 0,
+"scorers": "(Evann GUESSAND 90')"
+},
+{
+"date": "Feb 22",
+"home": "Tottenham",
+"away": "Arsenal",
+"hs": 1,
+"as_": 4,
+"scorers": "(Randal KOLO MUANI 34'; Eberechi EZE 32', 61', Viktor GYOKERES 47', 90+4')"
+},
+{
+"date": "Feb 23",
+"home": "Everton",
+"away": "Man United",
+"hs": 0,
+"as_": 1,
+"scorers": "(Benjamin SESKO 71')"
+},
+{
+"date": "Feb 27",
+"home": "Wolves",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 0,
+"scorers": "(JOAO GOMES 61', Rodrigo Gomes 90+8')"
+},
+{
+"date": "Feb 28",
+"home": "Bournemouth",
+"away": "Sunderland",
+"hs": 1,
+"as_": 1,
+"scorers": "(Francisco Evanilson de Lima Barbosa 63'; Eliezer Mayenda 18')"
+},
+{
+"date": "Feb 28",
+"home": "Burnley",
+"away": "Brentford",
+"hs": 3,
+"as_": 4,
+"scorers": "(Michael Kayode 45+3'(og), Jaidon Anthony 47', Zian Flemming 60'; Mikkel DAMSGAARD 9', 90+3', IGOR THIAGO 25', Kevin SCHADE 34')"
+},
+{
+"date": "Feb 28",
+"home": "Liverpool",
+"away": "West Ham",
+"hs": 5,
+"as_": 2,
+"scorers": "(Hugo EKITIKE 5', Virgil VAN DIJK 24', Alexis MAC ALLISTER 43', Cody GAKPO 70', Axel DISASI 82'(og); Tomas SOUCEK 49', Valentin CASTELLANOS 75')"
+},
+{
+"date": "Feb 28",
+"home": "Newcastle",
+"away": "Everton",
+"hs": 2,
+"as_": 3,
+"scorers": "(Jacob Ramsey 32', Jacob Murphy 82'; Jarrad BRANTHWAITE 19', BETO 34', Thierno Barry 83')"
+},
+{
+"date": "Feb 28",
+"home": "Leeds",
+"away": "Man City",
+"hs": 0,
+"as_": 1,
+"scorers": "(Antoine SEMENYO 45+2')"
+},
+{
+"date": "Mar 1",
+"home": "Man United",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 1,
+"scorers": "(BRUNO FERNANDES 57'(p), Benjamin SESKO 65'; Maxence Lacroix 4')"
+},
+{
+"date": "Mar 1",
+"home": "Brighton",
+"away": "Forest",
+"hs": 2,
+"as_": 1,
+"scorers": "(Diego GOMEZ 6', Danny WELBECK 15'; Morgan GIBBS WHITE 13')"
+},
+{
+"date": "Mar 1",
+"home": "Fulham",
+"away": "Tottenham",
+"hs": 2,
+"as_": 1,
+"scorers": "(Harry WILSON 7', Alex IWOBI 34'; RICHARLISON 66')"
+},
+{
+"date": "Mar 1",
+"home": "Arsenal",
+"away": "Chelsea",
+"hs": 2,
+"as_": 1,
+"scorers": "(William SALIBA 21', Jurrien TIMBER 66'; Piero HINCAPIE 45+2'(og))"
+},
+{
+"date": "Mar 3",
+"home": "Everton",
+"away": "Burnley",
+"hs": 2,
+"as_": 0,
+"scorers": "(James Tarkowski 32', Kiernan Dewsbury-Hall 60')"
+},
+{
+"date": "Mar 3",
+"home": "Bournemouth",
+"away": "Brentford",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 3",
+"home": "Leeds",
+"away": "Sunderland",
+"hs": 0,
+"as_": 1,
+"scorers": "(Habib DIARRA 70'(p))"
+},
+{
+"date": "Mar 3",
+"home": "Wolves",
+"away": "Liverpool",
+"hs": 2,
+"as_": 1,
+"scorers": "(Rodrigo Gomes 78', ANDRE 90+4'; MOHAMED SALAH 83')"
+},
+{
+"date": "Mar 4",
+"home": "Man City",
+"away": "Forest",
+"hs": 2,
+"as_": 2,
+"scorers": "(Antoine SEMENYO 31', RODRI 62'; Morgan GIBBS WHITE 56', Elliot ANDERSON 76')"
+},
+{
+"date": "Mar 4",
+"home": "Fulham",
+"away": "West Ham",
+"hs": 0,
+"as_": 1,
+"scorers": "(Crysencio SUMMERVILLE 65')"
+},
+{
+"date": "Mar 4",
+"home": "Brighton",
+"away": "Arsenal",
+"hs": 0,
+"as_": 1,
+"scorers": "(Bukayo SAKA 9')"
+},
+{
+"date": "Mar 4",
+"home": "Aston Villa",
+"away": "Chelsea",
+"hs": 1,
+"as_": 4,
+"scorers": "(DOUGLAS LUIZ 2'; JOAO PEDRO 35', 45+6', 64', Cole PALMER 55')"
+},
+{
+"date": "Mar 4",
+"home": "Newcastle",
+"away": "Man United",
+"hs": 2,
+"as_": 1,
+"scorers": "(Anthony GORDON 45+6'(p), William Osula 90'; CASEMIRO 45+9')"
+},
+{
+"date": "Mar 5",
+"home": "Tottenham",
+"away": "Crystal Palace",
+"hs": 1,
+"as_": 3,
+"scorers": "(Dominic Solanke 34'; Ismaila SARR 40'(p), 45+7', Jorgen STRAND LARSEN 45+1')"
+},
+{
+"date": "Mar 14",
+"home": "Sunderland",
+"away": "Brighton",
+"hs": 0,
+"as_": 1,
+"scorers": "(Yankuba MINTEH 58')"
+},
+{
+"date": "Mar 14",
+"home": "Burnley",
+"away": "Bournemouth",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 14",
+"home": "Chelsea",
+"away": "Newcastle",
+"hs": 0,
+"as_": 1,
+"scorers": "(Anthony GORDON 18')"
+},
+{
+"date": "Mar 14",
+"home": "Arsenal",
+"away": "Everton",
+"hs": 2,
+"as_": 0,
+"scorers": "(Viktor GYOKERES 89', Max Dowman 90+7')"
+},
+{
+"date": "Mar 14",
+"home": "West Ham",
+"away": "Man City",
+"hs": 1,
+"as_": 1,
+"scorers": "(Konstantinos Mavropanos 35'; BERNARDO SILVA 31')"
+},
+{
+"date": "Mar 15",
+"home": "Man United",
+"away": "Aston Villa",
+"hs": 3,
+"as_": 1,
+"scorers": "(CASEMIRO 53', MATHEUS CUNHA 71', Benjamin SESKO 81'; Ross Barkley 64')"
+},
+{
+"date": "Mar 15",
+"home": "Crystal Palace",
+"away": "Leeds",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 15",
+"home": "Forest",
+"away": "Fulham",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 15",
+"home": "Liverpool",
+"away": "Tottenham",
+"hs": 1,
+"as_": 1,
+"scorers": "(Dominik Szoboszlai 18'; RICHARLISON 90')"
+},
+{
+"date": "Mar 16",
+"home": "Brentford",
+"away": "Wolves",
+"hs": 2,
+"as_": 2,
+"scorers": "(Michael Kayode 22', IGOR THIAGO 37'; Adam Armstrong 44', Tolu AROKODARE 77')"
+},
+{
+"date": "Mar 20",
+"home": "Bournemouth",
+"away": "Man United",
+"hs": 2,
+"as_": 2,
+"scorers": "(Ryan Christie 67', Eli Junior KROUPI 81'(p); BRUNO FERNANDES 61'(p), James Hill 71'(og))"
+},
+{
+"date": "Mar 21",
+"home": "Brighton",
+"away": "Liverpool",
+"hs": 2,
+"as_": 1,
+"scorers": "(Danny WELBECK 14', 56'; Milos KERKEZ 30')"
+},
+{
+"date": "Mar 21",
+"home": "Fulham",
+"away": "Burnley",
+"hs": 3,
+"as_": 1,
+"scorers": "(Josh King 67', Harry WILSON 73', Raul JIMENEZ 90+5'(p); Zian Flemming 60')"
+},
+{
+"date": "Mar 21",
+"home": "Everton",
+"away": "Chelsea",
+"hs": 3,
+"as_": 0,
+"scorers": "(BETO 33', 62', Iliman NDIAYE 76')"
+},
+{
+"date": "Mar 21",
+"home": "Leeds",
+"away": "Brentford",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Mar 22",
+"home": "Newcastle",
+"away": "Sunderland",
+"hs": 1,
+"as_": 2,
+"scorers": "(Anthony GORDON 10'; Chemsdine TALBI 57', Brian BROBBEY 90')"
+},
+{
+"date": "Mar 22",
+"home": "Tottenham",
+"away": "Forest",
+"hs": 0,
+"as_": 3,
+"scorers": "(IGOR JESUS 45', Morgan GIBBS WHITE 62', Taiwo Awoniyi 87')"
+},
+{
+"date": "Mar 22",
+"home": "Aston Villa",
+"away": "West Ham",
+"hs": 2,
+"as_": 0,
+"scorers": "(John McGinn 15', Ollie WATKINS 68')"
+},
+{
+"date": "Apr 10",
+"home": "West Ham",
+"away": "Wolves",
+"hs": 4,
+"as_": 0,
+"scorers": "(Konstantinos Mavropanos 42', 83', Valentin CASTELLANOS 66', 68')"
+},
+{
+"date": "Apr 11",
+"home": "Arsenal",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 2,
+"scorers": "(Viktor GYOKERES 35'(p); Eli Junior KROUPI 17', Alex Scott 74')"
+},
+{
+"date": "Apr 11",
+"home": "Burnley",
+"away": "Brighton",
+"hs": 0,
+"as_": 2,
+"scorers": "(Mats WIEFFER 43', 89')"
+},
+{
+"date": "Apr 11",
+"home": "Brentford",
+"away": "Everton",
+"hs": 2,
+"as_": 2,
+"scorers": "(IGOR THIAGO 3'(p), 76'; BETO 26', Kiernan Dewsbury-Hall 90+1')"
+},
+{
+"date": "Apr 11",
+"home": "Liverpool",
+"away": "Fulham",
+"hs": 2,
+"as_": 0,
+"scorers": "(Rio Ngumoha 36', MOHAMED SALAH 40')"
+},
+{
+"date": "Apr 12",
+"home": "Crystal Palace",
+"away": "Newcastle",
+"hs": 2,
+"as_": 1,
+"scorers": "(Jean-Philippe MATETA 80', 90+4'(p); William Osula 43')"
+},
+{
+"date": "Apr 12",
+"home": "Forest",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 1,
+"scorers": "(Neco WILLIAMS 38'; MURILLO 23'(og))"
+},
+{
+"date": "Apr 12",
+"home": "Sunderland",
+"away": "Tottenham",
+"hs": 1,
+"as_": 0,
+"scorers": "(Nordi MUKIELE 61')"
+},
+{
+"date": "Apr 12",
+"home": "Chelsea",
+"away": "Man City",
+"hs": 0,
+"as_": 3,
+"scorers": "(Nico OREILLY 51', Marc GUEHI 57', Jeremy DOKU 68')"
+},
+{
+"date": "Apr 13",
+"home": "Man United",
+"away": "Leeds",
+"hs": 1,
+"as_": 2,
+"scorers": "(CASEMIRO 69'; Noah OKAFOR 5', 29')"
+},
+{
+"date": "Apr 18",
+"home": "Brentford",
+"away": "Fulham",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 18",
+"home": "Leeds",
+"away": "Wolves",
+"hs": 3,
+"as_": 0,
+"scorers": "(James Justin 18', Noah OKAFOR 20', Dominic Calvert-Lewin 90+5'(p))"
+},
+{
+"date": "Apr 18",
+"home": "Newcastle",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 2,
+"scorers": "(William Osula 68'; Marcus Tavernier 32', Adrien TRUFFERT 85')"
+},
+{
+"date": "Apr 18",
+"home": "Tottenham",
+"away": "Brighton",
+"hs": 2,
+"as_": 2,
+"scorers": "(Pedro PORRO 39', Xavi SIMONS 77'; Kaoru MITOMA 45+3', Georginio Rutter 90+5')"
+},
+{
+"date": "Apr 18",
+"home": "Chelsea",
+"away": "Man United",
+"hs": 0,
+"as_": 1,
+"scorers": "(MATHEUS CUNHA 43')"
+},
+{
+"date": "Apr 19",
+"home": "Aston Villa",
+"away": "Sunderland",
+"hs": 4,
+"as_": 3,
+"scorers": "(Ollie WATKINS 2', 36', Morgan ROGERS 46', Tammy ABRAHAM 90+3'; Chris Rigg 9', Trai HUME 86', Wilson Isidor 87')"
+},
+{
+"date": "Apr 19",
+"home": "Everton",
+"away": "Liverpool",
+"hs": 1,
+"as_": 2,
+"scorers": "(BETO 54'; MOHAMED SALAH 29', Virgil VAN DIJK 90+10')"
+},
+{
+"date": "Apr 19",
+"home": "Forest",
+"away": "Burnley",
+"hs": 4,
+"as_": 1,
+"scorers": "(Morgan GIBBS WHITE 62', 69', 77', IGOR JESUS 90+8'; Zian Flemming 45+2')"
+},
+{
+"date": "Apr 19",
+"home": "Man City",
+"away": "Arsenal",
+"hs": 2,
+"as_": 1,
+"scorers": "(Rayan CHERKI 16', Erling HAALAND 65'; Kai HAVERTZ 18')"
+},
+{
+"date": "Apr 20",
+"home": "Crystal Palace",
+"away": "West Ham",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "Apr 21",
+"home": "Brighton",
+"away": "Chelsea",
+"hs": 3,
+"as_": 0,
+"scorers": "(Ferdi KADIOGLU 3', Jack Hinshelwood 56', Danny WELBECK 90+1')"
+},
+{
+"date": "Apr 22",
+"home": "Bournemouth",
+"away": "Leeds",
+"hs": 2,
+"as_": 2,
+"scorers": "(Eli Junior KROUPI 60', RAYAN 85'; James Hill 68'(og), Sean Longstaff 90+7')"
+},
+{
+"date": "Apr 22",
+"home": "Burnley",
+"away": "Man City",
+"hs": 0,
+"as_": 1,
+"scorers": "(Erling HAALAND 5')"
+},
+{
+"date": "Apr 24",
+"home": "Sunderland",
+"away": "Forest",
+"hs": 0,
+"as_": 5,
+"scorers": "(Trai HUME 17'(og), Chris WOOD 31', Morgan GIBBS WHITE 34', IGOR JESUS 37', Elliot ANDERSON 90+5')"
+},
+{
+"date": "Apr 25",
+"home": "Fulham",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 0,
+"scorers": "(Kouassi Ryan Sessegnon 43')"
+},
+{
+"date": "Apr 25",
+"home": "Liverpool",
+"away": "Crystal Palace",
+"hs": 3,
+"as_": 1,
+"scorers": "(Alexander Isak 35', Andy ROBERTSON 40', Florian WIRTZ 90+6'; Daniel MUNOZ 71')"
+},
+{
+"date": "Apr 25",
+"home": "Wolves",
+"away": "Tottenham",
+"hs": 0,
+"as_": 1,
+"scorers": "(JOAO PALHINHA 82')"
+},
+{
+"date": "Apr 25",
+"home": "West Ham",
+"away": "Everton",
+"hs": 2,
+"as_": 1,
+"scorers": "(Tomas SOUCEK 51', Callum Wilson 90+2'; Kiernan Dewsbury-Hall 88')"
+},
+{
+"date": "Apr 25",
+"home": "Arsenal",
+"away": "Newcastle",
+"hs": 1,
+"as_": 0,
+"scorers": "(Eberechi EZE 9')"
+},
+{
+"date": "Apr 27",
+"home": "Man United",
+"away": "Brentford",
+"hs": 2,
+"as_": 1,
+"scorers": "(CASEMIRO 11', Benjamin SESKO 43'; Mathias JENSEN 87')"
+},
+{
+"date": "May 1",
+"home": "Leeds",
+"away": "Burnley",
+"hs": 3,
+"as_": 1,
+"scorers": "(Anton STACH 8', Noah OKAFOR 52', Dominic Calvert-Lewin 56'; Loum TCHAOUNA 71')"
+},
+{
+"date": "May 2",
+"home": "Newcastle",
+"away": "Brighton",
+"hs": 3,
+"as_": 1,
+"scorers": "(William Osula 12', Dan BURN 24', Harvey Barnes 90+5'; Jack Hinshelwood 61')"
+},
+{
+"date": "May 2",
+"home": "Brentford",
+"away": "West Ham",
+"hs": 3,
+"as_": 0,
+"scorers": "(Konstantinos Mavropanos 15'(og), IGOR THIAGO 54'(p), Mikkel DAMSGAARD 82')"
+},
+{
+"date": "May 2",
+"home": "Wolves",
+"away": "Sunderland",
+"hs": 1,
+"as_": 1,
+"scorers": "(Santiago BUENO 54'; Nordi MUKIELE 17')"
+},
+{
+"date": "May 2",
+"home": "Arsenal",
+"away": "Fulham",
+"hs": 3,
+"as_": 0,
+"scorers": "(Viktor GYOKERES 9', 45+4', Bukayo SAKA 40')"
+},
+{
+"date": "May 3",
+"home": "Bournemouth",
+"away": "Crystal Palace",
+"hs": 3,
+"as_": 0,
+"scorers": "(Jefferson LERMA 10'(og), Eli Junior KROUPI 32'(p), RAYAN 77')"
+},
+{
+"date": "May 3",
+"home": "Man United",
+"away": "Liverpool",
+"hs": 3,
+"as_": 2,
+"scorers": "(MATHEUS CUNHA 6', Benjamin SESKO 14', Kobbie MAINOO 77'; Dominik Szoboszlai 47', Cody GAKPO 56')"
+},
+{
+"date": "May 3",
+"home": "Aston Villa",
+"away": "Tottenham",
+"hs": 1,
+"as_": 2,
+"scorers": "(Emiliano BUENDIA 90+6'; Conor GALLAGHER 12', RICHARLISON 25')"
+},
+{
+"date": "May 4",
+"home": "Chelsea",
+"away": "Forest",
+"hs": 1,
+"as_": 3,
+"scorers": "(JOAO PEDRO 90+3'; Taiwo Awoniyi 2', 52', IGOR JESUS 15'(p))"
+},
+{
+"date": "May 4",
+"home": "Everton",
+"away": "Man City",
+"hs": 3,
+"as_": 3,
+"scorers": "(Thierno Barry 68', 81', Jake OBRIEN 73'; Jeremy DOKU 43', 90+7', Erling HAALAND 83')"
+},
+{
+"date": "May 9",
+"home": "Liverpool",
+"away": "Chelsea",
+"hs": 1,
+"as_": 1,
+"scorers": "(Ryan GRAVENBERCH 6'; Enzo FERNANDEZ 35')"
+},
+{
+"date": "May 9",
+"home": "Sunderland",
+"away": "Man United",
+"hs": 0,
+"as_": 0,
+"scorers": ""
+},
+{
+"date": "May 9",
+"home": "Brighton",
+"away": "Wolves",
+"hs": 3,
+"as_": 0,
+"scorers": "(Jack Hinshelwood 1', Lewis Dunk 5', Yankuba MINTEH 86')"
+},
+{
+"date": "May 9",
+"home": "Fulham",
+"away": "Bournemouth",
+"hs": 0,
+"as_": 1,
+"scorers": "(RAYAN 53')"
+},
+{
+"date": "May 9",
+"home": "Man City",
+"away": "Brentford",
+"hs": 3,
+"as_": 0,
+"scorers": "(Jeremy DOKU 60', Erling HAALAND 75', OMAR MARMOUSH 90+2')"
+},
+{
+"date": "May 10",
+"home": "Forest",
+"away": "Newcastle",
+"hs": 1,
+"as_": 1,
+"scorers": "(Elliot ANDERSON 88'; Harvey Barnes 74')"
+},
+{
+"date": "May 10",
+"home": "Burnley",
+"away": "Aston Villa",
+"hs": 2,
+"as_": 2,
+"scorers": "(Jaidon Anthony 8', Zian Flemming 58'; Ross Barkley 42', Ollie WATKINS 56')"
+},
+{
+"date": "May 10",
+"home": "Crystal Palace",
+"away": "Everton",
+"hs": 2,
+"as_": 2,
+"scorers": "(Ismaila SARR 34', Jean-Philippe MATETA 77'; James Tarkowski 6', BETO 47')"
+},
+{
+"date": "May 10",
+"home": "West Ham",
+"away": "Arsenal",
+"hs": 0,
+"as_": 1,
+"scorers": "(Leandro TROSSARD 83')"
+},
+{
+"date": "May 11",
+"home": "Tottenham",
+"away": "Leeds",
+"hs": 1,
+"as_": 1,
+"scorers": "(Mathys TEL 50'; Dominic Calvert-Lewin 74'(p))"
+},
+{
+"date": "May 13",
+"home": "Man City",
+"away": "Crystal Palace",
+"hs": 3,
+"as_": 0,
+"scorers": "(Antoine SEMENYO 32', OMAR MARMOUSH 40', SAVINHO 84')"
+},
+{
+"date": "May 15",
+"home": "Aston Villa",
+"away": "Liverpool",
+"hs": 4,
+"as_": 2,
+"scorers": "(Morgan ROGERS 42', Ollie WATKINS 57', 73', John McGinn 89'; Virgil VAN DIJK 52', 90+2')"
+},
+{
+"date": "May 17",
+"home": "Man United",
+"away": "Forest",
+"hs": 3,
+"as_": 2,
+"scorers": "(Luke SHAW 5', MATHEUS CUNHA 55', Bryan MBEUMO 76'; Morato 53', Morgan GIBBS WHITE 78')"
+},
+{
+"date": "May 17",
+"home": "Brentford",
+"away": "Crystal Palace",
+"hs": 2,
+"as_": 2,
+"scorers": "(Dango OUATTARA 40', 88'; Ismaila SARR 6'(p), Adam Wharton 52')"
+},
+{
+"date": "May 17",
+"home": "Wolves",
+"away": "Fulham",
+"hs": 1,
+"as_": 1,
+"scorers": "(Mateus Man\u00e9 25'; Antonee ROBINSON 45+3'(p))"
+},
+{
+"date": "May 17",
+"home": "Everton",
+"away": "Sunderland",
+"hs": 1,
+"as_": 3,
+"scorers": "(Merlin R\u00f6hl 43'; Brian BROBBEY 59', Enzo LE FEE 81', Wilson Isidor 90+1')"
+},
+{
+"date": "May 17",
+"home": "Leeds",
+"away": "Brighton",
+"hs": 1,
+"as_": 0,
+"scorers": "(Dominic Calvert-Lewin 90+6')"
+},
+{
+"date": "May 17",
+"home": "Newcastle",
+"away": "West Ham",
+"hs": 3,
+"as_": 1,
+"scorers": "(Nick WOLTEMADE 15', William Osula 19', 65'; Valentin CASTELLANOS 69')"
+},
+{
+"date": "May 18",
+"home": "Arsenal",
+"away": "Burnley",
+"hs": 1,
+"as_": 0,
+"scorers": "(Kai HAVERTZ 37')"
+},
+{
+"date": "May 19",
+"home": "Bournemouth",
+"away": "Man City",
+"hs": 1,
+"as_": 1,
+"scorers": "(Eli Junior KROUPI 39'; Erling HAALAND 90+5')"
+},
+{
+"date": "May 19",
+"home": "Chelsea",
+"away": "Tottenham",
+"hs": 2,
+"as_": 1,
+"scorers": "(Enzo FERNANDEZ 18', ANDREY SANTOS 67'; RICHARLISON 74')"
+},
+{
+"date": "May 24",
+"home": "Sunderland",
+"away": "Chelsea",
+"hs": 2,
+"as_": 1,
+"scorers": "(Trai HUME 25', Malo GUSTO 50'(og); Cole PALMER 56')"
+},
+{
+"date": "May 24",
+"home": "Forest",
+"away": "Bournemouth",
+"hs": 1,
+"as_": 1,
+"scorers": "(Morgan GIBBS WHITE 34'; Marcus Tavernier 54')"
+},
+{
+"date": "May 24",
+"home": "Brighton",
+"away": "Man United",
+"hs": 0,
+"as_": 3,
+"scorers": "(Patrick DORGU 33', Bryan MBEUMO 44', BRUNO FERNANDES 48')"
+},
+{
+"date": "May 24",
+"home": "Liverpool",
+"away": "Brentford",
+"hs": 1,
+"as_": 1,
+"scorers": "(Curtis Jones 58'; Kevin SCHADE 64')"
+},
+{
+"date": "May 24",
+"home": "Crystal Palace",
+"away": "Arsenal",
+"hs": 1,
+"as_": 2,
+"scorers": "(Jean-Philippe MATETA 89'; GABRIEL JESUS 42', Noni MADUEKE 48')"
+},
+{
+"date": "May 24",
+"home": "Man City",
+"away": "Aston Villa",
+"hs": 1,
+"as_": 2,
+"scorers": "(Antoine SEMENYO 23'; Ollie WATKINS 47', 61')"
+},
+{
+"date": "May 24",
+"home": "Fulham",
+"away": "Newcastle",
+"hs": 2,
+"as_": 0,
+"scorers": "(Issa Diop 20', Thomas CAIRNEY 80')"
+},
+{
+"date": "May 24",
+"home": "West Ham",
+"away": "Leeds",
+"hs": 3,
+"as_": 0,
+"scorers": "(Valentin CASTELLANOS 67', Jarrod BOWEN 79', Callum Wilson 90+4')"
+},
+{
+"date": "May 24",
+"home": "Tottenham",
+"away": "Everton",
+"hs": 1,
+"as_": 0,
+"scorers": "(JOAO PALHINHA 43')"
+},
+{
+"date": "May 24",
+"home": "Burnley",
+"away": "Wolves",
+"hs": 1,
+"as_": 1,
+"scorers": "(Zian Flemming 47'; Adam Armstrong 5'(p))"
+}
+]
+}

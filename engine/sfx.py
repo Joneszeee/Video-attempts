@@ -64,6 +64,23 @@ def impact(gain=0.7):
     return x / np.abs(x).max() * gain
 
 
+def glitch(gain=0.22):
+    # digital crackle: short bursts of bit-crushed noise and square-wave blips (a player being deleted, a simulation starting)
+    r = np.random.default_rng(5)
+    n = int(0.55 * SR); x = np.zeros(n)
+    i = 0
+    while i < n:
+        L = int(r.uniform(0.012, 0.05) * SR)
+        if r.random() < 0.55:
+            f = r.uniform(300, 2400); tt = np.arange(min(L, n - i)) / SR
+            x[i:i + len(tt)] = np.sign(np.sin(2 * np.pi * f * tt)) * r.uniform(0.3, 1)
+        else:
+            seg = r.uniform(-1, 1, min(L, n - i)); seg = np.round(seg * 4) / 4
+            x[i:i + len(seg)] = seg * r.uniform(0.2, 0.8)
+        i += L + int(r.uniform(0, 0.02) * SR)
+    return x * np.linspace(1, 0.2, n) * gain
+
+
 def crowd(dur=4.0, gain=0.35):
     n = int(dur * SR)
     x = lowpass(rng.standard_normal(n), 1400)
@@ -94,6 +111,7 @@ def main():
         'pop': pop,
         'impact': impact,
         'crowd': crowd,
+        'glitch': glitch,
     }
     for e in data['events']:
         if e['type'] not in cache:

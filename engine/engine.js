@@ -930,7 +930,8 @@ function drawPlayers(cam, lt, players) {
     }
     const s = proj(o.q), u = FOC * 1.85 / o.q[2];
     const alpha = o.p.enter === 'fade' ? eOut(pr(lt, o.p.delay || 0, 0.5)) : 1;
-    drawPlayer(s[0], s[1], u, o.p, lt, o.walk, alpha);
+    const pk = pixelK(o.p, lt);
+    if (pk != null) drawPixelPlayer(s[0], s[1], u, o.p, lt, o.walk, alpha, pk); else drawPlayer(s[0], s[1], u, o.p, lt, o.walk, alpha);
     S.anchors[players.indexOf(o.p)] = { x: s[0], y: s[1], u };
   }
 }
@@ -1092,7 +1093,7 @@ function cardY(c) {
   const top = cardTop(c, y);
   return top == null || top > 900 ? y : Math.max(y, S.hlBottom + 56 + top);
 }
-const NO_CLEAR = new Set(['ball', 'ballpath', 'vehicle', 'pen', 'flytext', 'redcard', 'comments', 'shotmap', 'speedlines']);
+const NO_CLEAR = new Set(['simhud', 'ball', 'ballpath', 'vehicle', 'pen', 'flytext', 'redcard', 'comments', 'shotmap', 'speedlines']);
 let probeCtx = null;
 function cardTop(c, y) {   // distance from the card's centre line up to its highest drawn pixel, in its settled state
   if (c._top !== undefined && c._topY === y) return c._top;
@@ -3417,7 +3418,7 @@ CARDS.tape = function (c, ct, cx, cy) {
     ctx.fillStyle = 'rgba(255,255,255,0.06)'; rrect(cx - half - 10, y - 26, half * 2 + 20, 52, 26); ctx.fill();
     ctx.fillStyle = lc; rrect(cx - 4 - wl * k, y - 20, wl * k, 40, 20); ctx.fill();
     ctx.fillStyle = rc; rrect(cx + 4, y - 20, wr * k, 40, 20); ctx.fill();
-    const f = v => (c.comma === false ? String(Math.round(v)) : Math.round(v).toLocaleString('en-GB'));
+    const f = v => (c.decimals ? v.toFixed(c.decimals) : c.comma === false ? String(Math.round(v)) : Math.round(v).toLocaleString('en-GB'));
     const vk = pr(ct, t0 + 0.2, 0.8);
     font(r.left >= r.right ? 900 : 700, 50, 'Inter', '-1px'); ctx.textAlign = 'left';
     ctx.fillStyle = r.left >= r.right ? (c.win || '#f1c453') : '#cfd3da'; if (vk > 0) ctx.fillText(f(r.left * eOut(vk)), cx - bw / 2, y + 72);
@@ -3879,6 +3880,216 @@ CARDS.comments = function (c, ct, cx, cy) {
 CARDS.comments.noSlide = true;
 
 // Radial speed lines (hero intro, big moments). Beat key: "speedlines": [{t|at, dur}]
+// ---- "What if" simulation kit (built for videos/bruno-whatif) ----
+// Player dissolve: a player with "vanishAt" (or vanishDelay) glitches, then breaks into pixel blocks that drift up and fade;
+// "appearAt" (appearDelay) plays it backwards (he builds back up). vanishDur (default 1.3s), pixelColor (tint of the flying blocks).
+let pxCan = null;
+function pixelK(p, lt) {   // 0 = whole player, 1 = fully gone; null = no effect
+  const D = p.vanishDur || 1.3;
+  if (p.appearDelay != null) { if (lt < p.appearDelay) return 1; const r = (lt - p.appearDelay) / D; return r >= 1 ? null : 1 - r; }
+  if (p.vanishDelay != null && lt >= p.vanishDelay) return Math.min(1, (lt - p.vanishDelay) / D);
+  return null;
+}
+function drawPixelPlayer(x, y, u, p, t, walk, alpha, k) {
+  if (k >= 1) return;
+  if (!pxCan) { pxCan = document.createElement('canvas'); pxCan.width = W; pxCan.height = H; }
+  const px = pxCan.getContext('2d'); px.setTransform(1, 0, 0, 1, 0, 0); px.globalAlpha = 1; px.clearRect(0, 0, W, H);
+  const keep = ctx; ctx = px; ctx.save(); drawPlayer(x, y, u, p, t, walk, alpha); ctx.restore(); ctx = keep;
+  const x0 = Math.max(0, Math.floor(x - u * 0.75)), x1 = Math.min(W, Math.ceil(x + u * 0.75));
+  const y0 = Math.max(0, Math.floor(y - u * 1.45)), y1 = Math.min(H, Math.ceil(y + u * 0.08));
+  if (x1 <= x0 || y1 <= y0) return;
+  const g = clamp(1 - k / 0.25, 0, 1);   // glitch phase: RGB split and torn slices before he breaks up
+  const R = rng(Math.floor(t * 24) * 13 + 5);
+  if (k < 0.22) {
+    ctx.save();
+    const sl = Math.max(6, Math.round(u * 0.05));
+    for (let yy = y0; yy < y1; yy += sl) { const dx = R() < 0.35 ? (R() - 0.5) * u * 0.35 * (1 - g * 0.5) : 0; ctx.drawImage(pxCan, x0, yy, x1 - x0, sl, x0 + dx, yy, x1 - x0, sl); }
+    ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.45;
+    ctx.filter = 'sepia(1) hue-rotate(-50deg) saturate(5)'; ctx.drawImage(pxCan, x0, y0, x1 - x0, y1 - y0, x0 + u * 0.04, y0, x1 - x0, y1 - y0);
+    ctx.filter = 'sepia(1) hue-rotate(140deg) saturate(5)'; ctx.drawImage(pxCan, x0, y0, x1 - x0, y1 - y0, x0 - u * 0.04, y0, x1 - x0, y1 - y0);
+    ctx.restore();
+    return;
+  }
+  const img = px.getImageData(x0, y0, x1 - x0, y1 - y0).data, iw = x1 - x0;
+  const bs = Math.max(6, Math.round(u * 0.045)), tint = p.pixelColor || S.accent || '#3FE0C5';
+  ctx.save();
+  for (let by = y0, j = 0; by < y1; by += bs, j++) for (let bx = x0, i = 0; bx < x1; bx += bs, i++) {
+    const cxp = Math.min(iw - 1, bx - x0 + (bs >> 1)), cyp = Math.min(y1 - y0 - 1, by - y0 + (bs >> 1));
+    if (img[(cyp * iw + cxp) * 4 + 3] < 40) continue;
+    const h = webHash(i, j), h2 = webHash(j + 7, i + 3), h3 = webHash(i + 11, j + 17);
+    const st = 0.22 + 0.33 * (1 - (by - y0) / (y1 - y0)) + 0.25 * h;   // head and shoulders go first
+    const q = clamp((k - st) / 0.28, 0, 1);
+    if (q >= 1) continue;
+    const dx = (h2 - 0.5) * u * 0.9 * q, dy = -u * (0.4 + h3 * 0.9) * q * q, s = bs * (1 - 0.4 * q);
+    ctx.globalAlpha = 1 - q;
+    ctx.drawImage(pxCan, bx, by, bs, bs, bx + dx, by + dy, s, s);
+    if (q > 0) { ctx.globalAlpha = (1 - q) * Math.min(1, q * 3) * 0.85; ctx.fillStyle = tint; ctx.fillRect(bx + dx, by + dy, s, s); }
+  }
+  ctx.restore();
+}
+
+// Screen glitch (beat "glitch": [{at|t, dur, amount}]): torn slices, colour split and blocky noise over the whole frame.
+function drawGlitch(b, lt) {
+  for (const gl of b.glitch || []) {
+    const r = lt - (gl.t || 0), d = gl.dur || 0.45;
+    if (r < 0 || r > d) continue;
+    const k = Math.sin(Math.PI * r / d) * (gl.amount || 1), fx = fullc.getContext('2d');
+    fx.clearRect(0, 0, W, H); fx.drawImage(cv, 0, 0);
+    const R = rng(Math.floor(lt * 40) + 3);
+    ctx.save();
+    for (let i = 0; i < 14; i++) { const y = R() * H, h = 10 + R() * 90, dx = (R() - 0.5) * 260 * k; ctx.drawImage(fullc, 0, y, W, h, dx, y, W, h); }
+    ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.4 * k;
+    ctx.filter = 'sepia(1) hue-rotate(-50deg) saturate(5)'; ctx.drawImage(fullc, 14 * k, 0);
+    ctx.filter = 'sepia(1) hue-rotate(140deg) saturate(5)'; ctx.drawImage(fullc, -14 * k, 0);
+    ctx.filter = 'none'; ctx.globalCompositeOperation = 'source-over';
+    for (let i = 0; i < 26; i++) { ctx.globalAlpha = 0.5 * k * R(); ctx.fillStyle = R() < 0.5 ? (S.accent || '#3FE0C5') : '#ffffff'; ctx.fillRect(R() * W, R() * H, 20 + R() * 160, 8 + R() * 30); }
+    ctx.restore();
+  }
+}
+
+// Simulation HUD: corner brackets, a blinking "● SIMULATION" tag and a run counter with a progress bar.
+// label, sub, runs (10000), countT|countAt + dur (counting), y (readout), color
+CARDS.simhud = function (c, ct, cx, cy) {
+  const a = eOut(pr(ct, 0, 0.3)), col = c.color || S.accent || '#3FE0C5', m = 46, L = 90;
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.strokeStyle = col; ctx.lineWidth = 6; ctx.shadowColor = col; ctx.shadowBlur = 16; ctx.lineCap = 'square';
+  const top = c.top || Math.max(470, (S.hlBottom || 400) + 50), bot = c.bottom || H - 150;   // brackets start under the headline
+  for (const [x, y, sx, sy] of [[m, top, 1, 1], [W - m, top, -1, 1], [m, bot, 1, -1], [W - m, bot, -1, -1]]) {
+    ctx.beginPath(); ctx.moveTo(x, y + sy * L); ctx.lineTo(x, y); ctx.lineTo(x + sx * L, y); ctx.stroke();
+  }
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = 'rgba(0,0,0,0.05)'; for (let y = top; y < bot; y += 6) ctx.fillRect(m, y, W - 2 * m, 2);   // faint scanlines
+  // the label sits bottom-left, the run counter bottom-right, so nothing fights the headline or the cards
+  const runs = c.runs || 10000, c0 = c.countT != null ? c.countT : 0.1, k = c.dur === 0 ? 1 : Math.pow(pr(ct, c0, c.dur || 2.2), 1.6);
+  const n = Math.round(runs * k), y = c.y || bot - 70;
+  font(800, 30, 'Mono', '5px'); ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
+  if (Math.floor(ct * 2.5) % 2 === 0) { ctx.fillStyle = '#ff3b4e'; ctx.beginPath(); ctx.arc(m + 42, y, 10, 0, 7); ctx.fill(); }
+  ctx.fillStyle = col; ctx.fillText(c.label || 'SIM', m + 62, y + 2);
+  if (c.sub) { font(600, 22, 'Mono', '3px'); ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.fillText(c.sub.toUpperCase(), m + 30, y - 42); }
+  font(800, 34, 'Mono', '3px'); ctx.textAlign = 'right'; ctx.fillStyle = '#fff';
+  ctx.fillText('RUN ' + n.toLocaleString('en-GB').padStart(6, '0') + ' / ' + runs.toLocaleString('en-GB'), W - m - 30, y);
+  ctx.fillStyle = 'rgba(255,255,255,0.15)'; rrect(m + 30, y + 30, W - 2 * m - 60, 10, 5); ctx.fill();
+  ctx.fillStyle = col; rrect(m + 30, y + 30, (W - 2 * m - 60) * k, 10, 5); ctx.fill();
+  ctx.restore();
+};
+CARDS.simhud.noSlide = true;
+
+// Simulation histogram: a finishing-position bar chart that builds up live while a run counter spins.
+// dist: {position: percent}, positions [from, to] (default 1–20), zone: {from, to, label, color} (e.g. the Champions League places),
+// real: real finishing position (white pin), runs, countT|countAt + dur, stamp: {text, sub} + stampT|stampAt (big % pops over the zone), title, w, h
+CARDS.simrun = function (c, ct, cx, cy) {
+  const w = c.w || 940, h = c.h || 430, [p0, p1] = c.positions || [1, 20], n = p1 - p0 + 1, bw = w / n;
+  const a = eOut(pr(ct, 0, 0.35)), c0 = c.countT != null ? c.countT : 0.2, dur = c.dur || 2.4;
+  const f = c.dur === 0 ? 1 : ease(pr(ct, c0, dur)), runs = c.runs || 10000;
+  const vals = []; for (let q = p0; q <= p1; q++) vals.push(+(c.dist[q] || 0));
+  const mx = Math.max(...vals), x0 = cx - w / 2, base = cy + h / 2;
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.fillStyle = 'rgba(8,10,15,0.78)'; rrect(x0 - 40, cy - h / 2 - 150, w + 80, h + 260, 30); ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.lineWidth = 2; ctx.stroke();
+  font(700, 26, 'Mono', '4px'); ctx.fillStyle = '#9aa1ad'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  ctx.fillText((c.title || 'Where United finish').toUpperCase(), x0, cy - h / 2 - 98);
+  font(900, 52, 'Mono', '0px'); ctx.textAlign = 'right'; ctx.fillStyle = '#fff';
+  ctx.fillText(Math.round(runs * f).toLocaleString('en-GB'), x0 + w, cy - h / 2 - 90);
+  font(600, 20, 'Mono', '3px'); ctx.fillStyle = '#9aa1ad'; ctx.fillText('SIMULATIONS', x0 + w, cy - h / 2 - 60);
+  const zone = c.zone, zc = (zone && zone.color) || '#2ecc71';
+  if (zone) {
+    const zx = x0 + (zone.from - p0) * bw, zw = (zone.to - zone.from + 1) * bw;
+    ctx.fillStyle = rgba(zc, 0.13); ctx.fillRect(zx, cy - h / 2 - 20, zw, h + 20);
+    ctx.strokeStyle = rgba(zc, 0.7); ctx.setLineDash([10, 8]); ctx.lineWidth = 3; ctx.strokeRect(zx, cy - h / 2 - 20, zw, h + 20); ctx.setLineDash([]);
+    font(800, 20, 'Mono', '2px'); ctx.fillStyle = zc; ctx.textAlign = 'center'; ctx.fillText((zone.label || 'TOP 4').toUpperCase(), zx + zw / 2, cy - h / 2 - 30);
+  }
+  vals.forEach((v, j) => {
+    const q = p0 + j, noise = (webHash(j, Math.floor(ct * 14)) - 0.5) * 0.5 * mx * (1 - f) * (f > 0 ? 1 : 0);
+    const shown = Math.max(0, f > 0 ? v + noise : 0), bh = (h - 30) * shown / mx * Math.min(1, f * 4);
+    const inZ = zone && q >= zone.from && q <= zone.to;
+    const col = inZ ? zc : (v === mx ? (c.peakColor || '#ff4d5e') : '#5d6676');
+    ctx.fillStyle = col; rrect(x0 + j * bw + bw * 0.14, base - bh, bw * 0.72, Math.max(0, bh), 6); ctx.fill();
+    font(700, 22, 'Mono'); ctx.fillStyle = q === c.real ? '#fff' : '#7d8594'; ctx.textAlign = 'center';
+    ctx.fillText(String(q), x0 + j * bw + bw / 2, base + 34);
+    if (f > 0.85 && v >= (c.minLabel != null ? c.minLabel : 5)) {
+      ctx.globalAlpha = a * pr(f, 0.85, 0.15); font(800, 22, 'Inter'); ctx.fillStyle = '#fff';
+      ctx.fillText(Math.round(v) + '%', x0 + j * bw + bw / 2, base - bh - 12); ctx.globalAlpha = a;
+    }
+  });
+  font(600, 18, 'Mono', '3px'); ctx.fillStyle = '#7d8594'; ctx.textAlign = 'center'; ctx.fillText('FINISHING POSITION', cx, base + 70);
+  if (c.real != null && c.real >= p0 && c.real <= p1) {   // the real finish: a white pin
+    const rx = x0 + (c.real - p0 + 0.5) * bw;
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(rx - 12, base + 46); ctx.lineTo(rx + 12, base + 46); ctx.lineTo(rx, base + 58); ctx.fill();
+    font(800, 18, 'Mono', '2px'); ctx.fillText(c.realLabel || 'REAL', rx, base + 98);
+  }
+  const sT = c.stampT;
+  if (c.stamp && sT != null && ct >= sT) {
+    const k = eBack(pr(ct, sT, 0.35)), sx = c.stamp.pos != null ? x0 + (c.stamp.pos - p0 + 0.5) * bw : zone ? x0 + ((zone.from + zone.to) / 2 - p0 + 0.5) * bw : cx, sy = c.stamp.pos != null ? cy - h / 2 + 90 : cy - h * 0.12;
+    ctx.save(); ctx.translate(Math.max(x0 + 120, Math.min(x0 + w - 120, sx)), sy); ctx.scale(k, k); ctx.rotate(-0.06);
+    font(900, c.stampSize || 120, 'Inter', '-3px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.lineWidth = 14; ctx.strokeStyle = '#0b0d12'; ctx.strokeText(c.stamp.text, 0, 0); ctx.fillStyle = c.stamp.color || zc; ctx.fillText(c.stamp.text, 0, 0);
+    if (c.stamp.sub) { font(800, 24, 'Mono', '3px'); const tw = ctx.measureText(c.stamp.sub.toUpperCase()).width + 34;
+      ctx.fillStyle = '#0b0d12'; rrect(-tw / 2, 58, tw, 44, 22); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(c.stamp.sub.toUpperCase(), 0, 81); }
+    ctx.restore();
+  }
+  ctx.restore();
+};
+CARDS.simrun.noSlide = true;
+
+// Odds grid: 100 squares (10×10) tile in; on litT|litAt the first `lit` squares (scattered) glow green one by one and the rest go dull.
+// n (100), cols (10), lit, color, offColor, cell, title, label ("{n} in 100")
+CARDS.odds = function (c, ct, cx, cy) {
+  const N = c.n || 100, cols = c.cols || 10, rows = Math.ceil(N / cols), cell = c.cell || 66, gap = 10, gw = cols * cell + (cols - 1) * gap;
+  const lit = c.lit || 0, lT = c.litT != null ? c.litT : 0.9, col = c.color || '#2ecc71', off = c.offColor || '#c23a48';
+  const order = Array.from({ length: N }, (_, i) => i).sort((p, q) => webHash(p, 3) - webHash(q, 3)), litSet = new Map(order.slice(0, lit).map((v, k) => [v, k]));
+  const x0 = cx - gw / 2, y0 = cy - (rows * cell + (rows - 1) * gap) / 2;
+  ctx.save();
+  if (c.title) { font(800, 30, 'Mono', '4px'); ctx.fillStyle = '#e8e8ea'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.globalAlpha *= eOut(pr(ct, 0, 0.3)); ctx.fillText(c.title.toUpperCase(), cx, y0 - 40); ctx.globalAlpha = 1; }
+  for (let i = 0; i < N; i++) {
+    const r = Math.floor(i / cols), q = i % cols, x = x0 + q * (cell + gap), y = y0 + r * (cell + gap);
+    const ik = eBack(pr(ct, 0.05 + (r + q) * 0.035, 0.3)); if (ik <= 0) continue;
+    let fill = '#3a404c', glow = 0, s = ik;
+    if (litSet.has(i)) { const k = pr(ct, lT + litSet.get(i) * 0.14, 0.25); if (k > 0) { fill = col; glow = k; s = ik * (1 + 0.25 * Math.sin(Math.PI * Math.min(1, k))); } }
+    else { const k = pr(ct, lT + lit * 0.14 + 0.1, 0.4); if (k > 0) fill = k >= 1 ? rgba(off, 0.55) : `rgba(${hex(off).join(',')},${0.55 * k})`; if (k > 0 && k < 1) { ctx.fillStyle = '#3a404c'; rrect(x, y, cell, cell, 10); ctx.fill(); } }
+    ctx.save(); ctx.translate(x + cell / 2, y + cell / 2); ctx.scale(s, s);
+    if (glow) { ctx.shadowColor = col; ctx.shadowBlur = 30 * glow; }
+    ctx.fillStyle = fill; rrect(-cell / 2, -cell / 2, cell, cell, 10); ctx.fill(); ctx.restore();
+  }
+  const done = Math.min(lit, Math.max(0, Math.ceil((ct - lT) / 0.14)));
+  if (ct >= lT) {
+    const pk = eBack(pr(ct, lT, 0.3)), ly = y0 + rows * (cell + gap) + 90;
+    ctx.save(); ctx.translate(cx, ly); ctx.scale(pk, pk);
+    font(900, 96, 'Inter', '-2px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = col;
+    ctx.fillText((c.label || '{n} in 100').replace('{n}', done), 0, 0); ctx.restore();
+  }
+  ctx.restore();
+};
+CARDS.odds.noSlide = true;
+
+// Substitution board: the fourth official's LED board rises; the red OUT number and the green IN number light up (in on swapT|swapAt).
+// out: {num, name}, in: {num, name}, w
+CARDS.subboard = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.5)), w = c.w || 620, h = 460, sw = c.swapT != null ? c.swapT : (typeof c.swapAt === 'number' ? c.swapAt : 0.9);
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(cx, cy + (1 - k) * 700); ctx.rotate(Math.sin(ct * 1.7) * 0.012);
+  ctx.fillStyle = '#20242c'; ctx.fillRect(-28, h / 2 - 10, 56, 190);   // handle
+  ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 40; ctx.fillStyle = '#16191f'; rrect(-w / 2, -h / 2, w, h, 26); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = '#3a3f4a'; ctx.lineWidth = 6; ctx.stroke();
+  const led = (txt, x, y, size, col, on) => {   // bright text with a dark dot-matrix grid over it
+    font(900, size, 'Mono', '0px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = rgba(col, 0.08); ctx.fillText('88', x, y);
+    if (!on) return;
+    ctx.save(); ctx.shadowColor = col; ctx.shadowBlur = 26; ctx.fillStyle = col; ctx.fillText(txt, x, y); ctx.restore();
+  };
+  const rows = [[c.out, '#ff3b3b', -h / 4, 0.45, '▼'], [c.in, '#35e06a', h / 4, sw, '▲']];
+  for (const [r, col, y, t0, arrow] of rows) {
+    const on = ct >= t0 && !(ct < t0 + 0.3 && Math.floor(ct * 20) % 2);
+    led(String(r.num), -w / 2 + 150, y, 170, col, on);
+    if (on) { font(900, 60, 'Mono'); ctx.fillStyle = col; ctx.textAlign = 'center'; ctx.fillText(arrow, -w / 2 + 290, y); }
+    if (on && r.name) { font(800, 40, 'Inter', '2px'); ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.fillText(r.name.toUpperCase(), -w / 2 + 340, y); }
+  }
+  ctx.fillStyle = 'rgba(0,0,0,0.55)'; for (let x = -w / 2 + 20; x < w / 2 - 20; x += 9) ctx.fillRect(x, -h / 2 + 20, 3, h - 40);
+  for (let y = -h / 2 + 20; y < h / 2 - 20; y += 9) ctx.fillRect(-w / 2 + 20, y, w - 40, 3);
+  ctx.fillStyle = '#2a2f38'; ctx.fillRect(-w / 2 + 30, -2, w - 60, 4);
+  ctx.restore();
+};
+CARDS.subboard.noSlide = true;
+
 function drawSpeedlines(b, lt) {
   for (const sl of b.speedlines || []) {
     const r = lt - (sl.t || 0), d = sl.dur || 1.2;
@@ -3903,6 +4114,10 @@ function cardEvents(c) {
   const ev = [];
   const ticks = (a, d) => { for (let t = a; t < a + d; t += 0.075) ev.push({ t, type: 'tick' }); };
   switch (c.type) {
+    case 'simhud': { const c0 = c.countT != null ? c.countT : 0.1; ticks(c0, Math.min(1.4, (c.dur || 2.2) * 0.8)); break; }
+    case 'simrun': { const c0 = c.countT != null ? c.countT : 0.2; ticks(c0, Math.min(1.4, (c.dur || 2.4) * 0.8)); if (c.stampT != null) ev.push({ t: c.stampT, type: 'impact' }); break; }
+    case 'odds': { const lT = c.litT != null ? c.litT : 0.9; ev.push({ t: 0.05, type: 'swish' }); for (let i = 0; i < (c.lit || 0); i++) ev.push({ t: lT + i * 0.14, type: 'pop' }); ev.push({ t: lT + (c.lit || 0) * 0.14 + 0.1, type: 'swipe' }); break; }
+    case 'subboard': ev.push({ t: 0.05, type: 'swish' }, { t: 0.45, type: 'pop' }, { t: c.swapT != null ? c.swapT : (typeof c.swapAt === 'number' ? c.swapAt : 0.9), type: 'pop' }); break;
     case 'flip': c.groups.forEach((g, i) => ticks(0.35 + i * 0.25, 1.3)); break;
     case 'big': ticks(0.25, (c.countDur || 1.3) * 0.85); ev.push({ t: 0.25 + (c.countDur || 1.3), type: 'impact' }); break;
     case 'vs': c.items.forEach((g, i) => ticks(0.35 + i * 0.3, 1.0)); break;
@@ -4079,6 +4294,11 @@ window.loadSpec = async function (spec) {
     }
     for (const p of b.punch || []) S.events.push({ t: b.start + p.t, type: 'whoosh' });
     if (b.freeze != null) S.events.push({ t: b.start + b.freeze, type: 'impact' });
+    for (const g of b.glitch || []) S.events.push({ t: b.start + (g.t || 0), type: 'glitch' });
+    for (const p of b.playersArr || []) {   // a player breaking into pixels (or building back up)
+      if (p.vanishDelay != null && b.playersStart + p.vanishDelay >= b.start) S.events.push({ t: b.playersStart + p.vanishDelay, type: 'glitch' }, { t: b.playersStart + p.vanishDelay + 0.3, type: 'swish' });
+      if (p.appearDelay != null && b.playersStart + p.appearDelay >= b.start) S.events.push({ t: b.playersStart + p.appearDelay, type: 'glitch' }, { t: b.playersStart + p.appearDelay + 1.1, type: 'pop' });
+    }
     for (const p of b.playersArr || []) if (p.action === 'kick' && p.actionDelay != null && b.playersStart === b.start) S.events.push({ t: b.start + p.actionDelay + 0.42 * (p.actionDur || 1), type: 'pop' });
   });
   // hype (default on; spec or beat "hype": false to turn off): every goal-bound shot in a stadium gets a run-up, a punch-in at the strike,
@@ -4355,6 +4575,7 @@ function renderAt(t) {
     ctx.restore();
   }
 
+  if (b.glitch) drawGlitch(b, lt);
   // header
   drawBrand();
   const prevB = S.beats[i - 1];

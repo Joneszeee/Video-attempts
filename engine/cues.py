@@ -174,6 +174,9 @@ def _resolve_beat(b, rel):
             c['goalT'] = round(max(0, rel(c.pop('goalAt')) + c.pop('goalLag', 0) - base), 3)
         if c.get('type') == 'stopwatch' and isinstance(c.get('lockAt'), str):
             c['lockT'] = round(max(0.4, rel(c.pop('lockAt')) + c.pop('lockLag', 0) - base), 3)
+        for typ, key, out in (('simrun', 'stampAt', 'stampT'), ('simrun', 'countAt', 'countT'), ('simhud', 'countAt', 'countT'), ('odds', 'litAt', 'litT'), ('subboard', 'swapAt', 'swapT')):
+            if c.get('type') == typ and isinstance(c.get(key), str):
+                c[out] = round(max(0, rel(c.pop(key)) + c.pop(key[:-2] + 'Lag', 0) - base), 3)
         if c.get('type') == 'coin' and isinstance(c.get('landAt'), str):
             c['landT'] = round(max(0, rel(c.pop('landAt')) + c.pop('landLag', 0) - base), 3)
         if c.get('type') == 'table' and isinstance(c.get('moveAt'), str):
@@ -226,6 +229,9 @@ def _resolve_beat(b, rel):
                 h['t'] = round(rel(h.pop('at')) + h.pop('lag', 0), 3)
         if 'actionAt' in p:  # e.g. the kick starts so the strike lands on the word: use "lag" to shift
             p['actionDelay'] = round(rel(p.pop('actionAt')) + p.pop('actionLag', 0), 3)
+        for key, out in (('vanishAt', 'vanishDelay'), ('appearAt', 'appearDelay')):  # the player breaks into pixels / builds back up on a word
+            if key in p:
+                p[out] = round(rel(p.pop(key)) + p.pop(key[:-2] + 'Lag', 0), 3)
     if isinstance(b.get('split'), dict):
         sp = b['split']
         if isinstance(sp.get('at'), str):
@@ -241,7 +247,7 @@ def _resolve_beat(b, rel):
         b['confettiDelay'] = round(rel(b.pop('confettiAt')), 3)
     if isinstance(b.get('freezeAt'), str):
         b['freeze'] = round(rel(b.pop('freezeAt')) + b.pop('freezeLag', 0), 3)
-    for key in ('punch', 'shake', 'speedlines'):
+    for key in ('punch', 'shake', 'speedlines', 'glitch'):
         for fx in b.get(key) or []:
             if 'at' in fx:
                 fx['t'] = round(rel(fx.pop('at')) + fx.pop('lag', 0), 3)

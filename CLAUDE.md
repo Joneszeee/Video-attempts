@@ -340,6 +340,18 @@ Built so far from the idea list (reuse them):
   red counter: `badge`, `steps: [{t|at}]`, `from` (notches already sunk), `label`, `w`, `h`, `badgeH`. For heavy defeats and collapses.
 - **History stories:** check the club's own site and at least one other source; drop quotes and details only one retelling has; say "the story goes"
   for parts that are legend.
+- **"What if" simulation kit** (built for `videos/bruno-whatif`):
+  - **Player deleted into pixels:** a player with `vanishAt` (+ `vanishLag`, `vanishDur` default 1.3s) glitches (torn slices, colour split), then breaks into
+    blocks that drift up and fade in the accent colour (`pixelColor`); `appearAt`/`appearDelay` plays it backwards (he builds back up). Comes with a glitch sound.
+  - **Screen glitch:** beat `"glitch": [{"at"|"t", "dur", "amount"}]`, a short digital tear over the whole frame (a pattern break or a "simulation" cut).
+  - **Simulation HUD:** the `simhud` card. Corner brackets under the headline, a blinking "● SIM" tag bottom-left with `sub`, and a run counter + bar bottom-right
+    (`runs`, `countT|countAt` + `dur`; `dur: 0` = already finished). Put it on every simulated beat so the viewer always knows what's real.
+  - **Live finishing-position chart:** the `simrun` card. Bars build up with noise that settles while the run counter spins: `dist: {position: percent}`,
+    `positions: [from, to]`, `real` (white pin), `zone: {from, to, label, color}` (e.g. the Champions League places or relegation), `peakColor`,
+    `stamp: {text, sub, color, pos}` + `stampAt` (a big % pops over the zone or over bar `pos`), `title`, `w`, `h`.
+  - **Odds grid:** the `odds` card. 100 squares tile in; on `litAt` the first `lit` (scattered) glow green one by one and the rest go dull red; `label` ("{n} in 100").
+  - **Substitution board:** the `subboard` card. The fourth official's LED board rises: red `out: {num, name}`, then green `in: {num, name}` lights on `swapAt`.
+  - `tape` now takes `decimals` (for rates like 0.78 per 90).
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.
 - **Half-time swing:** the `swing` card. Rows `[{label, from, to, at, decimals, good}]`: 1st-half number on the left, an arrow draws, the 2nd-half number counts and glows
   green (`good`) or red. Great for "what changed" tactics stories.

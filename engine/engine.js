@@ -984,7 +984,8 @@ function drawPlayers(cam, lt, players) {
     const q = toCam(cam, [x, 0, z]);
     if (q[2] < NEAR + 0.5) continue;
     list.push({ p, q, walk, idx: pIdx });
-    if (p.dribble && (walk > 0 || (p.action === 'run' && !p.path))) {   // he runs with the ball: a touch every other stride pushes it ahead
+    const dt0 = lt - (p.delay || 0), hasBall = (p.dribbleFrom == null || dt0 >= p.dribbleFrom) && (p.dribbleUntil == null || dt0 < p.dribbleUntil);   // dribbleFrom/Until: seconds after his path starts (he wins it / loses it)
+    if (p.dribble && hasBall && (walk > 0 || (p.action === 'run' && !p.path))) {   // he runs with the ball: a touch every other stride pushes it ahead
       const ph = ((lt / 0.84) % 1), push = Math.sin(ph * Math.PI), dirz = p.front ? -1 : 1, lead = 0.45 + 0.55 * push;
       const hx = p.path ? heading[0] : 0, hz = p.path ? heading[1] : dirz;   // the ball runs ahead in the direction he's going
       const side = p.foot === 'left' ? -0.18 : 0.18;   // ball on his stronger foot

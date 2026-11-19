@@ -56,12 +56,17 @@ B.append({"kicker": "Man City in League Two · Episode 2", "headline": "You pick
            {"type": "stamp", "text": "SIGNED", "sub": "your vote · episode 2", "at": "Tim Iroegbunam", "lag": -0.1, "color": GREEN, "rot": -0.07, "size": 110, "y": 610}],
   "shake": [{"at": "Tim Iroegbunam", "lag": 0.0, "amount": 14}]})
 
-# 2 who he is: a ball-winning tackle, then his road from Aston Villa to Everton to Hull to City, U19 European champion
+# 2 who he is: a clean slide tackle. The Wigan man dribbles across, Iroegbunam slides in and pokes the ball away, the runner hurdles the leg
+#   (no foul, he stays up) and a City team-mate runs onto the loose ball and carries it away. Contact lands on "wins the ball back".
+W = "wins the ball back"
 B.append({"kicker": "The new signing", "headline": "A midfielder who [wins it back].", "cut": True, "transition": "whip", "scene": S_ETI, "accent": TEAL, "hype": False,
-  "camFrom": {"pos": [-4.2, 1.5, 1.6], "tgt": [0.6, 0.9, 6]}, "camera": {"pos": [-3.4, 1.4, 2.6], "tgt": [0.6, 0.9, 6]}, "move": 5, "moveEase": "linear",
-  "players": [P(kit=WIG, skin="#e7b593", hair="#141010", x=1.8, z=6.2, path=[[3.5, 4.2], [0.6, 6.2]], pathDur=1.6, dribble=True, action="fall", actionAt="wins the ball back", actionLag=0.1),
-              P(**IRO, x=-1.2, z=5.6, path=[[-1.6, 4.4], [0.0, 6.0]], pathDur=1.4, action="slide", dir=-1, actionAt="wins the ball back", actionLag=-0.4, label="Iroegbunam", labelDelay=0.1)],
-  "card": [{"type": "flytext", "text": "BALL-WINNER", "size": 170, "endScale": 0.6, "y": 1500, "at": "wins the ball back", "lag": 0.2, "color": TEAL, "clear": False}],
+  "camFrom": {"pos": [-6.0, 1.7, -1.6], "tgt": [0.6, 0.8, 6.2]}, "camera": {"pos": [-4.9, 1.6, -0.3], "tgt": [0.8, 0.8, 6.4]}, "move": 5, "moveEase": "linear", "punch": [{"at": W, "lag": -0.05, "amount": 0.14, "dur": 1.3, "x": 480, "y": 1060}],
+  "players": [P(kit=WIG, skin="#e7b593", hair="#141010", x=4.5, z=8.5, path=[[4.5, 8.5], [0.8, 6.6], [-2.2, 6.4]], pathDur=1.5, at=W, lag=-0.87,
+                dribble=True, dribbleUntil=0.87, hops=[{"at": W, "lag": -0.08, "dur": 0.5, "height": 0.3}]),
+              P(**IRO, x=-4.5, z=2.2, path=[[-4.5, 2.2], [-1.6, 4.4], [0.5, 6.1]], pathDur=2.4, at=W, lag=-2.1, action="slide", dir=-1, actionAt=W, actionLag=-0.4, label="Iroegbunam", labelAt=W),
+              P(kit=CITY, skin="#f0c8a8", hair="#6a4a2a", num=4, x=4.0, z=2.8, path=[[4.0, 2.8], [2.4, 4.3], [0.6, 8.0]], pathDur=1.5, at=W, lag=0.05, dribble=True, dribbleFrom=0.55)],
+  "card": [{"type": "ballpath", "world": True, "at": W, "lag": 0.0, "dur": 0.6, "slowmo": False, "flash": False, "points": [[0.27, 0.11, 6.32], [1.3, 0.16, 5.6], [2.09, 0.11, 4.93]]},
+           {"type": "flytext", "text": "BALL-WINNER", "size": 170, "endScale": 0.6, "y": 1500, "at": W, "lag": 0.2, "color": TEAL, "clear": False}],
   "shots": [{"at": "Ex-Aston Villa", "lag": -0.15, "cut": True, "transition": "whip", "whipDir": -1, "headline": "Villa. Everton. Hull. [City].", "scene": S_ETI, "lights": 0.55, "focus": 0.35,
      "camFrom": {"pos": [20, 22, -34], "tgt": [0, 0, 6]}, "camera": {"pos": [-16, 18, -28], "tgt": [0, 0, 6]}, "move": 6, "moveEase": "linear", "players": [],
      "card": [{"type": "career", "y": 1080, "delay": 0.0, "title": "Tim Iroegbunam · 23 · midfielder", "clear": False,

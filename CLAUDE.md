@@ -169,6 +169,10 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
 - **Saves are auto-timed:** with `saveBy`, the engine sets the keeper's `actionDelay` so the catch lands at full stretch (70% of the dive) and he falls holding it.
 - **Strong foot:** `"foot": "left"` mirrors the kick and keeps the dribbled ball on his left (Messi is left-footed; check this for every named player).
 - **Dribbling:** a player with `"dribble": true` runs with the ball at his feet, pushed ahead on every other stride and depth-sorted with the players.
+  `dribbleFrom` / `dribbleUntil` (seconds after his path starts) give him the ball only for part of his run. **Clean tackle (user: the tackle looked like a foul and
+  the ball vanished):** the runner has `dribbleUntil` = the moment he reaches the tackler, hurdles the leg with a `hop` and keeps running (never `fall` unless it's a foul);
+  the tackler jogs in on a `path` and `slide`s with contact on the word; a `ballpath` (`flash: false`) pokes the ball from the runner's feet into a team-mate's stride,
+  and the team-mate takes over with `dribbleFrom`. Film it side-on from 8–10 m. Example: `videos/city-league-one` beat 2.
   Use it whenever a player runs in a scene (the user asked for it).
 - **Shots must read correctly.** A goal must clearly beat the keeper (send him the wrong way, or past his fingertips); a save puts the ball into
   his gloves (`flash: false`). The ball must never pass "through" a player.

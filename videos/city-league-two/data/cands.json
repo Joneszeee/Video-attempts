@@ -1,0 +1,176 @@
+{
+ "Kelland Watts": {
+  "club": "Cambridge United",
+  "starts": 14,
+  "clean_sheets": 1,
+  "conceded_in_starts": 21,
+  "games": [
+   [
+    "2026-10-31",
+    "Leyton Orient",
+    3
+   ],
+   [
+    "2026-10-27",
+    "Sheffield Wednesday",
+    1
+   ],
+   [
+    "2026-10-24",
+    "Plymouth Argyle",
+    3
+   ],
+   [
+    "2026-10-20",
+    "Wycombe Wanderers",
+    2
+   ],
+   [
+    "2026-10-17",
+    "Barnsley",
+    1
+   ],
+   [
+    "2026-10-10",
+    "Blackpool",
+    0
+   ],
+   [
+    "2026-09-26",
+    "AFC Wimbledon",
+    1
+   ],
+   [
+    "2026-09-19",
+    "Oxford United",
+    1
+   ],
+   [
+    "2026-09-12",
+    "Reading",
+    1
+   ],
+   [
+    "2026-09-05",
+    "Burton Albion",
+    2
+   ],
+   [
+    "2026-09-01",
+    "Bradford City",
+    1
+   ],
+   [
+    "2026-08-29",
+    "Huddersfield Town",
+    2
+   ],
+   [
+    "2026-08-22",
+    "Bromley",
+    1
+   ],
+   [
+    "2026-08-15",
+    "Wigan Athletic",
+    2
+   ]
+  ]
+ },
+ "Omar Sowunmi": {
+  "club": "Bromley",
+  "starts": 11,
+  "clean_sheets": 1,
+  "conceded_in_starts": 29,
+  "games": [
+   [
+    "2026-10-27",
+    "Milton Keynes Dons",
+    4
+   ],
+   [
+    "2026-10-20",
+    "Leicester City",
+    4
+   ],
+   [
+    "2026-10-17",
+    "Stockport County",
+    1
+   ],
+   [
+    "2026-10-10",
+    "Mansfield Town",
+    2
+   ],
+   [
+    "2026-09-19",
+    "Huddersfield Town",
+    1
+   ],
+   [
+    "2026-09-12",
+    "Blackpool",
+    2
+   ],
+   [
+    "2026-09-07",
+    "AFC Wimbledon",
+    2
+   ],
+   [
+    "2026-09-01",
+    "Leyton Orient",
+    5
+   ],
+   [
+    "2026-08-29",
+    "Sheffield Wednesday",
+    7
+   ],
+   [
+    "2026-08-22",
+    "Cambridge United",
+    1
+   ],
+   [
+    "2026-08-15",
+    "Barnsley",
+    0
+   ]
+  ]
+ },
+ "Dennis Seimen": {
+  "club": "Stuttgart",
+  "starts": 5,
+  "clean_sheets": 2,
+  "conceded_in_starts": 6,
+  "games": [
+   [
+    "2026-11-07",
+    "Werder Bremen",
+    0
+   ],
+   [
+    "2026-10-31",
+    "Bayer Leverkusen",
+    2
+   ],
+   [
+    "2026-10-23",
+    "Borussia M\u00f6nchengladbach",
+    3
+   ],
+   [
+    "2026-10-17",
+    "Hamburg SV",
+    1
+   ],
+   [
+    "2026-10-10",
+    "SC Paderborn 07",
+    0
+   ]
+  ]
+ }
+}

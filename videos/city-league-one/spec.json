@@ -1732,9 +1732,9 @@
    "card": [
     {
      "type": "pcard",
-     "y": 980,
+     "y": 1010,
      "w": 300,
-     "h": 420,
+     "h": 400,
      "shiftX": -350,
      "side": "left",
      "at": "Kelland Watts",
@@ -1752,13 +1752,24 @@
      },
      "tag": "CB · Cambridge",
      "caption": "Kelland Watts",
+     "stats": [
+      [
+       2,
+       "goals"
+      ],
+      [
+       1,
+       "clean sheet"
+      ]
+     ],
+     "statsNote": "14 starts · League One",
      "clear": false
     },
     {
      "type": "pcard",
-     "y": 980,
+     "y": 1010,
      "w": 300,
-     "h": 420,
+     "h": 400,
      "shiftX": 0,
      "side": "right",
      "at": "Omar Sowunmi",
@@ -1776,13 +1787,24 @@
      },
      "tag": "CB · Bromley",
      "caption": "Omar Sowunmi",
+     "stats": [
+      [
+       1,
+       "assist"
+      ],
+      [
+       1,
+       "clean sheet"
+      ]
+     ],
+     "statsNote": "11 starts · League One",
      "clear": false
     },
     {
      "type": "pcard",
-     "y": 980,
+     "y": 1010,
      "w": 300,
-     "h": 420,
+     "h": 400,
      "shiftX": 350,
      "side": "right",
      "at": "Dennis Seimen",
@@ -1801,11 +1823,22 @@
      },
      "tag": "GK · Stuttgart",
      "caption": "Dennis Seimen",
+     "stats": [
+      [
+       2,
+       "clean sheets"
+      ],
+      [
+       3.8,
+       "saves/game"
+      ]
+     ],
+     "statsNote": "5 starts · Bundesliga",
      "clear": false
     },
     {
      "type": "poll",
-     "y": 1600,
+     "y": 1640,
      "at": "You pick",
      "lag": -0.6,
      "question": "Who should City sign?",

@@ -3345,6 +3345,21 @@ CARDS.pcard = function (c, ct, cx, cy) {
     ctx.fillStyle = c.tagColor || '#f1c453'; rrect(-w / 2 + 18, -h / 2 + 18, tw, 46, 8); ctx.fill();
     ctx.fillStyle = '#111'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(c.tag.toUpperCase(), -w / 2 + 33, -h / 2 + 42); }
   if (c.caption) { font(800, 40, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(c.caption, 0, h / 2 - 30); }
+  if (c.stats) {   // mini stat chips above the card (user: unknown players need a quick "who is he"): [[value, label], ...], top chip first
+    const n = c.stats.length;
+    c.stats.forEach(([v, lab], i) => {
+      const sk = eBack(pr(ct, (c.statsT != null ? c.statsT : 0.45) + i * 0.18, 0.35)); if (sk <= 0) return;
+      const y = -h / 2 - 34 - (n - 1 - i) * 74;
+      ctx.save(); ctx.translate(0, y); ctx.scale(sk, sk);
+      font(900, 36, 'Inter', '0px'); const vw = ctx.measureText(String(v)).width; font(800, 20, 'Mono', '2px'); const lw = ctx.measureText(lab.toUpperCase()).width;
+      const tw = Math.min(w + 30, vw + lw + 54);
+      ctx.fillStyle = 'rgba(8,10,15,0.92)'; rrect(-tw / 2, -30, tw, 60, 30); ctx.fill(); ctx.strokeStyle = c.color || '#f1c453'; ctx.lineWidth = 3; ctx.stroke();
+      ctx.textBaseline = 'middle'; ctx.textAlign = 'left'; font(900, 36, 'Inter', '0px'); ctx.fillStyle = c.color || '#f1c453'; ctx.fillText(String(v), -tw / 2 + 20, 2);
+      font(800, 20, 'Mono', '2px'); ctx.fillStyle = '#e8e8ea'; ctx.fillText(lab.toUpperCase(), -tw / 2 + 32 + vw, 2);
+      ctx.restore();
+    });
+    if (c.statsNote) { font(600, 18, 'Mono', '2px'); ctx.fillStyle = 'rgba(255,255,255,0.75)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.statsNote.toUpperCase(), 0, h / 2 + 36); }
+  }
   ctx.restore();
 };
 CARDS.pcard.noSlide = true;

@@ -364,6 +364,8 @@ Built so far from the idea list (reuse them):
   green (`good`) or red. Great for "what changed" tactics stories.
 - **Drawn player card** (backlog item, built): the `pcard` card. A gold-framed trading card with the player drawn chest-up and a tag strip ("MALEN · 17' PEN");
   `player`, `tag`, `side`, `shiftX`, `w`, `h`. We never use real photos in the video.
+  `stats: [[value, label], ...]` adds mini stat chips over his head (user: lesser-known players need a quick "who is he"; real, current stats only:
+  defenders clean sheets + goals/assists, strikers goals + assists, keepers clean sheets + saves per game), `statsNote` ("14 starts · League One") under the card.
 - **Yellow card:** the `redcard` card with `"color": "#f7d117"` (then `hideAt` and a red one for a second yellow).
 - **Kit clash check:** when two teams' kits are close (United red v Roma maroon), use the away kit they actually wore (Roma played in black).
 - **Hooped kits:** `kit.hoops: [c1, c2]` gives horizontal bands (QPR, Celtic).

@@ -159,17 +159,21 @@ B.append({"kicker": "January transfer window", "headline": "The window's open. [
            {"type": "stamp", "text": "NEED: DEFENDER", "sub": "22nd for goals conceded", "at": "City need a defender", "lag": -0.1, "color": RED, "rot": -0.06, "size": 70, "y": 1700}]})
 
 # 11 the vote: three real candidates, then the poll
-def cand(name, tag, kit, sx, word, gk=False):
+def cand(name, tag, kit, sx, word, stats, note, gk=False):
+    """A candidate card with real stats this season (ESPN; clean sheets counted from his starts) in chips over his head."""
     pl = dict(kit=kit, skin="#e7b593", hair="#2a1a10", name="")
     if gk: pl.update(gloves="#f2f2f2")
-    return {"type": "pcard", "y": 980, "w": 300, "h": 420, "shiftX": sx, "side": "left" if sx < 0 else "right", "at": word, "lag": -0.1, "player": pl, "tag": tag, "caption": name, "clear": False}
+    return {"type": "pcard", "y": 1010, "w": 300, "h": 400, "shiftX": sx, "side": "left" if sx < 0 else "right", "at": word, "lag": -0.1, "player": pl, "tag": tag, "caption": name,
+            "stats": stats, "statsNote": note, "clear": False}
 CAM = {"shirt": "#f5a12d", "shorts": "#111111", "socks": "#f5a12d", "text": "#111111"}
 BRO = {"shirt": "#ffffff", "shorts": "#111111", "socks": "#ffffff", "text": "#111111"}
 VFB = {"shirt": "#2e2e33", "shorts": "#2e2e33", "socks": "#2e2e33", "text": "#ffffff"}
 B.append({"kicker": "Your vote · episode 3", "headline": "Who should City [sign]?", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_ETI, "accent": TEAL, "lights": 0.6, "focus": 0.3,
   "camFrom": {"pos": [0, 1.6, -3.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0, 1.6, -1.8], "tgt": [0, 1.3, 10]}, "move": 4, "moveEase": "linear", "players": [],
-  "card": [cand("Kelland Watts", "CB · Cambridge", CAM, -350, "Kelland Watts"), cand("Omar Sowunmi", "CB · Bromley", BRO, 0, "Omar Sowunmi"), cand("Dennis Seimen", "GK · Stuttgart", VFB, 350, "Dennis Seimen", gk=True),
-           {"type": "poll", "y": 1600, "at": "You pick", "lag": -0.6, "question": "Who should City sign?", "options": [{"label": "Watts", "color": "#f5a12d", "fill": 0.34}, {"label": "Sowunmi", "color": "#9aa1ad", "fill": 0.33}, {"label": "Seimen", "color": "#2e2e33", "fill": 0.33}]}]})
+  "card": [cand("Kelland Watts", "CB · Cambridge", CAM, -350, "Kelland Watts", [[2, "goals"], [1, "clean sheet"]], "14 starts · League One"),
+           cand("Omar Sowunmi", "CB · Bromley", BRO, 0, "Omar Sowunmi", [[1, "assist"], [1, "clean sheet"]], "11 starts · League One"),
+           cand("Dennis Seimen", "GK · Stuttgart", VFB, 350, "Dennis Seimen", [[2, "clean sheets"], [3.8, "saves/game"]], "5 starts · Bundesliga", gk=True),
+           {"type": "poll", "y": 1640, "at": "You pick", "lag": -0.6, "question": "Who should City sign?", "options": [{"label": "Watts", "color": "#f5a12d", "fill": 0.34}, {"label": "Sowunmi", "color": "#9aa1ad", "fill": 0.33}, {"label": "Seimen", "color": "#2e2e33", "fill": 0.33}]}]})
 
 for b, v in zip(B, lines): b["vo"] = v
 assert len(B) == len(lines) == 11

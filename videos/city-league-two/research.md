@@ -54,3 +54,31 @@ Fixtures: a double round robin with alternating home and away (the first try had
 - The model rates players by tier, not individually; under-21 players are rated from Premier League U21 sides' real EFL Trophy results.
 - Club ratings come from 13–15 games this season plus last season; League Two promoted sides have less data.
 - The official season is one of the 10,000: the odds say City win the league nine times in ten.
+
+# Episode 2: League One 2027/28, matchdays 1–23
+
+## The signing (comment vote, ignore the budget)
+- Tim Iroegbunam: midfielder, Hull City (Premier League); joined Hull from Everton on 1 Sept 2026. 2026/27 so far: 1 goal (ESPN: 3 starts, 4 sub apps; FotMob: 7 apps, 289 min).
+- Voters: lvp_davie's comment "Tim Iroegbunam or Tom Fellows" (4 likes) and their reply "Iroegbunam" when asked to pick one.
+
+## Model (data/l1model.py, data/sim_l1.py)
+- League One clubs rated from real results (2026/27 full weight, 2025/26 half). City, Grimsby and Barnet (promoted with them in episode 1) replace the real bottom three (Bromley, Barnsley, Peterborough, 19 Nov 2026).
+- Grimsby and Barnet moved onto the League One scale with 308 real League One v League Two games (cups + EFL Trophy): League One sides win those 1.73–1.27.
+- City tiers v an average League One side: first-team level from 151 Premier League v League One cup games (2.43–0.87), shrunk with City's own 8 (33–4).
+  Iroegbunam at the Premier League average level. Under-21s from 102 EFL Trophy games v League One clubs (1.42–2.66); **they improve a little:
+  20% of the way (log scale) toward an average League One player** (user: "kids improve a little"). The four League Two signings at a top-half League Two level.
+- City with everyone fit: 2.15 for, 1.26 against per game v an average League One side.
+
+## 10,000 seasons (full League One season)
+- With Iroegbunam: champions 35.6%, top two 57.6%, play-offs 32.9%, **promoted 69.5%**, average 84 points.
+- Without him (an under-21 in his place): champions 19.9%, promoted 51.0%, 79 points. **He adds about 5 points and 18 points of promotion chance.**
+
+## The official season, matchdays 1–23 (seed 2027, fixed before running)
+- Matchday 1: Wigan 1–2 City. Matchday 2: City 3–4 Leicester. Matchday 6: City 0–4 Huddersfield (no Haaland), 17th.
+- Matchday 12: Grimsby 1–2 City. Matchday 13: City 5–0 Wimbledon (Haaland hat-trick). **Matchday 15: City 3–4 Barnet.**
+- Matchday 19: City 0–3 Oxford (the leaders). Matchday 20: City 5–3 Luton.
+- **At the halfway point: City 12th, 32 points (W9 D5 L9), 43 scored (2nd most), 43 conceded (4th most: 21st of 24 for goals against).**
+  Four points off the play-offs (Bradford, 6th, 36). Leaders Oxford on 45. Haaland 18 goals.
+- From here (10,000 runs of the second half): promoted 37.9% (top two 19.9%, play-offs 47.8%), champions 4.3%.
+- Weak spot: defence. Mid-season vote shortlist: Kelland Watts (CB, Cambridge United; PFA League Two Team of the Year 2025/26), Omar Sowunmi
+  (CB, Bromley; PFA League Two Team of the Year 2025/26), Dennis Seimen (GK, VfB Stuttgart; a commenter's pick; spent 2025/26 on loan at Paderborn).

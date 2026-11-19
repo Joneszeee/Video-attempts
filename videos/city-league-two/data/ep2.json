@@ -1,0 +1,611 @@
+{
+ "seed": 2027,
+ "out": [
+  "Bromley",
+  "Barnsley",
+  "Peterborough United"
+ ],
+ "pre": {
+  "title": 0.3555,
+  "auto": 0.5762,
+  "playoffs": 0.3285,
+  "promoted": 0.6954,
+  "avg_pts": 84.0208,
+  "pts_10_90": [
+   73,
+   95
+  ],
+  "pos": {
+   "1": 0.3555,
+   "2": 0.2207,
+   "3": 0.1337,
+   "4": 0.0919,
+   "5": 0.0628,
+   "6": 0.0401,
+   "7": 0.0302,
+   "8": 0.0199,
+   "9": 0.0144,
+   "10": 0.0104,
+   "11": 0.0054,
+   "12": 0.0053,
+   "13": 0.0028,
+   "14": 0.0025,
+   "15": 0.0019,
+   "16": 0.0009,
+   "17": 0.0009,
+   "18": 0.0004,
+   "19": 0.0003
+  }
+ },
+ "pre_without_iroegbunam": {
+  "title": 0.19875,
+  "auto": 0.3795,
+  "playoffs": 0.39775,
+  "promoted": 0.51,
+  "avg_pts": 79.312,
+  "pts_10_90": [
+   68,
+   91
+  ],
+  "pos": {
+   "1": 0.19875,
+   "2": 0.18075,
+   "3": 0.1455,
+   "4": 0.1045,
+   "5": 0.0775,
+   "6": 0.07025,
+   "7": 0.05175,
+   "8": 0.044,
+   "9": 0.02975,
+   "10": 0.025,
+   "11": 0.01725,
+   "12": 0.01675,
+   "13": 0.009,
+   "14": 0.00775,
+   "15": 0.008,
+   "16": 0.005,
+   "17": 0.004,
+   "18": 0.00175,
+   "19": 0.0005,
+   "20": 0.00175,
+   "21": 0.00025,
+   "22": 0.00025
+  }
+ },
+ "log": [
+  {
+   "md": 1,
+   "opp": "Wigan Athletic",
+   "venue": "A",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 0,
+   "pos": 6,
+   "pts": 3
+  },
+  {
+   "md": 2,
+   "opp": "Leicester City",
+   "venue": "H",
+   "score": "3-4",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 1,
+   "pos": 12,
+   "pts": 3
+  },
+  {
+   "md": 3,
+   "opp": "Wycombe Wanderers",
+   "venue": "A",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 1,
+   "pos": 14,
+   "pts": 4
+  },
+  {
+   "md": 4,
+   "opp": "Doncaster Rovers",
+   "venue": "H",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 1,
+   "pos": 6,
+   "pts": 7
+  },
+  {
+   "md": 5,
+   "opp": "Stevenage",
+   "venue": "A",
+   "score": "0-3",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 1,
+   "pos": 16,
+   "pts": 7
+  },
+  {
+   "md": 6,
+   "opp": "Huddersfield Town",
+   "venue": "H",
+   "score": "0-4",
+   "res": "L",
+   "haaland": false,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 1,
+   "pos": 17,
+   "pts": 7
+  },
+  {
+   "md": 7,
+   "opp": "Notts County",
+   "venue": "A",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 2,
+   "pos": 19,
+   "pts": 8
+  },
+  {
+   "md": 8,
+   "opp": "MK Dons",
+   "venue": "A",
+   "score": "3-1",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 1,
+   "hg_total": 3,
+   "pos": 16,
+   "pts": 11
+  },
+  {
+   "md": 9,
+   "opp": "Plymouth Argyle",
+   "venue": "H",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 2,
+   "hg_total": 5,
+   "pos": 10,
+   "pts": 14
+  },
+  {
+   "md": 10,
+   "opp": "Reading",
+   "venue": "A",
+   "score": "1-2",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 5,
+   "pos": 16,
+   "pts": 14
+  },
+  {
+   "md": 11,
+   "opp": "Leyton Orient",
+   "venue": "H",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 6,
+   "pos": 17,
+   "pts": 15
+  },
+  {
+   "md": 12,
+   "opp": "Grimsby Town",
+   "venue": "A",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 7,
+   "pos": 12,
+   "pts": 18
+  },
+  {
+   "md": 13,
+   "opp": "Wimbledon",
+   "venue": "H",
+   "score": "5-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 3,
+   "hg_total": 10,
+   "pos": 7,
+   "pts": 21
+  },
+  {
+   "md": 14,
+   "opp": "Stockport County",
+   "venue": "A",
+   "score": "2-4",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 11,
+   "pos": 12,
+   "pts": 21
+  },
+  {
+   "md": 15,
+   "opp": "Barnet",
+   "venue": "H",
+   "score": "3-4",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 11,
+   "pos": 15,
+   "pts": 21
+  },
+  {
+   "md": 16,
+   "opp": "Bradford City",
+   "venue": "A",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 13,
+   "pos": 9,
+   "pts": 24
+  },
+  {
+   "md": 17,
+   "opp": "Burton Albion",
+   "venue": "H",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 13,
+   "pos": 8,
+   "pts": 25
+  },
+  {
+   "md": 18,
+   "opp": "Blackpool",
+   "venue": "A",
+   "score": "2-3",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 15,
+   "pos": 13,
+   "pts": 25
+  },
+  {
+   "md": 19,
+   "opp": "Oxford United",
+   "venue": "H",
+   "score": "0-3",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 15,
+   "pos": 14,
+   "pts": 25
+  },
+  {
+   "md": 20,
+   "opp": "Luton Town",
+   "venue": "H",
+   "score": "5-3",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 2,
+   "hg_total": 17,
+   "pos": 12,
+   "pts": 28
+  },
+  {
+   "md": 21,
+   "opp": "Sheffield Wednesday",
+   "venue": "A",
+   "score": "0-1",
+   "res": "L",
+   "haaland": false,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 17,
+   "pos": 14,
+   "pts": 28
+  },
+  {
+   "md": 22,
+   "opp": "Mansfield Town",
+   "venue": "H",
+   "score": "3-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 18,
+   "pos": 12,
+   "pts": 31
+  },
+  {
+   "md": 23,
+   "opp": "Cambridge United",
+   "venue": "A",
+   "score": "2-2",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 18,
+   "pos": 12,
+   "pts": 32
+  }
+ ],
+ "haaland": 18,
+ "table_md23": [
+  [
+   1,
+   "Oxford United",
+   45,
+   47,
+   26
+  ],
+  [
+   2,
+   "Reading",
+   41,
+   36,
+   25
+  ],
+  [
+   3,
+   "Wycombe Wanderers",
+   39,
+   41,
+   27
+  ],
+  [
+   4,
+   "Plymouth Argyle",
+   39,
+   34,
+   30
+  ],
+  [
+   5,
+   "Sheffield Wednesday",
+   37,
+   30,
+   21
+  ],
+  [
+   6,
+   "Bradford City",
+   36,
+   20,
+   11
+  ],
+  [
+   7,
+   "Leyton Orient",
+   35,
+   33,
+   26
+  ],
+  [
+   8,
+   "Leicester City",
+   34,
+   38,
+   31
+  ],
+  [
+   9,
+   "Stockport County",
+   34,
+   28,
+   25
+  ],
+  [
+   10,
+   "Huddersfield Town",
+   33,
+   32,
+   30
+  ],
+  [
+   11,
+   "Stevenage",
+   33,
+   25,
+   23
+  ],
+  [
+   12,
+   "Manchester City",
+   32,
+   43,
+   43
+  ],
+  [
+   13,
+   "Grimsby Town",
+   32,
+   41,
+   46
+  ],
+  [
+   14,
+   "Luton Town",
+   31,
+   36,
+   34
+  ],
+  [
+   15,
+   "MK Dons",
+   30,
+   35,
+   33
+  ],
+  [
+   16,
+   "Burton Albion",
+   30,
+   26,
+   32
+  ],
+  [
+   17,
+   "Barnet",
+   30,
+   37,
+   44
+  ],
+  [
+   18,
+   "Blackpool",
+   30,
+   28,
+   35
+  ],
+  [
+   19,
+   "Mansfield Town",
+   27,
+   34,
+   33
+  ],
+  [
+   20,
+   "Cambridge United",
+   26,
+   28,
+   28
+  ],
+  [
+   21,
+   "Wimbledon",
+   21,
+   26,
+   44
+  ],
+  [
+   22,
+   "Wigan Athletic",
+   18,
+   26,
+   41
+  ],
+  [
+   23,
+   "Notts County",
+   16,
+   20,
+   38
+  ],
+  [
+   24,
+   "Doncaster Rovers",
+   16,
+   19,
+   37
+  ]
+ ],
+ "city_gf_rank": 2,
+ "city_ga_rank": 21,
+ "half_odds": {
+  "title": 0.0427,
+  "auto": 0.1985,
+  "playoffs": 0.4783,
+  "promoted": 0.3793,
+  "avg_pts": 74.2544,
+  "pts_10_90": [
+   66,
+   82
+  ],
+  "pos": {
+   "1": 0.0427,
+   "2": 0.1558,
+   "3": 0.1459,
+   "4": 0.1288,
+   "5": 0.1133,
+   "6": 0.0903,
+   "7": 0.0748,
+   "8": 0.0637,
+   "9": 0.0426,
+   "10": 0.0368,
+   "11": 0.0284,
+   "12": 0.0238,
+   "13": 0.0187,
+   "14": 0.0127,
+   "15": 0.0095,
+   "16": 0.0053,
+   "17": 0.0034,
+   "18": 0.002,
+   "19": 0.001,
+   "20": 0.0004,
+   "21": 0.0001
+  }
+ },
+ "model": {
+  "full": [
+   2.1511388469059054,
+   1.2631069309728644
+  ],
+  "no_haaland": [
+   1.793449452201038,
+   1.2631069309728644
+  ],
+  "tiers": {
+   "city": [
+    3.08253605427526,
+    0.6964906361227534
+   ],
+   "pl": [
+    2.4262228488909328,
+    0.850909644652534
+   ],
+   "u21": [
+    1.3980409532087512,
+    2.305191061400673
+   ],
+   "l2": [
+    1.3661125963928364,
+    1.6118185532518796
+   ]
+  }
+ }
+}

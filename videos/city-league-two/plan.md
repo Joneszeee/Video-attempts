@@ -16,3 +16,9 @@ Everyone else goes. They get a League Two budget and buy real League Two players
 - Every episode opens with a 3-second recap for new viewers ("Season 2: City are in League One, Haaland's on 41 goals").
 - Reuse the Bruno simulation kit (simhud, simrun, odds, glitch); build a small League Two ground (low stands, terraces) and the backlog's league-table climb.
 - Hook angle candidates: the 115 charges link; "Haaland in League Two"; "City's kids v League Two".
+
+## Episode 2 signing vote (from comments)
+- Tim Iroegbunam: 4 votes (leading, per the user, 19 Nov 2026)
+- Tom Fellows 1, James Gibbons 1, Dennis Seimen 1, Mo Salah 1 (joke)
+- Before building ep. 2: check Iroegbunam's current club and realistic fee/wages v a League One budget (could be a plot point).
+- Also fix: name label sat under the LEAGUE TWO stamp in ep. 1 frame 1 (keep labels clear of stamps in the engine).

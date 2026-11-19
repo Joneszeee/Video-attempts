@@ -355,6 +355,10 @@ Built so far from the idea list (reuse them):
   - **Odds grid:** the `odds` card. 100 squares tile in; on `litAt` the first `lit` (scattered) glow green one by one and the rest go dull red; `label` ("{n} in 100").
   - **Substitution board:** the `subboard` card. The fourth official's LED board rises: red `out: {num, name}`, then green `in: {num, name}` lights on `swapAt`.
   - `tape` now takes `decimals` (for rates like 0.78 per 90).
+- **League Two ground** (built for `videos/city-league-two`): scene `"ground": "small"` on a stadium. Four separate low stands with roofs on posts, an open
+  terrace with crush barriers behind the far goal, gaps at the corners, four corner floodlight pylons, advertising boards (`boards: [colours]`), and a ring of
+  terraced houses with chimneys and lit windows behind (small-town skyline). `density` (crowd fill, default 0.62). Use it for lower-league clubs and to show a
+  big club's fall. Test spec: `videos/_test-ground`.
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.
 - **Half-time swing:** the `swing` card. Rows `[{label, from, to, at, decimals, good}]`: 1st-half number on the left, an arrow draws, the 2nd-half number counts and glows
   green (`good`) or red. Great for "what changed" tactics stories.

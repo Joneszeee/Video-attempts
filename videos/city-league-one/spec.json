@@ -1,0 +1,1834 @@
+{
+ "title": "Man City in League Two · Episode 2",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Man City in League Two · Episode 2",
+   "headline": "You picked him: [Iroegbunam signed].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.7,
+   "flashes": 10,
+   "focus": 0.2,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -1.4
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "comments",
+     "y": 1500,
+     "delay": -0.6,
+     "step": 0.35,
+     "clear": false,
+     "items": [
+      {
+       "text": "lvp_davie: Iroegbunam or Fellows · 4 likes",
+       "x": -40,
+       "y": 1560,
+       "color": "#7a7f8c",
+       "t": 0
+      },
+      {
+       "text": "theo6k: Pick ONE. Which is it?",
+       "x": 30,
+       "y": 1680,
+       "color": "#1d4fb8",
+       "t": 0.3
+      },
+      {
+       "text": "lvp_davie: Iroegbunam",
+       "x": -80,
+       "y": 1800,
+       "color": "#7a7f8c",
+       "t": 0.6
+      }
+     ]
+    },
+    {
+     "type": "shirtflip",
+     "y": 900,
+     "delay": -0.2,
+     "size": 470,
+     "from": {
+      "color": "#f5a12d",
+      "color2": "#111111",
+      "name": "HULL CITY"
+     },
+     "to": {
+      "color": "#6cabdd",
+      "color2": "#1c2c5b",
+      "name": "IROEGBUNAM"
+     },
+     "flipAt": "City signed him",
+     "flipLag": -0.25,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "SIGNED",
+     "sub": "your vote · episode 2",
+     "at": "Tim Iroegbunam",
+     "lag": -0.1,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 110,
+     "y": 610
+    }
+   ],
+   "shake": [
+    {
+     "at": "Tim Iroegbunam",
+     "lag": 0.0,
+     "amount": 14
+    }
+   ],
+   "vo": "You picked him. City signed him. Tim Iroegbunam."
+  },
+  {
+   "kicker": "The new signing",
+   "headline": "A midfielder who [wins it back].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     -4.2,
+     1.5,
+     1.6
+    ],
+    "tgt": [
+     0.6,
+     0.9,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.4,
+     1.4,
+     2.6
+    ],
+    "tgt": [
+     0.6,
+     0.9,
+     6
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1d4fb8",
+      "shorts": "#ffffff",
+      "socks": "#1d4fb8",
+      "text": "#ffffff",
+      "stripes": [
+       "#1d4fb8",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 1.8,
+     "z": 6.2,
+     "path": [
+      [
+       3.5,
+       4.2
+      ],
+      [
+       0.6,
+       6.2
+      ]
+     ],
+     "pathDur": 1.6,
+     "dribble": true,
+     "action": "fall",
+     "actionAt": "wins the ball back",
+     "actionLag": 0.1
+    },
+    {
+     "name": "IROEGBUNAM",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -1.2,
+     "z": 5.6,
+     "path": [
+      [
+       -1.6,
+       4.4
+      ],
+      [
+       0.0,
+       6.0
+      ]
+     ],
+     "pathDur": 1.4,
+     "action": "slide",
+     "dir": -1,
+     "actionAt": "wins the ball back",
+     "actionLag": -0.4,
+     "label": "Iroegbunam",
+     "labelDelay": 0.1
+    }
+   ],
+   "card": [
+    {
+     "type": "flytext",
+     "text": "BALL-WINNER",
+     "size": 170,
+     "endScale": 0.6,
+     "y": 1500,
+     "at": "wins the ball back",
+     "lag": 0.2,
+     "color": "#3FE0C5",
+     "clear": false
+    }
+   ],
+   "shots": [
+    {
+     "at": "Ex-Aston Villa",
+     "lag": -0.15,
+     "cut": true,
+     "transition": "whip",
+     "whipDir": -1,
+     "headline": "Villa. Everton. Hull. [City].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#6cabdd",
+       "#ffffff",
+       "#6cabdd",
+       "#1c2c5b"
+      ],
+      "seed": 6
+     },
+     "lights": 0.55,
+     "focus": 0.35,
+     "camFrom": {
+      "pos": [
+       20,
+       22,
+       -34
+      ],
+      "tgt": [
+       0,
+       0,
+       6
+      ]
+     },
+     "camera": {
+      "pos": [
+       -16,
+       18,
+       -28
+      ],
+      "tgt": [
+       0,
+       0,
+       6
+      ]
+     },
+     "move": 6,
+     "moveEase": "linear",
+     "players": [],
+     "card": [
+      {
+       "type": "career",
+       "y": 1080,
+       "delay": 0.0,
+       "title": "Tim Iroegbunam · 23 · midfielder",
+       "clear": false,
+       "items": [
+        {
+         "name": "Aston Villa",
+         "sub": "academy",
+         "color": "#670e36",
+         "result": "DEBUT",
+         "good": true,
+         "at": "Ex-Aston Villa",
+         "lag": -0.1
+        },
+        {
+         "name": "Everton",
+         "sub": "Premier League",
+         "color": "#003399",
+         "result": "PL",
+         "good": true,
+         "at": "and Everton"
+        },
+        {
+         "name": "Hull City",
+         "sub": "2026",
+         "color": "#f5a12d",
+         "result": "PL",
+         "good": true,
+         "at": "now at Hull"
+        },
+        {
+         "name": "Man City",
+         "sub": "League One",
+         "color": "#6cabdd",
+         "result": "SIGNED",
+         "good": true,
+         "at": "European champion",
+         "lag": 0.3
+        }
+       ]
+      },
+      {
+       "type": "stamp",
+       "text": "U19 EURO CHAMPION",
+       "sub": "England · 2022",
+       "at": "European champion",
+       "lag": -0.1,
+       "color": "#e9b949",
+       "rot": -0.06,
+       "size": 64,
+       "y": 1740
+      }
+     ]
+    }
+   ],
+   "vo": "Twenty-three. A defensive midfielder who wins the ball back. Ex-Aston Villa and Everton, now at Hull. And an under-nineteen European champion with England."
+  },
+  {
+   "kicker": "The League One XI",
+   "headline": "Straight in. [Fapetu benched].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#e9b949",
+   "lights": 0.55,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     -30,
+     26,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     24,
+     20,
+     -34
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "lineup",
+     "y": 1150,
+     "delay": 0.0,
+     "w": 720,
+     "title": "City · League One XI",
+     "clear": false,
+     "items": [
+      {
+       "name": "Haaland",
+       "x": 0.5,
+       "y": 0.12,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "Foden",
+       "x": 0.5,
+       "y": 0.32,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "R. Lewis",
+       "x": 0.86,
+       "y": 0.66,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "O'Reilly",
+       "x": 0.14,
+       "y": 0.66,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "McAidoo",
+       "x": 0.82,
+       "y": 0.3,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "T. Samba",
+       "x": 0.18,
+       "y": 0.3,
+       "color": "#6cabdd"
+      },
+      {
+       "name": "Braybrooke",
+       "x": 0.65,
+       "y": 0.5,
+       "color": "#9aa1ad"
+      },
+      {
+       "name": "Fitzwater",
+       "x": 0.36,
+       "y": 0.72,
+       "color": "#9aa1ad"
+      },
+      {
+       "name": "Scarr",
+       "x": 0.64,
+       "y": 0.72,
+       "color": "#9aa1ad"
+      },
+      {
+       "name": "Hudson",
+       "x": 0.5,
+       "y": 0.9,
+       "color": "#9aa1ad"
+      },
+      {
+       "name": "Iroegbunam",
+       "x": 0.35,
+       "y": 0.5,
+       "color": "#e9b949",
+       "at": "next to Braybrooke",
+       "lag": -0.2
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "BENCHED",
+     "sub": "Oluwafemi Fapetu",
+     "at": "Fapetu drops",
+     "lag": 0.0,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 70,
+     "y": 1700
+    }
+   ],
+   "shots": [
+    {
+     "at": "Haaland, Foden",
+     "lag": -0.2,
+     "cut": true,
+     "transition": "whip",
+     "headline": "The stars stay. [Kids +1 year].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#6cabdd",
+       "#ffffff",
+       "#6cabdd",
+       "#1c2c5b"
+      ],
+      "seed": 6
+     },
+     "lights": 0.85,
+     "camFrom": {
+      "pos": [
+       0,
+       1.5,
+       -3.2
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.5,
+       -1.8
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "move": 5,
+     "moveEase": "linear",
+     "players": [
+      {
+       "name": "HAALAND",
+       "num": 9,
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#f1d3bd",
+       "hair": "#d9b46a",
+       "x": 0,
+       "z": 3.6,
+       "front": true,
+       "pose": "fists",
+       "label": "Haaland",
+       "labelAt": "Haaland"
+      },
+      {
+       "name": "FODEN",
+       "num": 47,
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#3a2a1a",
+       "x": -1.4,
+       "z": 4.4,
+       "front": true,
+       "label": "Foden",
+       "labelAt": "Foden"
+      },
+      {
+       "name": "",
+       "num": 82,
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "x": 1.5,
+       "z": 4.4,
+       "front": true,
+       "label": "Lewis",
+       "labelAt": "Lewis"
+      },
+      {
+       "name": "",
+       "num": 33,
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#6a4a2a",
+       "x": 2.9,
+       "z": 5.6,
+       "front": true,
+       "label": "O'Reilly",
+       "labelAt": "O'Reilly"
+      }
+     ],
+     "card": [
+      {
+       "type": "flytext",
+       "text": "+1 YEAR",
+       "size": 200,
+       "endScale": 0.65,
+       "y": 1560,
+       "at": "a year better",
+       "lag": -0.2,
+       "color": "#3FE0C5",
+       "clear": false
+      }
+     ]
+    }
+   ],
+   "vo": "He goes straight into the team, next to Braybrooke. Fapetu drops to the bench. Haaland, Foden, Lewis and O'Reilly stay… and the kids are a year better."
+  },
+  {
+   "kicker": "League One · Matchdays 1–2",
+   "headline": "Then [Leicester win 4–3].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "PLAY",
+   "vhsDur": 0.9,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#ff4d5e",
+   "camFrom": {
+    "pos": [
+     7.5,
+     2.5,
+     35.5
+    ],
+    "tgt": [
+     -0.5,
+     1.2,
+     50
+    ]
+   },
+   "camera": {
+    "pos": [
+     6.5,
+     2.3,
+     38.5
+    ],
+    "tgt": [
+     -0.5,
+     1.2,
+     50
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "follow": 0.3,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#003090",
+      "shorts": "#ffffff",
+      "socks": "#003090",
+      "text": "#fdbe11"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -1.0,
+     "z": 41,
+     "action": "kick",
+     "actionAt": "four–three",
+     "actionLag": -0.9,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.4
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "four–three",
+     "actionLag": -0.45
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -2.9,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "four–three",
+     "actionLag": -0.75,
+     "actionDur": 0.7
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.78,
+      0.11,
+      41.45
+     ],
+     "untilAt": "four–three",
+     "untilLag": -0.56
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "four–three",
+     "lag": -0.56,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -0.78,
+       0.11,
+       41.45
+      ],
+      [
+       0.9,
+       0.9,
+       47
+      ],
+      [
+       2.8,
+       0.9,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "WIG",
+      "color": "#1d4fb8"
+     },
+     "away": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "score": [
+      1,
+      2
+     ],
+     "min": "90'",
+     "clear": false,
+     "from": [
+      1,
+      1
+     ],
+     "goalAt": "win at Wigan",
+     "goalLag": -0.2,
+     "hideAt": "Then Leicester",
+     "hideLag": -0.1
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "LEI",
+      "color": "#003090"
+     },
+     "score": [
+      3,
+      4
+     ],
+     "min": "89'",
+     "clear": false,
+     "from": [
+      3,
+      3
+     ],
+     "goalAt": "four–three",
+     "goalLag": -0.5,
+     "at": "Then Leicester",
+     "lag": -0.1
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 2 · League One",
+     "dur": 0,
+     "clear": false,
+     "y": 1720
+    }
+   ],
+   "vo": "Opening day: a win at Wigan. Then Leicester come to City… and win four–three."
+  },
+  {
+   "kicker": "Matchday 6 · at home",
+   "headline": "Huddersfield: [4–0]. City 17th.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.45,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     14,
+     12,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "camera": {
+    "pos": [
+     -14,
+     9,
+     -18
+    ],
+    "tgt": [
+     0,
+     0,
+     8
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 600,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "HUD",
+      "color": "#0e63ad"
+     },
+     "score": [
+      0,
+      4
+     ],
+     "min": "90'",
+     "clear": false
+    },
+    {
+     "type": "sinking",
+     "y": 1180,
+     "delay": 0.0,
+     "badge": {
+      "colors": [
+       "#6cabdd",
+       "#1c2c5b",
+       "#ffffff"
+      ],
+      "text": "MCFC"
+     },
+     "label": "City · goals conceded",
+     "w": 460,
+     "h": 480,
+     "badgeH": 200,
+     "clear": false,
+     "steps": [
+      {
+       "at": "Huddersfield",
+       "lag": -0.2
+      },
+      {
+       "at": "Huddersfield",
+       "lag": 0.3
+      },
+      {
+       "at": "win four–nil",
+       "lag": -0.2
+      },
+      {
+       "at": "win four–nil",
+       "lag": 0.3
+      }
+     ]
+    },
+    {
+     "type": "big",
+     "at": "seventeenth",
+     "lag": -0.4,
+     "from": 6,
+     "value": 17,
+     "countDur": 0.5,
+     "suffix": "th",
+     "label": "in League One",
+     "y": 1640,
+     "size": 140,
+     "style": "accent",
+     "clear": false
+    }
+   ],
+   "vo": "Matchday six: Huddersfield win four–nil. City are seventeenth."
+  },
+  {
+   "kicker": "Matchdays 12–13",
+   "headline": "Haaland hat-trick: [5–0] Barnet.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#e9b949",
+   "camFrom": {
+    "pos": [
+     -4.2,
+     2.2,
+     32
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.6,
+     1.9,
+     34.7
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": -1.2,
+     "z": 41,
+     "action": "kick",
+     "actionAt": "hat-trick",
+     "actionLag": -0.3,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "label": "Haaland",
+     "labelDelay": 0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "hat-trick",
+     "actionLag": 0.15000000000000002
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f08a1d",
+      "shorts": "#111111",
+      "socks": "#f08a1d",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 0.7,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "hat-trick",
+     "actionLag": -0.15,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f08a1d",
+      "shorts": "#111111",
+      "socks": "#f08a1d",
+      "text": "#111111"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -2.2399999999999998,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "flashes": 12,
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.98,
+      0.11,
+      41.45
+     ],
+     "untilAt": "hat-trick",
+     "untilLag": 0.040000000000000036
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "hat-trick",
+     "lag": 0.040000000000000036,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -0.98,
+       0.11,
+       41.45
+      ],
+      [
+       0.9099999999999999,
+       0.9,
+       46.875
+      ],
+      [
+       2.8,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "GRI",
+      "color": "#f2f2f2"
+     },
+     "away": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "score": [
+      1,
+      2
+     ],
+     "min": "FT",
+     "clear": false,
+     "hideAt": "hat-trick",
+     "hideLag": -0.6
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "BAR",
+      "color": "#f08a1d"
+     },
+     "score": [
+      5,
+      0
+     ],
+     "min": "84'",
+     "clear": false,
+     "from": [
+      4,
+      0
+     ],
+     "goalAt": "hat-trick",
+     "goalLag": 0.25,
+     "at": "hat-trick",
+     "lag": -0.6
+    },
+    {
+     "type": "big",
+     "y": 1600,
+     "at": "hat-trick",
+     "lag": 0.2,
+     "from": 0,
+     "value": 3,
+     "countDur": 0.6,
+     "label": "Haaland goals",
+     "size": 170,
+     "clear": false
+    }
+   ],
+   "vo": "Then a win at Grimsby… and Haaland scores a hat-trick against Barnet. Five–nil."
+  },
+  {
+   "kicker": "Matchday 15 · at home",
+   "headline": "Stockley hat-trick. [City 3–4].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "PROBLEM",
+   "vhsDur": 0.9,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#ff4d5e",
+   "hype": false,
+   "flashes": 8,
+   "camFrom": {
+    "pos": [
+     -13,
+     2.6,
+     22
+    ],
+    "tgt": [
+     -2,
+     1.2,
+     40
+    ]
+   },
+   "camera": {
+    "pos": [
+     -12,
+     2.4,
+     25
+    ],
+    "tgt": [
+     -2,
+     1.4,
+     44
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "STOCKLEY",
+     "num": 9,
+     "kit": {
+      "shirt": "#1f3f8f",
+      "shorts": "#1f3f8f",
+      "socks": "#f7d117",
+      "text": "#f7d117"
+     },
+     "skin": "#e7b593",
+     "hair": "#1a1210",
+     "x": -6.7,
+     "z": 27.0,
+     "action": "kick",
+     "actionAt": "a screamer",
+     "actionLag": -0.55,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 2.0,
+     "label": "Jayden Stockley",
+     "labelAt": "Jayden Stockley"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -5.2,
+     "z": 30.2,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "a screamer",
+     "actionLag": -0.3,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "a screamer",
+     "actionLag": 0.25
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -6.48,
+      0.11,
+      27.45
+     ],
+     "untilAt": "a screamer",
+     "untilLag": -0.21
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "a screamer",
+     "lag": -0.21,
+     "dur": 1.3,
+     "slowmo": true,
+     "points": [
+      [
+       -6.5,
+       0.11,
+       27.5
+      ],
+      [
+       -4.8,
+       6.5,
+       39.9
+      ],
+      [
+       -3.1,
+       2.25,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "WIM",
+      "color": "#1f3f8f"
+     },
+     "score": [
+      3,
+      4
+     ],
+     "min": "88'",
+     "clear": false,
+     "from": [
+      3,
+      3
+     ],
+     "goalAt": "a screamer",
+     "goalLag": 1.1
+    },
+    {
+     "type": "big",
+     "y": 1600,
+     "at": "scores a hat-trick",
+     "lag": 0.0,
+     "from": 0,
+     "value": 3,
+     "countDur": 0.6,
+     "label": "Stockley goals",
+     "size": 170,
+     "style": "accent",
+     "clear": false,
+     "hideAt": "Four–three",
+     "hideLag": -0.3
+    },
+    {
+     "type": "stamp",
+     "text": "3–4",
+     "sub": "the winner: a screamer",
+     "at": "Four–three",
+     "lag": -0.05,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 120,
+     "y": 900
+    }
+   ],
+   "speedlines": [
+    {
+     "at": "a screamer",
+     "lag": -0.2,
+     "dur": 1.0,
+     "amount": 0.6
+    }
+   ],
+   "freezeAt": "Four–three",
+   "freezeLag": -0.1,
+   "shake": [
+    {
+     "at": "Four–three",
+     "lag": -0.05,
+     "amount": 16
+    }
+   ],
+   "vo": "But here's the problem. Wimbledon come to City. Jayden Stockley scores a hat-trick… and the winner is a screamer. Four–three."
+  },
+  {
+   "kicker": "Halfway · matchday 23",
+   "headline": "Twelfth. Scores lots. [Leaks lots].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.5,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     0,
+     46,
+     -60
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     -20,
+     22,
+     -34
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "board",
+     "y": 1060,
+     "delay": 0.0,
+     "label": "City after 23 games · 12th",
+     "cols": 12,
+     "vcols": 3,
+     "clear": false,
+     "rows": [
+      {
+       "name": "POINTS",
+       "value": "32"
+      },
+      {
+       "name": "SCORED  2ND",
+       "value": "43"
+      },
+      {
+       "name": "CONCEDED 22ND",
+       "value": "43"
+      }
+     ],
+     "focusPath": [
+      {
+       "t": 0,
+       "row": 0
+      },
+      {
+       "at": "Only one team",
+       "row": 1
+      },
+      {
+       "at": "Only two",
+       "row": 2
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "LEAKY",
+     "sub": "only Grimsby and Barnet let in more",
+     "at": "let in more",
+     "lag": 0.1,
+     "color": "#ff4d5e",
+     "rot": -0.06,
+     "size": 90,
+     "y": 1560
+    }
+   ],
+   "vo": "Halfway: twelfth. Only one team has scored more. Only two have let in more."
+  },
+  {
+   "kicker": "10,000 runs of the second half",
+   "headline": "Promotion: 70% → [38%].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.45,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     24,
+     20,
+     -30
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     -22,
+     12,
+     -18
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · second half",
+     "dur": 2.0,
+     "clear": false,
+     "countAt": "going up",
+     "countLag": -0.3
+    },
+    {
+     "type": "big",
+     "at": "Seventy percent",
+     "lag": -0.2,
+     "from": 70,
+     "value": 38,
+     "suffix": "%",
+     "countDur": 1.4,
+     "label": "chance of promotion",
+     "y": 640,
+     "size": 150,
+     "style": "accent",
+     "clear": false
+    },
+    {
+     "type": "simrun",
+     "y": 1200,
+     "at": "going up",
+     "lag": -0.3,
+     "dur": 2.2,
+     "title": "Where City finish",
+     "positions": [
+      1,
+      16
+     ],
+     "real": 12,
+     "realLabel": "NOW",
+     "dist": {
+      "1": 4.3,
+      "2": 15.5,
+      "3": 15.2,
+      "4": 12.8,
+      "5": 10.8,
+      "6": 9.0,
+      "7": 7.5,
+      "8": 6.3,
+      "9": 4.9,
+      "10": 3.8,
+      "11": 3.1,
+      "12": 2.3,
+      "13": 1.5,
+      "14": 1.2,
+      "15": 0.8,
+      "16": 0.5
+     },
+     "zone": {
+      "from": 1,
+      "to": 6,
+      "label": "Up or play-offs",
+      "color": "#2ecc71"
+     },
+     "minLabel": 9,
+     "clear": false
+    }
+   ],
+   "glitch": [
+    {
+     "t": 0.0,
+     "dur": 0.3,
+     "amount": 0.6
+    }
+   ],
+   "vo": "Their chance of going up? Seventy percent in the summer. Thirty-eight now."
+  },
+  {
+   "kicker": "January transfer window",
+   "headline": "The window's open. [Defender needed].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#e9b949",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -2.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "crossoff",
+     "y": 1050,
+     "delay": 0.0,
+     "title": "JANUARY",
+     "days": 31,
+     "cols": 7,
+     "cell": 96,
+     "crossT": 0.4,
+     "dur": 3.0,
+     "color": "#6cabdd",
+     "caption": "window open",
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "NEED: DEFENDER",
+     "sub": "22nd for goals conceded",
+     "at": "City need a defender",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.06,
+     "size": 70,
+     "y": 1700
+    }
+   ],
+   "vo": "The window's open. City need a defender."
+  },
+  {
+   "kicker": "Your vote · episode 3",
+   "headline": "Who should City [sign]?",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.6,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -1.8
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "pcard",
+     "y": 980,
+     "w": 300,
+     "h": 420,
+     "shiftX": -350,
+     "side": "left",
+     "at": "Kelland Watts",
+     "lag": -0.1,
+     "player": {
+      "kit": {
+       "shirt": "#f5a12d",
+       "shorts": "#111111",
+       "socks": "#f5a12d",
+       "text": "#111111"
+      },
+      "skin": "#e7b593",
+      "hair": "#2a1a10",
+      "name": ""
+     },
+     "tag": "CB · Cambridge",
+     "caption": "Kelland Watts",
+     "clear": false
+    },
+    {
+     "type": "pcard",
+     "y": 980,
+     "w": 300,
+     "h": 420,
+     "shiftX": 0,
+     "side": "right",
+     "at": "Omar Sowunmi",
+     "lag": -0.1,
+     "player": {
+      "kit": {
+       "shirt": "#ffffff",
+       "shorts": "#111111",
+       "socks": "#ffffff",
+       "text": "#111111"
+      },
+      "skin": "#e7b593",
+      "hair": "#2a1a10",
+      "name": ""
+     },
+     "tag": "CB · Bromley",
+     "caption": "Omar Sowunmi",
+     "clear": false
+    },
+    {
+     "type": "pcard",
+     "y": 980,
+     "w": 300,
+     "h": 420,
+     "shiftX": 350,
+     "side": "right",
+     "at": "Dennis Seimen",
+     "lag": -0.1,
+     "player": {
+      "kit": {
+       "shirt": "#2e2e33",
+       "shorts": "#2e2e33",
+       "socks": "#2e2e33",
+       "text": "#ffffff"
+      },
+      "skin": "#e7b593",
+      "hair": "#2a1a10",
+      "name": "",
+      "gloves": "#f2f2f2"
+     },
+     "tag": "GK · Stuttgart",
+     "caption": "Dennis Seimen",
+     "clear": false
+    },
+    {
+     "type": "poll",
+     "y": 1600,
+     "at": "You pick",
+     "lag": -0.6,
+     "question": "Who should City sign?",
+     "options": [
+      {
+       "label": "Watts",
+       "color": "#f5a12d",
+       "fill": 0.34
+      },
+      {
+       "label": "Sowunmi",
+       "color": "#9aa1ad",
+       "fill": 0.33
+      },
+      {
+       "label": "Seimen",
+       "color": "#2e2e33",
+       "fill": 0.33
+      }
+     ]
+    }
+   ],
+   "vo": "Kelland Watts, Omar Sowunmi, or Dennis Seimen? You pick."
+  }
+ ]
+}

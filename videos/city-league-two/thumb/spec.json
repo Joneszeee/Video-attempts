@@ -1,0 +1,159 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "",
+   "headline": "",
+   "scene": {
+    "type": "stadium",
+    "ground": "small",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#1c2c5b",
+     "#6cabdd"
+    ],
+    "seed": 4
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.85,
+   "flashes": 8,
+   "camFrom": {
+    "pos": [
+     0.6,
+     1.35,
+     0.6
+    ],
+    "tgt": [
+     0.45,
+     1.2,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.6,
+     1.35,
+     0.6
+    ],
+    "tgt": [
+     0.45,
+     1.2,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "x": 0.9,
+     "z": 3.4,
+     "front": true,
+     "chest": true,
+     "pose": "think"
+    },
+    {
+     "name": "",
+     "num": 61,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#1c2c5b",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -1.6,
+     "z": 6.0
+    },
+    {
+     "name": "",
+     "num": 75,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#1c2c5b",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "x": -0.4,
+     "z": 7.0
+    },
+    {
+     "name": "",
+     "num": 56,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#1c2c5b",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#d9a37c",
+     "hair": "#141010",
+     "x": 2.6,
+     "z": 6.5
+    }
+   ],
+   "card": [
+    {
+     "type": "trapdoor",
+     "y": 1560,
+     "shiftX": -250,
+     "delay": -3,
+     "scale": 1.05,
+     "clear": false,
+     "items": [
+      {
+       "name": "Man City",
+       "badge": {
+        "colors": [
+         "#6cabdd",
+         "#1c2c5b",
+         "#ffffff"
+        ],
+        "text": "MCFC"
+       },
+       "t": 4.45,
+       "tag": "LEAGUE TWO",
+       "tagColor": "#ff4d5e"
+      }
+     ]
+    },
+    {
+     "type": "shout",
+     "text": "MAN CITY IN\nLEAGUE TWO",
+     "y": 360,
+     "size": 170,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false
+    },
+    {
+     "type": "shout",
+     "text": "ONLY HAALAND STAYED",
+     "y": 1830,
+     "size": 80,
+     "delay": -3,
+     "rot": -0.03,
+     "clear": false
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

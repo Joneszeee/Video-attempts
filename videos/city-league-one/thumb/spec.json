@@ -1,0 +1,105 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "",
+   "headline": "",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.7,
+   "flashes": 10,
+   "focus": 0.2,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -1.4
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -1.4
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "shirtflip",
+     "y": 1000,
+     "delay": -3,
+     "size": 520,
+     "from": {
+      "color": "#f5a12d",
+      "color2": "#111111",
+      "name": "HULL CITY"
+     },
+     "to": {
+      "color": "#6cabdd",
+      "color2": "#1c2c5b",
+      "name": "IROEGBUNAM"
+     },
+     "clear": false,
+     "flipT": 0.2
+    },
+    {
+     "type": "shout",
+     "text": "PART 2",
+     "y": 300,
+     "size": 150,
+     "delay": -3,
+     "rot": -0.05,
+     "clear": false,
+     "color": "#3FE0C5",
+     "color2": "#2bb39c"
+    },
+    {
+     "type": "shout",
+     "text": "YOU PICKED HIM",
+     "y": 520,
+     "size": 120,
+     "delay": -3,
+     "rot": -0.03,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "SIGNED",
+     "sub": "Man City in League One",
+     "delay": -3,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 120,
+     "y": 1600
+    }
+   ],
+   "vo": "Thumbnail."
+  }
+ ]
+}

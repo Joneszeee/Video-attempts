@@ -66,10 +66,18 @@ if __name__=='__main__':
     no_iroeg=dict(M); no_iroeg['full']=M['ep1_xi_no_iroeg']
     pre_wo=odds(rounds,empty,4000,8,no_iroeg)
     # the official season, matchdays 1-23 only (seed fixed before running)
+    # Editorial change (user, 19 Nov 2026): in matchdays 13 and 15 Barnet and AFC Wimbledon swap places in the fixture list; every score stays as
+    # simulated. So City 5-0 Barnet (MD13, was v Wimbledon) and City 3-4 Wimbledon (MD15, was v Barnet). The table and the odds are rebuilt from that.
+    SWAP={k:('Wimbledon','Barnet') for k in (13,15,36,38)}   # 36 and 38 are the return fixtures, so every pair still meets home and away
+    def sw(t,k):
+        if k in SWAP:
+            a,b=SWAP[k]
+            return b if t==a else a if t==b else t
+        return t
     r=random.Random(SEED); tab={t:[0,0,0] for t in teams}; log=[]; hg=0; snaps={}
     for k,rd in enumerate(rounds[:23],1):
-        for h,a in rd:
-            x,y,hp,fp=play(h,a,r); upd(tab,h,a,x,y)
+        for h0,a0 in rd:
+            x,y,hp,fp=play(h0,a0,r); h,a=sw(h0,k),sw(a0,k); upd(tab,h,a,x,y)
             if 'Manchester City' in (h,a):
                 home=h=='Manchester City'; cg,og=(x,y) if home else (y,x)
                 hgo=sum(1 for _ in range(cg) if hp and r.random()<H_SHARE); hg+=hgo
@@ -77,7 +85,8 @@ if __name__=='__main__':
         o=order(tab); log[-1]['pos']=o.index('Manchester City')+1; log[-1]['pts']=tab['Manchester City'][0]
         snaps[k]=[(i+1,t,tab[t][0],tab[t][1]-tab[t][2]) for i,t in enumerate(o[:6])]
     o=order(tab); gfr=sorted(teams,key=lambda t:-tab[t][1]).index('Manchester City')+1; gar=sorted(teams,key=lambda t:tab[t][2]).index('Manchester City')+1
-    half=odds(rounds[23:],tab,10000,9)
+    rounds_sw=[[(sw(h,k),sw(a,k)) for h,a in rd] for k,rd in enumerate(rounds,1)]
+    half=odds(rounds_sw[23:],tab,10000,9)
     res={'seed':SEED,'out':OUT,'pre':pre,'pre_without_iroegbunam':pre_wo,'log':log,'haaland':hg,'table_md23':[(i+1,t,*tab[t]) for i,t in enumerate(o)],
          'city_gf_rank':gfr,'city_ga_rank':gar,'half_odds':half,'model':{k:M[k] for k in ('full','no_haaland','tiers')}}
     json.dump(res,open('ep2.json','w'),indent=1)

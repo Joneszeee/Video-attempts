@@ -75,10 +75,13 @@ Fixtures: a double round robin with alternating home and away (the first try had
 
 ## The official season, matchdays 1–23 (seed 2027, fixed before running)
 - Matchday 1: Wigan 1–2 City. Matchday 2: City 3–4 Leicester. Matchday 6: City 0–4 Huddersfield (no Haaland), 17th.
-- Matchday 12: Grimsby 1–2 City. Matchday 13: City 5–0 Wimbledon (Haaland hat-trick). **Matchday 15: City 3–4 Barnet.**
+- Matchday 12: Grimsby 1–2 City. Matchday 13: **City 5–0 Barnet** (Haaland hat-trick). **Matchday 15: City 3–4 AFC Wimbledon**, Jayden Stockley
+  hat-trick (Stockley is real and at Wimbledon: 6 goals in 14 this season, ESPN; the scorer is our story, the sim only gives the score).
+- **Editorial change (user):** Barnet and Wimbledon swap places in matchdays 13 and 15 (and in the return fixtures, 36 and 38); every score stays as
+  simulated, and the table and the odds are rebuilt from that (`SWAP` in data/sim_l1.py).
 - Matchday 19: City 0–3 Oxford (the leaders). Matchday 20: City 5–3 Luton.
-- **At the halfway point: City 12th, 32 points (W9 D5 L9), 43 scored (2nd most), 43 conceded (4th most: 21st of 24 for goals against).**
+- **At the halfway point: City 12th, 32 points (W9 D5 L9), 43 scored (only Oxford, 47, scored more), 43 conceded (only Grimsby 46 and Barnet 47 conceded more).**
   Four points off the play-offs (Bradford, 6th, 36). Leaders Oxford on 45. Haaland 18 goals.
-- From here (10,000 runs of the second half): promoted 37.9% (top two 19.9%, play-offs 47.8%), champions 4.3%.
+- From here (10,000 runs of the second half): promoted 38.1% (top two 19.9%, play-offs 47.8%), champions 4.3%.
 - Weak spot: defence. Mid-season vote shortlist: Kelland Watts (CB, Cambridge United; PFA League Two Team of the Year 2025/26), Omar Sowunmi
   (CB, Bromley; PFA League Two Team of the Year 2025/26), Dennis Seimen (GK, VfB Stuttgart; a commenter's pick; spent 2025/26 on loan at Paderborn).

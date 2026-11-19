@@ -15,6 +15,9 @@ awards, transfers, controversies and articles across the major leagues and inter
 virality: surprise, conflict, a record, a big name, and a clear hook number. For each idea give the hook line, the story in one line, the
 visuals (which tools or backlog items), and what still needs fact-checking. End with your top pick and why, and list the sources.
 
+## Series in progress
+- **Man City in League Two** (`videos/city-league-two/plan.md`): pilot first. **Before making Part 2, ask the user again how long the series should run** (they asked for this reminder).
+
 ## When the user sends a script (or a story)
 1. Create `videos/<slug>/spec.json` (format below) and `videos/<slug>/vo.txt`.
    - One beat per sentence or short pair of sentences in the script. A good target is around 60–70s (about 11 beats, about 130 words of VO).

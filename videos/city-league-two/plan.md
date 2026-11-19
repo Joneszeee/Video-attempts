@@ -31,3 +31,10 @@ Everyone else goes. They get a League Two budget and buy real League Two players
 - Covers League One matchdays 1–23 and stops at the January window.
 - Mid-season vote: the sim shows City's weak spot, and fans pick from 3 real shortlisted players aimed at fixing it (open suggestions also welcome).
 - Hook: "You picked him": a shirt flips to IROEGBUNAM over the voters' comments.
+
+## Part 2 (videos/city-league-one) done, 19 Nov 2026
+- League One matchdays 1–23; City 12th at halfway; posts all say "Part 2" (user).
+- Part 3 vote (January window): Kelland Watts, Omar Sowunmi or Dennis Seimen. Count the comments before building Part 3.
+- Before Part 3: ask the user again how long the series should run (they chose "decide episode by episode").
+- Sound: Freesound blocks requests from the cloud environment (403); the user may upload CC0 sounds instead (kick, net, whistle, roars, groans,
+  ambience, terrace chant, slide skid) for the real-SFX upgrade.

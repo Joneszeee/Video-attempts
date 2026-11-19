@@ -1398,5 +1398,359 @@
     "Grimsby Town": 40
    }
   }
- ]
+ ],
+ "snaps": {
+  "1": [
+   [
+    1,
+    "Newport County",
+    3,
+    4
+   ],
+   [
+    2,
+    "Grimsby Town",
+    3,
+    3
+   ],
+   [
+    3,
+    "York City",
+    3,
+    3
+   ],
+   [
+    4,
+    "Bristol Rovers",
+    3,
+    1
+   ],
+   [
+    5,
+    "Barnet",
+    3,
+    1
+   ],
+   [
+    6,
+    "Gillingham",
+    3,
+    1
+   ],
+   [
+    18,
+    "Manchester City",
+    0,
+    -1
+   ]
+  ],
+  "13": [
+   [
+    1,
+    "Barnet",
+    29,
+    15
+   ],
+   [
+    2,
+    "Grimsby Town",
+    28,
+    14
+   ],
+   [
+    3,
+    "Manchester City",
+    28,
+    12
+   ],
+   [
+    4,
+    "Walsall",
+    27,
+    4
+   ],
+   [
+    5,
+    "York City",
+    25,
+    8
+   ],
+   [
+    6,
+    "Tranmere Rovers",
+    25,
+    7
+   ],
+   [
+    3,
+    "Manchester City",
+    28,
+    12
+   ]
+  ],
+  "14": [
+   [
+    1,
+    "Manchester City",
+    31,
+    14
+   ],
+   [
+    2,
+    "Barnet",
+    30,
+    15
+   ],
+   [
+    3,
+    "Grimsby Town",
+    29,
+    14
+   ],
+   [
+    4,
+    "Tranmere Rovers",
+    28,
+    12
+   ],
+   [
+    5,
+    "Walsall",
+    28,
+    4
+   ],
+   [
+    6,
+    "York City",
+    25,
+    5
+   ],
+   [
+    1,
+    "Manchester City",
+    31,
+    14
+   ]
+  ],
+  "41": [
+   [
+    1,
+    "Manchester City",
+    84,
+    31
+   ],
+   [
+    2,
+    "Grimsby Town",
+    83,
+    43
+   ],
+   [
+    3,
+    "Barnet",
+    81,
+    35
+   ],
+   [
+    4,
+    "Swindon Town",
+    69,
+    7
+   ],
+   [
+    5,
+    "Oldham Athletic",
+    67,
+    10
+   ],
+   [
+    6,
+    "Walsall",
+    66,
+    14
+   ],
+   [
+    1,
+    "Manchester City",
+    84,
+    31
+   ]
+  ],
+  "42": [
+   [
+    1,
+    "Grimsby Town",
+    86,
+    46
+   ],
+   [
+    2,
+    "Manchester City",
+    85,
+    31
+   ],
+   [
+    3,
+    "Barnet",
+    81,
+    34
+   ],
+   [
+    4,
+    "Swindon Town",
+    72,
+    8
+   ],
+   [
+    5,
+    "Oldham Athletic",
+    70,
+    12
+   ],
+   [
+    6,
+    "Walsall",
+    66,
+    13
+   ],
+   [
+    2,
+    "Manchester City",
+    85,
+    31
+   ]
+  ],
+  "43": [
+   [
+    1,
+    "Grimsby Town",
+    89,
+    48
+   ],
+   [
+    2,
+    "Manchester City",
+    85,
+    27
+   ],
+   [
+    3,
+    "Barnet",
+    82,
+    34
+   ],
+   [
+    4,
+    "Swindon Town",
+    75,
+    12
+   ],
+   [
+    5,
+    "Oldham Athletic",
+    71,
+    12
+   ],
+   [
+    6,
+    "Walsall",
+    67,
+    13
+   ],
+   [
+    2,
+    "Manchester City",
+    85,
+    27
+   ]
+  ],
+  "45": [
+   [
+    1,
+    "Grimsby Town",
+    89,
+    45
+   ],
+   [
+    2,
+    "Manchester City",
+    89,
+    28
+   ],
+   [
+    3,
+    "Barnet",
+    82,
+    30
+   ],
+   [
+    4,
+    "Oldham Athletic",
+    77,
+    18
+   ],
+   [
+    5,
+    "Swindon Town",
+    77,
+    12
+   ],
+   [
+    6,
+    "Walsall",
+    70,
+    17
+   ],
+   [
+    2,
+    "Manchester City",
+    89,
+    28
+   ]
+  ],
+  "46": [
+   [
+    1,
+    "Manchester City",
+    92,
+    30
+   ],
+   [
+    2,
+    "Grimsby Town",
+    89,
+    40
+   ],
+   [
+    3,
+    "Barnet",
+    82,
+    28
+   ],
+   [
+    4,
+    "Oldham Athletic",
+    77,
+    16
+   ],
+   [
+    5,
+    "Swindon Town",
+    77,
+    10
+   ],
+   [
+    6,
+    "Walsall",
+    73,
+    18
+   ],
+   [
+    1,
+    "Manchester City",
+    92,
+    30
+   ]
+  ]
+ }
 }

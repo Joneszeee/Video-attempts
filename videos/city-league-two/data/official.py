@@ -17,7 +17,7 @@ for k in range(n-1):
         rd.append((h_,a_)); last[h_]='H'; last[a_]='A'; homes[h_]=homes.get(h_,0)+1
     rounds.append(rd); arr=[arr[0]]+[arr[-1]]+arr[1:-1]
 rounds+= [[(b,a) for a,b in rd] for rd in rounds]
-tab={t:[0,0,0,0,0,0] for t in teams}; log=[]; pos_by_round=[]; hg=0; race=[]
+tab={t:[0,0,0,0,0,0] for t in teams}; log=[]; pos_by_round=[]; hg=0; race=[]; snaps={}
 for k,rd in enumerate(rounds,1):
     for h,a in rd:
         cr=None; hp=fp=True
@@ -35,8 +35,9 @@ for k,rd in enumerate(rounds,1):
             log.append({'md':k,'opp':a if home else h,'venue':'H' if home else 'A','score':f'{cg}-{og}','res':'W' if cg>og else 'D' if cg==og else 'L','haaland':hp,'foden':fp,'hgoals':hgo,'hg_total':hg})
     order=sorted(teams,key=lambda t:(-tab[t][0],-(tab[t][1]-tab[t][2]),-tab[t][1],t))
     pos_by_round.append(order.index('Manchester City')+1); race.append({t:tab[t][0] for t in ('Manchester City','Grimsby Town','Barnet','Salford City')}); race[-1]['leader']=order[0]; race[-1]['gd']={t:tab[t][1]-tab[t][2] for t in ('Manchester City','Grimsby Town')}
+    if k in (1,13,14,41,42,43,45,46): snaps[k]=[(i+1,t,tab[t][0],tab[t][1]-tab[t][2]) for i,t in enumerate(order[:6])]+[(order.index('Manchester City')+1,'Manchester City',tab['Manchester City'][0],tab['Manchester City'][1]-tab['Manchester City'][2])]
     log[-1]['pos']=pos_by_round[-1]; log[-1]['pts']=tab['Manchester City'][0]
 final=[(i+1,t,*tab[t]) for i,t in enumerate(order)]
-json.dump({'seed':SEED,'log':log,'final':final,'pos_by_round':pos_by_round,'haaland':hg,'race':race},open('official.json','w'),indent=1)
+json.dump({'seed':SEED,'log':log,'final':final,'pos_by_round':pos_by_round,'haaland':hg,'race':race,'snaps':snaps},open('official.json','w'),indent=1)
 for g in log: print(g['md'],g['venue'],g['opp'],g['score'],g['res'],'H' if g['haaland'] else '-','F' if g['foden'] else '-',g['hgoals'],'| pos',g['pos'],g['pts'])
 print(); [print(*row) for row in final[:8]]; print('...'); print('Haaland',hg)

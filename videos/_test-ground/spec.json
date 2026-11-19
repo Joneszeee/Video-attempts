@@ -1,0 +1,135 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "beats": [
+  {
+   "kicker": "Test",
+   "headline": "League Two [ground].",
+   "scene": {
+    "type": "stadium",
+    "ground": "small",
+    "crowd": [
+     "#1d4fb8",
+     "#ffffff",
+     "#1d4fb8"
+    ],
+    "seed": 5
+   },
+   "camFrom": {
+    "pos": [
+     -20,
+     6,
+     -30
+    ],
+    "tgt": [
+     0,
+     1,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -8,
+     4,
+     -14
+    ],
+    "tgt": [
+     0,
+     1,
+     20
+    ]
+   },
+   "move": 3,
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": 0,
+     "z": 0
+    }
+   ],
+   "vo": "One two three four five six."
+  },
+  {
+   "headline": "Behind the [shooter].",
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     3,
+     2.2,
+     32
+    ],
+    "tgt": [
+     0,
+     1,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     2.4,
+     1.9,
+     35
+    ],
+    "tgt": [
+     0,
+     1,
+     52
+    ]
+   },
+   "move": 3,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": 0,
+     "z": 41
+    }
+   ],
+   "vo": "One two three four five six."
+  },
+  {
+   "headline": "From [high].",
+   "cut": true,
+   "camFrom": {
+    "pos": [
+     50,
+     40,
+     -60
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "camera": {
+    "pos": [
+     30,
+     30,
+     -50
+    ],
+    "tgt": [
+     0,
+     0,
+     0
+    ]
+   },
+   "move": 3,
+   "players": [],
+   "vo": "One two three four five six."
+  }
+ ]
+}

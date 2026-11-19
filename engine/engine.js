@@ -159,9 +159,65 @@ function arcPts(cx, cz, r, a0, a1, n = 40) {
 
 // ---------- stadium world ----------
 const worldCache = new Map();
+// League Two ground (scene "ground": "small"): four separate low stands with roofs, an open terrace behind the far goal,
+// gaps at the corners, floodlight pylons and advertising boards. City's fall made visible.
+function buildSmallGround(scene, key) {
+  const R = rng(scene.seed || 7), crowd = scene.crowd || ['#6cabdd', '#ffffff'];
+  const dens = scene.density != null ? scene.density : 0.62;
+  const segs = [];
+  // [start, end] along the stand, inner offset, outward direction, depth, rise, roofed
+  const stands = [
+    { a: [-37, 0, -42], b: [-37, 0, 42], n: [-1, 0], D: 9, h1: 6.5, roof: true },     // left main stand
+    { a: [37, 0, 42], b: [37, 0, -42], n: [1, 0], D: 7, h1: 5, roof: true },            // right stand (smaller)
+    { a: [-28, 0, 57], b: [28, 0, 57], n: [0, 1], D: 8, h1: 4.5, roof: false, terrace: true }, // open terrace behind the far goal
+    { a: [28, 0, -57], b: [-28, 0, -57], n: [0, -1], D: 7, h1: 5.5, roof: true },
+  ];
+  for (const st of stands) {
+    const len = Math.hypot(st.b[0] - st.a[0], st.b[2] - st.a[2]), k = Math.round(len / 5);
+    for (let i = 0; i < k; i++) {
+      const p0 = lerp3(st.a, st.b, i / k), p1 = lerp3(st.a, st.b, (i + 1) / k);
+      const in0 = [p0[0], 0.6, p0[2]], in1 = [p1[0], 0.6, p1[2]];
+      const out0 = [p0[0] + st.n[0] * st.D, st.h1, p0[2] + st.n[1] * st.D], out1 = [p1[0] + st.n[0] * st.D, st.h1, p1[2] + st.n[1] * st.D];
+      const dots = [], rows = st.terrace ? 12 : 10, cols = 7;
+      for (let r = rows - 1; r >= 0; r--) {
+        const v = (r + 0.5) / rows, A = lerp3(in0, out0, v), B = lerp3(in1, out1, v);
+        for (let c = 0; c < cols; c++) {
+          if (R() > (st.terrace ? dens + 0.2 : dens)) continue;
+          const P = lerp3(A, B, (c + 0.3 + R() * 0.4) / cols); P[1] += st.terrace ? 0.55 : 0.35;
+          const roll = R(), col = roll < 0.06 ? '#e9ecf2' : roll < 0.12 ? '#59627a' : crowd[Math.floor(R() * crowd.length)];
+          dots.push({ p: P, col, fl: R() < 0.02 ? R() * 6.28 : -1, sz: 0.5 + R() * 0.25 });
+        }
+      }
+      const mid = lerp3(lerp3(in0, in1, 0.5), lerp3(out0, out1, 0.5), 0.5);
+      const seg = { quad: [in0, in1, out1, out0], dots, mid, top: [out0, out1], light: false };
+      if (st.roof) {   // a flat roof on posts, sloping slightly toward the pitch
+        const f0 = [p0[0] - st.n[0] * 0.5, st.h1 + 2.2, p0[2] - st.n[1] * 0.5], f1 = [p1[0] - st.n[0] * 0.5, st.h1 + 2.2, p1[2] - st.n[1] * 0.5];
+        seg.roof = [f0, f1, [out1[0], st.h1 + 3.2, out1[2]], [out0[0], st.h1 + 3.2, out0[2]]];
+        seg.post = [[p0[0] - st.n[0] * 0.4, 0, p0[2] - st.n[1] * 0.4], f0];
+      }
+      if (st.terrace) seg.barriers = [0.3, 0.6].map(v => [lerp3(in0, out0, v), lerp3(in1, out1, v)]);
+      segs.push(seg);
+    }
+  }
+  const pylons = [[-39, -56], [39, -56], [-39, 56], [39, 56]].map(([x, z]) => ({ base: [x, 0, z], top: [x, 24, z] }));
+  const boards = [];
+  const bcol = scene.boards || ['#1c3d7a', '#e9b949', '#c8102e', '#ffffff', '#2e7d32'];
+  for (const sx of [-1, 1]) for (let z = -48; z < 48; z += 6) boards.push({ a: [sx * 35.6, 0, z], b: [sx * 35.6, 0, z + 5.6], col: bcol[((z + 48) / 6 + (sx > 0 ? 2 : 0)) % bcol.length] });
+  for (const sz of [-1, 1]) for (let x = -24; x < 24; x += 6) boards.push({ a: [x, 0, sz * 54.5], b: [x + 5.6, 0, sz * 54.5], col: bcol[((x + 24) / 6 + (sz > 0 ? 1 : 3)) % bcol.length] });
+  const houses = [];   // a ring of terraced houses and trees behind the stands (small-town skyline)
+  for (let i = 0; i < 70; i++) {
+    const th = i / 70 * Math.PI * 2 + R() * 0.03, rr = 82 + R() * 18, cx = Math.cos(th) * rr * 0.75, cz = Math.sin(th) * rr;
+    const tx = -Math.sin(th), tz = Math.cos(th) * 0.75, wdt = 7 + R() * 5, ht = 6 + R() * 5;
+    houses.push({ a: [cx - tx * wdt / 2, 0, cz - tz * wdt / 2], b: [cx + tx * wdt / 2, 0, cz + tz * wdt / 2], h: ht, tree: R() < 0.25, chim: R() < 0.6, lit: [R(), R(), R()] });
+  }
+  const w = { segs, small: true, pylons, boards, houses };
+  worldCache.set(key, w);
+  return w;
+}
 function buildWorld(scene) {
   const key = JSON.stringify(scene);
   if (worldCache.has(key)) return worldCache.get(key);
+  if (scene.ground === 'small') return buildSmallGround(scene, key);
   const R = rng(scene.seed || 7);
   const crowd = scene.crowd || ['#2b4bbf', '#ffffff'];
   const N = 168, a = 41, b = 59.5, n = 4, D = 34, h0 = 1.2, h1 = 27;
@@ -275,6 +331,22 @@ function drawGoals(cam) {
 
 function drawStadium(cam, t, world) {
   const jump = crowdJump();
+  if (world.small) {   // skyline behind the stands, then advertising boards (they sit in front of the stands)
+    for (const hs of world.houses) {
+      const a = hs.a, b = hs.b, m = lerp3(a, b, 0.5);
+      if (toCam(cam, m)[2] < NEAR) continue;
+      if (hs.tree) { const q = toCam(cam, [m[0], hs.h * 0.8, m[2]]); if (q[2] > NEAR) { const sp = proj(q), r = FOC * hs.h * 0.45 / q[2]; ctx.fillStyle = '#141b19'; ctx.beginPath(); ctx.ellipse(sp[0], sp[1], r * 0.9, r, 0, 0, 7); ctx.fill(); } continue; }
+      fillPoly3(cam, [a, b, [b[0], hs.h, b[2]], [a[0], hs.h, a[2]]], '#171c27');
+      fillPoly3(cam, [[a[0], hs.h, a[2]], [b[0], hs.h, b[2]], [m[0], hs.h + 2.6, m[2]]], '#1d2330');
+      if (hs.chim) line3(cam, [m[0] + (b[0] - a[0]) * 0.25, hs.h + 0.8, m[2] + (b[2] - a[2]) * 0.25], [m[0] + (b[0] - a[0]) * 0.25, hs.h + 3.2, m[2] + (b[2] - a[2]) * 0.25], 0.7, '#1d2330');
+      hs.lit.forEach((v, k) => { if (v < 0.45) { const P = lerp3(a, b, 0.2 + k * 0.3); const q = toCam(cam, [P[0], hs.h * 0.55, P[2]]); if (q[2] > NEAR) { const sp = proj(q), r = Math.max(1, FOC * 0.6 / q[2]); ctx.fillStyle = 'rgba(255,214,140,0.75)'; ctx.fillRect(sp[0] - r, sp[1] - r, r * 2, r * 1.6); } } });
+    }
+    for (const bd of world.boards) {
+      const a = bd.a, b = bd.b;
+      fillPoly3(cam, [a, b, [b[0], 0.9, b[2]], [a[0], 0.9, a[2]]], bd.col);
+      line3(cam, [a[0], 0.9, a[2]], [b[0], 0.9, b[2]], 0.06, 'rgba(255,255,255,0.35)');
+    }
+  }
   const segs = world.segs.map(s => ({ s, d: toCam(cam, s.mid)[2] })).filter(o => o.d > -45).sort((a, b) => b.d - a.d);
   for (const { s } of segs) {
     fillPoly3(cam, s.quad, '#1a1f2c');
@@ -291,7 +363,25 @@ function drawStadium(cam, t, world) {
       ctx.fillRect(sp[0] - w / 2, sp[1] - w * 1.3, w, Math.max(w * 1.3, 1.1));
     }
     line3(cam, s.quad[0], s.quad[1], 0.35, 'rgba(255,255,255,0.45)');
-    line3(cam, s.top[0], s.top[1], 1.2, '#0b0e15');
+    if (s.barriers) for (const [a, b] of s.barriers) line3(cam, [a[0], a[1] + 1.0, a[2]], [b[0], b[1] + 1.0, b[2]], 0.08, 'rgba(200,205,215,0.7)');
+    if (s.roof) { fillPoly3(cam, s.roof, '#262c38'); line3(cam, s.roof[0], s.roof[1], 0.25, '#3a4252'); line3(cam, s.post[0], s.post[1], 0.18, '#3a4252'); }
+    else line3(cam, s.top[0], s.top[1], world.small ? 0.4 : 1.2, '#0b0e15');
+  }
+  if (world.small) {   // floodlight pylons in the corners
+    for (const py of world.pylons) {
+      line3(cam, py.base, py.top, 0.45, '#2b313d');
+      const q = toCam(cam, py.top); if (q[2] < NEAR) continue;
+      const sp = proj(q), r = clamp(FOC * 1.6 / q[2], 3, 40);
+      ctx.fillStyle = '#3a4252'; ctx.fillRect(sp[0] - r * 1.3, sp[1] - r * 0.9, r * 2.6, r * 1.6);
+      ctx.save(); ctx.globalCompositeOperation = 'lighter';
+      const g = ctx.createRadialGradient(sp[0], sp[1], 0, sp[0], sp[1], r * 5);
+      g.addColorStop(0, 'rgba(255,255,240,0.9)'); g.addColorStop(0.15, 'rgba(255,255,230,0.35)'); g.addColorStop(1, 'rgba(255,255,230,0)');
+      ctx.fillStyle = g; ctx.fillRect(sp[0] - r * 5, sp[1] - r * 5, r * 10, r * 10);
+      ctx.fillStyle = 'rgba(255,255,245,0.95)';
+      for (let i = -1; i <= 1; i++) for (let j = 0; j < 2; j++) { ctx.beginPath(); ctx.arc(sp[0] + i * r * 0.8, sp[1] - r * 0.35 + j * r * 0.7, r * 0.28, 0, 7); ctx.fill(); }
+      ctx.restore();
+    }
+    return;
   }
   ctx.globalCompositeOperation = 'lighter';
   for (const s of world.segs) {

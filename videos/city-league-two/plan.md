@@ -22,3 +22,12 @@ Everyone else goes. They get a League Two budget and buy real League Two players
 - Tom Fellows 1, James Gibbons 1, Dennis Seimen 1, Mo Salah 1 (joke)
 - Before building ep. 2: check Iroegbunam's current club and realistic fee/wages v a League One budget (could be a plot point).
 - Also fix: name label sat under the LEAGUE TWO stamp in ep. 1 frame 1 (keep labels clear of stamps in the engine).
+
+## Episode 2 decisions (user, 19 Nov 2026)
+- Series length: decide episode by episode (ask again after ep. 2).
+- Signing: Tim Iroegbunam (won the comment vote). Ignore the budget: no fee shown, just signed.
+- Show the voters' real usernames on screen; the user will send screenshots of all the Iroegbunam votes (YouTube + TikTok). Use exactly those names.
+- Squad: same as ep. 1 + Iroegbunam; the kids improve a little (typical young-player development).
+- Covers League One matchdays 1–23 and stops at the January window.
+- Mid-season vote: the sim shows City's weak spot, and fans pick from 3 real shortlisted players aimed at fixing it (open suggestions also welcome).
+- Hook: "You picked him": a shirt flips to IROEGBUNAM over the voters' comments.

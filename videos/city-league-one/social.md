@@ -2,7 +2,7 @@
 
 ## TikTok
 ```
-Part 2: you picked him, City signed him. Tim Iroegbunam 🔵 Half a League One season later, City are 12th: Haaland's scoring for fun, but only two teams have let in more goals, and promotion odds are down from 70% to 38%. City need a defender: Watts, Sowunmi or Seimen? 👇 #mancity #haaland #leagueone #football #footballtiktok #whatif #part2
+Part 2: you picked him, City signed him. Tim Iroegbunam 🔵 Half a League One season later, City are 12th: Haaland's scoring for fun, but only two teams have let in more goals, and promotion odds are down from 70% to 38%. City need a defender: vote in the poll 👆 (or comment if it's Sowunmi) #mancity #haaland #leagueone #football #footballtiktok #whatif #part2
 ```
 
 ## Instagram

@@ -38,3 +38,4 @@ Everyone else goes. They get a League Two budget and buy real League Two players
 - Before Part 3: ask the user again how long the series should run (they chose "decide episode by episode").
 - Sound: Freesound blocks requests from the cloud environment (403); the user may upload CC0 sounds instead (kick, net, whistle, roars, groans,
   ambience, terrace chant, slide skid) for the real-SFX upgrade.
+- TikTok uses a poll for the Part 3 vote (user); combine poll + YouTube/Instagram comments into one tally.

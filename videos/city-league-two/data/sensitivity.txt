@@ -1,0 +1,6 @@
+base                                                       full 2.34-1.07  title 89%  top3 99%  avg pts 98
+kids at City U21's own EFL record (1.6-2.8)                full 2.21-1.15  title 74%  top3 94%  avg pts 92
+first-teamers at Premier League cup average (2.7-0.67)     full 2.13-1.08  title 78%  top3 96%  avg pts 94
+first-teamers at City raw 6-game level (4.1-0.63)          full 2.64-1.06  title 96%  top3 100%  avg pts 104
+no League Two signings (kids in GK/CB/DM)                  full 2.44-1.41  title 76%  top3 95%  avg pts 93
+signings only League Two average (1.22-1.22)               full 2.32-1.12  title 86%  top3 98%  avg pts 96

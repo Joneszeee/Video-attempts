@@ -1,0 +1,1402 @@
+{
+ "seed": 2026,
+ "log": [
+  {
+   "md": 1,
+   "opp": "Gillingham",
+   "venue": "A",
+   "score": "1-2",
+   "res": "L",
+   "haaland": false,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 0,
+   "pos": 18,
+   "pts": 0
+  },
+  {
+   "md": 2,
+   "opp": "Rotherham United",
+   "venue": "H",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 1,
+   "pos": 9,
+   "pts": 3
+  },
+  {
+   "md": 3,
+   "opp": "Colchester United",
+   "venue": "A",
+   "score": "2-3",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 1,
+   "pos": 15,
+   "pts": 3
+  },
+  {
+   "md": 4,
+   "opp": "Grimsby Town",
+   "venue": "H",
+   "score": "3-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 3,
+   "pos": 13,
+   "pts": 6
+  },
+  {
+   "md": 5,
+   "opp": "Bristol Rovers",
+   "venue": "A",
+   "score": "2-2",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 4,
+   "pos": 14,
+   "pts": 7
+  },
+  {
+   "md": 6,
+   "opp": "York City",
+   "venue": "H",
+   "score": "3-1",
+   "res": "W",
+   "haaland": false,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 4,
+   "pos": 8,
+   "pts": 10
+  },
+  {
+   "md": 7,
+   "opp": "Fleetwood Town",
+   "venue": "A",
+   "score": "2-1",
+   "res": "W",
+   "haaland": false,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 4,
+   "pos": 5,
+   "pts": 13
+  },
+  {
+   "md": 8,
+   "opp": "Crewe Alexandra",
+   "venue": "H",
+   "score": "4-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 6,
+   "pos": 4,
+   "pts": 16
+  },
+  {
+   "md": 9,
+   "opp": "Rochdale",
+   "venue": "A",
+   "score": "1-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 6,
+   "pos": 3,
+   "pts": 19
+  },
+  {
+   "md": 10,
+   "opp": "Barnet",
+   "venue": "A",
+   "score": "1-4",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 6,
+   "pos": 6,
+   "pts": 19
+  },
+  {
+   "md": 11,
+   "opp": "Cheltenham Town",
+   "venue": "H",
+   "score": "2-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 7,
+   "pos": 5,
+   "pts": 22
+  },
+  {
+   "md": 12,
+   "opp": "Tranmere Rovers",
+   "venue": "A",
+   "score": "4-0",
+   "res": "W",
+   "haaland": false,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 7,
+   "pos": 3,
+   "pts": 25
+  },
+  {
+   "md": 13,
+   "opp": "Port Vale",
+   "venue": "H",
+   "score": "3-2",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 8,
+   "pos": 3,
+   "pts": 28
+  },
+  {
+   "md": 14,
+   "opp": "Salford City",
+   "venue": "A",
+   "score": "3-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 9,
+   "pos": 1,
+   "pts": 31
+  },
+  {
+   "md": 15,
+   "opp": "Newport County",
+   "venue": "H",
+   "score": "4-2",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 2,
+   "hg_total": 11,
+   "pos": 1,
+   "pts": 34
+  },
+  {
+   "md": 16,
+   "opp": "Accrington Stanley",
+   "venue": "A",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 13,
+   "pos": 1,
+   "pts": 37
+  },
+  {
+   "md": 17,
+   "opp": "Oldham Athletic",
+   "venue": "H",
+   "score": "4-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 15,
+   "pos": 1,
+   "pts": 40
+  },
+  {
+   "md": 18,
+   "opp": "Exeter City",
+   "venue": "A",
+   "score": "2-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 15,
+   "pos": 1,
+   "pts": 43
+  },
+  {
+   "md": 19,
+   "opp": "Shrewsbury Town",
+   "venue": "H",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 15,
+   "pos": 1,
+   "pts": 46
+  },
+  {
+   "md": 20,
+   "opp": "Swindon Town",
+   "venue": "A",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 15,
+   "pos": 1,
+   "pts": 47
+  },
+  {
+   "md": 21,
+   "opp": "Walsall",
+   "venue": "H",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 16,
+   "pos": 1,
+   "pts": 50
+  },
+  {
+   "md": 22,
+   "opp": "Northampton Town",
+   "venue": "H",
+   "score": "1-0",
+   "res": "W",
+   "haaland": false,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 16,
+   "pos": 1,
+   "pts": 53
+  },
+  {
+   "md": 23,
+   "opp": "Chesterfield",
+   "venue": "A",
+   "score": "2-2",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 18,
+   "pos": 1,
+   "pts": 54
+  },
+  {
+   "md": 24,
+   "opp": "Gillingham",
+   "venue": "H",
+   "score": "1-3",
+   "res": "L",
+   "haaland": false,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 18,
+   "pos": 1,
+   "pts": 54
+  },
+  {
+   "md": 25,
+   "opp": "Rotherham United",
+   "venue": "A",
+   "score": "1-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 19,
+   "pos": 1,
+   "pts": 57
+  },
+  {
+   "md": 26,
+   "opp": "Colchester United",
+   "venue": "H",
+   "score": "0-2",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 19,
+   "pos": 1,
+   "pts": 57
+  },
+  {
+   "md": 27,
+   "opp": "Grimsby Town",
+   "venue": "A",
+   "score": "2-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 20,
+   "pos": 1,
+   "pts": 60
+  },
+  {
+   "md": 28,
+   "opp": "Bristol Rovers",
+   "venue": "H",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 21,
+   "pos": 1,
+   "pts": 63
+  },
+  {
+   "md": 29,
+   "opp": "York City",
+   "venue": "A",
+   "score": "0-2",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 21,
+   "pos": 1,
+   "pts": 63
+  },
+  {
+   "md": 30,
+   "opp": "Fleetwood Town",
+   "venue": "H",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 21,
+   "pos": 1,
+   "pts": 64
+  },
+  {
+   "md": 31,
+   "opp": "Crewe Alexandra",
+   "venue": "A",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 1,
+   "hg_total": 22,
+   "pos": 1,
+   "pts": 67
+  },
+  {
+   "md": 32,
+   "opp": "Rochdale",
+   "venue": "H",
+   "score": "5-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 3,
+   "hg_total": 25,
+   "pos": 1,
+   "pts": 70
+  },
+  {
+   "md": 33,
+   "opp": "Barnet",
+   "venue": "H",
+   "score": "0-3",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 25,
+   "pos": 1,
+   "pts": 70
+  },
+  {
+   "md": 34,
+   "opp": "Cheltenham Town",
+   "venue": "A",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 25,
+   "pos": 1,
+   "pts": 73
+  },
+  {
+   "md": 35,
+   "opp": "Tranmere Rovers",
+   "venue": "H",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 25,
+   "pos": 2,
+   "pts": 74
+  },
+  {
+   "md": 36,
+   "opp": "Port Vale",
+   "venue": "A",
+   "score": "3-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 25,
+   "pos": 1,
+   "pts": 77
+  },
+  {
+   "md": 37,
+   "opp": "Salford City",
+   "venue": "H",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 26,
+   "pos": 1,
+   "pts": 80
+  },
+  {
+   "md": 38,
+   "opp": "Newport County",
+   "venue": "A",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 26,
+   "pos": 1,
+   "pts": 81
+  },
+  {
+   "md": 39,
+   "opp": "Accrington Stanley",
+   "venue": "H",
+   "score": "1-2",
+   "res": "L",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 1,
+   "hg_total": 27,
+   "pos": 1,
+   "pts": 81
+  },
+  {
+   "md": 40,
+   "opp": "Oldham Athletic",
+   "venue": "A",
+   "score": "0-1",
+   "res": "L",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 27,
+   "pos": 1,
+   "pts": 81
+  },
+  {
+   "md": 41,
+   "opp": "Exeter City",
+   "venue": "H",
+   "score": "2-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 27,
+   "pos": 1,
+   "pts": 84
+  },
+  {
+   "md": 42,
+   "opp": "Shrewsbury Town",
+   "venue": "A",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 27,
+   "pos": 2,
+   "pts": 85
+  },
+  {
+   "md": 43,
+   "opp": "Swindon Town",
+   "venue": "H",
+   "score": "0-4",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 27,
+   "pos": 2,
+   "pts": 85
+  },
+  {
+   "md": 44,
+   "opp": "Walsall",
+   "venue": "A",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 28,
+   "pos": 2,
+   "pts": 88
+  },
+  {
+   "md": 45,
+   "opp": "Northampton Town",
+   "venue": "A",
+   "score": "0-0",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 28,
+   "pos": 2,
+   "pts": 89
+  },
+  {
+   "md": 46,
+   "opp": "Chesterfield",
+   "venue": "H",
+   "score": "3-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 29,
+   "pos": 1,
+   "pts": 92
+  }
+ ],
+ "final": [
+  [
+   1,
+   "Manchester City",
+   92,
+   85,
+   55,
+   28,
+   8,
+   10
+  ],
+  [
+   2,
+   "Grimsby Town",
+   89,
+   86,
+   46,
+   25,
+   14,
+   7
+  ],
+  [
+   3,
+   "Barnet",
+   82,
+   80,
+   52,
+   24,
+   10,
+   12
+  ],
+  [
+   4,
+   "Oldham Athletic",
+   77,
+   64,
+   48,
+   23,
+   8,
+   15
+  ],
+  [
+   5,
+   "Swindon Town",
+   77,
+   68,
+   58,
+   22,
+   11,
+   13
+  ],
+  [
+   6,
+   "Walsall",
+   73,
+   71,
+   53,
+   20,
+   13,
+   13
+  ],
+  [
+   7,
+   "York City",
+   72,
+   77,
+   59,
+   20,
+   12,
+   14
+  ],
+  [
+   8,
+   "Tranmere Rovers",
+   70,
+   73,
+   65,
+   19,
+   13,
+   14
+  ],
+  [
+   9,
+   "Chesterfield",
+   68,
+   67,
+   56,
+   17,
+   17,
+   12
+  ],
+  [
+   10,
+   "Fleetwood Town",
+   65,
+   63,
+   55,
+   18,
+   11,
+   17
+  ],
+  [
+   11,
+   "Bristol Rovers",
+   65,
+   61,
+   66,
+   18,
+   11,
+   17
+  ],
+  [
+   12,
+   "Exeter City",
+   64,
+   43,
+   41,
+   17,
+   13,
+   16
+  ],
+  [
+   13,
+   "Colchester United",
+   63,
+   60,
+   62,
+   18,
+   9,
+   19
+  ],
+  [
+   14,
+   "Cheltenham Town",
+   62,
+   62,
+   65,
+   15,
+   17,
+   14
+  ],
+  [
+   15,
+   "Gillingham",
+   61,
+   60,
+   74,
+   17,
+   10,
+   19
+  ],
+  [
+   16,
+   "Salford City",
+   58,
+   68,
+   66,
+   16,
+   10,
+   20
+  ],
+  [
+   17,
+   "Northampton Town",
+   56,
+   40,
+   40,
+   13,
+   17,
+   16
+  ],
+  [
+   18,
+   "Accrington Stanley",
+   56,
+   56,
+   63,
+   15,
+   11,
+   20
+  ],
+  [
+   19,
+   "Crewe Alexandra",
+   53,
+   40,
+   55,
+   11,
+   20,
+   15
+  ],
+  [
+   20,
+   "Rotherham United",
+   51,
+   59,
+   79,
+   16,
+   3,
+   27
+  ],
+  [
+   21,
+   "Newport County",
+   49,
+   50,
+   60,
+   10,
+   19,
+   17
+  ],
+  [
+   22,
+   "Rochdale",
+   44,
+   42,
+   82,
+   12,
+   8,
+   26
+  ],
+  [
+   23,
+   "Shrewsbury Town",
+   35,
+   49,
+   88,
+   9,
+   8,
+   29
+  ],
+  [
+   24,
+   "Port Vale",
+   33,
+   40,
+   76,
+   8,
+   9,
+   29
+  ]
+ ],
+ "pos_by_round": [
+  18,
+  9,
+  15,
+  13,
+  14,
+  8,
+  5,
+  4,
+  3,
+  6,
+  5,
+  3,
+  3,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  2,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  2,
+  2,
+  2,
+  2,
+  1
+ ],
+ "haaland": 29,
+ "race": [
+  {
+   "Manchester City": 0,
+   "Grimsby Town": 3,
+   "Barnet": 3,
+   "Salford City": 0,
+   "leader": "Newport County",
+   "gd": {
+    "Manchester City": -1,
+    "Grimsby Town": 3
+   }
+  },
+  {
+   "Manchester City": 3,
+   "Grimsby Town": 6,
+   "Barnet": 6,
+   "Salford City": 3,
+   "leader": "Grimsby Town",
+   "gd": {
+    "Manchester City": 0,
+    "Grimsby Town": 6
+   }
+  },
+  {
+   "Manchester City": 3,
+   "Grimsby Town": 7,
+   "Barnet": 7,
+   "Salford City": 3,
+   "leader": "Walsall",
+   "gd": {
+    "Manchester City": -1,
+    "Grimsby Town": 6
+   }
+  },
+  {
+   "Manchester City": 6,
+   "Grimsby Town": 7,
+   "Barnet": 10,
+   "Salford City": 3,
+   "leader": "Barnet",
+   "gd": {
+    "Manchester City": 1,
+    "Grimsby Town": 4
+   }
+  },
+  {
+   "Manchester City": 7,
+   "Grimsby Town": 8,
+   "Barnet": 10,
+   "Salford City": 6,
+   "leader": "Tranmere Rovers",
+   "gd": {
+    "Manchester City": 1,
+    "Grimsby Town": 4
+   }
+  },
+  {
+   "Manchester City": 10,
+   "Grimsby Town": 11,
+   "Barnet": 13,
+   "Salford City": 9,
+   "leader": "Tranmere Rovers",
+   "gd": {
+    "Manchester City": 3,
+    "Grimsby Town": 6
+   }
+  },
+  {
+   "Manchester City": 13,
+   "Grimsby Town": 12,
+   "Barnet": 16,
+   "Salford City": 10,
+   "leader": "Tranmere Rovers",
+   "gd": {
+    "Manchester City": 4,
+    "Grimsby Town": 6
+   }
+  },
+  {
+   "Manchester City": 16,
+   "Grimsby Town": 15,
+   "Barnet": 19,
+   "Salford City": 10,
+   "leader": "Barnet",
+   "gd": {
+    "Manchester City": 7,
+    "Grimsby Town": 8
+   }
+  },
+  {
+   "Manchester City": 19,
+   "Grimsby Town": 18,
+   "Barnet": 22,
+   "Salford City": 10,
+   "leader": "Barnet",
+   "gd": {
+    "Manchester City": 8,
+    "Grimsby Town": 9
+   }
+  },
+  {
+   "Manchester City": 19,
+   "Grimsby Town": 21,
+   "Barnet": 25,
+   "Salford City": 10,
+   "leader": "Barnet",
+   "gd": {
+    "Manchester City": 5,
+    "Grimsby Town": 10
+   }
+  },
+  {
+   "Manchester City": 22,
+   "Grimsby Town": 24,
+   "Barnet": 26,
+   "Salford City": 10,
+   "leader": "Barnet",
+   "gd": {
+    "Manchester City": 7,
+    "Grimsby Town": 11
+   }
+  },
+  {
+   "Manchester City": 25,
+   "Grimsby Town": 27,
+   "Barnet": 26,
+   "Salford City": 13,
+   "leader": "Grimsby Town",
+   "gd": {
+    "Manchester City": 11,
+    "Grimsby Town": 14
+   }
+  },
+  {
+   "Manchester City": 28,
+   "Grimsby Town": 28,
+   "Barnet": 29,
+   "Salford City": 13,
+   "leader": "Barnet",
+   "gd": {
+    "Manchester City": 12,
+    "Grimsby Town": 14
+   }
+  },
+  {
+   "Manchester City": 31,
+   "Grimsby Town": 29,
+   "Barnet": 30,
+   "Salford City": 13,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 14,
+    "Grimsby Town": 14
+   }
+  },
+  {
+   "Manchester City": 34,
+   "Grimsby Town": 30,
+   "Barnet": 33,
+   "Salford City": 13,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 16,
+    "Grimsby Town": 14
+   }
+  },
+  {
+   "Manchester City": 37,
+   "Grimsby Town": 31,
+   "Barnet": 36,
+   "Salford City": 14,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 17,
+    "Grimsby Town": 14
+   }
+  },
+  {
+   "Manchester City": 40,
+   "Grimsby Town": 34,
+   "Barnet": 37,
+   "Salford City": 14,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 21,
+    "Grimsby Town": 18
+   }
+  },
+  {
+   "Manchester City": 43,
+   "Grimsby Town": 37,
+   "Barnet": 40,
+   "Salford City": 17,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 23,
+    "Grimsby Town": 22
+   }
+  },
+  {
+   "Manchester City": 46,
+   "Grimsby Town": 38,
+   "Barnet": 43,
+   "Salford City": 20,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 24,
+    "Grimsby Town": 22
+   }
+  },
+  {
+   "Manchester City": 47,
+   "Grimsby Town": 39,
+   "Barnet": 44,
+   "Salford City": 20,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 24,
+    "Grimsby Town": 22
+   }
+  },
+  {
+   "Manchester City": 50,
+   "Grimsby Town": 42,
+   "Barnet": 44,
+   "Salford City": 23,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 25,
+    "Grimsby Town": 23
+   }
+  },
+  {
+   "Manchester City": 53,
+   "Grimsby Town": 43,
+   "Barnet": 45,
+   "Salford City": 23,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 26,
+    "Grimsby Town": 23
+   }
+  },
+  {
+   "Manchester City": 54,
+   "Grimsby Town": 46,
+   "Barnet": 48,
+   "Salford City": 24,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 26,
+    "Grimsby Town": 25
+   }
+  },
+  {
+   "Manchester City": 54,
+   "Grimsby Town": 49,
+   "Barnet": 51,
+   "Salford City": 25,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 24,
+    "Grimsby Town": 26
+   }
+  },
+  {
+   "Manchester City": 57,
+   "Grimsby Town": 52,
+   "Barnet": 51,
+   "Salford City": 25,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 25,
+    "Grimsby Town": 28
+   }
+  },
+  {
+   "Manchester City": 57,
+   "Grimsby Town": 52,
+   "Barnet": 54,
+   "Salford City": 25,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 23,
+    "Grimsby Town": 27
+   }
+  },
+  {
+   "Manchester City": 60,
+   "Grimsby Town": 52,
+   "Barnet": 57,
+   "Salford City": 28,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 25,
+    "Grimsby Town": 25
+   }
+  },
+  {
+   "Manchester City": 63,
+   "Grimsby Town": 55,
+   "Barnet": 60,
+   "Salford City": 31,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 26,
+    "Grimsby Town": 28
+   }
+  },
+  {
+   "Manchester City": 63,
+   "Grimsby Town": 56,
+   "Barnet": 60,
+   "Salford City": 31,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 24,
+    "Grimsby Town": 28
+   }
+  },
+  {
+   "Manchester City": 64,
+   "Grimsby Town": 57,
+   "Barnet": 63,
+   "Salford City": 32,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 24,
+    "Grimsby Town": 28
+   }
+  },
+  {
+   "Manchester City": 67,
+   "Grimsby Town": 58,
+   "Barnet": 66,
+   "Salford City": 32,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 25,
+    "Grimsby Town": 28
+   }
+  },
+  {
+   "Manchester City": 70,
+   "Grimsby Town": 61,
+   "Barnet": 66,
+   "Salford City": 33,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 30,
+    "Grimsby Town": 29
+   }
+  },
+  {
+   "Manchester City": 70,
+   "Grimsby Town": 64,
+   "Barnet": 69,
+   "Salford City": 34,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 27,
+    "Grimsby Town": 31
+   }
+  },
+  {
+   "Manchester City": 73,
+   "Grimsby Town": 67,
+   "Barnet": 72,
+   "Salford City": 35,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 28,
+    "Grimsby Town": 32
+   }
+  },
+  {
+   "Manchester City": 74,
+   "Grimsby Town": 70,
+   "Barnet": 75,
+   "Salford City": 38,
+   "leader": "Barnet",
+   "gd": {
+    "Manchester City": 28,
+    "Grimsby Town": 34
+   }
+  },
+  {
+   "Manchester City": 77,
+   "Grimsby Town": 70,
+   "Barnet": 75,
+   "Salford City": 41,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 30,
+    "Grimsby Town": 33
+   }
+  },
+  {
+   "Manchester City": 80,
+   "Grimsby Town": 73,
+   "Barnet": 76,
+   "Salford City": 41,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 31,
+    "Grimsby Town": 34
+   }
+  },
+  {
+   "Manchester City": 81,
+   "Grimsby Town": 74,
+   "Barnet": 77,
+   "Salford City": 44,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 31,
+    "Grimsby Town": 34
+   }
+  },
+  {
+   "Manchester City": 81,
+   "Grimsby Town": 77,
+   "Barnet": 77,
+   "Salford City": 47,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 30,
+    "Grimsby Town": 36
+   }
+  },
+  {
+   "Manchester City": 81,
+   "Grimsby Town": 80,
+   "Barnet": 80,
+   "Salford City": 50,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 29,
+    "Grimsby Town": 38
+   }
+  },
+  {
+   "Manchester City": 84,
+   "Grimsby Town": 83,
+   "Barnet": 81,
+   "Salford City": 50,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 31,
+    "Grimsby Town": 43
+   }
+  },
+  {
+   "Manchester City": 85,
+   "Grimsby Town": 86,
+   "Barnet": 81,
+   "Salford City": 51,
+   "leader": "Grimsby Town",
+   "gd": {
+    "Manchester City": 31,
+    "Grimsby Town": 46
+   }
+  },
+  {
+   "Manchester City": 85,
+   "Grimsby Town": 89,
+   "Barnet": 82,
+   "Salford City": 52,
+   "leader": "Grimsby Town",
+   "gd": {
+    "Manchester City": 27,
+    "Grimsby Town": 48
+   }
+  },
+  {
+   "Manchester City": 88,
+   "Grimsby Town": 89,
+   "Barnet": 82,
+   "Salford City": 52,
+   "leader": "Grimsby Town",
+   "gd": {
+    "Manchester City": 28,
+    "Grimsby Town": 47
+   }
+  },
+  {
+   "Manchester City": 89,
+   "Grimsby Town": 89,
+   "Barnet": 82,
+   "Salford City": 55,
+   "leader": "Grimsby Town",
+   "gd": {
+    "Manchester City": 28,
+    "Grimsby Town": 45
+   }
+  },
+  {
+   "Manchester City": 92,
+   "Grimsby Town": 89,
+   "Barnet": 82,
+   "Salford City": 58,
+   "leader": "Manchester City",
+   "gd": {
+    "Manchester City": 30,
+    "Grimsby Town": 40
+   }
+  }
+ ]
+}

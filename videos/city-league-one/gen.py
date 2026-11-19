@@ -122,9 +122,9 @@ B.append({"kicker": "Matchdays 12–13", "headline": "Haaland hat-trick: [5–0]
 # 7 re-hook: Wimbledon at City; Stockley's hat-trick, the winner a screamer from distance; freeze, 3-4
 st0 = [-6.5, 0.11, 27.5]; top = [-3.1, 2.25, 52.3]
 B.append({"kicker": "Matchday 15 · at home", "headline": "Stockley hat-trick. [City 3–4].", "cut": True, "transition": "vhs", "vhsLabel": "PROBLEM", "vhsDur": 0.9, "scene": S_ETI, "accent": RED, "hype": False, "flashes": 8,
-  "camFrom": {"pos": [-13, 2.6, 22], "tgt": [-2, 1.2, 40]}, "camera": {"pos": [-12, 2.4, 25], "tgt": [-2, 1.4, 44]}, "move": 6, "moveEase": "linear",
+  "camFrom": {"pos": [-11.5, 2.6, 18.5], "tgt": [-4.0, 1.3, 38]}, "camera": {"pos": [-10.8, 2.4, 21.5], "tgt": [-3.4, 1.4, 42]}, "move": 6, "moveEase": "linear",
   "players": [P(kit=WIM, skin="#e7b593", hair="#1a1210", name="STOCKLEY", num=9, x=-6.7, z=27.0, action="kick", actionAt="a screamer", actionLag=-0.55, actionDur=0.8, after="celebrate", runup=2.0, label="Jayden Stockley", labelAt="Jayden Stockley"),
-              P(kit=CITY, skin="#8a5a3c", hair="#141010", x=-5.2, z=30.2, front=True, action="dive", dir=-1, actionAt="a screamer", actionLag=-0.3, actionDur=0.7),
+              P(kit=CITY, skin="#8a5a3c", hair="#141010", x=-4.2, z=29.6, front=True, action="dive", dir=-1, actionAt="a screamer", actionLag=-0.3, actionDur=0.7),
               P(kit=GKC, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=1, actionAt="a screamer", actionLag=0.25)],
   "card": [{"type": "ball", "delay": 0, "point": [-6.48, 0.11, 27.45], "untilAt": "a screamer", "untilLag": -0.21},
            {"type": "ballpath", "world": True, "at": "a screamer", "lag": -0.21, "dur": 1.3, "slowmo": True, "points": [st0, mid(st0, top, 6.5), top]},
@@ -136,7 +136,7 @@ B.append({"kicker": "Matchday 15 · at home", "headline": "Stockley hat-trick. [
 
 # 8 halfway: 12th; goals for 43 (2nd), against 43 (22nd)
 B.append({"kicker": "Halfway · matchday 23", "headline": "Twelfth. Scores lots. [Leaks lots].", "cut": True, "transition": "whip", "scene": S_SIM, "accent": RED, "lights": 0.5, "focus": 0.35,
-  "camFrom": {"pos": [0, 46, -60], "tgt": [0, 0, 6]}, "camera": {"pos": [-20, 22, -34], "tgt": [0, 0, 6]}, "move": 5, "moveEase": "linear", "players": [],
+  "camFrom": {"pos": [30, 46, -60], "tgt": [0, 0, 6]}, "camera": {"pos": [-30, 18, -26], "tgt": [0, 0, 6]}, "move": 5, "moveEase": "linear", "players": [],
   "card": [{"type": "board", "y": 1060, "delay": 0.0, "label": "City after 23 games · 12th", "cols": 12, "vcols": 3, "clear": False,
             "rows": [{"name": "POINTS", "value": "32"}, {"name": "SCORED  2ND", "value": "43"}, {"name": "CONCEDED 22ND", "value": "43"}],
             "focusPath": [{"t": 0, "row": 0}, {"at": "Only one team", "row": 1}, {"at": "Only two", "row": 2}]},

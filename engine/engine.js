@@ -3331,7 +3331,8 @@ CARDS.swing.noSlide = true;
 CARDS.pcard = function (c, ct, cx, cy) {
   const k = eBack(pr(ct, 0, 0.5)), side = c.side === 'left' ? -1 : 1, w = c.w || 420, h = c.h || 560;
   if (k <= 0) return;
-  ctx.save(); ctx.translate(cx + side * (1 - k) * 700, cy); ctx.rotate((c.tilt != null ? c.tilt : 0.05) * side * (1.4 - 0.4 * k));
+  const fl = 1 + Math.min(0.06, 0.012 * ct);   // a slow push-in so a held card never sits still
+  ctx.save(); ctx.translate(cx + side * (1 - k) * 700, cy + Math.sin(ct * 1.6 + side) * 6); ctx.rotate((c.tilt != null ? c.tilt : 0.05) * side * (1.4 - 0.4 * k) + Math.sin(ct * 1.1) * 0.01); ctx.scale(fl, fl);
   ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 18;
   ctx.fillStyle = c.color || '#f1c453'; rrect(-w / 2 - 10, -h / 2 - 10, w + 20, h + 20, 22); ctx.fill(); ctx.shadowColor = 'transparent';
   const g = ctx.createLinearGradient(0, -h / 2, 0, h / 2); g.addColorStop(0, '#2a2f3a'); g.addColorStop(1, '#0d0f14');

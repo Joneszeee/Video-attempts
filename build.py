@@ -192,6 +192,8 @@ def main():
     silent, events, sfx = outdir / 'silent.mp4', outdir / 'events.json', outdir / 'sfx.wav'
     fps, scale = (30, 0.5) if a.draft else (spec.get('fps', 60), 1)
     rng = [float(x) for x in a.range.split(',')] if a.range else None
+    if rng:   # a section never overwrites the full render's files
+        silent, events, sfx = outdir / 'silent_section.mp4', outdir / 'events_section.json', outdir / 'sfx_section.wav'
     if not (a.audio_only and silent.exists() and sfx.exists()):
         render_video(render, silent, events, fps, scale, rng, a.jobs)
         run([sys.executable, ROOT / 'engine' / 'sfx.py', events, sfx])

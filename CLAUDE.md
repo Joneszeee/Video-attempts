@@ -33,7 +33,7 @@ visuals (which tools or backlog items), and what still needs fact-checking. End 
      chunks (a 65 s video in about 1.5 min instead of 10–15), then runs **`engine/check.py` automatically**. Iterate on drafts; only the version you
      send the user is a full render (60fps, also split into 2 parallel chunks: about 2x faster than before; `--jobs` changes the split).
    - **The check** (`python3 engine/check.py videos/<slug> --video <mp4>`) writes `out/check.txt` and `out/check_sheet.jpg` (a frame every 2 s):
-     text cut off at an edge, text from different owners overlapping (stamp v label, label v label...), any card within 10 px of the headline,
+     text cut off at an edge (on the stage, behind the drapes), text overlapping (stamp v label, label v label, or piled up inside one card), any card within 10 px of the headline,
      shots under 2 s, and still moments. Issues must last 1 s to count. Fix everything it lists before sending a preview; then look at the sheet once.
    - **One section only:** `--range a,b` re-renders just that stretch (with the real voice, when the user wants to see a fix first).
    - **Shared building blocks:** new videos' `gen.py` use `engine/lib.py` (`P`, `kit`, `stadium`/`small`, `goal()` shooter clip, `clean_tackle()`,
@@ -373,6 +373,12 @@ Built so far from the idea list (reuse them):
   terrace with crush barriers behind the far goal, gaps at the corners, four corner floodlight pylons, advertising boards (`boards: [colours]`), and a ring of
   terraced houses with chimneys and lit windows behind (small-town skyline). `density` (crowd fill, default 0.62). Use it for lower-league clubs and to show a
   big club's fall. Test spec: `videos/_test-ground`.
+- **Crown** (built for `videos/yamal-messi-19`): the `crown` card. A gold crown drops onto a player's head (`on`: index in `players`, timed with `at`) with a bounce,
+  sparkles and a landing thud; `items: [{to: index, at}]` flies it to another player, `{to: "both", at}` makes it hover and swing between players 0 and 1
+  (the debate is open). It sits above his name label or number, never on them. Best on the stage for "who's better" stories.
+- **Seesaw scoreline** (built for `videos/yamal-messi-19`): the `seesaw` card. A back-and-forth match told goal by goal: chips pop on each team's side
+  (`left`/`right: {name, color, text}`) with minute, scorer and the new score, joined by a dashed zig-zag. `items: [{side, min, who, score, at}]`, `title`, `w`, `rowH`.
+  Use it when goals are minutes apart (a `timeline` can't separate them).
 - **xG spheres:** the `xg` card. Glossy spheres sized by expected goals with the value counting above: `items: [{label, value, from, color, at}]`, `max`, `title`.
 - **Half-time swing:** the `swing` card. Rows `[{label, from, to, at, decimals, good}]`: 1st-half number on the left, an arrow draws, the 2nd-half number counts and glows
   green (`good`) or red. Great for "what changed" tactics stories.

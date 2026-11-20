@@ -1,0 +1,1310 @@
+{
+ "title": "Yamal v Messi at 19",
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "La Liga at 19 · Yamal v Messi",
+   "headline": "Yamal at 19: [better than Messi]?",
+   "hookWords": true,
+   "scene": {
+    "type": "stage"
+   },
+   "accent": "#e9b949",
+   "zoomFrom": 1.0,
+   "zoom": 1.1,
+   "flashes": 10,
+   "players": [
+    {
+     "name": "YAMAL",
+     "num": 10,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#edbb00",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#9a6a48",
+     "hair": "#1a1210",
+     "sx": 0.32,
+     "sy": 1560,
+     "scale": 1.0,
+     "front": true,
+     "chest": true,
+     "tag": 0.83,
+     "tagLabel": "goals per game",
+     "tagDelay": 0.05,
+     "label": "Yamal",
+     "labelDelay": 0.0
+    },
+    {
+     "name": "MESSI",
+     "num": 19,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f2f2f2",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "sx": 0.68,
+     "sy": 1560,
+     "scale": 1.0,
+     "front": true,
+     "chest": true,
+     "tag": 0.54,
+     "tagLabel": "goals per game",
+     "tagDelay": 0.25,
+     "label": "Messi",
+     "labelDelay": 0.0
+    }
+   ],
+   "card": [
+    {
+     "type": "crown",
+     "on": 0,
+     "at": "better than Messi",
+     "lag": -0.35
+    }
+   ],
+   "shake": [
+    {
+     "at": "better than Messi",
+     "lag": 0.1,
+     "amount": 14
+    }
+   ],
+   "vo": "Lamine Yamal at nineteen is better than Messi was."
+  },
+  {
+   "kicker": "La Liga 2026/27 · aged 19",
+   "headline": "This season: [10 goals, 8 assists].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#edbb00",
+     "#a50044"
+    ],
+    "seed": 11
+   },
+   "accent": "#e9b949",
+   "camFrom": {
+    "pos": [
+     4.4,
+     2.2,
+     31.5
+    ],
+    "tgt": [
+     0.56,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.8,
+     1.9,
+     34.2
+    ],
+    "tgt": [
+     0.56,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "YAMAL",
+     "num": 10,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#edbb00",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "x": 1.4,
+     "z": 40.5,
+     "action": "kick",
+     "actionAt": "ten goals",
+     "actionLag": -0.55,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "skin": "#9a6a48",
+     "hair": "#1a1210",
+     "foot": "left",
+     "label": "Yamal",
+     "labelDelay": 0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "ten goals",
+     "actionLag": -0.10000000000000003
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f3f8f",
+      "shorts": "#1f3f8f",
+      "socks": "#1f3f8f",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -0.5,
+     "z": 43.9,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "ten goals",
+     "actionLag": -0.4,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f3f8f",
+      "shorts": "#1f3f8f",
+      "socks": "#1f3f8f",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.2399999999999998,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.18,
+      0.11,
+      40.95
+     ],
+     "untilAt": "ten goals",
+     "untilLag": -0.21000000000000002
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "ten goals",
+     "lag": -0.21000000000000002,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       1.18,
+       0.11,
+       40.95
+      ],
+      [
+       -0.8099999999999999,
+       0.9,
+       46.625
+      ],
+      [
+       -2.8,
+       0.9,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "stack",
+     "y": 760,
+     "delay": 0,
+     "items": [
+      {
+       "value": 10,
+       "label": "goals",
+       "at": "ten goals",
+       "gold": true
+      },
+      {
+       "value": 8,
+       "label": "assists",
+       "at": "eight assists"
+      }
+     ]
+    },
+    {
+     "type": "dots",
+     "y": 1620,
+     "at": "started every",
+     "lag": -0.3,
+     "n": 12,
+     "step": 0.08,
+     "label": "League starts",
+     "caption": "12 of 12"
+    }
+   ],
+   "vo": "This season: ten goals and eight assists in twelve La Liga games. He's started every single one."
+  },
+  {
+   "kicker": "La Liga 2006/07 · aged 19",
+   "headline": "Messi at 19: [14 goals] in 26.",
+   "cut": true,
+   "transition": "polaroid",
+   "polaroidLabel": "Barcelona 2006/07",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#a50044",
+     "#f2f2f2"
+    ],
+    "seed": 31
+   },
+   "accent": "#e9b949",
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     -7,
+     2.2,
+     14
+    ],
+    "tgt": [
+     0,
+     1,
+     24
+    ]
+   },
+   "camera": {
+    "pos": [
+     -6.2,
+     2.0,
+     18.5
+    ],
+    "tgt": [
+     0,
+     1,
+     28
+    ]
+   },
+   "move": 4.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "MESSI",
+     "num": 19,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f2f2f2",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "x": 1.5,
+     "z": 19,
+     "path": [
+      [
+       1.5,
+       19
+      ],
+      [
+       0.4,
+       23
+      ],
+      [
+       0.9,
+       27.5
+      ]
+     ],
+     "pathDur": 2.8,
+     "dribble": true,
+     "foot": "left",
+     "label": "Messi",
+     "labelDelay": 0.2,
+     "hops": [
+      {
+       "t": 1.15,
+       "dur": 0.45,
+       "height": 0.2
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f6b3a",
+      "shorts": "#1f6b3a",
+      "socks": "#1f6b3a",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -0.4,
+     "z": 23.6,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": 1.0,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1f6b3a",
+      "shorts": "#1f6b3a",
+      "socks": "#1f6b3a",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.6,
+     "z": 27.5,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "big",
+     "at": "fourteen goals",
+     "lag": -0.3,
+     "from": 0,
+     "value": 14,
+     "countDur": 0.8,
+     "label": "La Liga goals · 26 games",
+     "y": 1620,
+     "size": 170
+    }
+   ],
+   "vo": "Messi at nineteen: fourteen goals in twenty-six league games."
+  },
+  {
+   "kicker": "Goals per game · La Liga at 19",
+   "headline": "Per game: [0.83] v 0.54.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#edbb00",
+     "#a50044"
+    ],
+    "seed": 11
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     24,
+     22,
+     -34
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     -22,
+     14,
+     -20
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "tape",
+     "y": 1080,
+     "delay": 0.1,
+     "decimals": 2,
+     "left": {
+      "name": "Yamal 26/27",
+      "color": "#a50044"
+     },
+     "right": {
+      "name": "Messi 06/07",
+      "color": "#004d98"
+     },
+     "rows": [
+      {
+       "label": "Goals per game",
+       "left": 0.83,
+       "right": 0.54,
+       "at": "point eight three",
+       "lag": -0.4,
+       "floor": 0.3
+      }
+     ],
+     "caption": "La Liga, both aged 19",
+     "captionAt": "Point five four"
+    }
+   ],
+   "vo": "That's point eight three a game for Yamal. Point five four for Messi."
+  },
+  {
+   "kicker": "Messi 2006/07",
+   "headline": "Messi missed [13 weeks].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#4a1a2a"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.45,
+   "focus": 0.25,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -2.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "MESSI",
+     "num": 19,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f2f2f2",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "x": 1.6,
+     "z": 4.0,
+     "front": true,
+     "ghost": true
+    }
+   ],
+   "card": [
+    {
+     "type": "crossoff",
+     "y": 1060,
+     "delay": 0.0,
+     "shiftX": -110,
+     "title": "OUT",
+     "days": 13,
+     "cols": 5,
+     "cell": 110,
+     "crossAt": "missed three months",
+     "crossLag": -0.3,
+     "dur": 1.4,
+     "caption": "{n} weeks"
+    }
+   ],
+   "vo": "Messi even missed three months that season."
+  },
+  {
+   "kicker": "El Clásico · 10 March 2007",
+   "headline": "March 2007: [Real Madrid] at the Camp Nou.",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "2007",
+   "vhsDur": 1.0,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#a50044",
+     "#f2f2f2"
+    ],
+    "seed": 31
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.7,
+   "focus": 0.2,
+   "camFrom": {
+    "pos": [
+     0,
+     60,
+     -80
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     18,
+     28,
+     -44
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "newspaper",
+     "y": 1150,
+     "at": "March 2007",
+     "lag": -0.3,
+     "headline": "EL CLÁSICO",
+     "sub": "Barcelona v Real Madrid",
+     "dateline": "Saturday 10 March 2007",
+     "masthead": "THE MATCHDAY POST",
+     "color": "#a50044"
+    }
+   ],
+   "vo": "But here's where it gets weird. March 2007, Real Madrid at the Camp Nou."
+  },
+  {
+   "kicker": "Barcelona v Real Madrid · 2007",
+   "headline": "Madrid lead [three times].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#a50044",
+     "#f2f2f2"
+    ],
+    "seed": 31
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.6,
+   "camFrom": {
+    "pos": [
+     0,
+     3.0,
+     -8.5
+    ],
+    "tgt": [
+     0,
+     2.0,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     2.8,
+     -7.0
+    ],
+    "tgt": [
+     0,
+     1.9,
+     10
+    ]
+   },
+   "move": 4.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "MESSI",
+     "num": 19,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f2f2f2",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "x": -1.0,
+     "z": 3.6,
+     "front": true,
+     "label": "Messi",
+     "labelDelay": 0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#8a6a3a",
+     "x": 1.2,
+     "z": 3.8,
+     "front": true,
+     "pose": "fists",
+     "label": "Real Madrid",
+     "labelDelay": 0.1
+    }
+   ],
+   "card": [
+    {
+     "type": "seesaw",
+     "y": 1380,
+     "delay": 0.0,
+     "title": "Barcelona v Real Madrid · 10 March 2007",
+     "clear": false,
+     "left": {
+      "name": "Real Madrid",
+      "color": "#f4f4f2",
+      "text": "#111111"
+     },
+     "right": {
+      "name": "Messi",
+      "color": "#e9b949",
+      "text": "#111111"
+     },
+     "items": [
+      {
+       "side": "left",
+       "min": "5'",
+       "who": "Van Nistelrooy",
+       "score": "0–1",
+       "at": "Madrid go ahead",
+       "lag": -0.2
+      },
+      {
+       "side": "right",
+       "min": "11'",
+       "who": "Messi",
+       "score": "1–1",
+       "at": "Messi equalises",
+       "lag": -0.3
+      },
+      {
+       "side": "left",
+       "min": "13'",
+       "who": "Van Nistelrooy",
+       "score": "1–2",
+       "at": "Madrid go ahead",
+       "lag": 0.7
+      },
+      {
+       "side": "right",
+       "min": "28'",
+       "who": "Messi",
+       "score": "2–2",
+       "at": "Messi equalises",
+       "lag": 0.3
+      },
+      {
+       "side": "left",
+       "min": "73'",
+       "who": "Sergio Ramos",
+       "score": "2–3",
+       "at": "Messi equalises",
+       "lag": 0.9
+      }
+     ]
+    }
+   ],
+   "vo": "Madrid go ahead three times. Messi equalises three times."
+  },
+  {
+   "kicker": "90+1' · Camp Nou",
+   "headline": "91st minute: [hat-trick] at 19.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#a50044",
+     "#f2f2f2"
+    ],
+    "seed": 31
+   },
+   "accent": "#e9b949",
+   "camFrom": {
+    "pos": [
+     -4.2,
+     2.2,
+     32
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.6,
+     1.9,
+     34.7
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "MESSI",
+     "num": 19,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f2f2f2",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "x": -1.2,
+     "z": 41,
+     "action": "kick",
+     "actionAt": "ninety-first minute",
+     "actionLag": -0.3,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "foot": "left",
+     "label": "Messi",
+     "labelDelay": 0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "ninety-first minute",
+     "actionLag": 0.15000000000000002
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 0.7,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "ninety-first minute",
+     "actionLag": -0.15,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -2.2399999999999998,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "flashes": 16,
+   "confetti": true,
+   "confettiAt": "A hat-trick",
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.42,
+      0.11,
+      41.45
+     ],
+     "untilAt": "ninety-first minute",
+     "untilLag": 0.040000000000000036
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "ninety-first minute",
+     "lag": 0.040000000000000036,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.42,
+       0.11,
+       41.45
+      ],
+      [
+       0.69,
+       0.9,
+       46.875
+      ],
+      [
+       2.8,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "BAR",
+      "color": "#a50044"
+     },
+     "away": {
+      "name": "RMA",
+      "color": "#f4f4f2"
+     },
+     "score": [
+      3,
+      3
+     ],
+     "min": "90+1'",
+     "from": [
+      2,
+      3
+     ],
+     "goalAt": "ninety-first minute",
+     "goalLag": 0.2
+    },
+    {
+     "type": "big",
+     "at": "A hat-trick",
+     "lag": -0.2,
+     "from": 0,
+     "value": 3,
+     "countDur": 0.8,
+     "label": "Messi goals · 3–3",
+     "y": 1600,
+     "size": 180
+    }
+   ],
+   "vo": "The last one in the ninety-first minute. A hat-trick at nineteen."
+  },
+  {
+   "kicker": "El Clásico · 25 October 2026",
+   "headline": "Yamal's Clásico: [lost 2–1].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#a50044",
+     "#004d98",
+     "#edbb00",
+     "#a50044"
+    ],
+    "seed": 11
+   },
+   "accent": "#ff4d5e",
+   "camFrom": {
+    "pos": [
+     4.0,
+     2.2,
+     32
+    ],
+    "tgt": [
+     0.4,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.4,
+     1.9,
+     34.7
+    ],
+    "tgt": [
+     0.4,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#f4f4f2",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "x": 1.0,
+     "z": 41,
+     "action": "kick",
+     "actionAt": "Mbappé scored twice",
+     "actionLag": -0.5,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "label": "Mbappé",
+     "labelDelay": 0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "Mbappé scored twice",
+     "actionLag": -0.04999999999999999
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#edbb00",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -0.8999999999999999,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "Mbappé scored twice",
+     "actionLag": -0.35,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#edbb00",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.2399999999999998,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.22,
+      0.11,
+      41.45
+     ],
+     "untilAt": "Mbappé scored twice",
+     "untilLag": -0.15999999999999998
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Mbappé scored twice",
+     "lag": -0.15999999999999998,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       1.22,
+       0.11,
+       41.45
+      ],
+      [
+       -0.7899999999999999,
+       0.9,
+       46.875
+      ],
+      [
+       -2.8,
+       0.8,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "BAR",
+      "color": "#a50044"
+     },
+     "away": {
+      "name": "RMA",
+      "color": "#f4f4f2"
+     },
+     "score": [
+      1,
+      2
+     ],
+     "min": "87'",
+     "from": [
+      1,
+      1
+     ],
+     "goalAt": "Mbappé scored twice",
+     "goalLag": 0.2
+    },
+    {
+     "type": "stamp",
+     "text": "0 GOALS · 0 ASSISTS",
+     "at": "No goal",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 64,
+     "y": 1620,
+     "sub": "Yamal v Real Madrid"
+    }
+   ],
+   "freezeAt": "No goal",
+   "freezeLag": -0.2,
+   "vo": "Yamal's Clásico in October? Mbappé scored twice. Barcelona lost two–one. No goal, no assist for Yamal."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Numbers or [the moment]?",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stage"
+   },
+   "accent": "#e9b949",
+   "zoomFrom": 1.08,
+   "zoom": 1.0,
+   "flashes": 8,
+   "players": [
+    {
+     "name": "YAMAL",
+     "num": 10,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#edbb00",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#9a6a48",
+     "hair": "#1a1210",
+     "sx": 0.3,
+     "sy": 1400,
+     "scale": 0.85,
+     "front": true,
+     "label": "Yamal · the numbers",
+     "labelAt": "Yamal has the numbers"
+    },
+    {
+     "name": "MESSI",
+     "num": 19,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f2f2f2",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "sx": 0.7,
+     "sy": 1400,
+     "scale": 0.85,
+     "front": true,
+     "label": "Messi · the moment",
+     "labelAt": "Messi had the moment"
+    }
+   ],
+   "card": [
+    {
+     "type": "crown",
+     "on": 0,
+     "delay": -3,
+     "items": [
+      {
+       "to": 1,
+       "at": "Messi had the moment",
+       "lag": -0.2
+      },
+      {
+       "to": "both",
+       "at": "Who was better",
+       "lag": -0.3
+      }
+     ]
+    },
+    {
+     "type": "poll",
+     "y": 1660,
+     "at": "Who was better",
+     "lag": -0.4,
+     "question": "Who was better at 19?",
+     "options": [
+      {
+       "label": "Yamal",
+       "color": "#a50044",
+       "fill": 0.5
+      },
+      {
+       "label": "Messi",
+       "color": "#004d98",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "So Yamal has the numbers. Messi had the moment. Who was better at nineteen?"
+  }
+ ]
+}

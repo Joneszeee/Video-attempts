@@ -101,7 +101,7 @@ def goal(word, x, z, side, shooter_kit, end, keeper_dir, keeper_kit, def_kit, la
     x, z: shooter's spot (z about 40-42); side: +1/-1 = which side the camera sits; end: [x, y, 52.3] where the ball ends (inside the posts);
     keeper_dir: the way he dives (send him the wrong way for a goal). save_it=True puts the ball in his gloves instead.
     Returns (players, cards, camera keys) — the shooter is on screen for the whole run-up (camera behind and to one side)."""
-    b0 = [x + 0.22, 0.11, z + 0.45]
+    b0 = [x + (-0.22 if shooter.get('foot') == 'left' else 0.22), 0.11, z + 0.45]   # ball on his stronger foot
     sh = P(kit=shooter_kit, x=x, z=z, action="kick", actionAt=word, actionLag=lag, actionDur=0.8, after="celebrate", runup=1.6, **shooter)
     if label:
         sh.update(label=label, labelDelay=0.1)

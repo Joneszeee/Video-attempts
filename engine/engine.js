@@ -521,8 +521,13 @@ function drawStage(t, b, zoom, plt) {
     }
   }
   ctx.globalCompositeOperation = 'source-over';
-  for (const o of ps) { drawPlayer(o.x, o.y, o.u, o.p, plt, o.walk, o.a); S.anchors[b.playersArr.indexOf(o.p)] = { x: o.x, y: o.y, u: o.u }; }
+  for (const o of ps) {
+    drawPlayer(o.x, o.y, o.u, o.p, plt, o.walk, o.a);
+    const T = ctx.getTransform();   // store where he really is on screen (the stage is zoomed), so pinned cards (crown, pen) land on him
+    S.anchors[b.playersArr.indexOf(o.p)] = { x: T.a * o.x + T.c * o.y + T.e, y: T.b * o.x + T.d * o.y + T.f, u: o.u * T.a };
+  }
 
+  if (S.auditList) { const T = ctx.getTransform(); S.auditEdges = [T.a * 148 + T.e, T.a * (W - 148) + T.e]; }   // drapes hide player labels behind them (layout check)
   for (const side of [-1, 1]) {
     for (let i = 0; i < 6; i++) {
       const x = side < 0 ? -80 + i * 38 : W + 80 - (i + 1) * 38;
@@ -1192,7 +1197,7 @@ function cardY(c) {
   const top = cardTop(c, y);
   return top == null || top > 900 ? y : Math.max(y, S.hlBottom + 56 + top);
 }
-const NO_CLEAR = new Set(['simhud', 'ball', 'ballpath', 'vehicle', 'pen', 'flytext', 'redcard', 'comments', 'shotmap', 'speedlines']);
+const NO_CLEAR = new Set(['simhud', 'crown', 'ball', 'ballpath', 'vehicle', 'pen', 'flytext', 'redcard', 'comments', 'shotmap', 'speedlines']);
 let probeCtx = null;
 function cardTop(c, y) {   // distance from the card's centre line up to its highest drawn pixel, in its settled state
   if (c._top !== undefined && c._topY === y) return c._top;
@@ -2013,11 +2018,13 @@ CARDS.timeline = function (c, ct, cx, cy) {
   if (B) { const bt = B.t != null ? B.t : 99, bk = eOut(pr(ct, bt, 0.5)); if (bk > 0) { const x0 = -w / 2 + B.from * w - 26, x1 = -w / 2 + lerp(B.from, B.to, bk) * w + 26, pl = 0.6 + 0.4 * Math.sin(ct * 5);
       ctx.fillStyle = 'rgba(214,40,59,' + (0.28 * pl + 0.1) + ')'; rrect(x0, -120, x1 - x0, 150, 14); ctx.fill(); ctx.strokeStyle = '#ff4d5e'; ctx.lineWidth = 5; rrect(x0, -120, x1 - x0, 150, 14); ctx.stroke();
       if (bk >= 1) { const lk = eBack(pr(ct, bt + 0.5, 0.3)); font(900, 54, 'Inter'); const tw = ctx.measureText(B.label).width + 50; ctx.save(); ctx.translate((x0 + x1) / 2, 130); ctx.scale(lk, lk); ctx.fillStyle = '#d6283b'; rrect(-tw / 2, -44, tw, 88, 18); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(B.label, 0, 3); ctx.restore(); } } }
-  (c.events || []).forEach(e => { const t = e.t != null ? e.t : 0.4, a = pr(ct, t, 0.35); if (a <= 0) return;
+  const lvl = [], evs = c.events || [];   // pins close together get their labels at different heights (user: 11' and 13' piled up)
+  evs.map((e, i) => [e.pos, i]).sort((p, q) => p[0] - q[0]).forEach(([pos, i], k, arr) => { lvl[i] = k > 0 && (pos - arr[k - 1][0]) * w < 120 ? (lvl[arr[k - 1][1]] + 1) % 3 : 0; });
+  evs.forEach((e, ei) => { const t = e.t != null ? e.t : 0.4, a = pr(ct, t, 0.35); if (a <= 0) return;
     const x = -w / 2 + e.pos * w, y = lerp(-420, -52, eOut(a)) + (a >= 1 ? 0 : 0), col = e.color || '#fff', sq = a >= 1 ? 1 + 0.15 * Math.max(0, 1 - (ct - t - 0.35) / 0.2) : 1;
     ctx.save(); ctx.translate(x, y); ctx.scale(sq, sq); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(0, 0, 30, 0, 7); ctx.fill(); ctx.beginPath(); ctx.moveTo(-14, 24); ctx.lineTo(0, 52); ctx.lineTo(14, 24); ctx.fill();
     ctx.fillStyle = '#12151c'; ctx.beginPath(); ctx.arc(0, 0, 13, 0, 7); ctx.fill(); ctx.restore();
-    if (a >= 1 && e.label) { font(800, 26, 'Inter'); ctx.fillStyle = '#fff'; ctx.save(); ctx.translate(x + 8, y - 44); ctx.rotate(-0.6); ctx.textAlign = 'left'; ctx.fillText(e.label, 0, 0); ctx.restore(); ctx.textAlign = 'center'; } });
+    if (a >= 1 && e.label) { font(800, 26, 'Inter'); ctx.fillStyle = '#fff'; ctx.save(); ctx.translate(x + 8, y - 44 - (lvl[ei] || 0) * 46); ctx.rotate(-0.6); ctx.textAlign = 'left'; ctx.fillText(e.label, 0, 0); ctx.restore(); ctx.textAlign = 'center'; } });
   ctx.restore();
 };
 CARDS.timeline.noSlide = true;
@@ -4207,6 +4214,88 @@ CARDS.subboard = function (c, ct, cx, cy) {
 };
 CARDS.subboard.noSlide = true;
 
+
+// Crown (built for videos/yamal-messi-19): a gold crown drops onto a player's head (anchor = index in players) with a bounce, sparkles and a shake,
+// then can move: items: [{to: index, at|t}] flies it to another player's head; {to: "both", at|t} makes it hover and swing between players 0 and 1
+// (the debate is open). size (x his head width), color.
+function crownAt(c, idx) {
+  const a = S.anchors && S.anchors[idx], p = S.cur && S.cur.playersArr && S.cur.playersArr[idx];
+  if (!a) return null;
+  const lift = p && p.label ? (p.tag != null ? 1.55 : 1.1) + 0.14 : p && p.tag != null ? 1.5 : 0.99;   // sit above his name label / number, never on it
+  return { x: a.x, y: a.y - a.u * lift, s: a.u * 0.27 };
+}
+CARDS.crown = function (c, ct, cx, cy) {
+  const base = crownAt(c, c.on || 0); if (!base) return;
+  let pos = { ...base }, rot = 0, glow = 0;
+  const drop = pr(ct, 0, 0.45);
+  if (drop < 1) { pos.y -= (1 - eBack(drop)) * 520; rot = (1 - drop) * 0.6; }
+  const land = ct - 0.45; if (land >= 0 && land < 0.6) glow = 1 - land / 0.6;
+  for (const m of c.items || []) {
+    if (m.t == null || ct < m.t) continue;
+    const k = ease(pr(ct, m.t, 0.7));
+    let tgt;
+    if (m.to === 'both') {
+      const A = crownAt(c, 0), B = crownAt(c, 1); if (!A || !B) continue;
+      const sw = Math.sin((ct - m.t) * 2.4);
+      tgt = { x: (A.x + B.x) / 2 + sw * (B.x - A.x) * 0.22, y: Math.min(A.y, B.y) - 130 + Math.abs(sw) * 25, s: (A.s + B.s) / 2 };
+      rot = lerp(rot, sw * 0.28, k);
+    } else tgt = crownAt(c, m.to);
+    if (!tgt) continue;
+    const arc = Math.sin(Math.PI * k) * 160;
+    pos = { x: lerp(pos.x, tgt.x, k), y: lerp(pos.y, tgt.y, k) - arc, s: lerp(pos.s, tgt.s, k) };
+    if (m.to !== 'both' && k >= 1 && ct - m.t < 1.3) glow = Math.max(glow, 1 - (ct - m.t - 0.7) / 0.6);
+  }
+  const s = pos.s * (c.size || 1), col = c.color || '#f1c453';
+  ctx.save(); ctx.translate(pos.x, pos.y); ctx.rotate(rot + Math.sin(ct * 2) * 0.03);
+  if (glow > 0) {   // a burst of light and sparkles when it lands
+    const g = ctx.createRadialGradient(0, -s * 0.3, 0, 0, -s * 0.3, s * 3);
+    g.addColorStop(0, `rgba(255,236,170,${0.75 * glow})`); g.addColorStop(1, 'rgba(255,236,170,0)');
+    ctx.fillStyle = g; ctx.fillRect(-s * 3, -s * 3.3, s * 6, s * 6);
+    for (let i = 0; i < 10; i++) { const an = i / 10 * 6.28, r = s * (1.1 + (1 - glow) * 1.4); ctx.fillStyle = `rgba(255,245,200,${glow})`; ctx.beginPath(); ctx.arc(Math.cos(an) * r, -s * 0.3 + Math.sin(an) * r, s * 0.06, 0, 7); ctx.fill(); }
+  }
+  const gr = ctx.createLinearGradient(0, -s, 0, 0); gr.addColorStop(0, '#fff2b8'); gr.addColorStop(0.45, col); gr.addColorStop(1, '#9a6a12');
+  ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = s * 0.3; ctx.shadowOffsetY = s * 0.08;
+  ctx.fillStyle = gr; ctx.beginPath();
+  ctx.moveTo(-s * 0.62, 0); ctx.lineTo(-s * 0.7, -s * 0.78); ctx.lineTo(-s * 0.36, -s * 0.42); ctx.lineTo(0, -s * 0.95); ctx.lineTo(s * 0.36, -s * 0.42); ctx.lineTo(s * 0.7, -s * 0.78); ctx.lineTo(s * 0.62, 0); ctx.closePath(); ctx.fill();
+  ctx.shadowColor = 'transparent';
+  ctx.fillStyle = '#b8862a'; ctx.fillRect(-s * 0.64, -s * 0.16, s * 1.28, s * 0.18);
+  for (const [jx, jc] of [[-0.36, '#d6283b'], [0, '#2b6fe0'], [0.36, '#d6283b']]) { ctx.fillStyle = jc; ctx.beginPath(); ctx.arc(jx * s, -s * 0.07, s * 0.07, 0, 7); ctx.fill(); }
+  for (const tx of [-0.7, 0, 0.7]) { ctx.fillStyle = '#fff2b8'; ctx.beginPath(); ctx.arc(tx * s, tx === 0 ? -s * 0.98 : -s * 0.8, s * 0.07, 0, 7); ctx.fill(); }
+  ctx.restore();
+};
+CARDS.crown.noSlide = true;
+
+// Seesaw scoreline (built for videos/yamal-messi-19): a back-and-forth match told goal by goal. Each goal pops in as a chip on its team's side
+// (left/right column) with the minute, scorer and new score, joined to the last one by a zig-zag line, so "they led, he levelled" reads at a glance.
+// {title, left: {name, color, text}, right: {...}, items: [{side: "left"|"right", min, who, score, at|t}], w, rowH}
+CARDS.seesaw = function (c, ct, cx, cy) {
+  const w = c.w || 900, rh = c.rowH || 112, items = c.items || [], n = items.length, h = 150 + n * rh;
+  const k = eOut(pr(ct, 0, 0.35)); if (k <= 0) return;
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy - h / 2);
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.fillStyle = 'rgba(8,10,15,0.86)'; rrect(-w / 2, 0, w, h, 28); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  if (c.title) { font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.fillText(c.title.toUpperCase(), 0, 42); }
+  const colX = { left: -w * 0.25, right: w * 0.25 };
+  for (const sd of ['left', 'right']) { const t = c[sd] || {}; font(800, 26, 'Inter', '2px'); ctx.fillStyle = t.color || '#fff'; ctx.fillText((t.name || '').toUpperCase(), colX[sd], 92); }
+  ctx.fillStyle = 'rgba(255,255,255,0.12)'; ctx.fillRect(-1, 76, 2, h - 96);
+  let prev = null;
+  items.forEach((it, i) => {
+    const t0 = it.t != null ? it.t : 0.3 + i * 0.5, a = pr(ct, t0, 0.3); if (a <= 0) return;
+    const x = colX[it.side] || 0, y = 150 + i * rh + rh / 2 - 10, team = c[it.side] || {}, col = team.color || '#fff';
+    if (prev) { const lk = ease(pr(ct, t0, 0.25)); ctx.strokeStyle = 'rgba(255,255,255,0.45)'; ctx.lineWidth = 4; ctx.setLineDash([10, 8]);
+      ctx.beginPath(); ctx.moveTo(prev[0], prev[1] + 34); ctx.lineTo(lerp(prev[0], x, lk), lerp(prev[1] + 34, y - 34, lk)); ctx.stroke(); ctx.setLineDash([]); }
+    const sc = eBack(a), cw = w * 0.42, ch = rh - 26;
+    ctx.save(); ctx.translate(x, y); ctx.scale(sc, sc);
+    ctx.fillStyle = col; rrect(-cw / 2, -ch / 2, cw, ch, 18); ctx.fill();
+    ctx.fillStyle = team.text || '#111'; font(700, 22, 'Mono', '1px'); ctx.textAlign = 'left'; ctx.fillText(String(it.min || ''), -cw / 2 + 18, -ch / 2 + 24);
+    font(800, 26, 'Inter'); ctx.fillText(String(it.who || ''), -cw / 2 + 18, ch / 2 - 22);
+    font(900, 44, 'Inter', '-1px'); ctx.textAlign = 'right'; ctx.fillText(String(it.score || ''), cw / 2 - 18, 2);
+    ctx.restore();
+    prev = [x, y];
+  });
+  ctx.restore();
+};
+CARDS.seesaw.noSlide = true;
 function drawSpeedlines(b, lt) {
   for (const sl of b.speedlines || []) {
     const r = lt - (sl.t || 0), d = sl.dur || 1.2;
@@ -4234,6 +4323,8 @@ function cardEvents(c) {
     case 'simhud': { const c0 = c.countT != null ? c.countT : 0.1; ticks(c0, Math.min(1.4, (c.dur || 2.2) * 0.8)); break; }
     case 'simrun': { const c0 = c.countT != null ? c.countT : 0.2; ticks(c0, Math.min(1.4, (c.dur || 2.4) * 0.8)); if (c.stampT != null) ev.push({ t: c.stampT, type: 'impact' }); break; }
     case 'odds': { const lT = c.litT != null ? c.litT : 0.9; ev.push({ t: 0.05, type: 'swish' }); for (let i = 0; i < (c.lit || 0); i++) ev.push({ t: lT + i * 0.14, type: 'pop' }); ev.push({ t: lT + (c.lit || 0) * 0.14 + 0.1, type: 'swipe' }); break; }
+    case 'seesaw': for (const it of c.items || []) if (it.t != null) ev.push({ t: it.t, type: 'pop' }); break;
+    case 'crown': ev.push({ t: 0.42, type: 'impact' }); for (const m of c.items || []) if (m.t != null) ev.push({ t: m.t, type: 'whoosh' }); break;
     case 'subboard': ev.push({ t: 0.05, type: 'swish' }, { t: 0.45, type: 'pop' }, { t: c.swapT != null ? c.swapT : (typeof c.swapAt === 'number' ? c.swapAt : 0.9), type: 'pop' }); break;
     case 'flip': c.groups.forEach((g, i) => ticks(0.35 + i * 0.25, 1.3)); break;
     case 'big': ticks(0.25, (c.countDur || 1.3) * 0.85); ev.push({ t: 0.25 + (c.countDur || 1.3), type: 'impact' }); break;
@@ -4692,7 +4783,7 @@ function renderAt(t) {
     const tf = ctx.getTransform(), ga = ctx.globalAlpha;
     fn(it.obj, ct, W / 2 + (it.obj.shiftX || 0), cardY(it.obj), ek);
     ctx.restore();
-    if (S.auditList && !['simhud', 'rain', 'flytext', 'comments', 'pen'].includes(it.obj.type) && ga > 0.2) auditCardBox(it, fn, ct, tf, ek);   // moving or full-frame cards may pass the headline   // the card's whole drawn area, for the headline check
+    if (S.auditList && !['simhud', 'rain', 'flytext', 'comments', 'pen', 'crown'].includes(it.obj.type) && ga > 0.2) auditCardBox(it, fn, ct, tf, ek);   // moving or full-frame cards may pass the headline   // the card's whole drawn area, for the headline check
   }
 
   if (b.glitch) drawGlitch(b, lt);
@@ -4756,7 +4847,7 @@ function drawOutro(ot) {
         const xs = [x - m.actualBoundingBoxLeft, x + m.actualBoundingBoxRight], ys = [y - m.actualBoundingBoxAscent, y + m.actualBoundingBoxDescent];
         const pts = []; for (const px of xs) for (const py of ys) pts.push([T.a * px + T.c * py + T.e, T.b * px + T.d * py + T.f]);
         const bx = pts.map(p => p[0]), by = pts.map(p => p[1]);
-        S.auditList.push({ owner: S.owner || '?', text: String(text).slice(0, 40), x0: Math.min(...bx), x1: Math.max(...bx), y0: Math.min(...by), y1: Math.max(...by), a: this.globalAlpha });
+        S.auditList.push({ owner: S.owner || '?', text: String(text).slice(0, 40), x0: Math.min(...bx), x1: Math.max(...bx), y0: Math.min(...by), y1: Math.max(...by), a: this.globalAlpha, rot: Math.abs(T.b) > 0.03 });
       }
       return orig.call(this, text, x, y, mw);
     };
@@ -4777,17 +4868,25 @@ function auditCardBox(it, fn, ct, tf, ek) {   // draw the card again on a quarte
   if (x1 >= 0) list.push({ owner: S.owner, box: true, text: '[' + it.obj.type + ' card]', x0: x0 / Q4, x1: (x1 + 1) / Q4, y0: y0 / Q4, y1: (y1 + 1) / Q4, a: 1 });
 }
 window.audit = function (t) {
-  S.auditList = [];
+  S.auditList = []; S.auditEdges = null;
   renderAt(t);
-  const L = S.auditList; S.auditList = null;
+  const L = S.auditList, E = S.auditEdges; S.auditList = null; S.auditEdges = null;
   const issues = [];
   for (const r of L) {
-    const over = Math.max(-r.x0, r.x1 - W, -r.y0, r.y1 - H);
+    const inScene = /^(label|tag) /.test(r.owner), lx = inScene && E ? E[0] : 0, rx = inScene && E ? E[1] : W;   // on the stage, the drapes are the edge
+    const over = Math.max(lx - r.x0, r.x1 - rx, -r.y0, r.y1 - H);
     if (over > 6 && r.owner !== 'scene' && !r.box) issues.push({ kind: 'cut off', owner: r.owner, text: r.text, by: Math.round(over) });   // players running in from the edge are normal
   }
   for (let i = 0; i < L.length; i++) for (let j = i + 1; j < L.length; j++) {
     const a = L[i], b = L[j];
-    if (a.owner === b.owner || a.owner === 'scene' || b.owner === 'scene') continue;
+    if (a.owner === 'scene' || b.owner === 'scene') continue;
+    if (a.owner === b.owner) {   // inside one card: text piling up on itself (e.g. timeline labels)
+      if (a.box || b.box || a.rot || b.rot || !a.owner.startsWith('card ') || /stack|board|ballnumber|flytext|comments/.test(a.owner)) continue;   // tilted text: its box is bigger than the word
+      const jx = Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0), jy = Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0);
+      const sm = Math.min((a.x1 - a.x0) * (a.y1 - a.y0), (b.x1 - b.x0) * (b.y1 - b.y0));
+      if (jx > 2 && jy > 2 && jx * jy > 0.3 * sm) issues.push({ kind: 'overlap', owner: a.owner + ' (inside)', text: a.text + ' / ' + b.text });
+      continue;
+    }
     if (a.box || b.box) {   // a card's drawn area must keep 10 px clear of the headline/kicker text (it looked cramped at 7 px)
       const hl = a.box ? b : a, cb = a.box ? a : b;
       if (hl.owner !== 'headline' || hl.box) continue;

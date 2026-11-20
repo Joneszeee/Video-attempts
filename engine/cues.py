@@ -8,7 +8,8 @@ In spec.json, inside a beat:
                    -> the beat is cut into several shots inside one voice line (new camera, players, cards, headline...).
 
 Times are estimated inside each spoken line from character position (punctuation counts as a pause), using the
-line's real start and end in the voiceover. Accurate to roughly a quarter of a second.
+line's real start and end in the voiceover. Sentence breaks inside a line (. ? ! … ; :) are pinned to the real pauses
+the voice leaves there, so a cue on the second or third sentence lands on its word, not half a second early.
 """
 import copy
 import re
@@ -39,6 +40,51 @@ def line_spans(vo_path, starts, total):
     return spans
 
 
+BREAK = re.compile(r'[.?!…;:]+(?=\s)')
+
+
+def _w(ch):
+    return PAUSE.get(ch, 1)
+
+
+def timer(text, s0, s1, pauses=()):
+    """Returns f(char index) -> spoken time in a line spoken from s0 to s1. Time is shared out by text weight, except that each
+    sentence break is pinned to the real pause nearest to where it would fall (pauses = (start, end) silences inside the line)."""
+    cum = [0]
+    for c in text:
+        cum.append(cum[-1] + _w(c))
+    T = max(1, cum[-1])
+    pins = [(0, s0)]
+    pz = sorted((a, e) for a, e in pauses if s0 + 0.15 < a and e < s1 - 0.1)
+    tol = 0.3 + 0.2 * (s1 - s0)
+    for m in BREAK.finditer(text):
+        k0, k1 = m.start(), m.end() + 1                  # the mark ... the next word
+        if k1 >= len(text):
+            continue
+        est = s0 + cum[k0] / T * (s1 - s0)
+        cand = [(abs(a - est), a, e) for a, e in pz if a > pins[-1][1] + 0.05 and abs(a - est) < tol]
+        if cand:
+            _, a, e = min(cand)
+            pins += [(cum[k0], a), (cum[k1], e)]
+            pz = [x for x in pz if x[0] > e]
+    pins.append((T, max(s1, pins[-1][1] + 0.05)))
+
+    def f(k):
+        x = cum[max(0, min(k, len(text)))]
+        for (x0, t0), (x1, t1) in zip(pins, pins[1:]):
+            if x <= x1:
+                return t0 + (x - x0) / max(1e-9, x1 - x0) * (t1 - t0)
+        return pins[-1][1]
+    return f
+
+
+def index_of(text, phrase):
+    k = text.lower().find(phrase.lower())
+    if k < 0:
+        raise SystemExit(f'cue "{phrase}" not found in line: {text}')
+    return k
+
+
 def frac_of(text, phrase):
     low, p = text.lower(), phrase.lower()
     k = low.find(p)
@@ -66,20 +112,19 @@ def caption_words(spec, beat_starts, speech):
             if j > 0 and core[:1].isupper() and not re.search(r'[.?!:]$', toks[j - 1]) and core.lower() not in STOP:
                 names.add(core.lower())
     out, g = [], 0
-    w = lambda ch: PAUSE.get(ch, 1)
     for i, b in enumerate(spec['beats']):
         text = b.get('vo', '')
         if not text:
             continue
-        s0, s1 = speech[i]
-        total = max(1, sum(w(c) for c in text))
+        s0, s1 = speech[i][:2]
+        at = timer(text, s0, s1, speech[i][2] if len(speech[i]) > 2 else ())
         keys = {k.lower() for k in b.get('keys', [])}
         g += 1
         n_in = 0
         for m in re.finditer(r'\S+', text):
             word = m.group(0)
             core = re.sub(r"[^\w'’\-]", '', word).lower()
-            t = s0 + sum(w(c) for c in text[:m.start()]) / total * (s1 - s0)
+            t = at(m.start())
             key = (bool(re.search(r'\d', word)) or core in keys or core in names or core.split('-')[0] in NUMBER_WORDS
                    or core.endswith('ty') and core in NUMBER_WORDS)
             if core in ('one', 'first', 'second', 'half', 'minus') and core not in keys:
@@ -101,8 +146,10 @@ def resolve(spec, beat_starts, speech):
         spec['captionWords'] = caption_words(spec, beat_starts, speech)
     out = []
     for i, b in enumerate(spec['beats']):
-        s0, s1 = speech[i]
-        rel = lambda phrase: round(s0 + frac_of(b.get('vo', ''), phrase) * (s1 - s0) - beat_starts[i], 3)
+        s0, s1 = speech[i][:2]
+        text = b.get('vo', '')
+        at = timer(text, s0, s1, speech[i][2] if len(speech[i]) > 2 else ())
+        rel = lambda phrase, at=at, text=text, i=i: round(at(index_of(text, phrase)) - beat_starts[i], 3)
         _resolve_beat(b, rel)
         for sh in b.get('shots', []):
             # inside a shot, phrases resolve relative to the shot's start, and plain numbers already are

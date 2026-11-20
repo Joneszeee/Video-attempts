@@ -15,11 +15,11 @@ MESSI = dict(kit=BAR06, skin="#f0c8a8", hair="#5a3a22", name="MESSI", num=19)
 BUG07 = lambda score, mn, frm=None, at=None, lag=0.3, **k: bug({"name": "BAR", "color": "#a50044"}, {"name": "RMA", "color": "#f4f4f2"}, score, mn, frm, at, lag, **k)
 B = []
 
-# 1 hook (stage face-off): goals per game pop over their heads, the crown drops onto Yamal
+# 1 hook (stage face-off): goals per game already readable on frame 0 (Messi's still landing), the crown drops onto Yamal
 B.append({"kicker": "La Liga at 19 · Yamal v Messi", "headline": "Yamal at 19: [better than Messi]?", "hookWords": True, "scene": {"type": "stage"}, "accent": GOLD,
   "zoomFrom": 1.0, "zoom": 1.1, "flashes": 10,
-  "players": [P(**YAMAL, sx=0.32, sy=1560, scale=1.0, front=True, chest=True, tag=0.83, tagLabel="goals per game", tagDelay=0.05, label="Yamal", labelDelay=0.0),
-              P(**MESSI, sx=0.68, sy=1560, scale=1.0, front=True, chest=True, tag=0.54, tagLabel="goals per game", tagDelay=0.25, label="Messi", labelDelay=0.0)],
+  "players": [P(**YAMAL, sx=0.32, sy=1560, scale=1.0, front=True, chest=True, tag=0.83, tagLabel="goals per game", tagDelay=-0.45, label="Yamal", labelDelay=-0.45),
+              P(**MESSI, sx=0.68, sy=1560, scale=1.0, front=True, chest=True, tag=0.54, tagLabel="goals per game", tagDelay=-0.25, label="Messi", labelDelay=-0.45)],
   "card": [{"type": "crown", "on": 0, "at": "better than Messi", "lag": -0.35}],
   "shake": [{"at": "better than Messi", "lag": 0.1, "amount": 14}]})
 

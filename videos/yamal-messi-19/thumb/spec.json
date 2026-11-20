@@ -1,0 +1,105 @@
+{
+ "brand": "theo6k",
+ "accent": "#e9b949",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "timings": [
+  3
+ ],
+ "beats": [
+  {
+   "kicker": "",
+   "headline": "",
+   "vo": "Thumbnail.",
+   "scene": {
+    "type": "stage"
+   },
+   "accent": "#e9b949",
+   "zoomFrom": 1.04,
+   "zoom": 1.04,
+   "flashes": 12,
+   "players": [
+    {
+     "name": "YAMAL",
+     "num": 10,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#edbb00",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#9a6a48",
+     "hair": "#1a1210",
+     "sx": 0.3,
+     "sy": 1750,
+     "scale": 1.08,
+     "front": true,
+     "chest": true,
+     "tag": 0.83,
+     "tagLabel": "goals per game",
+     "tagDelay": -3,
+     "label": "Yamal · 19",
+     "labelDelay": -3
+    },
+    {
+     "name": "MESSI",
+     "num": 19,
+     "kit": {
+      "shirt": "#a50044",
+      "shorts": "#004d98",
+      "socks": "#004d98",
+      "text": "#f2f2f2",
+      "stripes": [
+       "#a50044",
+       "#004d98"
+      ]
+     },
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "sx": 0.7,
+     "sy": 1750,
+     "scale": 1.08,
+     "front": true,
+     "chest": true,
+     "tag": 0.54,
+     "tagLabel": "goals per game",
+     "tagDelay": -3,
+     "label": "Messi · 19",
+     "labelDelay": -3
+    }
+   ],
+   "card": [
+    {
+     "type": "crown",
+     "on": 0,
+     "delay": -3
+    },
+    {
+     "type": "shout",
+     "text": "YAMAL AT 19",
+     "y": 340,
+     "size": 120,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false,
+     "color": "#ffffff",
+     "color2": "#d9dde6"
+    },
+    {
+     "type": "shout",
+     "text": "BETTER THAN\nMESSI?",
+     "y": 590,
+     "size": 165,
+     "delay": -3,
+     "rot": -0.03,
+     "clear": false
+    }
+   ]
+  }
+ ]
+}

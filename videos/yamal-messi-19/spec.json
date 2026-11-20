@@ -38,9 +38,9 @@
      "chest": true,
      "tag": 0.83,
      "tagLabel": "goals per game",
-     "tagDelay": 0.05,
+     "tagDelay": -0.45,
      "label": "Yamal",
-     "labelDelay": 0.0
+     "labelDelay": -0.45
     },
     {
      "name": "MESSI",
@@ -64,9 +64,9 @@
      "chest": true,
      "tag": 0.54,
      "tagLabel": "goals per game",
-     "tagDelay": 0.25,
+     "tagDelay": -0.25,
      "label": "Messi",
-     "labelDelay": 0.0
+     "labelDelay": -0.45
     }
    ],
    "card": [

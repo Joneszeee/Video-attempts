@@ -955,11 +955,16 @@ function drawTag0(u, p, t) {
       ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
       const g = ctx.createLinearGradient(0, -u * 0.25, 0, 0);
       g.addColorStop(0, GOLD[0]); g.addColorStop(1, GOLD[2]);
-      ctx.fillStyle = g; ctx.shadowColor = 'rgba(241,196,83,0.5)'; ctx.shadowBlur = 30;
+      // dark outline under the gold so the number reads on any background (bright stage lights, crowds); user: the hook must work on mute
+      ctx.lineJoin = 'round'; ctx.lineWidth = Math.max(4, u * 0.02); ctx.strokeStyle = 'rgba(12,9,6,0.88)';
+      ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 18; ctx.strokeText(String(p.tag), 0, 0);
+      ctx.fillStyle = g; ctx.shadowColor = 'rgba(241,196,83,0.35)'; ctx.shadowBlur = 24;
       ctx.fillText(String(p.tag), 0, 0);
       if (p.tagLabel) {
-        ctx.shadowBlur = 0; font(600, u * 0.036, 'Mono', `${u * 0.006}px`); ctx.fillStyle = '#d8c8a0';
-        ctx.fillText(p.tagLabel.toUpperCase(), 0, u * 0.065);
+        ctx.shadowBlur = 0; font(600, u * 0.036, 'Mono', `${u * 0.006}px`);
+        const lab = p.tagLabel.toUpperCase(), lw = ctx.measureText(lab).width;
+        ctx.fillStyle = 'rgba(8,8,10,0.62)'; rrect(-lw / 2 - u * 0.016, u * 0.029, lw + u * 0.032, u * 0.047, u * 0.0235); ctx.fill();
+        ctx.fillStyle = '#efe2bf'; ctx.fillText(lab, 0, u * 0.065);
       }
       ctx.restore();
     }

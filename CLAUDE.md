@@ -87,7 +87,9 @@ fallback: put `"timings": [secs per beat]` in the spec).
   - A "you've been lied to" angle: "Even Messi's number is wrong."
 - **The VO's first words are the hook.** No intro and no "today we're looking at".
 - **Frame 1 is the thumbnail.** The engine shows beat 1's headline and cards fully from frame 1. For boards or counters, set the card's `delay`
-  to about -1.1 so the values are already readable on frame 1. Motion still comes from the zoom and highlight.
+  to about -1.1 so the values are already readable on frame 1. Motion still comes from the zoom and highlight. The same goes for players'
+  gold number tags and name pills in beat 1: `tagDelay`/`labelDelay` about -0.45 (one of them -0.25 so it is still landing on frame 0).
+  Gold tags have a dark outline and their `tagLabel` sits on a dark pill, so they read on the bright stage too.
 - **Keep the hook to one or two lines.** It should create an open loop that the last beat pays off (end on the question or the answer).
 - Write 2–3 hook options and pick the strongest before building.
 
@@ -132,7 +134,8 @@ else (e.g. Ronaldo and Klose on screen while he talked about Gerd Müller). So:
   before it's said, and never leave something unshown while it's being talked about.
 - **Pin visuals to phrases with `"at"`** (handled by `engine/cues.py`, from the real voice timing):
   `card.at`, pen `stroke.at`, player `at` (entrance) and `tagAt` (number pop), board `focusPath[].at`, `captionAt`/`swapAt` as a phrase,
-  receipt `totalAt`. Use them in place of hand-tuned `delay` and `t` values.
+  receipt `totalAt`. Use them in place of hand-tuned `delay` and `t` values. Inside a line, each sentence break (. ? ! … ; :) is pinned to the
+  real pause the voice leaves there, so cues on a second or third sentence land on the word (they used to run up to 0.7s early).
 - **Several shots per line.** A long line gets `"shots": [{"at": "phrase", ...}]` to cut or move the camera, swap players or bring in a new card
   mid-sentence. Inside a shot, plain numbers (`delay`, `actionDelay`, punch `t`) count from the shot's start. Aim for **a visible change every 2–3 seconds** at most.
   A shot also takes `"lag"` to nudge its cut earlier or later. But **no hard cut shorter than about 2 seconds** (user: the Bayern beat "switches way too quickly"). When a line packs in several facts,

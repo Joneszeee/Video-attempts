@@ -122,8 +122,10 @@ def align(spec, vo_path):
         b['duration'] = round((starts[i + 1] if i + 1 < n else end) - starts[i], 3)
     spec['tail'] = 0.6
     print('beat starts (s):', ', '.join(f'{s:.2f}' for s in starts))
-    # where each line is actually spoken, for word-synced cues
-    return [(VO_DELAY + a, VO_DELAY + e) for a, e in cues.line_spans(vo_path, line_starts, total)]
+    # where each line is actually spoken, plus the pauses inside it (sentence breaks), for word-synced cues
+    sil = cues.silences(vo_path)
+    return [(VO_DELAY + a, VO_DELAY + e, [(VO_DELAY + p, VO_DELAY + q) for p, q in sil if a < p and q < e])
+            for a, e in cues.line_spans(vo_path, line_starts, total)]
 
 
 def pause_starts(vo_path, total, n):

@@ -31,13 +31,22 @@ B.append({"kicker": "La Liga 2026/27 · aged 19", "headline": "This season: [10 
   "card": cards + [{"type": "stack", "y": 760, "delay": 0, "items": [{"value": 10, "label": "goals", "at": "ten goals", "gold": True}, {"value": 8, "label": "assists", "at": "eight assists"}]},
                    {"type": "dots", "y": 1620, "at": "started every", "lag": -0.3, "n": 12, "step": 0.08, "label": "League starts", "caption": "12 of 12"}]})
 
-# 3 Messi at 19 (polaroid flashback): dribbles past a lunging defender; 14 goals in 26 games
-B.append({"kicker": "La Liga 2006/07 · aged 19", "headline": "Messi at 19: [14 goals] in 26.", "cut": True, "transition": "polaroid", "polaroidLabel": "Barcelona 2006/07", "scene": CAMP07, "accent": GOLD, "hype": False,
-  "camFrom": {"pos": [-7, 2.2, 14], "tgt": [0, 1, 24]}, "camera": {"pos": [-6.2, 2.0, 18.5], "tgt": [0, 1, 28]}, "move": 4.5, "moveEase": "linear",
-  "players": [P(**MESSI, x=1.5, z=19, path=[[1.5, 19], [0.4, 23], [0.9, 27.5]], pathDur=2.8, dribble=True, foot="left", label="Messi", labelDelay=0.2, hops=[{"t": 1.15, "dur": 0.45, "height": 0.2}]),
-              P(kit=kit("#1f6b3a"), skin="#e7b593", hair="#141010", x=-0.4, z=23.6, front=True, action="dive", dir=1, actionDelay=1.0, actionDur=0.7),
-              P(kit=kit("#1f6b3a"), skin="#8a5a3c", hair="#141010", x=2.6, z=27.5, front=True)],
-  "card": [big(14, "fourteen goals", "La Liga goals · 26 games", y=1620, size=170, lag=-0.3)]})
+# 3 Messi at 19 (polaroid flashback): dribbles past a lunging defender into the box and scores past a wrong-way keeper; 14 goals in 26 games
+#   (user: the ball vanished and he stopped running, and there was no keeper). The ball stays at his feet until the strike, then flies in.
+RUN, END = 2.8, [0.9, 39.5]                                   # path time, where he shoots from
+FOOT = [END[0] - 0.22, 0.11, END[1] + 0.5]                    # ball by his left foot when he stops
+HIT = RUN + 0.15                                               # contact
+B.append({"kicker": "La Liga 2006/07 · aged 19", "headline": "Messi at 19: [14 goals] in 26.", "cut": True, "transition": "polaroid", "polaroidLabel": "Barcelona 2006/07", "scene": CAMP07, "accent": GOLD, "hype": False, "flashes": 10,
+  "camFrom": {"pos": [-5.0, 2.4, 20.0], "tgt": [1.5, 1, 40]}, "camera": {"pos": [-6.6, 2.2, 30.5], "tgt": [0, 1, 44]}, "move": 4.5, "moveEase": "linear",
+  "players": [P(**MESSI, x=1.5, z=30, path=[[1.5, 30], [0.4, 34], END], pathDur=RUN, dribble=True, dribbleUntil=RUN, foot="left", label="Messi", labelDelay=0.2,
+                hops=[{"t": 1.15, "dur": 0.45, "height": 0.2}], action="kick", actionDelay=round(HIT - 0.42 * 0.8, 2), actionDur=0.8, after="celebrate"),
+              P(kit=kit("#1f6b3a"), skin="#e7b593", hair="#141010", x=-0.4, z=34.6, front=True, action="dive", dir=1, actionDelay=1.0, actionDur=0.7),
+              P(kit=kit("#1f6b3a"), skin="#8a5a3c", hair="#141010", x=2.8, z=44.5, front=True),
+              P(kit=GK_YELLOW, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=1, actionDelay=round(HIT + 0.05, 2))],
+  "card": [{"type": "ball", "delay": RUN, "point": FOOT, "until": round(HIT - RUN, 2)},
+           {"type": "ballpath", "world": True, "delay": HIT, "dur": 0.5, "slowmo": False, "points": [FOOT, [-1.0, 1.0, 46], [-2.7, 0.9, 52.3]]},
+           big(14, "fourteen goals", "La Liga goals · 26 games", y=1620, size=170, lag=-0.3)],
+  "shake": [{"t": HIT + 0.5, "amount": 12}]})
 
 # 4 per game: tale of the tape, Yamal's bar goes gold
 B.append({"kicker": "Goals per game · La Liga at 19", "headline": "Per game: [0.83] v 0.54.", "cut": True, "transition": "whip", "whipDir": -1, "scene": CAMP, "accent": GOLD, "lights": 0.6, "focus": 0.3,
@@ -57,17 +66,18 @@ B.append({"kicker": "El Clásico · 10 March 2007", "headline": "March 2007: [Re
   "camFrom": {"pos": [0, 60, -80], "tgt": [0, 0, 5]}, "camera": {"pos": [18, 28, -44], "tgt": [0, 0, 5]}, "move": 6, "moveEase": "linear", "players": [],
   "card": [{"type": "newspaper", "y": 1150, "at": "March 2007", "lag": -0.3, "headline": "EL CLÁSICO", "sub": "Barcelona v Real Madrid", "dateline": "Saturday 10 March 2007", "masthead": "THE MATCHDAY POST", "color": "#a50044"}]})
 
-# 7 Madrid ahead three times, Messi level three times: goal pins drop on a 90-minute timeline (real minutes)
+# 7 Madrid ahead three times, Messi level three times: a seesaw of goals, popping in match order (5', 11', 13', 28', 73')
 B.append({"kicker": "Barcelona v Real Madrid · 2007", "headline": "Madrid lead [three times].", "cut": True, "transition": "whip", "scene": CAMP07, "accent": RED, "lights": 0.6,
-  "camFrom": {"pos": [0, 3.0, -8.5], "tgt": [0, 2.0, 10]}, "camera": {"pos": [0, 2.8, -7.0], "tgt": [0, 1.9, 10]}, "move": 4.5, "moveEase": "linear",
+  "camFrom": {"pos": [0, 3.0, -9.0], "tgt": [0, 0.5, 4.0]}, "camera": {"pos": [0, 2.7, -5.8], "tgt": [0, 0.3, 4.0]}, "move": 4.5, "moveEase": "linear",
+  "punch": [{"at": "equalises three times", "lag": 0.1, "amount": 0.12, "dur": 1.6}],
   "players": [P(**MESSI, x=-1.0, z=3.6, front=True, label="Messi", labelDelay=0.1), P(kit=RMA, skin="#f0c8a8", hair="#8a6a3a", x=1.2, z=3.8, front=True, pose="fists", label="Real Madrid", labelDelay=0.1)],
-  "card": [{"type": "seesaw", "y": 1380, "delay": 0.0, "title": "Barcelona v Real Madrid · 10 March 2007", "clear": False,
+  "card": [{"type": "seesaw", "y": 1460, "rowH": 104, "delay": 0.0, "title": "Barcelona v Real Madrid · 10 March 2007", "clear": False,
             "left": {"name": "Real Madrid", "color": "#f4f4f2", "text": "#111111"}, "right": {"name": "Messi", "color": GOLD, "text": "#111111"},
-            "items": [{"side": "left", "min": "5'", "who": "Van Nistelrooy", "score": "0–1", "at": "Madrid go ahead", "lag": -0.2},
-                      {"side": "right", "min": "11'", "who": "Messi", "score": "1–1", "at": "Messi equalises", "lag": -0.3},
-                      {"side": "left", "min": "13'", "who": "Van Nistelrooy", "score": "1–2", "at": "Madrid go ahead", "lag": 0.7},
-                      {"side": "right", "min": "28'", "who": "Messi", "score": "2–2", "at": "Messi equalises", "lag": 0.3},
-                      {"side": "left", "min": "73'", "who": "Sergio Ramos", "score": "2–3", "at": "Messi equalises", "lag": 0.9}]}]})
+            "items": [{"side": "left", "min": "5'", "who": "Van Nistelrooy", "score": "0–1", "at": "Madrid go ahead", "lag": -0.20},
+                      {"side": "right", "min": "11'", "who": "Messi", "score": "1–1", "at": "Madrid go ahead", "lag": 0.52},
+                      {"side": "left", "min": "13'", "who": "Van Nistelrooy", "score": "1–2", "at": "Madrid go ahead", "lag": 1.24},
+                      {"side": "right", "min": "28'", "who": "Messi", "score": "2–2", "at": "Madrid go ahead", "lag": 1.96},
+                      {"side": "left", "min": "73'", "who": "Sergio Ramos", "score": "2–3", "at": "Madrid go ahead", "lag": 2.68}]}]})
 
 # 8 the 91st minute: Messi's equaliser, 3-3, a hat-trick at 19
 pl, cards, camk = goal("ninety-first minute", -1.2, 41, -1, BAR06, [2.8, 1.0, 52.3], -1, GK_YELLOW, RMA, lag=-0.3, label="Messi",

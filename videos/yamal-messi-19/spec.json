@@ -301,28 +301,29 @@
    },
    "accent": "#e9b949",
    "hype": false,
+   "flashes": 10,
    "camFrom": {
     "pos": [
-     -7,
-     2.2,
-     14
+     -5.0,
+     2.4,
+     20.0
     ],
     "tgt": [
-     0,
+     1.5,
      1,
-     24
+     40
     ]
    },
    "camera": {
     "pos": [
-     -6.2,
-     2.0,
-     18.5
+     -6.6,
+     2.2,
+     30.5
     ],
     "tgt": [
      0,
      1,
-     28
+     44
     ]
    },
    "move": 4.5,
@@ -344,23 +345,24 @@
      "skin": "#f0c8a8",
      "hair": "#5a3a22",
      "x": 1.5,
-     "z": 19,
+     "z": 30,
      "path": [
       [
        1.5,
-       19
+       30
       ],
       [
        0.4,
-       23
+       34
       ],
       [
        0.9,
-       27.5
+       39.5
       ]
      ],
      "pathDur": 2.8,
      "dribble": true,
+     "dribbleUntil": 2.8,
      "foot": "left",
      "label": "Messi",
      "labelDelay": 0.2,
@@ -370,7 +372,11 @@
        "dur": 0.45,
        "height": 0.2
       }
-     ]
+     ],
+     "action": "kick",
+     "actionDelay": 2.61,
+     "actionDur": 0.8,
+     "after": "celebrate"
     },
     {
      "name": "",
@@ -384,7 +390,7 @@
      "skin": "#e7b593",
      "hair": "#141010",
      "x": -0.4,
-     "z": 23.6,
+     "z": 34.6,
      "front": true,
      "action": "dive",
      "dir": 1,
@@ -402,12 +408,67 @@
      },
      "skin": "#8a5a3c",
      "hair": "#141010",
-     "x": 2.6,
-     "z": 27.5,
+     "x": 2.8,
+     "z": 44.5,
      "front": true
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": 3.0
     }
    ],
    "card": [
+    {
+     "type": "ball",
+     "delay": 2.8,
+     "point": [
+      0.68,
+      0.11,
+      40.0
+     ],
+     "until": 0.15
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 2.9499999999999997,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       0.68,
+       0.11,
+       40.0
+      ],
+      [
+       -1.0,
+       1.0,
+       46
+      ],
+      [
+       -2.7,
+       0.9,
+       52.3
+      ]
+     ]
+    },
     {
      "type": "big",
      "at": "fourteen goals",
@@ -418,6 +479,12 @@
      "label": "La Liga goals · 26 games",
      "y": 1620,
      "size": 170
+    }
+   ],
+   "shake": [
+    {
+     "t": 3.4499999999999997,
+     "amount": 12
     }
    ],
    "vo": "Messi at nineteen: fourteen goals in twenty-six league games."
@@ -665,28 +732,36 @@
     "pos": [
      0,
      3.0,
-     -8.5
+     -9.0
     ],
     "tgt": [
      0,
-     2.0,
-     10
+     0.5,
+     4.0
     ]
    },
    "camera": {
     "pos": [
      0,
-     2.8,
-     -7.0
+     2.7,
+     -5.8
     ],
     "tgt": [
      0,
-     1.9,
-     10
+     0.3,
+     4.0
     ]
    },
    "move": 4.5,
    "moveEase": "linear",
+   "punch": [
+    {
+     "at": "equalises three times",
+     "lag": 0.1,
+     "amount": 0.12,
+     "dur": 1.6
+    }
+   ],
    "players": [
     {
      "name": "MESSI",
@@ -731,7 +806,8 @@
    "card": [
     {
      "type": "seesaw",
-     "y": 1380,
+     "y": 1460,
+     "rowH": 104,
      "delay": 0.0,
      "title": "Barcelona v Real Madrid · 10 March 2007",
      "clear": false,
@@ -759,8 +835,8 @@
        "min": "11'",
        "who": "Messi",
        "score": "1–1",
-       "at": "Messi equalises",
-       "lag": -0.3
+       "at": "Madrid go ahead",
+       "lag": 0.52
       },
       {
        "side": "left",
@@ -768,23 +844,23 @@
        "who": "Van Nistelrooy",
        "score": "1–2",
        "at": "Madrid go ahead",
-       "lag": 0.7
+       "lag": 1.24
       },
       {
        "side": "right",
        "min": "28'",
        "who": "Messi",
        "score": "2–2",
-       "at": "Messi equalises",
-       "lag": 0.3
+       "at": "Madrid go ahead",
+       "lag": 1.96
       },
       {
        "side": "left",
        "min": "73'",
        "who": "Sergio Ramos",
        "score": "2–3",
-       "at": "Messi equalises",
-       "lag": 0.9
+       "at": "Madrid go ahead",
+       "lag": 2.68
       }
      ]
     }

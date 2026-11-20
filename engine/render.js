@@ -4,6 +4,7 @@
 //   node engine/render.js spec.json out.mp4 [--fps 30] [--events events.json]
 //   node engine/render.js spec.json stills_dir --stills 0.5,3,7.2
 //   node engine/render.js resolved.json clip.mp4 --range 12,20   (one stretch only, for quick section previews)
+//   node engine/render.js resolved.json draft.mp4 --fps 30 --scale 0.5   (fast draft: half the frames, half the size)
 const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const fs = require('fs');
@@ -22,6 +23,7 @@ function arg(name, def) {
   }
   const spec = JSON.parse(fs.readFileSync(specPath, 'utf8'));
   const fps = Number(arg('--fps', spec.fps || 60));
+  const scale = Number(arg('--scale', 1));   // --scale 0.5: half-size draft frames
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
   page.on('pageerror', e => { console.error('page error:', e.message); process.exit(1); });
@@ -32,6 +34,15 @@ function arg(name, def) {
 
   const eventsPath = arg('--events');
   if (eventsPath) fs.writeFileSync(eventsPath, JSON.stringify({ duration: info.duration, events: info.events }, null, 1));
+
+  const auditEvery = arg('--audit');   // --audit 0.5: layout audit every 0.5 s, written as JSON to the out path
+  if (auditEvery) {
+    const step = Number(auditEvery), res = [];
+    for (let t = 0; t < info.duration; t += step) res.push({ t: +t.toFixed(2), issues: await page.evaluate(t => window.audit(t), t) });
+    fs.writeFileSync(out, JSON.stringify({ beats: info.beats, duration: info.duration, samples: res }));
+    await browser.close();
+    return;
+  }
 
   const stills = arg('--stills');
   if (stills) {
@@ -47,14 +58,16 @@ function arg(name, def) {
   }
 
   const ff = spawn('ffmpeg', ['-y', '-v', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-',
-    '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', '-r', String(fps), out], { stdio: ['pipe', 'inherit', 'inherit'] });
+    '-c:v', 'libx264', '-preset', scale !== 1 ? 'veryfast' : 'medium', '-crf', scale !== 1 ? '23' : '18', '-pix_fmt', 'yuv420p', '-r', String(fps), out], { stdio: ['pipe', 'inherit', 'inherit'] });
   const done = new Promise((res, rej) => ff.on('close', c => (c === 0 ? res() : rej(new Error('ffmpeg exited ' + c)))));
   const n = Math.round(info.duration * fps);
   const t0 = Date.now();
   const range = (arg('--range') || '').split(',').filter(Boolean).map(Number);   // --range a,b: render only that stretch (quick section previews)
-  const f0 = range.length ? Math.round(range[0] * fps) : 0, f1 = range.length ? Math.min(n, Math.round(range[1] * fps)) : n;
+  const frames = (arg('--frames') || '').split(',').filter(Boolean).map(Number);   // --frames f0,f1: exact frame span (build.py splits a render into parallel chunks)
+  let f0 = range.length ? Math.round(range[0] * fps) : 0, f1 = range.length ? Math.min(n, Math.round(range[1] * fps)) : n;
+  if (frames.length) { f0 = frames[0]; f1 = Math.min(n, frames[1]); }
   for (let f = f0; f < f1; f++) {
-    const b64 = await page.evaluate(t => window.frame(t), f / fps);
+    const b64 = await page.evaluate(([t, sc]) => window.frame(t, 'jpeg', sc), [f / fps, scale]);
     if (!ff.stdin.write(Buffer.from(b64, 'base64'))) await new Promise(r => ff.stdin.once('drain', r));
     if (f % (fps * 5) === 0) process.stdout.write(`\r  frame ${f}/${n}`);
   }

@@ -6,6 +6,8 @@ usage:
   python3 build.py videos/<name>/spec.json --vo vo.mp3     # sync beats to the voiceover and mix it in
   python3 build.py videos/<name>/spec.json --vo vo.mp3 --music track.mp3
   python3 build.py videos/<name>/spec.json --stills 1,5,9  # PNG frames only (quick look)
+  python3 build.py videos/<name>/spec.json --vo out/vo.wav --mute-vo --draft   # fast draft (30fps, half size) + automatic check
+  python3 build.py videos/<name>/spec.json --vo voice.mp3 --range 12,20       # one section only, with the real voice
 
 The voiceover should have a clear pause (~0.6s+) between beats; each beat's on-screen
 change is placed just before its line starts.
@@ -147,6 +149,10 @@ def main():
     ap.add_argument('--stills')
     ap.add_argument('--out')
     ap.add_argument('--audio-only', action='store_true', help='reuse the last render (silent.mp4, sfx.wav) and only redo the audio mix')
+    ap.add_argument('--draft', action='store_true', help='fast draft: 30fps, half size (about 6x faster than a full preview); runs the automatic check')
+    ap.add_argument('--range', help='a,b seconds: render only that section (e.g. to show a fix with the real voice)')
+    ap.add_argument('--jobs', type=int, default=2, help='render this many chunks in parallel (2 is fastest on 4 cores)')
+    ap.add_argument('--no-check', action='store_true', help='skip the automatic check after a draft')
     a = ap.parse_args()
 
     spec_path = Path(a.spec)
@@ -184,11 +190,13 @@ def main():
         return
 
     silent, events, sfx = outdir / 'silent.mp4', outdir / 'events.json', outdir / 'sfx.wav'
+    fps, scale = (30, 0.5) if a.draft else (spec.get('fps', 60), 1)
+    rng = [float(x) for x in a.range.split(',')] if a.range else None
     if not (a.audio_only and silent.exists() and sfx.exists()):
-        run(render + [silent, '--events', events])
+        render_video(render, silent, events, fps, scale, rng, a.jobs)
         run([sys.executable, ROOT / 'engine' / 'sfx.py', events, sfx])
 
-    final = Path(a.out) if a.out else outdir / (spec_path.parent.name + ('' if a.vo else '_preview') + '.mp4')
+    final = Path(a.out) if a.out else outdir / (spec_path.parent.name + ('_draft' if a.draft else '' if a.vo else '_preview') + ('_section' if rng else '') + '.mp4')
     inputs = ['-i', silent, '-i', sfx]
     with_vo = a.vo and not a.mute_vo
     if with_vo:
@@ -213,6 +221,10 @@ def main():
     mixed = outdir / 'mix.wav'
     run(['ffmpeg', '-y', '-v', 'error', *inputs, '-filter_complex', ';'.join(mix), '-map', '[a]', '-ar', '48000', mixed])
     # One fixed gain to reach -14 LUFS (Instagram). Dynamic loudnorm pumped the background noise up in pauses.
+    if rng:   # a section: cut the full mix to the same stretch as the picture
+        cut = outdir / 'mix_section.wav'
+        run(['ffmpeg', '-y', '-v', 'error', '-ss', str(rng[0]), '-t', str(rng[1] - rng[0]), '-i', mixed, cut])
+        mixed = cut
     measured = loudness(mixed)
     gain = -14 - measured
     print(f'loudness {measured:.1f} LUFS, gain {gain:+.1f} dB')
@@ -220,6 +232,30 @@ def main():
          f'[1:a]volume={gain:.2f}dB,alimiter=limit=0.89:level=false[a]', '-map', '0:v', '-map', '[a]',
          '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', '-movflags', '+faststart', final])
     print('done ->', final)
+    if a.draft and not a.no_check and not rng:
+        run([sys.executable, ROOT / 'engine' / 'check.py', spec_path.parent, '--video', final])
+
+
+def render_video(render, out, events, fps, scale, rng, jobs):
+    """Render the silent video, split into `jobs` chunks rendered in parallel, then joined without re-encoding."""
+    extra = ['--fps', str(fps), '--scale', str(scale)]
+    # duration (and the SFX cue list) come from one quick pass that writes events.json
+    run(render + [out.parent / '_probe', '--stills', '0', '--events', events])
+    dur = json.loads(Path(events).read_text())['duration']
+    n = round(dur * fps)
+    f0, f1 = (round(rng[0] * fps), min(n, round(rng[1] * fps))) if rng else (0, n)
+    jobs = max(1, min(jobs, (f1 - f0) // (fps * 2) or 1))
+    cuts = [f0 + (f1 - f0) * k // jobs for k in range(jobs + 1)]
+    parts = [out.parent / f'_part{k}.mp4' for k in range(jobs)]
+    procs = [subprocess.Popen(render + [p, '--frames', f'{cuts[k]},{cuts[k + 1]}'] + extra) for k, p in enumerate(parts)]
+    for p in procs:
+        if p.wait():
+            sys.exit('a render chunk failed')
+    lst = out.parent / '_parts.txt'
+    lst.write_text(''.join(f"file '{p.resolve()}'\n" for p in parts))
+    run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lst, '-c', 'copy', out])
+    for p in parts + [lst]:
+        p.unlink(missing_ok=True)
 
 
 if __name__ == '__main__':

@@ -922,6 +922,10 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
 }
 // Name label: a small pill above a player's head (label, labelDelay|labelAt), so a player is named on screen the moment he's named in the voice.
 function drawNameLabel(u, p, t) {
+  const ow = S.owner; S.owner = 'label ' + (p.label || p.name || '');
+  try { drawNameLabel0(u, p, t); } finally { S.owner = ow; }
+}
+function drawNameLabel0(u, p, t) {
   if (!p.label) return;
   const k = eBack(pr(t, p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3, 0.3)); if (k <= 0) return;
   const fs = clamp(u * 0.075, 20, 40), y = -u * (p.tag != null ? 1.55 : 1.1);
@@ -932,6 +936,10 @@ function drawNameLabel(u, p, t) {
   ctx.restore();
 }
 function drawTag(u, p, t) {
+  const ow = S.owner; S.owner = 'tag ' + (p.name || '');
+  try { drawTag0(u, p, t); } finally { S.owner = ow; }
+}
+function drawTag0(u, p, t) {
   {
     const kt = pr(t, p.tagDelay != null ? p.tagDelay : 0.4, 0.4);
     if (kt > 0) {
@@ -4566,7 +4574,7 @@ function renderAt(t) {
   // freeze frame: from b.freeze (s into the beat) the scene stops (camera, players, ball, crowd) while cards keep animating
   const fz = b.freeze != null && lt > b.freeze ? b.freeze : null;
   const ts = fz != null ? b.start + fz : t, lts = fz != null ? fz : lt;
-  S.anchors = []; S.cam = null; S.cur = b; S.t = ts;
+  S.anchors = []; S.cam = null; S.cur = b; S.t = ts; S.owner = 'scene';
   if (scene.type === 'stage') drawStage(ts, b, stageCamAt(i, lts), ts - b.playersStart);
   else if (scene.type === 'booth') {   // slow push-in toward the desk so the booth never sits still (zoomFrom/zoom override)
     const z = lerp(b.zoomFrom != null ? b.zoomFrom : 1, b.zoom != null ? b.zoom : 1.15, pr(lts, 0, b.dur));   // linear, so the end of the beat keeps moving
@@ -4680,22 +4688,28 @@ function renderAt(t) {
       const sc = 0.94 + 0.06 * inA, cy0 = cardY(it.obj);
       ctx.translate(W / 2, cy0 + (1 - inA) * 60); ctx.scale(sc, sc); ctx.translate(-W / 2, -cy0);
     }
+    S.owner = 'card ' + it.obj.type + ' #' + b.cards.indexOf(it);
+    const tf = ctx.getTransform(), ga = ctx.globalAlpha;
     fn(it.obj, ct, W / 2 + (it.obj.shiftX || 0), cardY(it.obj), ek);
     ctx.restore();
+    if (S.auditList && !['simhud', 'rain', 'flytext', 'comments', 'pen'].includes(it.obj.type) && ga > 0.2) auditCardBox(it, fn, ct, tf, ek);   // moving or full-frame cards may pass the headline   // the card's whole drawn area, for the headline check
   }
 
   if (b.glitch) drawGlitch(b, lt);
   // header
+  S.owner = 'brand';
   drawBrand();
   const prevB = S.beats[i - 1];
   const kChanged = !prevB || prevB.kickerText !== b.kickerText;
   const kOut = next && next.kickerText !== b.kickerText ? pr(lt, b.dur - 0.22, 0.22) : 0;
   // beat 1 is the hook: kicker and headline are fully visible from frame 1
+  S.owner = 'headline';
   drawKicker(b.kickerText, (kChanged && i > 0 ? eOut(pr(lt, 0, 0.4)) : 1) * (1 - kOut));
   const hChanged = i > 0 && prevB.headline !== b.headline;
   const hOut = next && next.headline !== b.headline ? lt - (b.dur - 0.22) : null;
   if (S.spec.captions) drawCaptions(t);   // word-by-word captions take the headline's place
   else if (b.headline) drawHeadline(b.headline, hChanged ? lt : 99, hOut != null && hOut >= 0 ? hOut : null, b.accent, i === 0 && b.hookWords ? t : null);
+  S.owner = 'outro';
   if (S.outro && t >= S.outro.start) drawOutro(t - S.outro.start);
 
   ctx.restore();
@@ -4730,7 +4744,72 @@ function drawOutro(ot) {
   ctx.restore();
 }
 
-window.frame = function (t, type = 'jpeg') {
+// Layout audit (engine/check.py): while a frame renders, every piece of text drawn on the main canvas is recorded with its on-screen box and owner
+// (headline, a card, a player's label...), so the check can flag text cut off at an edge and text from different owners colliding.
+(function () {
+  const P = CanvasRenderingContext2D.prototype;
+  for (const fn of ['fillText', 'strokeText']) {
+    const orig = P[fn];
+    P[fn] = function (text, x, y, mw) {
+      if (S.auditList && this.canvas === cv && text != null && String(text).trim() && this.globalAlpha > 0.2) {
+        const m = this.measureText(String(text)), T = this.getTransform();
+        const xs = [x - m.actualBoundingBoxLeft, x + m.actualBoundingBoxRight], ys = [y - m.actualBoundingBoxAscent, y + m.actualBoundingBoxDescent];
+        const pts = []; for (const px of xs) for (const py of ys) pts.push([T.a * px + T.c * py + T.e, T.b * px + T.d * py + T.f]);
+        const bx = pts.map(p => p[0]), by = pts.map(p => p[1]);
+        S.auditList.push({ owner: S.owner || '?', text: String(text).slice(0, 40), x0: Math.min(...bx), x1: Math.max(...bx), y0: Math.min(...by), y1: Math.max(...by), a: this.globalAlpha });
+      }
+      return orig.call(this, text, x, y, mw);
+    };
+  }
+})();
+let probeCv = null;
+function auditCardBox(it, fn, ct, tf, ek) {   // draw the card again on a quarter-size probe canvas and record the box of its visible pixels
+  const Q4 = 0.25, w = W * Q4, h = H * Q4;
+  if (!probeCv) { probeCv = document.createElement('canvas'); probeCv.width = w; probeCv.height = h; }
+  const px = probeCv.getContext('2d', { willReadFrequently: true }), keep = ctx, list = S.auditList;
+  px.setTransform(1, 0, 0, 1, 0, 0); px.clearRect(0, 0, w, h); px.globalAlpha = 1;
+  px.setTransform(Q4 * tf.a, Q4 * tf.b, Q4 * tf.c, Q4 * tf.d, Q4 * tf.e, Q4 * tf.f);
+  ctx = px; S.auditList = null;
+  try { ctx.save(); fn(it.obj, ct, W / 2 + (it.obj.shiftX || 0), cardY(it.obj), ek); ctx.restore(); } catch (e) {} finally { ctx = keep; S.auditList = list; }
+  const d = px.getImageData(0, 0, w, h).data;
+  let x0 = w, y0 = h, x1 = -1, y1 = -1;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (d[(y * w + x) * 4 + 3] > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  if (x1 >= 0) list.push({ owner: S.owner, box: true, text: '[' + it.obj.type + ' card]', x0: x0 / Q4, x1: (x1 + 1) / Q4, y0: y0 / Q4, y1: (y1 + 1) / Q4, a: 1 });
+}
+window.audit = function (t) {
+  S.auditList = [];
   renderAt(t);
-  return type === 'png' ? cv.toDataURL('image/png').split(',')[1] : cv.toDataURL('image/jpeg', 0.93).split(',')[1];
+  const L = S.auditList; S.auditList = null;
+  const issues = [];
+  for (const r of L) {
+    const over = Math.max(-r.x0, r.x1 - W, -r.y0, r.y1 - H);
+    if (over > 6 && r.owner !== 'scene' && !r.box) issues.push({ kind: 'cut off', owner: r.owner, text: r.text, by: Math.round(over) });   // players running in from the edge are normal
+  }
+  for (let i = 0; i < L.length; i++) for (let j = i + 1; j < L.length; j++) {
+    const a = L[i], b = L[j];
+    if (a.owner === b.owner || a.owner === 'scene' || b.owner === 'scene') continue;
+    if (a.box || b.box) {   // a card's drawn area must keep 10 px clear of the headline/kicker text (it looked cramped at 7 px)
+      const hl = a.box ? b : a, cb = a.box ? a : b;
+      if (hl.owner !== 'headline' || hl.box) continue;
+      const gx = Math.min(hl.x1, cb.x1 + 10) - Math.max(hl.x0, cb.x0 - 10), gy = Math.min(hl.y1, cb.y1 + 10) - Math.max(hl.y0, cb.y0 - 10);
+      if (gx > 0 && gy > 0) issues.push({ kind: 'crowds', owner: cb.owner + ' / headline', text: hl.text });
+      continue;
+    }
+    const ix = Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0), iy = Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0);
+    if (ix <= 2 || iy <= 2) continue;
+    const small = Math.min((a.x1 - a.x0) * (a.y1 - a.y0), (b.x1 - b.x0) * (b.y1 - b.y0));
+    if (ix * iy > 0.15 * small) issues.push({ kind: 'overlap', owner: a.owner + ' / ' + b.owner, text: a.text + ' / ' + b.text });
+  }
+  return issues;
+};
+let smallCv = null;
+window.frame = function (t, type = 'jpeg', scale = 1) {
+  renderAt(t);
+  let src = cv;
+  if (scale !== 1) {   // draft renders: encode a smaller frame (much less to encode and pipe to ffmpeg)
+    const w = Math.round(W * scale / 2) * 2, h = Math.round(H * scale / 2) * 2;
+    if (!smallCv || smallCv.width !== w) { smallCv = document.createElement('canvas'); smallCv.width = w; smallCv.height = h; }
+    const sx = smallCv.getContext('2d'); sx.imageSmoothingQuality = 'medium'; sx.drawImage(cv, 0, 0, w, h); src = smallCv;
+  }
+  return type === 'png' ? src.toDataURL('image/png').split(',')[1] : src.toDataURL('image/jpeg', scale !== 1 ? 0.85 : 0.93).split(',')[1];
 };

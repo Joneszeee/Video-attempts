@@ -28,6 +28,16 @@ visuals (which tools or backlog items), and what still needs fact-checking. End 
    - Never invent stats. List anything you are not certain of and ask before rendering.
 2. Render a preview with `python3 build.py videos/<slug>/spec.json --stills 1,5,9,...`, look at the stills, and fix layout problems
    (cards covering players, text overflow). Then run the full preview with `python3 build.py videos/<slug>/spec.json`.
+   **Faster workflow (user asked for the most efficient process, Nov 2026):**
+   - **Drafts:** `python3 build.py videos/<slug>/spec.json --vo videos/<slug>/out/vo.wav --mute-vo --draft` renders at 30fps, half size, in 2 parallel
+     chunks (a 65 s video in about 1.5 min instead of 10–15), then runs **`engine/check.py` automatically**. Iterate on drafts; only the version you
+     send the user is a full render (60fps, also split into 2 parallel chunks: about 2x faster than before; `--jobs` changes the split).
+   - **The check** (`python3 engine/check.py videos/<slug> --video <mp4>`) writes `out/check.txt` and `out/check_sheet.jpg` (a frame every 2 s):
+     text cut off at an edge, text from different owners overlapping (stamp v label, label v label...), any card within 10 px of the headline,
+     shots under 2 s, and still moments. Issues must last 1 s to count. Fix everything it lists before sending a preview; then look at the sheet once.
+   - **One section only:** `--range a,b` re-renders just that stretch (with the real voice, when the user wants to see a fix first).
+   - **Shared building blocks:** new videos' `gen.py` use `engine/lib.py` (`P`, `kit`, `stadium`/`small`, `goal()` shooter clip, `clean_tackle()`,
+     `bug()`, `hud()`, `stamp()`, `big()`, `start()`/`save()`, `tags_count()`). Fix a building block there, not per video.
 3. Voiceover: either the user uploads their own (e.g. ElevenLabs, best quality), or generate it here with Kokoro
    (local, free; default voice `bm_george`, British male):
    ```

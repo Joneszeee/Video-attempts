@@ -1,0 +1,128 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "timings": [
+  3
+ ],
+ "beats": [
+  {
+   "kicker": "",
+   "headline": "",
+   "vo": "Thumbnail.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#7a1428",
+     "#f5b301"
+    ],
+    "seed": 41
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.75,
+   "flashes": 16,
+   "focus": 0.15,
+   "camFrom": {
+    "pos": [
+     0,
+     1.45,
+     -3.9
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -3.9
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "x": -0.55,
+     "z": 0.6,
+     "front": true,
+     "chest": true,
+     "pose": "fists"
+    },
+    {
+     "name": "BRADFORD",
+     "num": 1,
+     "kit": {
+      "shirt": "#7a1428",
+      "shorts": "#111111",
+      "socks": "#7a1428",
+      "text": "#f5b301",
+      "stripes": [
+       "#7a1428",
+       "#f5b301"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#1a1210",
+     "x": 1.25,
+     "z": 2.2,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "shout",
+     "text": "PART 3",
+     "y": 300,
+     "size": 120,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false,
+     "color": "#3FE0C5",
+     "color2": "#2bb39c"
+    },
+    {
+     "type": "shout",
+     "text": "90 MINUTES\nFROM GOING UP",
+     "y": 560,
+     "size": 150,
+     "delay": -3,
+     "rot": -0.03,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "PLAY-OFF FINAL",
+     "sub": "Man City v Bradford · Wembley",
+     "delay": -3,
+     "color": "#e9b949",
+     "rot": -0.06,
+     "size": 80,
+     "y": 1640,
+     "clear": false
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4019 @@
+{
+ "seeds": [
+  2027,
+  2028
+ ],
+ "odds_without_watts": {
+  "title": 0.0433,
+  "auto": 0.1985,
+  "playoffs": 0.4779,
+  "promoted": 0.3808,
+  "avg_pts": 74.3419,
+  "pts_10_90": [
+   66,
+   82
+  ],
+  "pos": {
+   "1": 0.0433,
+   "2": 0.1552,
+   "3": 0.1521,
+   "4": 0.1277,
+   "5": 0.1078,
+   "6": 0.0903,
+   "7": 0.0748,
+   "8": 0.0631,
+   "9": 0.0494,
+   "10": 0.0381,
+   "11": 0.0307,
+   "12": 0.0228,
+   "13": 0.0146,
+   "14": 0.0117,
+   "15": 0.0079,
+   "16": 0.0053,
+   "17": 0.003,
+   "18": 0.0013,
+   "19": 0.0007,
+   "20": 0.0001,
+   "21": 0.0001
+  }
+ },
+ "odds_with_watts": {
+  "title": 0.0464,
+  "auto": 0.2162,
+  "playoffs": 0.4726,
+  "promoted": 0.3923,
+  "avg_pts": 74.5403,
+  "pts_10_90": [
+   66,
+   82
+  ],
+  "pos": {
+   "1": 0.0464,
+   "2": 0.1698,
+   "3": 0.1486,
+   "4": 0.1259,
+   "5": 0.1114,
+   "6": 0.0867,
+   "7": 0.076,
+   "8": 0.0529,
+   "9": 0.0479,
+   "10": 0.0435,
+   "11": 0.0278,
+   "12": 0.0183,
+   "13": 0.0165,
+   "14": 0.0111,
+   "15": 0.0071,
+   "16": 0.0046,
+   "17": 0.004,
+   "18": 0.0012,
+   "19": 0.0002,
+   "20": 0.0001
+  }
+ },
+ "log": [
+  {
+   "md": 24,
+   "opp": "Wigan Athletic",
+   "venue": "H",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 18,
+   "clean_sheets": 0,
+   "pos": 11,
+   "pts": 35
+  },
+  {
+   "md": 25,
+   "opp": "Leicester City",
+   "venue": "A",
+   "score": "0-4",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 18,
+   "clean_sheets": 0,
+   "pos": 13,
+   "pts": 35
+  },
+  {
+   "md": 26,
+   "opp": "Wycombe Wanderers",
+   "venue": "H",
+   "score": "4-2",
+   "res": "W",
+   "haaland": false,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 18,
+   "clean_sheets": 0,
+   "pos": 11,
+   "pts": 38
+  },
+  {
+   "md": 27,
+   "opp": "Doncaster Rovers",
+   "venue": "A",
+   "score": "4-2",
+   "res": "W",
+   "haaland": false,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 18,
+   "clean_sheets": 0,
+   "pos": 9,
+   "pts": 41
+  },
+  {
+   "md": 28,
+   "opp": "Stevenage",
+   "venue": "H",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 18,
+   "clean_sheets": 0,
+   "pos": 7,
+   "pts": 44
+  },
+  {
+   "md": 29,
+   "opp": "Huddersfield Town",
+   "venue": "A",
+   "score": "2-1",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 18,
+   "clean_sheets": 0,
+   "pos": 6,
+   "pts": 47
+  },
+  {
+   "md": 30,
+   "opp": "Notts County",
+   "venue": "H",
+   "score": "3-2",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 20,
+   "clean_sheets": 0,
+   "pos": 5,
+   "pts": 50
+  },
+  {
+   "md": 31,
+   "opp": "MK Dons",
+   "venue": "H",
+   "score": "1-2",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 20,
+   "clean_sheets": 0,
+   "pos": 5,
+   "pts": 50
+  },
+  {
+   "md": 32,
+   "opp": "Plymouth Argyle",
+   "venue": "A",
+   "score": "4-0",
+   "res": "W",
+   "haaland": false,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 20,
+   "clean_sheets": 1,
+   "pos": 4,
+   "pts": 53
+  },
+  {
+   "md": 33,
+   "opp": "Reading",
+   "venue": "H",
+   "score": "0-1",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 20,
+   "clean_sheets": 1,
+   "pos": 5,
+   "pts": 53
+  },
+  {
+   "md": 34,
+   "opp": "Leyton Orient",
+   "venue": "A",
+   "score": "5-2",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 22,
+   "clean_sheets": 1,
+   "pos": 4,
+   "pts": 56
+  },
+  {
+   "md": 35,
+   "opp": "Grimsby Town",
+   "venue": "H",
+   "score": "2-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 24,
+   "clean_sheets": 2,
+   "pos": 3,
+   "pts": 59
+  },
+  {
+   "md": 36,
+   "opp": "Barnet",
+   "venue": "A",
+   "score": "2-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 24,
+   "clean_sheets": 3,
+   "pos": 3,
+   "pts": 62
+  },
+  {
+   "md": 37,
+   "opp": "Stockport County",
+   "venue": "H",
+   "score": "3-4",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 24,
+   "clean_sheets": 3,
+   "pos": 4,
+   "pts": 62
+  },
+  {
+   "md": 38,
+   "opp": "Wimbledon",
+   "venue": "A",
+   "score": "3-2",
+   "res": "W",
+   "haaland": false,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 24,
+   "clean_sheets": 3,
+   "pos": 4,
+   "pts": 65
+  },
+  {
+   "md": 39,
+   "opp": "Bradford City",
+   "venue": "H",
+   "score": "3-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 2,
+   "hg_total": 26,
+   "clean_sheets": 4,
+   "pos": 3,
+   "pts": 68
+  },
+  {
+   "md": 40,
+   "opp": "Burton Albion",
+   "venue": "A",
+   "score": "0-1",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 26,
+   "clean_sheets": 4,
+   "pos": 4,
+   "pts": 68
+  },
+  {
+   "md": 41,
+   "opp": "Blackpool",
+   "venue": "H",
+   "score": "4-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 26,
+   "clean_sheets": 5,
+   "pos": 3,
+   "pts": 71
+  },
+  {
+   "md": 42,
+   "opp": "Oxford United",
+   "venue": "A",
+   "score": "2-4",
+   "res": "L",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 1,
+   "hg_total": 27,
+   "clean_sheets": 5,
+   "pos": 4,
+   "pts": 71
+  },
+  {
+   "md": 43,
+   "opp": "Luton Town",
+   "venue": "A",
+   "score": "2-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 28,
+   "clean_sheets": 6,
+   "pos": 4,
+   "pts": 74
+  },
+  {
+   "md": 44,
+   "opp": "Sheffield Wednesday",
+   "venue": "H",
+   "score": "0-1",
+   "res": "L",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 28,
+   "clean_sheets": 6,
+   "pos": 4,
+   "pts": 74
+  },
+  {
+   "md": 45,
+   "opp": "Mansfield Town",
+   "venue": "A",
+   "score": "1-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 29,
+   "clean_sheets": 7,
+   "pos": 3,
+   "pts": 77
+  },
+  {
+   "md": 46,
+   "opp": "Cambridge United",
+   "venue": "H",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 29,
+   "clean_sheets": 7,
+   "pos": 4,
+   "pts": 78
+  }
+ ],
+ "haaland": 29,
+ "clean_sheets": 7,
+ "table_final": [
+  [
+   1,
+   "Oxford United",
+   94,
+   86,
+   43
+  ],
+  [
+   2,
+   "Sheffield Wednesday",
+   80,
+   68,
+   46
+  ],
+  [
+   3,
+   "Bradford City",
+   79,
+   50,
+   30
+  ],
+  [
+   4,
+   "Manchester City",
+   78,
+   93,
+   74
+  ],
+  [
+   5,
+   "Stockport County",
+   76,
+   60,
+   50
+  ],
+  [
+   6,
+   "Huddersfield Town",
+   72,
+   71,
+   57
+  ],
+  [
+   7,
+   "Plymouth Argyle",
+   72,
+   73,
+   71
+  ],
+  [
+   8,
+   "Leyton Orient",
+   68,
+   68,
+   60
+  ],
+  [
+   9,
+   "MK Dons",
+   66,
+   80,
+   70
+  ],
+  [
+   10,
+   "Reading",
+   66,
+   63,
+   57
+  ],
+  [
+   11,
+   "Burton Albion",
+   65,
+   59,
+   63
+  ],
+  [
+   12,
+   "Luton Town",
+   62,
+   78,
+   74
+  ],
+  [
+   13,
+   "Grimsby Town",
+   62,
+   78,
+   88
+  ],
+  [
+   14,
+   "Barnet",
+   61,
+   72,
+   86
+  ],
+  [
+   15,
+   "Wycombe Wanderers",
+   60,
+   72,
+   67
+  ],
+  [
+   16,
+   "Stevenage",
+   59,
+   47,
+   53
+  ],
+  [
+   17,
+   "Leicester City",
+   58,
+   65,
+   68
+  ],
+  [
+   18,
+   "Cambridge United",
+   56,
+   69,
+   66
+  ],
+  [
+   19,
+   "Mansfield Town",
+   56,
+   64,
+   66
+  ],
+  [
+   20,
+   "Wimbledon",
+   55,
+   60,
+   77
+  ],
+  [
+   21,
+   "Blackpool",
+   54,
+   61,
+   83
+  ],
+  [
+   22,
+   "Notts County",
+   40,
+   49,
+   72
+  ],
+  [
+   23,
+   "Wigan Athletic",
+   40,
+   46,
+   73
+  ],
+  [
+   24,
+   "Doncaster Rovers",
+   32,
+   41,
+   79
+  ]
+ ],
+ "snaps": {
+  "24": [
+   [
+    1,
+    "Oxford United",
+    48,
+    24
+   ],
+   [
+    2,
+    "Reading",
+    44,
+    14
+   ],
+   [
+    3,
+    "Sheffield Wednesday",
+    40,
+    11
+   ],
+   [
+    4,
+    "Wycombe Wanderers",
+    39,
+    13
+   ],
+   [
+    5,
+    "Bradford City",
+    39,
+    10
+   ],
+   [
+    6,
+    "Plymouth Argyle",
+    39,
+    2
+   ],
+   [
+    7,
+    "Stockport County",
+    37,
+    4
+   ],
+   [
+    8,
+    "Stevenage",
+    36,
+    4
+   ],
+   [
+    9,
+    "Huddersfield Town",
+    36,
+    3
+   ],
+   [
+    10,
+    "Leyton Orient",
+    35,
+    5
+   ],
+   [
+    11,
+    "Manchester City",
+    35,
+    1
+   ],
+   [
+    12,
+    "Grimsby Town",
+    35,
+    -4
+   ],
+   [
+    13,
+    "Leicester City",
+    34,
+    6
+   ],
+   [
+    14,
+    "Luton Town",
+    31,
+    1
+   ],
+   [
+    15,
+    "MK Dons",
+    30,
+    1
+   ],
+   [
+    16,
+    "Barnet",
+    30,
+    -8
+   ],
+   [
+    17,
+    "Blackpool",
+    30,
+    -8
+   ],
+   [
+    18,
+    "Burton Albion",
+    30,
+    -11
+   ],
+   [
+    19,
+    "Cambridge United",
+    29,
+    2
+   ],
+   [
+    20,
+    "Mansfield Town",
+    27,
+    -2
+   ],
+   [
+    21,
+    "Wimbledon",
+    24,
+    -15
+   ],
+   [
+    22,
+    "Notts County",
+    19,
+    -17
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    18,
+    -16
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    16,
+    -20
+   ]
+  ],
+  "25": [
+   [
+    1,
+    "Oxford United",
+    48,
+    23
+   ],
+   [
+    2,
+    "Reading",
+    44,
+    12
+   ],
+   [
+    3,
+    "Plymouth Argyle",
+    42,
+    5
+   ],
+   [
+    4,
+    "Sheffield Wednesday",
+    41,
+    11
+   ],
+   [
+    5,
+    "Bradford City",
+    40,
+    10
+   ],
+   [
+    6,
+    "Stockport County",
+    40,
+    5
+   ],
+   [
+    7,
+    "Wycombe Wanderers",
+    39,
+    10
+   ],
+   [
+    8,
+    "Stevenage",
+    39,
+    5
+   ],
+   [
+    9,
+    "Leicester City",
+    37,
+    10
+   ],
+   [
+    10,
+    "Huddersfield Town",
+    37,
+    3
+   ],
+   [
+    11,
+    "Grimsby Town",
+    36,
+    -4
+   ],
+   [
+    12,
+    "Leyton Orient",
+    35,
+    4
+   ],
+   [
+    13,
+    "Manchester City",
+    35,
+    -3
+   ],
+   [
+    14,
+    "Luton Town",
+    34,
+    3
+   ],
+   [
+    15,
+    "Barnet",
+    33,
+    -5
+   ],
+   [
+    16,
+    "Cambridge United",
+    32,
+    4
+   ],
+   [
+    17,
+    "Burton Albion",
+    31,
+    -11
+   ],
+   [
+    18,
+    "MK Dons",
+    30,
+    0
+   ],
+   [
+    19,
+    "Mansfield Town",
+    30,
+    -1
+   ],
+   [
+    20,
+    "Blackpool",
+    30,
+    -11
+   ],
+   [
+    21,
+    "Wimbledon",
+    24,
+    -17
+   ],
+   [
+    22,
+    "Notts County",
+    22,
+    -14
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    18,
+    -19
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    17,
+    -20
+   ]
+  ],
+  "26": [
+   [
+    1,
+    "Oxford United",
+    49,
+    23
+   ],
+   [
+    2,
+    "Plymouth Argyle",
+    45,
+    7
+   ],
+   [
+    3,
+    "Reading",
+    44,
+    10
+   ],
+   [
+    4,
+    "Bradford City",
+    43,
+    12
+   ],
+   [
+    5,
+    "Sheffield Wednesday",
+    42,
+    11
+   ],
+   [
+    6,
+    "Stockport County",
+    41,
+    5
+   ],
+   [
+    7,
+    "Huddersfield Town",
+    40,
+    4
+   ],
+   [
+    8,
+    "Wycombe Wanderers",
+    39,
+    8
+   ],
+   [
+    9,
+    "Stevenage",
+    39,
+    4
+   ],
+   [
+    10,
+    "Grimsby Town",
+    39,
+    -2
+   ],
+   [
+    11,
+    "Manchester City",
+    38,
+    -1
+   ],
+   [
+    12,
+    "Leicester City",
+    37,
+    8
+   ],
+   [
+    13,
+    "Leyton Orient",
+    36,
+    4
+   ],
+   [
+    14,
+    "Luton Town",
+    35,
+    3
+   ],
+   [
+    15,
+    "Barnet",
+    34,
+    -5
+   ],
+   [
+    16,
+    "Cambridge United",
+    33,
+    4
+   ],
+   [
+    17,
+    "MK Dons",
+    33,
+    3
+   ],
+   [
+    18,
+    "Burton Albion",
+    31,
+    -14
+   ],
+   [
+    19,
+    "Mansfield Town",
+    30,
+    -3
+   ],
+   [
+    20,
+    "Blackpool",
+    30,
+    -13
+   ],
+   [
+    21,
+    "Wimbledon",
+    25,
+    -17
+   ],
+   [
+    22,
+    "Notts County",
+    22,
+    -15
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    21,
+    -17
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    20,
+    -19
+   ]
+  ],
+  "27": [
+   [
+    1,
+    "Oxford United",
+    52,
+    24
+   ],
+   [
+    2,
+    "Plymouth Argyle",
+    45,
+    6
+   ],
+   [
+    3,
+    "Reading",
+    44,
+    9
+   ],
+   [
+    4,
+    "Stockport County",
+    44,
+    6
+   ],
+   [
+    5,
+    "Bradford City",
+    43,
+    11
+   ],
+   [
+    6,
+    "Sheffield Wednesday",
+    42,
+    10
+   ],
+   [
+    7,
+    "Wycombe Wanderers",
+    42,
+    9
+   ],
+   [
+    8,
+    "Stevenage",
+    42,
+    6
+   ],
+   [
+    9,
+    "Manchester City",
+    41,
+    1
+   ],
+   [
+    10,
+    "Leicester City",
+    40,
+    9
+   ],
+   [
+    11,
+    "Huddersfield Town",
+    40,
+    3
+   ],
+   [
+    12,
+    "Grimsby Town",
+    40,
+    -2
+   ],
+   [
+    13,
+    "Leyton Orient",
+    39,
+    5
+   ],
+   [
+    14,
+    "Barnet",
+    37,
+    -3
+   ],
+   [
+    15,
+    "MK Dons",
+    36,
+    4
+   ],
+   [
+    16,
+    "Luton Town",
+    35,
+    1
+   ],
+   [
+    17,
+    "Cambridge United",
+    34,
+    4
+   ],
+   [
+    18,
+    "Burton Albion",
+    34,
+    -13
+   ],
+   [
+    19,
+    "Mansfield Town",
+    31,
+    -3
+   ],
+   [
+    20,
+    "Blackpool",
+    30,
+    -14
+   ],
+   [
+    21,
+    "Wimbledon",
+    26,
+    -17
+   ],
+   [
+    22,
+    "Notts County",
+    22,
+    -17
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    21,
+    -18
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    20,
+    -21
+   ]
+  ],
+  "28": [
+   [
+    1,
+    "Oxford United",
+    55,
+    25
+   ],
+   [
+    2,
+    "Plymouth Argyle",
+    48,
+    7
+   ],
+   [
+    3,
+    "Bradford City",
+    46,
+    12
+   ],
+   [
+    4,
+    "Sheffield Wednesday",
+    45,
+    12
+   ],
+   [
+    5,
+    "Reading",
+    45,
+    9
+   ],
+   [
+    6,
+    "Stockport County",
+    44,
+    4
+   ],
+   [
+    7,
+    "Manchester City",
+    44,
+    2
+   ],
+   [
+    8,
+    "Wycombe Wanderers",
+    43,
+    9
+   ],
+   [
+    9,
+    "Huddersfield Town",
+    43,
+    5
+   ],
+   [
+    10,
+    "Leyton Orient",
+    42,
+    7
+   ],
+   [
+    11,
+    "Stevenage",
+    42,
+    5
+   ],
+   [
+    12,
+    "Leicester City",
+    40,
+    7
+   ],
+   [
+    13,
+    "Grimsby Town",
+    40,
+    -3
+   ],
+   [
+    14,
+    "MK Dons",
+    37,
+    4
+   ],
+   [
+    15,
+    "Barnet",
+    37,
+    -5
+   ],
+   [
+    16,
+    "Cambridge United",
+    35,
+    4
+   ],
+   [
+    17,
+    "Luton Town",
+    35,
+    0
+   ],
+   [
+    18,
+    "Mansfield Town",
+    34,
+    -1
+   ],
+   [
+    19,
+    "Burton Albion",
+    34,
+    -14
+   ],
+   [
+    20,
+    "Blackpool",
+    31,
+    -14
+   ],
+   [
+    21,
+    "Wimbledon",
+    27,
+    -17
+   ],
+   [
+    22,
+    "Wigan Athletic",
+    24,
+    -17
+   ],
+   [
+    23,
+    "Notts County",
+    22,
+    -19
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    20,
+    -22
+   ]
+  ],
+  "29": [
+   [
+    1,
+    "Oxford United",
+    56,
+    25
+   ],
+   [
+    2,
+    "Plymouth Argyle",
+    51,
+    10
+   ],
+   [
+    3,
+    "Bradford City",
+    49,
+    13
+   ],
+   [
+    4,
+    "Reading",
+    48,
+    11
+   ],
+   [
+    5,
+    "Stockport County",
+    47,
+    5
+   ],
+   [
+    6,
+    "Manchester City",
+    47,
+    3
+   ],
+   [
+    7,
+    "Wycombe Wanderers",
+    46,
+    10
+   ],
+   [
+    8,
+    "Sheffield Wednesday",
+    45,
+    11
+   ],
+   [
+    9,
+    "Huddersfield Town",
+    43,
+    4
+   ],
+   [
+    10,
+    "Grimsby Town",
+    43,
+    -2
+   ],
+   [
+    11,
+    "Leyton Orient",
+    42,
+    6
+   ],
+   [
+    12,
+    "Stevenage",
+    42,
+    2
+   ],
+   [
+    13,
+    "Leicester City",
+    40,
+    6
+   ],
+   [
+    14,
+    "Barnet",
+    40,
+    -4
+   ],
+   [
+    15,
+    "MK Dons",
+    37,
+    2
+   ],
+   [
+    16,
+    "Burton Albion",
+    37,
+    -12
+   ],
+   [
+    17,
+    "Cambridge United",
+    35,
+    3
+   ],
+   [
+    18,
+    "Luton Town",
+    35,
+    -2
+   ],
+   [
+    19,
+    "Mansfield Town",
+    34,
+    -2
+   ],
+   [
+    20,
+    "Blackpool",
+    32,
+    -14
+   ],
+   [
+    21,
+    "Wimbledon",
+    30,
+    -15
+   ],
+   [
+    22,
+    "Notts County",
+    25,
+    -17
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    24,
+    -19
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    20,
+    -24
+   ]
+  ],
+  "30": [
+   [
+    1,
+    "Oxford United",
+    59,
+    26
+   ],
+   [
+    2,
+    "Plymouth Argyle",
+    52,
+    10
+   ],
+   [
+    3,
+    "Bradford City",
+    50,
+    13
+   ],
+   [
+    4,
+    "Stockport County",
+    50,
+    6
+   ],
+   [
+    5,
+    "Manchester City",
+    50,
+    4
+   ],
+   [
+    6,
+    "Reading",
+    49,
+    11
+   ],
+   [
+    7,
+    "Wycombe Wanderers",
+    46,
+    8
+   ],
+   [
+    8,
+    "Grimsby Town",
+    46,
+    0
+   ],
+   [
+    9,
+    "Sheffield Wednesday",
+    45,
+    8
+   ],
+   [
+    10,
+    "Huddersfield Town",
+    44,
+    4
+   ],
+   [
+    11,
+    "Leyton Orient",
+    43,
+    6
+   ],
+   [
+    12,
+    "Stevenage",
+    43,
+    2
+   ],
+   [
+    13,
+    "Leicester City",
+    41,
+    6
+   ],
+   [
+    14,
+    "Barnet",
+    40,
+    -7
+   ],
+   [
+    15,
+    "Burton Albion",
+    40,
+    -9
+   ],
+   [
+    16,
+    "Cambridge United",
+    38,
+    6
+   ],
+   [
+    17,
+    "MK Dons",
+    37,
+    1
+   ],
+   [
+    18,
+    "Mansfield Town",
+    35,
+    -2
+   ],
+   [
+    19,
+    "Luton Town",
+    35,
+    -3
+   ],
+   [
+    20,
+    "Blackpool",
+    35,
+    -13
+   ],
+   [
+    21,
+    "Wimbledon",
+    31,
+    -15
+   ],
+   [
+    22,
+    "Notts County",
+    25,
+    -18
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    24,
+    -20
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    21,
+    -24
+   ]
+  ],
+  "31": [
+   [
+    1,
+    "Oxford United",
+    62,
+    28
+   ],
+   [
+    2,
+    "Bradford City",
+    53,
+    14
+   ],
+   [
+    3,
+    "Stockport County",
+    53,
+    7
+   ],
+   [
+    4,
+    "Plymouth Argyle",
+    52,
+    9
+   ],
+   [
+    5,
+    "Manchester City",
+    50,
+    3
+   ],
+   [
+    6,
+    "Wycombe Wanderers",
+    49,
+    9
+   ],
+   [
+    7,
+    "Reading",
+    49,
+    7
+   ],
+   [
+    8,
+    "Sheffield Wednesday",
+    48,
+    12
+   ],
+   [
+    9,
+    "Huddersfield Town",
+    47,
+    8
+   ],
+   [
+    10,
+    "Grimsby Town",
+    47,
+    0
+   ],
+   [
+    11,
+    "Leyton Orient",
+    44,
+    6
+   ],
+   [
+    12,
+    "Stevenage",
+    44,
+    2
+   ],
+   [
+    13,
+    "Leicester City",
+    41,
+    5
+   ],
+   [
+    14,
+    "MK Dons",
+    40,
+    2
+   ],
+   [
+    15,
+    "Barnet",
+    40,
+    -8
+   ],
+   [
+    16,
+    "Burton Albion",
+    40,
+    -10
+   ],
+   [
+    17,
+    "Cambridge United",
+    38,
+    5
+   ],
+   [
+    18,
+    "Mansfield Town",
+    38,
+    -1
+   ],
+   [
+    19,
+    "Luton Town",
+    35,
+    -5
+   ],
+   [
+    20,
+    "Blackpool",
+    35,
+    -17
+   ],
+   [
+    21,
+    "Wimbledon",
+    31,
+    -16
+   ],
+   [
+    22,
+    "Notts County",
+    28,
+    -17
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    27,
+    -19
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    22,
+    -24
+   ]
+  ],
+  "32": [
+   [
+    1,
+    "Oxford United",
+    65,
+    29
+   ],
+   [
+    2,
+    "Bradford City",
+    56,
+    15
+   ],
+   [
+    3,
+    "Stockport County",
+    54,
+    7
+   ],
+   [
+    4,
+    "Manchester City",
+    53,
+    7
+   ],
+   [
+    5,
+    "Plymouth Argyle",
+    52,
+    5
+   ],
+   [
+    6,
+    "Wycombe Wanderers",
+    50,
+    9
+   ],
+   [
+    7,
+    "Grimsby Town",
+    50,
+    1
+   ],
+   [
+    8,
+    "Reading",
+    49,
+    6
+   ],
+   [
+    9,
+    "Sheffield Wednesday",
+    48,
+    11
+   ],
+   [
+    10,
+    "Huddersfield Town",
+    47,
+    7
+   ],
+   [
+    11,
+    "Leyton Orient",
+    47,
+    7
+   ],
+   [
+    12,
+    "Leicester City",
+    44,
+    6
+   ],
+   [
+    13,
+    "Stevenage",
+    44,
+    1
+   ],
+   [
+    14,
+    "MK Dons",
+    43,
+    4
+   ],
+   [
+    15,
+    "Cambridge United",
+    41,
+    8
+   ],
+   [
+    16,
+    "Mansfield Town",
+    41,
+    2
+   ],
+   [
+    17,
+    "Barnet",
+    40,
+    -9
+   ],
+   [
+    18,
+    "Burton Albion",
+    40,
+    -13
+   ],
+   [
+    19,
+    "Luton Town",
+    35,
+    -7
+   ],
+   [
+    20,
+    "Blackpool",
+    35,
+    -20
+   ],
+   [
+    21,
+    "Wimbledon",
+    32,
+    -16
+   ],
+   [
+    22,
+    "Notts County",
+    31,
+    -16
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    27,
+    -20
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    23,
+    -24
+   ]
+  ],
+  "33": [
+   [
+    1,
+    "Oxford United",
+    68,
+    30
+   ],
+   [
+    2,
+    "Bradford City",
+    59,
+    16
+   ],
+   [
+    3,
+    "Stockport County",
+    57,
+    8
+   ],
+   [
+    4,
+    "Wycombe Wanderers",
+    53,
+    11
+   ],
+   [
+    5,
+    "Manchester City",
+    53,
+    6
+   ],
+   [
+    6,
+    "Plymouth Argyle",
+    53,
+    5
+   ],
+   [
+    7,
+    "Reading",
+    52,
+    7
+   ],
+   [
+    8,
+    "Sheffield Wednesday",
+    51,
+    14
+   ],
+   [
+    9,
+    "Huddersfield Town",
+    50,
+    9
+   ],
+   [
+    10,
+    "Leyton Orient",
+    50,
+    8
+   ],
+   [
+    11,
+    "Grimsby Town",
+    50,
+    -1
+   ],
+   [
+    12,
+    "Leicester City",
+    44,
+    5
+   ],
+   [
+    13,
+    "MK Dons",
+    44,
+    4
+   ],
+   [
+    14,
+    "Stevenage",
+    44,
+    0
+   ],
+   [
+    15,
+    "Burton Albion",
+    43,
+    -11
+   ],
+   [
+    16,
+    "Cambridge United",
+    42,
+    8
+   ],
+   [
+    17,
+    "Mansfield Town",
+    41,
+    1
+   ],
+   [
+    18,
+    "Barnet",
+    40,
+    -11
+   ],
+   [
+    19,
+    "Blackpool",
+    36,
+    -20
+   ],
+   [
+    20,
+    "Luton Town",
+    35,
+    -10
+   ],
+   [
+    21,
+    "Wimbledon",
+    35,
+    -15
+   ],
+   [
+    22,
+    "Notts County",
+    31,
+    -17
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    27,
+    -22
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    23,
+    -25
+   ]
+  ],
+  "34": [
+   [
+    1,
+    "Oxford United",
+    68,
+    29
+   ],
+   [
+    2,
+    "Bradford City",
+    62,
+    17
+   ],
+   [
+    3,
+    "Stockport County",
+    58,
+    8
+   ],
+   [
+    4,
+    "Manchester City",
+    56,
+    9
+   ],
+   [
+    5,
+    "Plymouth Argyle",
+    54,
+    5
+   ],
+   [
+    6,
+    "Huddersfield Town",
+    53,
+    11
+   ],
+   [
+    7,
+    "Wycombe Wanderers",
+    53,
+    10
+   ],
+   [
+    8,
+    "Reading",
+    53,
+    7
+   ],
+   [
+    9,
+    "Grimsby Town",
+    53,
+    0
+   ],
+   [
+    10,
+    "Sheffield Wednesday",
+    51,
+    13
+   ],
+   [
+    11,
+    "Leyton Orient",
+    50,
+    5
+   ],
+   [
+    12,
+    "Leicester City",
+    47,
+    6
+   ],
+   [
+    13,
+    "MK Dons",
+    47,
+    5
+   ],
+   [
+    14,
+    "Cambridge United",
+    45,
+    9
+   ],
+   [
+    15,
+    "Stevenage",
+    45,
+    0
+   ],
+   [
+    16,
+    "Barnet",
+    43,
+    -10
+   ],
+   [
+    17,
+    "Burton Albion",
+    43,
+    -12
+   ],
+   [
+    18,
+    "Mansfield Town",
+    42,
+    1
+   ],
+   [
+    19,
+    "Blackpool",
+    37,
+    -20
+   ],
+   [
+    20,
+    "Luton Town",
+    36,
+    -10
+   ],
+   [
+    21,
+    "Wimbledon",
+    35,
+    -17
+   ],
+   [
+    22,
+    "Notts County",
+    31,
+    -18
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    28,
+    -22
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    23,
+    -26
+   ]
+  ],
+  "35": [
+   [
+    1,
+    "Oxford United",
+    71,
+    31
+   ],
+   [
+    2,
+    "Bradford City",
+    65,
+    19
+   ],
+   [
+    3,
+    "Manchester City",
+    59,
+    11
+   ],
+   [
+    4,
+    "Stockport County",
+    58,
+    7
+   ],
+   [
+    5,
+    "Plymouth Argyle",
+    57,
+    6
+   ],
+   [
+    6,
+    "Huddersfield Town",
+    56,
+    12
+   ],
+   [
+    7,
+    "Sheffield Wednesday",
+    54,
+    15
+   ],
+   [
+    8,
+    "Reading",
+    54,
+    7
+   ],
+   [
+    9,
+    "Wycombe Wanderers",
+    53,
+    9
+   ],
+   [
+    10,
+    "Grimsby Town",
+    53,
+    -2
+   ],
+   [
+    11,
+    "Leicester City",
+    50,
+    9
+   ],
+   [
+    12,
+    "Leyton Orient",
+    50,
+    4
+   ],
+   [
+    13,
+    "MK Dons",
+    48,
+    5
+   ],
+   [
+    14,
+    "Barnet",
+    46,
+    -9
+   ],
+   [
+    15,
+    "Burton Albion",
+    46,
+    -11
+   ],
+   [
+    16,
+    "Cambridge United",
+    45,
+    8
+   ],
+   [
+    17,
+    "Stevenage",
+    45,
+    -1
+   ],
+   [
+    18,
+    "Mansfield Town",
+    42,
+    -1
+   ],
+   [
+    19,
+    "Luton Town",
+    39,
+    -9
+   ],
+   [
+    20,
+    "Wimbledon",
+    38,
+    -16
+   ],
+   [
+    21,
+    "Blackpool",
+    37,
+    -23
+   ],
+   [
+    22,
+    "Notts County",
+    31,
+    -19
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    28,
+    -24
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    23,
+    -28
+   ]
+  ],
+  "36": [
+   [
+    1,
+    "Oxford United",
+    74,
+    32
+   ],
+   [
+    2,
+    "Bradford City",
+    66,
+    19
+   ],
+   [
+    3,
+    "Manchester City",
+    62,
+    13
+   ],
+   [
+    4,
+    "Stockport County",
+    61,
+    8
+   ],
+   [
+    5,
+    "Plymouth Argyle",
+    60,
+    8
+   ],
+   [
+    6,
+    "Sheffield Wednesday",
+    57,
+    16
+   ],
+   [
+    7,
+    "Huddersfield Town",
+    56,
+    11
+   ],
+   [
+    8,
+    "Reading",
+    55,
+    7
+   ],
+   [
+    9,
+    "Wycombe Wanderers",
+    53,
+    8
+   ],
+   [
+    10,
+    "Grimsby Town",
+    53,
+    -4
+   ],
+   [
+    11,
+    "Leyton Orient",
+    51,
+    4
+   ],
+   [
+    12,
+    "Leicester City",
+    50,
+    8
+   ],
+   [
+    13,
+    "Burton Albion",
+    49,
+    -10
+   ],
+   [
+    14,
+    "MK Dons",
+    48,
+    4
+   ],
+   [
+    15,
+    "Stevenage",
+    46,
+    -1
+   ],
+   [
+    16,
+    "Barnet",
+    46,
+    -11
+   ],
+   [
+    17,
+    "Cambridge United",
+    45,
+    7
+   ],
+   [
+    18,
+    "Mansfield Town",
+    45,
+    0
+   ],
+   [
+    19,
+    "Luton Town",
+    42,
+    -7
+   ],
+   [
+    20,
+    "Wimbledon",
+    41,
+    -15
+   ],
+   [
+    21,
+    "Blackpool",
+    40,
+    -22
+   ],
+   [
+    22,
+    "Notts County",
+    31,
+    -20
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    28,
+    -26
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    23,
+    -29
+   ]
+  ],
+  "37": [
+   [
+    1,
+    "Oxford United",
+    77,
+    33
+   ],
+   [
+    2,
+    "Bradford City",
+    66,
+    18
+   ],
+   [
+    3,
+    "Stockport County",
+    64,
+    9
+   ],
+   [
+    4,
+    "Manchester City",
+    62,
+    12
+   ],
+   [
+    5,
+    "Plymouth Argyle",
+    61,
+    8
+   ],
+   [
+    6,
+    "Sheffield Wednesday",
+    60,
+    17
+   ],
+   [
+    7,
+    "Huddersfield Town",
+    59,
+    12
+   ],
+   [
+    8,
+    "Reading",
+    58,
+    9
+   ],
+   [
+    9,
+    "Wycombe Wanderers",
+    53,
+    7
+   ],
+   [
+    10,
+    "Grimsby Town",
+    53,
+    -6
+   ],
+   [
+    11,
+    "Burton Albion",
+    52,
+    -8
+   ],
+   [
+    12,
+    "MK Dons",
+    51,
+    6
+   ],
+   [
+    13,
+    "Leyton Orient",
+    51,
+    2
+   ],
+   [
+    14,
+    "Leicester City",
+    50,
+    4
+   ],
+   [
+    15,
+    "Barnet",
+    49,
+    -8
+   ],
+   [
+    16,
+    "Cambridge United",
+    46,
+    7
+   ],
+   [
+    17,
+    "Mansfield Town",
+    46,
+    0
+   ],
+   [
+    18,
+    "Stevenage",
+    46,
+    -3
+   ],
+   [
+    19,
+    "Luton Town",
+    45,
+    -3
+   ],
+   [
+    20,
+    "Wimbledon",
+    42,
+    -15
+   ],
+   [
+    21,
+    "Blackpool",
+    41,
+    -22
+   ],
+   [
+    22,
+    "Notts County",
+    31,
+    -23
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    28,
+    -27
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    24,
+    -29
+   ]
+  ],
+  "38": [
+   [
+    1,
+    "Oxford United",
+    77,
+    31
+   ],
+   [
+    2,
+    "Bradford City",
+    69,
+    19
+   ],
+   [
+    3,
+    "Stockport County",
+    67,
+    11
+   ],
+   [
+    4,
+    "Manchester City",
+    65,
+    13
+   ],
+   [
+    5,
+    "Sheffield Wednesday",
+    63,
+    18
+   ],
+   [
+    6,
+    "Plymouth Argyle",
+    61,
+    6
+   ],
+   [
+    7,
+    "Huddersfield Town",
+    60,
+    12
+   ],
+   [
+    8,
+    "Reading",
+    58,
+    7
+   ],
+   [
+    9,
+    "Leyton Orient",
+    54,
+    3
+   ],
+   [
+    10,
+    "Wycombe Wanderers",
+    53,
+    5
+   ],
+   [
+    11,
+    "Grimsby Town",
+    53,
+    -7
+   ],
+   [
+    12,
+    "Burton Albion",
+    53,
+    -8
+   ],
+   [
+    13,
+    "Barnet",
+    52,
+    -6
+   ],
+   [
+    14,
+    "MK Dons",
+    51,
+    5
+   ],
+   [
+    15,
+    "Leicester City",
+    50,
+    3
+   ],
+   [
+    16,
+    "Cambridge United",
+    49,
+    8
+   ],
+   [
+    17,
+    "Stevenage",
+    49,
+    -2
+   ],
+   [
+    18,
+    "Luton Town",
+    48,
+    -1
+   ],
+   [
+    19,
+    "Mansfield Town",
+    47,
+    0
+   ],
+   [
+    20,
+    "Wimbledon",
+    42,
+    -16
+   ],
+   [
+    21,
+    "Blackpool",
+    41,
+    -23
+   ],
+   [
+    22,
+    "Notts County",
+    31,
+    -24
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    29,
+    -27
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    27,
+    -27
+   ]
+  ],
+  "39": [
+   [
+    1,
+    "Oxford United",
+    80,
+    36
+   ],
+   [
+    2,
+    "Bradford City",
+    69,
+    16
+   ],
+   [
+    3,
+    "Manchester City",
+    68,
+    16
+   ],
+   [
+    4,
+    "Stockport County",
+    67,
+    10
+   ],
+   [
+    5,
+    "Sheffield Wednesday",
+    66,
+    20
+   ],
+   [
+    6,
+    "Reading",
+    61,
+    8
+   ],
+   [
+    7,
+    "Plymouth Argyle",
+    61,
+    4
+   ],
+   [
+    8,
+    "Huddersfield Town",
+    60,
+    9
+   ],
+   [
+    9,
+    "Leyton Orient",
+    57,
+    6
+   ],
+   [
+    10,
+    "Grimsby Town",
+    56,
+    -6
+   ],
+   [
+    11,
+    "Barnet",
+    55,
+    -4
+   ],
+   [
+    12,
+    "Burton Albion",
+    54,
+    -8
+   ],
+   [
+    13,
+    "Wycombe Wanderers",
+    53,
+    3
+   ],
+   [
+    14,
+    "Cambridge United",
+    52,
+    10
+   ],
+   [
+    15,
+    "MK Dons",
+    51,
+    4
+   ],
+   [
+    16,
+    "Luton Town",
+    51,
+    2
+   ],
+   [
+    17,
+    "Mansfield Town",
+    50,
+    3
+   ],
+   [
+    18,
+    "Leicester City",
+    50,
+    0
+   ],
+   [
+    19,
+    "Stevenage",
+    49,
+    -7
+   ],
+   [
+    20,
+    "Blackpool",
+    44,
+    -20
+   ],
+   [
+    21,
+    "Wimbledon",
+    42,
+    -19
+   ],
+   [
+    22,
+    "Notts County",
+    32,
+    -24
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    29,
+    -29
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    27,
+    -30
+   ]
+  ],
+  "40": [
+   [
+    1,
+    "Oxford United",
+    81,
+    36
+   ],
+   [
+    2,
+    "Bradford City",
+    72,
+    18
+   ],
+   [
+    3,
+    "Sheffield Wednesday",
+    69,
+    21
+   ],
+   [
+    4,
+    "Manchester City",
+    68,
+    15
+   ],
+   [
+    5,
+    "Stockport County",
+    67,
+    9
+   ],
+   [
+    6,
+    "Huddersfield Town",
+    61,
+    9
+   ],
+   [
+    7,
+    "Reading",
+    61,
+    7
+   ],
+   [
+    8,
+    "Plymouth Argyle",
+    61,
+    2
+   ],
+   [
+    9,
+    "Leyton Orient",
+    60,
+    7
+   ],
+   [
+    10,
+    "Barnet",
+    58,
+    -3
+   ],
+   [
+    11,
+    "Burton Albion",
+    57,
+    -7
+   ],
+   [
+    12,
+    "Grimsby Town",
+    56,
+    -8
+   ],
+   [
+    13,
+    "MK Dons",
+    54,
+    5
+   ],
+   [
+    14,
+    "Cambridge United",
+    53,
+    10
+   ],
+   [
+    15,
+    "Mansfield Town",
+    53,
+    5
+   ],
+   [
+    16,
+    "Wycombe Wanderers",
+    53,
+    1
+   ],
+   [
+    17,
+    "Luton Town",
+    52,
+    2
+   ],
+   [
+    18,
+    "Leicester City",
+    51,
+    0
+   ],
+   [
+    19,
+    "Stevenage",
+    50,
+    -7
+   ],
+   [
+    20,
+    "Wimbledon",
+    45,
+    -17
+   ],
+   [
+    21,
+    "Blackpool",
+    45,
+    -20
+   ],
+   [
+    22,
+    "Notts County",
+    33,
+    -24
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    29,
+    -30
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    27,
+    -31
+   ]
+  ],
+  "41": [
+   [
+    1,
+    "Oxford United",
+    84,
+    37
+   ],
+   [
+    2,
+    "Bradford City",
+    73,
+    18
+   ],
+   [
+    3,
+    "Manchester City",
+    71,
+    19
+   ],
+   [
+    4,
+    "Sheffield Wednesday",
+    70,
+    21
+   ],
+   [
+    5,
+    "Stockport County",
+    70,
+    10
+   ],
+   [
+    6,
+    "Leyton Orient",
+    63,
+    11
+   ],
+   [
+    7,
+    "Huddersfield Town",
+    62,
+    9
+   ],
+   [
+    8,
+    "Reading",
+    62,
+    7
+   ],
+   [
+    9,
+    "Plymouth Argyle",
+    62,
+    2
+   ],
+   [
+    10,
+    "Barnet",
+    58,
+    -7
+   ],
+   [
+    11,
+    "Burton Albion",
+    58,
+    -7
+   ],
+   [
+    12,
+    "Wycombe Wanderers",
+    56,
+    6
+   ],
+   [
+    13,
+    "Mansfield Town",
+    56,
+    6
+   ],
+   [
+    14,
+    "Grimsby Town",
+    56,
+    -9
+   ],
+   [
+    15,
+    "MK Dons",
+    54,
+    3
+   ],
+   [
+    16,
+    "Cambridge United",
+    53,
+    5
+   ],
+   [
+    17,
+    "Luton Town",
+    53,
+    2
+   ],
+   [
+    18,
+    "Leicester City",
+    52,
+    0
+   ],
+   [
+    19,
+    "Stevenage",
+    51,
+    -7
+   ],
+   [
+    20,
+    "Wimbledon",
+    48,
+    -15
+   ],
+   [
+    21,
+    "Blackpool",
+    45,
+    -24
+   ],
+   [
+    22,
+    "Notts County",
+    33,
+    -25
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    30,
+    -30
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    27,
+    -32
+   ]
+  ],
+  "42": [
+   [
+    1,
+    "Oxford United",
+    87,
+    39
+   ],
+   [
+    2,
+    "Bradford City",
+    74,
+    18
+   ],
+   [
+    3,
+    "Sheffield Wednesday",
+    73,
+    22
+   ],
+   [
+    4,
+    "Manchester City",
+    71,
+    17
+   ],
+   [
+    5,
+    "Stockport County",
+    70,
+    9
+   ],
+   [
+    6,
+    "Leyton Orient",
+    64,
+    11
+   ],
+   [
+    7,
+    "Plymouth Argyle",
+    63,
+    2
+   ],
+   [
+    8,
+    "Huddersfield Town",
+    62,
+    8
+   ],
+   [
+    9,
+    "Reading",
+    62,
+    5
+   ],
+   [
+    10,
+    "Burton Albion",
+    61,
+    -5
+   ],
+   [
+    11,
+    "Grimsby Town",
+    59,
+    -8
+   ],
+   [
+    12,
+    "Barnet",
+    58,
+    -8
+   ],
+   [
+    13,
+    "Mansfield Town",
+    56,
+    5
+   ],
+   [
+    14,
+    "Wycombe Wanderers",
+    56,
+    4
+   ],
+   [
+    15,
+    "Luton Town",
+    56,
+    3
+   ],
+   [
+    16,
+    "Leicester City",
+    55,
+    1
+   ],
+   [
+    17,
+    "Cambridge United",
+    54,
+    5
+   ],
+   [
+    18,
+    "MK Dons",
+    54,
+    2
+   ],
+   [
+    19,
+    "Stevenage",
+    54,
+    -6
+   ],
+   [
+    20,
+    "Wimbledon",
+    51,
+    -14
+   ],
+   [
+    21,
+    "Blackpool",
+    46,
+    -24
+   ],
+   [
+    22,
+    "Notts County",
+    33,
+    -26
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    33,
+    -28
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    28,
+    -32
+   ]
+  ],
+  "43": [
+   [
+    1,
+    "Oxford United",
+    87,
+    38
+   ],
+   [
+    2,
+    "Bradford City",
+    75,
+    18
+   ],
+   [
+    3,
+    "Sheffield Wednesday",
+    74,
+    22
+   ],
+   [
+    4,
+    "Manchester City",
+    74,
+    19
+   ],
+   [
+    5,
+    "Stockport County",
+    70,
+    8
+   ],
+   [
+    6,
+    "Leyton Orient",
+    67,
+    12
+   ],
+   [
+    7,
+    "Plymouth Argyle",
+    66,
+    3
+   ],
+   [
+    8,
+    "Huddersfield Town",
+    65,
+    9
+   ],
+   [
+    9,
+    "Reading",
+    62,
+    4
+   ],
+   [
+    10,
+    "Barnet",
+    61,
+    -5
+   ],
+   [
+    11,
+    "Burton Albion",
+    61,
+    -6
+   ],
+   [
+    12,
+    "Grimsby Town",
+    60,
+    -8
+   ],
+   [
+    13,
+    "Wycombe Wanderers",
+    57,
+    4
+   ],
+   [
+    14,
+    "MK Dons",
+    57,
+    3
+   ],
+   [
+    15,
+    "Mansfield Town",
+    56,
+    4
+   ],
+   [
+    16,
+    "Luton Town",
+    56,
+    1
+   ],
+   [
+    17,
+    "Leicester City",
+    56,
+    1
+   ],
+   [
+    18,
+    "Cambridge United",
+    55,
+    5
+   ],
+   [
+    19,
+    "Stevenage",
+    55,
+    -6
+   ],
+   [
+    20,
+    "Wimbledon",
+    51,
+    -17
+   ],
+   [
+    21,
+    "Blackpool",
+    49,
+    -23
+   ],
+   [
+    22,
+    "Notts County",
+    34,
+    -26
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    33,
+    -29
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    31,
+    -31
+   ]
+  ],
+  "44": [
+   [
+    1,
+    "Oxford United",
+    88,
+    38
+   ],
+   [
+    2,
+    "Sheffield Wednesday",
+    77,
+    23
+   ],
+   [
+    3,
+    "Bradford City",
+    76,
+    18
+   ],
+   [
+    4,
+    "Manchester City",
+    74,
+    18
+   ],
+   [
+    5,
+    "Stockport County",
+    73,
+    11
+   ],
+   [
+    6,
+    "Leyton Orient",
+    68,
+    12
+   ],
+   [
+    7,
+    "Huddersfield Town",
+    68,
+    10
+   ],
+   [
+    8,
+    "Plymouth Argyle",
+    66,
+    -2
+   ],
+   [
+    9,
+    "Reading",
+    63,
+    4
+   ],
+   [
+    10,
+    "Burton Albion",
+    62,
+    -6
+   ],
+   [
+    11,
+    "Grimsby Town",
+    61,
+    -8
+   ],
+   [
+    12,
+    "Barnet",
+    61,
+    -8
+   ],
+   [
+    13,
+    "MK Dons",
+    60,
+    4
+   ],
+   [
+    14,
+    "Luton Town",
+    59,
+    6
+   ],
+   [
+    15,
+    "Wycombe Wanderers",
+    57,
+    3
+   ],
+   [
+    16,
+    "Leicester City",
+    57,
+    1
+   ],
+   [
+    17,
+    "Mansfield Town",
+    56,
+    1
+   ],
+   [
+    18,
+    "Cambridge United",
+    55,
+    4
+   ],
+   [
+    19,
+    "Stevenage",
+    55,
+    -7
+   ],
+   [
+    20,
+    "Wimbledon",
+    52,
+    -17
+   ],
+   [
+    21,
+    "Blackpool",
+    50,
+    -23
+   ],
+   [
+    22,
+    "Notts County",
+    37,
+    -23
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    36,
+    -28
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    32,
+    -31
+   ]
+  ],
+  "45": [
+   [
+    1,
+    "Oxford United",
+    91,
+    41
+   ],
+   [
+    2,
+    "Sheffield Wednesday",
+    77,
+    21
+   ],
+   [
+    3,
+    "Manchester City",
+    77,
+    19
+   ],
+   [
+    4,
+    "Bradford City",
+    76,
+    16
+   ],
+   [
+    5,
+    "Stockport County",
+    76,
+    13
+   ],
+   [
+    6,
+    "Huddersfield Town",
+    69,
+    10
+   ],
+   [
+    7,
+    "Plymouth Argyle",
+    69,
+    0
+   ],
+   [
+    8,
+    "Leyton Orient",
+    68,
+    9
+   ],
+   [
+    9,
+    "Reading",
+    66,
+    7
+   ],
+   [
+    10,
+    "MK Dons",
+    63,
+    6
+   ],
+   [
+    11,
+    "Burton Albion",
+    62,
+    -7
+   ],
+   [
+    12,
+    "Grimsby Town",
+    62,
+    -8
+   ],
+   [
+    13,
+    "Barnet",
+    61,
+    -10
+   ],
+   [
+    14,
+    "Wycombe Wanderers",
+    60,
+    6
+   ],
+   [
+    15,
+    "Luton Town",
+    59,
+    3
+   ],
+   [
+    16,
+    "Leicester City",
+    58,
+    1
+   ],
+   [
+    17,
+    "Mansfield Town",
+    56,
+    0
+   ],
+   [
+    18,
+    "Stevenage",
+    56,
+    -7
+   ],
+   [
+    19,
+    "Cambridge United",
+    55,
+    3
+   ],
+   [
+    20,
+    "Wimbledon",
+    55,
+    -16
+   ],
+   [
+    21,
+    "Blackpool",
+    51,
+    -23
+   ],
+   [
+    22,
+    "Notts County",
+    40,
+    -22
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    37,
+    -28
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    32,
+    -34
+   ]
+  ],
+  "46": [
+   [
+    1,
+    "Oxford United",
+    94,
+    43
+   ],
+   [
+    2,
+    "Sheffield Wednesday",
+    80,
+    22
+   ],
+   [
+    3,
+    "Bradford City",
+    79,
+    20
+   ],
+   [
+    4,
+    "Manchester City",
+    78,
+    19
+   ],
+   [
+    5,
+    "Stockport County",
+    76,
+    10
+   ],
+   [
+    6,
+    "Huddersfield Town",
+    72,
+    14
+   ],
+   [
+    7,
+    "Plymouth Argyle",
+    72,
+    2
+   ],
+   [
+    8,
+    "Leyton Orient",
+    68,
+    8
+   ],
+   [
+    9,
+    "MK Dons",
+    66,
+    10
+   ],
+   [
+    10,
+    "Reading",
+    66,
+    6
+   ],
+   [
+    11,
+    "Burton Albion",
+    65,
+    -4
+   ],
+   [
+    12,
+    "Luton Town",
+    62,
+    4
+   ],
+   [
+    13,
+    "Grimsby Town",
+    62,
+    -10
+   ],
+   [
+    14,
+    "Barnet",
+    61,
+    -14
+   ],
+   [
+    15,
+    "Wycombe Wanderers",
+    60,
+    5
+   ],
+   [
+    16,
+    "Stevenage",
+    59,
+    -6
+   ],
+   [
+    17,
+    "Leicester City",
+    58,
+    -3
+   ],
+   [
+    18,
+    "Cambridge United",
+    56,
+    3
+   ],
+   [
+    19,
+    "Mansfield Town",
+    56,
+    -2
+   ],
+   [
+    20,
+    "Wimbledon",
+    55,
+    -17
+   ],
+   [
+    21,
+    "Blackpool",
+    54,
+    -22
+   ],
+   [
+    22,
+    "Notts County",
+    40,
+    -23
+   ],
+   [
+    23,
+    "Wigan Athletic",
+    40,
+    -27
+   ],
+   [
+    24,
+    "Doncaster Rovers",
+    32,
+    -38
+   ]
+  ]
+ },
+ "pos": 4,
+ "playoffs": {
+  "semi1": {
+   "legs": [
+    [
+     "Bradford City",
+     "Huddersfield Town",
+     2,
+     1
+    ],
+    [
+     "Huddersfield Town",
+     "Bradford City",
+     0,
+     0
+    ]
+   ],
+   "agg": [
+    "Bradford City",
+    2,
+    "Huddersfield Town",
+    1
+   ],
+   "pens": false,
+   "winner": "Bradford City"
+  },
+  "semi2": {
+   "legs": [
+    [
+     "Manchester City",
+     "Stockport County",
+     2,
+     0
+    ],
+    [
+     "Stockport County",
+     "Manchester City",
+     0,
+     2
+    ]
+   ],
+   "agg": [
+    "Manchester City",
+    4,
+    "Stockport County",
+    0
+   ],
+   "pens": false,
+   "winner": "Manchester City"
+  },
+  "final": {
+   "teams": [
+    "Bradford City",
+    "Manchester City"
+   ],
+   "score": [
+    2,
+    0
+   ],
+   "pens": false,
+   "winner": "Bradford City"
+  }
+ },
+ "promoted": false,
+ "champions": false,
+ "city_gf_rank": 1,
+ "city_ga_rank": 19,
+ "second_half": {
+  "pts": 46,
+  "gf": 50,
+  "ga": 31
+ },
+ "model": {
+  "full": [
+   2.153118570256701,
+   1.2429782029662373
+  ],
+  "no_haaland": [
+   1.7950999889686214,
+   1.2429782029662373
+  ],
+  "tier_watts": [
+   1.408650584172514,
+   1.4481229892491623
+  ],
+  "tier_l2": [
+   1.3661125963928364,
+   1.6118185532518796
+  ]
+ }
+}

@@ -85,3 +85,34 @@ Fixtures: a double round robin with alternating home and away (the first try had
 - From here (10,000 runs of the second half): promoted 38.1% (top two 19.9%, play-offs 47.8%), champions 4.3%.
 - Weak spot: defence. Mid-season vote shortlist: Kelland Watts (CB, Cambridge United; PFA League Two Team of the Year 2025/26), Omar Sowunmi
   (CB, Bromley; PFA League Two Team of the Year 2025/26), Dennis Seimen (GK, VfB Stuttgart; a commenter's pick; spent 2025/26 on loan at Paderborn).
+
+# Episode 3: League One 2027/28, matchdays 24–46 and the play-offs
+
+## The signing (fans' vote)
+- TikTok poll (6 votes, ended 21 Nov 2026): **Kelland Watts 50%**, Omar Sowunmi 33%, Dennis Seimen 17%. The user confirmed Watts.
+- Kelland Watts (ESPN, 21 Nov 2026): centre-back, 27, Cambridge United (League One this season; PFA League Two Team of the Year 2025/26).
+  League One 2026/27: **15 starts, 2 goals, 1 clean sheet**, 24 goals conceded in his starts, 3 yellow cards (includes Cambridge 0–3 Stockport, 21 Nov,
+  which was at 90' when checked: re-check before the final). Footedness not confirmed, so the video never shows him striking the ball.
+
+## Model (data/l1model.py, data/sim_l1b.py)
+- Watts is rated at his own club's real League One level: Cambridge United's ratings (l1ratings.json) → 1.41 for, 1.45 against per game v an average
+  League One side (the League Two signing he replaces: 1.37 for, 1.61 against). He replaces one of the two League Two centre-backs from matchday 24.
+- City with everyone fit: 2.15 for, 1.26 against → **2.15 for, 1.24 against** with Watts. One centre-back carries 15% of the defence in the model.
+- The second half starts from episode 2's exact matchday-23 table (sim_l1b.py replays the first half and checks it matches ep2.json).
+
+## 10,000 runs of the second half (same seed as episode 2's halfway odds, so the runs are paired)
+- Without Watts (episode 2's figure, reproduced): promoted 38.1%, top two 19.9%, champions 4.3%, 74.3 points.
+- **With Watts: promoted 39.2%**, top two 21.6%, champions 4.6%, 74.5 points. On the model's numbers he's worth about a point of promotion chance.
+
+## The official run-in (seed 2028, fixed before running)
+- From 12th at halfway to **4th**: 15 wins, 1 draw, 7 defeats in the second half, 46 points (only Oxford, 49, took more after Christmas).
+- Defence: **31 conceded in 23** (43 in the first 23); **7 clean sheets** (2 in the first half).
+- Highlights: MD25 Leicester 4–0 City; MD30 City 3–2 Notts County (Haaland 2); MD34 Leyton Orient 2–5 City (Haaland 2); MD35 City 2–0 Grimsby (Haaland 2);
+  MD37 City 3–4 Stockport; MD42 Oxford 4–2 City; MD45 Mansfield 0–1 City (City 3rd going into the last day).
+- **Final day (MD46): City 1–1 Cambridge United**, Watts's old club. City drop to 4th, two points behind Sheffield Wednesday (2nd, 80).
+- Final table: Oxford 94 (champions), Sheffield Wednesday 80, Bradford City 79, **Man City 78**, Stockport 76, Huddersfield 72.
+  City scored **93, the most in the league**, and conceded 74 (only five teams conceded more).
+- **Haaland: 29 league goals** (18 at halfway; he missed 4 of the last 23 games).
+- **Play-offs:** semi-final v Stockport: City 2–0 at home, 2–0 away (**4–0 on aggregate**; Stockport had beaten City 4–3 on matchday 37).
+  **Final: Bradford City 2–0 Man City.** Bradford (third, the league's best defence: 30 conceded) go up. **City stay in League One.**
+- The sim gives scores only. Any scorer named on screen other than Haaland's count is our story, not the model's.

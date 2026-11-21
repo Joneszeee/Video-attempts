@@ -1,6 +1,5 @@
 # League One ratings (real results) + Man City's League One strength by tier, for episode 2.
 import json,math,numpy as np
-from parse import norm
 G=json.load(open('espn_games.json')); L=json.load(open('leagues.json'))
 def fit(rows,lam=2.0):
     teams=sorted({r[0] for r in rows}|{r[1] for r in rows}); ix={t:i for i,t in enumerate(teams)}; n=len(teams)
@@ -41,6 +40,9 @@ u21g=(math.exp(math.log(u21[0])*(1-GROW)+math.log(avg1)*GROW), math.exp(math.log
 top=sorted(R2['teams'].values(),key=lambda t:-(t['att']+t['def']))[:12]
 l2good=(l2avg_vs_l1[0]*math.exp(sum(t['att'] for t in top)/12), l2avg_vs_l1[1]*math.exp(-sum(t['def'] for t in top)/12))
 TIERS={'city':city,'pl':pl,'u21':u21g,'l2':l2good}
+# Episode 3: Kelland Watts (fans' January pick) rated at his real club's level, Cambridge United, v an average League One side
+cam=R1['teams']['Cambridge United']
+TIERS['watts']=(avg1*math.exp(cam['att']),avg1*math.exp(-cam['def']))
 POS=[('GK',0,.20),('RB',.06,.11),('CB',.03,.15),('CB',.03,.15),('LB',.06,.11),('DM',.07,.10),('DM',.07,.10),('RW',.15,.03),('AM',.15,.02),('LW',.15,.03),('ST',.23,0)]
 def team(xi,T=TIERS):
     return (math.exp(sum(w*math.log(T[t][0]) for (p,w,_),t in zip(POS,xi))), math.exp(sum(w*math.log(T[t][1]) for (p,_,w),t in zip(POS,xi))))
@@ -50,6 +52,10 @@ def swap(xi,i,t): x=list(xi); x[i]=t; return x
 out={'avg':avg1,'HA':HA1,'tiers':TIERS,'u21_raw':u21,'l1v2':l1v2,'city_games':n,
      'full':team(FULL),'no_haaland':team(swap(FULL,10,'u21')),'no_foden':team(swap(FULL,8,'u21')),'no_haaland_foden':team(swap(swap(FULL,10,'u21'),8,'u21')),
      'ep1_xi_no_iroeg':team(swap(FULL,5,'u21'))}
+# Episode 3: Watts replaces one of the League Two centre-backs from January
+FW=swap(FULL,2,'watts')
+out.update({'full_watts':team(FW),'no_haaland_watts':team(swap(FW,10,'u21')),'no_foden_watts':team(swap(FW,8,'u21')),
+            'no_haaland_foden_watts':team(swap(swap(FW,10,'u21'),8,'u21'))})
 json.dump(out,open('citymodel_l1.json','w'),indent=1)
 for k,v in out.items(): print(k, v if not isinstance(v,tuple) else tuple(round(x,2) for x in v))
 s=sorted(R1['teams'],key=lambda t:-(R1['teams'][t]['att']+R1['teams'][t]['def']))

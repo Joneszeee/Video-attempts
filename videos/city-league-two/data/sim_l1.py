@@ -60,6 +60,13 @@ def odds(rounds,tab0,N,seed,m=None):
         pos,u,p,_=finish(tab0,rounds,r,m); P[pos]+=1; up+=u; pts.append(p)
     pts.sort()
     return {'title':P[1]/N,'auto':(P[1]+P[2])/N,'playoffs':sum(P[k] for k in range(3,7))/N,'promoted':up/N,'avg_pts':sum(pts)/N,'pts_10_90':(pts[N//10],pts[9*N//10]),'pos':{k:v/N for k,v in sorted(P.items())}}
+# Editorial change (user, 19 Nov 2026): Barnet and AFC Wimbledon swap places in matchdays 13 and 15 (see below); module level so episode 3 uses it too
+SWAP={k:('Wimbledon','Barnet') for k in (13,15,36,38)}   # 36 and 38 are the return fixtures, so every pair still meets home and away
+def sw(t,k):
+    if k in SWAP:
+        a,b=SWAP[k]
+        return b if t==a else a if t==b else t
+    return t
 if __name__=='__main__':
     SEED=2027; rounds=fixtures(SEED); empty={t:[0,0,0] for t in teams}
     pre=odds(rounds,empty,10000,7)
@@ -68,12 +75,6 @@ if __name__=='__main__':
     # the official season, matchdays 1-23 only (seed fixed before running)
     # Editorial change (user, 19 Nov 2026): in matchdays 13 and 15 Barnet and AFC Wimbledon swap places in the fixture list; every score stays as
     # simulated. So City 5-0 Barnet (MD13, was v Wimbledon) and City 3-4 Wimbledon (MD15, was v Barnet). The table and the odds are rebuilt from that.
-    SWAP={k:('Wimbledon','Barnet') for k in (13,15,36,38)}   # 36 and 38 are the return fixtures, so every pair still meets home and away
-    def sw(t,k):
-        if k in SWAP:
-            a,b=SWAP[k]
-            return b if t==a else a if t==b else t
-        return t
     r=random.Random(SEED); tab={t:[0,0,0] for t in teams}; log=[]; hg=0; snaps={}
     for k,rd in enumerate(rounds[:23],1):
         for h0,a0 in rd:

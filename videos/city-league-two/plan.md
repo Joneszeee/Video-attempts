@@ -39,3 +39,11 @@ Everyone else goes. They get a League Two budget and buy real League Two players
 - Sound: Freesound blocks requests from the cloud environment (403); the user may upload CC0 sounds instead (kick, net, whistle, roars, groans,
   ambience, terrace chant, slide skid) for the real-SFX upgrade.
 - TikTok uses a poll for the Part 3 vote (user); combine poll + YouTube/Instagram comments into one tally.
+
+## Part 3 decisions (user, 21 Nov 2026)
+- Vote result: the TikTok poll ended **Watts 50%, Sowunmi 33%, Seimen 17%** (6 votes); the user called it: **Kelland Watts signs** in January.
+- Series length: still **episode by episode** (asked again before Part 3, as requested).
+- Scope: **finish the season**: League One matchdays 24–46, plus the play-offs if City get there; end on a summer-window vote.
+- On screen: the poll result as bars (Watts 50 / Sowunmi 33 / Seimen 17), then his shirt flip. No usernames (the poll is anonymous).
+- Model: Watts rated at Cambridge United's real League One level, replacing one of the League Two centre-backs; second half played from Part 2's
+  exact matchday-23 table with a new seed fixed before running (`data/sim_l1b.py`, `data/ep3.json`).

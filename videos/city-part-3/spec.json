@@ -1,0 +1,3270 @@
+{
+ "title": "Man City in League Two · Part 3",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Man City in League Two · Part 3",
+   "headline": "City: [90 minutes] from the Championship.",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#7a1428",
+     "#f5b301"
+    ],
+    "seed": 41
+   },
+   "accent": "#3FE0C5",
+   "flashes": 14,
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     -3.6,
+     2.2,
+     31.5
+    ],
+    "tgt": [
+     -0.24,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.0,
+     1.9,
+     34.2
+    ],
+    "tgt": [
+     -0.24,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": -0.6,
+     "z": 40.5,
+     "action": "kick",
+     "actionAt": "Man City",
+     "actionLag": -0.5,
+     "actionDur": 0.8,
+     "after": "idle",
+     "runup": 1.6,
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "foot": "left",
+     "label": "Haaland",
+     "labelDelay": 0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "Man City",
+     "actionLag": -0.04999999999999999
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#7a1428",
+      "shorts": "#111111",
+      "socks": "#7a1428",
+      "text": "#f5b301",
+      "stripes": [
+       "#7a1428",
+       "#f5b301"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 1.2999999999999998,
+     "z": 43.9,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "Man City",
+     "actionLag": -0.35,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#7a1428",
+      "shorts": "#111111",
+      "socks": "#7a1428",
+      "text": "#f5b301",
+      "stripes": [
+       "#7a1428",
+       "#f5b301"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.84,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.82,
+      0.11,
+      40.95
+     ],
+     "untilAt": "Man City",
+     "untilLag": -0.15999999999999998
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Man City",
+     "lag": -0.15999999999999998,
+     "dur": 1.25,
+     "slowmo": true,
+     "points": [
+      [
+       -0.82,
+       0.11,
+       40.95
+      ],
+      [
+       -2.2,
+       1.6,
+       47.5
+      ],
+      [
+       -3.62,
+       1.25,
+       52.25
+      ]
+     ],
+     "flash": false
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Man City",
+     "lag": 1.09,
+     "dur": 0.7,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       -3.62,
+       1.25,
+       52.25
+      ],
+      [
+       -5.2,
+       0.9,
+       49.5
+      ],
+      [
+       -6.8,
+       0.11,
+       46.5
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "BRA",
+      "color": "#7a1428"
+     },
+     "score": [
+      0,
+      0
+     ],
+     "min": "FINAL"
+    },
+    {
+     "type": "flytext",
+     "text": "OFF THE POST!",
+     "size": 130,
+     "endScale": 0.6,
+     "y": 1330,
+     "at": "Man City",
+     "lag": 1.08,
+     "color": "#ff4d5e",
+     "clear": false
+    },
+    {
+     "type": "big",
+     "at": "ninety minutes",
+     "lag": -0.35,
+     "from": 0,
+     "value": 90,
+     "countDur": 0.9,
+     "label": "minutes from the Championship",
+     "y": 1640,
+     "size": 170,
+     "style": "accent"
+    }
+   ],
+   "speedlines": [
+    {
+     "t": 0.0,
+     "dur": 0.9,
+     "amount": 0.7
+    }
+   ],
+   "shake": [
+    {
+     "at": "Man City",
+     "lag": 1.1,
+     "amount": 18
+    }
+   ],
+   "punch": [
+    {
+     "at": "Man City",
+     "lag": 1.05,
+     "amount": 0.12,
+     "dur": 1.2
+    }
+   ],
+   "vo": "Man City were ninety minutes from the Championship."
+  },
+  {
+   "kicker": "Season 2 · League One · halfway",
+   "headline": "Twelfth, and [leaking goals].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     26,
+     30,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     -24,
+     16,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 2 · League One",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "leak",
+     "y": 1160,
+     "at": "leaking goals",
+     "lag": -0.6,
+     "value": 43,
+     "dur": 1.6,
+     "sub": "MAN CITY",
+     "label": "conceded in 23 games",
+     "clear": false
+    },
+    {
+     "type": "big",
+     "at": "Twelfth",
+     "lag": -0.2,
+     "from": 6,
+     "value": 12,
+     "countDur": 0.6,
+     "label": "after 23 games",
+     "y": 700,
+     "size": 130,
+     "suffix": "th",
+     "style": "accent"
+    },
+    {
+     "type": "flytext",
+     "text": "SEASON 2",
+     "size": 190,
+     "delay": 0.0,
+     "settle": false,
+     "y": 1150,
+     "color": "#3FE0C5",
+     "clear": false
+    }
+   ],
+   "shots": [
+    {
+     "at": "So you voted",
+     "lag": -0.15,
+     "cut": true,
+     "transition": "whip",
+     "whipDir": -1,
+     "kicker": "Your vote · the TikTok poll",
+     "headline": "You voted: [Kelland Watts].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#6cabdd",
+       "#ffffff",
+       "#6cabdd",
+       "#1c2c5b"
+      ],
+      "seed": 6
+     },
+     "accent": "#3FE0C5",
+     "lights": 0.6,
+     "focus": 0.3,
+     "camFrom": {
+      "pos": [
+       0,
+       1.6,
+       -3.0
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.6,
+       -1.8
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [],
+     "card": [
+      {
+       "type": "shirtflip",
+       "y": 860,
+       "delay": 0.0,
+       "size": 400,
+       "from": {
+        "color": "#f5a12d",
+        "color2": "#111111",
+        "name": "CAMBRIDGE"
+       },
+       "to": {
+        "color": "#6cabdd",
+        "color2": "#1c2c5b",
+        "name": "WATTS"
+       },
+       "flipAt": "Kelland Watts",
+       "flipLag": -0.35,
+       "clear": false
+      },
+      {
+       "type": "poll",
+       "y": 1560,
+       "delay": 0.0,
+       "question": "Who should City sign?",
+       "clear": false,
+       "options": [
+        {
+         "label": "Watts",
+         "color": "#f5a12d",
+         "fill": 0.5,
+         "pct": "50%"
+        },
+        {
+         "label": "Sowunmi",
+         "color": "#9aa1ad",
+         "fill": 0.33,
+         "pct": "33%"
+        },
+        {
+         "label": "Seimen",
+         "color": "#2e2e33",
+         "fill": 0.17,
+         "pct": "17%"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "vo": "Season two: League One. Twelfth at halfway, and leaking goals. So you voted… and half of you picked Kelland Watts."
+  },
+  {
+   "kicker": "January signing",
+   "headline": "Watts: [the fans' pick].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "camFrom": {
+    "pos": [
+     -6.0,
+     1.7,
+     -1.6
+    ],
+    "tgt": [
+     0.6,
+     0.8,
+     6.2
+    ]
+   },
+   "camera": {
+    "pos": [
+     -4.9,
+     1.6,
+     -0.3
+    ],
+    "tgt": [
+     0.8,
+     0.8,
+     6.4
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "punch": [
+    {
+     "at": "centre-back",
+     "lag": -0.05,
+     "amount": 0.14,
+     "dur": 1.3,
+     "x": 480,
+     "y": 1060
+    }
+   ],
+   "hype": false,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#c8102e",
+      "shorts": "#ffffff",
+      "socks": "#c8102e",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 4.5,
+     "z": 8.5,
+     "path": [
+      [
+       4.5,
+       8.5
+      ],
+      [
+       0.8,
+       6.6
+      ],
+      [
+       -2.2,
+       6.4
+      ]
+     ],
+     "pathDur": 1.5,
+     "at": "centre-back",
+     "lag": -0.87,
+     "dribble": true,
+     "dribbleUntil": 0.87,
+     "hops": [
+      {
+       "at": "centre-back",
+       "lag": -0.08,
+       "dur": 0.5,
+       "height": 0.3
+      }
+     ]
+    },
+    {
+     "name": "WATTS",
+     "num": 5,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": -4.5,
+     "z": 2.2,
+     "path": [
+      [
+       -4.5,
+       2.2
+      ],
+      [
+       -1.6,
+       4.4
+      ],
+      [
+       0.5,
+       6.1
+      ]
+     ],
+     "pathDur": 2.4,
+     "at": "centre-back",
+     "lag": -2.1,
+     "action": "slide",
+     "dir": -1,
+     "actionAt": "centre-back",
+     "actionLag": -0.4,
+     "label": "Watts",
+     "labelAt": "centre-back"
+    },
+    {
+     "name": "",
+     "num": 4,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "x": 4.0,
+     "z": 2.8,
+     "path": [
+      [
+       4.0,
+       2.8
+      ],
+      [
+       2.4,
+       4.3
+      ],
+      [
+       0.6,
+       8.0
+      ]
+     ],
+     "pathDur": 1.5,
+     "at": "centre-back",
+     "lag": 0.05,
+     "dribble": true,
+     "dribbleFrom": 0.55
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "centre-back",
+     "lag": 0.0,
+     "dur": 0.6,
+     "slowmo": false,
+     "flash": false,
+     "points": [
+      [
+       0.27,
+       0.11,
+       6.32
+      ],
+      [
+       1.3,
+       0.16,
+       5.6
+      ],
+      [
+       2.09,
+       0.11,
+       4.93
+      ]
+     ]
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "January window · signed",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "pcard",
+     "y": 1080,
+     "w": 400,
+     "h": 530,
+     "at": "Fifteen starts",
+     "lag": -0.25,
+     "player": {
+      "kit": {
+       "shirt": "#f5a12d",
+       "shorts": "#111111",
+       "socks": "#f5a12d",
+       "text": "#111111"
+      },
+      "skin": "#e7b593",
+      "hair": "#2a1a10",
+      "name": "",
+      "num": null
+     },
+     "tag": "WATTS · CB · CAMBRIDGE",
+     "caption": "Kelland Watts",
+     "stats": [
+      [
+       15,
+       "starts"
+      ],
+      [
+       2,
+       "goals"
+      ]
+     ],
+     "statsNote": "League One · real stats",
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "SIGNED",
+     "at": "two goals",
+     "lag": 0.2,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 90,
+     "y": 1560,
+     "sub": "your vote · Part 3"
+    }
+   ],
+   "vo": "A centre-back from Cambridge. Fifteen starts in League One, two goals."
+  },
+  {
+   "kicker": "Matchday 25 · Leicester away",
+   "headline": "His second game: [0–4].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "MD25",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#003090",
+     "#ffffff",
+     "#003090"
+    ],
+    "seed": 14
+   },
+   "accent": "#ff4d5e",
+   "camFrom": {
+    "pos": [
+     -4.0,
+     2.2,
+     32
+    ],
+    "tgt": [
+     -0.4,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.4,
+     1.9,
+     34.7
+    ],
+    "tgt": [
+     -0.4,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#003090",
+      "shorts": "#ffffff",
+      "socks": "#003090",
+      "text": "#fdbe11"
+     },
+     "x": -1.0,
+     "z": 41,
+     "action": "kick",
+     "actionAt": "four–nil",
+     "actionLag": -0.5,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "skin": "#e7b593",
+     "hair": "#141010"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "four–nil",
+     "actionLag": -0.04999999999999999
+    },
+    {
+     "name": "WATTS",
+     "num": 5,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#2a1a10",
+     "x": 0.8999999999999999,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "four–nil",
+     "actionLag": -0.35,
+     "actionDur": 0.7,
+     "label": "Watts",
+     "labelDelay": 0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -2.08,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.78,
+      0.11,
+      41.45
+     ],
+     "untilAt": "four–nil",
+     "untilLag": -0.15999999999999998
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "four–nil",
+     "lag": -0.15999999999999998,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -0.78,
+       0.11,
+       41.45
+      ],
+      [
+       0.91,
+       0.9,
+       46.875
+      ],
+      [
+       2.6,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "LEI",
+      "color": "#003090"
+     },
+     "away": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "score": [
+      4,
+      0
+     ],
+     "min": "81'",
+     "from": [
+      3,
+      0
+     ],
+     "goalAt": "four–nil",
+     "goalLag": 0.25
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · matchday 25",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "stamp",
+     "text": "0–4",
+     "at": "Welcome to League One",
+     "lag": -0.05,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 110,
+     "y": 1530,
+     "sub": "welcome to League One"
+    }
+   ],
+   "shake": [
+    {
+     "at": "four–nil",
+     "lag": 0.4,
+     "amount": 12
+    }
+   ],
+   "vo": "His second game: Leicester win four–nil. Welcome to League One."
+  },
+  {
+   "kicker": "Matchdays 26–30",
+   "headline": "Five wins. [Fifth].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#2ecc71",
+   "lights": 0.5,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     -30,
+     34,
+     -50
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     28,
+     18,
+     -26
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "climb",
+     "y": 1150,
+     "delay": 0.0,
+     "title": "League One · 2027/28",
+     "focus": "Manchester City",
+     "show": 13,
+     "steps": [
+      {
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         48
+        ],
+        [
+         2,
+         "Reading",
+         44
+        ],
+        [
+         3,
+         "Plymouth Argyle",
+         42
+        ],
+        [
+         4,
+         "Sheffield Wednesday",
+         41
+        ],
+        [
+         5,
+         "Bradford City",
+         40
+        ],
+        [
+         6,
+         "Stockport County",
+         40
+        ],
+        [
+         7,
+         "Wycombe Wanderers",
+         39
+        ],
+        [
+         8,
+         "Stevenage",
+         39
+        ],
+        [
+         9,
+         "Leicester City",
+         37
+        ],
+        [
+         10,
+         "Huddersfield Town",
+         37
+        ],
+        [
+         11,
+         "Grimsby Town",
+         36
+        ],
+        [
+         12,
+         "Leyton Orient",
+         35
+        ],
+        [
+         13,
+         "Manchester City",
+         35
+        ]
+       ],
+       "label": "MD25 · L 0–4 Leicester"
+      },
+      {
+       "at": "Wycombe",
+       "lag": -0.15,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         49
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         45
+        ],
+        [
+         3,
+         "Reading",
+         44
+        ],
+        [
+         4,
+         "Bradford City",
+         43
+        ],
+        [
+         5,
+         "Sheffield Wednesday",
+         42
+        ],
+        [
+         6,
+         "Stockport County",
+         41
+        ],
+        [
+         7,
+         "Huddersfield Town",
+         40
+        ],
+        [
+         8,
+         "Wycombe Wanderers",
+         39
+        ],
+        [
+         9,
+         "Stevenage",
+         39
+        ],
+        [
+         10,
+         "Grimsby Town",
+         39
+        ],
+        [
+         11,
+         "Manchester City",
+         38
+        ],
+        [
+         12,
+         "Leicester City",
+         37
+        ],
+        [
+         13,
+         "Leyton Orient",
+         36
+        ]
+       ],
+       "label": "MD26 · W 4–2 Wycombe"
+      },
+      {
+       "at": "Doncaster",
+       "lag": -0.15,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         52
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         45
+        ],
+        [
+         3,
+         "Reading",
+         44
+        ],
+        [
+         4,
+         "Stockport County",
+         44
+        ],
+        [
+         5,
+         "Bradford City",
+         43
+        ],
+        [
+         6,
+         "Sheffield Wednesday",
+         42
+        ],
+        [
+         7,
+         "Wycombe Wanderers",
+         42
+        ],
+        [
+         8,
+         "Stevenage",
+         42
+        ],
+        [
+         9,
+         "Manchester City",
+         41
+        ],
+        [
+         10,
+         "Leicester City",
+         40
+        ],
+        [
+         11,
+         "Huddersfield Town",
+         40
+        ],
+        [
+         12,
+         "Grimsby Town",
+         40
+        ],
+        [
+         13,
+         "Leyton Orient",
+         39
+        ]
+       ],
+       "label": "MD27 · W 4–2 Doncaster"
+      },
+      {
+       "at": "Stevenage",
+       "lag": -0.15,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         55
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         48
+        ],
+        [
+         3,
+         "Bradford City",
+         46
+        ],
+        [
+         4,
+         "Sheffield Wednesday",
+         45
+        ],
+        [
+         5,
+         "Reading",
+         45
+        ],
+        [
+         6,
+         "Stockport County",
+         44
+        ],
+        [
+         7,
+         "Manchester City",
+         44
+        ],
+        [
+         8,
+         "Wycombe Wanderers",
+         43
+        ],
+        [
+         9,
+         "Huddersfield Town",
+         43
+        ],
+        [
+         10,
+         "Leyton Orient",
+         42
+        ],
+        [
+         11,
+         "Stevenage",
+         42
+        ],
+        [
+         12,
+         "Leicester City",
+         40
+        ],
+        [
+         13,
+         "Grimsby Town",
+         40
+        ]
+       ],
+       "label": "MD28 · W 2–1 Stevenage"
+      },
+      {
+       "at": "Huddersfield",
+       "lag": -0.15,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         56
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         51
+        ],
+        [
+         3,
+         "Bradford City",
+         49
+        ],
+        [
+         4,
+         "Reading",
+         48
+        ],
+        [
+         5,
+         "Stockport County",
+         47
+        ],
+        [
+         6,
+         "Manchester City",
+         47
+        ],
+        [
+         7,
+         "Wycombe Wanderers",
+         46
+        ],
+        [
+         8,
+         "Sheffield Wednesday",
+         45
+        ],
+        [
+         9,
+         "Huddersfield Town",
+         43
+        ],
+        [
+         10,
+         "Grimsby Town",
+         43
+        ],
+        [
+         11,
+         "Leyton Orient",
+         42
+        ],
+        [
+         12,
+         "Stevenage",
+         42
+        ],
+        [
+         13,
+         "Leicester City",
+         40
+        ]
+       ],
+       "label": "MD29 · W 2–1 Huddersfield"
+      },
+      {
+       "at": "Notts County",
+       "lag": -0.15,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         59
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         52
+        ],
+        [
+         3,
+         "Bradford City",
+         50
+        ],
+        [
+         4,
+         "Stockport County",
+         50
+        ],
+        [
+         5,
+         "Manchester City",
+         50
+        ],
+        [
+         6,
+         "Reading",
+         49
+        ],
+        [
+         7,
+         "Wycombe Wanderers",
+         46
+        ],
+        [
+         8,
+         "Grimsby Town",
+         46
+        ],
+        [
+         9,
+         "Sheffield Wednesday",
+         45
+        ],
+        [
+         10,
+         "Huddersfield Town",
+         44
+        ],
+        [
+         11,
+         "Leyton Orient",
+         43
+        ],
+        [
+         12,
+         "Stevenage",
+         43
+        ],
+        [
+         13,
+         "Leicester City",
+         41
+        ]
+       ],
+       "label": "MD30 · W 3–2 Notts County"
+      }
+     ],
+     "zones": [
+      {
+       "from": 1,
+       "to": 2,
+       "color": "#2ecc71"
+      },
+      {
+       "from": 3,
+       "to": 6,
+       "color": "#3FE0C5"
+      }
+     ],
+     "colors": {
+      "Manchester City": "#6cabdd",
+      "Oxford United": "#f7d117",
+      "Sheffield Wednesday": "#2a5caa",
+      "Bradford City": "#7a1428",
+      "Stockport County": "#1b4fb5",
+      "Huddersfield Town": "#0e63ad",
+      "Plymouth Argyle": "#0f5c3a",
+      "Reading": "#004494",
+      "Leicester City": "#003090",
+      "Grimsby Town": "#111111"
+     },
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "5TH",
+     "at": "climb to fifth",
+     "lag": -0.1,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 72,
+     "y": 1760,
+     "sub": "from 13th in five games"
+    }
+   ],
+   "vo": "Then five wins in a row. Wycombe, Doncaster, Stevenage, Huddersfield, Notts County. City climb to fifth."
+  },
+  {
+   "kicker": "Matchday 35 · at home",
+   "headline": "Haaland twice: [top three].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#e9b949",
+   "camFrom": {
+    "pos": [
+     -4.2,
+     2.2,
+     32
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.6,
+     1.9,
+     34.7
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": -1.2,
+     "z": 41,
+     "action": "kick",
+     "actionAt": "scores twice",
+     "actionLag": -0.3,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "foot": "left",
+     "label": "Haaland",
+     "labelDelay": 0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "scores twice",
+     "actionLag": 0.15000000000000002
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#111111",
+      "shorts": "#111111",
+      "socks": "#111111",
+      "text": "#ffffff",
+      "stripes": [
+       "#111111",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 0.7,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "scores twice",
+     "actionLag": -0.15,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#111111",
+      "shorts": "#111111",
+      "socks": "#111111",
+      "text": "#ffffff",
+      "stripes": [
+       "#111111",
+       "#ffffff"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -2.2399999999999998,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "flashes": 12,
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.42,
+      0.11,
+      41.45
+     ],
+     "untilAt": "scores twice",
+     "untilLag": 0.040000000000000036
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "scores twice",
+     "lag": 0.040000000000000036,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.42,
+       0.11,
+       41.45
+      ],
+      [
+       0.69,
+       0.9,
+       46.875
+      ],
+      [
+       2.8,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "GRI",
+      "color": "#f2f2f2"
+     },
+     "score": [
+      2,
+      0
+     ],
+     "min": "77'",
+     "from": [
+      1,
+      0
+     ],
+     "goalAt": "scores twice",
+     "goalLag": 0.25
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · matchday 35",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "stamp",
+     "text": "TOP 3",
+     "at": "Top three",
+     "lag": -0.1,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 100,
+     "y": 1530,
+     "sub": "for the first time in League One"
+    }
+   ],
+   "vo": "Grimsby come to City. Haaland scores twice. Top three for the first time."
+  },
+  {
+   "kicker": "Matchday 37 · at home",
+   "headline": "Stockport win [4–3].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.6,
+   "camFrom": {
+    "pos": [
+     0.6,
+     1.6,
+     -4.4
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.2,
+     1.55,
+     -2.8
+    ],
+    "tgt": [
+     0,
+     1.2,
+     10
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1b4fb5",
+      "shorts": "#ffffff",
+      "socks": "#1b4fb5",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -0.9,
+     "z": 2.6,
+     "front": true,
+     "action": "celebrate",
+     "actionDelay": 0.1,
+     "label": "Stockport",
+     "labelDelay": 0.2
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 1.4,
+     "z": 4.2,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "STO",
+      "color": "#1b4fb5"
+     },
+     "score": [
+      3,
+      4
+     ],
+     "min": "FT"
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · matchday 37",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "rain",
+     "y": 1400,
+     "delay": 0.0,
+     "cols": 7,
+     "cell": 104,
+     "icon": "ball",
+     "label": "goals in one game",
+     "clear": false,
+     "groups": [
+      {
+       "n": 3,
+       "color": "#6cabdd",
+       "at": "seven-goal",
+       "lag": -0.3,
+       "dur": 0.6
+      },
+      {
+       "n": 4,
+       "color": "#1b4fb5",
+       "at": "four–three",
+       "lag": -0.4,
+       "dur": 0.7
+      }
+     ]
+    },
+    {
+     "type": "pen",
+     "anchor": 0,
+     "delay": 0,
+     "clear": false,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "layer": "under",
+       "cx": 0,
+       "cy": 0,
+       "rx": 0.55,
+       "ry": 0.13,
+       "at": "Remember them",
+       "lag": -0.15,
+       "dur": 0.45,
+       "color": "#ff4d5e",
+       "width": 9
+      }
+     ]
+    }
+   ],
+   "freezeAt": "Remember them",
+   "freezeLag": -0.05,
+   "vo": "Stockport win a seven-goal thriller, four–three. Remember them."
+  },
+  {
+   "kicker": "Matchday 42 · Oxford away",
+   "headline": "The champions: [Oxford 4–2].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#f7d117",
+     "#0b1f4b",
+     "#f7d117"
+    ],
+    "seed": 27,
+    "ground": "small"
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.85,
+   "camFrom": {
+    "pos": [
+     0.8,
+     1.5,
+     -4.0
+    ],
+    "tgt": [
+     0,
+     1.4,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.3,
+     1.5,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     1.4,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "confetti": true,
+   "confettiAt": "the champions",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#0b1f4b",
+      "socks": "#0b1f4b",
+      "text": "#0b1f4b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "x": 0,
+     "z": 3.0,
+     "front": true,
+     "pose": "arms_up",
+     "trophy": true,
+     "label": "Oxford · champions",
+     "labelAt": "the champions"
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "OXF",
+      "color": "#f7d117"
+     },
+     "away": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "score": [
+      4,
+      2
+     ],
+     "min": "FT"
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · matchday 42",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    }
+   ],
+   "shots": [
+    {
+     "at": "Haaland still",
+     "lag": -0.2,
+     "cut": true,
+     "transition": "whip",
+     "headline": "Haaland: [29 league goals].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#6cabdd",
+       "#ffffff",
+       "#6cabdd",
+       "#1c2c5b"
+      ],
+      "seed": 6
+     },
+     "accent": "#e9b949",
+     "lights": 0.8,
+     "flashes": 10,
+     "camFrom": {
+      "pos": [
+       0,
+       1.45,
+       -4.6
+      ],
+      "tgt": [
+       0,
+       1.35,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.45,
+       -3.6
+      ],
+      "tgt": [
+       0,
+       1.35,
+       10
+      ]
+     },
+     "move": 3,
+     "moveEase": "linear",
+     "players": [
+      {
+       "name": "HAALAND",
+       "num": 9,
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#f1d3bd",
+       "hair": "#d9b46a",
+       "x": 0,
+       "z": 0,
+       "front": true,
+       "chest": true,
+       "pose": "fists"
+      }
+     ],
+     "card": [
+      {
+       "type": "big",
+       "at": "twenty-nine",
+       "lag": -0.5,
+       "from": 18,
+       "value": 29,
+       "countDur": 0.9,
+       "label": "League One goals this season",
+       "y": 1640,
+       "size": 170
+      }
+     ]
+    }
+   ],
+   "vo": "Oxford, the champions, win four–two. Haaland still ends on twenty-nine."
+  },
+  {
+   "kicker": "Before the last day",
+   "headline": "Last day: [level with second].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "LAST DAY",
+   "vhsDur": 1.0,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#e9b949",
+   "lights": 0.45,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     24,
+     26,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     -22,
+     14,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "climb",
+     "y": 1030,
+     "delay": 0.0,
+     "title": "League One · after matchday 45",
+     "focus": "Manchester City",
+     "show": 6,
+     "zones": [
+      {
+       "from": 1,
+       "to": 2,
+       "color": "#2ecc71"
+      },
+      {
+       "from": 3,
+       "to": 6,
+       "color": "#3FE0C5"
+      }
+     ],
+     "colors": {
+      "Manchester City": "#6cabdd",
+      "Oxford United": "#f7d117",
+      "Sheffield Wednesday": "#2a5caa",
+      "Bradford City": "#7a1428",
+      "Stockport County": "#1b4fb5",
+      "Huddersfield Town": "#0e63ad",
+      "Plymouth Argyle": "#0f5c3a",
+      "Reading": "#004494",
+      "Leicester City": "#003090",
+      "Grimsby Town": "#111111"
+     },
+     "clear": false,
+     "steps": [
+      {
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         91
+        ],
+        [
+         2,
+         "Sheffield Wednesday",
+         77
+        ],
+        [
+         3,
+         "Manchester City",
+         77
+        ],
+        [
+         4,
+         "Bradford City",
+         76
+        ],
+        [
+         5,
+         "Stockport County",
+         76
+        ],
+        [
+         6,
+         "Huddersfield Town",
+         69
+        ]
+       ],
+       "label": "MD45 · W 1–0 Mansfield"
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "LEVEL ON 77",
+     "at": "level on points",
+     "lag": -0.1,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 80,
+     "y": 1500,
+     "sub": "with Sheffield Wednesday, 2nd"
+    }
+   ],
+   "shots": [
+    {
+     "at": "against Cambridge",
+     "lag": -0.6,
+     "cut": true,
+     "transition": "whip",
+     "headline": "v Cambridge: [his old club].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#6cabdd",
+       "#ffffff",
+       "#6cabdd",
+       "#1c2c5b"
+      ],
+      "seed": 6
+     },
+     "accent": "#f5a12d",
+     "lights": 0.7,
+     "focus": 0,
+     "camFrom": {
+      "pos": [
+       0,
+       1.6,
+       -4.4
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.6,
+       -3.0
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [
+      {
+       "name": "WATTS",
+       "num": 5,
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#e7b593",
+       "hair": "#2a1a10",
+       "x": -1.0,
+       "z": 2.6,
+       "front": true,
+       "label": "Watts",
+       "labelDelay": 0.1
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#f5a12d",
+        "shorts": "#111111",
+        "socks": "#f5a12d",
+        "text": "#111111"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#3a2a1a",
+       "x": 1.1,
+       "z": 2.8,
+       "front": true,
+       "label": "Cambridge",
+       "labelDelay": 0.3
+      }
+     ],
+     "card": [
+      {
+       "type": "scorebug",
+       "y": 560,
+       "delay": 0,
+       "home": {
+        "name": "MCI",
+        "color": "#6cabdd"
+       },
+       "away": {
+        "name": "CAM",
+        "color": "#f5a12d"
+       },
+       "score": [
+        0,
+        0
+       ],
+       "min": "MD46"
+      },
+      {
+       "type": "stamp",
+       "text": "HIS OLD CLUB",
+       "at": "old club",
+       "lag": -0.1,
+       "color": "#f5a12d",
+       "rot": -0.07,
+       "size": 72,
+       "y": 1660,
+       "sub": "Cambridge United"
+      }
+     ]
+    }
+   ],
+   "vo": "But here's where it hurts. The last day: level on points with second… against Cambridge. Watts's old club."
+  },
+  {
+   "kicker": "Matchday 46 · full time",
+   "headline": "1–1. City [finish fourth].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.4,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     -22,
+     14,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     -30,
+     30,
+     -46
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "CAM",
+      "color": "#f5a12d"
+     },
+     "score": [
+      1,
+      1
+     ],
+     "min": "FT"
+    },
+    {
+     "type": "climb",
+     "y": 1060,
+     "delay": 0.0,
+     "title": "League One · final table",
+     "focus": "Manchester City",
+     "show": 6,
+     "zones": [
+      {
+       "from": 1,
+       "to": 2,
+       "color": "#2ecc71"
+      },
+      {
+       "from": 3,
+       "to": 6,
+       "color": "#3FE0C5"
+      }
+     ],
+     "colors": {
+      "Manchester City": "#6cabdd",
+      "Oxford United": "#f7d117",
+      "Sheffield Wednesday": "#2a5caa",
+      "Bradford City": "#7a1428",
+      "Stockport County": "#1b4fb5",
+      "Huddersfield Town": "#0e63ad",
+      "Plymouth Argyle": "#0f5c3a",
+      "Reading": "#004494",
+      "Leicester City": "#003090",
+      "Grimsby Town": "#111111"
+     },
+     "clear": false,
+     "labelColor": "#5b6270",
+     "steps": [
+      {
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         91
+        ],
+        [
+         2,
+         "Sheffield Wednesday",
+         77
+        ],
+        [
+         3,
+         "Manchester City",
+         77
+        ],
+        [
+         4,
+         "Bradford City",
+         76
+        ],
+        [
+         5,
+         "Stockport County",
+         76
+        ],
+        [
+         6,
+         "Huddersfield Town",
+         69
+        ]
+       ],
+       "label": "before the last day"
+      },
+      {
+       "at": "Wednesday win",
+       "lag": -0.1,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         94
+        ],
+        [
+         2,
+         "Sheffield Wednesday",
+         80
+        ],
+        [
+         3,
+         "Bradford City",
+         79
+        ],
+        [
+         4,
+         "Manchester City",
+         78
+        ],
+        [
+         5,
+         "Stockport County",
+         76
+        ],
+        [
+         6,
+         "Huddersfield Town",
+         72
+        ]
+       ],
+       "label": "MD46 · D 1–1 Cambridge"
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "4TH",
+     "at": "finish fourth",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 96,
+     "y": 1560,
+     "sub": "two points off going up"
+    }
+   ],
+   "vo": "One–one. Wednesday win. City finish fourth."
+  },
+  {
+   "kicker": "Play-off semi-final",
+   "headline": "Stockport again: [4–0].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#2ecc71",
+   "lights": 0.8,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.8
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -1.6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": 10,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0,
+     "z": 2.6,
+     "front": true,
+     "pose": "fists"
+    }
+   ],
+   "split": {
+    "scene": {
+     "type": "stadium",
+     "crowd": [
+      "#1b4fb5",
+      "#ffffff",
+      "#1b4fb5"
+     ],
+     "seed": 33,
+     "ground": "small"
+    },
+    "at": "Stockport again",
+    "lag": 0.1,
+    "lights": 0.8,
+    "camFrom": {
+     "pos": [
+      0,
+      1.5,
+      -2.6
+     ],
+     "tgt": [
+      0,
+      1.3,
+      10
+     ]
+    },
+    "camera": {
+     "pos": [
+      0,
+      1.5,
+      -1.5
+     ],
+     "tgt": [
+      0,
+      1.3,
+      10
+     ]
+    },
+    "players": [
+     {
+      "name": "HAALAND",
+      "num": 9,
+      "kit": {
+       "shirt": "#6cabdd",
+       "shorts": "#ffffff",
+       "socks": "#6cabdd",
+       "text": "#1c2c5b"
+      },
+      "skin": "#f1d3bd",
+      "hair": "#d9b46a",
+      "x": 0,
+      "z": 2.6,
+      "front": true,
+      "pose": "wings"
+     }
+    ]
+   },
+   "card": [
+    {
+     "type": "stamp",
+     "text": "2–0",
+     "at": "Play-offs",
+     "lag": 0.5,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 100,
+     "y": 1380,
+     "sub": "home leg",
+     "dx": -270
+    },
+    {
+     "type": "stamp",
+     "text": "2–0",
+     "at": "Stockport again",
+     "lag": 0.5,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 100,
+     "y": 1380,
+     "sub": "away leg",
+     "dx": 270
+    },
+    {
+     "type": "stamp",
+     "text": "4–0",
+     "at": "two legs",
+     "lag": -0.2,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 110,
+     "y": 1700,
+     "sub": "on aggregate · to Wembley"
+    }
+   ],
+   "vo": "Play-offs. Stockport again. Four–nil over two legs."
+  },
+  {
+   "kicker": "Play-off final · Wembley",
+   "headline": "Bradford: [the best defence].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#7a1428",
+     "#f5b301"
+    ],
+    "seed": 41
+   },
+   "accent": "#f5b301",
+   "lights": 0.55,
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0,
+     1.55,
+     -5.0
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 4.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "x": -1.05,
+     "z": 1.0,
+     "front": true,
+     "chest": true,
+     "label": "Man City",
+     "labelAt": "Then Wembley"
+    },
+    {
+     "name": "BRADFORD",
+     "num": 1,
+     "kit": {
+      "shirt": "#7a1428",
+      "shorts": "#111111",
+      "socks": "#7a1428",
+      "text": "#f5b301",
+      "stripes": [
+       "#7a1428",
+       "#f5b301"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#1a1210",
+     "x": 1.05,
+     "z": 1.0,
+     "front": true,
+     "chest": true,
+     "label": "Bradford City",
+     "labelAt": "Bradford City",
+     "tag": 30,
+     "tagLabel": "goals conceded · the fewest",
+     "tagAt": "the best defence",
+     "tagLag": -0.2
+    }
+   ],
+   "vo": "Then Wembley. Bradford City, the best defence in the league."
+  },
+  {
+   "kicker": "Play-off final · Wembley",
+   "headline": "Bradford 2–0. [City stay down].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#7a1428",
+     "#f5b301"
+    ],
+    "seed": 41
+   },
+   "accent": "#ff4d5e",
+   "camFrom": {
+    "pos": [
+     4.2,
+     2.2,
+     32
+    ],
+    "tgt": [
+     0.48,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.6,
+     1.9,
+     34.7
+    ],
+    "tgt": [
+     0.48,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#7a1428",
+      "shorts": "#111111",
+      "socks": "#7a1428",
+      "text": "#f5b301",
+      "stripes": [
+       "#7a1428",
+       "#f5b301"
+      ]
+     },
+     "x": 1.2,
+     "z": 41,
+     "action": "kick",
+     "actionAt": "two–nil",
+     "actionLag": -0.5,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "skin": "#8a5a3c",
+     "hair": "#141010"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "two–nil",
+     "actionLag": -0.04999999999999999
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": -0.7,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "two–nil",
+     "actionLag": -0.35,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 2.16,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      1.42,
+      0.11,
+      41.45
+     ],
+     "untilAt": "two–nil",
+     "untilLag": -0.15999999999999998
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "two–nil",
+     "lag": -0.15999999999999998,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       1.42,
+       0.11,
+       41.45
+      ],
+      [
+       -0.6400000000000001,
+       0.9,
+       46.875
+      ],
+      [
+       -2.7,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "BRA",
+      "color": "#7a1428"
+     },
+     "away": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "score": [
+      2,
+      0
+     ],
+     "min": "84'",
+     "from": [
+      1,
+      0
+     ],
+     "goalAt": "two–nil",
+     "goalLag": 0.25
+    },
+    {
+     "type": "stamp",
+     "text": "STAYING DOWN",
+     "at": "City stay",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 84,
+     "y": 1640,
+     "sub": "League One again next season"
+    }
+   ],
+   "freezeAt": "City stay",
+   "freezeLag": -0.1,
+   "vo": "Bradford win two–nil. City stay in League One."
+  },
+  {
+   "kicker": "Season 2 · the verdict",
+   "headline": "93 goals. [Not enough].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.8,
+   "camFrom": {
+    "pos": [
+     1.5,
+     2.3,
+     60.5
+    ],
+    "tgt": [
+     0,
+     1.0,
+     40
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.8,
+     2.1,
+     59.2
+    ],
+    "tgt": [
+     0,
+     1.0,
+     40
+    ]
+   },
+   "move": 3,
+   "moveEase": "linear",
+   "hype": false,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "pose": "keeper"
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.25,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       1.04,
+       0.11,
+       38
+      ],
+      [
+       -0.52,
+       1.4,
+       46
+      ],
+      [
+       -2.6,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.95,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       -0.96,
+       0.11,
+       38
+      ],
+      [
+       0.48,
+       1.4,
+       46
+      ],
+      [
+       2.4,
+       1.6,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 1.65,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       0.24,
+       0.11,
+       38
+      ],
+      [
+       -0.12,
+       1.4,
+       46
+      ],
+      [
+       -0.6,
+       0.5,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 2.35,
+     "dur": 0.45,
+     "slowmo": false,
+     "points": [
+      [
+       -1.16,
+       0.11,
+       38
+      ],
+      [
+       0.58,
+       1.4,
+       46
+      ],
+      [
+       2.9,
+       0.7,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "big",
+     "at": "Ninety-three goals",
+     "lag": -0.2,
+     "from": 60,
+     "value": 93,
+     "countDur": 1.1,
+     "label": "league goals · the most in League One",
+     "y": 1560,
+     "size": 170
+    },
+    {
+     "type": "stamp",
+     "text": "NOT ENOUGH",
+     "at": "Not enough",
+     "lag": -0.05,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 80,
+     "y": 1760,
+     "sub": "74 conceded"
+    }
+   ],
+   "shots": [
+    {
+     "at": "Who should City",
+     "lag": -0.2,
+     "cut": true,
+     "transition": "whip",
+     "kicker": "Your vote · summer window",
+     "headline": "Summer: [which keeper]?",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#6cabdd",
+       "#ffffff",
+       "#6cabdd",
+       "#1c2c5b"
+      ],
+      "seed": 6
+     },
+     "accent": "#3FE0C5",
+     "lights": 0.6,
+     "focus": 0.3,
+     "camFrom": {
+      "pos": [
+       0,
+       1.6,
+       -3.0
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.6,
+       -1.8
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [],
+     "hype": false,
+     "card": [
+      {
+       "type": "pcard",
+       "y": 1000,
+       "w": 300,
+       "h": 400,
+       "shiftX": -350,
+       "side": "left",
+       "at": "Who should City",
+       "lag": -0.1,
+       "player": {
+        "kit": {
+         "shirt": "#7a1428",
+         "shorts": "#111111",
+         "socks": "#7a1428",
+         "text": "#f5b301",
+         "stripes": [
+          "#7a1428",
+          "#f5b301"
+         ]
+        },
+        "skin": "#e7b593",
+        "hair": "#2a1a10",
+        "name": "",
+        "gloves": "#f2f2f2"
+       },
+       "tag": "GK · Bradford",
+       "caption": "Jon McCracken",
+       "stats": [
+        [
+         9,
+         "clean sheets"
+        ],
+        [
+         "1.5",
+         "saves/game"
+        ]
+       ],
+       "statsNote": "13 starts · League One",
+       "clear": false
+      },
+      {
+       "type": "pcard",
+       "y": 1000,
+       "w": 300,
+       "h": 400,
+       "shiftX": 0,
+       "side": "right",
+       "at": "sign this summer",
+       "lag": -0.1,
+       "player": {
+        "kit": {
+         "shirt": "#0e63ad",
+         "shorts": "#ffffff",
+         "socks": "#0e63ad",
+         "text": "#ffffff",
+         "stripes": [
+          "#0e63ad",
+          "#ffffff"
+         ]
+        },
+        "skin": "#e7b593",
+        "hair": "#2a1a10",
+        "name": "",
+        "gloves": "#f2f2f2"
+       },
+       "tag": "GK · Huddersfield",
+       "caption": "Matt Young",
+       "stats": [
+        [
+         4,
+         "clean sheets"
+        ],
+        [
+         "2.0",
+         "saves/game"
+        ]
+       ],
+       "statsNote": "15 starts · age 19",
+       "clear": false
+      },
+      {
+       "type": "pcard",
+       "y": 1000,
+       "w": 300,
+       "h": 400,
+       "shiftX": 350,
+       "side": "right",
+       "at": "this summer",
+       "lag": -0.1,
+       "player": {
+        "kit": {
+         "shirt": "#2e2e33",
+         "shorts": "#2e2e33",
+         "socks": "#2e2e33",
+         "text": "#ffffff"
+        },
+        "skin": "#e7b593",
+        "hair": "#2a1a10",
+        "name": "",
+        "gloves": "#f2f2f2"
+       },
+       "tag": "GK · Stuttgart",
+       "caption": "Dennis Seimen",
+       "stats": [
+        [
+         2,
+         "clean sheets"
+        ],
+        [
+         "3.8",
+         "saves/game"
+        ]
+       ],
+       "statsNote": "5 starts · Bundesliga · 20",
+       "clear": false
+      },
+      {
+       "type": "poll",
+       "y": 1640,
+       "at": "Who should City",
+       "lag": 0.4,
+       "question": "Who should City sign?",
+       "clear": false,
+       "options": [
+        {
+         "label": "McCracken",
+         "color": "#7a1428",
+         "fill": 0.34
+        },
+        {
+         "label": "Young",
+         "color": "#0e63ad",
+         "fill": 0.33
+        },
+        {
+         "label": "Seimen",
+         "color": "#2e2e33",
+         "fill": 0.33
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "vo": "Ninety-three goals, the most in the league. Not enough. Who should City sign this summer?"
+  }
+ ]
+}

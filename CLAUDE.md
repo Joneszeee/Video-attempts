@@ -366,6 +366,8 @@ Built so far from the idea list (reuse them):
   - **Screen glitch:** beat `"glitch": [{"at"|"t", "dur", "amount"}]`, a short digital tear over the whole frame (a pattern break or a "simulation" cut).
   - **Simulation HUD:** the `simhud` card. Corner brackets under the headline, a blinking "● SIM" tag bottom-left with `sub`, and a run counter + bar bottom-right
     (`runs`, `countT|countAt` + `dur`; `dur: 0` = already finished). Put it on every simulated beat so the viewer always knows what's real.
+    For a single simulated match (the "official" season is one run, not 10,000) use `counter: false` (lib: `hud(sub, counter=False)`): just the
+    SIM tag with its line beside it, low in the corner, so stamps and counters above it stay clear. Keep stamps at about y ≤ 1560 on SIM beats.
   - **Live finishing-position chart:** the `simrun` card. Bars build up with noise that settles while the run counter spins: `dist: {position: percent}`,
     `positions: [from, to]`, `real` (white pin), `zone: {from, to, label, color}` (e.g. the Champions League places or relegation), `peakColor`,
     `stamp: {text, sub, color, pos}` + `stampAt` (a big % pops over the zone or over bar `pos`), `title`, `w`, `h`.
@@ -379,6 +381,12 @@ Built so far from the idea list (reuse them):
 - **Crown** (built for `videos/yamal-messi-19`): the `crown` card. A gold crown drops onto a player's head (`on`: index in `players`, timed with `at`) with a bounce,
   sparkles and a landing thud; `items: [{to: index, at}]` flies it to another player, `{to: "both", at}` makes it hover and swing between players 0 and 1
   (the debate is open). It sits above his name label or number, never on them. Best on the stage for "who's better" stories.
+- **League-table climb** (backlog item, built for `videos/city-part-3`): the `climb` card. A table window (`show` rows) whose rows re-order step by step:
+  `steps: [{at|t, rows: [[pos, name, pts], ...], label}]` (the first step is the starting table; `label` pops in a pill, e.g. "MD27 · W 4–2 Doncaster"),
+  `focus` (club name: its row is gold and slides, with a ▲/▼ chip for places gained since the first step), `zones: [{from, to, color}]` (promotion,
+  play-offs), `colors: {name: colour}`, `title`, `stepDur`, `labelColor`. Other clubs that swap places ghost as they cross, so the focus row stays clear.
+  Build the rows from the sim's per-matchday snapshots (never by hand). Also works for a drop (MD45 → MD46, 3rd → 4th).
+- **Pass-through words are exempt from the edge check:** a `flytext` with `settle: false` or `mode: "through"` is meant to cross the frame edges.
 - **Seesaw scoreline** (built for `videos/yamal-messi-19`): the `seesaw` card. A back-and-forth match told goal by goal: chips pop on each team's side
   (`left`/`right: {name, color, text}`) with minute, scorer and the new score, joined by a dashed zig-zag. `items: [{side, min, who, score, at}]`, `title`, `w`, `rowH`.
   Use it when goals are minutes apart (a `timeline` can't separate them).
@@ -426,7 +434,7 @@ From statbolthq (FORMAT.md Reference 6; demo `videos/_test-statbolt`). Tips, not
 - A shirt-number morph: one shirt number flips into another (for heirs to a number, e.g. 7s and 10s).
 - Formation chalk-lines: a 4-4-2 drawn on the pitch that rearranges into a new shape.
 - A stopwatch or speed-gun readout for fastest goals or sprints.
-- A league-table climb: a club's row sliding up the table week by week.
+- ~~A league-table climb~~ (built: the `climb` card).
 
 ## spec.json
 ```jsonc

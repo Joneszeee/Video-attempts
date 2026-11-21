@@ -196,7 +196,7 @@ def _resolve_beat(b, rel):
             c['empty']['t'] = round(max(0, rel(c['empty'].pop('at')) + c['empty'].pop('lag', 0) - base), 3)
         if c.get('type') == 'photofinish' and isinstance(c.get('gapAt'), str):
             c['gapT'] = round(max(0, rel(c.pop('gapAt')) + c.pop('gapLag', 0) - base), 3)
-        if c.get('type') in ('whiteboard', 'toytable', 'toyresults', 'toydoors', 'ruler', 'lineup', 'career', 'fates', 'trapdoor', 'ladder', 'timeline', 'sinking', 'crown', 'seesaw'):
+        if c.get('type') in ('whiteboard', 'toytable', 'toyresults', 'toydoors', 'ruler', 'lineup', 'career', 'fates', 'trapdoor', 'ladder', 'timeline', 'sinking', 'crown', 'seesaw', 'climb'):
             for lst in (c.get('lines') or [], c.get('zones') or [], c.get('moves') or [], c.get('items') or [], c.get('doors') or [], c.get('markers') or [], c.get('events') or [], c.get('steps') or [], [c['bracket']] if isinstance(c.get('bracket'), dict) else []):
                 for it in lst:
                     if 'at' in it:

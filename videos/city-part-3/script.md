@@ -49,3 +49,13 @@ Facts to note:
    (20%), and City's keeper is a League Two signing. Suggestion: three real keepers, Dennis Seimen (17% last time) plus the two League One
    keepers with the best clean-sheet records this season (researched from ESPN before building).
 2. **Hook A** (recommended), B or C.
+
+## As built (user approved hook A and asked for the five key matches, 21 Nov 2026)
+Script v2 is `vo.txt` (14 lines, 160 words). The five matches, all from ep3.json:
+1. MD25 Leicester 4–0 City (Watts's second game; City 13th).
+2. MD26–30 five straight wins (Wycombe 4–2, Doncaster 4–2, Stevenage 2–1, Huddersfield 2–1, Notts County 3–2): 13th → 5th (the new `climb` card).
+3. MD35 City 2–0 Grimsby, Haaland twice: top three for the first time in League One (best in the first half: 6th).
+4. MD37 City 3–4 Stockport: the seven-goal thriller ("Remember them": they meet again in the play-offs).
+5. MD42 Oxford 4–2 City (the champions); Haaland ends on 29.
+Then the last day (level on 77 with Wednesday in 2nd; 1–1 v Cambridge; 4th), the play-offs (4–0 v Stockport; Bradford 2–0 at Wembley) and the keeper vote
+(McCracken, Young, Seimen: real stats in research.md).

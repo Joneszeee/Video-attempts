@@ -67,7 +67,7 @@ def cam(pos, tgt, frm=None, frm_tgt=None, move=5, **k):
 
 
 def hud(sub, **k):
-    """Simulation frame (what-if videos)."""
+    """Simulation frame (what-if videos). counter=False for one simulated match (no 10,000-run counter; just the SIM tag, low in the corner)."""
     d = {"type": "simhud", "delay": 0, "sub": sub, "dur": 0, "clear": False}
     d.update(k)
     return d

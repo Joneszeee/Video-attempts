@@ -4088,10 +4088,14 @@ CARDS.simhud = function (c, ct, cx, cy) {
   ctx.fillStyle = 'rgba(0,0,0,0.05)'; for (let y = top; y < bot; y += 6) ctx.fillRect(m, y, W - 2 * m, 2);   // faint scanlines
   // the label sits bottom-left, the run counter bottom-right, so nothing fights the headline or the cards
   const runs = c.runs || 10000, c0 = c.countT != null ? c.countT : 0.1, k = c.dur === 0 ? 1 : Math.pow(pr(ct, c0, c.dur || 2.2), 1.6);
-  const n = Math.round(runs * k), y = Math.min(c.y || bot - 75, bot - 75);   // always inside the corner brackets (user: the brackets ran through SIM and the counter)
+  const n = Math.round(runs * k), y = c.counter === false ? bot - 38 : Math.min(c.y || bot - 75, bot - 75);   // always inside the corner brackets (user: the brackets ran through SIM and the counter)
   font(800, 30, 'Mono', '5px'); ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
   if (Math.floor(ct * 2.5) % 2 === 0) { ctx.fillStyle = '#ff3b4e'; ctx.beginPath(); ctx.arc(m + 42, y, 10, 0, 7); ctx.fill(); }
   ctx.fillStyle = col; ctx.fillText(c.label || 'SIM', m + 62, y + 2);
+  if (c.counter === false) {   // one simulated match (the official season, played once): just the SIM tag and the line beside it, low in the corner
+    if (c.sub) { const sx = m + 62 + ctx.measureText(c.label || 'SIM').width + 22; font(600, 22, 'Mono', '3px'); ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.fillText(c.sub.toUpperCase(), sx, y + 2); }
+    ctx.restore(); return;
+  }
   if (c.sub) { font(600, 22, 'Mono', '3px'); ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.fillText(c.sub.toUpperCase(), m + 30, y - 42); }
   font(800, 34, 'Mono', '3px'); ctx.textAlign = 'right'; ctx.fillStyle = '#fff';
   ctx.fillText('RUN ' + n.toLocaleString('en-GB').padStart(6, '0') + ' / ' + runs.toLocaleString('en-GB'), W - m - 30, y);
@@ -4301,6 +4305,63 @@ CARDS.seesaw = function (c, ct, cx, cy) {
   ctx.restore();
 };
 CARDS.seesaw.noSlide = true;
+
+// League-table climb (backlog item, built for videos/city-part-3): a table window whose rows re-order step by step. The focus club's row is gold and
+// slides up (or down) while the others shift and the points tick; a chip counts the places gained since the first step.
+// steps: [{t|at, rows: [[pos, name, pts], ...], label}] (the first step is the starting table), focus (club name), show (rows), zones: [{from, to, color}],
+// colors: {name: colour}, title, w, rowH, stepDur.
+CARDS.climb = function (c, ct, cx, cy) {
+  const St = c.steps || []; if (!St.length) return;
+  const n = c.show || 10, rh = c.rowH || 62, w = c.w || 860, head = c.title ? 122 : 74, h = head + n * rh + 26, dur = c.stepDur || 0.55;
+  const k0 = eOut(pr(ct, 0, 0.35)); if (k0 <= 0) return;
+  const T = i => i === 0 ? -1 : (St[i].t != null ? St[i].t : 0.6 + i * 0.8);
+  let k = 0; for (let i = 1; i < St.length; i++) if (ct >= T(i)) k = i;
+  const e = k === 0 ? 1 : ease(pr(ct, T(k), dur));
+  const map = s => { const m = {}; for (const r of s.rows) m[r[1]] = r; return m; };
+  const A = map(St[Math.max(0, k - 1)]), Bm = map(St[k]), first = map(St[0]);
+  ctx.save(); ctx.globalAlpha *= k0; ctx.translate(cx, cy - h / 2 + (1 - k0) * 30);
+  const sc = 1 + 0.012 * ct; ctx.scale(sc, sc);
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.fillStyle = 'rgba(8,10,15,0.88)'; rrect(-w / 2, 0, w, h, 28); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.textBaseline = 'middle';
+  if (c.title) { font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.fillText(c.title.toUpperCase(), 0, 40); }
+  const lab = St[k].label;
+  if (lab) {   // what just happened (e.g. "MD27 · W 4–2 Doncaster"), popping on each step
+    const pk = k === 0 ? 1 : eBack(pr(ct, T(k), 0.3)); font(800, 26, 'Inter', '1px'); const tw = ctx.measureText(lab).width + 40;
+    ctx.save(); ctx.translate(0, head - 38); ctx.scale(pk, pk); ctx.fillStyle = c.labelColor || '#1f8a4c'; rrect(-tw / 2, -22, tw, 44, 22); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(lab, 0, 1); ctx.restore();
+  }
+  ctx.save(); rrect(-w / 2 + 10, head - 4, w - 20, n * rh + 8, 14); ctx.clip();
+  for (const z of c.zones || []) { ctx.fillStyle = z.color || '#2ecc71'; ctx.fillRect(-w / 2 + 14, head + (z.from - 1) * rh + 4, 6, (z.to - z.from + 1) * rh - 8); }
+  const names = [...new Set([...Object.keys(A), ...Object.keys(Bm)])];
+  const rowAt = nm => { const pa = (A[nm] || [99])[0], pb = (Bm[nm] || [99])[0]; return { p: lerp(pa, pb, e), pa, pb,
+    pts: Math.round(lerp((A[nm] || [0, 0, 0])[2], (Bm[nm] || [0, 0, 0])[2], e)) }; };
+  const draw = (nm, focus) => {
+    const r = rowAt(nm), y = head + (r.p - 1) * rh; if (y > head + n * rh + 2 || y < head - rh) return;
+    const moving = focus && Math.abs(r.pa - r.pb) > 0 && e < 1, s = moving ? 1 + 0.04 * Math.sin(Math.PI * e) : 1;
+    ctx.save(); ctx.translate(0, y + rh / 2); ctx.scale(s, s);
+    if (!focus && r.pa !== r.pb && e < 1) ctx.globalAlpha *= 1 - 0.75 * Math.sin(Math.PI * e);   // other clubs swapping places ghost as they cross
+    if (focus) { ctx.shadowColor = 'rgba(241,196,83,0.6)'; ctx.shadowBlur = moving ? 28 : 14; const g = ctx.createLinearGradient(0, -rh / 2, 0, rh / 2);
+      g.addColorStop(0, '#f7d77a'); g.addColorStop(1, '#e0a92e'); ctx.fillStyle = g; rrect(-w / 2 + 26, -rh / 2 + 4, w - 52, rh - 8, 12); ctx.fill(); ctx.shadowBlur = 0; }
+    else if (Math.round(r.p) % 2) { ctx.fillStyle = 'rgba(255,255,255,0.045)'; rrect(-w / 2 + 26, -rh / 2 + 4, w - 52, rh - 8, 10); ctx.fill(); }
+    const ink = focus ? '#14110a' : '#eef0f4', pos = e < 0.5 ? r.pa : r.pb;
+    font(700, 26, 'Mono'); ctx.textAlign = 'right'; ctx.fillStyle = focus ? ink : '#9aa1ad'; ctx.fillText(String(pos), -w / 2 + 92, 1);
+    ctx.fillStyle = (c.colors || {})[nm] || '#5b6270'; rrect(-w / 2 + 110, -15, 14, 30, 4); ctx.fill();
+    font(focus ? 800 : 600, 29, 'Inter'); ctx.textAlign = 'left'; ctx.fillStyle = ink; ctx.fillText(nm, -w / 2 + 140, 1);
+    font(800, 30, 'Inter'); ctx.textAlign = 'right'; ctx.fillText(String(r.pts), w / 2 - 48, 1);
+    if (focus && first[nm]) {   // places gained (or lost) since the first step
+      const d = first[nm][0] - (e < 0.5 ? r.pa : r.pb);
+      if (d) { const txt = (d > 0 ? '▲ ' : '▼ ') + Math.abs(d); font(800, 24, 'Inter'); const tw = ctx.measureText(txt).width + 24;
+        ctx.fillStyle = d > 0 ? '#1f8a4c' : '#d6283b'; rrect(w / 2 - 150 - tw, -18, tw, 36, 18); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(txt, w / 2 - 150 - tw / 2, 1); }
+    }
+    ctx.restore();
+  };
+  for (const nm of names) if (nm !== c.focus) draw(nm, false);
+  if (c.focus) draw(c.focus, true);
+  ctx.restore();
+  font(600, 20, 'Mono', '3px'); ctx.fillStyle = '#8d94a1'; ctx.textAlign = 'right'; ctx.fillText('PTS', w / 2 - 48, head - 38);
+  ctx.restore();
+};
+CARDS.climb.noSlide = true;
 function drawSpeedlines(b, lt) {
   for (const sl of b.speedlines || []) {
     const r = lt - (sl.t || 0), d = sl.dur || 1.2;
@@ -4325,10 +4386,11 @@ function cardEvents(c) {
   const ev = [];
   const ticks = (a, d) => { for (let t = a; t < a + d; t += 0.075) ev.push({ t, type: 'tick' }); };
   switch (c.type) {
-    case 'simhud': { const c0 = c.countT != null ? c.countT : 0.1; ticks(c0, Math.min(1.4, (c.dur || 2.2) * 0.8)); break; }
+    case 'simhud': { if (c.counter === false) break; const c0 = c.countT != null ? c.countT : 0.1; ticks(c0, Math.min(1.4, (c.dur || 2.2) * 0.8)); break; }
     case 'simrun': { const c0 = c.countT != null ? c.countT : 0.2; ticks(c0, Math.min(1.4, (c.dur || 2.4) * 0.8)); if (c.stampT != null) ev.push({ t: c.stampT, type: 'impact' }); break; }
     case 'odds': { const lT = c.litT != null ? c.litT : 0.9; ev.push({ t: 0.05, type: 'swish' }); for (let i = 0; i < (c.lit || 0); i++) ev.push({ t: lT + i * 0.14, type: 'pop' }); ev.push({ t: lT + (c.lit || 0) * 0.14 + 0.1, type: 'swipe' }); break; }
     case 'seesaw': for (const it of c.items || []) if (it.t != null) ev.push({ t: it.t, type: 'pop' }); break;
+    case 'climb': (c.steps || []).forEach((st, i) => { if (i && st.t != null) ev.push({ t: st.t, type: 'whoosh' }, { t: st.t + (c.stepDur || 0.55), type: 'pop' }); }); break;
     case 'crown': ev.push({ t: 0.42, type: 'impact' }); for (const m of c.items || []) if (m.t != null) ev.push({ t: m.t, type: 'whoosh' }); break;
     case 'subboard': ev.push({ t: 0.05, type: 'swish' }, { t: 0.45, type: 'pop' }, { t: c.swapT != null ? c.swapT : (typeof c.swapAt === 'number' ? c.swapAt : 0.9), type: 'pop' }); break;
     case 'flip': c.groups.forEach((g, i) => ticks(0.35 + i * 0.25, 1.3)); break;
@@ -4785,6 +4847,7 @@ function renderAt(t) {
       ctx.translate(W / 2, cy0 + (1 - inA) * 60); ctx.scale(sc, sc); ctx.translate(-W / 2, -cy0);
     }
     S.owner = 'card ' + it.obj.type + ' #' + b.cards.indexOf(it);
+    if (it.obj.type === 'flytext' && (it.obj.settle === false || it.obj.mode === 'through')) S.owner += ' pass';   // meant to cross the edges: the audit skips its cut-off
     const tf = ctx.getTransform(), ga = ctx.globalAlpha;
     fn(it.obj, ct, W / 2 + (it.obj.shiftX || 0), cardY(it.obj), ek);
     ctx.restore();
@@ -4880,7 +4943,7 @@ window.audit = function (t) {
   for (const r of L) {
     const inScene = /^(label|tag) /.test(r.owner), lx = inScene && E ? E[0] : 0, rx = inScene && E ? E[1] : W;   // on the stage, the drapes are the edge
     const over = Math.max(lx - r.x0, r.x1 - rx, -r.y0, r.y1 - H);
-    if (over > 6 && r.owner !== 'scene' && !r.box) issues.push({ kind: 'cut off', owner: r.owner, text: r.text, by: Math.round(over) });   // players running in from the edge are normal
+    if (over > 6 && r.owner !== 'scene' && !r.box && !/ pass$/.test(r.owner)) issues.push({ kind: 'cut off', owner: r.owner, text: r.text, by: Math.round(over) });   // players running in from the edge are normal
   }
   for (let i = 0; i < L.length; i++) for (let j = i + 1; j < L.length; j++) {
     const a = L[i], b = L[j];

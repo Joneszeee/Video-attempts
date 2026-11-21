@@ -1,0 +1,810 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "beats": [
+  {
+   "kicker": "League One · matchdays 25–30",
+   "headline": "Five wins. [Fifth].",
+   "vo": "Test.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff"
+    ],
+    "seed": 6
+   },
+   "lights": 0.5,
+   "focus": 0.35,
+   "camera": "high",
+   "card": [
+    {
+     "type": "climb",
+     "y": 1180,
+     "delay": 0,
+     "title": "League One · 2027/28",
+     "focus": "Manchester City",
+     "show": 13,
+     "steps": [
+      {
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         48
+        ],
+        [
+         2,
+         "Reading",
+         44
+        ],
+        [
+         3,
+         "Plymouth Argyle",
+         42
+        ],
+        [
+         4,
+         "Sheffield Wednesday",
+         41
+        ],
+        [
+         5,
+         "Bradford City",
+         40
+        ],
+        [
+         6,
+         "Stockport County",
+         40
+        ],
+        [
+         7,
+         "Wycombe Wanderers",
+         39
+        ],
+        [
+         8,
+         "Stevenage",
+         39
+        ],
+        [
+         9,
+         "Leicester City",
+         37
+        ],
+        [
+         10,
+         "Huddersfield Town",
+         37
+        ],
+        [
+         11,
+         "Grimsby Town",
+         36
+        ],
+        [
+         12,
+         "Leyton Orient",
+         35
+        ],
+        [
+         13,
+         "Manchester City",
+         35
+        ],
+        [
+         14,
+         "Luton Town",
+         34
+        ],
+        [
+         15,
+         "Barnet",
+         33
+        ],
+        [
+         16,
+         "Cambridge United",
+         32
+        ],
+        [
+         17,
+         "Burton Albion",
+         31
+        ],
+        [
+         18,
+         "MK Dons",
+         30
+        ],
+        [
+         19,
+         "Mansfield Town",
+         30
+        ],
+        [
+         20,
+         "Blackpool",
+         30
+        ],
+        [
+         21,
+         "Wimbledon",
+         24
+        ],
+        [
+         22,
+         "Notts County",
+         22
+        ],
+        [
+         23,
+         "Wigan Athletic",
+         18
+        ],
+        [
+         24,
+         "Doncaster Rovers",
+         17
+        ]
+       ],
+       "label": "MD25 · L 0–4 Leicester"
+      },
+      {
+       "t": 0.8,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         49
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         45
+        ],
+        [
+         3,
+         "Reading",
+         44
+        ],
+        [
+         4,
+         "Bradford City",
+         43
+        ],
+        [
+         5,
+         "Sheffield Wednesday",
+         42
+        ],
+        [
+         6,
+         "Stockport County",
+         41
+        ],
+        [
+         7,
+         "Huddersfield Town",
+         40
+        ],
+        [
+         8,
+         "Wycombe Wanderers",
+         39
+        ],
+        [
+         9,
+         "Stevenage",
+         39
+        ],
+        [
+         10,
+         "Grimsby Town",
+         39
+        ],
+        [
+         11,
+         "Manchester City",
+         38
+        ],
+        [
+         12,
+         "Leicester City",
+         37
+        ],
+        [
+         13,
+         "Leyton Orient",
+         36
+        ],
+        [
+         14,
+         "Luton Town",
+         35
+        ],
+        [
+         15,
+         "Barnet",
+         34
+        ],
+        [
+         16,
+         "Cambridge United",
+         33
+        ],
+        [
+         17,
+         "MK Dons",
+         33
+        ],
+        [
+         18,
+         "Burton Albion",
+         31
+        ],
+        [
+         19,
+         "Mansfield Town",
+         30
+        ],
+        [
+         20,
+         "Blackpool",
+         30
+        ],
+        [
+         21,
+         "Wimbledon",
+         25
+        ],
+        [
+         22,
+         "Notts County",
+         22
+        ],
+        [
+         23,
+         "Wigan Athletic",
+         21
+        ],
+        [
+         24,
+         "Doncaster Rovers",
+         20
+        ]
+       ],
+       "label": "MD26 · W 4–2 Wycombe"
+      },
+      {
+       "t": 1.7000000000000002,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         52
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         45
+        ],
+        [
+         3,
+         "Reading",
+         44
+        ],
+        [
+         4,
+         "Stockport County",
+         44
+        ],
+        [
+         5,
+         "Bradford City",
+         43
+        ],
+        [
+         6,
+         "Sheffield Wednesday",
+         42
+        ],
+        [
+         7,
+         "Wycombe Wanderers",
+         42
+        ],
+        [
+         8,
+         "Stevenage",
+         42
+        ],
+        [
+         9,
+         "Manchester City",
+         41
+        ],
+        [
+         10,
+         "Leicester City",
+         40
+        ],
+        [
+         11,
+         "Huddersfield Town",
+         40
+        ],
+        [
+         12,
+         "Grimsby Town",
+         40
+        ],
+        [
+         13,
+         "Leyton Orient",
+         39
+        ],
+        [
+         14,
+         "Barnet",
+         37
+        ],
+        [
+         15,
+         "MK Dons",
+         36
+        ],
+        [
+         16,
+         "Luton Town",
+         35
+        ],
+        [
+         17,
+         "Cambridge United",
+         34
+        ],
+        [
+         18,
+         "Burton Albion",
+         34
+        ],
+        [
+         19,
+         "Mansfield Town",
+         31
+        ],
+        [
+         20,
+         "Blackpool",
+         30
+        ],
+        [
+         21,
+         "Wimbledon",
+         26
+        ],
+        [
+         22,
+         "Notts County",
+         22
+        ],
+        [
+         23,
+         "Wigan Athletic",
+         21
+        ],
+        [
+         24,
+         "Doncaster Rovers",
+         20
+        ]
+       ],
+       "label": "MD27 · W 4–2 Doncaster"
+      },
+      {
+       "t": 2.6,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         55
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         48
+        ],
+        [
+         3,
+         "Bradford City",
+         46
+        ],
+        [
+         4,
+         "Sheffield Wednesday",
+         45
+        ],
+        [
+         5,
+         "Reading",
+         45
+        ],
+        [
+         6,
+         "Stockport County",
+         44
+        ],
+        [
+         7,
+         "Manchester City",
+         44
+        ],
+        [
+         8,
+         "Wycombe Wanderers",
+         43
+        ],
+        [
+         9,
+         "Huddersfield Town",
+         43
+        ],
+        [
+         10,
+         "Leyton Orient",
+         42
+        ],
+        [
+         11,
+         "Stevenage",
+         42
+        ],
+        [
+         12,
+         "Leicester City",
+         40
+        ],
+        [
+         13,
+         "Grimsby Town",
+         40
+        ],
+        [
+         14,
+         "MK Dons",
+         37
+        ],
+        [
+         15,
+         "Barnet",
+         37
+        ],
+        [
+         16,
+         "Cambridge United",
+         35
+        ],
+        [
+         17,
+         "Luton Town",
+         35
+        ],
+        [
+         18,
+         "Mansfield Town",
+         34
+        ],
+        [
+         19,
+         "Burton Albion",
+         34
+        ],
+        [
+         20,
+         "Blackpool",
+         31
+        ],
+        [
+         21,
+         "Wimbledon",
+         27
+        ],
+        [
+         22,
+         "Wigan Athletic",
+         24
+        ],
+        [
+         23,
+         "Notts County",
+         22
+        ],
+        [
+         24,
+         "Doncaster Rovers",
+         20
+        ]
+       ],
+       "label": "MD28 · W 2–1 Stevenage"
+      },
+      {
+       "t": 3.5,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         56
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         51
+        ],
+        [
+         3,
+         "Bradford City",
+         49
+        ],
+        [
+         4,
+         "Reading",
+         48
+        ],
+        [
+         5,
+         "Stockport County",
+         47
+        ],
+        [
+         6,
+         "Manchester City",
+         47
+        ],
+        [
+         7,
+         "Wycombe Wanderers",
+         46
+        ],
+        [
+         8,
+         "Sheffield Wednesday",
+         45
+        ],
+        [
+         9,
+         "Huddersfield Town",
+         43
+        ],
+        [
+         10,
+         "Grimsby Town",
+         43
+        ],
+        [
+         11,
+         "Leyton Orient",
+         42
+        ],
+        [
+         12,
+         "Stevenage",
+         42
+        ],
+        [
+         13,
+         "Leicester City",
+         40
+        ],
+        [
+         14,
+         "Barnet",
+         40
+        ],
+        [
+         15,
+         "MK Dons",
+         37
+        ],
+        [
+         16,
+         "Burton Albion",
+         37
+        ],
+        [
+         17,
+         "Cambridge United",
+         35
+        ],
+        [
+         18,
+         "Luton Town",
+         35
+        ],
+        [
+         19,
+         "Mansfield Town",
+         34
+        ],
+        [
+         20,
+         "Blackpool",
+         32
+        ],
+        [
+         21,
+         "Wimbledon",
+         30
+        ],
+        [
+         22,
+         "Notts County",
+         25
+        ],
+        [
+         23,
+         "Wigan Athletic",
+         24
+        ],
+        [
+         24,
+         "Doncaster Rovers",
+         20
+        ]
+       ],
+       "label": "MD29 · W 2–1 Huddersfield"
+      },
+      {
+       "t": 4.4,
+       "rows": [
+        [
+         1,
+         "Oxford United",
+         59
+        ],
+        [
+         2,
+         "Plymouth Argyle",
+         52
+        ],
+        [
+         3,
+         "Bradford City",
+         50
+        ],
+        [
+         4,
+         "Stockport County",
+         50
+        ],
+        [
+         5,
+         "Manchester City",
+         50
+        ],
+        [
+         6,
+         "Reading",
+         49
+        ],
+        [
+         7,
+         "Wycombe Wanderers",
+         46
+        ],
+        [
+         8,
+         "Grimsby Town",
+         46
+        ],
+        [
+         9,
+         "Sheffield Wednesday",
+         45
+        ],
+        [
+         10,
+         "Huddersfield Town",
+         44
+        ],
+        [
+         11,
+         "Leyton Orient",
+         43
+        ],
+        [
+         12,
+         "Stevenage",
+         43
+        ],
+        [
+         13,
+         "Leicester City",
+         41
+        ],
+        [
+         14,
+         "Barnet",
+         40
+        ],
+        [
+         15,
+         "Burton Albion",
+         40
+        ],
+        [
+         16,
+         "Cambridge United",
+         38
+        ],
+        [
+         17,
+         "MK Dons",
+         37
+        ],
+        [
+         18,
+         "Mansfield Town",
+         35
+        ],
+        [
+         19,
+         "Luton Town",
+         35
+        ],
+        [
+         20,
+         "Blackpool",
+         35
+        ],
+        [
+         21,
+         "Wimbledon",
+         31
+        ],
+        [
+         22,
+         "Notts County",
+         25
+        ],
+        [
+         23,
+         "Wigan Athletic",
+         24
+        ],
+        [
+         24,
+         "Doncaster Rovers",
+         21
+        ]
+       ],
+       "label": "MD30 · W 3–2 Notts"
+      }
+     ],
+     "zones": [
+      {
+       "from": 1,
+       "to": 2,
+       "color": "#2ecc71"
+      },
+      {
+       "from": 3,
+       "to": 6,
+       "color": "#3FE0C5"
+      }
+     ],
+     "colors": {
+      "Manchester City": "#6cabdd",
+      "Oxford United": "#f7d117"
+     },
+     "clear": false
+    }
+   ]
+  }
+ ],
+ "timings": [
+  6
+ ]
+}

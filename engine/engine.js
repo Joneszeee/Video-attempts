@@ -3366,7 +3366,9 @@ CARDS.pcard = function (c, ct, cx, cy) {
   if (c.tag) { font(800, 26, 'Inter', '3px'); const tw = ctx.measureText(c.tag.toUpperCase()).width + 30;
     ctx.fillStyle = c.tagColor || '#f1c453'; rrect(-w / 2 + 18, -h / 2 + 18, tw, 46, 8); ctx.fill();
     ctx.fillStyle = '#111'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(c.tag.toUpperCase(), -w / 2 + 33, -h / 2 + 42); }
-  if (c.caption) { font(800, 40, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(c.caption, 0, h / 2 - 30); }
+  if (c.caption) {   // the name shrinks to fit the card (a long name ran past a narrow card's edge)
+    font(800, 40, 'Inter'); const cw = ctx.measureText(c.caption).width, fs = cw > w - 36 ? Math.max(24, 40 * (w - 36) / cw) : 40;
+    font(800, fs, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(c.caption, 0, h / 2 - 30); }
   if (c.stats) {   // mini stat chips above the card (user: unknown players need a quick "who is he"): [[value, label], ...], top chip first
     const n = c.stats.length;
     c.stats.forEach(([v, lab], i) => {
@@ -3976,7 +3978,11 @@ CARDS.poll = function (c, ct, cx, cy) {
     ctx.fillStyle = '#eef0f3'; rrect(-w / 2 + 40, y - 46, w - 80, 92, 46); ctx.fill();
     ctx.save(); rrect(-w / 2 + 40, y - 46, w - 80, 92, 46); ctx.clip();
     ctx.fillStyle = o.color || '#dc052d'; ctx.globalAlpha *= 0.9; ctx.fillRect(-w / 2 + 40, y - 46, (w - 80) * fill, 92); ctx.restore();
+    const hx = (o.color || '#dc052d').replace('#', ''), lum = hx.length === 6 ? (0.299 * parseInt(hx.slice(0, 2), 16) + 0.587 * parseInt(hx.slice(2, 4), 16) + 0.114 * parseInt(hx.slice(4, 6), 16)) : 200;
     font(800, 38, 'Inter'); ctx.fillStyle = '#16181d'; ctx.textAlign = 'left'; ctx.fillText(o.label.toUpperCase(), -w / 2 + 80, y + 2);
+    if (lum < 120 && fill > 0) {   // the part of the name over a dark bar turns white, so it reads on any club colour
+      ctx.save(); ctx.beginPath(); ctx.rect(-w / 2 + 40, y - 46, (w - 80) * fill, 92); ctx.clip(); ctx.fillStyle = '#ffffff'; ctx.fillText(o.label.toUpperCase(), -w / 2 + 80, y + 2); ctx.restore(); }
+    ctx.fillStyle = '#16181d';
     ctx.textAlign = 'right'; ctx.fillText(o.pct || '?%', w / 2 - 80, y + 2);
   });
   // tapping finger (simple hand: circle + finger) bobbing over option 1
@@ -4949,6 +4955,7 @@ window.audit = function (t) {
     const a = L[i], b = L[j];
     if (a.owner === 'scene' || b.owner === 'scene') continue;
     if (a.owner === b.owner) {   // inside one card: text piling up on itself (e.g. timeline labels)
+      if (a.text === b.text && Math.abs(a.x0 - b.x0) < 3 && Math.abs(a.y0 - b.y0) < 3) continue;   // the same word drawn twice on purpose (e.g. a white pass over a dark bar)
       if (a.box || b.box || a.rot || b.rot || !a.owner.startsWith('card ') || /stack|board|ballnumber|flytext|comments/.test(a.owner)) continue;   // tilted text: its box is bigger than the word
       const jx = Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0), jy = Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0);
       const sm = Math.min((a.x1 - a.x0) * (a.y1 - a.y0), (b.x1 - b.x0) * (b.y1 - b.y0));

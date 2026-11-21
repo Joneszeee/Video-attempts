@@ -172,8 +172,8 @@ barrage = [{"type": "ballpath", "world": True, "delay": round(0.25 + i * 0.7, 2)
 def keeper(name, tag, kt, sx, word, stats, note):
     return {"type": "pcard", "y": 1000, "w": 300, "h": 400, "shiftX": sx, "side": "left" if sx < 0 else "right", "at": word, "lag": -0.1,
             "player": dict(kit=kt, skin="#e7b593", hair="#2a1a10", name="", gloves="#f2f2f2"), "tag": tag, "caption": name, "stats": stats, "statsNote": note, "clear": False}
-HUDK = kit("#0e63ad", "#ffffff", "#0e63ad", stripes=["#0e63ad", "#ffffff"])
-VFB = kit("#2e2e33", "#2e2e33", "#2e2e33")
+WOL = kit("#fdb913", "#231f20", "#fdb913", text="#231f20")
+BOL = kit("#ffffff", "#1b2a6b", "#ffffff", text="#1b2a6b")
 B.append({"kicker": "Season 2 · the verdict", "headline": "93 goals. [Not enough].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_ETI, "accent": RED, "lights": 0.8,
   "camFrom": {"pos": [1.5, 2.3, 60.5], "tgt": [0, 1.0, 40]}, "camera": {"pos": [0.8, 2.1, 59.2], "tgt": [0, 1.0, 40]}, "move": 3, "moveEase": "linear", "hype": False,
   "players": [P(kit=GK_GREEN, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, pose="keeper")],
@@ -181,10 +181,10 @@ B.append({"kicker": "Season 2 · the verdict", "headline": "93 goals. [Not enoug
                      stamp("NOT ENOUGH", "Not enough", sub="74 conceded", y=1760, size=80, lag=-0.05)],
   "shots": [{"at": "Who should City", "lag": -0.2, "cut": True, "transition": "whip", "kicker": "Your vote · summer window", "headline": "Summer: [which keeper]?", "scene": S_ETI, "accent": TEAL,
      "lights": 0.6, "focus": 0.3, "camFrom": {"pos": [0, 1.6, -3.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0, 1.6, -1.8], "tgt": [0, 1.3, 10]}, "move": 4, "moveEase": "linear", "players": [], "hype": False,
-     "card": [keeper("Jon McCracken", "GK · Bradford", BRA, -350, "Who should City", [[9, "clean sheets"], ["1.5", "saves/game"]], "13 starts · League One"),
-              keeper("Matt Young", "GK · Huddersfield", HUDK, 0, "sign this summer", [[4, "clean sheets"], ["2.0", "saves/game"]], "15 starts · age 19"),
-              keeper("Dennis Seimen", "GK · Stuttgart", VFB, 350, "this summer", [[2, "clean sheets"], ["3.8", "saves/game"]], "5 starts · Bundesliga · 20"),
+     "card": [keeper("José Sá", "GK · Wolves", WOL, -350, "Who should City", [[4, "clean sheets"], ["2.5", "saves/game"]], "15 starts"),
+              keeper("Gavin Bazunu", "GK · Bolton", BOL, 0, "sign this summer", [[2, "clean sheets"], ["3.6", "saves/game"]], "ex-City academy"),
+              keeper("Jon McCracken", "GK · Bradford", BRA, 350, "this summer", [[9, "clean sheets"], ["1.5", "saves/game"]], "13 starts"),
               {"type": "poll", "y": 1640, "at": "Who should City", "lag": 0.4, "question": "Who should City sign?", "clear": False,
-               "options": [{"label": "McCracken", "color": "#7a1428", "fill": 0.34}, {"label": "Young", "color": "#0e63ad", "fill": 0.33}, {"label": "Seimen", "color": "#2e2e33", "fill": 0.33}]}]}]})
+               "options": [{"label": "Sá", "color": "#fdb913", "fill": 0.34}, {"label": "Bazunu", "color": "#1b2a6b", "fill": 0.33}, {"label": "McCracken", "color": "#7a1428", "fill": 0.33}]}]}]})
 
 save(V, B, lines, "Man City in League Two · Part 3", accent=TEAL)

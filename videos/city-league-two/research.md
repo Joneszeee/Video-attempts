@@ -127,3 +127,16 @@ City's keeper is a League Two signing. Clean sheets and saves counted from ESPN 
 | **Dennis Seimen** | VfB Stuttgart (Bundesliga) | 20 | 5 | 2 | 6 | 3.8 |
 Also checked: Nathan Baxter (Leyton Orient) 12 starts, 5 clean sheets, 2.8 saves per game; Joe Lumley (Sheffield Wednesday) 10 starts, 3; Liam Roberts (Mansfield) 12, 3.
 McCracken is Bradford's real keeper: the club that beat City in our play-off final.
+
+### Shortlist changed (user, 21 Nov 2026): two well-known players from the Championship, "pretty decent, not too good"
+City are Man City, even in League One, so they attract names. Final three (ESPN match reports, league starts this season):
+| Keeper | Club | Age | Starts | Clean sheets | Conceded | Saves per game |
+|---|---|---|---|---|---|---|
+| **José Sá** | Wolves (Championship) | 33 | 15 | 4 | 17 | 2.5 |
+| **Gavin Bazunu** | Bolton Wanderers (Championship) | 24 | 8 | 2 | 15 | 3.6 |
+| **Jon McCracken** | Bradford City (League One) | 26 | 13 | 9 | 9 | 1.5 |
+- José Sá: Portugal international, years as a Premier League starter with Wolves.
+- Gavin Bazunu: Republic of Ireland international; joined Man City's academy from Shamrock Rovers in 2019 and was sold to Southampton in 2022
+  (so "ex-City academy"). Shares the Bolton job (Jack Bonham has also started).
+- Also checked: Mads Hermansen (West Ham) 15 starts, 4 clean sheets, 1.8 saves; James Beadle (Birmingham) 14, 4, 2.7.
+Matt Young and Dennis Seimen dropped from the vote.

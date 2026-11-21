@@ -3131,6 +3131,78 @@
        "lag": -0.1,
        "player": {
         "kit": {
+         "shirt": "#fdb913",
+         "shorts": "#231f20",
+         "socks": "#fdb913",
+         "text": "#231f20"
+        },
+        "skin": "#e7b593",
+        "hair": "#2a1a10",
+        "name": "",
+        "gloves": "#f2f2f2"
+       },
+       "tag": "GK · Wolves",
+       "caption": "José Sá",
+       "stats": [
+        [
+         4,
+         "clean sheets"
+        ],
+        [
+         "2.5",
+         "saves/game"
+        ]
+       ],
+       "statsNote": "15 starts",
+       "clear": false
+      },
+      {
+       "type": "pcard",
+       "y": 1000,
+       "w": 300,
+       "h": 400,
+       "shiftX": 0,
+       "side": "right",
+       "at": "sign this summer",
+       "lag": -0.1,
+       "player": {
+        "kit": {
+         "shirt": "#ffffff",
+         "shorts": "#1b2a6b",
+         "socks": "#ffffff",
+         "text": "#1b2a6b"
+        },
+        "skin": "#e7b593",
+        "hair": "#2a1a10",
+        "name": "",
+        "gloves": "#f2f2f2"
+       },
+       "tag": "GK · Bolton",
+       "caption": "Gavin Bazunu",
+       "stats": [
+        [
+         2,
+         "clean sheets"
+        ],
+        [
+         "3.6",
+         "saves/game"
+        ]
+       ],
+       "statsNote": "ex-City academy",
+       "clear": false
+      },
+      {
+       "type": "pcard",
+       "y": 1000,
+       "w": 300,
+       "h": 400,
+       "shiftX": 350,
+       "side": "right",
+       "at": "this summer",
+       "lag": -0.1,
+       "player": {
+        "kit": {
          "shirt": "#7a1428",
          "shorts": "#111111",
          "socks": "#7a1428",
@@ -3157,83 +3229,7 @@
          "saves/game"
         ]
        ],
-       "statsNote": "13 starts · League One",
-       "clear": false
-      },
-      {
-       "type": "pcard",
-       "y": 1000,
-       "w": 300,
-       "h": 400,
-       "shiftX": 0,
-       "side": "right",
-       "at": "sign this summer",
-       "lag": -0.1,
-       "player": {
-        "kit": {
-         "shirt": "#0e63ad",
-         "shorts": "#ffffff",
-         "socks": "#0e63ad",
-         "text": "#ffffff",
-         "stripes": [
-          "#0e63ad",
-          "#ffffff"
-         ]
-        },
-        "skin": "#e7b593",
-        "hair": "#2a1a10",
-        "name": "",
-        "gloves": "#f2f2f2"
-       },
-       "tag": "GK · Huddersfield",
-       "caption": "Matt Young",
-       "stats": [
-        [
-         4,
-         "clean sheets"
-        ],
-        [
-         "2.0",
-         "saves/game"
-        ]
-       ],
-       "statsNote": "15 starts · age 19",
-       "clear": false
-      },
-      {
-       "type": "pcard",
-       "y": 1000,
-       "w": 300,
-       "h": 400,
-       "shiftX": 350,
-       "side": "right",
-       "at": "this summer",
-       "lag": -0.1,
-       "player": {
-        "kit": {
-         "shirt": "#2e2e33",
-         "shorts": "#2e2e33",
-         "socks": "#2e2e33",
-         "text": "#ffffff"
-        },
-        "skin": "#e7b593",
-        "hair": "#2a1a10",
-        "name": "",
-        "gloves": "#f2f2f2"
-       },
-       "tag": "GK · Stuttgart",
-       "caption": "Dennis Seimen",
-       "stats": [
-        [
-         2,
-         "clean sheets"
-        ],
-        [
-         "3.8",
-         "saves/game"
-        ]
-       ],
-       "statsNote": "5 starts · Bundesliga · 20",
+       "statsNote": "13 starts",
        "clear": false
       },
       {
@@ -3245,18 +3241,18 @@
        "clear": false,
        "options": [
         {
-         "label": "McCracken",
-         "color": "#7a1428",
+         "label": "Sá",
+         "color": "#fdb913",
          "fill": 0.34
         },
         {
-         "label": "Young",
-         "color": "#0e63ad",
+         "label": "Bazunu",
+         "color": "#1b2a6b",
          "fill": 0.33
         },
         {
-         "label": "Seimen",
-         "color": "#2e2e33",
+         "label": "McCracken",
+         "color": "#7a1428",
          "fill": 0.33
         }
        ]

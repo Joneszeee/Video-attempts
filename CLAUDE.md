@@ -67,9 +67,28 @@ visuals (which tools or backlog items), and what still needs fact-checking. End 
    **The voice must sit clearly on top (user: SFX drowned it out).** `build.py` levels the voice to -16 LUFS, puts the SFX 12 dB under it
    (`SFX_UNDER`) and ducks them further while the voice speaks. To fix only the mix without re-rendering, add `--audio-only`.
 
-5. **With every final, give the YouTube post** (also saved as `videos/<slug>/youtube.md`): 3 title options, **each in its own code block** so it can be
-   copied in one tap, a description (hook sentence, key facts, a question for comments, "Follow for more football stories in under a minute.", 3 hashtags),
-   comma-separated tags **filling YouTube's 500-character tag box (aim for 490–500 by YouTube's count: each tag's length, +2 for a tag with a space, +1 per comma; user asked)**, and a pinned comment. **Also give a TikTok description and an Instagram caption** (user asked; saved as `videos/<slug>/social.md` and added to `SOCIAL.md`): TikTok = hook first, 1–2 fact sentences, the comment question, 5–7 hashtags; Instagram = hook, facts, question, "Follow @theo6k…", 10–12 hashtags. Re-check any fact that may have changed (e.g. a league table) before the final.
+5. **With every final, give the YouTube post** (also saved as `videos/<slug>/youtube.md`) **and the TikTok + Instagram captions** (`videos/<slug>/social.md`,
+   added to `SOCIAL.md`), every piece in its own code block so it can be copied in one tap. Re-check any fact that may have changed (a table, a
+   player's stats) before the final, then run **`python3 engine/posts.py videos/<slug>`**: it checks every rule below and must say "all rules met".
+   **Platform rules (researched Nov 2026, user: "we want these viral"; re-check when a platform changes its limits):**
+   - **Same words everywhere.** The platforms' search reads the caption, the on-screen text and the spoken words, so the caption's first line
+     uses the same names and phrase as the hook headline and the first VO line ("Man City", "Haaland", "League One"). The searchable subject comes first.
+   - **YouTube title:** 3 options, each under 60 characters with the hook and the subject in the first 40 (the feed cuts long titles). No hashtags
+     in the title (#Shorts goes in the description; YouTube spots Shorts by their format). Curiosity or conflict, never a misleading promise.
+   - **YouTube description:** opens with the hook sentence and the subject's name, then the key facts, then the comment question, then
+     "Follow for more football stories in under a minute.", then **exactly 3 hashtags** (YouTube shows up to 3 above the title): the club or player,
+     the second subject, and #Shorts.
+   - **YouTube tags:** fill the 500-character box (490–500 by YouTube's count: each tag's length, +2 for a tag with a space, +1 per comma; user asked),
+     but YouTube says tags mostly help with misspellings, so lead with the names and their common misspellings ("halland", "haland"), then the topic phrases.
+   - **YouTube pinned comment:** the question that splits opinion. Reply to every comment in the first hour.
+   - **TikTok:** the searchable phrase first ("Man City in League Two, Part 3: …"), the hook, 1–2 facts, the question (or "vote in the poll" when the
+     user runs one), 100–300 characters before the hashtags, then **3–5 hashtags** (one broad: #football / #footballtiktok; the rest specific).
+   - **Instagram:** **5 hashtags at most** (Instagram's cap since Dec 2025; more get blocked), at the end. The hook and the keywords in the first
+     125 characters (shown before "more"). Facts in natural sentences (Instagram search reads captions). The question, then a **send prompt**
+     ("Send this to a City fan who…": DM shares are Instagram's strongest signal for reaching new people), then "Follow @theo6k for more football
+     stories in under a minute."
+   - **Series videos:** "Part N" in the first line on every platform, and a pointer to the earlier parts.
+   Sources: YouTube Help (tags, hashtags), Instagram's Dec 2025 hashtag cap (Social Media Today, Business Today), TikTok SEO guides (Metricool, Toptal), Instagram ranking signals (Mosseri via Hootsuite / Sprout).
 6. **Changes after a preview:** fix the issue everywhere in the engine (never just in one video), re-render only the changed section as a short
    clip with the user's voice when the user asks to see it first, then re-render the full final once they approve. Commit and push after each change.
 
@@ -513,3 +532,4 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
 - `engine/render.js`: Playwright frame capture to ffmpeg
 - `engine/sfx.py`: synthesises the whoosh/tick/pop/impact/crowd track
 - `build.py`: VO alignment, render, SFX and final mux. Outputs go to `videos/<slug>/out/` (gitignored).
+- `engine/posts.py`: checks a video's `youtube.md` and `social.md` against the platform rules in step 5.

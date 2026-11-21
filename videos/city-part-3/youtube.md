@@ -1,34 +1,42 @@
 # Man City in League Two, Part 3: YouTube Shorts post
 
+Rules (CLAUDE.md step 5; check with `python3 engine/posts.py videos/city-part-3`): titles under 60 characters with the hook and "Man City"/"Haaland"
+in the first 40, no hashtags in the title; 3 hashtags at the end of the description (YouTube shows them above the title); tags lead with names
+and common misspellings.
+
 ## Title (pick one; option 1 recommended)
 ```
-Man City Were 90 Minutes From the Championship… | Part 3 #Shorts
+Man City Were 90 Minutes From the Championship 😳 Part 3
 ```
 ```
-Haaland Scored 29… and City STILL Didn't Go Up 😳 Part 3 #Shorts
+Haaland Scored 29… and City STILL Didn't Go Up (Part 3)
 ```
 ```
-Man City in League One: Wembley Heartbreak (Part 3) #Shorts
+Man City's Wembley Heartbreak in League One | Part 3
 ```
 
 ## Description
-Part 3 of Man City in League Two: Man City were ninety minutes from the Championship 😳
+```
+Man City in League Two, Part 3: Haaland's City were 90 minutes from the Championship… then Bradford won the League One play-off final at Wembley 😳
 
-You voted, and City signed Kelland Watts (50% of the poll). From twelfth at halfway, City won 15 of their last 23 games, kept 7 clean sheets and climbed to fourth.
-Haaland finished on 29 league goals and City scored 93, the most in League One. But a 1–1 on the last day against Cambridge, Watts's old club, cost them automatic promotion.
-Play-offs: 4–0 on aggregate against Stockport. Then Wembley: Bradford City 2–0. City stay in League One.
-(A simulation, not a real season. Parts 1 and 2 are on the channel.)
+You voted for Kelland Watts (50% of the poll). With him, City went from 12th to 4th: 15 wins in their last 23 and 7 clean sheets. Haaland scored 29 league goals and City scored 93, the most in League One.
+The last day: 1–1 against Cambridge, Watts's old club, and automatic promotion was gone. Play-offs: 4–0 against Stockport over two legs. The final: Bradford City 2–0.
+A simulation, not a real season. Parts 1 and 2 are on the channel.
 
-City need a keeper for next season: José Sá, Gavin Bazunu or Jon McCracken? 👇
+Next season City need a keeper: José Sá, Gavin Bazunu or Jon McCracken? Comment your pick 👇
 
 Follow for more football stories in under a minute.
 
 #ManCity #Haaland #Shorts
+```
 
 ## Tags
-man city league two, man city league one, man city relegated, what if man city were relegated, haaland, erling haaland, kelland watts, league one play off final, play off final, wembley, bradford city, stockport county, football simulation, football what if, man city, mcfc, haaland league one, efl, league one, championship, jose sa, gavin bazunu, jon mccracken, man city part 3, fans vote, football shorts, theo6k, football manager, city series, man city fc, haaland 29
-
-(491 characters by YouTube's count.)
+```
+man city, manchester city, man city league one, man city league two, man city relegated, haaland, erling haaland, halland, haland, erling halland, mancity, kelland watts, league one play off final, wembley, bradford city, stockport county, jose sa, gavin bazunu, jon mccracken, what if man city were relegated, man city simulation, football simulation, football manager 26, man city part 3, haaland league one, league one, efl, football shorts, theo6k, mcfc, play offs, fm 26
+```
+(492 characters by YouTube's count.)
 
 ## Pinned comment
+```
 Next season City need a keeper 🧤 José Sá (Wolves), Gavin Bazunu (ex-City academy) or Jon McCracken (the Bradford keeper who beat City at Wembley)? Most votes gets signed 👇
+```

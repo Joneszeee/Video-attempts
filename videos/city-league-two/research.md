@@ -91,8 +91,8 @@ Fixtures: a double round robin with alternating home and away (the first try had
 ## The signing (fans' vote)
 - TikTok poll (6 votes, ended 21 Nov 2026): **Kelland Watts 50%**, Omar Sowunmi 33%, Dennis Seimen 17%. The user confirmed Watts.
 - Kelland Watts (ESPN, 21 Nov 2026): centre-back, 27, Cambridge United (League One this season; PFA League Two Team of the Year 2025/26).
-  League One 2026/27: **15 starts, 2 goals, 1 clean sheet**, 24 goals conceded in his starts, 3 yellow cards (includes Cambridge 0–3 Stockport, 21 Nov,
-  which was at 90' when checked: re-check before the final). Footedness not confirmed, so the video never shows him striking the ball.
+  League One 2026/27: **15 starts, 2 goals, 1 clean sheet**, 24 goals conceded in his starts, 3 yellow cards (includes Cambridge 0–3 Stockport,
+  21 Nov, full time confirmed). Footedness not confirmed, so the video never shows him striking the ball.
 
 ## Model (data/l1model.py, data/sim_l1b.py)
 - Watts is rated at his own club's real League One level: Cambridge United's ratings (l1ratings.json) → 1.41 for, 1.45 against per game v an average
@@ -116,3 +116,14 @@ Fixtures: a double round robin with alternating home and away (the first try had
 - **Play-offs:** semi-final v Stockport: City 2–0 at home, 2–0 away (**4–0 on aggregate**; Stockport had beaten City 4–3 on matchday 37).
   **Final: Bradford City 2–0 Man City.** Bradford (third, the league's best defence: 30 conceded) go up. **City stay in League One.**
 - The sim gives scores only. Any scorer named on screen other than Haaland's count is our story, not the model's.
+
+## Summer vote shortlist: a goalkeeper (ESPN, 21 Nov 2026)
+Why a keeper: City still conceded the 6th-most goals, and in the model the keeper carries the biggest single share of the defence (20%);
+City's keeper is a League Two signing. Clean sheets and saves counted from ESPN match reports (league starts only, this season).
+| Keeper | Club | Age | Starts | Clean sheets | Conceded | Saves per game |
+|---|---|---|---|---|---|---|
+| **Jon McCracken** | Bradford City (League One) | 26 | 13 | **9** | 9 | 1.5 |
+| **Matt Young** | Huddersfield Town (League One) | 19 | 15 | 4 | 13 | 2.0 |
+| **Dennis Seimen** | VfB Stuttgart (Bundesliga) | 20 | 5 | 2 | 6 | 3.8 |
+Also checked: Nathan Baxter (Leyton Orient) 12 starts, 5 clean sheets, 2.8 saves per game; Joe Lumley (Sheffield Wednesday) 10 starts, 3; Liam Roberts (Mansfield) 12, 3.
+McCracken is Bradford's real keeper: the club that beat City in our play-off final.

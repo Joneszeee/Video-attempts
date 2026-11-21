@@ -47,3 +47,10 @@ Everyone else goes. They get a League Two budget and buy real League Two players
 - On screen: the poll result as bars (Watts 50 / Sowunmi 33 / Seimen 17), then his shirt flip. No usernames (the poll is anonymous).
 - Model: Watts rated at Cambridge United's real League One level, replacing one of the League Two centre-backs; second half played from Part 2's
   exact matchday-23 table with a new seed fixed before running (`data/sim_l1b.py`, `data/ep3.json`).
+
+## Part 3 (videos/city-part-3) done, 21 Nov 2026
+- League One matchdays 24–46 + play-offs: City 12th → 4th, beat Stockport 4–0 on aggregate, lost the final 2–0 to Bradford at Wembley. **They stay in
+  League One** (season 3 would be League One again). Haaland 29 league goals; City scored 93 (most), conceded 74.
+- Next vote (summer window, a keeper): **José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCracken (Bradford)**. User wanted two
+  well-known Championship names, "pretty decent, not too good". Count the TikTok poll + YouTube/Instagram comments before any Part 4.
+- Series length: still episode by episode. Ask the user before starting Part 4.

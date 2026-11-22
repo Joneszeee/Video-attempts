@@ -107,7 +107,7 @@ B.append({"kicker": "22' · Pochettino's first change", "headline": "First chang
   "players": [poch(x=-1.5, z=3.4, front=True, pose="think", label="Pochettino", labelDelay=0.2)],
   "card": [bug(HOME, AWAY, [2, 0], "22'"),
            {"type": "subboard", "y": 1230, "shiftX": 150, "w": 600, "at": "Mbeumo off", "lag": -0.2, "out": {"num": 19, "name": "Mbeumo"}, "in": {"num": 5, "name": "Maguire"}, "swapAt": "Maguire", "hideAt": "Cunha followed", "hideLag": -0.25}],
-  "shots": [{"at": "Cunha followed", "lag": -0.35, "cut": True, "transition": "whip", "headline": "Cunha off at [half-time].", "kicker": "Half-time · 2–0", "scene": ANF, "accent": RED_UI, "lights": 0.7, "focus": 0.3,
+  "shots": [{"at": "Cunha followed", "lag": -0.55, "cut": True, "transition": "whip", "headline": "Cunha off at [half-time].", "kicker": "Half-time · 2–0", "scene": ANF, "accent": RED_UI, "lights": 0.7, "focus": 0.3,
              "camFrom": {"pos": [0.6, 1.6, -3.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0.2, 1.6, -1.7], "tgt": [0, 1.3, 10]}, "move": 4, "moveEase": "linear",
              "players": [poch(x=1.5, z=3.4, front=True, pose="think", label="Pochettino", labelDelay=0.2)],
              "card": [bug(HOME, AWAY, [2, 0], "HT"),

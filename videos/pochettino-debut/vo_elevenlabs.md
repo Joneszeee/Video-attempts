@@ -1,6 +1,6 @@
 # ElevenLabs v4 script: Liverpool 4–0 Man United, Pochettino's debut
 
-One file, lines in order, one clear pause between lines (blank line). Words must stay exactly as written (names: Pochettino = po-chet-TEE-no, Szoboszlai = SO-bos-lie, Ngumoha = n-goo-MO-ha, Mbeumo = m-BOY-mo, Muñoz = MOON-yoth).
+One file, lines in order, one clear pause between lines (blank line). Words must stay exactly as written (names: Pochettino = po-chet-TEE-no, Szoboszlai = SO-bos-lie, Ngumoha = n-goo-MO-ha, Mbeumo = m-BOY-mo, Muñoz = moo-NYOTH).
 
 ```
 [tense] Pochettino's new-manager bounce at United lasted thirteen minutes: [grave] a red card, then two goals.

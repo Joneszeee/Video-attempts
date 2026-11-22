@@ -54,3 +54,9 @@ Everyone else goes. They get a League Two budget and buy real League Two players
 - Next vote (summer window, a keeper): **José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCracken (Bradford)**. User wanted two
   well-known Championship names, "pretty decent, not too good". Count the TikTok poll + YouTube/Instagram comments before any Part 4.
 - Series length: still episode by episode. Ask the user before starting Part 4.
+
+## Keeper vote (summer window): comments seen so far (22 Nov 2026; the TikTok poll total itself is not visible to me)
+Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCracken (Bradford).
+- Poll votes (shown by the "Voted" tag): Stan Cooper → McCracken; Keigan Thompson → Sá; Thatfootballfan → Sá ("who is going to keep Bradford up?").
+- Comment votes: Will ("Super Jon") → McCracken; LD → "John McCracken"; LS → a photo of the Bradford keeper (read as McCracken; unconfirmed); Bwfcmurphy ("Gavin bazunu is sick") → Bazunu.
+- Count the poll + YouTube + Instagram comments together before any Part 4, and ask the user about the series length first.

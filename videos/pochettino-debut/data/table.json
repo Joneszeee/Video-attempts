@@ -1,0 +1,202 @@
+[
+ {
+  "rank": 1,
+  "team": "Arsenal",
+  "p": 11,
+  "w": 9,
+  "d": 1,
+  "l": 1,
+  "pts": 28,
+  "gd": "+10"
+ },
+ {
+  "rank": 2,
+  "team": "Brighton & Hove Albion",
+  "p": 11,
+  "w": 7,
+  "d": 1,
+  "l": 3,
+  "pts": 22,
+  "gd": "+17"
+ },
+ {
+  "rank": 3,
+  "team": "Manchester City",
+  "p": 11,
+  "w": 7,
+  "d": 1,
+  "l": 3,
+  "pts": 22,
+  "gd": "+8"
+ },
+ {
+  "rank": 4,
+  "team": "Liverpool",
+  "p": 11,
+  "w": 6,
+  "d": 3,
+  "l": 2,
+  "pts": 21,
+  "gd": "+8"
+ },
+ {
+  "rank": 5,
+  "team": "AFC Bournemouth",
+  "p": 11,
+  "w": 5,
+  "d": 3,
+  "l": 3,
+  "pts": 18,
+  "gd": "+4"
+ },
+ {
+  "rank": 6,
+  "team": "Leeds United",
+  "p": 11,
+  "w": 4,
+  "d": 5,
+  "l": 2,
+  "pts": 17,
+  "gd": "+5"
+ },
+ {
+  "rank": 7,
+  "team": "Everton",
+  "p": 10,
+  "w": 4,
+  "d": 4,
+  "l": 2,
+  "pts": 16,
+  "gd": "+2"
+ },
+ {
+  "rank": 8,
+  "team": "Chelsea",
+  "p": 11,
+  "w": 5,
+  "d": 1,
+  "l": 5,
+  "pts": 16,
+  "gd": "0"
+ },
+ {
+  "rank": 9,
+  "team": "Tottenham Hotspur",
+  "p": 11,
+  "w": 4,
+  "d": 3,
+  "l": 4,
+  "pts": 15,
+  "gd": "+1"
+ },
+ {
+  "rank": 10,
+  "team": "Brentford",
+  "p": 10,
+  "w": 3,
+  "d": 5,
+  "l": 2,
+  "pts": 14,
+  "gd": "+5"
+ },
+ {
+  "rank": 11,
+  "team": "Hull City",
+  "p": 11,
+  "w": 3,
+  "d": 5,
+  "l": 3,
+  "pts": 14,
+  "gd": "+2"
+ },
+ {
+  "rank": 12,
+  "team": "Aston Villa",
+  "p": 11,
+  "w": 3,
+  "d": 5,
+  "l": 3,
+  "pts": 14,
+  "gd": "-3"
+ },
+ {
+  "rank": 13,
+  "team": "Newcastle United",
+  "p": 11,
+  "w": 3,
+  "d": 4,
+  "l": 4,
+  "pts": 13,
+  "gd": "-3"
+ },
+ {
+  "rank": 14,
+  "team": "Coventry City",
+  "p": 11,
+  "w": 4,
+  "d": 0,
+  "l": 7,
+  "pts": 12,
+  "gd": "-8"
+ },
+ {
+  "rank": 15,
+  "team": "Fulham",
+  "p": 11,
+  "w": 2,
+  "d": 5,
+  "l": 4,
+  "pts": 11,
+  "gd": "-2"
+ },
+ {
+  "rank": 16,
+  "team": "Ipswich Town",
+  "p": 11,
+  "w": 3,
+  "d": 2,
+  "l": 6,
+  "pts": 11,
+  "gd": "-7"
+ },
+ {
+  "rank": 17,
+  "team": "Nottingham Forest",
+  "p": 11,
+  "w": 2,
+  "d": 3,
+  "l": 6,
+  "pts": 9,
+  "gd": "-6"
+ },
+ {
+  "rank": 18,
+  "team": "Sunderland",
+  "p": 11,
+  "w": 2,
+  "d": 3,
+  "l": 6,
+  "pts": 9,
+  "gd": "-9"
+ },
+ {
+  "rank": 19,
+  "team": "Manchester United",
+  "p": 11,
+  "w": 1,
+  "d": 5,
+  "l": 5,
+  "pts": 8,
+  "gd": "-9"
+ },
+ {
+  "rank": 20,
+  "team": "Crystal Palace",
+  "p": 11,
+  "w": 2,
+  "d": 1,
+  "l": 8,
+  "pts": 7,
+  "gd": "-15"
+ }
+]

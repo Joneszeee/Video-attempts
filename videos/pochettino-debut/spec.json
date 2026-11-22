@@ -1,0 +1,2350 @@
+{
+ "title": "Liverpool 4–0 Man United: Pochettino's debut",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Liverpool 4–0 Man United · Pochettino's debut",
+   "headline": "Pochettino's bounce lasted [13 minutes].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d11317",
+     "#ffffff",
+     "#d11317",
+     "#f2d36b"
+    ],
+    "seed": 8
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.85,
+   "flashes": 14,
+   "focus": 0.1,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -1.4
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -0.4
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#7a1420",
+     "skin": "#e2b08c",
+     "hair": "#3a3a3e",
+     "x": -0.35,
+     "z": 2.0,
+     "front": true,
+     "enter": "walk",
+     "fromZ": 2.7,
+     "walkDur": 2.4,
+     "label": "Pochettino",
+     "labelDelay": 0.1
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "LIV",
+      "color": "#d11317"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#f4f4f2"
+     },
+     "score": [
+      2,
+      0
+     ],
+     "min": "",
+     "from": [
+      0,
+      0
+     ],
+     "goalAt": "two goals",
+     "goalLag": -0.1
+    },
+    {
+     "type": "redcard",
+     "at": "a red card",
+     "lag": -0.15,
+     "dx": 250,
+     "y": 1190,
+     "label": "8' Yoro"
+    },
+    {
+     "type": "clock",
+     "y": 1610,
+     "shiftX": 150,
+     "scale": 0.9,
+     "at": "thirteen minutes",
+     "lag": -2.7,
+     "from": 0,
+     "to": 13,
+     "dur": 2.5,
+     "phase": "ANFIELD",
+     "endColor": "#ff4d5e",
+     "clear": false,
+     "events": [
+      {
+       "min": 8,
+       "text": "8'  RED CARD · YORO"
+      },
+      {
+       "min": 10,
+       "text": "10'  1–0 · SZOBOSZLAI"
+      },
+      {
+       "min": 13,
+       "text": "13'  2–0 · WIRTZ"
+      }
+     ]
+    }
+   ],
+   "shake": [
+    {
+     "at": "a red card",
+     "lag": 0.1,
+     "amount": 16
+    }
+   ],
+   "vo": "Pochettino's new-manager bounce at United lasted thirteen minutes: a red card, then two goals."
+  },
+  {
+   "kicker": "Man United · 12 November",
+   "headline": "Carrick sacked. [Ten days] later: Anfield.",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "12 NOV",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.55,
+   "focus": 0.3,
+   "fans": true,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -3.6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -1.8
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "crossoff",
+     "y": 880,
+     "delay": 0.0,
+     "title": "Since the sacking",
+     "days": 10,
+     "cols": 5,
+     "cell": 96,
+     "crossAt": "ten days ago",
+     "crossLag": -0.1,
+     "dur": 2.4,
+     "color": "#d6283b",
+     "caption": "{n} days",
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "1 WIN IN 10",
+     "at": "one league win",
+     "lag": -0.15,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 88,
+     "y": 1380,
+     "sub": "the record when Carrick went",
+     "clear": false
+    }
+   ],
+   "shots": [
+    {
+     "at": "Pochettino's first game",
+     "lag": -0.25,
+     "cut": true,
+     "transition": "whip",
+     "headline": "Pochettino's first game: [Anfield].",
+     "kicker": "22 November · Anfield",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#d11317",
+       "#ffffff",
+       "#d11317",
+       "#f2d36b"
+      ],
+      "seed": 8
+     },
+     "accent": "#ff4d5e",
+     "lights": 0.8,
+     "flashes": 12,
+     "camFrom": {
+      "pos": [
+       0,
+       1.5,
+       -2.4
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.5,
+       -1.0
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "outfit": "suit",
+       "suitColor": "#1c1f28",
+       "tie": "#7a1420",
+       "skin": "#e2b08c",
+       "hair": "#3a3a3e",
+       "x": 0,
+       "z": 2.6,
+       "front": true,
+       "enter": "walk",
+       "fromZ": 9.5,
+       "walkDur": 3.2,
+       "label": "Pochettino",
+       "labelDelay": 0.2
+      }
+     ],
+     "card": [
+      {
+       "type": "flytext",
+       "text": "ANFIELD",
+       "size": 230,
+       "settle": false,
+       "dur": 1.3,
+       "y": 1480,
+       "at": "Anfield",
+       "lag": -0.5,
+       "color": "#ff4d5e",
+       "clear": false
+      }
+     ]
+    }
+   ],
+   "vo": "United sacked Carrick ten days ago, after one league win in ten. Pochettino's first game: Anfield."
+  },
+  {
+   "kicker": "8' · Anfield",
+   "headline": "Eight minutes in: [straight red].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d11317",
+     "#ffffff",
+     "#d11317",
+     "#f2d36b"
+    ],
+    "seed": 8
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.85,
+   "flashes": 10,
+   "camFrom": {
+    "pos": [
+     7.0,
+     1.6,
+     19.5
+    ],
+    "tgt": [
+     0.6,
+     1.0,
+     23.0
+    ]
+   },
+   "camera": {
+    "pos": [
+     6.2,
+     1.6,
+     34.5
+    ],
+    "tgt": [
+     1.2,
+     1.0,
+     38.0
+    ]
+   },
+   "move": 3.4,
+   "moveEase": "linear",
+   "hype": false,
+   "players": [
+    {
+     "name": "ISAK",
+     "num": 9,
+     "kit": {
+      "shirt": "#d11317",
+      "shorts": "#d11317",
+      "socks": "#d11317",
+      "text": "#ffffff"
+     },
+     "dribble": true,
+     "dribbleUntil": 3.55,
+     "x": 0.2,
+     "z": 17.5,
+     "path": [
+      [
+       0.2,
+       17.5
+      ],
+      [
+       0.5,
+       26.0
+      ],
+      [
+       0.9,
+       33.5
+      ],
+      [
+       1.2,
+       38.8
+      ]
+     ],
+     "pathDur": 3.85,
+     "at": "Yoro fouls him",
+     "lag": -3.6,
+     "action": "fall",
+     "actionAt": "Yoro fouls him",
+     "actionLag": 0.1,
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "label": "Isak",
+     "labelDelay": 2.4
+    },
+    {
+     "name": "YORO",
+     "num": 15,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#1a1a1a",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "x": -2.4,
+     "z": 11.0,
+     "path": [
+      [
+       -2.4,
+       11.0
+      ],
+      [
+       -1.7,
+       21.5
+      ],
+      [
+       -0.8,
+       30.0
+      ],
+      [
+       0.5,
+       36.0
+      ]
+     ],
+     "pathDur": 3.5,
+     "at": "Yoro fouls him",
+     "lag": -3.6,
+     "action": "slide",
+     "dir": 1,
+     "actionAt": "Yoro fouls him",
+     "actionLag": -0.5,
+     "actionDur": 1.1,
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "label": "Yoro",
+     "labelDelay": 3.2
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "Yoro fouls him",
+     "lag": 0.15,
+     "dur": 0.9,
+     "slowmo": true,
+     "flash": false,
+     "points": [
+      [
+       1.3,
+       0.11,
+       39.0
+      ],
+      [
+       2.4,
+       0.2,
+       41.5
+      ],
+      [
+       3.6,
+       0.11,
+       43.8
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "LIV",
+      "color": "#d11317"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#f4f4f2"
+     },
+     "score": [
+      0,
+      0
+     ],
+     "min": "8'",
+     "hideAt": "Straight red",
+     "hideLag": -0.2
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "LIV",
+      "color": "#d11317"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#f4f4f2"
+     },
+     "score": [
+      0,
+      0
+     ],
+     "min": "8'",
+     "red": "away",
+     "at": "Straight red",
+     "lag": -0.2
+    },
+    {
+     "type": "flytext",
+     "text": "FOUL",
+     "size": 260,
+     "endScale": 0.7,
+     "y": 1600,
+     "at": "Yoro fouls him",
+     "lag": 0.25,
+     "color": "#ff4d5e",
+     "clear": false,
+     "hideAt": "Straight red",
+     "hideLag": -0.3
+    },
+    {
+     "type": "redcard",
+     "at": "Straight red",
+     "lag": -0.1,
+     "dx": -240,
+     "y": 1470,
+     "label": "8' Yoro"
+    }
+   ],
+   "shake": [
+    {
+     "at": "Yoro fouls him",
+     "lag": 0.2,
+     "amount": 14
+    }
+   ],
+   "freezeAt": "Straight red",
+   "freezeLag": -0.25,
+   "vo": "Eight minutes in, Isak is through on goal. Yoro fouls him. Straight red."
+  },
+  {
+   "kicker": "10' · free kick",
+   "headline": "Two minutes later: [1–0].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d11317",
+     "#ffffff",
+     "#d11317",
+     "#f2d36b"
+    ],
+    "seed": 8
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.9,
+   "flashes": 14,
+   "camFrom": {
+    "pos": [
+     13.0,
+     2.3,
+     27.0
+    ],
+    "tgt": [
+     -2.11,
+     1.2,
+     47
+    ]
+   },
+   "camera": {
+    "pos": [
+     12.0,
+     2.0,
+     29.5
+    ],
+    "tgt": [
+     -3.72,
+     1.2,
+     47
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.12,
+   "players": [
+    {
+     "name": "SZOBOSZLAI",
+     "num": 8,
+     "kit": {
+      "shirt": "#d11317",
+      "shorts": "#d11317",
+      "socks": "#d11317",
+      "text": "#ffffff"
+     },
+     "x": 6.0,
+     "z": 33.5,
+     "action": "kick",
+     "actionAt": "one–nil",
+     "actionLag": -1.15,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 2.0,
+     "skin": "#f0c8a8",
+     "hair": "#5a3a22",
+     "foot": "right",
+     "label": "Szoboszlai",
+     "labelDelay": 0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#1a1a1a",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 4.13,
+     "z": 42.51,
+     "front": true,
+     "hops": [
+      {
+       "at": "one–nil",
+       "lag": -0.8699999999999999,
+       "dur": 0.55,
+       "height": 0.45
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#1a1a1a",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 3.54,
+     "z": 42.32,
+     "front": true,
+     "hops": [
+      {
+       "at": "one–nil",
+       "lag": -0.8699999999999999,
+       "dur": 0.55,
+       "height": 0.45
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#1a1a1a",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "x": 2.95,
+     "z": 42.13,
+     "front": true,
+     "hops": [
+      {
+       "at": "one–nil",
+       "lag": -0.8699999999999999,
+       "dur": 0.55,
+       "height": 0.45
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#1a1a1a",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "skin": "#c99b7a",
+     "hair": "#2a1a10",
+     "x": 2.36,
+     "z": 41.95,
+     "front": true,
+     "hops": [
+      {
+       "at": "one–nil",
+       "lag": -0.8699999999999999,
+       "dur": 0.55,
+       "height": 0.45
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "one–nil",
+     "actionLag": -0.5299999999999999
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      6.22,
+      0.11,
+      33.95
+     ],
+     "untilAt": "one–nil",
+     "untilLag": -0.8099999999999998
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "one–nil",
+     "lag": -0.8099999999999998,
+     "dur": 1.0,
+     "slowmo": true,
+     "points": [
+      [
+       6.22,
+       0.11,
+       33.95
+      ],
+      [
+       1.04,
+       4.6,
+       44.04
+      ],
+      [
+       -3.2,
+       0.4,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "LIV",
+      "color": "#d11317"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#f4f4f2"
+     },
+     "score": [
+      1,
+      0
+     ],
+     "min": "10'",
+     "from": [
+      0,
+      0
+     ],
+     "goalAt": "one–nil",
+     "goalLag": 0.1
+    }
+   ],
+   "shots": [
+    {
+     "at": "Then Wirtz",
+     "lag": -0.3,
+     "cut": true,
+     "transition": "whip",
+     "headline": "13': Wirtz makes it [2–0].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#d11317",
+       "#ffffff",
+       "#d11317",
+       "#f2d36b"
+      ],
+      "seed": 8
+     },
+     "accent": "#ff4d5e",
+     "camFrom": {
+      "pos": [
+       -1.6,
+       2.2,
+       36.2
+      ],
+      "tgt": [
+       0.56,
+       1.0,
+       52
+      ]
+     },
+     "camera": {
+      "pos": [
+       -1.0,
+       1.9,
+       38.900000000000006
+      ],
+      "tgt": [
+       0.56,
+       1.0,
+       52
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "follow": 0.5,
+     "players": [
+      {
+       "name": "WIRTZ",
+       "num": 7,
+       "kit": {
+        "shirt": "#d11317",
+        "shorts": "#d11317",
+        "socks": "#d11317",
+        "text": "#ffffff"
+       },
+       "x": 1.4,
+       "z": 45.2,
+       "action": "kick",
+       "actionAt": "two–nil",
+       "actionLag": -0.45,
+       "actionDur": 0.8,
+       "after": "celebrate",
+       "runup": 1.6,
+       "skin": "#f0c8a8",
+       "hair": "#6a4a2a",
+       "foot": "left",
+       "label": "Wirtz",
+       "labelDelay": 0.1
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#2ecc71",
+        "shorts": "#111111",
+        "socks": "#2ecc71",
+        "text": "#111111"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#3a2a1a",
+       "gloves": "#f2f2f2",
+       "x": 0,
+       "z": 52.0,
+       "front": true,
+       "pose": "keeper",
+       "before": "ready",
+       "action": "dive",
+       "dir": -1,
+       "actionAt": "two–nil",
+       "actionLag": 0.0
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#f4f4f2",
+        "shorts": "#1a1a1a",
+        "socks": "#f4f4f2",
+        "text": "#1a1a1a"
+       },
+       "skin": "#e7b593",
+       "hair": "#141010",
+       "x": 3.3,
+       "z": 48.6,
+       "front": true,
+       "action": "dive",
+       "dir": -1,
+       "actionAt": "two–nil",
+       "actionLag": -0.30000000000000004,
+       "actionDur": 0.7
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#f4f4f2",
+        "shorts": "#1a1a1a",
+        "socks": "#f4f4f2",
+        "text": "#1a1a1a"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "x": -0.4,
+       "z": 47.8,
+       "front": true
+      },
+      {
+       "name": "NGUMOHA",
+       "num": 73,
+       "kit": {
+        "shirt": "#d11317",
+        "shorts": "#d11317",
+        "socks": "#d11317",
+        "text": "#ffffff"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "foot": null,
+       "x": -3.2,
+       "z": 48.2,
+       "label": "Ngumoha",
+       "labelAt": "set up by Ngumoha"
+      }
+     ],
+     "flashes": 12,
+     "card": [
+      {
+       "type": "ball",
+       "delay": 0,
+       "point": [
+        1.18,
+        0.11,
+        45.650000000000006
+       ],
+       "untilAt": "two–nil",
+       "untilLag": -0.10999999999999999
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "two–nil",
+       "lag": -0.10999999999999999,
+       "dur": 0.5,
+       "slowmo": false,
+       "points": [
+        [
+         1.18,
+         0.11,
+         45.650000000000006
+        ],
+        [
+         0.84,
+         0.9,
+         48.975
+        ],
+        [
+         0.5,
+         1.7,
+         52.3
+        ]
+       ]
+      },
+      {
+       "type": "scorebug",
+       "y": 560,
+       "delay": 0,
+       "home": {
+        "name": "LIV",
+        "color": "#d11317"
+       },
+       "away": {
+        "name": "MUN",
+        "color": "#f4f4f2"
+       },
+       "score": [
+        2,
+        0
+       ],
+       "min": "13'",
+       "from": [
+        1,
+        0
+       ],
+       "goalAt": "two–nil",
+       "goalLag": 0.1
+      }
+     ]
+    }
+   ],
+   "vo": "Two minutes later, Szoboszlai's free kick: one–nil. Then Wirtz, set up by Ngumoha: two–nil."
+  },
+  {
+   "kicker": "22' · Pochettino's first change",
+   "headline": "First change: [Mbeumo off].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d11317",
+     "#ffffff",
+     "#d11317",
+     "#f2d36b"
+    ],
+    "seed": 8
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.7,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -1.7
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "outfit": "suit",
+     "suitColor": "#1c1f28",
+     "tie": "#7a1420",
+     "skin": "#e2b08c",
+     "hair": "#3a3a3e",
+     "x": -1.5,
+     "z": 3.4,
+     "front": true,
+     "pose": "think",
+     "label": "Pochettino",
+     "labelDelay": 0.2
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "LIV",
+      "color": "#d11317"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#f4f4f2"
+     },
+     "score": [
+      2,
+      0
+     ],
+     "min": "22'"
+    },
+    {
+     "type": "subboard",
+     "y": 1230,
+     "shiftX": 150,
+     "w": 600,
+     "at": "Mbeumo off",
+     "lag": -0.2,
+     "out": {
+      "num": 19,
+      "name": "Mbeumo"
+     },
+     "in": {
+      "num": 5,
+      "name": "Maguire"
+     },
+     "swapAt": "Maguire",
+     "hideAt": "Cunha followed",
+     "hideLag": -0.25
+    }
+   ],
+   "shots": [
+    {
+     "at": "Cunha followed",
+     "lag": -0.35,
+     "cut": true,
+     "transition": "whip",
+     "headline": "Cunha off at [half-time].",
+     "kicker": "Half-time · 2–0",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#d11317",
+       "#ffffff",
+       "#d11317",
+       "#f2d36b"
+      ],
+      "seed": 8
+     },
+     "accent": "#ff4d5e",
+     "lights": 0.7,
+     "focus": 0.3,
+     "camFrom": {
+      "pos": [
+       0.6,
+       1.6,
+       -3.0
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0.2,
+       1.6,
+       -1.7
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "outfit": "suit",
+       "suitColor": "#1c1f28",
+       "tie": "#7a1420",
+       "skin": "#e2b08c",
+       "hair": "#3a3a3e",
+       "x": 1.5,
+       "z": 3.4,
+       "front": true,
+       "pose": "think",
+       "label": "Pochettino",
+       "labelDelay": 0.2
+      }
+     ],
+     "card": [
+      {
+       "type": "scorebug",
+       "y": 560,
+       "delay": 0,
+       "home": {
+        "name": "LIV",
+        "color": "#d11317"
+       },
+       "away": {
+        "name": "MUN",
+        "color": "#f4f4f2"
+       },
+       "score": [
+        2,
+        0
+       ],
+       "min": "HT"
+      },
+      {
+       "type": "subboard",
+       "y": 1230,
+       "shiftX": -150,
+       "w": 600,
+       "delay": 0.0,
+       "out": {
+        "num": 10,
+        "name": "Cunha"
+       },
+       "in": {
+        "num": 11,
+        "name": "Zirkzee"
+       },
+       "swapAt": "half-time",
+       "swapLag": -0.1
+      }
+     ]
+    }
+   ],
+   "vo": "Pochettino's first change: Mbeumo off for Maguire, after twenty-two minutes. Cunha followed at half-time."
+  },
+  {
+   "kicker": "66' · second half",
+   "headline": "Ngumoha, 18: [3–0].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d11317",
+     "#ffffff",
+     "#d11317",
+     "#f2d36b"
+    ],
+    "seed": 8
+   },
+   "accent": "#ff4d5e",
+   "camFrom": {
+    "pos": [
+     -4.5,
+     2.2,
+     31.5
+    ],
+    "tgt": [
+     -0.6,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.9,
+     1.9,
+     34.2
+    ],
+    "tgt": [
+     -0.6,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "NGUMOHA",
+     "num": 73,
+     "kit": {
+      "shirt": "#d11317",
+      "shorts": "#d11317",
+      "socks": "#d11317",
+      "text": "#ffffff"
+     },
+     "x": -1.5,
+     "z": 40.5,
+     "action": "kick",
+     "actionAt": "makes it three",
+     "actionLag": -0.45,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "tag": 18,
+     "tagLabel": "years old",
+     "tagDelay": 0.3,
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "foot": "right",
+     "label": "Ngumoha",
+     "labelDelay": 0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": 1,
+     "actionAt": "makes it three",
+     "actionLag": 0.0
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#1a1a1a",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 0.3999999999999999,
+     "z": 43.9,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "makes it three",
+     "actionLag": -0.30000000000000004,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#1a1a1a",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -0.16000000000000003,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "flashes": 12,
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.28,
+      0.11,
+      40.95
+     ],
+     "untilAt": "makes it three",
+     "untilLag": -0.10999999999999999
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "makes it three",
+     "lag": -0.10999999999999999,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.28,
+       0.11,
+       40.95
+      ],
+      [
+       -0.54,
+       0.9,
+       46.625
+      ],
+      [
+       0.2,
+       0.8,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "LIV",
+      "color": "#d11317"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#f4f4f2"
+     },
+     "score": [
+      3,
+      0
+     ],
+     "min": "66'",
+     "from": [
+      2,
+      0
+     ],
+     "goalAt": "makes it three",
+     "goalLag": 0.1
+    }
+   ],
+   "shots": [
+    {
+     "at": "Muñoz, off",
+     "lag": -0.2,
+     "cut": true,
+     "transition": "whip",
+     "whipDir": -1,
+     "headline": "82': Muñoz off the bench, [4–0].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#d11317",
+       "#ffffff",
+       "#d11317",
+       "#f2d36b"
+      ],
+      "seed": 8
+     },
+     "accent": "#ff4d5e",
+     "camFrom": {
+      "pos": [
+       4.6,
+       2.2,
+       32.5
+      ],
+      "tgt": [
+       0.64,
+       1.0,
+       52
+      ]
+     },
+     "camera": {
+      "pos": [
+       4.0,
+       1.9,
+       35.2
+      ],
+      "tgt": [
+       0.64,
+       1.0,
+       52
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "follow": 0.5,
+     "players": [
+      {
+       "name": "MUÑOZ",
+       "num": 23,
+       "kit": {
+        "shirt": "#d11317",
+        "shorts": "#d11317",
+        "socks": "#d11317",
+        "text": "#ffffff"
+       },
+       "x": 1.6,
+       "z": 41.5,
+       "action": "kick",
+       "actionAt": "makes it four",
+       "actionLag": -0.45,
+       "actionDur": 0.8,
+       "after": "celebrate",
+       "runup": 1.6,
+       "skin": "#e7b593",
+       "hair": "#2a1a10",
+       "foot": "right",
+       "label": "Muñoz · sub",
+       "labelDelay": 0.1
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#2ecc71",
+        "shorts": "#111111",
+        "socks": "#2ecc71",
+        "text": "#111111"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#3a2a1a",
+       "gloves": "#f2f2f2",
+       "x": 0,
+       "z": 52.0,
+       "front": true,
+       "pose": "keeper",
+       "before": "ready",
+       "action": "dive",
+       "dir": -1,
+       "actionAt": "makes it four",
+       "actionLag": 0.0
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#f4f4f2",
+        "shorts": "#1a1a1a",
+        "socks": "#f4f4f2",
+        "text": "#1a1a1a"
+       },
+       "skin": "#e7b593",
+       "hair": "#141010",
+       "x": -0.2999999999999998,
+       "z": 44.9,
+       "front": true,
+       "action": "dive",
+       "dir": 1,
+       "actionAt": "makes it four",
+       "actionLag": -0.30000000000000004,
+       "actionDur": 0.7
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#f4f4f2",
+        "shorts": "#1a1a1a",
+        "socks": "#f4f4f2",
+        "text": "#1a1a1a"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "x": -2.4000000000000004,
+       "z": 47.8,
+       "front": true
+      }
+     ],
+     "flashes": 14,
+     "card": [
+      {
+       "type": "ball",
+       "delay": 0,
+       "point": [
+        1.82,
+        0.11,
+        41.95
+       ],
+       "untilAt": "makes it four",
+       "untilLag": -0.10999999999999999
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "makes it four",
+       "lag": -0.10999999999999999,
+       "dur": 0.5,
+       "slowmo": false,
+       "points": [
+        [
+         1.82,
+         0.11,
+         41.95
+        ],
+        [
+         2.41,
+         0.9,
+         47.125
+        ],
+        [
+         3.0,
+         2.0,
+         52.3
+        ]
+       ]
+      },
+      {
+       "type": "scorebug",
+       "y": 560,
+       "delay": 0,
+       "home": {
+        "name": "LIV",
+        "color": "#d11317"
+       },
+       "away": {
+        "name": "MUN",
+        "color": "#f4f4f2"
+       },
+       "score": [
+        4,
+        0
+       ],
+       "min": "82'",
+       "from": [
+        3,
+        0
+       ],
+       "goalAt": "makes it four",
+       "goalLag": 0.1
+      }
+     ]
+    }
+   ],
+   "vo": "Second half: Ngumoha, eighteen, makes it three. Muñoz, off the bench, makes it four."
+  },
+  {
+   "kicker": "Liverpool 4–0 Man United · the numbers",
+   "headline": "Shots: [28 to 10].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d11317",
+     "#ffffff",
+     "#d11317",
+     "#f2d36b"
+    ],
+    "seed": 8
+   },
+   "accent": "#ff4d5e",
+   "flashes": 14,
+   "lights": 0.75,
+   "focus": 0.4,
+   "punch": [
+    {
+     "at": "Lammens",
+     "lag": -0.1,
+     "amount": 0.1,
+     "dur": 1.4
+    }
+   ],
+   "camFrom": {
+    "pos": [
+     0,
+     34,
+     8
+    ],
+    "tgt": [
+     0,
+     0,
+     30
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     24,
+     14
+    ],
+    "tgt": [
+     0,
+     0,
+     30
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "shotline",
+     "y": 1130,
+     "w": 960,
+     "title": "Every shot, by minute",
+     "at": "Liverpool had",
+     "lag": -0.1,
+     "dur": 3.3,
+     "total": 94,
+     "ht": 45.5,
+     "home": {
+      "name": "Liverpool",
+      "color": "#ff4d4d"
+     },
+     "away": {
+      "name": "United",
+      "color": "#f4f4f2"
+     },
+     "shots": [
+      {
+       "min": 2,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Barcola",
+       "team": "Liverpool"
+      },
+      {
+       "min": 5,
+       "side": "away",
+       "kind": "missed",
+       "who": "Fernandes",
+       "team": "Manchester United"
+      },
+      {
+       "min": 6,
+       "side": "home",
+       "kind": "saved",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 7,
+       "side": "home",
+       "kind": "saved",
+       "who": "Dijk",
+       "team": "Liverpool"
+      },
+      {
+       "min": 10,
+       "side": "home",
+       "kind": "goal",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 12,
+       "side": "away",
+       "kind": "missed",
+       "who": "Mainoo",
+       "team": "Manchester United"
+      },
+      {
+       "min": 13,
+       "side": "home",
+       "kind": "goal",
+       "who": "Wirtz",
+       "team": "Liverpool"
+      },
+      {
+       "min": 16,
+       "side": "home",
+       "kind": "saved",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 21,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 29,
+       "side": "away",
+       "kind": "saved",
+       "who": "Fernandes",
+       "team": "Manchester United"
+      },
+      {
+       "min": 34,
+       "side": "home",
+       "kind": "missed",
+       "who": "Ngumoha",
+       "team": "Liverpool"
+      },
+      {
+       "min": 35,
+       "side": "away",
+       "kind": "blocked",
+       "who": "Tielemans",
+       "team": "Manchester United"
+      },
+      {
+       "min": 39,
+       "side": "home",
+       "kind": "saved",
+       "who": "Allister",
+       "team": "Liverpool"
+      },
+      {
+       "min": 40,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 45,
+       "side": "home",
+       "kind": "missed",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 45,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Ngumoha",
+       "team": "Liverpool"
+      },
+      {
+       "min": 46,
+       "side": "home",
+       "kind": "missed",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 48,
+       "side": "home",
+       "kind": "saved",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 51,
+       "side": "away",
+       "kind": "blocked",
+       "who": "Zirkzee",
+       "team": "Manchester United"
+      },
+      {
+       "min": 52,
+       "side": "away",
+       "kind": "missed",
+       "who": "Ligt",
+       "team": "Manchester United"
+      },
+      {
+       "min": 61,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Allister",
+       "team": "Liverpool"
+      },
+      {
+       "min": 62,
+       "side": "home",
+       "kind": "missed",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 64,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Ngumoha",
+       "team": "Liverpool"
+      },
+      {
+       "min": 64,
+       "side": "home",
+       "kind": "missed",
+       "who": "Barcola",
+       "team": "Liverpool"
+      },
+      {
+       "min": 66,
+       "side": "home",
+       "kind": "goal",
+       "who": "Ngumoha",
+       "team": "Liverpool"
+      },
+      {
+       "min": 68,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Barcola",
+       "team": "Liverpool"
+      },
+      {
+       "min": 75,
+       "side": "home",
+       "kind": "saved",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 75,
+       "side": "home",
+       "kind": "saved",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 76,
+       "side": "home",
+       "kind": "missed",
+       "who": "Dijk",
+       "team": "Liverpool"
+      },
+      {
+       "min": 77,
+       "side": "home",
+       "kind": "missed",
+       "who": "Nyoni",
+       "team": "Liverpool"
+      },
+      {
+       "min": 79,
+       "side": "away",
+       "kind": "missed",
+       "who": "Zirkzee",
+       "team": "Manchester United"
+      },
+      {
+       "min": 79,
+       "side": "away",
+       "kind": "saved",
+       "who": "Fernandes",
+       "team": "Manchester United"
+      },
+      {
+       "min": 82,
+       "side": "home",
+       "kind": "goal",
+       "who": "Muñoz",
+       "team": "Liverpool"
+      },
+      {
+       "min": 85,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 89,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Wirtz",
+       "team": "Liverpool"
+      },
+      {
+       "min": 91,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 92,
+       "side": "away",
+       "kind": "saved",
+       "who": "Fernandes",
+       "team": "Manchester United"
+      },
+      {
+       "min": 93,
+       "side": "away",
+       "kind": "missed",
+       "who": "Maguire",
+       "team": "Manchester United"
+      }
+     ],
+     "events": [
+      {
+       "min": 8,
+       "side": "away",
+       "kind": "red",
+       "label": "RED CARD · YORO 8'"
+      }
+     ],
+     "clear": false
+    },
+    {
+     "type": "big",
+     "at": "Lammens",
+     "lag": -0.1,
+     "from": 0,
+     "value": 7,
+     "countDur": 0.7,
+     "label": "saves by Lammens",
+     "y": 1640,
+     "size": 150
+    }
+   ],
+   "shots": [
+    {
+     "at": "Expected goals",
+     "lag": -0.35,
+     "cut": true,
+     "transition": "whip",
+     "headline": "Expected goals: [4.38 to 0.63].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#d11317",
+       "#ffffff",
+       "#d11317",
+       "#f2d36b"
+      ],
+      "seed": 8
+     },
+     "accent": "#ff4d5e",
+     "flashes": 14,
+     "lights": 0.75,
+     "focus": 0.45,
+     "camFrom": {
+      "pos": [
+       -8,
+       30,
+       10
+      ],
+      "tgt": [
+       0,
+       0,
+       30
+      ]
+     },
+     "camera": {
+      "pos": [
+       8,
+       20,
+       14
+      ],
+      "tgt": [
+       0,
+       0,
+       30
+      ]
+     },
+     "move": 5,
+     "moveEase": "linear",
+     "players": [],
+     "punch": [
+      {
+       "at": "four point three eight",
+       "amount": 0.12,
+       "dur": 1.5
+      }
+     ],
+     "card": [
+      {
+       "type": "xg",
+       "y": 1130,
+       "title": "Expected goals",
+       "max": 4.38,
+       "gap": 460,
+       "dur": 1.3,
+       "clear": false,
+       "items": [
+        {
+         "label": "Liverpool",
+         "value": 4.38,
+         "color": "#d11317",
+         "at": "four point three eight",
+         "lag": -0.2
+        },
+        {
+         "label": "United",
+         "value": 0.63,
+         "color": "#d9dde6",
+         "at": "nought point six three",
+         "lag": -0.2
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "vo": "Liverpool had twenty-eight shots. United had ten. Lammens made seven saves. Expected goals: four point three eight to nought point six three."
+  },
+  {
+   "kicker": "Man United · Premier League 2026/27",
+   "headline": "One win in [eleven].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111",
+     "#da291c"
+    ],
+    "seed": 7
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.6,
+   "focus": 0.3,
+   "fans": true,
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -4.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -1.6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "punch": [
+    {
+     "at": "Nine without a win",
+     "lag": -0.2,
+     "amount": 0.1,
+     "dur": 1.8
+    },
+    {
+     "at": "Nineteenth",
+     "lag": -0.1,
+     "amount": 0.16,
+     "dur": 1.6
+    }
+   ],
+   "shake": [
+    {
+     "at": "Nineteenth",
+     "lag": 0.05,
+     "amount": 14
+    }
+   ],
+   "card": [
+    {
+     "type": "form",
+     "y": 980,
+     "delay": 0.0,
+     "title": "Man United · the league run",
+     "results": "LWDLDDDLLDL",
+     "opps": [
+      "HUL",
+      "IPS",
+      "EVE",
+      "MCI",
+      "FUL",
+      "TOT",
+      "LEE",
+      "BOU",
+      "CHE",
+      "AVL",
+      "LIV"
+     ],
+     "winAt": "thirtieth of August",
+     "winLag": -0.2,
+     "winLabel": "LAST WIN · 30 AUG",
+     "bracket": {
+      "from": 2,
+      "to": 10,
+      "label": "9 WITHOUT A WIN"
+     },
+     "bracketAt": "Nine without a win",
+     "bracketLag": -0.3,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "19TH",
+     "at": "Nineteenth",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 128,
+     "y": 1560,
+     "sub": "a point above bottom club Palace"
+    }
+   ],
+   "vo": "United haven't won a league game since the thirtieth of August. Nine without a win. Nineteenth."
+  },
+  {
+   "kicker": "Your call",
+   "headline": "Was it a [red card]?",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "AGAIN",
+   "vhsDur": 0.9,
+   "letterbox": true,
+   "replayTag": "REPLAY",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d11317",
+     "#ffffff",
+     "#d11317",
+     "#f2d36b"
+    ],
+    "seed": 8
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.9,
+   "camFrom": {
+    "pos": [
+     13.0,
+     9.0,
+     19.0
+    ],
+    "tgt": [
+     0.6,
+     0.5,
+     30.0
+    ]
+   },
+   "camera": {
+    "pos": [
+     -5.0,
+     4.6,
+     28.0
+    ],
+    "tgt": [
+     1.0,
+     0.8,
+     37.5
+    ]
+   },
+   "move": 4.4,
+   "moveEase": "linear",
+   "hype": false,
+   "players": [
+    {
+     "name": "ISAK",
+     "num": 9,
+     "kit": {
+      "shirt": "#d11317",
+      "shorts": "#d11317",
+      "socks": "#d11317",
+      "text": "#ffffff"
+     },
+     "dribble": true,
+     "dribbleUntil": 3.55,
+     "x": 0.2,
+     "z": 17.5,
+     "path": [
+      [
+       0.2,
+       17.5
+      ],
+      [
+       0.5,
+       26.0
+      ],
+      [
+       0.9,
+       33.5
+      ],
+      [
+       1.2,
+       38.8
+      ]
+     ],
+     "pathDur": 3.85,
+     "at": "red card",
+     "lag": -3.6,
+     "action": "fall",
+     "actionAt": "red card",
+     "actionLag": 0.1,
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "label": "Isak",
+     "labelDelay": 2.4
+    },
+    {
+     "name": "YORO",
+     "num": 15,
+     "kit": {
+      "shirt": "#f4f4f2",
+      "shorts": "#1a1a1a",
+      "socks": "#f4f4f2",
+      "text": "#1a1a1a"
+     },
+     "x": -2.4,
+     "z": 11.0,
+     "path": [
+      [
+       -2.4,
+       11.0
+      ],
+      [
+       -1.7,
+       21.5
+      ],
+      [
+       -0.8,
+       30.0
+      ],
+      [
+       0.5,
+       36.0
+      ]
+     ],
+     "pathDur": 3.5,
+     "at": "red card",
+     "lag": -3.6,
+     "action": "slide",
+     "dir": 1,
+     "actionAt": "red card",
+     "actionLag": -0.5,
+     "actionDur": 1.1,
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "label": "Yoro",
+     "labelDelay": 3.2
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "red card",
+     "lag": 0.15,
+     "dur": 0.9,
+     "slowmo": true,
+     "flash": false,
+     "points": [
+      [
+       1.3,
+       0.11,
+       39.0
+      ],
+      [
+       2.4,
+       0.2,
+       41.5
+      ],
+      [
+       3.6,
+       0.11,
+       43.8
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "LIV",
+      "color": "#d11317"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#f4f4f2"
+     },
+     "score": [
+      0,
+      0
+     ],
+     "min": "8'"
+    },
+    {
+     "type": "poll",
+     "y": 1600,
+     "at": "how long",
+     "lag": -0.5,
+     "question": "Was it a red card?",
+     "clear": false,
+     "options": [
+      {
+       "label": "Yes, red",
+       "color": "#d6283b",
+       "fill": 0.5
+      },
+      {
+       "label": "No, harsh",
+       "color": "#9aa1ad",
+       "fill": 0.5
+      }
+     ]
+    }
+   ],
+   "vo": "Was it a red card? And how long does Pochettino get?"
+  }
+ ]
+}

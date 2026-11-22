@@ -63,6 +63,12 @@ PRONOUNCE = {
     'Agüero': 'əɡwˈɛəɹəʊ',      # a-GWAIR-oh
     'Džeko': 'ʤˈɛkəʊ',          # JEK-oh
     'Cissé': 'sˈiːseɪ',
+    'Pochettino': 'pɒtʃɪtˈiːnəʊ',   # po-chet-TEE-no
+    'Szoboszlai': 'sˈɒbɒslaɪ',      # SO-bos-lie
+    'Ngumoha': 'ŋɡuːmˈəʊhə',        # n-goo-MO-ha
+    'Mbeumo': 'mbˈɔɪməʊ',           # m-BOY-mo
+    'Wirtz': 'vˈɪɹts',
+    'Zirkzee': 'zˈɪɹkzeɪ',
 }
 
 

@@ -932,7 +932,7 @@ function drawNameLabel(u, p, t) {
 }
 function drawNameLabel0(u, p, t) {
   if (!p.label) return;
-  const k = eBack(pr(t, p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3, 0.3)); if (k <= 0) return;
+  const k = eBack(pr(t, p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3, 0.3)); if (k <= 0.002) return;   // eBack(0) is a hair above 0: an invisible label was still registered (and audited) off-screen
   const fs = clamp(u * 0.075, 20, 40), y = -u * (p.tag != null ? 1.55 : 1.1);
   ctx.save(); ctx.translate(0, y); ctx.scale(k, k); font(700, fs, 'Inter');
   const w = ctx.measureText(p.label).width + fs * 1.1;
@@ -947,7 +947,7 @@ function drawTag(u, p, t) {
 function drawTag0(u, p, t) {
   {
     const kt = pr(t, p.tagDelay != null ? p.tagDelay : 0.4, 0.4);
-    if (kt > 0) {
+    if (kt > 0.002) {
       ctx.save();
       ctx.translate(0, -u * 1.13);
       ctx.scale(eBack(kt), eBack(kt));
@@ -4368,6 +4368,122 @@ CARDS.climb = function (c, ct, cx, cy) {
   ctx.restore();
 };
 CARDS.climb.noSlide = true;
+
+// Shot timeline (built for videos/pochettino-debut): every shot of a match on a minute track. A playhead sweeps the match; home shots stack above the axis and
+// away shots below; filled = on target, ring = off target, small faint ring = blocked, a gold ball = goal; a red-card marker; live shot counters and goal pills.
+// shots: [{min, side: "home"|"away", kind: "goal"|"saved"|"missed"|"blocked", who}], events: [{min, side, kind: "red", label}], total (minutes incl. stoppage),
+// ht (half-time minute), dur (seconds the playhead takes), home/away: {name, color}, title, w, h, startT.
+CARDS.shotline = function (c, ct, cx, cy) {
+  const w = c.w || 940, h = c.h || 600, total = c.total || 94, dur = c.dur || 4, t0 = c.startT != null ? c.startT : 0.35;
+  const k0 = eOut(pr(ct, 0, 0.35)); if (k0 <= 0) return;
+  const Hm = c.home || { name: 'HOME', color: '#d11317' }, Aw = c.away || { name: 'AWAY', color: '#f4f4f2' }, sh = c.shots || [], evs = c.events || [];
+  const x0 = -w / 2 + 52, x1 = w / 2 - 52, X = m => lerp(x0, x1, m / total), popT = m => t0 + (m / total) * dur;
+  const top = 240, bot = h - 78, axis = (top + bot) / 2, ph = Math.max(0, Math.min(1, (ct - t0) / dur));
+  ctx.save(); ctx.globalAlpha *= k0; ctx.translate(cx, cy - h / 2 + (1 - k0) * 30); { const pu = 1 + 0.012 * ct; ctx.translate(0, h / 2); ctx.scale(pu, pu); ctx.translate(0, -h / 2); }   // a slow push-in so a held card never sits still
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.fillStyle = 'rgba(8,10,15,0.9)'; rrect(-w / 2, 0, w, h, 28); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.textBaseline = 'middle';
+  if (c.title) { font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.fillText(c.title.toUpperCase(), 0, 40); }
+  // live counters: shots so far and how many were on target
+  for (const [sd, T] of [['home', Hm], ['away', Aw]]) {
+    const left = sd === 'home', n = sh.filter(s => s.side === sd && ct >= popT(s.min)).length, on = sh.filter(s => s.side === sd && ct >= popT(s.min) && (s.kind === 'goal' || s.kind === 'saved')).length;
+    const bx = left ? -w / 2 + 44 : w / 2 - 44;
+    ctx.textAlign = left ? 'left' : 'right'; font(800, 25, 'Inter', '3px'); ctx.fillStyle = T.color; ctx.fillText(T.name.toUpperCase(), bx, 92);
+    font(900, 82, 'Inter', '-2px'); const ns = String(n), nw = ctx.measureText(ns).width; ctx.fillStyle = '#fff'; ctx.fillText(ns, bx, 148);
+    font(600, 19, 'Mono', '2px'); ctx.fillStyle = '#9aa1ad'; ctx.textAlign = left ? 'left' : 'right'; ctx.fillText(on + ' ON TARGET', left ? bx + nw + 16 : bx - nw - 16, 152);
+  }
+  // goal pills (all positions fixed up front, so nothing shifts as they pop)
+  const goals = sh.filter(s => s.kind === 'goal').sort((a, b) => a.min - b.min);
+  font(800, 23, 'Inter'); const pw = goals.map(g => ctx.measureText(g.min + "' " + g.who).width + 38), gp = 12, tw = pw.reduce((a, b) => a + b, 0) + gp * Math.max(0, goals.length - 1);
+  let px = -tw / 2;
+  goals.forEach((g, i) => {
+    const a = eBack(pr(ct, popT(g.min), 0.3)), mx = px + pw[i] / 2; px += pw[i] + gp; if (a <= 0) return;
+    ctx.save(); ctx.translate(mx, 196); ctx.scale(a, a); ctx.fillStyle = (g.side === 'home' ? Hm : Aw).color; rrect(-pw[i] / 2, -22, pw[i], 44, 22); ctx.fill();
+    font(800, 23, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(g.min + "' " + g.who, 0, 1); ctx.restore();
+  });
+  // axis, half-time line and minute scale
+  ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x0 - 12, axis); ctx.lineTo(x1 + 12, axis); ctx.stroke();
+  if (c.ht != null) { ctx.save(); ctx.setLineDash([8, 8]); ctx.strokeStyle = 'rgba(255,255,255,0.22)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(c.ht), top - 4); ctx.lineTo(X(c.ht), bot + 4); ctx.stroke(); ctx.restore();
+    font(700, 17, 'Mono', '3px'); ctx.fillStyle = '#6f7889'; ctx.textAlign = 'center'; ctx.fillText('HT', X(c.ht), top - 18); }
+  font(600, 19, 'Mono'); ctx.fillStyle = '#8d94a1'; ctx.textAlign = 'center';
+  for (const m of c.ticks || [0, 15, 30, 45, 60, 75, 90]) { ctx.fillText(m + "'", X(m), bot + 34); ctx.fillRect(X(m) - 1, bot + 8, 2, 8); }
+  // lay the shots out in rows, so no two overlap
+  const lay = [];
+  for (const sd of ['home', 'away']) {
+    const items = sh.filter(s => s.side === sd).slice().sort((a, b) => a.min - b.min), rows = [];
+    for (const s of items) {
+      const r = s.kind === 'goal' ? 20 : s.kind === 'blocked' ? 8 : 11.5, x = X(s.min);
+      let i = 0; while (rows[i] != null && rows[i] > x - r - 4) i++;
+      rows[i] = x + r; lay.push({ s, x, y: axis + (sd === 'home' ? -1 : 1) * (32 + i * 33), r, i });
+    }
+  }
+  for (const L of lay) {
+    const s = L.s, a = eBack(pr(ct, popT(s.min), 0.25)); if (a <= 0) continue;
+    const col = (s.side === 'home' ? Hm : Aw).color;
+    ctx.save(); ctx.translate(L.x, L.y); ctx.scale(a, a);
+    if (s.kind === 'goal') { ctx.shadowColor = '#f1c453'; ctx.shadowBlur = 26; ctx.fillStyle = '#f1c453'; ctx.beginPath(); ctx.arc(0, 0, L.r + 5, 0, 7); ctx.fill(); ctx.shadowBlur = 0; drawBall(0, 0, L.r); }
+    else if (s.kind === 'saved') { ctx.fillStyle = col; ctx.beginPath(); ctx.arc(0, 0, L.r, 0, 7); ctx.fill(); ctx.strokeStyle = 'rgba(0,0,0,0.55)'; ctx.lineWidth = 2; ctx.stroke(); }
+    else if (s.kind === 'missed') { ctx.strokeStyle = col; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(0, 0, L.r - 2, 0, 7); ctx.stroke(); }
+    else { ctx.globalAlpha *= 0.6; ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(0, 0, L.r, 0, 7); ctx.stroke(); }
+    ctx.restore();
+  }
+  // red cards (and other events): a glowing card on the axis side of the team, with a label under it
+  for (const e of evs) {
+    const a = eBack(pr(ct, popT(e.min), 0.3)); if (a <= 0) continue;
+    const sg = e.side === 'home' ? -1 : 1, x = X(e.min), y = axis + sg * 30;
+    ctx.save(); ctx.translate(x, y); ctx.scale(a, a); ctx.shadowColor = '#e3132b'; ctx.shadowBlur = 24; ctx.fillStyle = '#e3132b'; rrect(-12, -17, 24, 34, 4); ctx.fill(); ctx.restore();
+    if (e.label) { ctx.save(); ctx.globalAlpha *= Math.min(1, a); font(800, 23, 'Inter'); ctx.fillStyle = '#ff6b78'; ctx.textAlign = 'left'; ctx.fillText(e.label, x - 14, axis + sg * 104); ctx.restore(); }
+  }
+  // the playhead
+  const fade = 1 - pr(ct, t0 + dur, 0.5);
+  if (ct > t0 && fade > 0) {
+    const px2 = X(total * ph);
+    ctx.save(); ctx.globalAlpha *= fade; ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 3; ctx.shadowColor = '#fff'; ctx.shadowBlur = 14; ctx.beginPath(); ctx.moveTo(px2, top - 6); ctx.lineTo(px2, bot + 6); ctx.stroke(); ctx.shadowBlur = 0;
+    const lab = Math.min(Math.round(total * ph), total) + "'"; font(800, 22, 'Mono'); const lw = ctx.measureText(lab).width + 24;
+    ctx.fillStyle = '#fff'; rrect(px2 - lw / 2, top - 38, lw, 30, 15); ctx.fill(); ctx.fillStyle = '#10131a'; ctx.textAlign = 'center'; ctx.fillText(lab, px2, top - 22); ctx.restore();
+  }
+  // legend
+  const leg = [['saved', 'ON TARGET'], ['missed', 'OFF TARGET'], ['blocked', 'BLOCKED']]; font(600, 16, 'Mono', '2px');
+  const lw2 = leg.map(l => ctx.measureText(l[1]).width + 34), lt = lw2.reduce((a, b) => a + b, 0) + 26 * (leg.length - 1); let lx = -lt / 2;
+  leg.forEach((l, i) => { ctx.fillStyle = '#7d8594'; ctx.textAlign = 'left'; ctx.fillText(l[1], lx + 24, h - 22);
+    ctx.strokeStyle = '#9aa1ad'; ctx.fillStyle = '#9aa1ad'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(lx + 8, h - 22, l[0] === 'blocked' ? 5 : 7, 0, 7); l[0] === 'saved' ? ctx.fill() : ctx.stroke(); lx += lw2[i] + 26; });
+  ctx.restore();
+};
+CARDS.shotline.noSlide = true;
+
+// Form strip (built for videos/pochettino-debut): a run of results as chips (W green, D grey, L red) that pop one by one with the opponent under each; the last win
+// rings in gold with a label (winT / winLabel) and a bracket underlines the winless run (bracket: {from, to, label}, bracketT).
+// results: "LWDLDDDLLDL", opps: ["HUL", ...], title, w, h, step, startT.
+CARDS.form = function (c, ct, cx, cy) {
+  const R = (c.results || '').split(''), n = R.length; if (!n) return;
+  const w = c.w || 960, h = c.h || 350, step = c.step || 0.12, t0 = c.startT != null ? c.startT : 0.4, k0 = eOut(pr(ct, 0, 0.35)); if (k0 <= 0) return;
+  const gap = (w - 60) / n, r = Math.min(34, gap * 0.42), X = i => -w / 2 + 30 + gap * (i + 0.5), yc = 150;
+  const colOf = ch => ch === 'W' ? '#1f9d55' : ch === 'D' ? '#6f7889' : '#d6283b';
+  ctx.save(); ctx.globalAlpha *= k0; ctx.translate(cx, cy - h / 2 + (1 - k0) * 30); { const pu = 1 + 0.012 * ct; ctx.translate(0, h / 2); ctx.scale(pu, pu); ctx.translate(0, -h / 2); }
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.fillStyle = 'rgba(8,10,15,0.9)'; rrect(-w / 2, 0, w, h, 28); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.textBaseline = 'middle';
+  if (c.title) { font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.fillText(c.title.toUpperCase(), 0, 42); }
+  const wi = R.lastIndexOf('W');
+  R.forEach((ch, i) => {
+    const a = eBack(pr(ct, t0 + i * step, 0.22)); if (a <= 0) return;
+    const x = X(i);
+    ctx.save(); ctx.translate(x, yc); ctx.scale(a, a); ctx.fillStyle = colOf(ch); ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+    if (i === wi && c.winT != null) { const g = pr(ct, c.winT, 0.45); if (g > 0) { ctx.strokeStyle = '#f1c453'; ctx.lineWidth = 6; ctx.shadowColor = '#f1c453'; ctx.shadowBlur = 30 * Math.max(0, 1 - Math.abs(g - 0.5) * 1.6); ctx.beginPath(); ctx.arc(0, 0, r + 8, 0, 7); ctx.stroke(); ctx.shadowBlur = 0; } }
+    font(900, r * 0.95, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(ch, 0, 2); ctx.restore();
+    if (c.opps && c.opps[i]) { ctx.save(); ctx.globalAlpha *= Math.min(1, a); font(600, 17, 'Mono', '1px'); ctx.fillStyle = '#8d94a1'; ctx.textAlign = 'center'; ctx.fillText(c.opps[i], x, yc + r + 26); ctx.restore(); }
+  });
+  if (c.winLabel && c.winT != null && wi >= 0) {   // "LAST WIN · 30 AUG" above the last win
+    const a = eBack(pr(ct, c.winT, 0.3)); if (a > 0) { font(800, 22, 'Inter', '1px'); const tw = ctx.measureText(c.winLabel).width + 34;
+      ctx.save(); ctx.translate(X(wi), yc - r - 34); ctx.scale(a, a); ctx.fillStyle = '#f1c453'; rrect(-tw / 2, -20, tw, 40, 20); ctx.fill(); ctx.fillStyle = '#14110a'; ctx.textAlign = 'center'; ctx.fillText(c.winLabel, 0, 1); ctx.restore(); } }
+  if (c.bracket && c.bracketT != null) {
+    const b = c.bracket, g = ease(pr(ct, c.bracketT, 0.5)), by = yc + r + 62, xa = X(b.from) - r, xb = lerp(xa, X(b.to) + r, g);
+    if (g > 0) { ctx.strokeStyle = '#ff4d5e'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(xa, by - 14); ctx.lineTo(xa, by); ctx.lineTo(xb, by); if (g >= 1) ctx.lineTo(xb, by - 14); ctx.stroke(); }
+    const a = eBack(pr(ct, c.bracketT + 0.35, 0.3)); if (a > 0 && b.label) { font(800, 28, 'Inter', '1px'); const tw = ctx.measureText(b.label).width + 44;
+      ctx.save(); ctx.translate((X(b.from) + X(b.to)) / 2, by + 56); ctx.scale(a, a); ctx.fillStyle = '#d6283b'; rrect(-tw / 2, -26, tw, 52, 26); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(b.label, 0, 2); ctx.restore(); }
+  }
+  ctx.restore();
+};
+CARDS.form.noSlide = true;
+
 function drawSpeedlines(b, lt) {
   for (const sl of b.speedlines || []) {
     const r = lt - (sl.t || 0), d = sl.dur || 1.2;
@@ -4396,6 +4512,10 @@ function cardEvents(c) {
     case 'simrun': { const c0 = c.countT != null ? c.countT : 0.2; ticks(c0, Math.min(1.4, (c.dur || 2.4) * 0.8)); if (c.stampT != null) ev.push({ t: c.stampT, type: 'impact' }); break; }
     case 'odds': { const lT = c.litT != null ? c.litT : 0.9; ev.push({ t: 0.05, type: 'swish' }); for (let i = 0; i < (c.lit || 0); i++) ev.push({ t: lT + i * 0.14, type: 'pop' }); ev.push({ t: lT + (c.lit || 0) * 0.14 + 0.1, type: 'swipe' }); break; }
     case 'seesaw': for (const it of c.items || []) if (it.t != null) ev.push({ t: it.t, type: 'pop' }); break;
+    case 'shotline': { const t0 = c.startT != null ? c.startT : 0.35, d = c.dur || 4, tot = c.total || 94; ev.push({ t: 0.05, type: 'swish' });
+      (c.shots || []).forEach((sh, i) => { if (sh.kind === 'goal') ev.push({ t: t0 + sh.min / tot * d, type: 'impact' }); else if (i % 2 === 0) ev.push({ t: t0 + sh.min / tot * d, type: 'tick' }); });
+      for (const e of c.events || []) ev.push({ t: t0 + e.min / tot * d, type: 'pop' }); break; }
+    case 'form': { const t0 = c.startT != null ? c.startT : 0.4, n = (c.results || '').length, st = c.step || 0.12; ticks(t0, Math.min(1.4, n * st)); if (c.bracketT != null) ev.push({ t: c.bracketT + 0.35, type: 'impact' }); break; }
     case 'climb': (c.steps || []).forEach((st, i) => { if (i && st.t != null) ev.push({ t: st.t, type: 'whoosh' }, { t: st.t + (c.stepDur || 0.55), type: 'pop' }); }); break;
     case 'crown': ev.push({ t: 0.42, type: 'impact' }); for (const m of c.items || []) if (m.t != null) ev.push({ t: m.t, type: 'whoosh' }); break;
     case 'subboard': ev.push({ t: 0.05, type: 'swish' }, { t: 0.45, type: 'pop' }, { t: c.swapT != null ? c.swapT : (typeof c.swapAt === 'number' ? c.swapAt : 0.9), type: 'pop' }); break;

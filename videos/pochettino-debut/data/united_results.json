@@ -1,0 +1,90 @@
+[
+ {
+  "date": "2026-08-22",
+  "opp": "Hull City",
+  "abbr": "HUL",
+  "venue": "away",
+  "score": "0-2",
+  "res": "L"
+ },
+ {
+  "date": "2026-08-30",
+  "opp": "Ipswich Town",
+  "abbr": "IPS",
+  "venue": "home",
+  "score": "5-2",
+  "res": "W"
+ },
+ {
+  "date": "2026-09-06",
+  "opp": "Everton",
+  "abbr": "EVE",
+  "venue": "away",
+  "score": "2-2",
+  "res": "D"
+ },
+ {
+  "date": "2026-09-13",
+  "opp": "Manchester City",
+  "abbr": "MNC",
+  "venue": "home",
+  "score": "0-1",
+  "res": "L"
+ },
+ {
+  "date": "2026-09-20",
+  "opp": "Fulham",
+  "abbr": "FUL",
+  "venue": "away",
+  "score": "1-1",
+  "res": "D"
+ },
+ {
+  "date": "2026-10-10",
+  "opp": "Tottenham Hotspur",
+  "abbr": "TOT",
+  "venue": "home",
+  "score": "1-1",
+  "res": "D"
+ },
+ {
+  "date": "2026-10-18",
+  "opp": "Leeds United",
+  "abbr": "LEE",
+  "venue": "away",
+  "score": "1-1",
+  "res": "D"
+ },
+ {
+  "date": "2026-10-25",
+  "opp": "AFC Bournemouth",
+  "abbr": "BOU",
+  "venue": "home",
+  "score": "0-3",
+  "res": "L"
+ },
+ {
+  "date": "2026-10-31",
+  "opp": "Chelsea",
+  "abbr": "CHE",
+  "venue": "away",
+  "score": "0-2",
+  "res": "L"
+ },
+ {
+  "date": "2026-11-08",
+  "opp": "Aston Villa",
+  "abbr": "AVL",
+  "venue": "home",
+  "score": "4-4",
+  "res": "D"
+ },
+ {
+  "date": "2026-11-22",
+  "opp": "Liverpool",
+  "abbr": "LIV",
+  "venue": "away",
+  "score": "0-4",
+  "res": "L"
+ }
+]

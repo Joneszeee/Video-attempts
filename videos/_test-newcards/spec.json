@@ -1,0 +1,374 @@
+{
+ "brand": "theo6k",
+ "accent": "#ff4d5e",
+ "outro": false,
+ "tail": 0,
+ "timings": [
+  6,
+  6
+ ],
+ "beats": [
+  {
+   "kicker": "Liverpool 4–0 Man United",
+   "headline": "28 shots to [10].",
+   "vo": "t",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d11317",
+     "#ffffff"
+    ],
+    "seed": 8
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.5,
+   "focus": 0.35,
+   "camera": "high",
+   "card": [
+    {
+     "type": "shotline",
+     "y": 1130,
+     "delay": 0,
+     "title": "Shots by minute",
+     "dur": 4.0,
+     "total": 94,
+     "ht": 45.5,
+     "home": {
+      "name": "Liverpool",
+      "color": "#e8323c"
+     },
+     "away": {
+      "name": "United",
+      "color": "#f4f4f2"
+     },
+     "shots": [
+      {
+       "min": 2,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Barcola",
+       "team": "Liverpool"
+      },
+      {
+       "min": 5,
+       "side": "away",
+       "kind": "missed",
+       "who": "Fernandes",
+       "team": "Manchester United"
+      },
+      {
+       "min": 6,
+       "side": "home",
+       "kind": "saved",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 7,
+       "side": "home",
+       "kind": "saved",
+       "who": "Dijk",
+       "team": "Liverpool"
+      },
+      {
+       "min": 10,
+       "side": "home",
+       "kind": "goal",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 12,
+       "side": "away",
+       "kind": "missed",
+       "who": "Mainoo",
+       "team": "Manchester United"
+      },
+      {
+       "min": 13,
+       "side": "home",
+       "kind": "goal",
+       "who": "Wirtz",
+       "team": "Liverpool"
+      },
+      {
+       "min": 16,
+       "side": "home",
+       "kind": "saved",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 21,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 29,
+       "side": "away",
+       "kind": "saved",
+       "who": "Fernandes",
+       "team": "Manchester United"
+      },
+      {
+       "min": 34,
+       "side": "home",
+       "kind": "missed",
+       "who": "Ngumoha",
+       "team": "Liverpool"
+      },
+      {
+       "min": 35,
+       "side": "away",
+       "kind": "blocked",
+       "who": "Tielemans",
+       "team": "Manchester United"
+      },
+      {
+       "min": 39,
+       "side": "home",
+       "kind": "saved",
+       "who": "Allister",
+       "team": "Liverpool"
+      },
+      {
+       "min": 40,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 45,
+       "side": "home",
+       "kind": "missed",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 45,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Ngumoha",
+       "team": "Liverpool"
+      },
+      {
+       "min": 46,
+       "side": "home",
+       "kind": "missed",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 48,
+       "side": "home",
+       "kind": "saved",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 51,
+       "side": "away",
+       "kind": "blocked",
+       "who": "Zirkzee",
+       "team": "Manchester United"
+      },
+      {
+       "min": 52,
+       "side": "away",
+       "kind": "missed",
+       "who": "Ligt",
+       "team": "Manchester United"
+      },
+      {
+       "min": 61,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Allister",
+       "team": "Liverpool"
+      },
+      {
+       "min": 62,
+       "side": "home",
+       "kind": "missed",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 64,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Ngumoha",
+       "team": "Liverpool"
+      },
+      {
+       "min": 64,
+       "side": "home",
+       "kind": "missed",
+       "who": "Barcola",
+       "team": "Liverpool"
+      },
+      {
+       "min": 66,
+       "side": "home",
+       "kind": "goal",
+       "who": "Ngumoha",
+       "team": "Liverpool"
+      },
+      {
+       "min": 68,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Barcola",
+       "team": "Liverpool"
+      },
+      {
+       "min": 75,
+       "side": "home",
+       "kind": "saved",
+       "who": "Isak",
+       "team": "Liverpool"
+      },
+      {
+       "min": 75,
+       "side": "home",
+       "kind": "saved",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 76,
+       "side": "home",
+       "kind": "missed",
+       "who": "Dijk",
+       "team": "Liverpool"
+      },
+      {
+       "min": 77,
+       "side": "home",
+       "kind": "missed",
+       "who": "Nyoni",
+       "team": "Liverpool"
+      },
+      {
+       "min": 79,
+       "side": "away",
+       "kind": "missed",
+       "who": "Zirkzee",
+       "team": "Manchester United"
+      },
+      {
+       "min": 79,
+       "side": "away",
+       "kind": "saved",
+       "who": "Fernandes",
+       "team": "Manchester United"
+      },
+      {
+       "min": 82,
+       "side": "home",
+       "kind": "goal",
+       "who": "Muñoz",
+       "team": "Liverpool"
+      },
+      {
+       "min": 85,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 89,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Wirtz",
+       "team": "Liverpool"
+      },
+      {
+       "min": 91,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Szoboszlai",
+       "team": "Liverpool"
+      },
+      {
+       "min": 92,
+       "side": "away",
+       "kind": "saved",
+       "who": "Fernandes",
+       "team": "Manchester United"
+      },
+      {
+       "min": 93,
+       "side": "away",
+       "kind": "missed",
+       "who": "Maguire",
+       "team": "Manchester United"
+      }
+     ],
+     "events": [
+      {
+       "min": 8,
+       "side": "away",
+       "kind": "red",
+       "label": "RED CARD · YORO 8'"
+      }
+     ],
+     "clear": false
+    }
+   ]
+  },
+  {
+   "kicker": "Man United · 2026/27",
+   "headline": "One win in [eleven].",
+   "vo": "t",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#da291c",
+     "#ffffff",
+     "#111111"
+    ],
+    "seed": 7
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.5,
+   "focus": 0.35,
+   "camera": "high",
+   "card": [
+    {
+     "type": "form",
+     "y": 1100,
+     "delay": 0,
+     "title": "Man United · Premier League 2026/27",
+     "results": "LWDLDDDLLDL",
+     "opps": [
+      "HUL",
+      "IPS",
+      "EVE",
+      "MNC",
+      "FUL",
+      "TOT",
+      "LEE",
+      "BOU",
+      "CHE",
+      "AVL",
+      "LIV"
+     ],
+     "winT": 1.9,
+     "winLabel": "LAST WIN · 30 AUG",
+     "bracket": {
+      "from": 2,
+      "to": 10,
+      "label": "9 WITHOUT A WIN"
+     },
+     "bracketT": 2.5,
+     "clear": false
+    }
+   ]
+  }
+ ]
+}

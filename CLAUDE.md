@@ -37,7 +37,15 @@ visuals (which tools or backlog items), and what still needs fact-checking. End 
      shots under 2 s, and still moments. Issues must last 1 s to count. Fix everything it lists before sending a preview; then look at the sheet once.
    - **One section only:** `--range a,b` re-renders just that stretch (with the real voice, when the user wants to see a fix first).
    - **Shared building blocks:** new videos' `gen.py` use `engine/lib.py` (`P`, `kit`, `stadium`/`small`, `goal()` shooter clip, `clean_tackle()`,
-     `bug()`, `hud()`, `stamp()`, `big()`, `start()`/`save()`, `tags_count()`). Fix a building block there, not per video.
+     `bug()`, `hud()`, `stamp()`, `big()`, `start()`/`save()`, `tags_count()`, `freekick()` wall + curling ball, `foul_from_behind()` chase-and-slide). Fix a building block there, not per video.
+   **Same-day match video (a game that just finished; example `videos/pochettino-debut`, built in one session):**
+   - **Data first, from ESPN's JSON** (reachable from the container; Sky, Yahoo, NBC and most news sites are not): `site.api.espn.com/apis/site/v2/sports/soccer/<league>/summary?event=<id>`
+     (keyEvents, play-by-play `commentary` with a minute on every shot, `boxscore`, `rosters`, the recap `article` with context and the managers' names),
+     `/teams/<id>/schedule?season=2026` and `apis/v2/sports/soccer/<league>/standings`. Write `videos/<slug>/data/fetch.py` to pull them, and make `gen.py`
+     **assert every minute, score and stat it uses**, so a wrong number stops the build. The user's screenshots (xG, momentum) are extra sources: name them in research.md.
+   - Check names against the feed (Liverpool's manager was Iraola, not Slot). Never use a claim only one search snippet makes (an Opta "first" could not be confirmed, so it stayed out).
+   - Order of work: facts and asserts → 3 hooks → script (vo.txt + vo_elevenlabs.md) → Kokoro reference → draft + check (fix, repeat) → stills of the key frames at full size → full preview.
+     While the 60fps preview renders, write the thumbnail and the three posts (`engine/posts.py` must pass), so the final is one command once the voice arrives.
 3. Voiceover: either the user uploads their own (e.g. ElevenLabs, best quality), or generate it here with Kokoro
    (local, free; default voice `bm_george`, British male):
    ```
@@ -405,6 +413,18 @@ Built so far from the idea list (reuse them):
   `focus` (club name: its row is gold and slides, with a ▲/▼ chip for places gained since the first step), `zones: [{from, to, color}]` (promotion,
   play-offs), `colors: {name: colour}`, `title`, `stepDur`, `labelColor`. Other clubs that swap places ghost as they cross, so the focus row stays clear.
   Build the rows from the sim's per-matchday snapshots (never by hand). Also works for a drop (MD45 → MD46, 3rd → 4th).
+- **Shot timeline** (built for `videos/pochettino-debut`): the `shotline` card. Every shot of a match on a minute track with a sweeping playhead: home shots stack above
+  the axis, away below; filled = on target, ring = off target, small ring = blocked, gold ball = goal; goal-scorer pills, a red-card marker, live shot counters, half-time line.
+  `shots: [{min, side: home|away, kind: goal|saved|missed|blocked, who}]`, `events: [{min, side, kind: "red", label}]`, `total` (minutes incl. stoppage, 94), `ht`, `dur`
+  (playhead seconds), `home`/`away: {name, color}`, `title`, `w`, `h`. Build `shots` from ESPN's play-by-play (`data/shots.json`; the counts match ESPN's totals).
+- **Form strip** (built for `videos/pochettino-debut`): the `form` card. A run of results as W/D/L chips with the opponent under each; the last win rings in gold with a label
+  (`winAt`, `winLabel`) and a bracket underlines the winless run (`bracket: {from, to, label}`, `bracketAt`). `results: "LWDLDDDLLDL"`, `opps: [...]`, `title`, `step`.
+- **Free-kick scene:** `lib.freekick(word, x, z, shooter_kit, wall_kit, keeper_kit, end, keeper_dir, side, lag, label, **shooter)`: a wall that jumps on the strike, the ball over it
+  into the corner, a late keeper. The camera sits to one side, aimed midway between the kicker and the goal, so his body never hides the ball (a camera straight behind the
+  kicker does, and the hype zoom then pushes onto his back). Use `lag` about -1.15 so the ball (1 s of flight) arrives on the word.
+- **Foul from behind:** `lib.foul_from_behind(word, victim_kit, fouler_kit, victim=, fouler=, ...)`: the runner dribbles, the defender chases and slides, contact on the word
+  (both start `lead` seconds earlier, so they are mid-run on frame 0), a tracking side camera 6 m away. Add `freezeAt` + a `redcard` for a sending-off.
+- **Player labels are timed from the beat start, not from the player's own start** (`labelDelay`); a player who starts before the word needs a numeric `labelDelay`.
 - **Pass-through words are exempt from the edge check:** a `flytext` with `settle: false` or `mode: "through"` is meant to cross the frame edges.
 - **Seesaw scoreline** (built for `videos/yamal-messi-19`): the `seesaw` card. A back-and-forth match told goal by goal: chips pop on each team's side
   (`left`/`right: {name, color, text}`) with minute, scorer and the new score, joined by a dashed zig-zag. `items: [{side, min, who, score, at}]`, `title`, `w`, `rowH`.
@@ -533,3 +553,4 @@ Card types (`pos`: top | mid | center | low, or `y` in px):
 - `engine/sfx.py`: synthesises the whoosh/tick/pop/impact/crowd track
 - `build.py`: VO alignment, render, SFX and final mux. Outputs go to `videos/<slug>/out/` (gitignored).
 - `engine/posts.py`: checks a video's `youtube.md` and `social.md` against the platform rules in step 5.
+- `videos/<slug>/data/fetch.py` (match videos): pulls ESPN's feed into `data/*.json`; `gen.py` asserts on it.

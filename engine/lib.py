@@ -10,6 +10,7 @@ Everything here encodes rules the user asked for (see CLAUDE.md): shooters stay 
 covers, the keeper is beaten or makes a real save, tackles are clean (no fall, the ball goes to a team-mate), score bugs clear the headline.
 """
 import json
+import math
 
 RED, GOLD, GREEN, TEAL, SKY = "#ff4d5e", "#e9b949", "#2ecc71", "#3FE0C5", "#6cabdd"
 GK_YELLOW = {"shirt": "#f7d117", "shorts": "#111111", "socks": "#f7d117", "text": "#111111"}
@@ -118,6 +119,65 @@ def goal(word, x, z, side, shooter_kit, end, keeper_dir, keeper_kit, def_kit, la
     camk = {"camFrom": {"pos": [round(x + side * 3.0, 2), 2.2, z - 9], "tgt": [round(x * 0.4, 2), 1.0, 52]},
             "camera": {"pos": [round(x + side * 2.4, 2), 1.9, z - 6.3], "tgt": [round(x * 0.4, 2), 1.0, 52]}, "move": 4, "moveEase": "linear", "follow": 0.5}
     return pl, cards, camk
+
+
+def freekick(word, x, z, shooter_kit, wall_kit, keeper_kit, end, keeper_dir, side=1, lag=-0.5, label=None, wall_n=4, jump=True, **shooter):
+    """A direct free kick with contact on `word`: the shooter stands over the ball at (x, z) (z about 28-33), a wall of `wall_n` faces him 9.15 m
+    away on the line to goal and jumps as he strikes, the ball goes over it and dips into `end` ([x, y, 52.3], inside the posts). keeper_dir: the
+    way the keeper dives (the same way as the ball = he is beaten by pace; he starts late so the ball passes his fingertips).
+    Returns (players, cards, camera keys) like goal(); the camera sits behind and to one side of the shooter (side +1/-1)."""
+    b0 = [x + (-0.22 if shooter.get('foot') == 'left' else 0.22), 0.11, z + 0.45]
+    sh = P(kit=shooter_kit, x=x, z=z, action="kick", actionAt=word, actionLag=lag, actionDur=0.8, after="celebrate", runup=2.0, **shooter)
+    if label:
+        sh.update(label=label, labelDelay=0.1)
+    dx, dz = -x, 52.5 - z
+    n = (dx * dx + dz * dz) ** 0.5
+    ux, uz = dx / n, dz / n                           # unit vector from the ball to the middle of the goal
+    cx, cz = x + 9.15 * ux, z + 9.15 * uz             # the wall stands 9.15 m away on that line
+    looks = [("#e7b593", "#141010"), ("#8a5a3c", "#141010"), ("#f0c8a8", "#6a4a2a"), ("#c99b7a", "#2a1a10"), ("#e7b593", "#3a2a1a")]
+    wall = []
+    for i in range(wall_n):
+        off = (i - (wall_n - 1) / 2) * 0.62
+        sk, hr = looks[i % len(looks)]
+        w = P(kit=wall_kit, skin=sk, hair=hr, x=round(cx - uz * off, 2), z=round(cz + ux * off, 2), front=True)
+        if jump:
+            w.update(hops=[{"at": word, "lag": lag + 0.28, "dur": 0.55, "height": 0.45}])
+        wall.append(w)
+    keeper = P(kit=keeper_kit, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, front=True, pose="keeper", before="ready", action="dive", dir=keeper_dir,
+               actionAt=word, actionLag=lag + 0.62)
+    ctrl = [round(b0[0] + 0.55 * (end[0] - b0[0]), 2), 4.6, round(b0[2] + 0.55 * (end[2] - b0[2]), 2)]   # high over the wall, dipping late
+    shot = {"type": "ballpath", "world": True, "at": word, "lag": lag + 0.34, "dur": 1.0, "slowmo": True, "points": [b0, ctrl, end]}
+    cards = [{"type": "ball", "delay": 0, "point": b0, "untilAt": word, "untilLag": lag + 0.34}, shot]
+    # the camera sits well to one side and behind the shooter, so his body never hides the ball's path to the corner;
+    # it looks midway (in bearing) between the shooter and the middle of the goal, so both stay in frame
+    def aim(cam):
+        bearing = lambda px, pz: math.atan2(cam[0] - px, pz - cam[2])
+        th = (bearing(x, z) + bearing(0.0, 52.5)) / 2
+        return [round(cam[0] - math.tan(th) * (47 - cam[2]), 2), 1.2, 47]
+    c0 = [round(x + side * 7.0, 2), 2.3, round(z - 6.5, 2)]
+    c1 = [round(x + side * 6.0, 2), 2.0, round(z - 4.0, 2)]
+    camk = {"camFrom": {"pos": c0, "tgt": aim(c0)}, "camera": {"pos": c1, "tgt": aim(c1)}, "move": 4, "moveEase": "linear", "follow": 0.12}
+    return [sh] + wall + [keeper], cards, camk
+
+
+def foul_from_behind(word, victim_kit, fouler_kit, victim=None, fouler=None, lag=0.0, lead=3.6, victim_label=None, fouler_label=None):
+    """A clean-through player is brought down by a defender who chases him and slides in from behind, with contact on `word` (the engine's slide + fall).
+    Both start running `lead` seconds before the word (a negative start = already mid-run on frame 0), so the contact always lands on the word.
+    victim / fouler = extra P() kwargs (skin, hair, name, num, foot...). Returns (players, cards, camera keys): a side-on camera 6 m away that tracks
+    the run (about 3.4 s). The loose ball keeps rolling after contact (a ballpath that is not a goal)."""
+    v = dict(victim or {})
+    f = dict(fouler or {})
+    pv = P(kit=victim_kit, dribble=True, dribbleUntil=round(lead - 0.05, 2), x=0.2, z=17.5, path=[[0.2, 17.5], [0.5, 26.0], [0.9, 33.5], [1.2, 38.8]], pathDur=round(lead + 0.25, 2),
+           at=word, lag=-lead + lag, action="fall", actionAt=word, actionLag=0.1 + lag, **v)
+    pf = P(kit=fouler_kit, x=-2.4, z=11.0, path=[[-2.4, 11.0], [-1.7, 21.5], [-0.8, 30.0], [0.5, 36.0]], pathDur=round(lead - 0.1, 2),
+           at=word, lag=-lead + lag, action="slide", dir=1, actionAt=word, actionLag=-0.5 + lag, actionDur=1.1, **f)
+    if victim_label:
+        pv.update(label=victim_label, labelDelay=round(lead - 1.2, 2))
+    if fouler_label:
+        pf.update(label=fouler_label, labelDelay=round(lead - 0.4, 2))
+    cards = [{"type": "ballpath", "world": True, "at": word, "lag": 0.15 + lag, "dur": 0.9, "slowmo": True, "flash": False, "points": [[1.3, 0.11, 39.0], [2.4, 0.2, 41.5], [3.6, 0.11, 43.8]]}]
+    camk = {"camFrom": {"pos": [7.0, 1.6, 19.5], "tgt": [0.6, 1.0, 23.0]}, "camera": {"pos": [6.2, 1.6, 34.5], "tgt": [1.2, 1.0, 38.0]}, "move": 3.4, "moveEase": "linear", "hype": False}
+    return [pv, pf], cards, camk
 
 
 def clean_tackle(word, tackler, runner_kit, mate_kit, label=None):

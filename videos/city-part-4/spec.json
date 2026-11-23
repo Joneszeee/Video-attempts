@@ -2597,7 +2597,7 @@
    "shots": [
     {
      "at": "Who should City",
-     "lag": 0.15,
+     "lag": 0.32,
      "cut": true,
      "transition": "whip",
      "kicker": "Your vote · January window",

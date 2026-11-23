@@ -200,7 +200,7 @@ B.append({"kicker": "The weak spot", "headline": "The weak spot: [midfield].", "
   "camFrom": {"pos": [-30, 26, -40], "tgt": [0, 0, 5]}, "camera": {"pos": [24, 20, -34], "tgt": [0, 0, 5]}, "move": 6, "moveEase": "linear", "players": [],
   "card": [{"type": "lineup", "y": 1150, "delay": 0.0, "w": 720, "title": "City · the XI", "clear": False, "instant": True, "items": XI,
             "empty": {"x": 0.65, "y": 0.5, "label": "MIDFIELD", "at": "midfield", "lag": -0.15}}, hud("League One · January window", counter=False)],
-  "shots": [{"at": "Who should City", "lag": 0.15, "cut": True, "transition": "whip", "kicker": "Your vote · January window", "headline": "January: [which midfielder]?", "scene": S_ETI, "accent": TEAL,
+  "shots": [{"at": "Who should City", "lag": 0.32, "cut": True, "transition": "whip", "kicker": "Your vote · January window", "headline": "January: [which midfielder]?", "scene": S_ETI, "accent": TEAL,
      "lights": 0.6, "focus": 0.3, "camFrom": {"pos": [0, 1.6, -3.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0, 1.6, -1.8], "tgt": [0, 1.3, 10]}, "move": 4, "moveEase": "linear", "players": [], "hype": False,
      "card": [cand("Kalvin Phillips", "SHEFFIELD UTD", SHU, -335, "Who should City", [[6, "starts"], ["1+2", "G + A"]], "ex-Man City", "#8a5a3c", "#141010"),
               cand("James Ward-Prowse", "SOUTHAMPTON", SOU, 0, "sign in January", [[12, "starts"], ["1+1", "G + A"]], "Championship", "#f0c8a8", "#4a3324"),

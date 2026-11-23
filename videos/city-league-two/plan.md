@@ -76,6 +76,7 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
 - League One 2028/29, matchdays 1–23, McCracken in goal: City **4th at halfway** (38 pts, W10 D8 L5), **best defence (22 conceded) and best goal difference (+21)**, Haaland 13, 5 points off the top (MK Dons 43);
   the model expected 46 points. Pre-season odds with McCracken 94% promoted / 75% champions (86% / 60% without him); halfway 88% / 57%.
 - Five key matches: Stevenage 0–1 (day one), Burnley 1–2 (Haaland twice), Luton 3–4 (seven goals), Stockport 3–1 (revenge for last year's 3–4), Derby 9–1.
-- Preview (SFX only) and the ElevenLabs script were sent; the thumbnail and posts are ready (`videos/city-part-4/thumbnail.jpg`, `youtube.md`, `social.md`; `posts.py` passes). Waiting for the user's voice.
+- Preview (SFX only) and the ElevenLabs script were sent; the user's voice (P5.mp3, one file) was aligned and the **final was built and sent on 23 Nov 2026** (62.9 s, -14 LUFS, check clean);
+  thumbnail and posts (`videos/city-part-4/thumbnail.jpg`, `youtube.md`, `social.md`; `posts.py` passes) were given with it.
 - January vote (open): a midfielder: Kalvin Phillips (Sheffield United), James Ward-Prowse (Southampton), Oliver Norwood (Stockport). **Ask the user about the series length before Part 5**
   (the second half of season 3 + play-offs; replay the first half exactly from seed 2029, then fix a new seed).

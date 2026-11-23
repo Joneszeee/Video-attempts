@@ -16,7 +16,10 @@ virality: surprise, conflict, a record, a big name, and a clear hook number. For
 visuals (which tools or backlog items), and what still needs fact-checking. End with your top pick and why, and list the sources.
 
 ## Series in progress
-- **Man City in League Two** (`videos/city-league-two/plan.md`): pilot first. **Before making Part 2, ask the user again how long the series should run** (they asked for this reminder).
+- **Man City in League Two** (`videos/city-league-two/plan.md`): Parts 1–4 are built (`videos/city-league-two` = the pilot, `city-league-one` = Part 2, `city-part-3`, `city-part-4`). The user decides the length
+  **episode by episode: ask again before every new part** (they asked for this reminder). Part 5 = the second half of season 3 (matchdays 24–46 + play-offs) after the January midfielder vote
+  (Kalvin Phillips / James Ward-Prowse / Oliver Norwood). The season-3 sim is `data/sim_l4.py` (league membership and ratings in `data/l4model.py`, first half done with seed 2029); the second half
+  replays it exactly the way `sim_l1b.py` replayed Part 2 (assert the matchday-23 table against `ep4.json`, fix a new seed before running).
 
 ## When the user sends a script (or a story)
 1. Create `videos/<slug>/spec.json` (format below) and `videos/<slug>/vo.txt`.
@@ -368,7 +371,8 @@ Built so far from the idea list (reuse them):
   (or `pickText: "?"`) with a `pickLabel` pill: `balls: [{text: "BEL", color, color2}]`, `pick` (index), `title`, `r`, `ballR`. For cup draws and "who's next" stories.
 - **Fate tiles with custom labels:** a `fates` item takes `label` ("CAN'T", "POSSIBLE", "RUNNER-UP") with `fate: "down"|"up"`, so the same tiles work for draw rules.
 - **Ticket stub text always fits** (user: the date ran past the ticket's edges). The engine shrinks the stub date to the ticket's height; still keep it short ("Wembley · Sept 2026").
-- **`tickets` card keys** (it crashed once on the wrong ones): the list is `tickets: [...]` (not `items`), with `done` = how many are already shown and `newT`/`newAt` for the next.
+- **`tickets` card keys** (it crashed once on the wrong ones): the list is `tickets: [...]` (not `items`), with `done` = how many are already shown and `newT`/`newAt` for the next. Each ticket can carry its own
+  `stamp` and `stampColor` (red LOST, green WON); `stampDx` (default 40; 120 on a short ticket) moves the stamp so a short word clears the team names. Two tickets in one fan overlap: use two cards.
 - **Goal ladder** (built for `videos/ronaldo-146`): the `ladder` card. Columns race up towards a glowing record line and stop short, with a red "53 short" chip in the gap:
   `max`, `maxLabel`, `items: [{name, value, color, at|t, note, done: true (retired, grey)}]`, `w`, `h`. Repeat it across beats with more columns revealed (`t: 0, dur: 0.01` = already there).
 - **Match timeline** (built for `videos/italy-collapse`): the `timeline` card. A 0–90 minute bar; goal pins drop on their words and a pulsing red `bracket: {from, to, label, at}`
@@ -398,7 +402,9 @@ Built so far from the idea list (reuse them):
   - **Live finishing-position chart:** the `simrun` card. Bars build up with noise that settles while the run counter spins: `dist: {position: percent}`,
     `positions: [from, to]`, `real` (white pin), `zone: {from, to, label, color}` (e.g. the Champions League places or relegation), `peakColor`,
     `stamp: {text, sub, color, pos}` + `stampAt` (a big % pops over the zone or over bar `pos`), `title`, `w`, `h`.
-  - **Odds grid:** the `odds` card. 100 squares tile in; on `litAt` the first `lit` (scattered) glow green one by one and the rest go dull red; `label` ("{n} in 100").
+  - **Odds grid:** the `odds` card. 100 squares tile in; on `litAt` the first `lit` (scattered) glow green one by one and the rest go dull red; `label` ("{n} in 100", or "{n}%").
+    `litStep` (seconds per square, default 0.14; use 0.016 for 90+ so they light in about 1.5 s) and `extra: {n, color, at, label}` (on its word the last `n` lit squares turn gold one by one and a pill says
+    what they are: "your keeper adds 8", built for `videos/city-part-4`, where 94 squares light and 8 of them are McCracken's).
   - **Substitution board:** the `subboard` card. The fourth official's LED board rises: red `out: {num, name}`, then green `in: {num, name}` lights on `swapAt`.
   - `tape` now takes `decimals` (for rates like 0.78 per 90).
 - **League Two ground** (built for `videos/city-league-two`): scene `"ground": "small"` on a stadium. Four separate low stands with roofs on posts, an open
@@ -425,6 +431,13 @@ Built so far from the idea list (reuse them):
 - **Foul from behind:** `lib.foul_from_behind(word, victim_kit, fouler_kit, victim=, fouler=, ...)`: the runner dribbles, the defender chases and slides, contact on the word
   (both start `lead` seconds earlier, so they are mid-run on frame 0), a tracking side camera 6 m away. Add `freezeAt` + a `redcard` for a sending-off.
 - **Player labels are timed from the beat start, not from the player's own start** (`labelDelay`); a player who starts before the word needs a numeric `labelDelay`.
+- **Points pace** (built for `videos/city-part-4`): the `pace` card. A line chart of a team's points after each matchday against what the model expected: both lines draw across, pins mark chosen matchdays
+  (a dot on the actual line and a small label; `dy` moves a label above or below), and on `gapAt` a red bracket pops with the gap ("−8"). `expected`, `actual` (cumulative points per matchday),
+  `pins: [{i, label, color, dy}]`, `startT`, `dur`, `gapLabel`, `names`, `title`, `w`, `h`. Expected points come from `data/extra4.py` (the model's own expectation for each fixture, including the chance
+  Haaland and Foden miss it). Use it for "the table says X, the model says Y" re-hooks.
+- **League membership for a new season** (`videos/city-league-two/data/l4model.py`): last season's simulated league minus the promoted and relegated clubs, plus the clubs that come in. Clubs from the
+  Championship are rated by fitting that league's real results (`fetch_ch.py`, ESPN's scoreboard one day at a time: date ranges give a 400) and moving them onto the League One scale with the real
+  Championship v League One cup ties (`gap_ch.py`); clubs from League Two move across with the League Two bridge. Stand-ins are today's real tables (Part 2's convention).
 - **Pass-through words are exempt from the edge check:** a `flytext` with `settle: false` or `mode: "through"` is meant to cross the frame edges.
 - **Seesaw scoreline** (built for `videos/yamal-messi-19`): the `seesaw` card. A back-and-forth match told goal by goal: chips pop on each team's side
   (`left`/`right: {name, color, text}`) with minute, scorer and the new score, joined by a dashed zig-zag. `items: [{side, min, who, score, at}]`, `title`, `w`, `rowH`.

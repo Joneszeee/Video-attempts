@@ -3719,7 +3719,7 @@ CARDS.chalk = function (c, ct, cx, cy) {
 CARDS.chalk.noSlide = true;
 
 // Matchday tickets (idea list): a fanned stack of paper tickets, one per game, each stamped as it's named.
-// tickets: [{comp, teams, score, date}], stamp text (e.g. "LOST"), done/newAt like the tally.
+// tickets: [{comp, teams, score, date, stamp, stampColor}], stamp text (e.g. "LOST"; per ticket or for all) + stampColor (default red) + stampDx (sideways offset, default 40; use 110 on a short ticket so a short word clears the team names), done/newAt like the tally.
 CARDS.tickets = function (c, ct, cx, cy) {
   const T = c.tickets, n = T.length, tw = c.tw || 560, th = c.th || 210, a = eOut(pr(ct, 0, 0.4));
   const shown = (c.done || 0) + (c.newT != null && ct >= c.newT ? 1 : 0);
@@ -3740,13 +3740,14 @@ CARDS.tickets = function (c, ct, cx, cy) {
     font(800, 52, 'Inter', '-1px'); ctx.fillText(tk.score, -tw / 2 + 50, -th / 2 + 160);
     ctx.save(); ctx.translate(tw / 2 - 60, 0); ctx.rotate(-Math.PI / 2); { let fs = 18; font(700, fs, 'Mono', '3px'); const dw = ctx.measureText(tk.date.toUpperCase()).width; if (dw > th - 36) { fs = Math.max(10, fs * (th - 36) / dw); font(700, fs, 'Mono', '2px'); } }   // the stub date always fits inside the ticket
     ctx.textAlign = 'center'; ctx.fillText(tk.date.toUpperCase(), 0, 6); ctx.restore();
-    if (c.stamp && k >= 1) {
+    const stp = tk.stamp || c.stamp, stc = tk.stampColor || c.stampColor || '#d6283b';
+    if (stp && k >= 1) {
       const sk = isNew ? pr(ct, c.newT + 0.45, 0.2) : 1;
       if (sk > 0) {
-        ctx.save(); ctx.translate(40, 10); ctx.rotate(-0.18); ctx.scale(lerp(2, 1, eOut(sk)), lerp(2, 1, eOut(sk))); ctx.globalAlpha *= 0.88;
-        font(900, 64, 'Inter', '4px'); const sw = ctx.measureText(c.stamp).width + 40;
-        ctx.strokeStyle = '#d6283b'; ctx.lineWidth = 7; rrect(-sw / 2, -44, sw, 88, 10); ctx.stroke();
-        ctx.fillStyle = '#d6283b'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.stamp, 0, 4);
+        ctx.save(); ctx.translate(c.stampDx != null ? c.stampDx : 40, 10); ctx.rotate(-0.18); ctx.scale(lerp(2, 1, eOut(sk)), lerp(2, 1, eOut(sk))); ctx.globalAlpha *= 0.88;
+        font(900, 64, 'Inter', '4px'); const sw = ctx.measureText(stp).width + 40;
+        ctx.strokeStyle = stc; ctx.lineWidth = 7; rrect(-sw / 2, -44, sw, 88, 10); ctx.stroke();
+        ctx.fillStyle = stc; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(stp, 0, 4);
         ctx.restore();
       }
     }
@@ -4171,12 +4172,12 @@ CARDS.simrun.noSlide = true;
 
 // Odds grid: 100 squares (10×10) tile in; on litT|litAt the first `lit` squares (scattered) glow green one by one and the rest go dull.
 // n (100), cols (10), lit, litStep (seconds per square, default 0.14; use 0.016 when lit is 90+), color, offColor, cell, title, label ("{n} in 100"),
-// extra: {n, color, t|at, label} = after the first batch, `n` more of the dull squares light in a second colour ("your keeper adds 8"); the big number counts them too.
+// extra: {n, color, t|at, label} = on its word the last `n` of the lit squares turn a second colour one by one ("your keeper adds 8") and a pill says what they are.
 CARDS.odds = function (c, ct, cx, cy) {
   const N = c.n || 100, cols = c.cols || 10, rows = Math.ceil(N / cols), cell = c.cell || 66, gap = 10, gw = cols * cell + (cols - 1) * gap;
   const lit = c.lit || 0, lT = c.litT != null ? c.litT : 0.9, st = c.litStep || 0.14, col = c.color || '#2ecc71', off = c.offColor || '#c23a48';
-  const X = c.extra || null, xN = X ? X.n || 0 : 0, xT = X ? (X.t != null ? X.t : lT + lit * st + 0.7) : 0, xCol = X ? X.color || '#e9b949' : '#e9b949', xSt = 0.12;
-  const order = Array.from({ length: N }, (_, i) => i).sort((p, q) => webHash(p, 3) - webHash(q, 3)), litSet = new Map(order.slice(0, lit).map((v, k) => [v, k])), xSet = new Map(order.slice(lit, lit + xN).map((v, k) => [v, k]));
+  const X = c.extra || null, xN = X ? Math.min(lit, X.n || 0) : 0, xT = X ? (X.t != null ? X.t : lT + lit * st + 0.7) : 0, xCol = X ? X.color || '#e9b949' : '#e9b949', xSt = 0.12;
+  const order = Array.from({ length: N }, (_, i) => i).sort((p, q) => webHash(p, 3) - webHash(q, 3)), litSet = new Map(order.slice(0, lit).map((v, k) => [v, k])), xSet = new Map(order.slice(lit - xN, lit).map((v, k) => [v, k]));
   const x0 = cx - gw / 2, y0 = cy - (rows * cell + (rows - 1) * gap) / 2;
   ctx.save();
   const pz = 1 + Math.min(0.08, 0.016 * ct); ctx.translate(cx, cy); ctx.scale(pz, pz); ctx.translate(-cx, -cy);
@@ -4185,24 +4186,26 @@ CARDS.odds = function (c, ct, cx, cy) {
     const r = Math.floor(i / cols), q = i % cols, x = x0 + q * (cell + gap), y = y0 + r * (cell + gap);
     const ik = eBack(pr(ct, 0.05 + (r + q) * 0.035, 0.3)); if (ik <= 0) continue;
     let fill = '#3a404c', glow = 0, s = ik;
-    if (litSet.has(i)) { const k = pr(ct, lT + litSet.get(i) * st, 0.25); if (k > 0) { fill = col; glow = k; s = ik * (1 + 0.25 * Math.sin(Math.PI * Math.min(1, k))); } }
-    else {
+    if (litSet.has(i)) {
+      const k = pr(ct, lT + litSet.get(i) * st, 0.25);
+      if (k > 0) { fill = col; glow = k; s = ik * (1 + 0.25 * Math.sin(Math.PI * Math.min(1, k))); }
+      if (xSet.has(i)) { const xk = pr(ct, xT + xSet.get(i) * xSt, 0.25); if (xk > 0) { fill = xCol; glow = 1; s = ik * (1 + 0.3 * Math.sin(Math.PI * Math.min(1, xk))); } }
+    } else {
       const k = pr(ct, lT + lit * st + 0.1, 0.4);
       if (k > 0) fill = k >= 1 ? rgba(off, 0.55) : `rgba(${hex(off).join(',')},${0.55 * k})`;
       if (k > 0 && k < 1) { ctx.fillStyle = '#3a404c'; rrect(x, y, cell, cell, 10); ctx.fill(); }
-      if (xSet.has(i)) { const xk = pr(ct, xT + xSet.get(i) * xSt, 0.25); if (xk > 0) { fill = xCol; glow = xk; s = ik * (1 + 0.3 * Math.sin(Math.PI * Math.min(1, xk))); } }
     }
     ctx.save(); ctx.translate(x + cell / 2, y + cell / 2); ctx.scale(s, s);
     if (glow) { ctx.shadowColor = fill; ctx.shadowBlur = 30 * glow; }
     ctx.fillStyle = fill; rrect(-cell / 2, -cell / 2, cell, cell, 10); ctx.fill(); ctx.restore();
   }
-  const done = Math.min(lit, Math.max(0, Math.ceil((ct - lT) / st))), xd = X && ct >= xT ? Math.min(xN, Math.floor((ct - xT) / xSt) + 1) : 0;
+  const done = Math.min(lit, Math.max(0, Math.ceil((ct - lT) / st))), xd = X && ct >= xT;
   if (ct >= lT) {
     const pk = eBack(pr(ct, lT, 0.3)), ly = y0 + rows * (cell + gap) + 90;
     ctx.save(); ctx.translate(cx, ly); ctx.scale(pk, pk);
     font(900, 96, 'Inter', '-2px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = xd ? xCol : col;
-    ctx.fillText((c.label || '{n} in 100').replace('{n}', done + xd), 0, 0); ctx.restore();
-    if (X && X.label && xd) {   // a pill under the number: what the extra squares are
+    ctx.fillText((c.label || '{n} in 100').replace('{n}', done), 0, 0); ctx.restore();
+    if (X && X.label && xd) {   // a pill under the number: what the recoloured squares are
       const ek = eBack(pr(ct, xT, 0.3)); font(800, 30, 'Mono', '2px'); const tw = ctx.measureText(X.label.toUpperCase()).width + 48;
       ctx.save(); ctx.translate(cx, ly + 62); ctx.scale(ek, ek); ctx.fillStyle = xCol; rrect(-tw / 2, -26, tw, 52, 26); ctx.fill(); ctx.fillStyle = '#14110a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(X.label.toUpperCase(), 0, 2); ctx.restore();
     }
@@ -4497,12 +4500,12 @@ CARDS.form.noSlide = true;
 
 // Points pace (built for videos/city-part-4): a team's points after each matchday against what the model expected. Both lines draw across the chart; pins mark
 // chosen matchdays (a dot on the actual line + a small label); on gapT|gapAt a red bracket pops with the gap.
-// expected, actual: cumulative points after matchday 1..n; pins: [{i (0-based matchday), label, color}], startT, dur, gapT|gapAt, gapLabel ("−8"), title, w, h,
+// expected, actual: cumulative points after matchday 1..n; pins: [{i (0-based matchday), label, color, dy (label offset in px, default 46 = below; negative = above)}], startT, dur, gapT|gapAt, gapLabel ("−8"), title, w, h,
 // names: {expected, actual} (legend), top (y-axis maximum, default the next 10 above the data).
 CARDS.pace = function (c, ct, cx, cy) {
   const E = c.expected || [], A = c.actual || [], n = Math.max(E.length, A.length); if (!n) return;
   const w = c.w || 900, h = c.h || 700, t0 = c.startT != null ? c.startT : 0.4, dur = c.dur || 3.2, k0 = eOut(pr(ct, 0, 0.35)); if (k0 <= 0) return;
-  const top = c.top || Math.ceil(Math.max(...E, ...A) / 10) * 10, px0 = -w / 2 + 96, px1 = w / 2 - 190, py0 = h - 100, py1 = 190;
+  const top = c.top || Math.ceil(Math.max(...E, ...A) / 10) * 10, px0 = -w / 2 + 96, px1 = w / 2 - 215, py0 = h - 100, py1 = 190;
   const X = i => px0 + (px1 - px0) * (i + 1) / n, Y = v => py0 + (py1 - py0) * v / top;
   const g = ease(pr(ct, t0, dur)), m = g * n, nm = c.names || {};
   const poly = arr => [[X(-1), Y(0)]].concat(arr.map((v, i) => [X(i), Y(v)]));
@@ -4532,7 +4535,7 @@ CARDS.pace = function (c, ct, cx, cy) {
     const a = eBack(pr(m, pin.i + 0.55, 0.45)); if (a <= 0 || pin.i >= A.length) continue;
     const x = X(pin.i), y = Y(A[pin.i]), col = pin.color || '#d6283b';
     ctx.save(); ctx.translate(x, y); ctx.scale(a, a); ctx.fillStyle = col; ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(0, 0, 14, 0, 7); ctx.fill(); ctx.stroke();
-    if (pin.label) { font(800, 22, 'Inter', '1px'); const tw = ctx.measureText(pin.label).width + 28; ctx.translate(0, 46); ctx.fillStyle = col; rrect(-tw / 2, -20, tw, 40, 20); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(pin.label, 0, 1); }
+    if (pin.label) { font(800, 22, 'Inter', '1px'); const tw = ctx.measureText(pin.label).width + 28; ctx.translate(0, pin.dy != null ? pin.dy : 46); ctx.fillStyle = col; rrect(-tw / 2, -20, tw, 40, 20); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(pin.label, 0, 1); }
     ctx.restore();
   }
   // the end numbers and the gap
@@ -4545,7 +4548,7 @@ CARDS.pace = function (c, ct, cx, cy) {
       const gk = ease(pr(ct, c.gapT, 0.5)), by = lerp(ye, ya, gk), xb = px1 + 26;
       if (gk > 0) { ctx.strokeStyle = '#ff4d5e'; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(xb, ye); ctx.lineTo(xb, by); ctx.stroke(); }
       const pk = eBack(pr(ct, c.gapT + 0.3, 0.3));
-      if (pk > 0 && c.gapLabel) { font(900, 40, 'Inter'); const tw = ctx.measureText(c.gapLabel).width + 40; ctx.save(); ctx.translate(xr + 150, (ye + ya) / 2); ctx.scale(pk, pk);
+      if (pk > 0 && c.gapLabel) { font(900, 40, 'Inter'); const tw = ctx.measureText(c.gapLabel).width + 40; ctx.save(); ctx.translate(xr + 118, (ye + ya) / 2); ctx.scale(pk, pk);
         ctx.fillStyle = '#d6283b'; rrect(-tw / 2, -30, tw, 60, 30); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(c.gapLabel, 0, 2); ctx.restore(); }
     }
   }

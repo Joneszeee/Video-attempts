@@ -34,8 +34,14 @@ def line_spans(vo_path, starts, total):
         nxt = starts[i + 1] if i + 1 < len(starts) else total + 0.01
         # the pause just before the next line starts marks this line's end
         cands = [s for s, e in sil if st + 0.3 < s < nxt and abs(e - nxt) < 0.35]
-        end = max(cands) if cands else (nxt - 0.35 if i + 1 < len(starts) else
-                                         max([s for s, e in sil if s > st + 0.3] or [total]))
+        if cands:
+            end = max(cands)
+        elif i + 1 < len(starts):
+            end = nxt - 0.35
+        else:   # the last line ends at the trailing silence; when the file has none (a reference read that stops on its last word) it ends with the file,
+                # not at the last pause inside the line (that cut the last line's second sentence short and made a 0.6 s shot)
+            trail = [s for s, e in sil if s > st + 0.3 and e >= total - 0.4]
+            end = max(trail) if trail else total - 0.05
         spans.append((st, max(end, st + 0.3)))
     return spans
 

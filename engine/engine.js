@@ -4170,11 +4170,13 @@ CARDS.simrun = function (c, ct, cx, cy) {
 CARDS.simrun.noSlide = true;
 
 // Odds grid: 100 squares (10×10) tile in; on litT|litAt the first `lit` squares (scattered) glow green one by one and the rest go dull.
-// n (100), cols (10), lit, color, offColor, cell, title, label ("{n} in 100")
+// n (100), cols (10), lit, litStep (seconds per square, default 0.14; use 0.016 when lit is 90+), color, offColor, cell, title, label ("{n} in 100"),
+// extra: {n, color, t|at, label} = after the first batch, `n` more of the dull squares light in a second colour ("your keeper adds 8"); the big number counts them too.
 CARDS.odds = function (c, ct, cx, cy) {
   const N = c.n || 100, cols = c.cols || 10, rows = Math.ceil(N / cols), cell = c.cell || 66, gap = 10, gw = cols * cell + (cols - 1) * gap;
-  const lit = c.lit || 0, lT = c.litT != null ? c.litT : 0.9, col = c.color || '#2ecc71', off = c.offColor || '#c23a48';
-  const order = Array.from({ length: N }, (_, i) => i).sort((p, q) => webHash(p, 3) - webHash(q, 3)), litSet = new Map(order.slice(0, lit).map((v, k) => [v, k]));
+  const lit = c.lit || 0, lT = c.litT != null ? c.litT : 0.9, st = c.litStep || 0.14, col = c.color || '#2ecc71', off = c.offColor || '#c23a48';
+  const X = c.extra || null, xN = X ? X.n || 0 : 0, xT = X ? (X.t != null ? X.t : lT + lit * st + 0.7) : 0, xCol = X ? X.color || '#e9b949' : '#e9b949', xSt = 0.12;
+  const order = Array.from({ length: N }, (_, i) => i).sort((p, q) => webHash(p, 3) - webHash(q, 3)), litSet = new Map(order.slice(0, lit).map((v, k) => [v, k])), xSet = new Map(order.slice(lit, lit + xN).map((v, k) => [v, k]));
   const x0 = cx - gw / 2, y0 = cy - (rows * cell + (rows - 1) * gap) / 2;
   ctx.save();
   const pz = 1 + Math.min(0.08, 0.016 * ct); ctx.translate(cx, cy); ctx.scale(pz, pz); ctx.translate(-cx, -cy);
@@ -4183,18 +4185,27 @@ CARDS.odds = function (c, ct, cx, cy) {
     const r = Math.floor(i / cols), q = i % cols, x = x0 + q * (cell + gap), y = y0 + r * (cell + gap);
     const ik = eBack(pr(ct, 0.05 + (r + q) * 0.035, 0.3)); if (ik <= 0) continue;
     let fill = '#3a404c', glow = 0, s = ik;
-    if (litSet.has(i)) { const k = pr(ct, lT + litSet.get(i) * 0.14, 0.25); if (k > 0) { fill = col; glow = k; s = ik * (1 + 0.25 * Math.sin(Math.PI * Math.min(1, k))); } }
-    else { const k = pr(ct, lT + lit * 0.14 + 0.1, 0.4); if (k > 0) fill = k >= 1 ? rgba(off, 0.55) : `rgba(${hex(off).join(',')},${0.55 * k})`; if (k > 0 && k < 1) { ctx.fillStyle = '#3a404c'; rrect(x, y, cell, cell, 10); ctx.fill(); } }
+    if (litSet.has(i)) { const k = pr(ct, lT + litSet.get(i) * st, 0.25); if (k > 0) { fill = col; glow = k; s = ik * (1 + 0.25 * Math.sin(Math.PI * Math.min(1, k))); } }
+    else {
+      const k = pr(ct, lT + lit * st + 0.1, 0.4);
+      if (k > 0) fill = k >= 1 ? rgba(off, 0.55) : `rgba(${hex(off).join(',')},${0.55 * k})`;
+      if (k > 0 && k < 1) { ctx.fillStyle = '#3a404c'; rrect(x, y, cell, cell, 10); ctx.fill(); }
+      if (xSet.has(i)) { const xk = pr(ct, xT + xSet.get(i) * xSt, 0.25); if (xk > 0) { fill = xCol; glow = xk; s = ik * (1 + 0.3 * Math.sin(Math.PI * Math.min(1, xk))); } }
+    }
     ctx.save(); ctx.translate(x + cell / 2, y + cell / 2); ctx.scale(s, s);
-    if (glow) { ctx.shadowColor = col; ctx.shadowBlur = 30 * glow; }
+    if (glow) { ctx.shadowColor = fill; ctx.shadowBlur = 30 * glow; }
     ctx.fillStyle = fill; rrect(-cell / 2, -cell / 2, cell, cell, 10); ctx.fill(); ctx.restore();
   }
-  const done = Math.min(lit, Math.max(0, Math.ceil((ct - lT) / 0.14)));
+  const done = Math.min(lit, Math.max(0, Math.ceil((ct - lT) / st))), xd = X && ct >= xT ? Math.min(xN, Math.floor((ct - xT) / xSt) + 1) : 0;
   if (ct >= lT) {
     const pk = eBack(pr(ct, lT, 0.3)), ly = y0 + rows * (cell + gap) + 90;
     ctx.save(); ctx.translate(cx, ly); ctx.scale(pk, pk);
-    font(900, 96, 'Inter', '-2px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = col;
-    ctx.fillText((c.label || '{n} in 100').replace('{n}', done), 0, 0); ctx.restore();
+    font(900, 96, 'Inter', '-2px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = xd ? xCol : col;
+    ctx.fillText((c.label || '{n} in 100').replace('{n}', done + xd), 0, 0); ctx.restore();
+    if (X && X.label && xd) {   // a pill under the number: what the extra squares are
+      const ek = eBack(pr(ct, xT, 0.3)); font(800, 30, 'Mono', '2px'); const tw = ctx.measureText(X.label.toUpperCase()).width + 48;
+      ctx.save(); ctx.translate(cx, ly + 62); ctx.scale(ek, ek); ctx.fillStyle = xCol; rrect(-tw / 2, -26, tw, 52, 26); ctx.fill(); ctx.fillStyle = '#14110a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(X.label.toUpperCase(), 0, 2); ctx.restore();
+    }
   }
   ctx.restore();
 };
@@ -4484,6 +4495,64 @@ CARDS.form = function (c, ct, cx, cy) {
 };
 CARDS.form.noSlide = true;
 
+// Points pace (built for videos/city-part-4): a team's points after each matchday against what the model expected. Both lines draw across the chart; pins mark
+// chosen matchdays (a dot on the actual line + a small label); on gapT|gapAt a red bracket pops with the gap.
+// expected, actual: cumulative points after matchday 1..n; pins: [{i (0-based matchday), label, color}], startT, dur, gapT|gapAt, gapLabel ("−8"), title, w, h,
+// names: {expected, actual} (legend), top (y-axis maximum, default the next 10 above the data).
+CARDS.pace = function (c, ct, cx, cy) {
+  const E = c.expected || [], A = c.actual || [], n = Math.max(E.length, A.length); if (!n) return;
+  const w = c.w || 900, h = c.h || 700, t0 = c.startT != null ? c.startT : 0.4, dur = c.dur || 3.2, k0 = eOut(pr(ct, 0, 0.35)); if (k0 <= 0) return;
+  const top = c.top || Math.ceil(Math.max(...E, ...A) / 10) * 10, px0 = -w / 2 + 96, px1 = w / 2 - 190, py0 = h - 100, py1 = 190;
+  const X = i => px0 + (px1 - px0) * (i + 1) / n, Y = v => py0 + (py1 - py0) * v / top;
+  const g = ease(pr(ct, t0, dur)), m = g * n, nm = c.names || {};
+  const poly = arr => [[X(-1), Y(0)]].concat(arr.map((v, i) => [X(i), Y(v)]));
+  const drawn = P => { const out = [P[0]]; for (let j = 1; j < P.length; j++) { const f = Math.max(0, Math.min(1, m - (j - 1))); if (f <= 0) break; out.push([lerp(P[j - 1][0], P[j][0], f), lerp(P[j - 1][1], P[j][1], f)]); } return out; };
+  ctx.save(); ctx.globalAlpha *= k0; ctx.translate(cx, cy - h / 2 + (1 - k0) * 30); { const pu = 1 + 0.012 * ct; ctx.translate(0, h / 2); ctx.scale(pu, pu); ctx.translate(0, -h / 2); }
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.fillStyle = 'rgba(8,10,15,0.9)'; rrect(-w / 2, 0, w, h, 28); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.textBaseline = 'middle';
+  if (c.title) { font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.textAlign = 'center'; ctx.fillText(c.title.toUpperCase(), 0, 44); }
+  // legend
+  ctx.save(); ctx.setLineDash([12, 9]); ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(-w / 2 + 56, 104); ctx.lineTo(-w / 2 + 116, 104); ctx.stroke(); ctx.restore();
+  font(700, 22, 'Mono', '2px'); ctx.textAlign = 'left'; ctx.fillStyle = '#e6e8ec'; ctx.fillText((nm.expected || 'MODEL EXPECTED').toUpperCase(), -w / 2 + 130, 104);
+  ctx.strokeStyle = '#f1c453'; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(24, 104); ctx.lineTo(84, 104); ctx.stroke();
+  ctx.fillStyle = '#f1c453'; ctx.fillText((nm.actual || 'ACTUAL').toUpperCase(), 98, 104);
+  // grid + axis labels
+  font(600, 20, 'Mono'); ctx.textAlign = 'right'; ctx.strokeStyle = 'rgba(255,255,255,0.09)'; ctx.lineWidth = 2;
+  for (let v = 0; v <= top; v += 10) { const y = Y(v); ctx.beginPath(); ctx.moveTo(px0, y); ctx.lineTo(px1 + 24, y); ctx.stroke(); ctx.fillStyle = '#7d8594'; ctx.fillText(String(v), px0 - 14, y); }
+  ctx.textAlign = 'center'; ctx.fillStyle = '#7d8594'; for (const i of [0, 4, 9, 14, 19, n - 1]) if (i < n) ctx.fillText(String(i + 1), X(i), py0 + 32);
+  font(600, 18, 'Mono', '3px'); ctx.fillText('MATCHDAY', (px0 + px1) / 2, py0 + 68);
+  // expected (dotted white) and actual (solid gold)
+  const PE = drawn(poly(E)), PA = drawn(poly(A));
+  const line = (P, col, wd, dash) => { if (P.length < 2) return; ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = wd; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; if (dash) ctx.setLineDash(dash);
+    ctx.shadowColor = col; ctx.shadowBlur = dash ? 0 : 14; ctx.beginPath(); ctx.moveTo(P[0][0], P[0][1]); for (const q of P.slice(1)) ctx.lineTo(q[0], q[1]); ctx.stroke(); ctx.restore(); };
+  line(PE, '#ffffff', 6, [12, 9]); line(PA, '#f1c453', 9);
+  for (const [P, col] of [[PE, '#ffffff'], [PA, '#f1c453']]) { const q = P[P.length - 1]; ctx.fillStyle = col; ctx.beginPath(); ctx.arc(q[0], q[1], 11, 0, 7); ctx.fill(); }
+  // pins on the actual line
+  for (const pin of c.pins || []) {
+    const a = eBack(pr(m, pin.i + 0.55, 0.45)); if (a <= 0 || pin.i >= A.length) continue;
+    const x = X(pin.i), y = Y(A[pin.i]), col = pin.color || '#d6283b';
+    ctx.save(); ctx.translate(x, y); ctx.scale(a, a); ctx.fillStyle = col; ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(0, 0, 14, 0, 7); ctx.fill(); ctx.stroke();
+    if (pin.label) { font(800, 22, 'Inter', '1px'); const tw = ctx.measureText(pin.label).width + 28; ctx.translate(0, 46); ctx.fillStyle = col; rrect(-tw / 2, -20, tw, 40, 20); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(pin.label, 0, 1); }
+    ctx.restore();
+  }
+  // the end numbers and the gap
+  const k1 = eBack(pr(ct, t0 + dur, 0.35));
+  if (k1 > 0) {
+    const ye = Y(E[E.length - 1]), ya = Y(A[A.length - 1]), xr = px1 + 40;
+    ctx.save(); ctx.translate(xr, ye - 6); ctx.scale(k1, k1); font(900, 66, 'Inter', '-2px'); ctx.textAlign = 'left'; ctx.fillStyle = '#ffffff'; ctx.fillText(String(Math.round(E[E.length - 1])), 0, -30); ctx.restore();
+    ctx.save(); ctx.translate(xr, ya + 6); ctx.scale(k1, k1); font(900, 66, 'Inter', '-2px'); ctx.textAlign = 'left'; ctx.fillStyle = '#f1c453'; ctx.fillText(String(Math.round(A[A.length - 1])), 0, 36); ctx.restore();
+    if (c.gapT != null) {
+      const gk = ease(pr(ct, c.gapT, 0.5)), by = lerp(ye, ya, gk), xb = px1 + 26;
+      if (gk > 0) { ctx.strokeStyle = '#ff4d5e'; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(xb, ye); ctx.lineTo(xb, by); ctx.stroke(); }
+      const pk = eBack(pr(ct, c.gapT + 0.3, 0.3));
+      if (pk > 0 && c.gapLabel) { font(900, 40, 'Inter'); const tw = ctx.measureText(c.gapLabel).width + 40; ctx.save(); ctx.translate(xr + 150, (ye + ya) / 2); ctx.scale(pk, pk);
+        ctx.fillStyle = '#d6283b'; rrect(-tw / 2, -30, tw, 60, 30); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(c.gapLabel, 0, 2); ctx.restore(); }
+    }
+  }
+  ctx.restore();
+};
+CARDS.pace.noSlide = true;
+
 function drawSpeedlines(b, lt) {
   for (const sl of b.speedlines || []) {
     const r = lt - (sl.t || 0), d = sl.dur || 1.2;
@@ -4510,7 +4579,11 @@ function cardEvents(c) {
   switch (c.type) {
     case 'simhud': { if (c.counter === false) break; const c0 = c.countT != null ? c.countT : 0.1; ticks(c0, Math.min(1.4, (c.dur || 2.2) * 0.8)); break; }
     case 'simrun': { const c0 = c.countT != null ? c.countT : 0.2; ticks(c0, Math.min(1.4, (c.dur || 2.4) * 0.8)); if (c.stampT != null) ev.push({ t: c.stampT, type: 'impact' }); break; }
-    case 'odds': { const lT = c.litT != null ? c.litT : 0.9; ev.push({ t: 0.05, type: 'swish' }); for (let i = 0; i < (c.lit || 0); i++) ev.push({ t: lT + i * 0.14, type: 'pop' }); ev.push({ t: lT + (c.lit || 0) * 0.14 + 0.1, type: 'swipe' }); break; }
+    case 'odds': { const lT = c.litT != null ? c.litT : 0.9, st = c.litStep || 0.14; ev.push({ t: 0.05, type: 'swish' });
+      if (st < 0.07) ticks(lT, Math.min(1.4, (c.lit || 0) * st)); else for (let i = 0; i < Math.min(c.lit || 0, Math.floor(1.4 / st)); i++) ev.push({ t: lT + i * st, type: 'pop' });
+      ev.push({ t: lT + (c.lit || 0) * st + 0.1, type: 'swipe' });
+      if (c.extra) { const xt = c.extra.t != null ? c.extra.t : lT + (c.lit || 0) * st + 0.7; for (let i = 0; i < Math.min(c.extra.n || 0, 10); i++) ev.push({ t: xt + i * 0.12, type: 'pop' }); ev.push({ t: xt + 0.05, type: 'impact' }); } break; }
+    case 'pace': { const t0 = c.startT != null ? c.startT : 0.4; ticks(t0, Math.min(1.4, c.dur || 3.2)); if (c.gapT != null) ev.push({ t: c.gapT + 0.1, type: 'impact' }); break; }
     case 'seesaw': for (const it of c.items || []) if (it.t != null) ev.push({ t: it.t, type: 'pop' }); break;
     case 'shotline': { const t0 = c.startT != null ? c.startT : 0.35, d = c.dur || 4, tot = c.total || 94; ev.push({ t: 0.05, type: 'swish' });
       (c.shots || []).forEach((sh, i) => { if (sh.kind === 'goal') ev.push({ t: t0 + sh.min / tot * d, type: 'impact' }); else if (i % 2 === 0) ev.push({ t: t0 + sh.min / tot * d, type: 'tick' }); });

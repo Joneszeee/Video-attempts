@@ -62,3 +62,12 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
 - Unknown: LS posted only a photo of Bradford's keeper; the "Voted" tag (if any) was hidden behind the reply bar. Not counted until seen.
 - Count the poll + YouTube + Instagram comments together before any Part 4, and ask the user about the series length first.
 - Rule: only count a vote when the "Voted" tag or the words are visible; never infer a vote from a photo.
+
+## Keeper vote result and Part 4 go-ahead (user, 23 Nov 2026)
+- The TikTok poll (left open 7 days by accident; 645 votes after one day): **Jon McCracken 43%, José Sá 33%, Gavin Bazunu 24%**. The user called it:
+  **City sign Bradford's keeper, Jon McCracken.** The academy players keep getting better. Part 4 = **the first half of the next League One season (matchdays 1–23)**.
+- Series length: still episode by episode (the go-ahead for Part 4 is the answer to the reminder).
+- Decisions I made (flag if wrong): the league changes as in the real EFL (3 up, 4 down in League One; 3 down from the Championship, 4 up from League Two),
+  using today's real tables as the stand-ins (see research.md, episode 4); McCracken rated at Bradford's real League One level; the seed (2029) was fixed before running.
+- January vote (Part 5): **a midfielder** (the model's weakest slot): Kalvin Phillips (Sheffield United), James Ward-Prowse (Southampton), Oliver Norwood (Stockport).
+  Count the TikTok poll + YouTube/Instagram comments before building Part 5, and ask about the series length first.

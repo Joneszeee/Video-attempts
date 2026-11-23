@@ -194,6 +194,8 @@ def _resolve_beat(b, rel):
                     pl['nameT'] = round(max(0, rel(pl.pop('nameAt')) - base), 3)
         if c.get('type') == 'lineup' and isinstance(c.get('empty'), dict) and 'at' in c['empty']:
             c['empty']['t'] = round(max(0, rel(c['empty'].pop('at')) + c['empty'].pop('lag', 0) - base), 3)
+        if c.get('type') == 'odds' and isinstance(c.get('extra'), dict) and 'at' in c['extra']:
+            c['extra']['t'] = round(max(0, rel(c['extra'].pop('at')) + c['extra'].pop('lag', 0) - base), 3)
         if c.get('type') == 'photofinish' and isinstance(c.get('gapAt'), str):
             c['gapT'] = round(max(0, rel(c.pop('gapAt')) + c.pop('gapLag', 0) - base), 3)
         if c.get('type') in ('whiteboard', 'toytable', 'toyresults', 'toydoors', 'ruler', 'lineup', 'career', 'fates', 'trapdoor', 'ladder', 'timeline', 'sinking', 'crown', 'seesaw', 'climb'):
@@ -225,7 +227,7 @@ def _resolve_beat(b, rel):
             c['goalT'] = round(max(0, rel(c.pop('goalAt')) + c.pop('goalLag', 0) - base), 3)
         if c.get('type') == 'stopwatch' and isinstance(c.get('lockAt'), str):
             c['lockT'] = round(max(0.4, rel(c.pop('lockAt')) + c.pop('lockLag', 0) - base), 3)
-        for typ, key, out in (('simrun', 'stampAt', 'stampT'), ('simrun', 'countAt', 'countT'), ('simhud', 'countAt', 'countT'), ('odds', 'litAt', 'litT'), ('subboard', 'swapAt', 'swapT')):
+        for typ, key, out in (('simrun', 'stampAt', 'stampT'), ('simrun', 'countAt', 'countT'), ('simhud', 'countAt', 'countT'), ('odds', 'litAt', 'litT'), ('pace', 'gapAt', 'gapT'), ('subboard', 'swapAt', 'swapT')):
             if c.get('type') == typ and isinstance(c.get(key), str):
                 c[out] = round(max(0, rel(c.pop(key)) + c.pop(key[:-2] + 'Lag', 0) - base), 3)
         if c.get('type') == 'coin' and isinstance(c.get('landAt'), str):

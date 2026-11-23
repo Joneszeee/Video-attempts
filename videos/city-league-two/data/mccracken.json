@@ -1,0 +1,282 @@
+[
+ {
+  "id": "401880917",
+  "date": "2026-08-15",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 2.0,
+   "conceded": 0.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Bradford City",
+    "2"
+   ],
+   [
+    "Peterborough United",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "401880903",
+  "date": "2026-08-20",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 3.0,
+   "conceded": 0.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Sheffield Wednesday",
+    "0"
+   ],
+   [
+    "Bradford City",
+    "1"
+   ]
+  ]
+ },
+ {
+  "id": "401880890",
+  "date": "2026-08-29",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 1.0,
+   "conceded": 2.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Plymouth Argyle",
+    "2"
+   ],
+   [
+    "Bradford City",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "401880885",
+  "date": "2026-09-01",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 0.0,
+   "conceded": 2.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Bradford City",
+    "1"
+   ],
+   [
+    "Cambridge United",
+    "2"
+   ]
+  ]
+ },
+ {
+  "id": "401880873",
+  "date": "2026-09-05",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 2.0,
+   "conceded": 0.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Bradford City",
+    "1"
+   ],
+   [
+    "Mansfield Town",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "401880860",
+  "date": "2026-09-12",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 0.0,
+   "conceded": 0.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Notts County",
+    "0"
+   ],
+   [
+    "Bradford City",
+    "1"
+   ]
+  ]
+ },
+ {
+  "id": "401880844",
+  "date": "2026-09-19",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 3.0,
+   "conceded": 0.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Luton Town",
+    "0"
+   ],
+   [
+    "Bradford City",
+    "1"
+   ]
+  ]
+ },
+ {
+  "id": "401880817",
+  "date": "2026-10-03",
+  "Cameron Dawson": {
+   "starter": true,
+   "saves": 2.0,
+   "conceded": 1.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Reading",
+    "1"
+   ],
+   [
+    "Bradford City",
+    "1"
+   ]
+  ]
+ },
+ {
+  "id": "401880814",
+  "date": "2026-10-10",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 1.0,
+   "conceded": 0.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Bradford City",
+    "0"
+   ],
+   [
+    "Leyton Orient",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "401880801",
+  "date": "2026-10-17",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 1.0,
+   "conceded": 0.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Bradford City",
+    "2"
+   ],
+   [
+    "Stevenage",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "401880787",
+  "date": "2026-10-20",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 3.0,
+   "conceded": 0.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Burton Albion",
+    "0"
+   ],
+   [
+    "Bradford City",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "401880769",
+  "date": "2026-10-24",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 1.0,
+   "conceded": 0.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Oxford United",
+    "0"
+   ],
+   [
+    "Bradford City",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "401880765",
+  "date": "2026-10-31",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 3.0,
+   "conceded": 3.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Bradford City",
+    "0"
+   ],
+   [
+    "Huddersfield Town",
+    "3"
+   ]
+  ]
+ },
+ {
+  "id": "401880740",
+  "date": "2026-11-21",
+  "Jon McCracken": {
+   "starter": true,
+   "saves": 0.0,
+   "conceded": 2.0,
+   "subbedOut": false
+  },
+  "score": [
+   [
+    "Bradford City",
+    "2"
+   ],
+   [
+    "Doncaster Rovers",
+    "2"
+   ]
+  ]
+ }
+]

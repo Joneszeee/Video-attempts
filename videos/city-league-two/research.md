@@ -140,3 +140,70 @@ City are Man City, even in League One, so they attract names. Final three (ESPN 
   (so "ex-City academy"). Shares the Bolton job (Jack Bonham has also started).
 - Also checked: Mads Hermansen (West Ham) 15 starts, 4 clean sheets, 1.8 saves; James Beadle (Birmingham) 14, 4, 2.7.
 Matt Young and Dennis Seimen dropped from the vote.
+
+# Episode 4: League One 2028/29 (season 3), matchdays 1–23
+
+## What changed since Part 3 (everything is in `data/l4model.py` → `citymodel_l4.json`)
+- **The league (24 clubs).** Part 3's league minus the 3 promoted (**Oxford** champions, **Sheffield Wednesday** 2nd, **Bradford** play-off winners) and the
+  4 relegated (the bottom four: **Blackpool, Notts County, Wigan, Doncaster**), plus 3 down from the Championship and 4 up from League Two.
+  Stand-ins (same convention as Part 2, which removed the real bottom three and added the League Two clubs): the Championship's real bottom three today,
+  **Burnley, Derby County, Preston North End** (ESPN table, 23 Nov 2026); the four best-rated League Two clubs after Barnet and Grimsby (who came up in Part 1),
+  **Salford City, Chesterfield, Walsall, Exeter City**.
+- **Ratings for the newcomers.** League Two clubs: moved onto the League One scale exactly as Grimsby and Barnet were (`l1model.py`).
+  Championship clubs: Poisson ratings fitted to the Championship's real results (749 games, 2025/26 half weight + 2026/27 full weight; `fetch_ch.py` → `espn_ch.json`),
+  then moved onto the League One scale with the real **Championship v League One cup ties** (`gap_ch.py`: 227 FA Cup + League Cup games 2015–2026; an average
+  Championship side scores 1.68 and concedes 1.20 against an average League One side at a neutral venue).
+  On that scale **Derby +0.14, Burnley +0.06, Preston 0.00** (att + def; League One's best are Huddersfield +0.35, Stockport +0.31): the relegated clubs land mid-table to upper mid-table.
+  The three that went up left a hole at the top: last year's City model in this league is already **85% to go up** (69.5% in Part 2's league).
+- **McCracken** in goal (rated at Bradford's real League One level, as Watts was at Cambridge's): City's goals against drop 1.235 → **1.104** per game v an average side
+  (-10.6%). The League Two keeper (Hudson) is out. He is Bradford's real keeper, the club that beat City in our play-off final.
+- **The kids' second year.** Part 2's growth closed 20% of the gap to an average League One player each year; two years compounds to 36%. Growth now never lowers a
+  rating (Part 2's rule also pulled the kids' goals-for 1.42 → 1.40 towards the average, a small flaw in the published first year; fixed here only). The kids play
+  wide (attack weight 15% each, defence 3%), so the effect on City is small: goals for 2.153 → 2.164, against 1.243 → 1.235.
+- **City's rates v an average League One side (everyone fit):** 2.164 for, **1.104 against** (Part 3: 2.153, 1.243).
+
+## McCracken: real numbers (ESPN match reports, 23 Nov 2026; `data/mccracken.json`)
+Age 26, 6'3", Scotland. **13 starts of Bradford's 14 league games, 9 clean sheets, 9 conceded, 20 saves (1.5 per game).** Cameron Dawson started the other game.
+Bradford (real, 14 games): 9 clean sheets and only 10 conceded, so a top-three defence in League One.
+
+## 10,000 seasons (`data/sim_l4.py`, seed 7 for the odds, paired runs)
+| | Promoted | Champions | Top two | Average points |
+|---|---|---|---|---|
+| City with the League Two keeper (second-year kids) | 86.3% | 60.2% | 78.2% | 87.3 |
+| **City with McCracken** | **94.5%** | **75.1%** | 89.2% | 91.4 (80% between 80 and 102) |
+| (last year's City, no McCracken, first-year kids) | 84.8% | 57.8% | | 86.7 |
+So **McCracken alone adds 8 points of promotion chance and 15 of title chance** in this model. For comparison Part 2 (Oxford, Wednesday, Bradford still in the league): 69.5% promoted.
+
+## The official first half (seed 2029, fixed before running; `data/ep4.json`)
+City 4th after 23 matches, **38 points (W10 D8 L5), scored 43, conceded 22 (the fewest), goal difference +21 (the best)**; **6 clean sheets**; Haaland **13 goals**
+(missed 3 games, Foden 2). Leaders: MK Dons 43, Luton 42, Grimsby 39, **City 38**, Leicester 38, Stockport 38. City are **5 points off the top**.
+The model expected **45.9 points** from City's first 23 fixtures (`extra4.py`, which includes the chance Haaland and Foden miss games): City are 8 below expectation.
+Four of the five defeats are by a single goal (Stevenage 0–1, Reading 0–1, Chesterfield 0–1, Luton 3–4; the other is Burton 0–2).
+Halfway odds (10,000 runs from the real matchday-23 table, McCracken model): **88.3% promoted, 57.1% champions, 78.6% top two, 19.1% play-offs** (League Two keeper: 81.1% / 46.6%).
+
+**Five key matches** (the user likes five): 
+1. MD1 **City 0–1 Stevenage** (home): the opening-day shock after a 94% pre-season promotion chance; 18th.
+2. MD2 **Burnley 1–2 City** (away): first win, Haaland twice (Burnley: one of the three clubs that fell from the Championship).
+3. MD8 **City 3–4 Luton** (home): a seven-goal thriller; Luton end the half 2nd.
+4. MD16 **City 3–1 Stockport** (home): revenge for last season's 3–4 (Part 3, matchday 37).
+5. MD21 **City 9–1 Derby** (home): the record win (probability of 9+ goals under the model: under 0.1%; it is what the fixed seed produced). Against the three clubs that fell City have
+   scored **15 and conceded 3** (Burnley 2–1, Preston 4–1, Derby 9–1; the return games come in the second half).
+Other: MD7 Barnet 0–1 City; MD22 Cambridge 1–1 City (Watts's old club again); MD23 City 1–1 Leyton Orient.
+
+## The weak spot (`data/sens4.py`: from the matchday-23 table, upgrade one slot to an average Championship player, 6,000 runs each)
+Midfield (the second holding midfielder, a League Two signing) is the biggest single gain: promotion +3.3 points, title +6.5, +1.07 league points; centre-back (League Two signing)
++3.1 / +5.4 / +0.96; each academy winger +3.1 / +4.8 / +0.88; Watts +2.0 / +3.4 / +0.58. The gaps between slots are small (within a point of promotion chance of each
+other), so "midfield" is the largest gain, not a landslide.
+
+## January vote shortlist: a midfielder (ESPN rosters and match lineups, 23 Nov 2026; league starts = appearances minus substitute appearances)
+| Player | Club | Age | League starts | Goals | Assists | Note |
+|---|---|---|---|---|---|---|
+| **Kalvin Phillips** | Sheffield United (Championship) | 30 | 6 (11 apps) | 1 | 2 | England international, ex-Man City (2022–25); started two of the last four |
+| **James Ward-Prowse** | Southampton (Championship) | 32 | 12 (14 apps) | 1 | 1 | England international, set-piece specialist; started the last four |
+| **Oliver Norwood** | Stockport County (League One) | 35 | 16 (16 apps) | 2 | 3 | Northern Ireland international; started every game for the league leaders |
+Real stats only; each would be rated at his club's level in Part 5 (Championship clubs on the League One scale via the cup bridge). Other midfielders checked:
+Flynn Downes (Southampton, 13 starts), Ben Whiteman (Wrexham, 14), Stephen Eustáquio (Swansea), Oliver Skipp (Charlton), Kasey Palmer (Luton, League One, 3 goals + 4 assists).
+
+## Claims to keep out unless confirmed
+- Nothing about Haaland's or any player's scoring beyond the model's count (the sim gives scores and Haaland's goals only).
+- Why Kalvin Phillips is at Sheffield United (ESPN's roster says he is; the lineups confirm he plays for them).

@@ -16,7 +16,7 @@ virality: surprise, conflict, a record, a big name, and a clear hook number. For
 visuals (which tools or backlog items), and what still needs fact-checking. End with your top pick and why, and list the sources.
 
 ## Series in progress
-- **Man City in League Two** (`videos/city-league-two/plan.md`): Parts 1–4 are built (`videos/city-league-two` = the pilot, `city-league-one` = Part 2, `city-part-3`, `city-part-4`). The user decides the length
+- **Man City in League Two** (`videos/city-league-two/plan.md`): Parts 1–4 are built (`videos/city-league-two` = the pilot, `city-league-one` = Part 2, `city-part-3`, `city-part-4`, plus the squad update `city-squad-update`). The user decides the length
   **episode by episode: ask again before every new part** (they asked for this reminder). Part 5 = the second half of season 3 (matchdays 24–46 + play-offs) after the January midfielder vote
   (Kalvin Phillips / James Ward-Prowse / Oliver Norwood). The season-3 sim is `data/sim_l4.py` (league membership and ratings in `data/l4model.py`, first half done with seed 2029); the second half
   replays it exactly the way `sim_l1b.py` replayed Part 2 (assert the matchday-23 table against `ep4.json`, fix a new seed before running).
@@ -449,6 +449,14 @@ Built so far from the idea list (reuse them):
   `player`, `tag`, `side`, `shiftX`, `w`, `h`. We never use real photos in the video.
   `stats: [[value, label], ...]` adds mini stat chips over his head (user: lesser-known players need a quick "who is he"; real, current stats only:
   defenders clean sheets + goals/assists, strikers goals + assists, keepers clean sheets + saves per game), `statsNote` ("14 starts · League One") under the card.
+- **Squad card** (built for `videos/city-squad-update`, user idea: "FIFA-style cards"; never say FIFA on screen): the `scard` card. A collectible-style walkout: a rarity-coloured light burst, the card enters, the rating counts up,
+  stat rows pop in, a shine sweeps across, sparkles on gold and elite. `name`, `pos`, `ovr`, `rarity` (`bronze` under 65, `silver` 65–74, `gold` 75–84, `elite` 85+), `player` (our drawn figure, as on `pcard`), `badge` (stylised shield),
+  `ribbon` ("FAN PICK"), `rows: [{label, cells: [[value, label], ...]}]` (one row centres itself), `foot` ("sim rating · sim stats": always say they are simulated), `entry` (`flip|drop|left|right|zoom`), `scale`, `tilt`, `dx`,
+  `snap: true` (final numbers at once: use it with `delay: -1.25` on frame 0 so the hook is readable and still shining), `mini: true` (a legend chip: just the `ovr` text and the `pos` text). Pairs at `scale` 0.8, `dx` ±235 fit the frame;
+  two cards in a fan need `dx` ±220 or more or their stats overlap. The `lineup` card's discs can carry a rating (`ovr`, `color`, `ink`) and a red dashed ring on a word (`warnAt`).
+- **Ratings and stats for a squad video** (`videos/city-league-two/data/squad.py`, never invent them): rating = 60 + 80 × the goals per game a player adds to City's goal difference v an average League One player in his slot, from the
+  model (60 = average). The sim only records scores, Haaland's and Foden's availability and Haaland's goals; every other goal and assist is shared out after the fact with a seed fixed before running (2030), by the model's attack weights
+  (67% of goals carry an assist, the real League One share), with no score changed and Haaland's totals untouched. Say "simulated" on every card and in the description.
 - **Yellow card:** the `redcard` card with `"color": "#f7d117"` (then `hideAt` and a red one for a second yellow).
 - **Kit clash check:** when two teams' kits are close (United red v Roma maroon), use the away kit they actually wore (Roma played in black).
 - **Hooped kits:** `kit.hoops: [c1, c2]` gives horizontal bands (QPR, Celtic).

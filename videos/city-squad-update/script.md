@@ -1,7 +1,7 @@
 # Man City in League Two: squad update (between Parts 4 and 5), script
 
 A walkout of City's starting XI as collectible-style cards: a rating, this season's stats (23 games) and all-time stats (three simulated seasons). The words to record are in
-`vo.txt` / `vo_elevenlabs.md` (10 lines, 122 words; about 50 s at 1.08×).
+`vo.txt` / `vo_elevenlabs.md` (10 lines, 128 words; about 52 s at 1.08×).
 
 ## How the numbers are made (say it in the description; `videos/city-league-two/data/squad.py`)
 - **Rating** = 60 + 80 × the goals per game a player adds to City's goal difference compared with an average League One player in his slot (the Part 4 model). 60 = average, each point = 0.0125 goals a game.
@@ -33,4 +33,4 @@ A walkout of City's starting XI as collectible-style cards: a rating, this seaso
 | 7 | Full-backs: Lewis and O'Reilly. Seventy-five each. O'Reilly has seven goals this season. | Two gold cards, confetti and flashes; a "7 goals" tag on O'Reilly. |
 | 8 | Foden: eighty-two. Twenty-two goals, twenty assists. | Foden (gold), zoom entry. |
 | 9 | And Haaland. Seventy-one goals in a hundred games. Thirteen this season. | Haaland (elite) on the stage: rays, sparkles, shake; "71" counts up. |
-| 10 | The team: sixty-nine. Whose rating is wrong? And who fixes midfield? Vote in the poll. | The XI on a pitch with every rating, a pulsing "?" in midfield; the poll (Phillips, Ward-Prowse, Norwood). |
+| 10 | The team: sixty-nine. Whose rating is wrong? And who should City sign to fix midfield? Go to Part 4 and vote in the poll. | The XI on a pitch with every rating and a red ring on midfield; then a phone showing Part 4 and a "VOTE ON PART 4" stamp with Phillips, Ward-Prowse, Norwood (no poll on this video: the user wants one poll, on Part 4). |

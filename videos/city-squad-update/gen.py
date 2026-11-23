@@ -119,12 +119,16 @@ items = []
 for nm, (x, y) in XY.items():
     col, ink = RC[rar(R[nm]['ovr'])]
     it = {"name": SHOW.get(nm, nm).title() if nm == 'T. Samba' else nm, "x": x, "y": y, "color": col, "ink": ink, "ovr": R[nm]['ovr']}
-    if nm == 'Braybrooke': it["warnAt"] = "fixes midfield"
+    if nm == 'Braybrooke': it["warnAt"] = "fix midfield"
     items.append(it)
+GKK = kit("#f7d117", "#111111", "#f7d117", text="#111111")
 B.append({"kicker": "The team", "headline": "The team: [69].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_SIM, "accent": TEAL, "lights": 0.5, "focus": 0.35,
   "camFrom": {"pos": [-30, 26, -40], "tgt": [0, 0, 5]}, "camera": {"pos": [24, 20, -34], "tgt": [0, 0, 5]}, "move": 6, "moveEase": "linear", "players": [],
-  "card": [{"type": "lineup", "y": 910, "delay": 0.0, "w": 660, "title": "City · XI average 69", "clear": False, "instant": True, "items": items}, SQ(),
-           {"type": "poll", "y": 1560, "at": "Vote in the poll", "lag": -0.2, "question": "Who should City sign?", "clear": False,
-            "options": [{"label": "Phillips", "color": "#d71920", "fill": 0.34}, {"label": "Ward-Prowse", "color": "#9a1c24", "fill": 0.33}, {"label": "Norwood", "color": "#1b4fb5", "fill": 0.33}]}]})
+  "card": [{"type": "lineup", "y": 960, "delay": 0.0, "w": 700, "title": "City · XI average 69", "clear": False, "instant": True, "items": items}, SQ()],
+  "shots": [{"at": "Go to Part 4", "lag": -0.1, "cut": True, "transition": "whip", "kicker": "The poll is on Part 4", "headline": "Vote on [Part 4].", "scene": S_ETI, "accent": TEAL, "lights": 0.6, "focus": 0.3,
+     "camFrom": {"pos": [0, 1.6, -3.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0, 1.6, -1.8], "tgt": [0, 1.3, 10]}, "move": 4, "moveEase": "linear", "players": [], "hype": False,
+     "card": [{"type": "phone", "y": 1110, "delay": 0.0, "w": 450, "h": 800, "tag": "Part 4", "caption": "Who should City sign?\nVote in the poll", "bg": ["#1c2c5b", "#0d0f14"], "clear": False,
+               "player": dict(kit=GKK, name="", num=None, **LOOK['McCracken'])},
+              stamp("VOTE ON PART 4", "Go to Part 4", sub="Phillips · Ward-Prowse · Norwood", color=TEAL, y=1570, size=70, lag=0.15), SQ()]}]})
 
 save(V, B, lines, "Man City in League Two · Squad update", accent=TEAL)

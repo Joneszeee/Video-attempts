@@ -21,5 +21,5 @@ One file, lines in order, one clear pause between lines (blank line). Words must
 
 [awed] And Haaland. [triumphant] Seventy-one goals in a hundred games. [proud] Thirteen this season.
 
-[curious] The team: sixty-nine. Whose rating is wrong? [serious] And who fixes midfield? [upbeat] Vote in the poll.
+[curious] The team: sixty-nine. Whose rating is wrong? [serious] And who should City sign to fix midfield? [upbeat] Go to Part 4 and vote in the poll.
 ```

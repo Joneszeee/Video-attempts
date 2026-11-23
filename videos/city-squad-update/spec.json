@@ -1578,9 +1578,9 @@
    "card": [
     {
      "type": "lineup",
-     "y": 910,
+     "y": 960,
      "delay": 0.0,
-     "w": 660,
+     "w": 700,
      "title": "City · XI average 69",
      "clear": false,
      "instant": true,
@@ -1632,7 +1632,7 @@
        "color": "#d8a070",
        "ink": "#2b1a0e",
        "ovr": 59,
-       "warnAt": "fixes midfield"
+       "warnAt": "fix midfield"
       },
       {
        "name": "Lewis",
@@ -1683,34 +1683,108 @@
      "dur": 0,
      "clear": false,
      "counter": false
-    },
+    }
+   ],
+   "shots": [
     {
-     "type": "poll",
-     "y": 1560,
-     "at": "Vote in the poll",
-     "lag": -0.2,
-     "question": "Who should City sign?",
-     "clear": false,
-     "options": [
+     "at": "Go to Part 4",
+     "lag": -0.1,
+     "cut": true,
+     "transition": "whip",
+     "kicker": "The poll is on Part 4",
+     "headline": "Vote on [Part 4].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#6cabdd",
+       "#ffffff",
+       "#6cabdd",
+       "#1c2c5b"
+      ],
+      "seed": 6
+     },
+     "accent": "#3FE0C5",
+     "lights": 0.6,
+     "focus": 0.3,
+     "camFrom": {
+      "pos": [
+       0,
+       1.6,
+       -3.0
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.6,
+       -1.8
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [],
+     "hype": false,
+     "card": [
       {
-       "label": "Phillips",
-       "color": "#d71920",
-       "fill": 0.34
+       "type": "phone",
+       "y": 1110,
+       "delay": 0.0,
+       "w": 450,
+       "h": 800,
+       "tag": "Part 4",
+       "caption": "Who should City sign?\nVote in the poll",
+       "bg": [
+        "#1c2c5b",
+        "#0d0f14"
+       ],
+       "clear": false,
+       "player": {
+        "kit": {
+         "shirt": "#f7d117",
+         "shorts": "#111111",
+         "socks": "#f7d117",
+         "text": "#111111"
+        },
+        "name": "",
+        "num": null,
+        "skin": "#f0c8a8",
+        "hair": "#3a2a1a",
+        "gloves": "#f2f2f2"
+       }
       },
       {
-       "label": "Ward-Prowse",
-       "color": "#9a1c24",
-       "fill": 0.33
+       "type": "stamp",
+       "text": "VOTE ON PART 4",
+       "at": "Go to Part 4",
+       "lag": 0.15,
+       "color": "#3FE0C5",
+       "rot": -0.07,
+       "size": 70,
+       "y": 1570,
+       "sub": "Phillips · Ward-Prowse · Norwood"
       },
       {
-       "label": "Norwood",
-       "color": "#1b4fb5",
-       "fill": 0.33
+       "type": "simhud",
+       "delay": 0,
+       "sub": "Squad update · simulated",
+       "dur": 0,
+       "clear": false,
+       "counter": false
       }
      ]
     }
    ],
-   "vo": "The team: sixty-nine. Whose rating is wrong? And who fixes midfield? Vote in the poll."
+   "vo": "The team: sixty-nine. Whose rating is wrong? And who should City sign to fix midfield? Go to Part 4 and vote in the poll."
   }
  ]
 }

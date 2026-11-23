@@ -21,7 +21,7 @@ Man City in League Two, squad update before Part 5: Haaland is rated 91… and M
 Every starter in City's simulated League One team as a rated card: Haaland 91 (71 goals in 100 games, 13 this season), Foden 82, Lewis and O'Reilly 75, Iroegbunam 71, McCracken 66, McAidoo and Samba 61, Watts 59, Braybrooke 59 and Scarr 57. Your three signings are Iroegbunam, McCracken and Watts. The XI averages 69, and Samba has 31 goals… more than Foden's 22.
 How the ratings work: 60 + 80 × the goals per game a player adds compared with an average League One player in his slot (60 is average). Haaland's goals are the simulation's own; every other goal and assist is shared out by the model's attack weights with a seed fixed in advance. A simulation, not a real season. Parts 1 to 4 are on the channel.
 
-Whose rating is wrong? And who should fix midfield: Kalvin Phillips, James Ward-Prowse or Oliver Norwood? Comment your pick 👇
+Whose rating is wrong? And who should City sign to fix midfield: Kalvin Phillips, James Ward-Prowse or Oliver Norwood? Vote in the poll on Part 4, or comment your pick 👇
 
 Follow for more football stories in under a minute.
 
@@ -36,5 +36,5 @@ man city, manchester city, haaland, erling haaland, halland, haland, erling hall
 
 ## Pinned comment
 ```
-Whose rating is wrong? 🃏 Haaland 91, Foden 82, Scarr 57… tell me which card you'd change, then vote in the poll for who fixes midfield 👇
+Whose rating is wrong? 🃏 Haaland 91, Foden 82, Scarr 57… tell me which card you'd change, then go to Part 4 to vote for who fixes midfield (or comment your pick) 👇
 ```

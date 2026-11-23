@@ -123,7 +123,7 @@ B.append({"kicker": "Matchday 1 · at home", "headline": "Day one: [0–1] to St
 pl, cards, cam = goal("scores twice", -1.2, 41, -1, CITY, [2.8, 1.0, 52.3], -1, GK_GREEN, BUR, lag=-0.3, label="Haaland", **HAAL)
 pl[0].update(tag=2, tagLabel="goals", tagAt="twice", tagLag=-0.1)
 B.append({"kicker": "Matchday 2 · Burnley away", "headline": "Burnley away: Haaland [twice].", "cut": True, "transition": "whip", "scene": S_BUR, "accent": GOLD, **cam, "players": pl, "flashes": 12,
-  "card": cards + [bug({"name": "BUR", "color": "#6c1d45"}, MCI, [1, 2], "MD2", [1, 1], "Two–one", 0.2), hud("League One · matchday 2", counter=False),
+  "card": cards + [bug({"name": "BUR", "color": "#6c1d45"}, MCI, [1, 2], "MD2", [1, 1], "scores twice", 0.5), hud("League One · matchday 2", counter=False),
                    stamp("FIRST WIN", "Two–one", sub=f"13th", color=GREEN, y=1560, size=84, lag=0.1)]})
 
 # 8 match 3: Luton at home, a seven-goal thriller, Luton win 4-3: their winner goes in; seven footballs build a 7
@@ -151,7 +151,7 @@ barrage = [{"type": "ballpath", "world": True, "delay": round(0.1 + i * 0.2, 2),
 B.append({"kicker": "Matchday 21 · at home", "headline": "Derby: [9–1].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_ETI, "accent": TEAL, "lights": 0.85,
   "camFrom": {"pos": [1.5, 2.3, 60.5], "tgt": [0, 1.0, 40]}, "camera": {"pos": [0.8, 2.1, 59.2], "tgt": [0, 1.0, 40]}, "move": 3, "moveEase": "linear", "hype": False,
   "players": [P(kit=GK_GREEN, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, pose="keeper")],
-  "card": barrage + [bug(MCI, {"name": "DER", "color": "#cfd3da"}, [9, 1], "MD21", [0, 0], "Nine–one", 0.8), hud("League One · matchday 21", counter=False),
+  "card": barrage + [bug(MCI, {"name": "DER", "color": "#cfd3da"}, [9, 1], "MD21", [0, 0], "Nine–one", 0.15), hud("League One · matchday 21", counter=False),
                      big(9, "Then Derby", "goals v Derby", frm=0, y=1560, size=170, dur=1.6, lag=-0.3)],
   "shots": [{"at": "Fifteen goals", "lag": 0.15, "cut": True, "transition": "whip", "kicker": "The three clubs that fell from the Championship", "headline": "15 goals v the clubs that [fell].", "scene": S_SIM, "accent": TEAL,
      "lights": 0.5, "focus": 0.3, "camFrom": {"pos": [24, 26, -40], "tgt": [0, 0, 6]}, "camera": {"pos": [-22, 14, -22], "tgt": [0, 0, 6]}, "move": 5, "moveEase": "linear", "players": [],

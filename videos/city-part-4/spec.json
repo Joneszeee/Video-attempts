@@ -1246,8 +1246,8 @@
       1,
       1
      ],
-     "goalAt": "Two–one",
-     "goalLag": 0.2
+     "goalAt": "scores twice",
+     "goalLag": 0.5
     },
     {
      "type": "simhud",
@@ -1943,7 +1943,7 @@
       0
      ],
      "goalAt": "Nine–one",
-     "goalLag": 0.8
+     "goalLag": 0.15
     },
     {
      "type": "simhud",

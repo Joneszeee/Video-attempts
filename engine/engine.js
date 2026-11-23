@@ -2420,6 +2420,8 @@ CARDS.lineup = function (c, ct, cx, cy) {
     ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.arc(2 * sc, 5 * sc, r, 0, 7); ctx.fill();
     ctx.fillStyle = it.color || '#f4f4f2'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
     ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 3 * sc; ctx.beginPath(); ctx.arc(0, 0, r - 5 * sc, 0, 7); ctx.stroke();
+    if (it.warnT != null && ct >= it.warnT) { const pu = 1 + 0.08 * Math.sin((ct - it.warnT) * 7); ctx.save(); ctx.setLineDash([10 * sc, 8 * sc]); ctx.strokeStyle = '#ff4d5e'; ctx.lineWidth = 6 * sc; ctx.beginPath(); ctx.arc(0, 0, (r + 14 * sc) * pu, 0, 7); ctx.stroke(); ctx.restore(); }
+    if (it.ovr != null) { font(900, r * 0.92, 'Inter', '-1px'); ctx.fillStyle = it.ink || '#14110a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(it.ovr), 0, r * 0.06); }   // a rating inside the disc
     font(700, 21 * sc, 'Inter'); const nw = ctx.measureText(it.name).width + 22 * sc;
     ctx.fillStyle = 'rgba(13,16,22,0.92)'; rrect(-nw / 2, r + 6 * sc, nw, 32 * sc, 16 * sc); ctx.fill();
     ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(it.name, 0, r + 23 * sc);
@@ -3387,6 +3389,108 @@ CARDS.pcard = function (c, ct, cx, cy) {
   ctx.restore();
 };
 CARDS.pcard.noSlide = true;
+
+// Squad card (built for videos/city-squad-update): a collectible-card walkout. A rarity-coloured light burst, the card enters, the rating counts up, the stat rows pop in
+// and a shine sweeps across; gold and elite cards get sparkles. We draw our own stylised player and club shield (never a real photo or crest).
+// {type: "scard", name, pos, ovr, rarity: "bronze"|"silver"|"gold"|"elite", player: {kit, skin, hair, gloves, ...}, badge: {colors, text}, ribbon ("FAN PICK"), ribbonColor,
+//  rows: [{label, cells: [[value, label], ...]}], foot ("SIM RATING"), entry: "flip"|"drop"|"left"|"right"|"zoom", scale, tilt, dx, snap (no counting: the final numbers show at once; for frame 0),
+//  mini (a legend chip: ovr text + pos text only)}
+const SCARD_PAL = {
+  bronze: { a: '#d8a070', b: '#7a4a26', c: '#f0c9a0', ink: '#2b1a0e', glow: '#e0a56c', panel: 'rgba(43,26,14,0.82)' },
+  silver: { a: '#eef1f6', b: '#8f99a8', c: '#ffffff', ink: '#1c2430', glow: '#d3dcea', panel: 'rgba(28,36,48,0.84)' },
+  gold: { a: '#fbe597', b: '#b8892a', c: '#fff6cf', ink: '#3a2a06', glow: '#f1c453', panel: 'rgba(58,42,6,0.84)' },
+  elite: { a: '#2b3d78', b: '#0a1022', c: '#f1c453', ink: '#f7e7a8', glow: '#f1c453', panel: 'rgba(6,10,26,0.88)' },
+};
+CARDS.scard = function (c, ct, cx, cy) {
+  const pal = SCARD_PAL[c.rarity] || SCARD_PAL.gold, sc = c.scale || 1, w = 520, h = 740, entry = c.entry || 'flip';
+  const k = eBack(pr(ct, 0, 0.55)), kf = pr(ct, 0, 0.55); if (kf <= 0) return;
+  const ovr = c.ovr != null ? c.ovr : 0, shown = c.snap ? ovr : Math.round(ovr * eOut(pr(ct, 0.35, 0.5)));
+  const float = Math.sin(ct * 1.7 + (c.seed || 0)) * 7, sway = Math.sin(ct * 1.1 + (c.seed || 0)) * 0.012;
+  // light burst behind the card
+  { const b = pr(ct, 0, 0.9), a = (1 - b) * 0.85; if (a > 0) { ctx.save(); ctx.translate(cx + (c.dx || 0), cy); ctx.globalCompositeOperation = 'lighter';
+      const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 620 * sc); g.addColorStop(0, rgba(pal.glow, 0.9 * a)); g.addColorStop(1, rgba(pal.glow, 0)); ctx.fillStyle = g; ctx.fillRect(-700, -900, 1400, 1800);
+      if (c.rarity === 'elite' || c.rarity === 'gold') { ctx.fillStyle = rgba(pal.glow, 0.28 * a); for (let i = 0; i < 12; i++) { const an = i / 12 * 6.283 + ct * 0.4; ctx.beginPath(); ctx.moveTo(0, 0);
+          ctx.lineTo(Math.cos(an - 0.05) * 900, Math.sin(an - 0.05) * 900); ctx.lineTo(Math.cos(an + 0.05) * 900, Math.sin(an + 0.05) * 900); ctx.closePath(); ctx.fill(); } }
+      ctx.restore(); } }
+  // entry transform
+  let tx = 0, ty = 0, sx = 1, sy = 1, rot = 0, al = 1;
+  if (entry === 'flip') { sx = Math.max(0.04, Math.abs(Math.cos((1 - Math.min(1, k)) * 1.45))); sy = 0.85 + 0.15 * Math.min(1, k); rot = (1 - Math.min(1, k)) * -0.18; }
+  else if (entry === 'drop') { ty = -1100 * (1 - k); rot = 0.12 * (1 - k); }
+  else if (entry === 'left') { tx = -900 * (1 - k); rot = -0.25 * (1 - k); }
+  else if (entry === 'right') { tx = 900 * (1 - k); rot = 0.25 * (1 - k); }
+  else if (entry === 'zoom') { const z = 1 + 1.6 * (1 - Math.min(1, k)); sx = sy = z; al = Math.min(1, kf * 2.2); }
+  ctx.save(); ctx.globalAlpha *= al; ctx.translate(cx + (c.dx || 0) + tx, cy + ty + float); ctx.rotate(rot + (c.tilt != null ? c.tilt : 0) + sway); ctx.scale(sx * sc * (1 + 0.01 * ct), sy * sc * (1 + 0.01 * ct));
+  const shape = () => { ctx.beginPath(); ctx.moveTo(-w / 2, -h / 2 + 80); ctx.quadraticCurveTo(-w / 2, -h / 2 + 8, -w / 2 + 64, -h / 2 + 6); ctx.lineTo(-34, -h / 2 + 6); ctx.lineTo(0, -h / 2 + 30); ctx.lineTo(34, -h / 2 + 6);
+    ctx.lineTo(w / 2 - 64, -h / 2 + 6); ctx.quadraticCurveTo(w / 2, -h / 2 + 8, w / 2, -h / 2 + 80); ctx.lineTo(w / 2, h / 2 - 70); ctx.quadraticCurveTo(w / 2, h / 2 - 10, w / 2 - 60, h / 2 - 6);
+    ctx.lineTo(-w / 2 + 60, h / 2 - 6); ctx.quadraticCurveTo(-w / 2, h / 2 - 10, -w / 2, h / 2 - 70); ctx.closePath(); };
+  ctx.shadowColor = 'rgba(0,0,0,0.65)'; ctx.shadowBlur = 44; ctx.shadowOffsetY = 20;
+  const g = ctx.createLinearGradient(-w / 2, -h / 2, w / 2, h / 2); g.addColorStop(0, pal.a); g.addColorStop(0.5, pal.c); g.addColorStop(1, pal.b); shape(); ctx.fillStyle = g; ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.save(); shape(); ctx.clip();
+  // inner field: a darker panel with a faint pattern so the card has depth
+  const ig = ctx.createLinearGradient(0, -h / 2, 0, h / 2); ig.addColorStop(0, rgba(pal.b, 0.55)); ig.addColorStop(1, rgba(pal.b, 0.9));
+  ctx.fillStyle = ig; ctx.fillRect(-w / 2, -h / 2, w, h);
+  ctx.strokeStyle = rgba(pal.c, 0.13); ctx.lineWidth = 3; for (let i = -6; i < 9; i++) { ctx.beginPath(); ctx.moveTo(-w / 2 + i * 70, -h / 2); ctx.lineTo(-w / 2 + i * 70 + 260, h / 2); ctx.stroke(); }
+  // the player: chest-up, a little right of centre so the rating column stays clear
+  ctx.save(); ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h * 0.5 + 60); ctx.clip();
+  const p = Object.assign({ front: true, chest: true }, c.player); ctx.globalAlpha *= pr(ct, 0.15, 0.4);
+  if (!c.mini) drawPlayer(w * 0.12, h * 0.93, h * 1.18, p, ct, 0, 1);
+  ctx.restore();
+  // dark panel for the text
+  if (!c.mini) { const tg = ctx.createLinearGradient(0, -30, 0, 52); tg.addColorStop(0, 'rgba(0,0,0,0)'); tg.addColorStop(1, pal.panel); ctx.fillStyle = tg; ctx.fillRect(-w / 2, -30, w, 82); }
+  if (!c.mini) ctx.fillStyle = pal.panel; if (!c.mini) ctx.fillRect(-w / 2, 52, w, h);
+  // shine sweep
+  const sh = pr(ct, 1.0, 0.6); if (sh > 0 && sh < 1) { ctx.globalCompositeOperation = 'lighter'; const x = lerp(-w, w, sh); const sg = ctx.createLinearGradient(x - 90, 0, x + 90, 0);
+    sg.addColorStop(0, 'rgba(255,255,255,0)'); sg.addColorStop(0.5, 'rgba(255,255,255,0.38)'); sg.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = sg; ctx.save(); ctx.rotate(0.35); ctx.fillRect(x - 90, -h, 180, 2 * h); ctx.restore(); ctx.globalCompositeOperation = 'source-over'; }
+  ctx.restore();
+  // frame
+  shape(); ctx.lineWidth = 9; ctx.strokeStyle = c.rarity === 'elite' ? '#f1c453' : pal.c; ctx.stroke();
+  ctx.save(); ctx.translate(0, 0); ctx.scale(0.965, 0.975); shape(); ctx.lineWidth = 2.5; ctx.strokeStyle = rgba(pal.c, 0.6); ctx.stroke(); ctx.restore();
+  if (c.mini) {   // a legend chip: the rating range and the rarity name, nothing else
+    const mk = pr(ct, 0.25, 0.3); ctx.save(); ctx.globalAlpha *= mk; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    font(900, 190, 'Inter', '-6px'); ctx.fillStyle = pal.c; ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 16; ctx.fillText(String(c.ovr), 0, -40); ctx.shadowColor = 'transparent';
+    font(800, 66, 'Inter', '4px'); ctx.fillText((c.pos || '').toUpperCase(), 0, 118); ctx.restore(); ctx.restore(); return;
+  }
+  // rating column
+  const lx = -w / 2 + 78, ink = pal.ink, tl = pr(ct, 0.3, 0.3); ctx.globalAlpha *= 1;
+  ctx.save(); ctx.globalAlpha *= tl; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  font(900, 128, 'Inter', '-4px'); ctx.fillStyle = pal.c; ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 12; ctx.fillText(String(shown), lx, -h / 2 + 150); ctx.shadowColor = 'transparent';
+  font(800, 44, 'Inter', '2px'); ctx.fillStyle = pal.c; ctx.fillText(c.pos || '', lx, -h / 2 + 202);
+  ctx.fillStyle = rgba(pal.c, 0.7); ctx.fillRect(lx - 34, -h / 2 + 222, 68, 4);
+  if (c.badge) drawBadge(lx, -h / 2 + 292, 84, c.badge);
+  ctx.restore();
+  if (c.ribbon) { const rk = eBack(pr(ct, 0.55, 0.35)); if (rk > 0) { font(800, 22, 'Inter', '3px'); const rw = ctx.measureText(c.ribbon.toUpperCase()).width + 34;
+    ctx.save(); ctx.translate(w / 2 - rw / 2 - 22, -h / 2 + 62); ctx.scale(rk, rk); ctx.rotate(0.04); ctx.fillStyle = c.ribbonColor || '#3FE0C5'; rrect(-rw / 2, -22, rw, 44, 22); ctx.fill();
+    ctx.fillStyle = '#06201c'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.ribbon.toUpperCase(), 0, 2); ctx.restore(); } }
+  // name, line, stat rows
+  const nk = pr(ct, 0.5, 0.3); ctx.save(); ctx.globalAlpha *= nk; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  font(900, 52, 'Inter', '1px'); { const nw = ctx.measureText((c.name || '').toUpperCase()).width, fs = nw > w - 60 ? 52 * (w - 60) / nw : 52; font(900, fs, 'Inter', '1px'); }
+  ctx.fillStyle = pal.c; ctx.fillText((c.name || '').toUpperCase(), 0, 96);
+  ctx.fillStyle = rgba(pal.c, 0.55); ctx.fillRect(-w * 0.38, 112, w * 0.76, 3);
+  ctx.restore();
+  (c.rows || []).forEach((row, ri) => {
+    const t0 = 0.75 + ri * 0.28, rk = eBack(pr(ct, t0, 0.35)); if (rk <= 0) return;
+    const y0 = (c.rows.length === 1 ? 196 : 140) + ri * 112; ctx.save(); ctx.globalAlpha *= Math.min(1, rk); ctx.translate(0, (1 - Math.min(1, rk)) * 26);
+    font(700, 17, 'Mono', '4px'); ctx.fillStyle = rgba(pal.c, 0.85); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText((row.label || '').toUpperCase(), 0, y0);
+    const n = row.cells.length, cw = (w - 80) / n;
+    row.cells.forEach(([v, lab], i) => {
+      const x = -w / 2 + 40 + cw * (i + 0.5), val = typeof v === 'number' ? (c.snap ? v : Math.round(v * eOut(pr(ct, t0 + 0.1 + i * 0.05, 0.6)))) : v;
+      font(900, 46, 'Inter', '-1px'); ctx.fillStyle = '#ffffff'; ctx.fillText(String(val), x, y0 + 40);
+      font(700, 16, 'Mono', '3px'); ctx.fillStyle = rgba(pal.c, 0.8); ctx.fillText(String(lab).toUpperCase(), x, y0 + 72);
+      if (i) { ctx.fillStyle = rgba(pal.c, 0.28); ctx.fillRect(-w / 2 + 40 + cw * i - 1, y0 + 18, 2, 70); }
+    });
+    ctx.restore();
+  });
+  if (c.foot) { font(600, 14, 'Mono', '3px'); ctx.fillStyle = rgba(pal.c, 0.6); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.foot.toUpperCase(), 0, h / 2 - 26); }
+  // sparkles on gold and elite cards
+  if (c.rarity === 'gold' || c.rarity === 'elite') {
+    const R = rng((c.seed || 3) + 11); ctx.save(); ctx.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < 16; i++) { const x = (R() - 0.5) * (w + 60), y = (R() - 0.5) * (h + 40), ph = R() * 6.28, tw = Math.max(0, Math.sin(ct * 3.2 + ph)) * pr(ct, 0.6, 0.3), r = 5 + R() * 9;
+      if (tw <= 0.05) continue; ctx.fillStyle = rgba(pal.c, tw); ctx.beginPath();
+      for (let j = 0; j < 8; j++) { const an = j * Math.PI / 4, rr = j % 2 ? r * 0.28 : r * (0.7 + tw * 0.8); ctx.lineTo(x + Math.cos(an) * rr, y + Math.sin(an) * rr); } ctx.closePath(); ctx.fill(); }
+    ctx.restore(); }
+  ctx.restore();
+};
+CARDS.scard.noSlide = true;
 
 // Stacked stat counter: each new stat counts up big at the bottom and pushes the older ones up, smaller and dimmer.
 CARDS.stack = function (c, ct, cx, cy) {
@@ -4586,6 +4690,7 @@ function cardEvents(c) {
       if (st < 0.07) ticks(lT, Math.min(1.4, (c.lit || 0) * st)); else for (let i = 0; i < Math.min(c.lit || 0, Math.floor(1.4 / st)); i++) ev.push({ t: lT + i * st, type: 'pop' });
       ev.push({ t: lT + (c.lit || 0) * st + 0.1, type: 'swipe' });
       if (c.extra) { const xt = c.extra.t != null ? c.extra.t : lT + (c.lit || 0) * st + 0.7; for (let i = 0; i < Math.min(c.extra.n || 0, 10); i++) ev.push({ t: xt + i * 0.12, type: 'pop' }); ev.push({ t: xt + 0.05, type: 'impact' }); } break; }
+    case 'scard': { ev.push({ t: 0.02, type: 'whoosh' }, { t: 0.4, type: c.rarity === 'bronze' ? 'pop' : 'impact' }); ticks(0.4, 0.45); ev.push({ t: 1.0, type: 'swish' }); if (c.rarity === 'elite') ev.push({ t: 0.45, type: 'crowd' }); break; }
     case 'pace': { const t0 = c.startT != null ? c.startT : 0.4; ticks(t0, Math.min(1.4, c.dur || 3.2)); if (c.gapT != null) ev.push({ t: c.gapT + 0.1, type: 'impact' }); break; }
     case 'seesaw': for (const it of c.items || []) if (it.t != null) ev.push({ t: it.t, type: 'pop' }); break;
     case 'shotline': { const t0 = c.startT != null ? c.startT : 0.35, d = c.dur || 4, tot = c.total || 94; ev.push({ t: 0.05, type: 'swish' });

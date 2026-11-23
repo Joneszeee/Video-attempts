@@ -1,0 +1,224 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "timings": [
+  3
+ ],
+ "beats": [
+  {
+   "kicker": "",
+   "headline": "",
+   "vo": "Thumbnail.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#7a1428",
+     "#f5b301"
+    ],
+    "seed": 41
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.75,
+   "flashes": 16,
+   "focus": 0.2,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "shout",
+     "text": "SQUAD UPDATE",
+     "y": 290,
+     "size": 110,
+     "delay": -3,
+     "rot": -0.04,
+     "clear": false,
+     "color": "#3FE0C5",
+     "color2": "#2bb39c"
+    },
+    {
+     "type": "shout",
+     "text": "HAALAND: 91\nWORST STARTER: 57",
+     "y": 560,
+     "size": 150,
+     "delay": -3,
+     "rot": -0.03,
+     "clear": false
+    },
+    {
+     "type": "scard",
+     "y": 1180,
+     "name": "HAALAND",
+     "pos": "ST",
+     "ovr": 91,
+     "rarity": "elite",
+     "player": {
+      "kit": {
+       "shirt": "#6cabdd",
+       "shorts": "#ffffff",
+       "socks": "#6cabdd",
+       "text": "#1c2c5b"
+      },
+      "name": "",
+      "num": null,
+      "skin": "#f1d3bd",
+      "hair": "#d9b46a"
+     },
+     "badge": {
+      "colors": [
+       "#6cabdd",
+       "#1c2c5b",
+       "#ffffff"
+      ],
+      "text": "MCI"
+     },
+     "rows": [
+      {
+       "label": "This season",
+       "cells": [
+        [
+         20,
+         "gp"
+        ],
+        [
+         13,
+         "g"
+        ],
+        [
+         3,
+         "a"
+        ]
+       ]
+      },
+      {
+       "label": "All-time",
+       "cells": [
+        [
+         100,
+         "gp"
+        ],
+        [
+         71,
+         "g"
+        ],
+        [
+         24,
+         "a"
+        ]
+       ]
+      }
+     ],
+     "foot": "sim rating · sim stats",
+     "entry": "left",
+     "dx": -255,
+     "scale": 0.92,
+     "snap": true,
+     "delay": -4,
+     "clear": false,
+     "seed": 3
+    },
+    {
+     "type": "scard",
+     "y": 1180,
+     "name": "SCARR",
+     "pos": "CB",
+     "ovr": 57,
+     "rarity": "bronze",
+     "player": {
+      "kit": {
+       "shirt": "#6cabdd",
+       "shorts": "#ffffff",
+       "socks": "#6cabdd",
+       "text": "#1c2c5b"
+      },
+      "name": "",
+      "num": null,
+      "skin": "#e7b593",
+      "hair": "#141010"
+     },
+     "badge": {
+      "colors": [
+       "#6cabdd",
+       "#1c2c5b",
+       "#ffffff"
+      ],
+      "text": "MCI"
+     },
+     "rows": [
+      {
+       "label": "This season",
+       "cells": [
+        [
+         23,
+         "gp"
+        ],
+        [
+         6,
+         "cs"
+        ],
+        [
+         1,
+         "g"
+        ]
+       ]
+      },
+      {
+       "label": "All-time",
+       "cells": [
+        [
+         115,
+         "gp"
+        ],
+        [
+         26,
+         "cs"
+        ],
+        [
+         7,
+         "g"
+        ]
+       ]
+      }
+     ],
+     "foot": "sim rating · sim stats",
+     "entry": "right",
+     "dx": 255,
+     "scale": 0.92,
+     "snap": true,
+     "delay": -4,
+     "clear": false,
+     "seed": 8
+    }
+   ]
+  }
+ ]
+}

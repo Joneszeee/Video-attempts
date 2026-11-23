@@ -209,6 +209,8 @@ def _resolve_beat(b, rel):
                 for it in lst:
                     if 'at' in it:
                         it['t'] = round(max(0, rel(it.pop('at')) + it.pop('lag', 0) - base), 3)
+                    if isinstance(it.get('warnAt'), str):
+                        it['warnT'] = round(max(0, rel(it.pop('warnAt')) - base), 3)
                     if isinstance(it.get('shut'), str):
                         it['shut'] = round(max(0, rel(it['shut']) - base), 3)
                     if isinstance(it.get('circle'), dict) and 'at' in it['circle']:

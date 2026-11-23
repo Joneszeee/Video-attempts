@@ -207,3 +207,24 @@ Flynn Downes (Southampton, 13 starts), Ben Whiteman (Wrexham, 14), Stephen Eust�
 ## Claims to keep out unless confirmed
 - Nothing about Haaland's or any player's scoring beyond the model's count (the sim gives scores and Haaland's goals only).
 - Why Kalvin Phillips is at Sheffield United (ESPN's roster says he is; the lineups confirm he plays for them).
+
+# Squad update (between Parts 4 and 5): ratings and simulated stats for the XI (`data/squad.py` → `squad.json`, seed 2030 fixed before running)
+
+**Rating** = 60 + 80 × (goals per game he adds to City's goal difference v an average League One player in his slot), Part 4 model. Cards: bronze < 65, silver 65–74, gold 75–84, elite 85+.
+| Player | Slot | Rating | This season (apps, G, A / CS, GC) | All-time (three seasons) |
+|---|---|---|---|---|
+| Haaland | ST | 91 | 20, 13, 3 | 100 apps, 71 G, 24 A (29 + 29 + 13, the sim's own) |
+| Foden | AM | 82 | 21, 7, 3 | 96, 22, 20 |
+| Lewis | RB | 75 | 23, 2, 3 | 115, 9, 9 (26 clean sheets) |
+| O'Reilly | LB | 75 | 23, 7, 4 | 115, 16, 12 |
+| Iroegbunam | DM | 71 | 23, 1, 3 | 69, 8, 9 (from season 2; your pick) |
+| McCracken | GK | 66 | 23 apps, 6 CS, 22 GC | the same (arrived this season; your pick) |
+| McAidoo | RW | 61 | 23, 2, 5 | 115, 25, 23 |
+| T. Samba | LW | 61 | 23, 4, 6 | 115, 31, 26 |
+| Watts | CB | 59 | 23, 1, 1 (6 CS) | 46, 3, 1 (13 CS; from matchday 24 of season 2; your pick) |
+| Braybrooke | DM | 59 | 23, 4, 0 | 115, 13, 10 |
+| Scarr | CB | 57 | 23, 1, 1 (6 CS) | 115, 7, 5 (26 CS) |
+XI average 68.8 → **69**. The model rates players by tier, so players of the same tier and slot weight tie (Lewis and O'Reilly 75, McAidoo and Samba 61).
+**Method limits (say so):** only Haaland's goals (and Haaland's and Foden's availability) are the sim's own. Every other goal and assist is allocated afterwards (the model's attack weights per slot; 67% of goals carry an assist, the real
+League One share from ESPN: 318 of 477); players play every league game of their time at City; scorers can be lucky (O'Reilly's 7 goals this season is a roughly 1-in-60 outcome for a left-back; kept, as the seed was fixed first).
+League games only (no play-off or cup data). Tenure: Iroegbunam from season 2, Watts from matchday 24 of season 2 (replacing Fitzwater), McCracken from season 3 (replacing Hudson), Fapetu left after season 1.

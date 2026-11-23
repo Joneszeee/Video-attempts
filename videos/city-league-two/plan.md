@@ -80,3 +80,7 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
   thumbnail and posts (`videos/city-part-4/thumbnail.jpg`, `youtube.md`, `social.md`; `posts.py` passes) were given with it.
 - January vote (open): a midfielder: Kalvin Phillips (Sheffield United), James Ward-Prowse (Southampton), Oliver Norwood (Stockport). **Ask the user about the series length before Part 5**
   (the second half of season 3 + play-offs; replay the first half exactly from seed 2029, then fix a new seed).
+
+## Squad update video (between Parts 4 and 5), 23 Nov 2026
+- User idea (with the January poll still open for ~18 h): "go through the team with FIFA-style cards, show their rating and their stats since the beginning of the simulation and this season". Built as `videos/city-squad-update`
+  (ratings from the model, stats allocated with a fixed seed; see research.md, "Squad update"). Preview (SFX only) + ElevenLabs script + thumbnail + posts delivered; waiting for the user's voice.

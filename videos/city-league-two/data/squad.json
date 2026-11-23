@@ -1,0 +1,483 @@
+{
+ "seed": 2030,
+ "p_assist": 0.67,
+ "ratings": {
+  "McCracken": {
+   "impact": 0.0788,
+   "ovr": 66,
+   "pos": "GK",
+   "tier": "mccracken"
+  },
+  "Lewis": {
+   "impact": 0.1878,
+   "ovr": 75,
+   "pos": "RB",
+   "tier": "city"
+  },
+  "Watts": {
+   "impact": -0.0122,
+   "ovr": 59,
+   "pos": "CB",
+   "tier": "watts"
+  },
+  "Scarr": {
+   "impact": -0.0316,
+   "ovr": 57,
+   "pos": "CB",
+   "tier": "l2"
+  },
+  "O'Reilly": {
+   "impact": 0.1878,
+   "ovr": 75,
+   "pos": "LB",
+   "tier": "city"
+  },
+  "Iroegbunam": {
+   "impact": 0.1402,
+   "ovr": 71,
+   "pos": "DM",
+   "tier": "pl"
+  },
+  "Braybrooke": {
+   "impact": -0.0161,
+   "ovr": 59,
+   "pos": "DM",
+   "tier": "l2"
+  },
+  "McAidoo": {
+   "impact": 0.0132,
+   "ovr": 61,
+   "pos": "RW",
+   "tier": "u21"
+  },
+  "Foden": {
+   "impact": 0.276,
+   "ovr": 82,
+   "pos": "AM",
+   "tier": "city"
+  },
+  "T. Samba": {
+   "impact": 0.0132,
+   "ovr": 61,
+   "pos": "LW",
+   "tier": "u21"
+  },
+  "Haaland": {
+   "impact": 0.3887,
+   "ovr": 91,
+   "pos": "ST",
+   "tier": "city"
+  }
+ },
+ "stats": {
+  "McCracken": {
+   "seasons": {
+    "1": null,
+    "2": null,
+    "3": {
+     "apps": 23,
+     "goals": 0,
+     "assists": 0,
+     "cs": 6,
+     "conceded": 22
+    }
+   },
+   "all": {
+    "apps": 23,
+    "goals": 0,
+    "assists": 0,
+    "cs": 6,
+    "conceded": 22
+   },
+   "now": {
+    "apps": 23,
+    "goals": 0,
+    "assists": 0,
+    "cs": 6,
+    "conceded": 22
+   }
+  },
+  "Lewis": {
+   "seasons": {
+    "1": {
+     "apps": 46,
+     "goals": 4,
+     "assists": 3,
+     "cs": 11,
+     "conceded": 0
+    },
+    "2": {
+     "apps": 46,
+     "goals": 3,
+     "assists": 3,
+     "cs": 9,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 23,
+     "goals": 2,
+     "assists": 3,
+     "cs": 6,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 115,
+    "goals": 9,
+    "assists": 9,
+    "cs": 26,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 23,
+    "goals": 2,
+    "assists": 3,
+    "cs": 6,
+    "conceded": 0
+   }
+  },
+  "Watts": {
+   "seasons": {
+    "1": null,
+    "2": {
+     "apps": 23,
+     "goals": 2,
+     "assists": 0,
+     "cs": 7,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 23,
+     "goals": 1,
+     "assists": 1,
+     "cs": 6,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 46,
+    "goals": 3,
+    "assists": 1,
+    "cs": 13,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 23,
+    "goals": 1,
+    "assists": 1,
+    "cs": 6,
+    "conceded": 0
+   }
+  },
+  "Scarr": {
+   "seasons": {
+    "1": {
+     "apps": 46,
+     "goals": 0,
+     "assists": 3,
+     "cs": 11,
+     "conceded": 0
+    },
+    "2": {
+     "apps": 46,
+     "goals": 6,
+     "assists": 1,
+     "cs": 9,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 23,
+     "goals": 1,
+     "assists": 1,
+     "cs": 6,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 115,
+    "goals": 7,
+    "assists": 5,
+    "cs": 26,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 23,
+    "goals": 1,
+    "assists": 1,
+    "cs": 6,
+    "conceded": 0
+   }
+  },
+  "O'Reilly": {
+   "seasons": {
+    "1": {
+     "apps": 46,
+     "goals": 3,
+     "assists": 4,
+     "cs": 11,
+     "conceded": 0
+    },
+    "2": {
+     "apps": 46,
+     "goals": 6,
+     "assists": 4,
+     "cs": 9,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 23,
+     "goals": 7,
+     "assists": 4,
+     "cs": 6,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 115,
+    "goals": 16,
+    "assists": 12,
+    "cs": 26,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 23,
+    "goals": 7,
+    "assists": 4,
+    "cs": 6,
+    "conceded": 0
+   }
+  },
+  "Iroegbunam": {
+   "seasons": {
+    "1": null,
+    "2": {
+     "apps": 46,
+     "goals": 7,
+     "assists": 6,
+     "cs": 0,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 23,
+     "goals": 1,
+     "assists": 3,
+     "cs": 0,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 69,
+    "goals": 8,
+    "assists": 9,
+    "cs": 0,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 23,
+    "goals": 1,
+    "assists": 3,
+    "cs": 0,
+    "conceded": 0
+   }
+  },
+  "Braybrooke": {
+   "seasons": {
+    "1": {
+     "apps": 46,
+     "goals": 6,
+     "assists": 4,
+     "cs": 0,
+     "conceded": 0
+    },
+    "2": {
+     "apps": 46,
+     "goals": 3,
+     "assists": 6,
+     "cs": 0,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 23,
+     "goals": 4,
+     "assists": 0,
+     "cs": 0,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 115,
+    "goals": 13,
+    "assists": 10,
+    "cs": 0,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 23,
+    "goals": 4,
+    "assists": 0,
+    "cs": 0,
+    "conceded": 0
+   }
+  },
+  "McAidoo": {
+   "seasons": {
+    "1": {
+     "apps": 46,
+     "goals": 11,
+     "assists": 5,
+     "cs": 0,
+     "conceded": 0
+    },
+    "2": {
+     "apps": 46,
+     "goals": 12,
+     "assists": 13,
+     "cs": 0,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 23,
+     "goals": 2,
+     "assists": 5,
+     "cs": 0,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 115,
+    "goals": 25,
+    "assists": 23,
+    "cs": 0,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 23,
+    "goals": 2,
+    "assists": 5,
+    "cs": 0,
+    "conceded": 0
+   }
+  },
+  "Foden": {
+   "seasons": {
+    "1": {
+     "apps": 37,
+     "goals": 6,
+     "assists": 8,
+     "cs": 0,
+     "conceded": 0
+    },
+    "2": {
+     "apps": 38,
+     "goals": 9,
+     "assists": 9,
+     "cs": 0,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 21,
+     "goals": 7,
+     "assists": 3,
+     "cs": 0,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 96,
+    "goals": 22,
+    "assists": 20,
+    "cs": 0,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 21,
+    "goals": 7,
+    "assists": 3,
+    "cs": 0,
+    "conceded": 0
+   }
+  },
+  "T. Samba": {
+   "seasons": {
+    "1": {
+     "apps": 46,
+     "goals": 14,
+     "assists": 10,
+     "cs": 0,
+     "conceded": 0
+    },
+    "2": {
+     "apps": 46,
+     "goals": 13,
+     "assists": 10,
+     "cs": 0,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 23,
+     "goals": 4,
+     "assists": 6,
+     "cs": 0,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 115,
+    "goals": 31,
+    "assists": 26,
+    "cs": 0,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 23,
+    "goals": 4,
+    "assists": 6,
+    "cs": 0,
+    "conceded": 0
+   }
+  },
+  "Haaland": {
+   "seasons": {
+    "1": {
+     "apps": 40,
+     "goals": 29,
+     "assists": 13,
+     "cs": 0,
+     "conceded": 0
+    },
+    "2": {
+     "apps": 40,
+     "goals": 29,
+     "assists": 8,
+     "cs": 0,
+     "conceded": 0
+    },
+    "3": {
+     "apps": 20,
+     "goals": 13,
+     "assists": 3,
+     "cs": 0,
+     "conceded": 0
+    }
+   },
+   "all": {
+    "apps": 100,
+    "goals": 71,
+    "assists": 24,
+    "cs": 0,
+    "conceded": 0
+   },
+   "now": {
+    "apps": 20,
+    "goals": 13,
+    "assists": 3,
+    "cs": 0,
+    "conceded": 0
+   }
+  }
+ },
+ "team": {
+  "gf": 2.164426242034853,
+  "ga": 1.1044183118415574
+ }
+}

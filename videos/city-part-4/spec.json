@@ -2268,7 +2268,7 @@
       "socks": "#f7d117",
       "text": "#111111"
      },
-     "x": 0,
+     "x": -0.55,
      "z": 0,
      "front": true,
      "chest": true,
@@ -2288,7 +2288,8 @@
     },
     {
      "type": "stack",
-     "y": 1600,
+     "y": 1480,
+     "dx": 250,
      "size": 140,
      "clear": false,
      "items": [
@@ -2309,6 +2310,7 @@
       {
        "value": 4,
        "suffix": "th",
+       "countDur": 0.01,
        "label": "in the table",
        "at": "Only fourth",
        "lag": -0.1,

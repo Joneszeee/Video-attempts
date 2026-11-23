@@ -3401,7 +3401,7 @@ CARDS.stack = function (c, ct, cx, cy) {
     const ink = eOut(pr(ct, it.t || 0, 0.35));
     const v = (it.value) * eOut(pr(ct, (it.t || 0), it.countDur || 0.7));
     const txt = (it.prefix || '') + v.toFixed(it.decimals || 0) + (it.suffix || '');
-    ctx.save(); ctx.globalAlpha *= al * ink; ctx.translate(cx, y + (1 - ink) * 40); ctx.scale(sc, sc);
+    ctx.save(); ctx.globalAlpha *= al * ink; ctx.translate(cx + (c.dx || 0), y + (1 - ink) * 40); ctx.scale(sc, sc);
     font(800, size, 'Inter', '-3px'); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
     ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 24;   // stays readable over the pitch and players
     if (it.gold) { const g = ctx.createLinearGradient(0, -size * 0.8, 0, 0); g.addColorStop(0, GOLD[0]); g.addColorStop(1, GOLD[2]); ctx.fillStyle = g; }

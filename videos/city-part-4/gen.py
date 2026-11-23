@@ -171,12 +171,12 @@ B.append({"kicker": "Halfway · the model v the table", "headline": "Expected 46
 # 12 the best defence (22 conceded), the best goal difference (+21), only fourth: McCracken close-up, the stacked counter
 B.append({"kicker": "Halfway · 23 games", "headline": "The best defence. [And fourth].", "cut": True, "transition": "whip", "scene": S_ETI, "accent": TEAL, "lights": 0.8, "flashes": 10,
   "camFrom": {"pos": [0, 1.45, -4.6], "tgt": [0, 1.35, 10]}, "camera": {"pos": [0, 1.45, -3.4], "tgt": [0, 1.35, 10]}, "move": 5.5, "moveEase": "linear",
-  "players": [P(kit=GK_YELLOW, name="McCRACKEN", num=1, x=0, z=0, front=True, chest=True, **MCCR)],
+  "players": [P(kit=GK_YELLOW, name="McCRACKEN", num=1, x=-0.55, z=0, front=True, chest=True, **MCCR)],
   "card": [hud("League One · after matchday 23", counter=False),
-           {"type": "stack", "y": 1600, "size": 140, "clear": False, "items": [
+           {"type": "stack", "y": 1480, "dx": 250, "size": 140, "clear": False, "items": [
               {"value": 22, "label": "goals conceded · the fewest", "at": "The best defence", "lag": -0.1},
               {"value": 21, "prefix": "+", "label": "goal difference · the best", "at": "The best goal difference", "lag": -0.1, "gold": True},
-              {"value": 4, "suffix": "th", "label": "in the table", "at": "Only fourth", "lag": -0.1, "color": "#ff4d5e"}]}]})
+              {"value": 4, "suffix": "th", "countDur": 0.01, "label": "in the table", "at": "Only fourth", "lag": -0.1, "color": "#ff4d5e"}]}]})
 
 # 13 halfway: the table (MK Dons 43, City 4th on 38), five points off the top, and the odds: still 88%
 B.append({"kicker": "Halfway · the table", "headline": "[5 points] off the top.", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_SIM, "accent": GOLD, "lights": 0.45, "focus": 0.35,

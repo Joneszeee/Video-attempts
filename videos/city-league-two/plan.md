@@ -84,3 +84,8 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
 ## Squad update video (between Parts 4 and 5), 23 Nov 2026
 - User idea (with the January poll still open for ~18 h): "go through the team with FIFA-style cards, show their rating and their stats since the beginning of the simulation and this season". Built as `videos/city-squad-update`
   (ratings from the model, stats allocated with a fixed seed; see research.md, "Squad update"). The ending was changed at the user's request: no poll on this video, it sends viewers to Part 4's poll. Preview, ElevenLabs script, thumbnail and posts delivered; the user's voice (Squad_.mp3) arrived on 24 Nov 2026 and the final (58.8 s) was built and sent.
+
+## Part 5 (second half of season 3): seed fixed before running (24 Nov 2026)
+- Second-half seed **2031** (Part 4's first half 2029, the squad stats 2030), written here before anything is run. `data/sim_l5.py` replays the first half and asserts the matchday-23 table against `ep4.json`,
+  then plays matchdays 24–46 and the play-offs with the January signings: the poll winner in the second holding-midfield slot and the comment-vote loan player (6 months = the whole second half),
+  each rated at his real club's level (`data/l5model.py`). Waiting for the user's poll result and the loan player's name.

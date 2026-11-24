@@ -1,0 +1,3 @@
+Voiceover: the user's ElevenLabs recording (Squad_.mp3, one file) = out/voice.mp3, aligned with engine/align_vo.py against the Kokoro read out/vo.wav (line starts 0.0, 5.34, 11.01, 19.40, 25.19, 31.39, 36.35, 42.58, 46.56, 52.41 s, each at the end of a real pause).
+Build: `python3 build.py videos/city-squad-update/spec.json --vo videos/city-squad-update/out/voice.mp3 --out videos/city-squad-update/out/city-squad-update_final.mp4` (58.8 s, -14.1 LUFS, check clean).
+The last line sends viewers to Part 4's poll (the user wanted one poll, on Part 4): if that poll has closed, change the ending before posting.

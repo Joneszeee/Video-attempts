@@ -83,4 +83,4 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
 
 ## Squad update video (between Parts 4 and 5), 23 Nov 2026
 - User idea (with the January poll still open for ~18 h): "go through the team with FIFA-style cards, show their rating and their stats since the beginning of the simulation and this season". Built as `videos/city-squad-update`
-  (ratings from the model, stats allocated with a fixed seed; see research.md, "Squad update"). Preview (SFX only) + ElevenLabs script + thumbnail + posts delivered; waiting for the user's voice.
+  (ratings from the model, stats allocated with a fixed seed; see research.md, "Squad update"). The ending was changed at the user's request: no poll on this video, it sends viewers to Part 4's poll. Preview, ElevenLabs script, thumbnail and posts delivered; the user's voice (Squad_.mp3) arrived on 24 Nov 2026 and the final (58.8 s) was built and sent.

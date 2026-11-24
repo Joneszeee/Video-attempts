@@ -32,7 +32,7 @@ Follow for more football stories in under a minute.
 ```
 man city, manchester city, haaland, erling haaland, halland, haland, erling halland, phil foden, foden, rico lewis, nico o'reilly, iroegbunam, jon mccracken, kelland watts, man city player ratings, football player ratings, player ratings, haaland rating, man city squad, man city league one, man city league two, man city simulation, football simulation, what if man city were relegated, league one, kalvin phillips, james ward-prowse, oliver norwood, football shorts, mcfc, theo6k
 ```
-(TAGCOUNT characters by YouTube's count.)
+(499 characters by YouTube's count.)
 
 ## Pinned comment
 ```

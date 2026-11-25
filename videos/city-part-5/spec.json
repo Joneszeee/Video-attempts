@@ -803,14 +803,14 @@
       1.9,
       2.6,
       3.2,
-      5.1499999999999995,
-      6.05,
-      7.049999999999999,
-      7.75
+      5.3,
+      6.2,
+      7.199999999999999,
+      7.9
      ],
      "at": "two–one",
      "lag": -4.6,
-     "frontT": 5.15,
+     "frontT": 5.3,
      "actions": [
       {
        "at": "two–one",
@@ -1047,17 +1047,17 @@
       0,
       3.0,
       3.8,
-      5.1,
-      6.25,
-      7.1499999999999995,
-      7.75
+      5.25,
+      6.4,
+      7.3,
+      7.9
      ],
      "at": "two–one",
      "lag": -4.6,
      "action": "celebrate",
      "actionAt": "two–one",
-     "actionLag": 3.15,
-     "frontT": 5.15
+     "actionLag": 3.3,
+     "frontT": 5.3
     },
     {
      "name": "",
@@ -1090,16 +1090,16 @@
      ],
      "pathT": [
       0,
-      5.1,
-      6.549999999999999,
-      7.75
+      5.25,
+      6.699999999999999,
+      7.9
      ],
      "at": "two–one",
      "lag": -4.6,
      "action": "celebrate",
      "actionAt": "two–one",
-     "actionLag": 3.15,
-     "frontT": 5.15
+     "actionLag": 3.3,
+     "frontT": 5.3
     }
    ],
    "card": [
@@ -1187,7 +1187,7 @@
    "shots": [
     {
      "at": "two–one",
-     "lag": 0.55,
+     "lag": 0.7,
      "cut": true,
      "transition": "whip",
      "camTrack": {
@@ -1769,8 +1769,8 @@
      "lag": 0.0,
      "color": "#ff4d5e",
      "rot": -0.07,
-     "size": 74,
-     "y": 1440,
+     "size": 70,
+     "y": 1390,
      "sub": "out · 6–0 anyway"
     },
     {
@@ -1781,8 +1781,8 @@
      "value": 6,
      "countDur": 1.4,
      "label": "goals v Salford",
-     "y": 1640,
-     "size": 160
+     "y": 1580,
+     "size": 150
     }
    ],
    "vo": "Salford. Six–nil. Haaland didn't even play."

@@ -123,7 +123,7 @@ B.append({"kicker": "10,000 seasons simulated · halfway", "headline": "City: [7
             "extra": {"n": 17, "color": GOLD, "at": "Your signings add seventeen", "lag": 0.0, "label": "your signings: +17"}}]})
 
 # 6 match 1 (debut day, away): Stevenage win 2-1: a long-range curler (cut in from the wing, over City's defenders, into the top corner past McCracken's fingertips), then Stevenage celebrate; City fall to 5th
-pl, cards, cam, cut2 = goal_curler("two–one", STE, GK_YELLOW, CITY, mate_kit=STE, foot="right", flight=0.9, cut_lag=0.55)
+pl, cards, cam, cut2 = goal_curler("two–one", STE, GK_YELLOW, CITY, mate_kit=STE, foot="right", flight=0.9, cut_lag=0.7)
 pl[1].update(skin="#f0c8a8", hair="#3a2a1a")        # McCracken
 cut2.pop("confetti", None)
 B.append({"kicker": "Matchday 24 · away", "headline": "Debut day: [1–2] at Stevenage.", "cut": True, "transition": "whip", "scene": S_STE, "accent": RED, **cam, "players": pl,
@@ -150,8 +150,8 @@ B.append({"kicker": "Matchday 34 · at home", "headline": "Salford: [6–0]. No 
   "camFrom": {"pos": [1.5, 2.3, 60.5], "tgt": [0, 1.0, 40]}, "camera": {"pos": [0.8, 2.1, 59.2], "tgt": [0, 1.0, 40]}, "move": 3.4, "moveEase": "linear",
   "players": [P(kit=SKEEP, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=51.4, pose="keeper", actions=reach)],
   "card": barrage + [bug(MCI, {"name": "SAL", "color": "#d6283b"}, [6, 0], "MD34", [0, 0], "Six–nil", 0.1), hud("League One · matchday 34", counter=False),
-                     stamp("NO HAALAND", "didn't even play", sub="out · 6–0 anyway", color=RED, y=1440, size=74, lag=0.0),
-                     big(6, "Six–nil", "goals v Salford", frm=0, y=1640, size=160, dur=1.4, lag=-0.3)]})
+                     stamp("NO HAALAND", "didn't even play", sub="out · 6–0 anyway", color=RED, y=1390, size=70, lag=0.0),
+                     big(6, "Six–nil", "goals v Salford", frm=0, y=1580, size=150, dur=1.4, lag=-0.3)]})
 
 # 9 re-hook: it got tight. The title race (City v the best of the rest, matchdays 1-42): the two defeats pin on City's line on their words, the lines meet at 74 and LEVEL slams
 def pts_series(upto):

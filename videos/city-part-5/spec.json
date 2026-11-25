@@ -1,0 +1,2652 @@
+{
+ "title": "Man City in League Two · Part 5",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Man City in League Two · Part 5",
+   "headline": "City were [fourth]. Now [champions].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.9,
+   "flashes": 12,
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -9.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -6.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 3.4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -1.9,
+     "z": 0.6,
+     "front": true,
+     "action": "celebrate",
+     "actionAt": "champions",
+     "actionLag": -0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "x": 1.9,
+     "z": 0.6,
+     "front": true,
+     "action": "celebrate",
+     "actionAt": "champions",
+     "actionLag": 0.05
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": 0.0,
+     "z": -0.3,
+     "front": true,
+     "action": "celebrate",
+     "actionAt": "champions",
+     "actionLag": -0.2,
+     "label": "Haaland",
+     "labelDelay": -0.4,
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "foot": "left"
+    }
+   ],
+   "card": [
+    {
+     "type": "climb",
+     "y": 1380,
+     "delay": -1.0,
+     "show": 6,
+     "stepDur": 0.9,
+     "title": "League One · matchday 23 → 46",
+     "focus": "Manchester City",
+     "zones": [
+      {
+       "from": 1,
+       "to": 2,
+       "color": "#2ecc71"
+      },
+      {
+       "from": 3,
+       "to": 6,
+       "color": "#3FE0C5"
+      }
+     ],
+     "colors": {
+      "Manchester City": "#6cabdd",
+      "MK Dons": "#ffffff",
+      "Luton Town": "#f78f1e",
+      "Grimsby Town": "#cfd3da",
+      "Leicester City": "#003090",
+      "Stockport County": "#1b4fb5",
+      "Reading": "#1f4fa0",
+      "Stevenage": "#d6283b",
+      "Mansfield Town": "#f2c500",
+      "Burnley": "#6c1d45",
+      "Wycombe Wanderers": "#2a5caa",
+      "Preston North End": "#cfd3da"
+     },
+     "clear": false,
+     "steps": [
+      {
+       "rows": [
+        [
+         1,
+         "MK Dons",
+         43
+        ],
+        [
+         2,
+         "Luton Town",
+         42
+        ],
+        [
+         3,
+         "Grimsby Town",
+         39
+        ],
+        [
+         4,
+         "Manchester City",
+         38
+        ],
+        [
+         5,
+         "Leicester City",
+         38
+        ],
+        [
+         6,
+         "Stockport County",
+         38
+        ]
+       ]
+      },
+      {
+       "at": "champions",
+       "lag": -0.35,
+       "rows": [
+        [
+         1,
+         "Manchester City",
+         82
+        ],
+        [
+         2,
+         "MK Dons",
+         78
+        ],
+        [
+         3,
+         "Stockport County",
+         77
+        ],
+        [
+         4,
+         "Luton Town",
+         76
+        ],
+        [
+         5,
+         "Reading",
+         74
+        ],
+        [
+         6,
+         "Stevenage",
+         74
+        ]
+       ],
+       "label": "FINAL TABLE · 82 PTS"
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "CHAMPIONS",
+     "at": "champions",
+     "lag": 0.1,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 104,
+     "y": 1700,
+     "sub": "promoted · 82 points"
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 3 · League One",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    }
+   ],
+   "confetti": true,
+   "confettiAt": "champions",
+   "speedlines": [
+    {
+     "t": 0.0,
+     "dur": 0.9,
+     "amount": 0.7
+    }
+   ],
+   "shake": [
+    {
+     "at": "champions",
+     "lag": 0.0,
+     "amount": 14
+    }
+   ],
+   "vo": "Man City were fourth at halfway. Now they're champions."
+  },
+  {
+   "kicker": "Your vote · the TikTok poll · 785 votes",
+   "headline": "You voted: [Ward-Prowse].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     26,
+     30,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     -24,
+     16,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 3 · January window",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "shirtflip",
+     "y": 860,
+     "delay": 0.0,
+     "size": 400,
+     "from": {
+      "color": "#d71920",
+      "color2": "#ffffff",
+      "name": "SOUTHAMPTON"
+     },
+     "to": {
+      "color": "#6cabdd",
+      "color2": "#1c2c5b",
+      "name": "WARD-PROWSE"
+     },
+     "flipAt": "Ward-Prowse",
+     "flipLag": -0.35,
+     "clear": false
+    },
+    {
+     "type": "poll",
+     "y": 1560,
+     "delay": 0.0,
+     "question": "Who should City sign?",
+     "clear": false,
+     "options": [
+      {
+       "label": "Ward-Prowse",
+       "color": "#e9b949",
+       "fill": 0.47,
+       "pct": "47%"
+      },
+      {
+       "label": "Norwood",
+       "color": "#1b4fb5",
+       "fill": 0.3,
+       "pct": "30%"
+      },
+      {
+       "label": "Phillips",
+       "color": "#9a1c24",
+       "fill": 0.23,
+       "pct": "23%"
+      }
+     ]
+    }
+   ],
+   "vo": "You voted, and forty-seven percent picked Ward-Prowse."
+  },
+  {
+   "kicker": "The comment vote · 30 likes needed",
+   "headline": "A comment signed [Moylan]. On loan.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0a4ea1",
+     "#ffffff",
+     "#0a4ea1",
+     "#d6283b"
+    ],
+    "seed": 33
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.7,
+   "focus": 0.35,
+   "flashes": 8,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.8,
+     1.6,
+     -1.8
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 3 · January window",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "pcard",
+     "y": 800,
+     "w": 300,
+     "h": 420,
+     "shiftX": 0,
+     "side": "left",
+     "at": "Jack Moylan",
+     "lag": -0.15,
+     "player": {
+      "kit": {
+       "shirt": "#0a4ea1",
+       "shorts": "#ffffff",
+       "socks": "#0a4ea1",
+       "text": "#ffffff"
+      },
+      "name": "",
+      "num": null,
+      "skin": "#e7b593",
+      "hair": "#3a2a1a"
+     },
+     "tag": "CARDIFF CITY",
+     "caption": "Jack Moylan",
+     "stats": [
+      [
+       10.0,
+       "goals"
+      ],
+      [
+       3.0,
+       "assists"
+      ]
+     ],
+     "statsNote": "16.0 starts · Championship · real stats",
+     "clear": false
+    },
+    {
+     "type": "pledge",
+     "y": 1430,
+     "delay": 0.0,
+     "handle": "Caiolfan_private",
+     "text": "Make them sign jack moylan from cardiff",
+     "likes": 19,
+     "goal": 30,
+     "title": "likes on the comment",
+     "dur": 1.0,
+     "likeAt": "It got nineteen",
+     "likeLag": -0.25,
+     "shortAt": "So:",
+     "shortLag": -0.1,
+     "result": "6-MONTH LOAN",
+     "resultAt": "a six-month loan",
+     "resultLag": -0.35,
+     "clear": false
+    }
+   ],
+   "vo": "A comment wanted Jack Moylan. Thirty likes needed. It got nineteen. So: a six-month loan."
+  },
+  {
+   "kicker": "The new signings · simulated",
+   "headline": "Two new faces: [69] and [72].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#1c2c5b",
+     "#6cabdd"
+    ],
+    "seed": 9
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.7,
+   "focus": 0.35,
+   "flashes": 8,
+   "camFrom": {
+    "pos": [
+     1.2,
+     1.6,
+     -3.6
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.8,
+     1.6,
+     -2.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 3 · simulated",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "scard",
+     "y": 1110,
+     "name": "Ward-Prowse",
+     "pos": "DM",
+     "ovr": 69,
+     "rarity": "silver",
+     "player": {
+      "kit": {
+       "shirt": "#6cabdd",
+       "shorts": "#ffffff",
+       "socks": "#6cabdd",
+       "text": "#1c2c5b"
+      },
+      "name": "",
+      "num": null,
+      "skin": "#f0c8a8",
+      "hair": "#4a3324"
+     },
+     "badge": {
+      "colors": [
+       "#6cabdd",
+       "#1c2c5b",
+       "#ffffff"
+      ],
+      "text": "MCI"
+     },
+     "rows": [
+      {
+       "label": "Since joining",
+       "cells": [
+        [
+         23,
+         "gp"
+        ],
+        [
+         4,
+         "g"
+        ],
+        [
+         2,
+         "a"
+        ]
+       ]
+      }
+     ],
+     "foot": "sim rating · sim stats",
+     "entry": "left",
+     "dx": -235,
+     "scale": 0.8,
+     "seed": 5,
+     "ribbon": "Fan pick",
+     "clear": false,
+     "at": "Ward-Prowse",
+     "lag": -0.1,
+     "tilt": -0.05
+    },
+    {
+     "type": "scard",
+     "y": 1110,
+     "name": "Moylan",
+     "pos": "LW",
+     "ovr": 72,
+     "rarity": "silver",
+     "player": {
+      "kit": {
+       "shirt": "#6cabdd",
+       "shorts": "#ffffff",
+       "socks": "#6cabdd",
+       "text": "#1c2c5b"
+      },
+      "name": "",
+      "num": null,
+      "skin": "#e7b593",
+      "hair": "#3a2a1a"
+     },
+     "badge": {
+      "colors": [
+       "#6cabdd",
+       "#1c2c5b",
+       "#ffffff"
+      ],
+      "text": "MCI"
+     },
+     "rows": [
+      {
+       "label": "Since joining",
+       "cells": [
+        [
+         23,
+         "gp"
+        ],
+        [
+         1,
+         "g"
+        ],
+        [
+         6,
+         "a"
+        ]
+       ]
+      }
+     ],
+     "foot": "sim rating · sim stats",
+     "entry": "right",
+     "dx": 235,
+     "scale": 0.8,
+     "seed": 17,
+     "ribbon": "Loan",
+     "clear": false,
+     "ribbonColor": "#e9b949",
+     "at": "Moylan,",
+     "lag": -0.1,
+     "tilt": 0.05
+    },
+    {
+     "type": "stamp",
+     "text": "72 v 69",
+     "at": "The loan beats",
+     "lag": 0.0,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 96,
+     "y": 1545,
+     "sub": "Moylan v Ward-Prowse · sim rating"
+    }
+   ],
+   "vo": "Ratings: Ward-Prowse, sixty-nine. Moylan, seventy-two. The loan beats your pick."
+  },
+  {
+   "kicker": "10,000 seasons simulated · halfway",
+   "headline": "City: [74%] to win the league.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     -26,
+     22,
+     -38
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     24,
+     14,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 3 · 10,000 runs",
+     "dur": 1.6,
+     "clear": false
+    },
+    {
+     "type": "odds",
+     "y": 1030,
+     "cell": 60,
+     "title": "City · title chance at halfway",
+     "lit": 74,
+     "litStep": 0.016,
+     "litAt": "seventy-four percent",
+     "litLag": -0.35,
+     "label": "{n}%",
+     "clear": false,
+     "extra": {
+      "n": 17,
+      "color": "#e9b949",
+      "at": "Your signings add seventeen",
+      "lag": 0.0,
+      "label": "your signings: +17"
+     }
+    }
+   ],
+   "vo": "Title odds at halfway: seventy-four percent. Your signings add seventeen."
+  },
+  {
+   "kicker": "Matchday 24 · away",
+   "headline": "Debut day: [1–2] at Stevenage.",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "MD24",
+   "vhsDur": 0.8,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#d6283b"
+    ],
+    "seed": 29
+   },
+   "accent": "#ff4d5e",
+   "camFrom": {
+    "pos": [
+     -4.0,
+     2.2,
+     32
+    ],
+    "tgt": [
+     -0.4,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.4,
+     1.9,
+     34.7
+    ],
+    "tgt": [
+     -0.4,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#d6283b",
+      "text": "#ffffff"
+     },
+     "x": -1.0,
+     "z": 41,
+     "action": "kick",
+     "actionAt": "two–one",
+     "actionLag": -0.5,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "skin": "#e7b593",
+     "hair": "#141010"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "two–one",
+     "actionLag": -0.04999999999999999
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 0.8999999999999999,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "two–one",
+     "actionLag": -0.35,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -2.08,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -0.78,
+      0.11,
+      41.45
+     ],
+     "untilAt": "two–one",
+     "untilLag": -0.15999999999999998
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "two–one",
+     "lag": -0.15999999999999998,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -0.78,
+       0.11,
+       41.45
+      ],
+      [
+       0.91,
+       0.9,
+       46.875
+      ],
+      [
+       2.6,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "STE",
+      "color": "#d6283b"
+     },
+     "away": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "score": [
+      2,
+      1
+     ],
+     "min": "MD24",
+     "from": [
+      1,
+      1
+     ],
+     "goalAt": "two–one",
+     "goalLag": 0.25
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · matchday 24",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "stamp",
+     "text": "1–2",
+     "at": "two–one",
+     "lag": 0.05,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 110,
+     "y": 1530,
+     "sub": "debut day · 5th"
+    }
+   ],
+   "shake": [
+    {
+     "at": "two–one",
+     "lag": 0.4,
+     "amount": 12
+    }
+   ],
+   "vo": "Debut day. Stevenage win two–one. City fall to fifth."
+  },
+  {
+   "kicker": "Matchdays 25–27",
+   "headline": "Three wins. City go [top].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#1c2c5b",
+     "#6cabdd"
+    ],
+    "seed": 9
+   },
+   "accent": "#e9b949",
+   "lights": 0.85,
+   "flashes": 10,
+   "camFrom": {
+    "pos": [
+     4.5,
+     1.2,
+     -6.5
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.5,
+     1.5,
+     -6.5
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 6.5,
+   "moveEase": "linear",
+   "hype": false,
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -1.6,
+     "z": 1.0,
+     "front": true,
+     "action": "celebrate",
+     "actionAt": "go top",
+     "actionLag": -0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "x": 1.6,
+     "z": 1.2,
+     "front": true,
+     "action": "celebrate",
+     "actionAt": "go top",
+     "actionLag": 0.05
+    }
+   ],
+   "card": [
+    {
+     "type": "climb",
+     "y": 1330,
+     "delay": 0.0,
+     "show": 6,
+     "stepDur": 0.8,
+     "title": "League One · after matchday 24",
+     "focus": "Manchester City",
+     "zones": [
+      {
+       "from": 1,
+       "to": 2,
+       "color": "#2ecc71"
+      },
+      {
+       "from": 3,
+       "to": 6,
+       "color": "#3FE0C5"
+      }
+     ],
+     "colors": {
+      "Manchester City": "#6cabdd",
+      "MK Dons": "#ffffff",
+      "Luton Town": "#f78f1e",
+      "Grimsby Town": "#cfd3da",
+      "Leicester City": "#003090",
+      "Stockport County": "#1b4fb5",
+      "Reading": "#1f4fa0",
+      "Stevenage": "#d6283b",
+      "Mansfield Town": "#f2c500",
+      "Burnley": "#6c1d45",
+      "Wycombe Wanderers": "#2a5caa",
+      "Preston North End": "#cfd3da"
+     },
+     "clear": false,
+     "steps": [
+      {
+       "rows": [
+        [
+         1,
+         "MK Dons",
+         43
+        ],
+        [
+         2,
+         "Luton Town",
+         42
+        ],
+        [
+         3,
+         "Grimsby Town",
+         42
+        ],
+        [
+         4,
+         "Stockport County",
+         41
+        ],
+        [
+         5,
+         "Manchester City",
+         38
+        ],
+        [
+         6,
+         "Leicester City",
+         38
+        ]
+       ]
+      },
+      {
+       "at": "Burnley",
+       "lag": -0.1,
+       "rows": [
+        [
+         1,
+         "MK Dons",
+         46
+        ],
+        [
+         2,
+         "Stockport County",
+         44
+        ],
+        [
+         3,
+         "Luton Town",
+         42
+        ],
+        [
+         4,
+         "Grimsby Town",
+         42
+        ],
+        [
+         5,
+         "Manchester City",
+         41
+        ],
+        [
+         6,
+         "Stevenage",
+         41
+        ]
+       ],
+       "label": "MD25 · W 5–1 Burnley"
+      },
+      {
+       "at": "Wycombe",
+       "lag": -0.1,
+       "rows": [
+        [
+         1,
+         "MK Dons",
+         46
+        ],
+        [
+         2,
+         "Manchester City",
+         44
+        ],
+        [
+         3,
+         "Stockport County",
+         44
+        ],
+        [
+         4,
+         "Luton Town",
+         43
+        ],
+        [
+         5,
+         "Grimsby Town",
+         42
+        ],
+        [
+         6,
+         "Stevenage",
+         41
+        ]
+       ],
+       "label": "MD26 · W 4–3 Wycombe"
+      },
+      {
+       "at": "Burton",
+       "lag": -0.1,
+       "rows": [
+        [
+         1,
+         "Manchester City",
+         47
+        ],
+        [
+         2,
+         "Stockport County",
+         47
+        ],
+        [
+         3,
+         "Luton Town",
+         46
+        ],
+        [
+         4,
+         "MK Dons",
+         46
+        ],
+        [
+         5,
+         "Stevenage",
+         44
+        ],
+        [
+         6,
+         "Leicester City",
+         42
+        ]
+       ],
+       "label": "MD27 · W 2–0 Burton"
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "TOP",
+     "at": "City go top",
+     "lag": 0.0,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 120,
+     "y": 1700,
+     "sub": "first time this season"
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · matchdays 24–27",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    }
+   ],
+   "vo": "Then three wins. Burnley, five–one. Wycombe, four–three. Burton, two–nil. City go top."
+  },
+  {
+   "kicker": "Matchday 34 · at home",
+   "headline": "Salford: [6–0]. No Haaland.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.85,
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     1.5,
+     2.3,
+     60.5
+    ],
+    "tgt": [
+     0,
+     1.0,
+     40
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.8,
+     2.1,
+     59.2
+    ],
+    "tgt": [
+     0,
+     1.0,
+     40
+    ]
+   },
+   "move": 3.4,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#d6283b",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "pose": "keeper"
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.1,
+     "dur": 0.4,
+     "slowmo": false,
+     "points": [
+      [
+       1.04,
+       0.11,
+       38
+      ],
+      [
+       -0.52,
+       1.4,
+       46
+      ],
+      [
+       -2.6,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.38,
+     "dur": 0.4,
+     "slowmo": false,
+     "points": [
+      [
+       -0.96,
+       0.11,
+       38
+      ],
+      [
+       0.48,
+       1.4,
+       46
+      ],
+      [
+       2.4,
+       1.6,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.66,
+     "dur": 0.4,
+     "slowmo": false,
+     "points": [
+      [
+       0.24,
+       0.11,
+       38
+      ],
+      [
+       -0.12,
+       1.4,
+       46
+      ],
+      [
+       -0.6,
+       0.5,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 0.94,
+     "dur": 0.4,
+     "slowmo": false,
+     "points": [
+      [
+       -1.16,
+       0.11,
+       38
+      ],
+      [
+       0.58,
+       1.4,
+       46
+      ],
+      [
+       2.9,
+       0.7,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 1.22,
+     "dur": 0.4,
+     "slowmo": false,
+     "points": [
+      [
+       1.2000000000000002,
+       0.11,
+       38
+      ],
+      [
+       -0.6000000000000001,
+       1.4,
+       46
+      ],
+      [
+       -3.0,
+       1.9,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "delay": 1.5,
+     "dur": 0.4,
+     "slowmo": false,
+     "points": [
+      [
+       -0.32000000000000006,
+       0.11,
+       38
+      ],
+      [
+       0.16000000000000003,
+       1.4,
+       46
+      ],
+      [
+       0.8,
+       1.2,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "SAL",
+      "color": "#d6283b"
+     },
+     "score": [
+      6,
+      0
+     ],
+     "min": "MD34",
+     "from": [
+      0,
+      0
+     ],
+     "goalAt": "Six–nil",
+     "goalLag": 0.1
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · matchday 34",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "stamp",
+     "text": "NO HAALAND",
+     "at": "didn't even play",
+     "lag": 0.0,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 78,
+     "y": 1330,
+     "sub": "out · 6–0 anyway"
+    },
+    {
+     "type": "big",
+     "at": "Six–nil",
+     "lag": -0.3,
+     "from": 0,
+     "value": 6,
+     "countDur": 1.4,
+     "label": "goals v Salford",
+     "y": 1580,
+     "size": 170
+    }
+   ],
+   "vo": "Salford. Six–nil. Haaland didn't even play."
+  },
+  {
+   "kicker": "The title race · City v the best of the rest",
+   "headline": "Then it got [tight].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "TIGHT",
+   "vhsDur": 1.0,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.45,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     -24,
+     26,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     22,
+     14,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 7,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · after matchday 42",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "pace",
+     "y": 1060,
+     "delay": 0.0,
+     "startT": 0.3,
+     "dur": 3.0,
+     "linear": true,
+     "title": "points after each matchday",
+     "names": {
+      "expected": "best of the rest",
+      "actual": "Man City"
+     },
+     "expected": [
+      3,
+      6,
+      9,
+      12,
+      15,
+      18,
+      19,
+      22,
+      25,
+      28,
+      28,
+      28,
+      31,
+      34,
+      35,
+      36,
+      39,
+      42,
+      42,
+      42,
+      43,
+      43,
+      43,
+      43,
+      46,
+      46,
+      47,
+      49,
+      52,
+      53,
+      55,
+      56,
+      59,
+      62,
+      65,
+      65,
+      67,
+      70,
+      71,
+      72,
+      73,
+      74
+     ],
+     "actual": [
+      0,
+      3,
+      6,
+      6,
+      7,
+      8,
+      11,
+      11,
+      12,
+      12,
+      15,
+      18,
+      19,
+      19,
+      22,
+      25,
+      26,
+      27,
+      30,
+      33,
+      36,
+      37,
+      38,
+      38,
+      41,
+      44,
+      47,
+      50,
+      53,
+      54,
+      57,
+      58,
+      59,
+      62,
+      63,
+      66,
+      66,
+      69,
+      70,
+      73,
+      73,
+      74
+     ],
+     "top": 80,
+     "clear": false,
+     "pins": [
+      {
+       "i": 36,
+       "at": "Chesterfield win",
+       "lag": -0.1,
+       "label": "CHE 3–4",
+       "color": "#ff4d5e",
+       "dy": -52
+      },
+      {
+       "i": 40,
+       "at": "Plymouth win",
+       "lag": -0.1,
+       "label": "PLY 1–3",
+       "color": "#ff4d5e",
+       "dy": -52
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "LEVEL",
+     "at": "Level on points",
+     "lag": -0.1,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 120,
+     "y": 1580,
+     "sub": "74 – 74 · Stockport · four to play"
+    }
+   ],
+   "vo": "Then it got tight. Chesterfield win four–three. Plymouth win three–one. Level on points with Stockport."
+  },
+  {
+   "kicker": "Matchday 45 · at home",
+   "headline": "Cambridge: Haaland [twice].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#e9b949",
+   "camFrom": {
+    "pos": [
+     -4.2,
+     2.2,
+     32
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.6,
+     1.9,
+     34.7
+    ],
+    "tgt": [
+     -0.48,
+     1.0,
+     52
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "follow": 0.5,
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": -1.2,
+     "z": 41,
+     "action": "kick",
+     "actionAt": "scores twice",
+     "actionLag": -0.3,
+     "actionDur": 0.8,
+     "after": "celebrate",
+     "runup": 1.6,
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "foot": "left",
+     "label": "Haaland",
+     "labelDelay": 0.1,
+     "tag": 2,
+     "tagLabel": "goals",
+     "tagAt": "twice",
+     "tagLag": -0.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper",
+     "before": "ready",
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "scores twice",
+     "actionLag": 0.15000000000000002
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f6a800",
+      "shorts": "#111111",
+      "socks": "#f6a800",
+      "text": "#111111"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "x": 0.7,
+     "z": 44.4,
+     "front": true,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "scores twice",
+     "actionLag": -0.15,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f6a800",
+      "shorts": "#111111",
+      "socks": "#f6a800",
+      "text": "#111111"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -2.2399999999999998,
+     "z": 47.8,
+     "front": true
+    }
+   ],
+   "flashes": 12,
+   "card": [
+    {
+     "type": "ball",
+     "delay": 0,
+     "point": [
+      -1.42,
+      0.11,
+      41.45
+     ],
+     "untilAt": "scores twice",
+     "untilLag": 0.040000000000000036
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "at": "scores twice",
+     "lag": 0.040000000000000036,
+     "dur": 0.5,
+     "slowmo": false,
+     "points": [
+      [
+       -1.42,
+       0.11,
+       41.45
+      ],
+      [
+       0.69,
+       0.9,
+       46.875
+      ],
+      [
+       2.8,
+       1.0,
+       52.3
+      ]
+     ]
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "CAM",
+      "color": "#f6a800"
+     },
+     "score": [
+      2,
+      0
+     ],
+     "min": "MD45",
+     "from": [
+      1,
+      0
+     ],
+     "goalAt": "scores twice",
+     "goalLag": 0.5
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · matchday 45",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    }
+   ],
+   "shots": [
+    {
+     "at": "Three–nil",
+     "lag": -0.15,
+     "cut": true,
+     "transition": "whip",
+     "kicker": "Matchday 45 · full time",
+     "headline": "One game to spare: [champions].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#f1c453",
+       "#ffffff",
+       "#1c2c5b",
+       "#6cabdd"
+      ],
+      "seed": 12
+     },
+     "accent": "#e9b949",
+     "lights": 0.9,
+     "camFrom": {
+      "pos": [
+       0,
+       1.4,
+       -7.5
+      ],
+      "tgt": [
+       0,
+       1.4,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.5,
+       -5.2
+      ],
+      "tgt": [
+       0,
+       1.4,
+       10
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "hype": false,
+     "flashes": 16,
+     "confetti": true,
+     "confettiAt": "champions",
+     "players": [
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#8a5a3c",
+       "hair": "#141010",
+       "x": -1.8,
+       "z": 0.4,
+       "front": true,
+       "action": "celebrate",
+       "actionDelay": 0.4
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#3a2a1a",
+       "x": 1.8,
+       "z": 0.5,
+       "front": true,
+       "action": "celebrate",
+       "actionDelay": 0.7
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#6cabdd",
+        "shorts": "#ffffff",
+        "socks": "#6cabdd",
+        "text": "#1c2c5b"
+       },
+       "x": 0.0,
+       "z": -0.2,
+       "front": true,
+       "pose": "fists",
+       "skin": "#f1d3bd",
+       "hair": "#d9b46a",
+       "foot": "left"
+      }
+     ],
+     "card": [
+      {
+       "type": "scorebug",
+       "y": 560,
+       "delay": 0,
+       "home": {
+        "name": "MCI",
+        "color": "#6cabdd"
+       },
+       "away": {
+        "name": "CAM",
+        "color": "#f6a800"
+       },
+       "score": [
+        3,
+        0
+       ],
+       "min": "FT",
+       "from": [
+        2,
+        0
+       ],
+       "goalAt": "Three–nil",
+       "goalLag": 0.1
+      },
+      {
+       "type": "simhud",
+       "delay": 0,
+       "sub": "League One · matchday 45",
+       "dur": 0,
+       "clear": false,
+       "counter": false
+      },
+      {
+       "type": "trophies",
+       "at": "champions",
+       "lag": -0.35,
+       "floor": 1500,
+       "stagger": 0,
+       "rise": 0.55,
+       "items": [
+        {
+         "kind": "cup",
+         "sx": 0.5,
+         "h": 150,
+         "size": 200,
+         "label": "League One · champions"
+        }
+       ],
+       "clear": false
+      }
+     ]
+    }
+   ],
+   "vo": "Then Cambridge. Haaland scores twice. Three–nil. One game to spare, and City are champions."
+  },
+  {
+   "kicker": "The season in numbers",
+   "headline": "Champions: [82 points].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#1c2c5b",
+     "#6cabdd"
+    ],
+    "seed": 9
+   },
+   "accent": "#e9b949",
+   "lights": 0.8,
+   "flashes": 10,
+   "camFrom": {
+    "pos": [
+     0,
+     1.45,
+     -4.6
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 5.5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": -0.55,
+     "z": 0,
+     "front": true,
+     "chest": true,
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "foot": "left"
+    }
+   ],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "League One · the final table",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "stack",
+     "y": 1480,
+     "dx": 250,
+     "size": 130,
+     "clear": false,
+     "items": [
+      {
+       "value": 82,
+       "label": "points",
+       "at": "Eighty-two points",
+       "lag": -0.1
+      },
+      {
+       "value": 97,
+       "label": "goals · the most",
+       "at": "Ninety-seven goals",
+       "lag": -0.1
+      },
+      {
+       "value": 51,
+       "label": "against · the fewest",
+       "at": "Fifty-one against",
+       "lag": -0.1
+      },
+      {
+       "value": 35,
+       "label": "Haaland · league goals",
+       "at": "thirty-five",
+       "lag": -0.25,
+       "gold": true
+      }
+     ]
+    }
+   ],
+   "vo": "Eighty-two points. Ninety-seven goals, the most. Fifty-one against, the fewest. And Haaland: thirty-five."
+  },
+  {
+   "kicker": "Next season · the Championship",
+   "headline": "Going up. The weak spot: [right wing].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.5,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     -30,
+     26,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "camera": {
+    "pos": [
+     24,
+     20,
+     -34
+    ],
+    "tgt": [
+     0,
+     0,
+     5
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "lineup",
+     "y": 1120,
+     "delay": 0.0,
+     "w": 640,
+     "title": "City · the XI · sim ratings",
+     "clear": false,
+     "instant": true,
+     "items": [
+      {
+       "name": "Haaland",
+       "x": 0.5,
+       "y": 0.12,
+       "color": "#22305f",
+       "ink": "#f1c453",
+       "ovr": 94
+      },
+      {
+       "name": "Foden",
+       "x": 0.5,
+       "y": 0.32,
+       "color": "#f1c453",
+       "ink": "#3a2a06",
+       "ovr": 84
+      },
+      {
+       "name": "Moylan",
+       "x": 0.18,
+       "y": 0.3,
+       "color": "#e4e8ee",
+       "ink": "#1c2430",
+       "ovr": 72
+      },
+      {
+       "name": "Iroegbunam",
+       "x": 0.35,
+       "y": 0.5,
+       "color": "#e4e8ee",
+       "ink": "#1c2430",
+       "ovr": 72
+      },
+      {
+       "name": "Ward-Prowse",
+       "x": 0.65,
+       "y": 0.5,
+       "color": "#e4e8ee",
+       "ink": "#1c2430",
+       "ovr": 69
+      },
+      {
+       "name": "Lewis",
+       "x": 0.86,
+       "y": 0.66,
+       "color": "#f1c453",
+       "ink": "#3a2a06",
+       "ovr": 75
+      },
+      {
+       "name": "O'Reilly",
+       "x": 0.14,
+       "y": 0.66,
+       "color": "#f1c453",
+       "ink": "#3a2a06",
+       "ovr": 75
+      },
+      {
+       "name": "Watts",
+       "x": 0.36,
+       "y": 0.72,
+       "color": "#d8a070",
+       "ink": "#2b1a0e",
+       "ovr": 59
+      },
+      {
+       "name": "Scarr",
+       "x": 0.64,
+       "y": 0.72,
+       "color": "#d8a070",
+       "ink": "#2b1a0e",
+       "ovr": 58
+      },
+      {
+       "name": "McCracken",
+       "x": 0.5,
+       "y": 0.9,
+       "color": "#e4e8ee",
+       "ink": "#1c2430",
+       "ovr": 66
+      }
+     ],
+     "empty": {
+      "x": 0.82,
+      "y": 0.3,
+      "label": "RIGHT WING",
+      "at": "right wing",
+      "lag": -0.15
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "PROMOTED",
+     "at": "going up",
+     "lag": -0.1,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 96,
+     "y": 1690,
+     "sub": "to the Championship"
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 3 · the Championship next",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    }
+   ],
+   "shots": [
+    {
+     "at": "Who should City",
+     "lag": 0.32,
+     "cut": true,
+     "transition": "whip",
+     "kicker": "Your vote · the right wing",
+     "headline": "Who should City [sign]?",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#6cabdd",
+       "#ffffff",
+       "#6cabdd",
+       "#1c2c5b"
+      ],
+      "seed": 6
+     },
+     "accent": "#3FE0C5",
+     "lights": 0.6,
+     "focus": 0.3,
+     "camFrom": {
+      "pos": [
+       0,
+       1.6,
+       -3.0
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "camera": {
+      "pos": [
+       0,
+       1.6,
+       -1.8
+      ],
+      "tgt": [
+       0,
+       1.3,
+       10
+      ]
+     },
+     "move": 4,
+     "moveEase": "linear",
+     "players": [],
+     "hype": false,
+     "card": [
+      {
+       "type": "pcard",
+       "y": 1000,
+       "w": 290,
+       "h": 400,
+       "shiftX": -335,
+       "side": "left",
+       "at": "Who should City",
+       "lag": -0.1,
+       "player": {
+        "kit": {
+         "shirt": "#7a263a",
+         "shorts": "#ffffff",
+         "socks": "#7a263a",
+         "text": "#1bb1e7"
+        },
+        "skin": "#f0c8a8",
+        "hair": "#4a3324",
+        "name": ""
+       },
+       "tag": "WEST HAM",
+       "caption": "Jarrod Bowen",
+       "stats": [
+        [
+         16.0,
+         "starts"
+        ],
+        [
+         "7+7",
+         "G + A"
+        ]
+       ],
+       "statsNote": "Championship · real stats",
+       "clear": false
+      },
+      {
+       "type": "pcard",
+       "y": 1000,
+       "w": 290,
+       "h": 400,
+       "shiftX": 0,
+       "side": "right",
+       "at": "Who should City",
+       "lag": 0.2,
+       "player": {
+        "kit": {
+         "shirt": "#e2231a",
+         "shorts": "#ffffff",
+         "socks": "#e2231a",
+         "text": "#ffffff"
+        },
+        "skin": "#8a5a3c",
+        "hair": "#141010",
+        "name": ""
+       },
+       "tag": "MIDDLESBROUGH",
+       "caption": "Cozier-Duberry",
+       "stats": [
+        [
+         11.0,
+         "starts"
+        ],
+        [
+         "3+6",
+         "G + A"
+        ]
+       ],
+       "statsNote": "Championship · real stats",
+       "clear": false
+      },
+      {
+       "type": "pcard",
+       "y": 1000,
+       "w": 290,
+       "h": 400,
+       "shiftX": 335,
+       "side": "right",
+       "at": "Who should City",
+       "lag": 0.5,
+       "player": {
+        "kit": {
+         "shirt": "#0a4ea1",
+         "shorts": "#ffffff",
+         "socks": "#0a4ea1",
+         "text": "#ffffff"
+        },
+        "skin": "#f0c8a8",
+        "hair": "#6a4a2a",
+        "name": ""
+       },
+       "tag": "CARDIFF",
+       "caption": "Ollie Tanner",
+       "stats": [
+        [
+         16.0,
+         "starts"
+        ],
+        [
+         "3+4",
+         "G + A"
+        ]
+       ],
+       "statsNote": "Championship · real stats",
+       "clear": false
+      },
+      {
+       "type": "poll",
+       "y": 1640,
+       "at": "Who should City",
+       "lag": 0.4,
+       "question": "Who should City sign?",
+       "clear": false,
+       "options": [
+        {
+         "label": "Bowen",
+         "color": "#7a263a",
+         "fill": 0.34
+        },
+        {
+         "label": "Cozier-Duberry",
+         "color": "#e2231a",
+         "fill": 0.33
+        },
+        {
+         "label": "Tanner",
+         "color": "#0a4ea1",
+         "fill": 0.33
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "vo": "City are going up. The weak spot: right wing. Who should City sign?"
+  },
+  {
+   "kicker": "The loan",
+   "headline": "Moylan's loan is [nearly up].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0a4ea1",
+     "#ffffff",
+     "#0a4ea1",
+     "#d6283b"
+    ],
+    "seed": 33
+   },
+   "accent": "#e9b949",
+   "lights": 0.7,
+   "focus": 0.3,
+   "flashes": 10,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -4.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -2.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 4,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 3 · simulated",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "scard",
+     "y": 1110,
+     "name": "Moylan",
+     "pos": "LW",
+     "ovr": 72,
+     "rarity": "silver",
+     "player": {
+      "kit": {
+       "shirt": "#6cabdd",
+       "shorts": "#ffffff",
+       "socks": "#6cabdd",
+       "text": "#1c2c5b"
+      },
+      "name": "",
+      "num": null,
+      "skin": "#e7b593",
+      "hair": "#3a2a1a"
+     },
+     "badge": {
+      "colors": [
+       "#6cabdd",
+       "#1c2c5b",
+       "#ffffff"
+      ],
+      "text": "MCI"
+     },
+     "rows": [
+      {
+       "label": "Since joining",
+       "cells": [
+        [
+         23,
+         "gp"
+        ],
+        [
+         1,
+         "g"
+        ],
+        [
+         6,
+         "a"
+        ]
+       ]
+      }
+     ],
+     "foot": "sim rating · sim stats",
+     "entry": "zoom",
+     "dx": -250,
+     "scale": 0.8,
+     "seed": 17,
+     "ribbon": "Loan",
+     "clear": false,
+     "ribbonColor": "#e9b949",
+     "at": "Moylan's",
+     "lag": -0.1,
+     "tilt": -0.04,
+     "snap": true
+    },
+    {
+     "type": "crossoff",
+     "y": 1050,
+     "dx": 245,
+     "delay": 0.2,
+     "title": "THE LOAN",
+     "days": 6,
+     "cols": 3,
+     "cell": 104,
+     "crossAt": "nearly up",
+     "crossLag": -0.2,
+     "dur": 1.5,
+     "caption": "{n} of 6 months",
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "KEEP HIM?",
+     "at": "Keep him",
+     "lag": -0.1,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 120,
+     "y": 1560,
+     "sub": "comment yes or no"
+    }
+   ],
+   "vo": "And Moylan's loan is nearly up. Keep him?"
+  }
+ ]
+}

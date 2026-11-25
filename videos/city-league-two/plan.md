@@ -89,3 +89,9 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
 - Second-half seed **2031** (Part 4's first half 2029, the squad stats 2030), written here before anything is run. `data/sim_l5.py` replays the first half and asserts the matchday-23 table against `ep4.json`,
   then plays matchdays 24–46 and the play-offs with the January signings: the poll winner in the second holding-midfield slot and the comment-vote loan player (6 months = the whole second half),
   each rated at his real club's level (`data/l5model.py`). Waiting for the user's poll result and the loan player's name.
+
+## Part 5: what was run (25 Nov 2026)
+- The poll ended: Ward-Prowse 47%, Norwood 30%, Phillips 23% (785 votes) → **Ward-Prowse** (Southampton) signs. The comment vote: "Make them sign Jack Moylan from Cardiff" reached 19 of the 30 likes, so **Moylan** (Cardiff City)
+  comes on a **6-month loan** (left wing, replacing T. Samba). `data/p5_run.py` ran the second half with seed 2031 (fixed above, before running): City 1st, 82 points, 97 goals, 51 against, Haaland 35 league goals, promoted as champions
+  (title clinched at matchday 45). Series length: decided episode by episode (user's answer, 25 Nov 2026); the ending lets the result decide: City went up, so the step-up vote is for the Championship (right wing is the weakest slot).
+- Squad cards for the two signings: simulated stats since joining (matchdays 24–46) are shared out after the fact by `data/squad5.py` with seed **2032**, written here before running it.

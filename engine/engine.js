@@ -4117,6 +4117,53 @@ CARDS.comments = function (c, ct, cx, cy) {
 };
 CARDS.comments.noSlide = true;
 
+// Like pledge ("if this comment gets 30 likes we sign him"): the comment as it was written, a heart counter that counts up to `likes`, a bar of `goal` segments that
+// fills (heart-red) and stops short, a red "N SHORT" pill, then a stamp with the outcome. Built for videos/city-part-5 (a fan's comment got a loan, not a signing).
+// {type: "pledge", handle, text, likes: 19, goal: 30, likeAt|likeT (count starts), dur, shortAt|shortT, resultAt|resultT, result: "6-MONTH LOAN", resultColor, title, neededLabel, w}
+CARDS.pledge = function (c, ct, cx, cy) {
+  const k = eBack(pr(ct, 0, 0.45)); if (k <= 0) return;
+  const w = c.w || 900, goal = c.goal || 30, likes = c.likes || 19, lT = c.likeT != null ? c.likeT : 0.9, dur = c.dur || 1.4, done = ct >= lT + dur;
+  const cnt = Math.round(likes * ease(pr(ct, lT, dur))), sT = c.shortT != null ? c.shortT : lT + dur + 0.3, rT = c.resultT != null ? c.resultT : sT + 0.9;
+  const ch = 250, ph = 290, gap = 22, h = ch + gap + ph, y0 = -h / 2;
+  ctx.save(); ctx.translate(cx, cy + (1 - Math.min(1, k)) * 70); ctx.scale(k, k); ctx.rotate(-0.012);
+  // the comment
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 36; ctx.shadowOffsetY = 14; ctx.fillStyle = '#ffffff'; rrect(-w / 2, y0, w, ch, 32); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.fillStyle = c.avatar || '#3FE0C5'; ctx.beginPath(); ctx.arc(-w / 2 + 78, y0 + 78, 42, 0, 7); ctx.fill();
+  font(900, 44, 'Inter'); ctx.fillStyle = '#06201c'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(c.handle || '?').charAt(0).toUpperCase(), -w / 2 + 78, y0 + 82);
+  font(800, 32, 'Inter'); ctx.fillStyle = '#16181d'; ctx.textAlign = 'left'; if (c.handle) ctx.fillText('@' + c.handle, -w / 2 + 144, y0 + 62);
+  font(600, 40, 'Inter'); ctx.fillStyle = '#16181d';
+  { const words = String(c.text || '').split(' '), lines = []; let cur = ''; for (const wd of words) { const t = cur ? cur + ' ' + wd : wd; if (ctx.measureText(t).width > w - 190 && cur) { lines.push(cur); cur = wd; } else cur = t; } lines.push(cur);
+    lines.forEach((l, i) => ctx.fillText(l, -w / 2 + 144, y0 + 122 + i * 50)); }
+  // the heart and its count on the comment
+  const hx = w / 2 - 150, hy = y0 + ch - 46, hs = 17 * (1 + (cnt > 0 && !done ? 0.12 * Math.abs(Math.sin(ct * 14)) : 0));
+  ctx.fillStyle = cnt > 0 ? '#ff4d6a' : '#b8bcc4'; ctx.beginPath(); ctx.moveTo(hx, hy + hs * 0.9); ctx.bezierCurveTo(hx - hs * 1.5, hy - hs * 0.3, hx - hs * 0.6, hy - hs * 1.2, hx, hy - hs * 0.4); ctx.bezierCurveTo(hx + hs * 0.6, hy - hs * 1.2, hx + hs * 1.5, hy - hs * 0.3, hx, hy + hs * 0.9); ctx.fill();
+  font(800, 34, 'Inter'); ctx.fillStyle = '#16181d'; ctx.textAlign = 'left'; ctx.fillText(String(cnt), hx + 38, hy + 2);
+  // the target panel
+  const py = y0 + ch + gap, pk = pr(ct, 0.25, 0.4); ctx.save(); ctx.globalAlpha *= pk; ctx.translate(0, (1 - pk) * 30);
+  ctx.fillStyle = 'rgba(8,10,15,0.86)'; rrect(-w / 2, py, w, ph, 28); ctx.fill();
+  font(700, 22, 'Mono', '5px'); ctx.fillStyle = '#c9ced6'; ctx.textAlign = 'center'; ctx.fillText((c.title || 'LIKES').toUpperCase(), 0, py + 40);
+  const bx = -w / 2 + 50, bw = w - 100, sw = bw / goal, by = py + 150;
+  for (let i = 0; i < goal; i++) {
+    const on = i < cnt; ctx.fillStyle = on ? '#ff4d6a' : 'rgba(255,255,255,0.12)'; rrect(bx + i * sw + 2, by - 30, sw - 4, 60, 6); ctx.fill();
+  }
+  // the target flag at the end
+  ctx.fillStyle = '#e9b949'; ctx.fillRect(bx + bw + 2, by - 56, 5, 112); ctx.beginPath(); ctx.moveTo(bx + bw + 7, by - 56); ctx.lineTo(bx + bw + 7 + 44, by - 42); ctx.lineTo(bx + bw + 7, by - 28); ctx.fill();
+  font(800, 28, 'Inter'); ctx.fillStyle = '#e9b949'; ctx.textAlign = 'center'; ctx.fillText(String(goal), bx + bw - 14, by - 62);
+  font(900, 84, 'Inter', '-2px'); ctx.fillStyle = done ? '#ff4d6a' : '#ffffff'; ctx.textAlign = 'right'; ctx.fillText(String(cnt), -8, py + 238);
+  font(800, 52, 'Inter'); ctx.fillStyle = '#c9ced6'; ctx.textAlign = 'left'; ctx.fillText('/ ' + goal + ' ' + (c.neededLabel || 'needed'), 8, py + 244);
+  ctx.restore();
+  // "N short" pill at the end of the filled bar
+  if (ct >= sT) { const sk = eBack(pr(ct, sT, 0.3)), pu = 1 + 0.06 * Math.sin(ct * 8), txt = (goal - likes) + ' SHORT'; ctx.save(); ctx.translate(bx + (likes + (goal - likes) / 2) * sw, by - 92); ctx.scale(sk * pu, sk * pu);
+    font(900, 40, 'Inter'); const tw = ctx.measureText(txt).width + 44; ctx.fillStyle = '#d6283b'; rrect(-tw / 2, -30, tw, 60, 14); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(txt, 0, 3); ctx.restore(); }
+  // the outcome stamp
+  if (c.result && ct >= rT) { const q = pr(ct, rT, 0.22), sc = 1 + 1.4 * (1 - eOut(q)), shake = ct - rT < 0.4 ? Math.sin(ct * 90) * 9 * (1 - (ct - rT) / 0.4) : 0, col = c.resultColor || '#1f9d55';
+    ctx.save(); ctx.globalAlpha *= Math.min(1, q * 3); ctx.translate(shake, h / 2 - 150); ctx.rotate(-0.07); ctx.scale(sc, sc); font(900, c.resultSize || 84, 'Inter', '2px'); const tw = ctx.measureText(c.result).width + 80;
+    ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 24; ctx.fillStyle = '#0b0d12'; rrect(-tw / 2, -62, tw, 124, 22); ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.lineWidth = 10; ctx.strokeStyle = col; rrect(-tw / 2, -62, tw, 124, 22); ctx.stroke(); ctx.fillStyle = col; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.result, 0, 5); ctx.restore(); }
+  ctx.restore();
+};
+CARDS.pledge.noSlide = true;
+
 // Radial speed lines (hero intro, big moments). Beat key: "speedlines": [{t|at, dur}]
 // ---- "What if" simulation kit (built for videos/bruno-whatif) ----
 // Player dissolve: a player with "vanishAt" (or vanishDelay) glitches, then breaks into pixel blocks that drift up and fade;
@@ -4605,13 +4652,13 @@ CARDS.form.noSlide = true;
 // Points pace (built for videos/city-part-4): a team's points after each matchday against what the model expected. Both lines draw across the chart; pins mark
 // chosen matchdays (a dot on the actual line + a small label); on gapT|gapAt a red bracket pops with the gap.
 // expected, actual: cumulative points after matchday 1..n; pins: [{i (0-based matchday), label, color, dy (label offset in px, default 46 = below; negative = above)}], startT, dur, gapT|gapAt, gapLabel ("−8"), title, w, h,
-// names: {expected, actual} (legend), top (y-axis maximum, default the next 10 above the data).
+// names: {expected, actual} (legend), top (y-axis maximum, default the next 10 above the data), linear (draw at a constant pace), pins[].at|t (pop on a word instead of as the line passes).
 CARDS.pace = function (c, ct, cx, cy) {
   const E = c.expected || [], A = c.actual || [], n = Math.max(E.length, A.length); if (!n) return;
   const w = c.w || 900, h = c.h || 700, t0 = c.startT != null ? c.startT : 0.4, dur = c.dur || 3.2, k0 = eOut(pr(ct, 0, 0.35)); if (k0 <= 0) return;
   const top = c.top || Math.ceil(Math.max(...E, ...A) / 10) * 10, px0 = -w / 2 + 96, px1 = w / 2 - 215, py0 = h - 100, py1 = 190;
   const X = i => px0 + (px1 - px0) * (i + 1) / n, Y = v => py0 + (py1 - py0) * v / top;
-  const g = ease(pr(ct, t0, dur)), m = g * n, nm = c.names || {};
+  const g = c.linear ? pr(ct, t0, dur) : ease(pr(ct, t0, dur)), m = g * n, nm = c.names || {};
   const poly = arr => [[X(-1), Y(0)]].concat(arr.map((v, i) => [X(i), Y(v)]));
   const drawn = P => { const out = [P[0]]; for (let j = 1; j < P.length; j++) { const f = Math.max(0, Math.min(1, m - (j - 1))); if (f <= 0) break; out.push([lerp(P[j - 1][0], P[j][0], f), lerp(P[j - 1][1], P[j][1], f)]); } return out; };
   ctx.save(); ctx.globalAlpha *= k0; ctx.translate(cx, cy - h / 2 + (1 - k0) * 30); { const pu = 1 + 0.012 * ct; ctx.translate(0, h / 2); ctx.scale(pu, pu); ctx.translate(0, -h / 2); }
@@ -4636,7 +4683,7 @@ CARDS.pace = function (c, ct, cx, cy) {
   for (const [P, col] of [[PE, '#ffffff'], [PA, '#f1c453']]) { const q = P[P.length - 1]; ctx.fillStyle = col; ctx.beginPath(); ctx.arc(q[0], q[1], 11, 0, 7); ctx.fill(); }
   // pins on the actual line
   for (const pin of c.pins || []) {
-    const a = eBack(pr(m, pin.i + 0.55, 0.45)); if (a <= 0 || pin.i >= A.length) continue;
+    const a = pin.t != null ? eBack(pr(ct, pin.t, 0.35)) : eBack(pr(m, pin.i + 0.55, 0.45)); if (a <= 0 || pin.i >= A.length) continue;   // a pin with t pops on its word, otherwise as the line reaches it
     const x = X(pin.i), y = Y(A[pin.i]), col = pin.color || '#d6283b';
     ctx.save(); ctx.translate(x, y); ctx.scale(a, a); ctx.fillStyle = col; ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(0, 0, 14, 0, 7); ctx.fill(); ctx.stroke();
     if (pin.label) { font(800, 22, 'Inter', '1px'); const tw = ctx.measureText(pin.label).width + 28; ctx.translate(0, pin.dy != null ? pin.dy : 46); ctx.fillStyle = col; rrect(-tw / 2, -20, tw, 40, 20); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(pin.label, 0, 1); }
@@ -4691,8 +4738,10 @@ function cardEvents(c) {
       ev.push({ t: lT + (c.lit || 0) * st + 0.1, type: 'swipe' });
       if (c.extra) { const xt = c.extra.t != null ? c.extra.t : lT + (c.lit || 0) * st + 0.7; for (let i = 0; i < Math.min(c.extra.n || 0, 10); i++) ev.push({ t: xt + i * 0.12, type: 'pop' }); ev.push({ t: xt + 0.05, type: 'impact' }); } break; }
     case 'scard': { ev.push({ t: 0.02, type: 'whoosh' }, { t: 0.4, type: c.rarity === 'bronze' ? 'pop' : 'impact' }); ticks(0.4, 0.45); ev.push({ t: 1.0, type: 'swish' }); if (c.rarity === 'elite') ev.push({ t: 0.45, type: 'crowd' }); break; }
-    case 'pace': { const t0 = c.startT != null ? c.startT : 0.4; ticks(t0, Math.min(1.4, c.dur || 3.2)); if (c.gapT != null) ev.push({ t: c.gapT + 0.1, type: 'impact' }); break; }
+    case 'pace': { const t0 = c.startT != null ? c.startT : 0.4; ticks(t0, Math.min(1.4, c.dur || 3.2)); for (const pn of c.pins || []) if (pn.t != null) ev.push({ t: pn.t, type: 'pop' }); if (c.gapT != null) ev.push({ t: c.gapT + 0.1, type: 'impact' }); break; }
     case 'seesaw': for (const it of c.items || []) if (it.t != null) ev.push({ t: it.t, type: 'pop' }); break;
+    case 'pledge': { const lT = c.likeT != null ? c.likeT : 0.9, d = c.dur || 1.4, sT = c.shortT != null ? c.shortT : lT + d + 0.3; ev.push({ t: 0.02, type: 'pop' }); ticks(lT, Math.min(1.2, d * 0.85)); ev.push({ t: sT, type: 'impact' });
+      if (c.result) ev.push({ t: c.resultT != null ? c.resultT : sT + 0.9, type: 'impact' }); break; }
     case 'shotline': { const t0 = c.startT != null ? c.startT : 0.35, d = c.dur || 4, tot = c.total || 94; ev.push({ t: 0.05, type: 'swish' });
       (c.shots || []).forEach((sh, i) => { if (sh.kind === 'goal') ev.push({ t: t0 + sh.min / tot * d, type: 'impact' }); else if (i % 2 === 0) ev.push({ t: t0 + sh.min / tot * d, type: 'tick' }); });
       for (const e of c.events || []) ev.push({ t: t0 + e.min / tot * d, type: 'pop' }); break; }

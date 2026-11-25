@@ -235,9 +235,14 @@ def _resolve_beat(b, rel):
             c['goalT'] = round(max(0, rel(c.pop('goalAt')) + c.pop('goalLag', 0) - base), 3)
         if c.get('type') == 'stopwatch' and isinstance(c.get('lockAt'), str):
             c['lockT'] = round(max(0.4, rel(c.pop('lockAt')) + c.pop('lockLag', 0) - base), 3)
-        for typ, key, out in (('simrun', 'stampAt', 'stampT'), ('simrun', 'countAt', 'countT'), ('simhud', 'countAt', 'countT'), ('odds', 'litAt', 'litT'), ('pace', 'gapAt', 'gapT'), ('subboard', 'swapAt', 'swapT')):
+        for typ, key, out in (('simrun', 'stampAt', 'stampT'), ('simrun', 'countAt', 'countT'), ('simhud', 'countAt', 'countT'), ('odds', 'litAt', 'litT'), ('pace', 'gapAt', 'gapT'), ('subboard', 'swapAt', 'swapT'),
+                                ('pledge', 'likeAt', 'likeT'), ('pledge', 'shortAt', 'shortT'), ('pledge', 'resultAt', 'resultT')):
             if c.get('type') == typ and isinstance(c.get(key), str):
                 c[out] = round(max(0, rel(c.pop(key)) + c.pop(key[:-2] + 'Lag', 0) - base), 3)
+        if c.get('type') == 'pace':
+            for pin in c.get('pins') or []:
+                if 'at' in pin:
+                    pin['t'] = round(max(0, rel(pin.pop('at')) + pin.pop('lag', 0) - base), 3)
         if c.get('type') == 'coin' and isinstance(c.get('landAt'), str):
             c['landT'] = round(max(0, rel(c.pop('landAt')) + c.pop('landLag', 0) - base), 3)
         if c.get('type') == 'table' and isinstance(c.get('moveAt'), str):

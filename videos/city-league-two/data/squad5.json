@@ -1,0 +1,164 @@
+{
+ "seed": 2032,
+ "p_assist": 0.67,
+ "ratings": {
+  "McCracken": {
+   "impact": 0.0744,
+   "ovr": 66,
+   "pos": "GK"
+  },
+  "Lewis": {
+   "impact": 0.1935,
+   "ovr": 75,
+   "pos": "RB"
+  },
+  "Watts": {
+   "impact": -0.0108,
+   "ovr": 59,
+   "pos": "CB"
+  },
+  "Scarr": {
+   "impact": -0.0293,
+   "ovr": 58,
+   "pos": "CB"
+  },
+  "O'Reilly": {
+   "impact": 0.1935,
+   "ovr": 75,
+   "pos": "LB"
+  },
+  "Iroegbunam": {
+   "impact": 0.1461,
+   "ovr": 72,
+   "pos": "DM"
+  },
+  "Ward-Prowse": {
+   "impact": 0.117,
+   "ovr": 69,
+   "pos": "DM"
+  },
+  "McAidoo": {
+   "impact": 0.0166,
+   "ovr": 61,
+   "pos": "RW"
+  },
+  "Foden": {
+   "impact": 0.2998,
+   "ovr": 84,
+   "pos": "AM"
+  },
+  "Moylan": {
+   "impact": 0.1514,
+   "ovr": 72,
+   "pos": "LW"
+  },
+  "Haaland": {
+   "impact": 0.4251,
+   "ovr": 94,
+   "pos": "ST"
+  }
+ },
+ "upgrade_to_championship": {
+  "McCracken": -0.0553,
+  "Lewis": -0.1488,
+  "Watts": 0.0419,
+  "Scarr": 0.0602,
+  "O'Reilly": -0.1488,
+  "Iroegbunam": -0.0965,
+  "Ward-Prowse": -0.0673,
+  "McAidoo": 0.076,
+  "Foden": -0.2178,
+  "Moylan": -0.0635,
+  "Haaland": -0.3092
+ },
+ "stats_second_half": {
+  "McCracken": {
+   "apps": 23,
+   "goals": 0,
+   "assists": 0,
+   "cs": 6,
+   "conceded": 29
+  },
+  "Lewis": {
+   "apps": 23,
+   "goals": 3,
+   "assists": 2,
+   "cs": 6,
+   "conceded": 0
+  },
+  "Watts": {
+   "apps": 23,
+   "goals": 1,
+   "assists": 1,
+   "cs": 6,
+   "conceded": 0
+  },
+  "Scarr": {
+   "apps": 23,
+   "goals": 0,
+   "assists": 0,
+   "cs": 6,
+   "conceded": 0
+  },
+  "O'Reilly": {
+   "apps": 23,
+   "goals": 5,
+   "assists": 2,
+   "cs": 6,
+   "conceded": 0
+  },
+  "Iroegbunam": {
+   "apps": 23,
+   "goals": 3,
+   "assists": 2,
+   "cs": 0,
+   "conceded": 0
+  },
+  "Ward-Prowse": {
+   "apps": 23,
+   "goals": 4,
+   "assists": 2,
+   "cs": 0,
+   "conceded": 0
+  },
+  "McAidoo": {
+   "apps": 23,
+   "goals": 4,
+   "assists": 8,
+   "cs": 0,
+   "conceded": 0
+  },
+  "Foden": {
+   "apps": 19,
+   "goals": 9,
+   "assists": 3,
+   "cs": 0,
+   "conceded": 0
+  },
+  "Moylan": {
+   "apps": 23,
+   "goals": 1,
+   "assists": 6,
+   "cs": 0,
+   "conceded": 0
+  },
+  "Haaland": {
+   "apps": 20,
+   "goals": 22,
+   "assists": 2,
+   "cs": 0,
+   "conceded": 0
+  }
+ },
+ "stand_in": {
+  "apps": 7,
+  "goals": 2,
+  "assists": 4,
+  "cs": 0,
+  "conceded": 0
+ },
+ "team": {
+  "gf": 2.3672425652295477,
+  "ga": 1.0419549872904168
+ }
+}

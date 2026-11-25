@@ -16,10 +16,13 @@ virality: surprise, conflict, a record, a big name, and a clear hook number. For
 visuals (which tools or backlog items), and what still needs fact-checking. End with your top pick and why, and list the sources.
 
 ## Series in progress
-- **Man City in League Two** (`videos/city-league-two/plan.md`): Parts 1–4 are built (`videos/city-league-two` = the pilot, `city-league-one` = Part 2, `city-part-3`, `city-part-4`, plus the squad update `city-squad-update`). The user decides the length
-  **episode by episode: ask again before every new part** (they asked for this reminder). Part 5 = the second half of season 3 (matchdays 24–46 + play-offs) after the January midfielder vote
-  (Kalvin Phillips / James Ward-Prowse / Oliver Norwood). The season-3 sim is `data/sim_l4.py` (league membership and ratings in `data/l4model.py`, first half done with seed 2029); the second half
-  replays it exactly the way `sim_l1b.py` replayed Part 2 (assert the matchday-23 table against `ep4.json`, fix a new seed before running).
+- **Man City in League Two** (`videos/city-league-two/plan.md`): Parts 1–5 are built (`videos/city-league-two` = the pilot, `city-league-one` = Part 2, `city-part-3`, `city-part-4`, `city-part-5`, plus the squad update `city-squad-update`).
+  The user decides the length **episode by episode: ask again before every new part** (they asked for this reminder). Part 5 = the second half of season 3 (matchdays 24–46) with the poll winner
+  (Ward-Prowse) and the comment-vote loan (Moylan, 6 months, left wing for Samba): City finished 1st on 82 points and went up as champions (no play-offs). The season-3 sim is `data/sim_l4.py` (first half, seed 2029)
+  and `data/sim_l5.py` + `data/p5_run.py` (second half, seed 2031; it replays the first half and asserts the matchday-23 table against `ep4.json`); the new signings' ratings and simulated stats since joining are
+  `data/squad5.py` (seed 2032). **Part 6 (if the user wants it) = season 4 in the Championship**: the open votes are the right-wing signing (Bowen / Cozier-Duberry / Tanner, from the Part 5 poll) and whether City keep
+  Moylan when his loan ends. Real right-sided players were found from ESPN match reports (`data/fetch_wing.py`, `right_wing.json`); League One clubs promoted with City and the Championship line-up need a
+  new membership file (see `data/l4model.py` for the method).
 
 ## When the user sends a script (or a story)
 1. Create `videos/<slug>/spec.json` (format below) and `videos/<slug>/vo.txt`.
@@ -433,8 +436,12 @@ Built so far from the idea list (reuse them):
 - **Player labels are timed from the beat start, not from the player's own start** (`labelDelay`); a player who starts before the word needs a numeric `labelDelay`.
 - **Points pace** (built for `videos/city-part-4`): the `pace` card. A line chart of a team's points after each matchday against what the model expected: both lines draw across, pins mark chosen matchdays
   (a dot on the actual line and a small label; `dy` moves a label above or below), and on `gapAt` a red bracket pops with the gap ("−8"). `expected`, `actual` (cumulative points per matchday),
-  `pins: [{i, label, color, dy}]`, `startT`, `dur`, `gapLabel`, `names`, `title`, `w`, `h`. Expected points come from `data/extra4.py` (the model's own expectation for each fixture, including the chance
+  `pins: [{i, label, color, dy, at|t}]` (a pin with `at` pops on its word, otherwise as the line reaches it), `startT`, `dur`, `linear` (draw at a constant pace), `gapLabel`, `names`, `title`, `w`, `h`.
+  Part 5 used it as a title race: `expected` = the best of the rest's points after each matchday (`names: {expected: "best of the rest", actual: "Man City"}`), cut at the matchday where the lines meet. Expected points come from `data/extra4.py` (the model's own expectation for each fixture, including the chance
   Haaland and Foden miss it). Use it for "the table says X, the model says Y" re-hooks.
+- **Like pledge** (built for `videos/city-part-5`): the `pledge` card. "If this comment gets 30 likes we sign him": the comment as written (`handle`, `text`), a heart counter that counts up to `likes` against a bar of `goal` segments
+  (`likeAt` starts the count, `dur`), a red "N SHORT" pill on `shortAt`, then a stamp with the outcome (`result`, `resultAt`, `resultColor`): `title`, `neededLabel`, `w`. Show a real viewer comment only as it was written
+  (the user's own screenshot) and credit only a public handle the user has shared; `CREDIT = None` in the video's `gen.py` hides it.
 - **League membership for a new season** (`videos/city-league-two/data/l4model.py`): last season's simulated league minus the promoted and relegated clubs, plus the clubs that come in. Clubs from the
   Championship are rated by fitting that league's real results (`fetch_ch.py`, ESPN's scoreboard one day at a time: date ranges give a 400) and moving them onto the League One scale with the real
   Championship v League One cup ties (`gap_ch.py`); clubs from League Two move across with the League Two bridge. Stand-ins are today's real tables (Part 2's convention).

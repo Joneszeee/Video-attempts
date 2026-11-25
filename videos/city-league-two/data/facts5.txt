@@ -1,0 +1,66 @@
+FINAL (pos, team, pts, gf, ga):
+  1 Manchester City 82 97 51
+  2 MK Dons 78 89 72
+  3 Stockport County 77 85 63
+  4 Luton Town 76 91 62
+  5 Reading 74 80 68
+  6 Stevenage 74 68 61
+City: pts 82, GF 97, GA 51, GD +46 | second half: W12 D8 L3, 44 pts
+most goals scored? True | fewest conceded? True | best GD? True
+Haaland: 35 league goals (13 at halfway); clean sheets 12 (6 at halfway)
+matchday: City pos, pts | best of the rest, pts | lead
+  24 5 38 MK Dons 43 -5
+  25 5 41 MK Dons 46 -5
+  26 2 44 MK Dons 46 -2
+  27 1 47 Stockport County 47 0
+  28 1 50 Luton Town 49 1
+  29 1 53 Luton Town 52 1
+  30 1 54 Luton Town 53 1
+  31 1 57 MK Dons 55 2
+  32 1 58 MK Dons 56 2
+  33 1 59 MK Dons 59 0
+  34 1 62 MK Dons 62 0
+  35 2 63 MK Dons 65 -2
+  36 1 66 MK Dons 65 1
+  37 2 66 Stockport County 67 -1
+  38 2 69 Stockport County 70 -1
+  39 2 70 Stockport County 71 -1
+  40 1 73 Stockport County 72 1
+  41 1 73 Stockport County 73 0
+  42 1 74 Stockport County 74 0
+  43 1 77 Stockport County 74 3
+  44 1 78 Stockport County 74 4
+  45 1 81 Stockport County 77 4
+  46 1 82 MK Dons 78 4
+City first reached top at matchday 27 | last time not top: 39
+title mathematically clinched at matchday 45 (lead more than the points left)
+biggest wins: [(6, 34, 'Salford City', '6-0', 'H'), (4, 36, 'Exeter City', '5-1', 'H'), (4, 25, 'Burnley', '5-1', 'H'), (3, 45, 'Cambridge United', '3-0', 'H')]
+defeats: [(24, 'Stevenage', '1-2', 'A'), (37, 'Chesterfield', '3-4', 'A'), (41, 'Plymouth Argyle', '1-3', 'A')]
+first-half v second-half record: MD1-23 38 pts (W10 D8 L5) | MD24-46 44 pts
+odds: {'odds_without': 0.883, 'odds_with_sign': 0.928, 'odds_with_both': 0.958} {'odds_without': 0.571, 'odds_with_sign': 0.674, 'odds_with_both': 0.744}
+XI5 tiers: ['mccracken', 'city', 'watts', 'l2', 'city', 'pl', 'Ward-Prowse', 'u21', 'city', 'LOAN', 'city']
+Traceback (most recent call last):
+  File "/home/user/Video-attempts/videos/city-league-two/data/facts5.py", line 30, in <module>
+    gf, ga = team(XI5); print('City v an average League One side: %.3f for, %.3f against (Part 4: 2.164 / 1.104)' % (gf, ga))
+             ~~~~^^^^^
+  File "/home/user/Video-attempts/videos/city-league-two/data/facts5.py", line 28, in team
+    def team(x): return (math.exp(sum(w * math.log(T[t][0]) for (p, w, _), t in zip(POS, x))), math.exp(sum(w * math.log(T[t][1]) for (p, _, w), t in zip(POS, x))))
+                                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Video-attempts/videos/city-league-two/data/facts5.py", line 28, in <genexpr>
+    def team(x): return (math.exp(sum(w * math.log(T[t][0]) for (p, w, _), t in zip(POS, x))), math.exp(sum(w * math.log(T[t][1]) for (p, _, w), t in zip(POS, x))))
+                                                   ~^^^
+KeyError: 'LOAN'
+XI5 tiers: ['mccracken', 'city', 'watts', 'l2', 'city', 'pl', 'Ward-Prowse', 'u21', 'city', 'LOAN', 'city']
+City v an average League One side: 2.367 for, 1.042 against (Part 4: 2.164 / 1.104)
+slot: impact v an average League One player -> rating | gain if upgraded to an average Championship player (goals per game)
+  McCracken    GK  +0.074 -> 66 | upgrade gain -0.055
+  Lewis        RB  +0.194 -> 75 | upgrade gain -0.149
+  Watts        CB  -0.011 -> 59 | upgrade gain +0.042
+  Scarr        CB  -0.029 -> 58 | upgrade gain +0.060
+  O'Reilly     LB  +0.194 -> 75 | upgrade gain -0.149
+  Iroegbunam   DM  +0.146 -> 72 | upgrade gain -0.096
+  Ward-Prowse  DM  +0.117 -> 69 | upgrade gain -0.067
+  McAidoo      RW  +0.017 -> 61 | upgrade gain +0.076
+  Foden        AM  +0.300 -> 84 | upgrade gain -0.218
+  Moylan       LW  +0.151 -> 72 | upgrade gain -0.064
+  Haaland      ST  +0.425 -> 94 | upgrade gain -0.309

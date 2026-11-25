@@ -1,0 +1,37 @@
+Cardiff on the League One scale: att +0.45 def -0.13 -> tier 2.05 / 1.48
+WITHOUT {'title': 0.571, 'auto': 0.786, 'playoffs': 0.191, 'promoted': 0.883, 'avg_pts': 83.447}
+SIGNING {'title': 0.674, 'auto': 0.856, 'playoffs': 0.134, 'promoted': 0.928, 'avg_pts': 85.26}
+BOTH    {'title': 0.744, 'auto': 0.905, 'playoffs': 0.09, 'promoted': 0.958, 'avg_pts': 86.745}
+24 A Stevenage 1-2 L | pos 5 38
+25 H Burnley 5-1 W | pos 5 41
+26 A Wycombe Wanderers 4-3 W | pos 2 44
+27 H Burton Albion 2-0 W | pos 1 47
+28 A Wimbledon 4-1 W | pos 1 50
+29 H Mansfield Town 2-1 W | pos 1 53
+30 H Barnet 1-1 D | pos 1 54
+31 A Luton Town 2-1 W | pos 1 57
+32 H Grimsby Town 2-2 D | pos 1 58
+33 A Reading 2-2 D | pos 1 59
+34 H Salford City 6-0 W | pos 1 62
+35 A Huddersfield Town 2-2 D | pos 2 63
+36 H Exeter City 5-1 W | pos 1 66
+37 A Chesterfield 3-4 L | pos 2 66
+38 H Walsall 1-0 W | pos 2 69
+39 A Stockport County 1-1 D | pos 2 70
+40 H Leicester City 2-1 W | pos 1 73
+41 A Plymouth Argyle 1-3 L | pos 1 73
+42 A Preston North End 2-2 D | pos 1 74
+43 H MK Dons 2-0 W | pos 1 77
+44 A Derby County 0-0 D | pos 1 78
+45 H Cambridge United 3-0 W | pos 1 81
+46 A Leyton Orient 1-1 D | pos 1 82
+FINAL:
+1 Manchester City 82 97 51
+2 MK Dons 78 89 72
+3 Stockport County 77 85 63
+4 Luton Town 76 91 62
+5 Reading 74 80 68
+6 Stevenage 74 68 61
+7 Preston North End 69 74 73
+8 Wycombe Wanderers 68 84 83
+City 1 promoted True | Haaland 35 | CS 12

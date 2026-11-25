@@ -95,3 +95,10 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
   comes on a **6-month loan** (left wing, replacing T. Samba). `data/p5_run.py` ran the second half with seed 2031 (fixed above, before running): City 1st, 82 points, 97 goals, 51 against, Haaland 35 league goals, promoted as champions
   (title clinched at matchday 45). Series length: decided episode by episode (user's answer, 25 Nov 2026); the ending lets the result decide: City went up, so the step-up vote is for the Championship (right wing is the weakest slot).
 - Squad cards for the two signings: simulated stats since joining (matchdays 24–46) are shared out after the fact by `data/squad5.py` with seed **2032**, written here before running it.
+
+## Part 5 addendum: who else went up (25 Nov 2026, after a viewer's comment)
+- A viewer asked "who else went up?" Part 5 did not say. The official run (seed 2031) only played the play-offs when City were in 3rd–6th, so with City champions the other promotion places were never decided:
+  MK Dons (2nd, 78 points) go up automatically; the third place goes to the play-offs among 3rd–6th (Stockport 77, Luton 76, Reading 74, Stevenage 74).
+- The play-offs among those four are played now with seed **2033**, written here before anything is run (`data/p5_promotion.py`: same two-leg semi-finals (3rd v 6th, 4th v 5th) and one-match final as `sim_l5.py`).
+  The bottom four (Huddersfield, Walsall, Exeter, Wimbledon) go down. This result is now part of the series (it feeds Part 6's league membership).
+- **Standing rule (user, 25 Nov 2026): a season-ending episode always says and shows who else went up (and who went down)**, the play-off winner included, so every season sim must play the play-offs for the other clubs too.

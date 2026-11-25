@@ -1,0 +1,996 @@
+{
+ "title": "test",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "hookZoom": false,
+ "beats": [
+  {
+   "kicker": "test",
+   "headline": "Dribble and finish.",
+   "duration": 4.4,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "lights": 1,
+   "flashes": 12,
+   "camTrack": {
+    "player": 0,
+    "off": [
+     2.2,
+     1.55,
+     -5.4
+    ],
+    "tgt": [
+     -0.7,
+     1.0,
+     9.0
+    ],
+    "look": [
+     0.0,
+     1.0,
+     50.0
+    ],
+    "lookW": 0.3,
+    "smooth": 0.35
+   },
+   "hype": false,
+   "punch": [
+    {
+     "t": 3.81,
+     "amount": 0.12,
+     "dur": 1.1,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "t": 4.4,
+     "amount": 14
+    }
+   ],
+   "speedlines": [
+    {
+     "t": 3.8,
+     "dur": 0.6,
+     "amount": 0.4
+    }
+   ],
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "foot": "left",
+     "dribble": true,
+     "dribbleUntil": 3.3,
+     "path": [
+      [
+       7.5,
+       20.0
+      ],
+      [
+       5.4,
+       26.0
+      ],
+      [
+       3.4,
+       31.5
+      ],
+      [
+       1.8,
+       34.2
+      ],
+      [
+       -0.1,
+       36.7
+      ],
+      [
+       -0.1,
+       36.7
+      ],
+      [
+       2.8,
+       35.4
+      ],
+      [
+       5.9,
+       33.6
+      ],
+      [
+       8.2,
+       32.0
+      ]
+     ],
+     "pathT": [
+      0,
+      1.0,
+      2.0,
+      2.6,
+      3.3,
+      4.65,
+      5.65,
+      6.65,
+      7.3500000000000005
+     ],
+     "delay": 0.0,
+     "frontT": 4.65,
+     "actions": [
+      {
+       "delay": 3.514,
+       "action": "kick",
+       "dur": 0.8,
+       "foot": "left"
+      },
+      {
+       "delay": 4.4,
+       "loop": "celebrate"
+      }
+     ],
+     "hops": [
+      {
+       "t": 2.35,
+       "dur": 0.5,
+       "height": 0.22
+      }
+     ],
+     "label": "Haaland",
+     "labelDelay": 0.2,
+     "labelUntil": 4.65
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       -0.0,
+       52.0
+      ],
+      [
+       -0.0,
+       52.0
+      ],
+      [
+       -0.15,
+       50.4
+      ],
+      [
+       -0.15,
+       50.4
+      ]
+     ],
+     "pathT": [
+      0,
+      2.9,
+      3.75,
+      9.0
+     ],
+     "delay": 0.0,
+     "actions": [
+      {
+       "delay": 3.97,
+       "action": "dive",
+       "dir": 1
+      },
+      {
+       "delay": 5.95,
+       "action": "getup",
+       "dir": 1
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#d6283b",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "front": true,
+     "path": [
+      [
+       -3.8,
+       37.8
+      ],
+      [
+       -1.6,
+       34.8
+      ],
+      [
+       0.6,
+       33.4
+      ]
+     ],
+     "pathT": [
+      0,
+      1.75,
+      2.55
+     ],
+     "delay": 0.0,
+     "action": "slide",
+     "dir": -1,
+     "actionDelay": 2.05,
+     "actionDur": 1.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#d6283b",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "path": [
+      [
+       4.7,
+       17.0
+      ],
+      [
+       2.6,
+       23.0
+      ],
+      [
+       0.6,
+       28.6
+      ],
+      [
+       -0.9,
+       33.6
+      ],
+      [
+       -1.5,
+       36.2
+      ]
+     ],
+     "pathT": [
+      0,
+      1.0,
+      2.0,
+      3.0,
+      3.6
+     ],
+     "delay": 0.0,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 4.0
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#d6283b",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "front": true,
+     "path": [
+      [
+       2.6,
+       44.2
+      ],
+      [
+       1.5,
+       43.4
+      ],
+      [
+       0.9,
+       44.0
+      ]
+     ],
+     "pathT": [
+      0,
+      3.0,
+      3.9
+     ],
+     "delay": 0.0,
+     "action": "dive",
+     "dir": -1,
+     "actionDelay": 3.95,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "path": [
+      [
+       -5.6,
+       19.0
+      ],
+      [
+       -5.0,
+       29.0
+      ],
+      [
+       -4.4,
+       37.5
+      ],
+      [
+       -4.0,
+       42.5
+      ],
+      [
+       -4.0,
+       42.5
+      ],
+      [
+       -1.0,
+       40.0
+      ],
+      [
+       3.2,
+       37.4
+      ],
+      [
+       6.4,
+       34.8
+      ]
+     ],
+     "pathT": [
+      0,
+      2.0,
+      3.4,
+      4.0,
+      4.6000000000000005,
+      5.65,
+      6.65,
+      7.3500000000000005
+     ],
+     "delay": 0.0,
+     "action": "celebrate",
+     "actionDelay": 7.35,
+     "frontT": 4.65
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "path": [
+      [
+       12.0,
+       27.5
+      ],
+      [
+       12.0,
+       27.5
+      ],
+      [
+       10.6,
+       29.0
+      ],
+      [
+       9.6,
+       30.2
+      ],
+      [
+       9.0,
+       30.8
+      ]
+     ],
+     "pathT": [
+      0,
+      4.6000000000000005,
+      5.550000000000001,
+      6.550000000000001,
+      7.3500000000000005
+     ],
+     "delay": 0.0,
+     "action": "celebrate",
+     "actionDelay": 7.35,
+     "frontT": 4.65
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "point": [
+      -0.516,
+      0.11,
+      36.949
+     ],
+     "delay": 3.3,
+     "until": 0.55
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.55,
+     "points": [
+      [
+       -0.516,
+       0.11,
+       36.949
+      ],
+      [
+       -1.827,
+       0.9,
+       45.392
+      ],
+      [
+       -2.9,
+       0.5,
+       52.3
+      ]
+     ],
+     "delay": 3.85,
+     "slowmo": false
+    }
+   ]
+  },
+  {
+   "kicker": "test",
+   "headline": "Dribble and finish.",
+   "duration": 2.6,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "lights": 1,
+   "cut": true,
+   "camTrack": {
+    "player": 0,
+    "off": [
+     4.7,
+     1.3,
+     -2.1
+    ],
+    "tgt": [
+     0.0,
+     1.25,
+     0.0
+    ],
+    "smooth": 0.25
+   },
+   "hype": false,
+   "flashes": 16,
+   "confetti": true,
+   "shake": [
+    {
+     "t": 0.05,
+     "amount": 10
+    }
+   ],
+   "card": "same"
+  },
+  {
+   "kicker": "test",
+   "headline": "Long-range curler.",
+   "duration": 4.6,
+   "cut": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "lights": 1,
+   "flashes": 12,
+   "camTrack": {
+    "player": 0,
+    "off": [
+     -2.4,
+     1.7,
+     -6.0
+    ],
+    "tgt": [
+     1.0,
+     1.1,
+     9.0
+    ],
+    "look": [
+     0.0,
+     1.2,
+     50.0
+    ],
+    "lookW": 0.4,
+    "smooth": 0.35
+   },
+   "hype": false,
+   "punch": [
+    {
+     "t": 3.51,
+     "amount": 0.1,
+     "dur": 1.2,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "t": 4.6,
+     "amount": 14
+    }
+   ],
+   "speedlines": [
+    {
+     "t": 3.5,
+     "dur": 0.6,
+     "amount": 0.4
+    }
+   ],
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#d6283b",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "foot": "right",
+     "dribble": true,
+     "dribbleUntil": 3.2,
+     "path": [
+      [
+       -16.0,
+       27.0
+      ],
+      [
+       -12.0,
+       29.5
+      ],
+      [
+       -8.5,
+       31.0
+      ],
+      [
+       -6.0,
+       32.0
+      ],
+      [
+       -4.2,
+       31.4
+      ],
+      [
+       -4.2,
+       31.4
+      ],
+      [
+       -6.2,
+       29.2
+      ],
+      [
+       -8.6,
+       26.4
+      ],
+      [
+       -9.6,
+       24.4
+      ]
+     ],
+     "pathT": [
+      0,
+      1.0,
+      1.9,
+      2.6,
+      3.2,
+      4.85,
+      5.75,
+      6.75,
+      7.449999999999999
+     ],
+     "delay": 0.0,
+     "frontT": 4.85,
+     "actions": [
+      {
+       "delay": 3.214,
+       "action": "kick",
+       "dur": 0.8,
+       "foot": "right"
+      },
+      {
+       "delay": 4.6,
+       "loop": "celebrate"
+      }
+     ],
+     "label": "Scorer",
+     "labelDelay": 0.2,
+     "labelUntil": 4.85
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#f7d117",
+      "shorts": "#111111",
+      "socks": "#f7d117",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       0.3,
+       52.0
+      ],
+      [
+       0.3,
+       52.0
+      ],
+      [
+       -0.3,
+       51.6
+      ],
+      [
+       -0.3,
+       51.6
+      ]
+     ],
+     "pathT": [
+      0,
+      1.5,
+      2.6,
+      9.0
+     ],
+     "delay": 0.0,
+     "actions": [
+      {
+       "delay": 3.92,
+       "action": "dive",
+       "dir": 1
+      },
+      {
+       "delay": 6.3,
+       "action": "getup",
+       "dir": 1
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "front": true,
+     "path": [
+      [
+       -9.5,
+       38.5
+      ],
+      [
+       -7.5,
+       35.5
+      ],
+      [
+       -5.8,
+       33.2
+      ]
+     ],
+     "pathT": [
+      0,
+      2.0,
+      3.3
+     ],
+     "delay": 0.0,
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": 3.4,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "front": true,
+     "path": [
+      [
+       1.8,
+       38.5
+      ],
+      [
+       0.6,
+       37.6
+      ],
+      [
+       -0.6,
+       37.0
+      ]
+     ],
+     "pathT": [
+      0,
+      2.5,
+      3.5
+     ],
+     "delay": 0.0,
+     "hops": [
+      {
+       "t": 3.55,
+       "dur": 0.55,
+       "height": 0.32
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "path": [
+      [
+       -1.5,
+       22.5
+      ],
+      [
+       -1.5,
+       26.5
+      ],
+      [
+       -1.6,
+       29.0
+      ]
+     ],
+     "pathT": [
+      0,
+      2.0,
+      3.4
+     ],
+     "delay": 0.0,
+     "action": "dive",
+     "dir": 1,
+     "actionDelay": 3.75,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#d6283b",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "path": [
+      [
+       8.5,
+       30.0
+      ],
+      [
+       4.0,
+       40.0
+      ],
+      [
+       2.2,
+       45.0
+      ],
+      [
+       2.2,
+       45.0
+      ],
+      [
+       -2.5,
+       37.0
+      ],
+      [
+       -6.5,
+       29.6
+      ],
+      [
+       -8.2,
+       26.8
+      ]
+     ],
+     "pathT": [
+      0,
+      3.0,
+      3.8,
+      4.8,
+      5.949999999999999,
+      6.85,
+      7.449999999999999
+     ],
+     "delay": 0.0,
+     "action": "celebrate",
+     "actionDelay": 7.45,
+     "frontT": 4.85
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#d6283b",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "path": [
+      [
+       5.5,
+       23.0
+      ],
+      [
+       5.5,
+       23.0
+      ],
+      [
+       -1.0,
+       26.0
+      ],
+      [
+       -6.0,
+       25.0
+      ]
+     ],
+     "pathT": [
+      0,
+      4.8,
+      6.25,
+      7.449999999999999
+     ],
+     "delay": 0.0,
+     "action": "celebrate",
+     "actionDelay": 7.45,
+     "frontT": 4.85
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "point": [
+      -3.83,
+      0.11,
+      31.087
+     ],
+     "delay": 3.2,
+     "until": 0.35
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 1.05,
+     "points": [
+      [
+       -3.83,
+       0.11,
+       31.087
+      ],
+      [
+       -2.6,
+       4.4,
+       41.0
+      ],
+      [
+       3.4,
+       2.15,
+       52.3
+      ]
+     ],
+     "delay": 3.55,
+     "slowmo": true
+    }
+   ]
+  },
+  {
+   "kicker": "test",
+   "headline": "Long-range curler.",
+   "duration": 2.6,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "lights": 1,
+   "cut": true,
+   "camTrack": {
+    "player": 0,
+    "off": [
+     -1.0,
+     1.3,
+     -4.6
+    ],
+    "tgt": [
+     0.0,
+     1.25,
+     0.0
+    ],
+    "smooth": 0.25
+   },
+   "hype": false,
+   "flashes": 16,
+   "confetti": true,
+   "shake": [
+    {
+     "t": 0.05,
+     "amount": 10
+    }
+   ],
+   "card": "same"
+  }
+ ]
+}

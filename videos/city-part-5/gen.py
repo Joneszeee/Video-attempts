@@ -34,10 +34,10 @@ def top2(md):
 assert top2(42)[0][2] == top2(42)[1][2] == 74 and top2(42)[1][1] == 'Stockport County' and top2(41)[0][2] == top2(41)[1][2] == 73 and top2(41)[1][1] == 'Stockport County'     # level on points with Stockport
 assert (L5[45]['opp'], L5[45]['venue'], L5[45]['score'], L5[45]['haaland'], L5[45]['hgoals'], L5[45]['pts']) == ('Cambridge United', 'H', '3-0', True, 2, 81)
 assert top2(45)[0][2] - top2(45)[1][2] == 4 and 4 > 3 and top2(44)[0][2] - top2(44)[1][2] == 4 and 4 < 6                                      # champions on matchday 45 with one game to spare
-assert (RW['Jack Moylan']['starts'], RW['Jack Moylan']['goals'], RW['Jack Moylan']['assists']) == (16, 10, 3) and RW['Jack Moylan']['club'] == 'Cardiff City'
-assert (RW['Jarrod Bowen']['starts'], RW['Jarrod Bowen']['goals'], RW['Jarrod Bowen']['assists']) == (16, 7, 7) and RW['Jarrod Bowen']['club'] == 'West Ham United'
-assert (RW['Amario Cozier-Duberry']['starts'], RW['Amario Cozier-Duberry']['goals'], RW['Amario Cozier-Duberry']['assists']) == (11, 3, 6) and RW['Amario Cozier-Duberry']['club'] == 'Middlesbrough'
-assert (RW['Ollie Tanner']['starts'], RW['Ollie Tanner']['goals'], RW['Ollie Tanner']['assists']) == (16, 3, 4) and RW['Ollie Tanner']['club'] == 'Cardiff City'
+assert (RW['Jack Moylan']['starts'], RW['Jack Moylan']['goals'], RW['Jack Moylan']['assists']) == (17, 10, 3) and RW['Jack Moylan']['club'] == 'Cardiff City'
+assert (RW['Jarrod Bowen']['starts'], RW['Jarrod Bowen']['goals'], RW['Jarrod Bowen']['assists']) == (17, 7, 7) and RW['Jarrod Bowen']['club'] == 'West Ham United'
+assert (RW['Amario Cozier-Duberry']['starts'], RW['Amario Cozier-Duberry']['goals'], RW['Amario Cozier-Duberry']['assists']) == (12, 3, 6) and RW['Amario Cozier-Duberry']['club'] == 'Middlesbrough'
+assert (RW['Ollie Tanner']['starts'], RW['Ollie Tanner']['goals'], RW['Ollie Tanner']['assists']) == (17, 3, 4) and RW['Ollie Tanner']['club'] == 'Cardiff City'
 assert Q['upgrade_to_championship']['McAidoo'] == max(Q['upgrade_to_championship'].values())                                                  # right wing is the weakest slot
 
 CITY = kit(SKY, "#ffffff", SKY, text="#1c2c5b")

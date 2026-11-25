@@ -22,7 +22,7 @@ The words to record are in `vo.txt` / `vo_elevenlabs.md` (13 lines).
 |---|---|---|
 | 1 | Man City were fourth at halfway. Now they're champions. | Hook A (above). |
 | 2 | You voted, and forty-seven percent picked Ward-Prowse. | Poll bars (Ward-Prowse 47, Norwood 30, Phillips 23; 785 votes); the shirt flips Southampton → City on his name. |
-| 3 | A comment wanted Jack Moylan. Thirty likes needed. It got nineteen. So: a six-month loan. | His drawn card with real numbers (Cardiff: 10 goals, 3 assists, 16 starts) and the new **pledge** card: the real comment, a heart counter that stops at 19 of 30, "11 SHORT", then a 6-MONTH LOAN stamp. |
+| 3 | A comment wanted Jack Moylan. Thirty likes needed. It got nineteen. So: a six-month loan. | His drawn card with real numbers (Cardiff: 10 goals, 3 assists, 17 starts) and the new **pledge** card: the real comment, a heart counter that stops at 19 of 30, "11 SHORT", then a 6-MONTH LOAN stamp. |
 | 4 | Ratings: Ward-Prowse, sixty-nine. Moylan, seventy-two. The loan beats your pick. | Two squad cards (silver, "FAN PICK" and "LOAN" ribbons), simulated stats since joining; "72 v 69". |
 | 5 | Title odds at halfway: seventy-four percent. Your signings add seventeen. | Odds grid: 74 squares light, the last 17 turn gold ("your signings: +17"). 57% → 74% (Ward-Prowse alone: 67%). |
 | 6 | Debut day. Stevenage win two–one. City fall to fifth. | **Match 1** (MD24, away): Stevenage's winner beats the keeper; bug STE 2–1 MCI; 5TH. |
@@ -35,5 +35,5 @@ The words to record are in `vo.txt` / `vo_elevenlabs.md` (13 lines).
 | 13 | And Moylan's loan is nearly up. Keep him? | His card and a six-month calendar crossing off; KEEP HIM? stamp. |
 
 All scores are sim scores. No scorer is named except through Haaland's count (his goals are the sim's own). The signings' stats are shared out after the fact with a fixed seed (Moylan: 1 goal, 6 assists
-in 23 games; Ward-Prowse: 4 goals, 2 assists), so they can differ from the real players' form (Moylan has 10 goals in 16 starts for Cardiff). The commenter's public handle is shown as a credit
+in 23 games; Ward-Prowse: 4 goals, 2 assists), so they can differ from the real players' form (Moylan has 10 goals in 17 starts for Cardiff). The commenter's public handle is shown as a credit
 (`CREDIT` in `gen.py`; set it to `None` to hide it).

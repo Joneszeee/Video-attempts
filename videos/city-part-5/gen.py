@@ -123,7 +123,7 @@ B.append({"kicker": "10,000 seasons simulated · halfway", "headline": "City: [7
             "extra": {"n": 17, "color": GOLD, "at": "Your signings add seventeen", "lag": 0.0, "label": "your signings: +17"}}]})
 
 # 6 match 1 (debut day, away): Stevenage win 2-1: a long-range curler (cut in from the wing, over City's defenders, into the top corner past McCracken's fingertips), then Stevenage celebrate; City fall to 5th
-pl, cards, cam, cut2 = goal_curler("two–one", STE, GK_YELLOW, CITY, mate_kit=STE, foot="right", flight=0.9, cut_lag=0.7)
+pl, cards, cam, cut2 = goal_curler("two–one", STE, GK_YELLOW, CITY, mate_kit=STE, foot="right", flight=0.9, cut_lag=0.35)
 pl[1].update(skin="#f0c8a8", hair="#3a2a1a")        # McCracken
 cut2.pop("confetti", None)
 B.append({"kicker": "Matchday 24 · away", "headline": "Debut day: [1–2] at Stevenage.", "cut": True, "transition": "whip", "scene": S_STE, "accent": RED, **cam, "players": pl,

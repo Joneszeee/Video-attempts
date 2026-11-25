@@ -21,7 +21,7 @@ Man City Won 6–0 Without Haaland… Then the League
 Man City in League Two, Part 5: Man City were fourth at halfway… and finished champions 😳
 
 You voted for James Ward-Prowse (47% of 785 votes), and a fan comment got Cardiff's Jack Moylan on a six-month loan (19 of the 30 likes it needed). In the simulation the two signings lifted City's title odds from 57% to 74%.
-The second half: Stevenage 2–1 City on debut day, then Burnley 5–1, Wycombe 4–3 and Burton 2–0 to go top, a 6–0 win over Salford without Haaland, defeats at Chesterfield and Plymouth that left City level with Stockport, then Haaland's two goals in a 3–0 win over Cambridge with one game to spare. City finish with 82 points, 97 goals (the most) and 51 conceded (the fewest), and Haaland has 35 league goals.
+The second half: Stevenage 2–1 City on debut day, then Burnley 5–1, Wycombe 4–3 and Burton 2–0 to go top, a 6–0 win over Salford without Haaland, defeats at Chesterfield and Plymouth that left City level with Stockport, then Haaland's two goals in a 3–0 win over Cambridge with one game to spare. City finish with 82 points, 97 goals (the most) and 51 conceded (the fewest), and Haaland has 35 league goals. Also going up: MK Dons (2nd) and Stockport, who won the play-offs.
 A simulation, not a real season. Parts 1 to 4 are on the channel.
 
 City are promoted. The weak spot is the right wing: Jarrod Bowen, Amario Cozier-Duberry or Ollie Tanner? And do City keep Moylan when his loan ends? Comment your pick 👇

@@ -12,7 +12,7 @@ Man City in League Two, Part 5: Man City were fourth at halfway… now they're c
 ```
 Man City were fourth at halfway… and finished champions 😳 Part 5 of Man City in League Two, with Haaland in League One.
 
-You voted for James Ward-Prowse (47% of 785 votes) and a fan comment got Cardiff's Jack Moylan on a six-month loan (19 of the 30 likes it needed). In the simulation they lifted City's title odds from 57% to 74%. Then the second half: a 2–1 defeat at Stevenage, three wins to go top, a 6–0 win over Salford without Haaland, a wobble at Chesterfield and Plymouth, and Haaland's two goals against Cambridge to clinch the title with a game to spare. 82 points, 97 goals, 51 conceded, and 35 league goals for Haaland. (A simulation, not a real season. Parts 1 to 4 are on the page.)
+You voted for James Ward-Prowse (47% of 785 votes) and a fan comment got Cardiff's Jack Moylan on a six-month loan (19 of the 30 likes it needed). In the simulation they lifted City's title odds from 57% to 74%. Then the second half: a 2–1 defeat at Stevenage, three wins to go top, a 6–0 win over Salford without Haaland, a wobble at Chesterfield and Plymouth, and Haaland's two goals against Cambridge to clinch the title with a game to spare. 82 points, 97 goals, 51 conceded, and 35 league goals for Haaland. MK Dons and Stockport (play-off winners) go up too. (A simulation, not a real season. Parts 1 to 4 are on the page.)
 
 City are going up, and the weak spot is the right wing: Jarrod Bowen, Amario Cozier-Duberry or Ollie Tanner? And do City keep Moylan? Comment your pick 👇
 Send this to a City fan who thinks they'd have walked the league 😅

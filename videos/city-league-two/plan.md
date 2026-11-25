@@ -102,3 +102,5 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
 - The play-offs among those four are played now with seed **2033**, written here before anything is run (`data/p5_promotion.py`: same two-leg semi-finals (3rd v 6th, 4th v 5th) and one-match final as `sim_l5.py`).
   The bottom four (Huddersfield, Walsall, Exeter, Wimbledon) go down. This result is now part of the series (it feeds Part 6's league membership).
 - **Standing rule (user, 25 Nov 2026): a season-ending episode always says and shows who else went up (and who went down)**, the play-off winner included, so every season sim must play the play-offs for the other clubs too.
+- **Result (seed 2033):** semi-finals Stockport 4–2 Stevenage on aggregate (2–1 home, 2–1 away) and Reading 4–2 Luton (Luton 1–0 at home, Reading 4–1 at home); final Stockport 2–1 Reading.
+  **Promoted: Manchester City (champions, 82), MK Dons (2nd, 78, automatic) and Stockport County (play-off winners).** Relegated: Huddersfield Town (21st), Walsall (22nd), Exeter City (23rd), Wimbledon (24th). `data/ep5_promotion.json`.

@@ -1,0 +1,125 @@
+{
+ "seed": 2033,
+ "champions": "Manchester City",
+ "automatic": [
+  "Manchester City",
+  "MK Dons"
+ ],
+ "playoffs": {
+  "semi1": {
+   "legs": [
+    [
+     "Stockport County",
+     "Stevenage",
+     2,
+     1
+    ],
+    [
+     "Stevenage",
+     "Stockport County",
+     1,
+     2
+    ]
+   ],
+   "agg": [
+    "Stockport County",
+    4,
+    "Stevenage",
+    2
+   ],
+   "pens": false,
+   "winner": "Stockport County"
+  },
+  "semi2": {
+   "legs": [
+    [
+     "Luton Town",
+     "Reading",
+     1,
+     0
+    ],
+    [
+     "Reading",
+     "Luton Town",
+     4,
+     1
+    ]
+   ],
+   "agg": [
+    "Luton Town",
+    2,
+    "Reading",
+    4
+   ],
+   "pens": false,
+   "winner": "Reading"
+  },
+  "final": {
+   "teams": [
+    "Stockport County",
+    "Reading"
+   ],
+   "score": [
+    2,
+    1
+   ],
+   "pens": false,
+   "winner": "Stockport County"
+  }
+ },
+ "promoted": [
+  "Manchester City",
+  "MK Dons",
+  "Stockport County"
+ ],
+ "relegated": [
+  "Huddersfield Town",
+  "Walsall",
+  "Exeter City",
+  "Wimbledon"
+ ],
+ "table_top6": [
+  [
+   1,
+   "Manchester City",
+   82,
+   97,
+   51
+  ],
+  [
+   2,
+   "MK Dons",
+   78,
+   89,
+   72
+  ],
+  [
+   3,
+   "Stockport County",
+   77,
+   85,
+   63
+  ],
+  [
+   4,
+   "Luton Town",
+   76,
+   91,
+   62
+  ],
+  [
+   5,
+   "Reading",
+   74,
+   80,
+   68
+  ],
+  [
+   6,
+   "Stevenage",
+   74,
+   68,
+   61
+  ]
+ ]
+}

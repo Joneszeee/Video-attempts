@@ -244,3 +244,7 @@ Lewis and O'Reilly 75, Iroegbunam 72, McCracken 66, McAidoo 61, Watts 59, Scarr 
 every other slot loses. Candidates = the Championship's most productive right-sided attackers, from ESPN match reports (`data/right_wing.json`: positions RM / AM-R / RW / RF in the line-ups): Jarrod Bowen (West Ham, 17 starts, 7 goals, 7 assists),
 Amario Cozier-Duberry (Middlesbrough, 12 starts, 3 goals, 6 assists), Ollie Tanner (Cardiff, 17 starts, 3 goals, 4 assists; Moylan's team-mate). **Flags:** the commenter's public handle is shown as a credit (set `CREDIT = None` in `gen.py` to hide it);
 Moylan's sim stats differ from his real form; Part 6 (the Championship) is the user's call.
+
+**Who else went up (a viewer asked; seed 2033, `data/p5_promotion.py`, `data/ep5_promotion.json`).** Part 5 did not say. Automatic: City (1st, 82 points) and MK Dons (2nd, 78). Play-offs among 3rd–6th: Stockport beat Stevenage 4–2 on
+aggregate, Reading beat Luton 4–2, and Stockport won the final 2–1, so **Stockport County also go up** (City's old rivals: they beat City 4–3 in Part 3 and sat level on points with them in the title race). Down: Huddersfield Town (21st),
+Walsall (22nd), Exeter City (23rd), Wimbledon (24th). League One clubs are stand-ins (today's real tables), as in every episode.

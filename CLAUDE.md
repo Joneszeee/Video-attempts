@@ -23,6 +23,9 @@ visuals (which tools or backlog items), and what still needs fact-checking. End 
   `data/squad5.py` (seed 2032). **Part 6 (if the user wants it) = season 4 in the Championship**: the open votes are the right-wing signing (Bowen / Cozier-Duberry / Tanner, from the Part 5 poll) and whether City keep
   Moylan when his loan ends. Real right-sided players were found from ESPN match reports (`data/fetch_wing.py`, `right_wing.json`); League One clubs promoted with City and the Championship line-up need a
   new membership file (see `data/l4model.py` for the method).
+  **Standing rule (user, 25 Nov 2026, after a viewer's comment "who else went up?"): every season-ending episode says and shows who else went up (and who went down)**: the automatic places and the play-off winner,
+  even when City win the title, so the sim must always play the play-offs for the other clubs (Part 5's official run did not; they were played afterwards with seed 2033, `data/p5_promotion.py`: MK Dons 2nd and Stockport
+  County through the play-offs went up with City; Huddersfield, Walsall, Exeter and Wimbledon went down). Show it with the `fates` tiles (PROMOTED / RELEGATED flipping on each name).
 
 ## When the user sends a script (or a story)
 1. Create `videos/<slug>/spec.json` (format below) and `videos/<slug>/vo.txt`.

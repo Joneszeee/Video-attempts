@@ -228,3 +228,19 @@ XI average 68.8 → **69**. The model rates players by tier, so players of the s
 **Method limits (say so):** only Haaland's goals (and Haaland's and Foden's availability) are the sim's own. Every other goal and assist is allocated afterwards (the model's attack weights per slot; 67% of goals carry an assist, the real
 League One share from ESPN: 318 of 477); players play every league game of their time at City; scorers can be lucky (O'Reilly's 7 goals this season is a roughly 1-in-60 outcome for a left-back; kept, as the seed was fixed first).
 League games only (no play-off or cup data). Tenure: Iroegbunam from season 2, Watts from matchday 24 of season 2 (replacing Fitzwater), McCracken from season 3 (replacing Hudson), Fapetu left after season 1.
+
+## Part 5: the second half of season 3 (25 Nov 2026; `data/sim_l5.py`, `data/p5_run.py`, `data/squad5.py`, `data/fetch_p5.py`, `data/fetch_wing.py`)
+**The two votes (the user's screenshots, 25 Nov 2026).** Poll "Who should we sign next!": Ward-Prowse 47%, Norwood 30%, Phillips 23% (785 votes, ended) → Ward-Prowse (Southampton). Comment "Make them sign jack moylan from cardiff"
+(19 likes; the user's reply promised "30 likes" for the deal) → Jack Moylan (Cardiff City) on a 6-month loan, left wing, replacing T. Samba. Both are rated at their real club's level on the League One scale (`data/l5model.py`).
+**The official second half (seed 2031, fixed before running).** City 1st, 82 points (second half W12 D8 L3 = 44 points), 97 goals (the most), 51 against (the fewest), GD +46, Haaland 35 league goals (13 + 22), 12 clean sheets;
+promoted as champions (no play-offs). Table: MK Dons 78, Stockport 77, Luton 76, Reading 74, Stevenage 74. Title mathematically clinched on matchday 45 (lead 4 > 3 points left). City first top on matchday 27
+(the best in the first half was 3rd). Key matches used: 24 Stevenage (A) 1–2 (5th), 25 Burnley 5–1, 26 Wycombe (A) 4–3 (2nd), 27 Burton 2–0 (1st), 34 Salford 6–0 (Haaland out), 37 Chesterfield (A) 3–4,
+41 Plymouth (A) 1–3 (level on 73 with Stockport), 45 Cambridge 3–0 (Haaland twice, 81 points). Title odds at halfway (10,000 paired runs): 57% without the signings, 67% with Ward-Prowse, 74% with both (promotion 88% → 93% → 96%).
+**Ratings and simulated stats since joining (seed 2032, fixed before running).** Rating = 60 + 80 × goals per game added v an average League One player in the slot: Ward-Prowse (DM) 69, Moylan (LW) 72, Haaland 94, Foden 84,
+Lewis and O'Reilly 75, Iroegbunam 72, McCracken 66, McAidoo 61, Watts 59, Scarr 58. Stats shared out after the fact (method as the squad update): Ward-Prowse 23 games, 4 goals, 2 assists; Moylan 23 games, 1 goal, 6 assists
+(a lucky-looking allocation for a player with 10 goals in 16 for Cardiff; kept, the seed was fixed first).
+**Real numbers (ESPN rosters, 25 Nov 2026; `data/p5_real.json`).** Moylan (Cardiff, 25): 16 starts, 10 goals, 3 assists. Ward-Prowse (Southampton, 32): 12 starts (14 apps), 1 goal, 1 assist (not shown on screen).
+**The weak spot for next season (`data/squad5.py`, upgrade one slot to an average Championship player):** right wing (McAidoo, 61) has the biggest gain (+0.076 goals per game), then centre-back (Scarr +0.060, Watts +0.042);
+every other slot loses. Candidates = the Championship's most productive right-sided attackers, from ESPN match reports (`data/right_wing.json`: positions RM / AM-R / RW / RF in the line-ups): Jarrod Bowen (West Ham, 16 starts, 7 goals, 7 assists),
+Amario Cozier-Duberry (Middlesbrough, 11 starts, 3 goals, 6 assists), Ollie Tanner (Cardiff, 16 starts, 3 goals, 4 assists; Moylan's team-mate). **Flags:** the commenter's public handle is shown as a credit (set `CREDIT = None` in `gen.py` to hide it);
+Moylan's sim stats differ from his real form; Part 6 (the Championship) is the user's call.

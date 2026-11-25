@@ -320,6 +320,9 @@ def _resolve_beat(b, rel):
         b['confettiDelay'] = round(rel(b.pop('confettiAt')), 3)
     if isinstance(b.get('freezeAt'), str):
         b['freeze'] = round(rel(b.pop('freezeAt')) + b.pop('freezeLag', 0), 3)
+    ct = b.get('camTrack')
+    if isinstance(ct, dict) and isinstance(ct.get('to'), dict) and 'at' in ct['to']:  # the chase camera swings to its second framing on a word
+        ct['to']['t'] = round(rel(ct['to'].pop('at')) + ct['to'].pop('lag', 0), 3)
     for key in ('punch', 'shake', 'speedlines', 'glitch'):
         for fx in b.get(key) or []:
             if 'at' in fx:

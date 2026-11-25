@@ -273,7 +273,12 @@ def _label_until(word, lag, cut_lag):
     return {"labelUntilAt": word, "labelUntilLag": round(lag + cut_lag, 3)} if isinstance(word, str) else {"labelUntil": round(word + lag + cut_lag, 3)}
 
 
-def goal_dribble(word, scorer_kit, keeper_kit, def_kit, mate_kit=None, foot="right", flight=0.55, lag=0.0, label=None, scorer=None, keeper_wrong_way=True, cut_lag=0.25):
+def _swing(word, lag, cut_lag):
+    """When the chase camera starts swinging to the scorer (a phrase, or seconds for a test)."""
+    return {"at": word, "lag": round(lag + cut_lag, 3)} if isinstance(word, str) else {"t": round(word + lag + cut_lag, 3)}
+
+
+def goal_dribble(word, scorer_kit, keeper_kit, def_kit, mate_kit=None, foot="right", flight=0.55, lag=0.0, label=None, scorer=None, keeper_wrong_way=True, cut_lag=0.25, cut=True):
     """DRIBBLE AND FINISH. The scorer runs at goal with the ball, a defender slides in and the scorer hops it, another chases from behind, a covering defender
     shuffles across, a team-mate runs alongside as a decoy, the keeper comes off his line and is sent the wrong way by a low finish into the far corner. The net
     bulges on `word`; then the scorer turns and runs at the camera with his arms up, the decoy and a late team-mate sprint after him, and the keeper gets up.
@@ -318,10 +323,14 @@ def goal_dribble(word, scorer_kit, keeper_kit, def_kit, mate_kit=None, foot="rig
     # shot 2: a low camera ahead of the scorer looking back at him as he runs at it, the team-mates chasing and the beaten defenders on the grass behind
     cut2 = _cut(word, lag, cut_lag, cut=True, transition="whip", camTrack={"player": 0, "off": [X(-4.7), 1.3, -2.1], "tgt": [0.0, 1.25, 0.0], "smooth": 0.25}, hype=False, flashes=16, confetti=True,
                 shake=[{"t": 0.05, "amount": 10}])
+    if not cut:   # one long shot: the camera swings to the scorer instead of cutting (for a beat too short to hold two shots of 2 s)
+        camk["camTrack"]["to"] = {**_swing(word, lag, cut_lag), "dur": 0.8, "off": [X(-4.7), 1.3, -2.1], "tgt": [0.0, 1.25, 0.0], "lookW": 0.0}
+        camk["confetti"] = False
+        cut2 = None
     return [scorer_p, keeper, d1, d2, d3, a1, a2], cards, camk, cut2
 
 
-def goal_curler(word, scorer_kit, keeper_kit, def_kit, mate_kit=None, foot="right", flight=1.05, lag=0.0, label=None, scorer=None, cut_lag=0.25):
+def goal_curler(word, scorer_kit, keeper_kit, def_kit, mate_kit=None, foot="right", flight=1.05, lag=0.0, label=None, scorer=None, cut_lag=0.25, cut=True):
     """LONG-RANGE CURLER. The scorer cuts in from the wing with the ball, a defender closes him down and lunges, another jumps in the way, a third chases; he curls it
     over them (the ball arcs high, then bends into the far top corner) and the keeper dives at full stretch and misses it by a hand. Then he turns and runs at the
     camera to celebrate with the team-mates chasing him. foot="left" mirrors everything. Returns (players, cards, camera keys, cut2) like goal_dribble;
@@ -361,4 +370,7 @@ def goal_curler(word, scorer_kit, keeper_kit, def_kit, mate_kit=None, foot="righ
             "punch": [W.item(tc - 0.04, amount=0.1, dur=1.2, anchor=0)], "shake": [W.item(0.0, amount=14)], "speedlines": [W.item(tc - 0.05, dur=0.6, amount=0.4)], "flashes": 12}
     cut2 = _cut(word, lag, cut_lag, cut=True, transition="whip", camTrack={"player": 0, "off": [X(-1.0), 1.3, -4.6], "tgt": [0.0, 1.25, 0.0], "smooth": 0.25}, hype=False, flashes=16, confetti=True,
                 shake=[{"t": 0.05, "amount": 10}])
+    if not cut:   # one long shot: the camera swings to the scorer instead of cutting
+        camk["camTrack"]["to"] = {**_swing(word, lag, cut_lag), "dur": 0.8, "off": [X(-1.0), 1.3, -4.6], "tgt": [0.0, 1.25, 0.0], "lookW": 0.0}
+        cut2 = None
     return [scorer_p, keeper, d1, d2, d3, a1, a2], cards, camk, cut2

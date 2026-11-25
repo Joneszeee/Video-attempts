@@ -123,13 +123,11 @@ B.append({"kicker": "10,000 seasons simulated · halfway", "headline": "City: [7
             "extra": {"n": 17, "color": GOLD, "at": "Your signings add seventeen", "lag": 0.0, "label": "your signings: +17"}}]})
 
 # 6 match 1 (debut day, away): Stevenage win 2-1: a long-range curler (cut in from the wing, over City's defenders, into the top corner past McCracken's fingertips), then Stevenage celebrate; City fall to 5th
-pl, cards, cam, cut2 = goal_curler("two–one", STE, GK_YELLOW, CITY, mate_kit=STE, foot="right", flight=0.9, cut_lag=0.35)
+pl, cards, cam, cut2 = goal_curler("two–one", STE, GK_YELLOW, CITY, mate_kit=STE, foot="right", flight=0.9, cut_lag=0.15, cut=False)   # a 3.9 s beat: one long shot, the camera swings to the scorer
 pl[1].update(skin="#f0c8a8", hair="#3a2a1a")        # McCracken
-cut2.pop("confetti", None)
 B.append({"kicker": "Matchday 24 · away", "headline": "Debut day: [1–2] at Stevenage.", "cut": True, "transition": "whip", "scene": S_STE, "accent": RED, **cam, "players": pl,
   "card": cards + [bug({"name": "STE", "color": "#d6283b"}, MCI, [2, 1], "MD24", [1, 1], "two–one", 0.25), hud("League One · matchday 24", counter=False),
-                   stamp("1–2", "two–one", sub=f"debut day · {L5[24]['pos']}th", y=1530, size=110, lag=0.05)],
-  "shots": [cut2]})
+                   stamp("1–2", "two–one", sub=f"debut day · {L5[24]['pos']}th", y=1530, size=110, lag=0.05)]})
 
 # 7 three wins (5-1, 4-3, 2-0): the climb card moves City 5th -> 5th -> 2nd -> 1st, one step per match on its word; "go top" stamps it
 B.append({"kicker": "Matchdays 25–27", "headline": "Three wins. City go [top].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_NIGHT, "accent": GOLD, "lights": 0.8, "fans": True, "flashes": 10,

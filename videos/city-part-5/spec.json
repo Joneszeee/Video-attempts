@@ -718,7 +718,23 @@
      50.0
     ],
     "lookW": 0.4,
-    "smooth": 0.35
+    "smooth": 0.35,
+    "to": {
+     "at": "two–one",
+     "lag": 0.15,
+     "dur": 0.8,
+     "off": [
+      -1.0,
+      1.3,
+      -4.6
+     ],
+     "tgt": [
+      0.0,
+      1.25,
+      0.0
+     ],
+     "lookW": 0.0
+    }
    },
    "hype": false,
    "punch": [
@@ -803,14 +819,14 @@
       1.9,
       2.6,
       3.2,
-      4.949999999999999,
-      5.85,
-      6.85,
-      7.549999999999999
+      4.75,
+      5.65,
+      6.65,
+      7.35
      ],
      "at": "two–one",
      "lag": -4.6,
-     "frontT": 4.95,
+     "frontT": 4.75,
      "actions": [
       {
        "at": "two–one",
@@ -1047,17 +1063,17 @@
       0,
       3.0,
       3.8,
-      4.8999999999999995,
-      6.049999999999999,
-      6.949999999999999,
-      7.549999999999999
+      4.7,
+      5.85,
+      6.75,
+      7.35
      ],
      "at": "two–one",
      "lag": -4.6,
      "action": "celebrate",
      "actionAt": "two–one",
-     "actionLag": 2.95,
-     "frontT": 4.95
+     "actionLag": 2.75,
+     "frontT": 4.75
     },
     {
      "name": "",
@@ -1090,16 +1106,16 @@
      ],
      "pathT": [
       0,
-      4.8999999999999995,
-      6.35,
-      7.549999999999999
+      4.7,
+      6.15,
+      7.35
      ],
      "at": "two–one",
      "lag": -4.6,
      "action": "celebrate",
      "actionAt": "two–one",
-     "actionLag": 2.95,
-     "frontT": 4.95
+     "actionLag": 2.75,
+     "frontT": 4.75
     }
    ],
    "card": [
@@ -1182,36 +1198,6 @@
      "size": 110,
      "y": 1530,
      "sub": "debut day · 5th"
-    }
-   ],
-   "shots": [
-    {
-     "at": "two–one",
-     "lag": 0.35,
-     "cut": true,
-     "transition": "whip",
-     "camTrack": {
-      "player": 0,
-      "off": [
-       -1.0,
-       1.3,
-       -4.6
-      ],
-      "tgt": [
-       0.0,
-       1.25,
-       0.0
-      ],
-      "smooth": 0.25
-     },
-     "hype": false,
-     "flashes": 16,
-     "shake": [
-      {
-       "t": 0.05,
-       "amount": 10
-      }
-     ]
     }
    ],
    "vo": "Debut day. Stevenage win two–one. City fall to fifth."

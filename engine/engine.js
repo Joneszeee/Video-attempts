@@ -113,7 +113,7 @@ function routePos(p, lt) {
   return [p.x || 0, p.z || 0];
 }
 // Beat key "camTrack": {player: index, off: [dx, y, dz] (camera relative to him), tgt: [dx, y, dz] (what it looks at, relative to him), look: [x, y, z] + lookW (0..1, drifts the aim toward that
-// point, e.g. the goal), smooth (s)}: a broadcast chase camera that follows a runner at his own pace and stops when he stops, with the usual handheld sway.
+// point, e.g. the goal), smooth (s), to: {t, dur, off, tgt, lookW} (a smooth swing to a second framing)}: a broadcast chase camera that follows a runner at his own pace and stops when he stops, with the usual handheld sway.
 function trackCam(i, lt) {
   const b = S.beats[i], F = b.camTrack, p = (b.playersArr || [])[F.player || 0];
   if (!p) return camBase(i, lt);
@@ -121,9 +121,13 @@ function trackCam(i, lt) {
   let sx = 0, sz = 0; const n = 6;
   for (let j = 0; j < n; j++) { const q = routePos(p, pt - sm * j / (n - 1)); sx += q[0]; sz += q[1]; }
   sx /= n; sz /= n;
-  const w = F.lookW || 0, Lk = F.look || [0, 1, 50];
-  let pos = [sx + F.off[0], F.off[1], sz + F.off[2]];
-  const tgt = [lerp(sx + F.tgt[0], Lk[0], w), F.tgt[1], lerp(sz + F.tgt[2], Lk[2], w)];
+  let off = F.off, tg = F.tgt, w = F.lookW || 0, Lk = F.look || [0, 1, 50];
+  if (F.to) {   // a smooth swing to a second framing (e.g. from "looking at the goal" to "on the scorer"): no cut, so the shot stays long
+    const k = ease(pr(lt, F.to.t || 0, F.to.dur || 0.8));
+    off = lerp3(F.off, F.to.off || F.off, k); tg = lerp3(F.tgt, F.to.tgt || F.tgt, k); w = lerp(F.lookW || 0, F.to.lookW != null ? F.to.lookW : (F.lookW || 0), k);
+  }
+  let pos = [sx + off[0], off[1], sz + off[2]];
+  const tgt = [lerp(sx + tg[0], Lk[0], w), tg[1], lerp(sz + tg[2], Lk[2], w)];
   const d = sub(tgt, pos), amp = Math.hypot(d[0], d[1], d[2]) * 0.006 * (b.sway != null ? b.sway : 1);
   pos = [pos[0] + Math.sin(T * 0.45) * amp * 3, pos[1] + Math.sin(T * 0.31 + 1) * amp * 1.5, pos[2]];
   return { pos, tgt };

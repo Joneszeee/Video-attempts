@@ -201,3 +201,164 @@ def clean_tackle(word, tackler, runner_kit, mate_kit, label=None):
 def tags_count(tags):
     """YouTube's tag-box count: each tag's length, +2 for a tag with a space, +1 per comma (aim for 490-500)."""
     return sum(len(t) + (2 if ' ' in t else 0) for t in tags) + len(tags) - 1
+
+
+# ---------------------------------------------------------------------------------------------------------------------------------
+# Choreographed goals (user: "the defenders stand still, the shooter stands still, moves his leg, shoots, the keeper dives: lifeless").
+# Every player runs a route (path + pathT: runs, stops to strike, runs again), defenders close down, slide, lunge and chase, a decoy runs
+# into the box, the keeper shuffles, steps out and dives (then gets up), and the scorer wheels away with team-mates running to him.
+# Times are in seconds relative to the moment `word` is said: the ball hits the net at tau = 0 (plus `lag`), the strike is `flight` earlier.
+# ---------------------------------------------------------------------------------------------------------------------------------
+class When:
+    """Choreography times relative to a phrase in the line (a string) or, for a test without a voice, to a number of seconds from the shot's start."""
+
+    def __init__(self, word, lag=0.0):
+        self.w, self.lag = word, lag
+
+    def _s(self):
+        return isinstance(self.w, str)
+
+    def start(self, tau):          # a route or a card starts at tau
+        return {"at": self.w, "lag": round(tau + self.lag, 3)} if self._s() else {"delay": round(self.w + tau + self.lag, 3)}
+
+    def act(self, tau):            # a player's single action starts at tau
+        return {"actionAt": self.w, "actionLag": round(tau + self.lag, 3)} if self._s() else {"actionDelay": round(self.w + tau + self.lag, 3)}
+
+    def action(self, tau, **k):    # one entry of a player's "actions" list
+        d = {"at": self.w, "lag": round(tau + self.lag, 3)} if self._s() else {"delay": round(self.w + tau + self.lag, 3)}
+        d.update(k)
+        return d
+
+    def item(self, tau, **k):      # one entry of "hops", "punch", "shake" or "speedlines"
+        d = {"at": self.w, "lag": round(tau + self.lag, 3)} if self._s() else {"t": round(self.w + tau + self.lag, 3)}
+        d.update(k)
+        return d
+
+    def rest(self, tau0, tau1, point):   # a ball lying at `point` from tau0 until tau1
+        d = {"type": "ball", "point": [round(v, 3) for v in point]}
+        d.update(self.start(tau0))
+        if self._s():
+            d.update(untilAt=self.w, untilLag=round(tau1 + self.lag, 3))
+        else:
+            d["until"] = round(tau1 - tau0, 3)
+        return d
+
+    def shot(self, tau, dur, points, **k):
+        d = {"type": "ballpath", "world": True, "dur": dur, "points": [[round(v, 3) for v in p] for p in points]}
+        d.update(self.start(tau))
+        d.update(k)
+        return d
+
+
+def dribble_ball(x, z, hx, hz, foot="right"):
+    """Where the engine draws the dribbled ball at the second his dribble ends (dribbleUntil): 0.45 m ahead on his strong foot. A resting ball card takes over from here."""
+    side = -0.18 if foot == "left" else 0.18
+    return [x + side * hz + hx * 0.45, 0.11, z + hz * 0.45 - side * hx]
+
+
+def _heading(a, b):
+    dx, dz = b[0] - a[0], b[1] - a[1]
+    n = (dx * dx + dz * dz) ** 0.5 or 1.0
+    return dx / n, dz / n
+
+
+def _cut(word, lag, cut_lag, **k):
+    """The second shot of a choreographed goal: on a phrase it carries its own "at"/"lag" (add it to the beat's "shots"); with a number of seconds (tests) it does not."""
+    d = {"at": word, "lag": round(lag + cut_lag, 3)} if isinstance(word, str) else {}
+    d.update(k)
+    return d
+
+
+def _label_until(word, lag, cut_lag):
+    return {"labelUntilAt": word, "labelUntilLag": round(lag + cut_lag, 3)} if isinstance(word, str) else {"labelUntil": round(word + lag + cut_lag, 3)}
+
+
+def goal_dribble(word, scorer_kit, keeper_kit, def_kit, mate_kit=None, foot="right", flight=0.55, lag=0.0, label=None, scorer=None, keeper_wrong_way=True, cut_lag=0.25):
+    """DRIBBLE AND FINISH. The scorer runs at goal with the ball, a defender slides in and the scorer hops it, another chases from behind, a covering defender
+    shuffles across, a team-mate runs alongside as a decoy, the keeper comes off his line and is sent the wrong way by a low finish into the far corner. The net
+    bulges on `word`; then the scorer turns and runs at the camera with his arms up, the decoy and a late team-mate sprint after him, and the keeper gets up.
+    foot="left" mirrors everything (he comes in from the right and finishes with his left). scorer = extra P() kwargs (name, num, skin, hair...).
+    Returns (players, cards, camera keys, cut2): a chase camera tracks the scorer from behind (beat key camTrack); `cut2` is a second shot (add it to the beat's
+    "shots" as it is) that cuts, `cut_lag` s after the net hit, to a camera in front of the scorer tracking his celebration run. players[0] is the scorer, players[1] the keeper."""
+    W, sd, L = When(word, lag), (1 if foot != "left" else -1), 4.4
+    X = lambda x: round(sd * x, 3)
+    route = lambda pts: [[X(x), z] for x, z in pts]
+    sc = dict(scorer or {})
+    tc = -flight                                   # tau of the strike (ball leaves his foot)
+    net = L + lag                                  # route time of the net hit
+    go = net + cut_lag                             # he starts his celebration run as the camera cuts to the front
+    S_pts = [(-7.5, 20.0), (-5.4, 26.0), (-3.4, 31.5), (-1.8, 34.2), (0.1, 36.7), (0.1, 36.7), (-2.8, 35.4), (-5.9, 33.6), (-8.2, 32.0)]   # after the goal he runs back toward where he came from, away from the chaser
+    S_T = [0, 1.0, 2.0, 2.6, 3.3, go, go + 1.0, go + 2.0, go + 2.7]       # arrives at 3.3, plants and strikes, watches it in, then runs at the camera
+    hx, hz = _heading(route(S_pts)[3], route(S_pts)[4])
+    b0 = dribble_ball(X(S_pts[4][0]), S_pts[4][1], hx, hz, foot)
+    end = [X(2.9), 0.5, 52.3]
+    ctrl = [b0[0] + (end[0] - b0[0]) * 0.55, 0.9, b0[2] + (end[2] - b0[2]) * 0.55]
+    kick_len = 0.8
+    look = {"skin": "#f1d3bd", "hair": "#d9b46a"}
+    look.update(sc)
+    scorer_p = P(kit=scorer_kit, foot=foot, dribble=True, dribbleUntil=3.3, path=route(S_pts), pathT=S_T, **W.start(-L), frontT=round(go, 3),
+                 actions=[W.action(tc - 0.42 * kick_len, action="kick", dur=kick_len, foot=foot), W.action(0.0, loop="celebrate")], **look)
+    scorer_p["hops"] = [W.item(2.35 - L, dur=0.5, height=0.22)]
+    if label:
+        scorer_p.update(label=label, labelDelay=0.2, **_label_until(word, lag, cut_lag))
+    keeper = P(kit=keeper_kit, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", front=True, pose="keeper", path=route([(0.0, 52.0), (0.0, 52.0), (0.15, 50.4), (0.15, 50.4)]), pathT=[0, 2.9, 3.75, 9.0], **W.start(-L),
+               actions=[W.action(tc + 0.12, action="dive", dir=-sd if keeper_wrong_way else sd), W.action(1.55, action="getup", dir=-sd if keeper_wrong_way else sd)])
+    d1 = P(kit=def_kit, skin="#e7b593", hair="#141010", front=True, path=route([(3.8, 37.8), (1.6, 34.8), (-0.6, 33.4)]), pathT=[0, 1.75, 2.55], **W.start(-L), action="slide", dir=sd, **W.act(2.05 - L), actionDur=1.1)
+    d2 = P(kit=def_kit, skin="#8a5a3c", hair="#141010", path=route([(-4.7, 17.0), (-2.6, 23.0), (-0.6, 28.6), (0.9, 33.6), (1.5, 36.2)]), pathT=[0, 1.0, 2.0, 3.0, 3.6], **W.start(-L), action="dive", dir=sd, **W.act(tc + 0.15))
+    d3 = P(kit=def_kit, skin="#f0c8a8", hair="#6a4a2a", front=True, path=route([(-2.6, 44.2), (-1.5, 43.4), (-0.9, 44.0)]), pathT=[0, 3.0, 3.9], **W.start(-L), action="dive", dir=sd, **W.act(tc + 0.1), actionDur=0.7)
+    mk = mate_kit or scorer_kit
+    a1 = P(kit=mk, skin="#e7b593", hair="#3a2a1a", path=route([(5.6, 19.0), (5.0, 29.0), (4.4, 37.5), (4.0, 42.5), (4.0, 42.5), (1.0, 40.0), (-3.2, 37.4), (-6.4, 34.8)]), pathT=[0, 2.0, 3.4, 4.0, go - 0.05, go + 1.0, go + 2.0, go + 2.7],
+           **W.start(-L), action="celebrate", **W.act(2.7 + cut_lag + lag), frontT=round(go, 3))
+    a2 = P(kit=mk, skin="#f0c8a8", hair="#6a4a2a", path=route([(-12.0, 27.5), (-12.0, 27.5), (-10.6, 29.0), (-9.6, 30.2), (-9.0, 30.8)]), pathT=[0, go - 0.05, go + 0.9, go + 1.9, go + 2.7],
+           **W.start(-L), action="celebrate", **W.act(2.7 + cut_lag + lag), frontT=round(go, 3))
+    cards = [W.rest(3.3 - L, tc, b0), W.shot(tc, flight, [b0, ctrl, end], slowmo=False)]
+    # shot 1: a chase camera 5.4 m behind and 2.2 m to the side of the scorer, looking past him at the goal; the aim drifts toward the goal as he closes in
+    camk = {"camTrack": {"player": 0, "off": [X(-2.2), 1.55, -5.4], "tgt": [X(0.7), 1.0, 9.0], "look": [0.0, 1.0, 50.0], "lookW": 0.3, "smooth": 0.35}, "hype": False,
+            "punch": [W.item(tc - 0.04, amount=0.12, dur=1.1, anchor=0)], "shake": [W.item(0.0, amount=14)], "speedlines": [W.item(tc - 0.05, dur=0.6, amount=0.4)], "flashes": 12}
+    # shot 2: a low camera ahead of the scorer looking back at him as he runs at it, the team-mates chasing and the beaten defenders on the grass behind
+    cut2 = _cut(word, lag, cut_lag, cut=True, transition="whip", camTrack={"player": 0, "off": [X(-4.7), 1.3, -2.1], "tgt": [0.0, 1.25, 0.0], "smooth": 0.25}, hype=False, flashes=16, confetti=True,
+                shake=[{"t": 0.05, "amount": 10}])
+    return [scorer_p, keeper, d1, d2, d3, a1, a2], cards, camk, cut2
+
+
+def goal_curler(word, scorer_kit, keeper_kit, def_kit, mate_kit=None, foot="right", flight=1.05, lag=0.0, label=None, scorer=None, cut_lag=0.25):
+    """LONG-RANGE CURLER. The scorer cuts in from the wing with the ball, a defender closes him down and lunges, another jumps in the way, a third chases; he curls it
+    over them (the ball arcs high, then bends into the far top corner) and the keeper dives at full stretch and misses it by a hand. Then he turns and runs at the
+    camera to celebrate with the team-mates chasing him. foot="left" mirrors everything. Returns (players, cards, camera keys, cut2) like goal_dribble;
+    players[0] is the scorer, players[1] the keeper."""
+    W, sd, L = When(word, lag), (1 if foot != "left" else -1), 4.6
+    X = lambda x: round(sd * x, 3)
+    route = lambda pts: [[X(x), z] for x, z in pts]
+    sc = dict(scorer or {})
+    tc = -flight
+    net = L + lag
+    go = net + cut_lag
+    S_pts = [(-16.0, 27.0), (-12.0, 29.5), (-8.5, 31.0), (-6.0, 32.0), (-4.2, 31.4), (-4.2, 31.4), (-6.2, 29.2), (-8.6, 26.4), (-9.6, 24.4)]
+    S_T = [0, 1.0, 1.9, 2.6, 3.2, go, go + 0.9, go + 1.9, go + 2.6]
+    hx, hz = _heading(route(S_pts)[3], route(S_pts)[4])
+    b0 = dribble_ball(X(S_pts[4][0]), S_pts[4][1], hx, hz, foot)
+    end = [X(3.4), 2.15, 52.3]
+    ctrl = [X(-2.6), 4.4, 41.0]
+    kick_len = 0.8
+    look = {"skin": "#e7b593", "hair": "#141010"}
+    look.update(sc)
+    scorer_p = P(kit=scorer_kit, foot=foot, dribble=True, dribbleUntil=3.2, path=route(S_pts), pathT=S_T, **W.start(-L), frontT=round(go, 3),
+                 actions=[W.action(tc - 0.42 * kick_len, action="kick", dur=kick_len, foot=foot), W.action(0.0, loop="celebrate")], **look)
+    if label:
+        scorer_p.update(label=label, labelDelay=0.2, **_label_until(word, lag, cut_lag))
+    keeper = P(kit=keeper_kit, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", front=True, pose="keeper", path=route([(0.3, 52.0), (0.3, 52.0), (-0.3, 51.6), (-0.3, 51.6)]), pathT=[0, 1.5, 2.6, 9.0], **W.start(-L),
+               actions=[W.action(-0.68, action="dive", dir=sd), W.action(1.7, action="getup", dir=sd)])
+    d1 = P(kit=def_kit, skin="#e7b593", hair="#141010", front=True, path=route([(-9.5, 38.5), (-7.5, 35.5), (-5.8, 33.2)]), pathT=[0, 2.0, 3.3], **W.start(-L), action="dive", dir=sd, **W.act(tc - 0.15), actionDur=0.7)
+    d2 = P(kit=def_kit, skin="#8a5a3c", hair="#141010", front=True, path=route([(1.8, 38.5), (0.6, 37.6), (-0.6, 37.0)]), pathT=[0, 2.5, 3.5], **W.start(-L), hops=[W.item(tc + 0.0, dur=0.55, height=0.32)])
+    d3 = P(kit=def_kit, skin="#f0c8a8", hair="#6a4a2a", path=route([(-1.5, 22.5), (-1.5, 26.5), (-1.6, 29.0)]), pathT=[0, 2.0, 3.4], **W.start(-L), action="dive", dir=sd, **W.act(tc + 0.2), actionDur=0.7)
+    mk = mate_kit or scorer_kit
+    a1 = P(kit=mk, skin="#e7b593", hair="#3a2a1a", path=route([(8.5, 30.0), (4.0, 40.0), (2.2, 45.0), (2.2, 45.0), (-2.5, 37.0), (-6.5, 29.6), (-8.2, 26.8)]), pathT=[0, 3.0, 3.8, go - 0.05, go + 1.1, go + 2.0, go + 2.6],
+           **W.start(-L), action="celebrate", **W.act(2.6 + cut_lag + lag), frontT=round(go, 3))
+    a2 = P(kit=mk, skin="#f0c8a8", hair="#6a4a2a", path=route([(5.5, 23.0), (5.5, 23.0), (-1.0, 26.0), (-6.0, 25.0)]), pathT=[0, go - 0.05, go + 1.4, go + 2.6],
+           **W.start(-L), action="celebrate", **W.act(2.6 + cut_lag + lag), frontT=round(go, 3))
+    cards = [W.rest(3.2 - L, tc, b0), W.shot(tc, flight, [b0, ctrl, end], slowmo=True)]
+    camk = {"camTrack": {"player": 0, "off": [X(-2.4), 1.7, -6.0], "tgt": [X(1.0), 1.1, 9.0], "look": [0.0, 1.2, 50.0], "lookW": 0.4, "smooth": 0.35}, "hype": False,
+            "punch": [W.item(tc - 0.04, amount=0.1, dur=1.2, anchor=0)], "shake": [W.item(0.0, amount=14)], "speedlines": [W.item(tc - 0.05, dur=0.6, amount=0.4)], "flashes": 12}
+    cut2 = _cut(word, lag, cut_lag, cut=True, transition="whip", camTrack={"player": 0, "off": [X(-1.0), 1.3, -4.6], "tgt": [0.0, 1.25, 0.0], "smooth": 0.25}, hype=False, flashes=16, confetti=True,
+                shake=[{"t": 0.05, "amount": 10}])
+    return [scorer_p, keeper, d1, d2, d3, a1, a2], cards, camk, cut2

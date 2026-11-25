@@ -226,6 +226,26 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
 - **Prefer scenes over plain graphics.** Show events happening in the stadium, booth or another place, and use cards to support the action rather than replace it.
   Avoid beats that are only a graphic on the grey studio background.
 - Example: `videos/_test-action` (strike, punch-in, wrong-way dive, net bulge, crowd jump, celebration).
+- **Keepers and choreographed goals (user, Nov 2026: Part 5's keeper "has his arms around his back and moves like a robot", and goals were "defenders standing still, Haaland standing
+  still, moves his leg, shoots, the keeper dives: lifeless").** Built in `engine/engine.js` + `engine/lib.py`; test spec `videos/_test-goals` (`gen.py`):
+  - **Keeper rig:** any player with `pose: "keeper"` now uses the jointed rig (the old static pose crossed the arms in front). He stands in a bent-arm ready stance with a slow shuffle
+    (`ready`), takes short quick steps when he is on a route (`shuffle`), and has the actions `dive` (stretches flat, holds where he lands), `lunge` (a quick reaching step, then back up)
+    and `getup`. **`actions: [{action, dir, delay | at + lag, dur}, ...]** chains several on one player (a keeper lunging at every shot of a barrage, diving at the last, getting up);
+    `{loop: "celebrate", delay}` switches him into a looping pose from that moment. Between actions he blends back to his stance; a dive holds, a get-up leaves him standing where he got up.
+  - **Smooth motion:** keyframes are joined by a monotone cubic spline (no more stop-start at every key), mirroring (`dir: -1`, `foot: "left"`) also mirrors the lean.
+  - **Timed routes:** `pathT: [s0, s1, ...]` = the second he reaches each `path` point (two equal points = he stops there to strike, then runs on); `frontT` (seconds after his path
+    starts) = he turns to face the camera (`turnAt` + `turnLag` on a word); `labelUntil` / `labelUntilAt` takes his name pill away (e.g. when the goal goes in). A dribbler's ball is
+    exactly 0.45 m ahead at `dribbleUntil`, so a resting `ball` card can take over from `lib.dribble_ball(x, z, hx, hz, foot)`.
+  - **Chase camera:** beat/shot key `camTrack: {player, off: [dx, y, dz] (camera relative to him), tgt: [dx, y, dz], look: [x, y, z] + lookW (aim drifts toward the goal), smooth}` follows a
+    runner at his own pace and stops when he stops. Shots inherit `players`, so a cut to a second camera continues the same choreography seamlessly.
+  - **`lib.goal_dribble(word, scorer_kit, keeper_kit, def_kit, mate_kit, foot, ...)`** (dribble and finish) and **`lib.goal_curler(...)`** (long-range curler) return
+    `(players, cards, camera keys, cut2)`: the scorer dribbles in, a defender slides and he hops it (or one closes him down and lunges), another chases, a covering defender shuffles, a decoy
+    runs into the box, the keeper comes off his line or dives at full stretch, the ball hits the net on `word`, then `cut2` (put it in the beat's `"shots"`) cuts to a low camera ahead of
+    the scorer as he runs at it with his arms up, the team-mates chase him and the beaten defender lies on the grass. Everything is in seconds relative to `word` (`lib.When`), `foot="left"`
+    mirrors it, `lag` shifts it, `cut_lag` (default 0.25 s) sets when the camera cuts (use 0.55+ when the beat is short so shot 1 stays over 2 s). They start mid-run, so a clip is usable
+    when its word comes only ~1.5 s into the beat. `goal()` is still there for the simple version.
+  - **Portrait framing:** the frame is only ~5 m wide at 5 m, so stage the action in depth (a chase camera behind the runner, defenders coming at the camera) and keep every other player
+    away from the camera's path (a chaser or a beaten defender beside the camera turns into a giant blob). Seen from behind the net, world +x is **screen-left**: a keeper's `dir` is screen-side.
 
 ## Visual richness: required on every video
 - **Every video must be visually rich.** Every beat shows its information through an animated data graphic, effect or transition

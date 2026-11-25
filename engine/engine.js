@@ -84,7 +84,7 @@ function camInBeat(i, lt) {
     if (it) { const ct = b.start + lt - it.start; let sx = 0, sz = 0; for (let j = 0; j < 8; j++) { const p = webBall(it.obj, ct - j * 0.12).p; sx += p[0]; sz += p[2]; }
       const bx = sx / 8, bz = sz / 8; return { pos: [bx + (F.side || 0), F.h || 9, bz - (F.back || 14)], tgt: [bx, 0.5, bz + (F.ahead || 3)] }; }
   }
-  const base = camBase(i, lt);
+  const base = b.camTrack ? trackCam(i, lt) : camBase(i, lt);
   if (!b._follow) return base;
   // hype: once a goal-bound shot is struck, the camera swings after the ball (and creeps toward it), then holds on the net
   const F = b._follow, u = F.slowmo === false ? pr(lt, F.t, F.dur) : ballSlow(pr(lt, F.t, F.dur)), P = F.pts;
@@ -93,6 +93,40 @@ function camInBeat(i, lt) {
   if (w <= 0) return base;
   const tgt = lerp3(base.tgt, bw, w), d = sub(bw, base.pos);
   return { pos: [base.pos[0] + d[0] * 0.12 * w, base.pos[1] + d[1] * 0.05 * w, base.pos[2] + d[2] * 0.12 * w], tgt };
+}
+// Where a player on a route (path, optionally pathT) stands at time lt: the same maths as drawPlayers, for cameras that follow him.
+function routePos(p, lt) {
+  if (p.path && p.pathT) {
+    const pts = p.path, T = p.pathT, tt = lt - (p.delay || 0);
+    let i = 0; while (i < pts.length - 2 && tt >= T[i + 1]) i++;
+    const f = clamp((tt - T[i]) / Math.max(1e-6, T[i + 1] - T[i]), 0, 1);
+    return [lerp(pts[i][0], pts[i + 1][0], f), lerp(pts[i][1], pts[i + 1][1], f)];
+  }
+  if (p.path) {
+    const pts = p.path, segs = []; let total = 0;
+    for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); segs.push(d); total += d; }
+    const k = clamp((lt - (p.delay || 0)) / (p.pathDur || 3), 0, 1); let dist = k * total, i = 0;
+    while (i < segs.length - 1 && dist > segs[i]) { dist -= segs[i]; i++; }
+    const f = segs[i] ? dist / segs[i] : 0;
+    return [lerp(pts[i][0], pts[i + 1][0], f), lerp(pts[i][1], pts[i + 1][1], f)];
+  }
+  return [p.x || 0, p.z || 0];
+}
+// Beat key "camTrack": {player: index, off: [dx, y, dz] (camera relative to him), tgt: [dx, y, dz] (what it looks at, relative to him), look: [x, y, z] + lookW (0..1, drifts the aim toward that
+// point, e.g. the goal), smooth (s)}: a broadcast chase camera that follows a runner at his own pace and stops when he stops, with the usual handheld sway.
+function trackCam(i, lt) {
+  const b = S.beats[i], F = b.camTrack, p = (b.playersArr || [])[F.player || 0];
+  if (!p) return camBase(i, lt);
+  const T = b.start + lt, pt = T - b.playersStart, sm = F.smooth != null ? F.smooth : 0.3;
+  let sx = 0, sz = 0; const n = 6;
+  for (let j = 0; j < n; j++) { const q = routePos(p, pt - sm * j / (n - 1)); sx += q[0]; sz += q[1]; }
+  sx /= n; sz /= n;
+  const w = F.lookW || 0, Lk = F.look || [0, 1, 50];
+  let pos = [sx + F.off[0], F.off[1], sz + F.off[2]];
+  const tgt = [lerp(sx + F.tgt[0], Lk[0], w), F.tgt[1], lerp(sz + F.tgt[2], Lk[2], w)];
+  const d = sub(tgt, pos), amp = Math.hypot(d[0], d[1], d[2]) * 0.006 * (b.sway != null ? b.sway : 1);
+  pos = [pos[0] + Math.sin(T * 0.45) * amp * 3, pos[1] + Math.sin(T * 0.31 + 1) * amp * 1.5, pos[2]];
+  return { pos, tgt };
 }
 function camBase(i, lt) {
   const b = S.beats[i];
@@ -617,6 +651,8 @@ function drawTrophy(x, y, u) {
 // bends the knee back (foot lifts behind, seen from behind). Arms are [angle, elbow bend]. hy = hip lift (u), px = shift (u),
 // rot = whole-body rotation around the hip, lean = torso lean.
 const P0 = { rot: 0, px: 0, hy: 0, lean: 0, armsFront: 0, L: [-0.06, 0], R: [0.06, 0], AL: [-0.16, 0.25], AR: [0.16, 0.25] };
+const READY = { L: [-0.22, 0.28], R: [0.22, 0.28], AL: [-0.55, 1.6], AR: [0.55, 1.6], hy: 0.06 };   // a keeper's stance: knees bent, hands up and out
+const LYING = { L: [-0.05, 0.3], R: [0.3, 0.5], AL: [Math.PI - 0.4, 0.2], AR: [Math.PI + 0.1, 0.2], hy: 0.38, rot: 1.56, px: 0.88 };   // where a dive ends
 const ACTIONS = {
   kick: { dur: 1.0, contact: 0.42, keys: [
     [0.0, { L: [-0.06, 0], R: [0.06, 0], AL: [-0.25, 0.3], AR: [0.25, 0.3] }],
@@ -624,12 +660,23 @@ const ACTIONS = {
     [0.42, { L: [-0.04, 0.05], R: [-0.35, 0.05], AL: [-1.15, 0.1], AR: [0.9, 0.3], lean: -0.08 }],
     [0.62, { L: [-0.02, 0.12], R: [-0.95, 0.15], AL: [-1.3, 0.05], AR: [1.05, 0.2], lean: -0.18, hy: -0.035 }],
     [1.0, { L: [-0.06, 0], R: [-0.08, 0.05], AL: [-0.3, 0.3], AR: [0.3, 0.3], lean: -0.04 }]] },
-  dive: { dur: 0.95, keys: [
-    [0.0, { L: [-0.25, 0.25], R: [0.25, 0.25], AL: [-0.9, 0.4], AR: [0.9, 0.4], hy: 0.05 }],
-    [0.16, { L: [-0.3, 0.35], R: [0.3, 0.35], AL: [-1.0, 0.4], AR: [1.0, 0.4], hy: 0.08, rot: 0.12 }],
-    [0.45, { L: [-0.15, 0.15], R: [0.3, 0.4], AL: [Math.PI - 0.2, 0], AR: [Math.PI + 0.15, 0], hy: -0.22, rot: 1.25, px: 0.55 }],
-    [0.7, { L: [-0.1, 0.2], R: [0.35, 0.5], AL: [Math.PI - 0.1, 0], AR: [Math.PI + 0.2, 0], hy: 0.12, rot: 1.5, px: 0.78 }],
-    [1.0, { L: [-0.05, 0.3], R: [0.3, 0.5], AL: [Math.PI - 0.3, 0.2], AR: [Math.PI + 0.1, 0.2], hy: 0.4, rot: 1.56, px: 0.86 }]] },
+  dive: { dur: 0.95, hold: true, stay: true, keys: [   // a keeper's dive: loads onto the push-off leg, drives, stretches out flat, lands (smooth spline between the keys)
+    [0.0, READY],
+    [0.14, { L: [-0.3, 0.4], R: [0.4, 0.55], AL: [-0.95, 0.7], AR: [0.55, 0.7], hy: 0.1, lean: 0.1, rot: 0.08, px: 0.04 }],
+    [0.3, { L: [-0.12, 0.45], R: [0.85, 0.0], AL: [Math.PI - 1.1, 0.3], AR: [Math.PI - 0.35, 0.1], hy: -0.06, lean: 0.12, rot: 0.55, px: 0.26 }],
+    [0.5, { L: [-0.2, 0.18], R: [0.45, 0.3], AL: [Math.PI - 0.12, 0.0], AR: [Math.PI + 0.12, 0.0], hy: -0.26, rot: 1.3, px: 0.6 }],
+    [0.74, { L: [-0.1, 0.2], R: [0.35, 0.4], AL: [Math.PI - 0.15, 0.0], AR: [Math.PI + 0.15, 0.0], hy: -0.04, rot: 1.5, px: 0.8 }],
+    [1.0, LYING]] },
+  lunge: { dur: 0.6, keys: [   // a quick reaching step toward the ball (not a full dive), then back up
+    [0.0, READY],
+    [0.3, { L: [-0.15, 0.2], R: [0.55, 0.15], AL: [Math.PI - 0.9, 0.3], AR: [Math.PI - 0.3, 0.1], hy: 0.02, lean: 0.14, rot: 0.45, px: 0.22 }],
+    [0.55, { L: [-0.12, 0.2], R: [0.5, 0.2], AL: [Math.PI - 0.35, 0.1], AR: [Math.PI + 0.05, 0.0], hy: -0.04, lean: 0.12, rot: 0.7, px: 0.38 }],
+    [1.0, { L: [-0.2, 0.3], R: [0.3, 0.3], AL: [-0.9, 0.6], AR: [0.6, 0.6], hy: 0.04, lean: 0.06, rot: 0.2, px: 0.16 }]] },
+  getup: { dur: 1.1, stay: true, keys: [   // from lying after a dive: pushes up on a hand, scrambles to his feet, back in the ready stance where he landed
+    [0.0, LYING],
+    [0.35, { L: [-0.1, 0.5], R: [0.4, 0.7], AL: [0.9, 0.5], AR: [0.5, 0.9], hy: 0.26, rot: 1.05, px: 0.78, lean: 0.12 }],
+    [0.7, { L: [-0.2, 0.4], R: [0.3, 0.5], AL: [-0.6, 1.2], AR: [0.6, 1.2], hy: 0.1, rot: 0.35, px: 0.66 }],
+    [1.0, { L: [-0.22, 0.28], R: [0.22, 0.28], AL: [-0.55, 1.6], AR: [0.55, 1.6], hy: 0.06, rot: 0, px: 0.6 }]] },
   block: { dur: 0.7, keys: [   // an outfield defender's block: stays upright and sticks a leg out (never a goalkeeper-style dive)
     [0.0, { L: [-0.12, 0.2], R: [0.12, 0.2], AL: [-0.5, 0.4], AR: [0.5, 0.4], hy: 0.03 }],
     [0.35, { L: [-0.16, 0.12], R: [1.0, 0.02], AL: [-0.95, 0.25], AR: [0.75, 0.3], lean: -0.14, px: 0.1, hy: 0.05 }],
@@ -655,10 +702,31 @@ function mixPose(a, b, k) {
   }
   return o;
 }
+// Keyframes are joined by a monotone cubic spline (PCHIP): the motion keeps its speed through every key and eases only at real extremes,
+// so nothing stops and starts at each key any more (user: the keeper "moves like a robot").
 function keyPose(keys, f) {
-  for (let i = 1; i < keys.length; i++) if (f <= keys[i][0]) return mixPose(keys[i - 1][1], keys[i][1], ease((f - keys[i - 1][0]) / (keys[i][0] - keys[i - 1][0])));
-  return mixPose(keys[keys.length - 1][1], keys[keys.length - 1][1], 0);
+  const n = keys.length, val = (idx, key, j) => { const q = keys[idx][1][key]; const v = q != null ? q : P0[key]; return j == null ? v : v[j]; };
+  if (f <= keys[0][0]) return mixPose(keys[0][1], keys[0][1], 0);
+  if (f >= keys[n - 1][0]) return mixPose(keys[n - 1][1], keys[n - 1][1], 0);
+  let i = 1; while (i < n - 1 && f > keys[i][0]) i++;
+  const ta = keys[i - 1][0], tb = keys[i][0], h = tb - ta, s = (f - ta) / h;
+  const h00 = 2 * s * s * s - 3 * s * s + 1, h10 = s * s * s - 2 * s * s + s, h01 = -2 * s * s * s + 3 * s * s, h11 = s * s * s - s * s;
+  const comp = (key, j) => {
+    const d = k => (val(k + 1, key, j) - val(k, key, j)) / (keys[k + 1][0] - keys[k][0]);
+    const tan = k => {
+      if (k === 0) return d(0);
+      if (k === n - 1) return d(n - 2);
+      const d0 = d(k - 1), d1 = d(k); if (d0 * d1 <= 0) return 0;
+      const h0 = keys[k][0] - keys[k - 1][0], h1 = keys[k + 1][0] - keys[k][0], w1 = 2 * h1 + h0, w2 = h1 + 2 * h0;
+      return (w1 + w2) / (w1 / d0 + w2 / d1);
+    };
+    return h00 * val(i - 1, key, j) + h10 * h * tan(i - 1) + h01 * val(i, key, j) + h11 * h * tan(i);
+  };
+  const o = {};
+  for (const key of Object.keys(P0)) o[key] = Array.isArray(P0[key]) ? [comp(key, 0), comp(key, 1)] : comp(key);
+  return o;
 }
+function mirrorPose(ps) { return { ...ps, rot: -ps.rot, px: -ps.px, lean: -ps.lean, AL: [-ps.AR[0], ps.AR[1]], AR: [-ps.AL[0], ps.AL[1]], L: [-ps.R[0], ps.R[1]], R: [-ps.L[0], ps.L[1]] }; }
 function loopPose(name, t) {
   if (name === 'run') {   // athletic run: arms tucked and pumping, strong knee drive, a bob twice per stride (the old one looked goofy)
     const ph = t / 0.42 * Math.PI * 2, s = Math.sin(ph), c2 = Math.cos(ph * 2);
@@ -675,21 +743,62 @@ function loopPose(name, t) {
     return { ...P0, L: [lerp(-0.1, -0.34, land), 0.5 * air * (1 - land)], R: [lerp(0.1, 0.34, land), 0.5 * air * (1 - land)],
       AL: [lerp(-(Math.PI - 0.5), -0.62, land), 0.05], AR: [lerp(Math.PI - 0.5, 0.62, land), 0.05], hy: -0.32 * air * (1 - land * 0.9) + 0.03 * land + pulse, lean: -0.05 * land };
   }
-  if (name === 'ready') return { ...P0, L: [-0.25, 0.25], R: [0.25, 0.25], AL: [-0.9, 0.4], AR: [0.9, 0.4], hy: 0.05 + 0.01 * Math.sin(t * 6) };
+  if (name === 'ready') {   // a keeper's stance (and a defender's jockey): knees bent, hands up and out, weight shifting from foot to foot, a slow side-to-side shuffle
+    const sh = Math.sin(t * 1.9), cs = Math.cos(t * 1.9);
+    return { ...P0, L: [-0.22 + 0.05 * sh, 0.28 + 0.12 * Math.max(0, cs)], R: [0.22 + 0.05 * sh, 0.28 + 0.12 * Math.max(0, -cs)],
+      AL: [-0.55 + 0.07 * Math.sin(t * 3.1 + 1), 1.6 + 0.12 * Math.sin(t * 2.3)], AR: [0.55 - 0.07 * Math.sin(t * 3.1), 1.6 + 0.12 * Math.sin(t * 2.7 + 2)],
+      hy: 0.06 + 0.012 * Math.sin(t * 5.2), px: 0.04 * sh, lean: 0.05 * sh };
+  }
+  if (name === 'shuffle') {   // a keeper moving along a path (stepping off his line): short quick steps, low, hands up
+    const ph = t / 0.46 * Math.PI * 2, s = Math.sin(ph);
+    return { ...P0, L: [-0.2 + 0.16 * s, 0.22 + Math.max(0, s) * 0.55], R: [0.2 + 0.16 * s, 0.22 + Math.max(0, -s) * 0.55], AL: [-0.55, 1.6], AR: [0.55, 1.6], hy: 0.06 - 0.014 * Math.abs(s), lean: 0.03 };
+  }
   const b = Math.sin(t * 2.6);
   return { ...P0, AL: [-0.16 - 0.03 * b, 0.25], AR: [0.16 + 0.03 * b, 0.25], hy: 0.004 * b };
 }
+// One action at fraction f (0..1) of its run, mirrored for dir -1 (and for left-footers' strikes).
+function actFrame(a, f) {
+  let ps = keyPose(ACTIONS[a.action].keys, clamp(f, 0, 1));
+  if (a.dir === -1 || (a.foot === 'left' && a.action === 'kick')) ps = mirrorPose(ps);
+  return ps;
+}
+// "actions": [{action, delay, dir, dur}, ...] on one player: a keeper that lunges at one shot after another, then dives and gets up. Between actions he returns to his
+// stance; a dive holds where he lands and a get-up (stay) leaves him standing where he got up.
+function poseFromActions(p, t, baseFn) {
+  const L = p.actions; let i = -1;
+  for (let k = 0; k < L.length; k++) if (t >= (L[k].delay || 0)) i = k;
+  if (i < 0) return baseFn(t);
+  const offAt = k => { let o = 0; for (let j = 0; j < k; j++) if (L[j].action && ACTIONS[L[j].action].stay) o += actFrame(L[j], 1).px; return o; };
+  const a = L[i], d = a.delay || 0;
+  if (a.loop) {   // {loop: "celebrate", delay}: from that moment he stays in a looping pose (a scorer's celebration), blended in over 0.15 s
+    const off0 = (() => { let o = 0; for (let j = 0; j < i; j++) if (ACTIONS[L[j].action] && ACTIONS[L[j].action].stay) o += actFrame(L[j], 1).px; return o; })();
+    let ps = { ...loopPose(a.loop, t - d), px: loopPose(a.loop, t - d).px + off0 };
+    const prev = i === 0 ? baseFn(t) : poseFromActions({ actions: L.slice(0, i) }, t, baseFn), bl = clamp((t - d) / 0.15, 0, 1);
+    return bl < 1 ? mixPose(prev, ps, ease(bl)) : ps;
+  }
+  const A = ACTIONS[a.action], dur = a.dur || A.dur, off = offAt(i);
+  const shift = (ps, o) => ({ ...ps, px: ps.px + o });
+  if (t < d + dur) {
+    let ps = shift(actFrame(a, (t - d) / dur), off);
+    const prev = i === 0 ? baseFn(t) : poseFromActions({ actions: L.slice(0, i) }, t, baseFn);
+    const bl = clamp((t - d) / 0.12, 0, 1); if (bl < 1) ps = mixPose(prev, ps, ease(bl));
+    return ps;
+  }
+  const end = shift(actFrame(a, 1), off);
+  if (A.hold) return end;
+  const after = shift(baseFn(t), off + (A.stay ? actFrame(a, 1).px : 0)), rk = clamp((t - d - dur) / (a.recover || 0.3), 0, 1);
+  return rk >= 1 ? after : mixPose(end, after, ease(rk));
+}
 function poseFor(p, t, walking) {
+  const isKeeper = p.pose === 'keeper', baseName = p.before || (isKeeper ? 'ready' : 'idle');
+  const baseFn = tt => walking ? loopPose(isKeeper ? 'shuffle' : 'run', tt) : loopPose(baseName, tt);
+  if (p.actions && p.actions.length) return withHops(p, poseFromActions(p, t, baseFn), t);
   // only a goalkeeper dives: an outfield player's "dive" becomes a standing block with a leg out (user: defenders must not dive like keepers)
-  const d = p.actionDelay != null ? p.actionDelay : 0, A = ACTIONS[p.action === 'dive' && p.pose !== 'keeper' && !p.gloves ? 'block' : p.action];
+  const d = p.actionDelay != null ? p.actionDelay : 0, name = p.action === 'dive' && !isKeeper && !p.gloves ? 'block' : p.action, A = ACTIONS[name];
   if (A) {
     const dur = p.actionDur || A.dur;
-    const act = f => {
-      const ps = keyPose(A.keys, f);
-      if (p.dir === -1 || (p.foot === 'left' && p.action === 'kick')) { ps.rot = -ps.rot; /* foot: 'left' mirrors the strike for left-footers (Messi) */ ps.px = -ps.px; [ps.AL, ps.AR] = [[-ps.AR[0], ps.AR[1]], [-ps.AL[0], ps.AL[1]]]; [ps.L, ps.R] = [[-ps.R[0], ps.R[1]], [-ps.L[0], ps.L[1]]]; }
-      return ps;
-    };
-    const pre = tt => walking || p.path ? loopPose('run', tt) : loopPose(p.before || 'idle', tt);
+    const act = f => actFrame({ action: name, dir: p.dir, foot: p.foot }, f);
+    const pre = tt => baseFn(tt);
     let ps;
     if (t >= d && t < d + dur) {   // blend in over 0.12s so the move doesn't snap
       ps = act((t - d) / dur);
@@ -702,7 +811,7 @@ function poseFor(p, t, walking) {
   }
   if (p.action === 'siu' && !walking) return withHops(p, t < d ? loopPose('idle', t) : loopPose('siu', t - d), t);   // siu: starts at actionDelay / actionAt, then holds
   if (p.action === 'celebrate' && !walking && d > 0) return withHops(p, t < d ? loopPose(p.before || 'idle', t) : loopPose('celebrate', t - d), t);   // celebrate: waits for actionDelay / actionAt (idle until then), then loops
-  return withHops(p, walking ? loopPose('run', t) : loopPose(p.action || 'idle', t), t);
+  return withHops(p, walking ? loopPose(isKeeper ? 'shuffle' : 'run', t) : loopPose(p.action || baseName, t), t);
 }
 function withHops(p, ps, t) {   // "hops": [{t, dur}] — a small jump (e.g. hurdling a slide tackle)
   for (const h of p.hops || []) {
@@ -801,7 +910,7 @@ function drawPlayer(x, y, u, p, t, walk, alpha) {
   ctx.save();
   ctx.globalAlpha *= alpha;
   ctx.translate(x, y);
-  if (p.action || p.rig || (p.hops && p.hops.length)) {
+  if (p.action || p.actions || p.rig || p.pose === 'keeper' || (p.hops && p.hops.length)) {
     const ps = poseFor(p, t, walk > 0);
     const lift = Math.max(0, -ps.hy) * 3;
     ctx.fillStyle = `rgba(0,0,0,${0.3 / (1 + lift)})`;
@@ -932,7 +1041,7 @@ function drawNameLabel(u, p, t) {
   try { drawNameLabel0(u, p, t); } finally { S.owner = ow; }
 }
 function drawNameLabel0(u, p, t) {
-  if (!p.label) return;
+  if (!p.label || (p.labelUntil != null && t >= p.labelUntil)) return;   // labelUntil: the name pill goes away (e.g. when the goal is scored)
   const k = eBack(pr(t, p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3, 0.3)); if (k <= 0.002) return;   // eBack(0) is a hair above 0: an invisible label was still registered (and audited) off-screen
   const fs = clamp(u * 0.075, 20, 40), y = -u * (p.tag != null ? 1.55 : 1.1);
   ctx.save(); ctx.translate(0, y); ctx.scale(k, k); font(700, fs, 'Inter');
@@ -980,6 +1089,15 @@ function drawPlayers(cam, lt, players) {
     const wp = (p.web != null || p.webRival != null) ? webPlayerPos(p, lt) : null;
     if (wp) { x = wp.x; z = wp.z; walk = wp.walk; heading = wp.heading;
       if (wp.tackle) { p = Object.assign({}, p, { action: 'slide', actionDelay: wp.tackle.delay, actionDur: 1.1, dir: wp.tackle.dir }); walk = 0; } }
+    else if (p.path && p.pathT) {   // a timed route: pathT[i] = the second he reaches point i (two equal points = he stops there, e.g. to strike), so he can run, stop and run again
+      const pts = p.path, T = p.pathT, tt = lt - (p.delay || 0);
+      let i = 0; while (i < pts.length - 2 && tt >= T[i + 1]) i++;
+      const f = clamp((tt - T[i]) / Math.max(1e-6, T[i + 1] - T[i]), 0, 1);
+      x = lerp(pts[i][0], pts[i + 1][0], f); z = lerp(pts[i][1], pts[i + 1][1], f);
+      const seg = j => { const dx = pts[j + 1][0] - pts[j][0], dz = pts[j + 1][1] - pts[j][1], L = Math.hypot(dx, dz); return L > 1e-4 ? [dx / L, dz / L] : null; };
+      let sg = seg(i), j = i; while (!sg && j > 0) { j--; sg = seg(j); } j = i; while (!sg && j < pts.length - 2) { j++; sg = seg(j); }
+      heading = sg || [0, 1]; walk = tt > T[0] && tt < T[T.length - 1] && seg(i) && f > 0 && f < 1 ? 1 : 0;
+    }
     else if (p.path) {   // runs along a route at a steady pace (no easing, so he never looks like he's running on the spot)
       const pts = p.path, segs = []; let total = 0;
       for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); segs.push(d); total += d; }
@@ -1002,10 +1120,11 @@ function drawPlayers(cam, lt, players) {
     }
     const q = toCam(cam, [x, 0, z]);
     if (q[2] < NEAR + 0.5) continue;
-    list.push({ p, q, walk, idx: pIdx });
+    const pp = p.frontT != null && lt - (p.delay || 0) >= p.frontT ? Object.assign({}, p, { front: !p.front }) : p;   // frontT: he turns to face the camera (a scorer wheeling away)
+    list.push({ p: pp, q, walk, idx: pIdx });
     const dt0 = lt - (p.delay || 0), hasBall = (p.dribbleFrom == null || dt0 >= p.dribbleFrom) && (p.dribbleUntil == null || dt0 < p.dribbleUntil);   // dribbleFrom/Until: seconds after his path starts (he wins it / loses it)
     if (p.dribble && hasBall && (walk > 0 || (p.action === 'run' && !p.path))) {   // he runs with the ball: a touch every other stride pushes it ahead
-      const ph = ((lt / 0.84) % 1), push = Math.sin(ph * Math.PI), dirz = p.front ? -1 : 1, lead = 0.45 + 0.55 * push;
+      const ph = ((((dt0 - (p.dribbleUntil != null ? p.dribbleUntil : 0)) / 0.84) % 1) + 1) % 1, push = Math.sin(ph * Math.PI), dirz = p.front ? -1 : 1, lead = 0.45 + 0.55 * push;   // anchored to dribbleUntil: at that second the ball is exactly 0.45 m ahead, where a resting ball card can take over
       const hx = p.path ? heading[0] : 0, hz = p.path ? heading[1] : dirz;   // the ball runs ahead in the direction he's going
       const side = p.foot === 'left' ? -0.18 : 0.18;   // ball on his stronger foot
       const bp = [x + side * hz + hx * lead, 0.11, z + hz * lead - side * hx];
@@ -4932,6 +5051,7 @@ window.loadSpec = async function (spec) {
       if (p.appearDelay != null && b.playersStart + p.appearDelay >= b.start) S.events.push({ t: b.playersStart + p.appearDelay, type: 'glitch' }, { t: b.playersStart + p.appearDelay + 1.1, type: 'pop' });
     }
     for (const p of b.playersArr || []) if (p.action === 'kick' && p.actionDelay != null && b.playersStart === b.start) S.events.push({ t: b.start + p.actionDelay + 0.42 * (p.actionDur || 1), type: 'pop' });
+    for (const p of b.playersArr || []) for (const a of p.actions || []) if (a.action === 'kick' && a.delay != null && b.playersStart === b.start) S.events.push({ t: b.start + a.delay + 0.42 * (a.dur || ACTIONS.kick.dur), type: 'pop' });
   });
   // hype (default on; spec or beat "hype": false to turn off): every goal-bound shot in a stadium gets a run-up, a punch-in at the strike,
   // speed lines, a camera that follows the ball and a shake when it hits the net. Hand-made punch/shake on the beat are kept.

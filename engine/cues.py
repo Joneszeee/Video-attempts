@@ -288,6 +288,8 @@ def _resolve_beat(b, rel):
             p['swapDelay'] = round(rel(p.pop('swapAt')) + p.pop('swapLag', 0), 3)
         if 'labelAt' in p:
             p['labelDelay'] = rel(p.pop('labelAt'))
+        if 'labelUntilAt' in p:
+            p['labelUntil'] = round(rel(p.pop('labelUntilAt')) + p.pop('labelUntilLag', 0), 3)
         if 'tagAt' in p:
             p['tagDelay'] = rel(p.pop('tagAt'))
         for h in p.get('hops') or []:  # a jump on a word (e.g. a header)
@@ -295,6 +297,11 @@ def _resolve_beat(b, rel):
                 h['t'] = round(rel(h.pop('at')) + h.pop('lag', 0), 3)
         if 'actionAt' in p:  # e.g. the kick starts so the strike lands on the word: use "lag" to shift
             p['actionDelay'] = round(rel(p.pop('actionAt')) + p.pop('actionLag', 0), 3)
+        for a in p.get('actions') or []:  # several actions on one player (a keeper's lunges, dive and get-up): each can start on a word
+            if 'at' in a:
+                a['delay'] = round(rel(a.pop('at')) + a.pop('lag', 0), 3)
+        if 'turnAt' in p:  # he turns to face the camera on a word (a scorer wheeling away)
+            p['frontT'] = round(rel(p.pop('turnAt')) + p.pop('turnLag', 0) - p.get('delay', 0), 3)
         for key, out in (('vanishAt', 'vanishDelay'), ('appearAt', 'appearDelay')):  # the player breaks into pixels / builds back up on a word
             if key in p:
                 p[out] = round(rel(p.pop(key)) + p.pop(key[:-2] + 'Lag', 0), 3)

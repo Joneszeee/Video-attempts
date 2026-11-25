@@ -122,13 +122,14 @@ B.append({"kicker": "10,000 seasons simulated · halfway", "headline": "City: [7
            {"type": "odds", "y": 1030, "cell": 60, "title": "City · title chance at halfway", "lit": tt('odds_with_both'), "litStep": 0.016, "litAt": "seventy-four percent", "litLag": -0.35, "label": "{n}%", "clear": False,
             "extra": {"n": 17, "color": GOLD, "at": "Your signings add seventeen", "lag": 0.0, "label": "your signings: +17"}}]})
 
-# 6 match 1 (debut day, away): Stevenage win 2-1; their winner beats the keeper; City fall to 5th
-pl, cards, cam = goal("two–one", -1.0, 41, -1, STE, [2.6, 1.0, 52.3], -1, GK_YELLOW, CITY, lag=-0.5, skin="#e7b593", hair="#141010")
-pl[1].update(skin="#f0c8a8", hair="#3a2a1a")
-B.append({"kicker": "Matchday 24 · away", "headline": "Debut day: [1–2] at Stevenage.", "cut": True, "transition": "vhs", "vhsLabel": "MD24", "vhsDur": 0.8, "scene": S_STE, "accent": RED, **cam, "players": pl,
+# 6 match 1 (debut day, away): Stevenage win 2-1: a long-range curler (cut in from the wing, over City's defenders, into the top corner past McCracken's fingertips), then Stevenage celebrate; City fall to 5th
+pl, cards, cam, cut2 = goal_curler("two–one", STE, GK_YELLOW, CITY, mate_kit=STE, foot="right", flight=0.9, cut_lag=0.55)
+pl[1].update(skin="#f0c8a8", hair="#3a2a1a")        # McCracken
+cut2.pop("confetti", None)
+B.append({"kicker": "Matchday 24 · away", "headline": "Debut day: [1–2] at Stevenage.", "cut": True, "transition": "whip", "scene": S_STE, "accent": RED, **cam, "players": pl,
   "card": cards + [bug({"name": "STE", "color": "#d6283b"}, MCI, [2, 1], "MD24", [1, 1], "two–one", 0.25), hud("League One · matchday 24", counter=False),
                    stamp("1–2", "two–one", sub=f"debut day · {L5[24]['pos']}th", y=1530, size=110, lag=0.05)],
-  "shake": [{"at": "two–one", "lag": 0.4, "amount": 12}]})
+  "shots": [cut2]})
 
 # 7 three wins (5-1, 4-3, 2-0): the climb card moves City 5th -> 5th -> 2nd -> 1st, one step per match on its word; "go top" stamps it
 B.append({"kicker": "Matchdays 25–27", "headline": "Three wins. City go [top].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_NIGHT, "accent": GOLD, "lights": 0.8, "fans": True, "flashes": 10,
@@ -138,15 +139,19 @@ B.append({"kicker": "Matchdays 25–27", "headline": "Three wins. City go [top].
                       {"at": "Burton", "lag": -0.1, "rows": rows(27, 7), "label": res(27)}]},
            stamp("TOP", "City go top", sub="first time this season", color=GOLD, y=1560, size=110, lag=0.0), hud("League One · matchdays 24–27", counter=False)]})
 
-# 8 match 4: Salford at home, 6-0, and Haaland is out (the sim's own availability): a six-ball barrage from behind the net
+# 8 match 4: Salford at home, 6-0, and Haaland is out (the sim's own availability): six shots from behind the net, the keeper shuffling, lunging at every one a hair too late, and diving at the last
 END = [[-2.6, 1.0, 52.3], [2.4, 1.6, 52.3], [-0.6, 0.5, 52.3], [2.9, 0.7, 52.3], [-3.0, 1.9, 52.3], [0.8, 1.2, 52.3]]
-barrage = [{"type": "ballpath", "world": True, "delay": round(0.1 + i * 0.28, 2), "dur": 0.4, "slowmo": False, "points": [[x * -0.4, 0.11, 38], [x * 0.2, 1.4, 46], [x, y, z]]} for i, (x, y, z) in enumerate(END)]
+SHOT_T = [round(0.15 + i * 0.5, 2) for i in range(6)]
+barrage = [{"type": "ballpath", "world": True, "delay": SHOT_T[i], "dur": 0.42, "slowmo": False, "points": [[x * -0.4, 0.11, 38], [x * 0.2, 1.4, 46], [x, y, z]]} for i, (x, y, z) in enumerate(END)]
+# seen from behind the net, world +x is screen-left, so the keeper reaches the other way round
+reach = [{"action": "dive" if i == 5 else "lunge", "dir": -1 if x > 0 else 1, "delay": round(SHOT_T[i] + 0.1, 2)} for i, (x, y, z) in enumerate(END)]
+SKEEP = kit("#6c3fb5", "#111111", "#6c3fb5", text="#ffffff")
 B.append({"kicker": "Matchday 34 · at home", "headline": "Salford: [6–0]. No Haaland.", "cut": True, "transition": "whip", "scene": S_ETI, "accent": TEAL, "lights": 0.85, "hype": False,
   "camFrom": {"pos": [1.5, 2.3, 60.5], "tgt": [0, 1.0, 40]}, "camera": {"pos": [0.8, 2.1, 59.2], "tgt": [0, 1.0, 40]}, "move": 3.4, "moveEase": "linear",
-  "players": [P(kit=SAL, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=52.0, pose="keeper")],
+  "players": [P(kit=SKEEP, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", x=0, z=51.4, pose="keeper", actions=reach)],
   "card": barrage + [bug(MCI, {"name": "SAL", "color": "#d6283b"}, [6, 0], "MD34", [0, 0], "Six–nil", 0.1), hud("League One · matchday 34", counter=False),
-                     stamp("NO HAALAND", "didn't even play", sub="out · 6–0 anyway", color=RED, y=1330, size=78, lag=0.0),
-                     big(6, "Six–nil", "goals v Salford", frm=0, y=1580, size=170, dur=1.4, lag=-0.3)]})
+                     stamp("NO HAALAND", "didn't even play", sub="out · 6–0 anyway", color=RED, y=1440, size=74, lag=0.0),
+                     big(6, "Six–nil", "goals v Salford", frm=0, y=1640, size=160, dur=1.4, lag=-0.3)]})
 
 # 9 re-hook: it got tight. The title race (City v the best of the rest, matchdays 1-42): the two defeats pin on City's line on their words, the lines meet at 74 and LEVEL slams
 def pts_series(upto):
@@ -163,18 +168,15 @@ B.append({"kicker": "The title race · City v the best of the rest", "headline":
             "pins": [{"i": 36, "at": "Chesterfield win", "lag": -0.1, "label": "CHE 3–4", "color": RED, "dy": 52}, {"i": 40, "at": "Plymouth win", "lag": -0.1, "label": "PLY 1–3", "color": RED, "dy": -52}]},
            stamp("LEVEL", "Level on points", sub="74–74 · Stockport", color=GOLD, y=1530, size=110, lag=-0.1)]})
 
-# 10 match 5: Cambridge at home, 3-0: Haaland scores twice (his "2" tag pops on "twice"), then the title: trophy, confetti, a CHAMPIONS stamp on matchday 45
-pl, cards, cam = goal("scores twice", -1.2, 41, -1, CITY, [2.8, 1.0, 52.3], -1, GK_GREEN, CAM, lag=-0.3, label="Haaland", **HAAL)
+# 10 match 5: Cambridge at home, 3-0: Haaland dribbles at goal, hops a sliding tackle, finishes low past the wrong-way keeper (his "2" tag pops on "twice"), then runs at the camera with the team-mates chasing; the trophy rises on "champions"
+pl, cards, cam, cut2 = goal_dribble("twice", CITY, GK_GREEN, CAM, mate_kit=CITY, foot="left", label="Haaland", cut_lag=0.6, scorer=dict(name="HAALAND", num=9, skin=HAAL["skin"], hair=HAAL["hair"]))
 pl[0].update(tag=2, tagLabel="goals", tagAt="twice", tagLag=-0.1)
-B.append({"kicker": "Matchday 45 · at home", "headline": "Cambridge: Haaland [twice].", "cut": True, "transition": "whip", "scene": S_ETI, "accent": GOLD, **cam, "players": pl, "flashes": 12,
-  "card": cards + [bug(MCI, {"name": "CAM", "color": "#f6a800"}, [2, 0], "MD45", [1, 0], "scores twice", 0.5), hud("League One · matchday 45", counter=False)],
-  "shots": [{"at": "Three–nil", "lag": -0.15, "cut": True, "transition": "whip", "kicker": "Matchday 45 · full time", "headline": "One game to spare: [champions].", "scene": S_GOLD, "accent": GOLD, "lights": 0.9,
-     "camFrom": {"pos": [0, 1.4, -5.6], "tgt": [0, 1.4, 10]}, "camera": {"pos": [0, 1.5, -4.0], "tgt": [0, 1.4, 10]}, "move": 4, "moveEase": "linear", "hype": False, "flashes": 16,
-     "confetti": True, "confettiAt": "champions",
-     "players": [P(kit=CITY, skin="#8a5a3c", hair="#141010", x=-1.25, z=0.5, front=True, action="celebrate", actionDelay=0.4), P(kit=CITY, skin="#f0c8a8", hair="#3a2a1a", x=1.25, z=0.6, front=True, action="celebrate", actionDelay=0.7),
-                 P(kit=CITY, x=0.0, z=-0.2, front=True, pose="fists", **{k: v for k, v in HAAL.items() if k not in ('name', 'num')})],
-     "card": [bug(MCI, {"name": "CAM", "color": "#f6a800"}, [3, 0], "FT", [2, 0], "Three–nil", 0.1), hud("League One · matchday 45", counter=False),
-              {"type": "trophies", "at": "champions", "lag": -0.35, "floor": 1500, "stagger": 0, "rise": 0.55, "items": [{"kind": "cup", "sx": 0.5, "h": 150, "size": 200}], "clear": False}]}]})
+cut2.update({"kicker": "Matchday 45 · full time", "headline": "Three–nil: [champions].", "accent": GOLD,
+             "card": [bug(MCI, {"name": "CAM", "color": "#f6a800"}, [3, 0], "FT", [2, 0], "Three–nil", 0.1), hud("League One · matchday 45", counter=False),
+                      {"type": "trophies", "at": "champions", "lag": -0.35, "floor": 1500, "stagger": 0, "rise": 0.55, "items": [{"kind": "cup", "sx": 0.5, "h": 150, "size": 200}], "clear": False}]})
+B.append({"kicker": "Matchday 45 · at home", "headline": "Cambridge: Haaland [twice].", "cut": True, "transition": "whip", "scene": S_ETI, "accent": GOLD, **cam, "players": pl,
+  "card": cards + [bug(MCI, {"name": "CAM", "color": "#f6a800"}, [2, 0], "MD45", [1, 0], "twice", 0.3), hud("League One · matchday 45", counter=False)],
+  "shots": [cut2]})
 
 # 11 the season in numbers: Haaland close-up and the stacked counter (82 points, 97 goals the most, 51 against the fewest, Haaland 35)
 B.append({"kicker": "The season in numbers", "headline": "Champions: [82 points].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_NIGHT, "accent": GOLD, "lights": 0.8, "flashes": 10,

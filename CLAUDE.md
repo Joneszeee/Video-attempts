@@ -184,6 +184,7 @@ The user wants videos that look like a cartoon match, not numbers on a grey back
 - **Players act.** Give players an `action`: `"kick"` (run-up, plant, wind-up, strike, follow-through; contact at 42% of `actionDur`),
   `"dive"` (keeper; `"dir": 1|-1`, `"before": "ready"`), `"celebrate"` and `"run"` (loops), plus `"idle"`. Use `actionDelay`, or `actionAt` + `actionLag`
   to land the strike on a word, and `"after": "celebrate"` for what follows. A player walking in (`enter: "walk"`) runs with arms pumping.
+  A `celebrate` loop waits for `actionDelay` / `actionAt` (idle until then), so a hero can stand still on frame 0 and erupt on the word (Part 5's hook: "Now they're champions").
 - **The camera reacts.** Use beat `"punch": [{"at": "...", "amount": 0.3, "dur": 1.5, "anchor": 0}]` for a quick zoom on the moment of action,
   and `"shake": [{"at": "...", "amount": 20}]` on impacts.
 - **The ball is real.** A `ball` card (`point`, `until`) rests on the pitch, and `ballpath` with `world: true` is the shot. Both are depth-sorted

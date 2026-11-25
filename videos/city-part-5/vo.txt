@@ -10,7 +10,7 @@ Title odds at halfway: seventy-four percent. Your signings add seventeen.
 <break time="0.8s" />
 Debut day. Stevenage win two–one. City fall to fifth.
 <break time="0.8s" />
-Then three wins. Burnley, five–one. Wycombe, four–three. Burton, two–nil. City go top.
+Three wins. Burnley, five–one. Wycombe, four–three. Burton, two–nil. City go top.
 <break time="0.8s" />
 Salford. Six–nil. Haaland didn't even play.
 <break time="0.8s" />
@@ -20,6 +20,6 @@ Then Cambridge. Haaland scores twice. Three–nil. One game to spare, and City a
 <break time="0.8s" />
 Eighty-two points. Ninety-seven goals, the most. Fifty-one against, the fewest. And Haaland: thirty-five.
 <break time="0.8s" />
-City are going up. The weak spot: right wing. Who should City sign?
+City are going up. The weak spot: right wing. Bowen, Cozier-Duberry or Tanner? Who should City sign?
 <break time="0.8s" />
 And Moylan's loan is nearly up. Keep him?

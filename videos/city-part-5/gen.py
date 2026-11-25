@@ -69,16 +69,14 @@ def res(md): g = L5[md]; return f"MD{md} · {g['res']} {g['score'].replace('-', 
 V, lines = start('videos/city-part-5/')
 B = []
 
-# 1 hook: the number clash (4th -> champions). Frame 0: Haaland and two team-mates in City's kit, the halfway table already on screen with City 4th, every headline word readable, speed lines, push-in.
-# "fourth" pulses; on "champions" City's row slides 4th -> 1st (points tick 38 -> 82), a CHAMPIONS stamp slams, confetti, the players celebrate.
-mates = [P(kit=CITY, skin="#8a5a3c", hair="#141010", x=-1.9, z=0.6, front=True, action="celebrate", actionAt="champions", actionLag=-0.1),
-         P(kit=CITY, skin="#f0c8a8", hair="#3a2a1a", x=1.9, z=0.6, front=True, action="celebrate", actionAt="champions", actionLag=0.05),
-         P(kit=CITY, x=0.0, z=-0.3, front=True, action="celebrate", actionAt="champions", actionLag=-0.2, label="Haaland", labelDelay=-0.4, **{k: v for k, v in HAAL.items() if k not in ('name', 'num')})]
+# 1 hook: the number clash (4th -> champions). Frame 0: Haaland in City's kit in close-up (chest, name and number), the halfway table already on screen under him with City 4th, every headline word
+# readable, speed lines, a push-in. "champions": City's row slides 4th -> 1st (points tick 38 -> 82, a chip counts the places gained), a CHAMPIONS stamp slams, confetti, he celebrates.
 B.append({"kicker": "Man City in League Two · Part 5", "headline": "City were [fourth]. Now [champions].", "hookWords": True, "scene": S_ETI, "accent": TEAL, "lights": 0.9, "flashes": 12, "hype": False,
-  "camFrom": {"pos": [0, 1.5, -9.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0, 1.5, -6.2], "tgt": [0, 1.3, 10]}, "move": 3.4, "moveEase": "linear", "players": mates,
-  "card": [{"type": "climb", "y": 1380, "delay": -1.0, "show": 6, "stepDur": 0.9, "title": "League One · matchday 23 → 46", "focus": "Manchester City", "zones": ZONES, "colors": COLORS, "clear": False,
-            "steps": [{"rows": rows(23)}, {"at": "champions", "lag": -0.35, "rows": rows(46), "label": "FINAL TABLE · 82 PTS"}]},
-           stamp("CHAMPIONS", "champions", sub="promoted · 82 points", color=GOLD, y=1700, size=104, lag=0.1), hud("Season 3 · League One", counter=False)],
+  "camFrom": {"pos": [0, 1.4, -3.6], "tgt": [0, -0.1, 10]}, "camera": {"pos": [0, 1.4, -2.6], "tgt": [0, -0.1, 10]}, "move": 3.4, "moveEase": "linear",
+  "players": [P(kit=CITY, x=0.0, z=0.0, front=True, chest=True, action="celebrate", actionAt="champions", actionLag=-0.15, **HAAL)],
+  "card": [{"type": "climb", "y": 1470, "w": 900, "rowH": 62, "delay": -1.0, "show": 5, "stepDur": 0.9, "title": "League One · matchday 23 → 46", "focus": "Manchester City", "zones": ZONES, "colors": COLORS, "clear": False,
+            "steps": [{"rows": rows(23, 5)}, {"at": "champions", "lag": -0.35, "rows": rows(46, 5), "label": "FINAL TABLE · 82 PTS"}]},
+           stamp("CHAMPIONS", "champions", sub="promoted · 82 points", color=GOLD, y=1010, size=96, lag=0.1), hud("Season 3 · League One", counter=False)],
   "confetti": True, "confettiAt": "champions", "speedlines": [{"t": 0.0, "dur": 0.9, "amount": 0.7}], "shake": [{"at": "champions", "lag": 0.0, "amount": 14}]})
 
 # 2 the vote: the shirt flips Southampton -> City on his name; the poll bars fill (47 / 30 / 23, 785 votes)
@@ -86,9 +84,9 @@ GOLDBAR = "#e9b949"
 B.append({"kicker": f"Your vote · the TikTok poll · {VOTES} votes", "headline": "You voted: [Ward-Prowse].", "cut": True, "transition": "whip", "scene": S_SIM, "accent": TEAL, "lights": 0.5, "focus": 0.3,
   "camFrom": {"pos": [26, 30, -40], "tgt": [0, 0, 6]}, "camera": {"pos": [-24, 16, -24], "tgt": [0, 0, 6]}, "move": 5, "moveEase": "linear", "players": [],
   "card": [hud("Season 3 · January window", counter=False),
-           {"type": "shirtflip", "y": 860, "delay": 0.0, "size": 400, "from": {"color": "#d71920", "color2": "#ffffff", "name": "SOUTHAMPTON"}, "to": {"color": SKY, "color2": "#1c2c5b", "name": "WARD-PROWSE"},
+           {"type": "shirtflip", "y": 800, "delay": 0.0, "size": 400, "from": {"color": "#d71920", "color2": "#ffffff", "name": "SOUTHAMPTON"}, "to": {"color": SKY, "color2": "#1c2c5b", "name": "WARD-PROWSE"},
             "flipAt": "Ward-Prowse", "flipLag": -0.35, "clear": False},
-           {"type": "poll", "y": 1560, "delay": 0.0, "question": "Who should City sign?", "clear": False,
+           {"type": "poll", "y": 1440, "delay": 0.0, "question": "Who should City sign?", "clear": False,
             "options": [{"label": "Ward-Prowse", "color": GOLDBAR, "fill": 0.47, "pct": "47%"}, {"label": "Norwood", "color": "#1b4fb5", "fill": 0.30, "pct": "30%"}, {"label": "Phillips", "color": "#9a1c24", "fill": 0.23, "pct": "23%"}]}]})
 
 # 3 the comment: Moylan's real numbers (ESPN) in a drawn card, and the fan's comment with the like counter stopping at 19 of 30, then 6-MONTH LOAN
@@ -96,9 +94,9 @@ M = RW['Jack Moylan']
 B.append({"kicker": "The comment vote · 30 likes needed", "headline": "A comment signed [Moylan]. On loan.", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_CAR, "accent": TEAL, "lights": 0.7, "focus": 0.35, "flashes": 8,
   "camFrom": {"pos": [0, 1.6, -3.4], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0.8, 1.6, -1.8], "tgt": [0, 1.3, 10]}, "move": 7, "moveEase": "linear", "players": [],
   "card": [hud("Season 3 · January window", counter=False),
-           {"type": "pcard", "y": 800, "w": 300, "h": 420, "shiftX": 0, "side": "left", "at": "Jack Moylan", "lag": -0.15, "player": dict(kit=CAR, name="", num=None, **LOOK['Moylan']),
+           {"type": "pcard", "y": 905, "w": 300, "h": 420, "shiftX": 0, "side": "left", "at": "Jack Moylan", "lag": -0.15, "player": dict(kit=CAR, name="", num=None, **LOOK['Moylan']),
             "tag": "CARDIFF CITY", "caption": "Jack Moylan", "stats": [[M['goals'], "goals"], [M['assists'], "assists"]], "statsNote": f"{M['starts']} starts · Championship · real stats", "clear": False},
-           {"type": "pledge", "y": 1430, "delay": 0.0, "handle": CREDIT, "text": "Make them sign jack moylan from cardiff", "likes": LIKES, "goal": NEEDED, "title": "likes on the comment", "dur": 1.0,
+           {"type": "pledge", "y": 1450, "delay": 0.0, "handle": CREDIT, "text": "Make them sign jack moylan from cardiff", "likes": LIKES, "goal": NEEDED, "title": "likes on the comment", "dur": 1.0,
             "likeAt": "It got nineteen", "likeLag": -0.25, "shortAt": "So:", "shortLag": -0.1, "result": "6-MONTH LOAN", "resultAt": "a six-month loan", "resultLag": -0.35, "clear": False}]})
 
 # 4 the two new cards (simulated rating and stats since joining); the loan out-rates the poll winner
@@ -110,7 +108,7 @@ def card(nm, pos, dx, entry, ribbon, ribbonColor=None, **k):
     if ribbonColor: d["ribbonColor"] = ribbonColor
     d.update(k)
     return d
-B.append({"kicker": "The new signings · simulated", "headline": "Two new faces: [69] and [72].", "cut": True, "transition": "whip", "scene": S_NIGHT, "accent": TEAL, "lights": 0.7, "focus": 0.35, "flashes": 8,
+B.append({"kicker": "The new signings · simulated", "headline": "The signings: rated [69] and [72].", "cut": True, "transition": "whip", "scene": S_NIGHT, "accent": TEAL, "lights": 0.7, "focus": 0.35, "flashes": 8,
   "camFrom": {"pos": [1.2, 1.6, -3.6], "tgt": [0, 1.3, 10]}, "camera": {"pos": [-0.8, 1.6, -2.0], "tgt": [0, 1.3, 10]}, "move": 6, "moveEase": "linear", "players": [],
   "card": [hud("Season 3 · simulated", counter=False),
            card("Ward-Prowse", "DM", -235, "left", "Fan pick", at="Ward-Prowse", lag=-0.1, tilt=-0.05),
@@ -133,14 +131,12 @@ B.append({"kicker": "Matchday 24 · away", "headline": "Debut day: [1–2] at St
   "shake": [{"at": "two–one", "lag": 0.4, "amount": 12}]})
 
 # 7 three wins (5-1, 4-3, 2-0): the climb card moves City 5th -> 5th -> 2nd -> 1st, one step per match on its word; "go top" stamps it
-B.append({"kicker": "Matchdays 25–27", "headline": "Three wins. City go [top].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_NIGHT, "accent": GOLD, "lights": 0.85, "flashes": 10,
-  "camFrom": {"pos": [4.5, 1.2, -6.5], "tgt": [0, 1.3, 10]}, "camera": {"pos": [-3.5, 1.5, -6.5], "tgt": [0, 1.3, 10]}, "move": 6.5, "moveEase": "linear", "hype": False,
-  "players": [P(kit=CITY, skin="#8a5a3c", hair="#141010", x=-1.6, z=1.0, front=True, action="celebrate", actionAt="go top", actionLag=-0.1),
-              P(kit=CITY, skin="#f0c8a8", hair="#3a2a1a", x=1.6, z=1.2, front=True, action="celebrate", actionAt="go top", actionLag=0.05)],
-  "card": [{"type": "climb", "y": 1330, "delay": 0.0, "show": 6, "stepDur": 0.8, "title": "League One · after matchday 24", "focus": "Manchester City", "zones": ZONES, "colors": COLORS, "clear": False,
-            "steps": [{"rows": rows(24)}, {"at": "Burnley", "lag": -0.1, "rows": rows(25), "label": res(25)}, {"at": "Wycombe", "lag": -0.1, "rows": rows(26), "label": res(26)},
-                      {"at": "Burton", "lag": -0.1, "rows": rows(27), "label": res(27)}]},
-           stamp("TOP", "City go top", sub="first time this season", color=GOLD, y=1700, size=120, lag=0.0), hud("League One · matchdays 24–27", counter=False)]})
+B.append({"kicker": "Matchdays 25–27", "headline": "Three wins. City go [top].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_NIGHT, "accent": GOLD, "lights": 0.8, "fans": True, "flashes": 10,
+  "camFrom": {"pos": [9.0, 1.6, 22.0], "tgt": [0, 1.2, 40]}, "camera": {"pos": [-7.0, 2.2, 24.0], "tgt": [0, 1.2, 40]}, "move": 6.5, "moveEase": "linear", "hype": False, "players": [],
+  "card": [{"type": "climb", "y": 1130, "w": 900, "rowH": 74, "delay": 0.0, "show": 7, "stepDur": 0.8, "title": "League One · after matchday 24", "focus": "Manchester City", "zones": ZONES, "colors": COLORS, "clear": False,
+            "steps": [{"rows": rows(24, 7)}, {"at": "Burnley", "lag": -0.1, "rows": rows(25, 7), "label": res(25)}, {"at": "Wycombe", "lag": -0.1, "rows": rows(26, 7), "label": res(26)},
+                      {"at": "Burton", "lag": -0.1, "rows": rows(27, 7), "label": res(27)}]},
+           stamp("TOP", "City go top", sub="first time this season", color=GOLD, y=1560, size=110, lag=0.0), hud("League One · matchdays 24–27", counter=False)]})
 
 # 8 match 4: Salford at home, 6-0, and Haaland is out (the sim's own availability): a six-ball barrage from behind the net
 END = [[-2.6, 1.0, 52.3], [2.4, 1.6, 52.3], [-0.6, 0.5, 52.3], [2.9, 0.7, 52.3], [-3.0, 1.9, 52.3], [0.8, 1.2, 52.3]]
@@ -162,10 +158,10 @@ cp, rp = pts_series(42); assert cp[36] == 66 and rp[36] == 67 and cp[40] == rp[4
 B.append({"kicker": "The title race · City v the best of the rest", "headline": "Then it got [tight].", "cut": True, "transition": "vhs", "vhsLabel": "TIGHT", "vhsDur": 1.0, "scene": S_SIM, "accent": RED,
   "lights": 0.45, "focus": 0.35, "camFrom": {"pos": [-24, 26, -40], "tgt": [0, 0, 6]}, "camera": {"pos": [22, 14, -22], "tgt": [0, 0, 6]}, "move": 7, "moveEase": "linear", "players": [],
   "card": [hud("League One · after matchday 42", counter=False),
-           {"type": "pace", "y": 1060, "delay": 0.0, "startT": 0.3, "dur": 3.0, "linear": True, "title": "points after each matchday", "names": {"expected": "best of the rest", "actual": "Man City"},
+           {"type": "pace", "y": 1000, "delay": 0.0, "startT": 0.3, "dur": 5.4, "warp": [[0, 0], [0.4, 0.88], [1, 1]], "push": 0.028, "w": 880, "h": 720, "title": "points after each matchday", "names": {"expected": "best of the rest", "actual": "Man City"},
             "expected": rp, "actual": cp, "top": 80, "clear": False,
-            "pins": [{"i": 36, "at": "Chesterfield win", "lag": -0.1, "label": "CHE 3–4", "color": RED, "dy": -52}, {"i": 40, "at": "Plymouth win", "lag": -0.1, "label": "PLY 1–3", "color": RED, "dy": -52}]},
-           stamp("LEVEL", "Level on points", sub="74 – 74 · Stockport · four to play", color=GOLD, y=1580, size=120, lag=-0.1)]})
+            "pins": [{"i": 36, "at": "Chesterfield win", "lag": -0.1, "label": "CHE 3–4", "color": RED, "dy": 52}, {"i": 40, "at": "Plymouth win", "lag": -0.1, "label": "PLY 1–3", "color": RED, "dy": -52}]},
+           stamp("LEVEL", "Level on points", sub="74–74 · Stockport", color=GOLD, y=1530, size=110, lag=-0.1)]})
 
 # 10 match 5: Cambridge at home, 3-0: Haaland scores twice (his "2" tag pops on "twice"), then the title: trophy, confetti, a CHAMPIONS stamp on matchday 45
 pl, cards, cam = goal("scores twice", -1.2, 41, -1, CITY, [2.8, 1.0, 52.3], -1, GK_GREEN, CAM, lag=-0.3, label="Haaland", **HAAL)
@@ -173,12 +169,12 @@ pl[0].update(tag=2, tagLabel="goals", tagAt="twice", tagLag=-0.1)
 B.append({"kicker": "Matchday 45 · at home", "headline": "Cambridge: Haaland [twice].", "cut": True, "transition": "whip", "scene": S_ETI, "accent": GOLD, **cam, "players": pl, "flashes": 12,
   "card": cards + [bug(MCI, {"name": "CAM", "color": "#f6a800"}, [2, 0], "MD45", [1, 0], "scores twice", 0.5), hud("League One · matchday 45", counter=False)],
   "shots": [{"at": "Three–nil", "lag": -0.15, "cut": True, "transition": "whip", "kicker": "Matchday 45 · full time", "headline": "One game to spare: [champions].", "scene": S_GOLD, "accent": GOLD, "lights": 0.9,
-     "camFrom": {"pos": [0, 1.4, -7.5], "tgt": [0, 1.4, 10]}, "camera": {"pos": [0, 1.5, -5.2], "tgt": [0, 1.4, 10]}, "move": 4, "moveEase": "linear", "hype": False, "flashes": 16,
+     "camFrom": {"pos": [0, 1.4, -5.6], "tgt": [0, 1.4, 10]}, "camera": {"pos": [0, 1.5, -4.0], "tgt": [0, 1.4, 10]}, "move": 4, "moveEase": "linear", "hype": False, "flashes": 16,
      "confetti": True, "confettiAt": "champions",
-     "players": [P(kit=CITY, skin="#8a5a3c", hair="#141010", x=-1.8, z=0.4, front=True, action="celebrate", actionDelay=0.4), P(kit=CITY, skin="#f0c8a8", hair="#3a2a1a", x=1.8, z=0.5, front=True, action="celebrate", actionDelay=0.7),
+     "players": [P(kit=CITY, skin="#8a5a3c", hair="#141010", x=-1.25, z=0.5, front=True, action="celebrate", actionDelay=0.4), P(kit=CITY, skin="#f0c8a8", hair="#3a2a1a", x=1.25, z=0.6, front=True, action="celebrate", actionDelay=0.7),
                  P(kit=CITY, x=0.0, z=-0.2, front=True, pose="fists", **{k: v for k, v in HAAL.items() if k not in ('name', 'num')})],
      "card": [bug(MCI, {"name": "CAM", "color": "#f6a800"}, [3, 0], "FT", [2, 0], "Three–nil", 0.1), hud("League One · matchday 45", counter=False),
-              {"type": "trophies", "at": "champions", "lag": -0.35, "floor": 1500, "stagger": 0, "rise": 0.55, "items": [{"kind": "cup", "sx": 0.5, "h": 150, "size": 200, "label": "League One · champions"}], "clear": False}]}]})
+              {"type": "trophies", "at": "champions", "lag": -0.35, "floor": 1500, "stagger": 0, "rise": 0.55, "items": [{"kind": "cup", "sx": 0.5, "h": 150, "size": 200}], "clear": False}]}]})
 
 # 11 the season in numbers: Haaland close-up and the stacked counter (82 points, 97 goals the most, 51 against the fewest, Haaland 35)
 B.append({"kicker": "The season in numbers", "headline": "Champions: [82 points].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_NIGHT, "accent": GOLD, "lights": 0.8, "flashes": 10,
@@ -202,19 +198,19 @@ for nm, (x, y) in XY.items():
     items.append({"name": nm, "x": x, "y": y, "color": col, "ink": ink, "ovr": R[nm]['ovr']})
 def cand(name, tag, kt, sx, word, lag, stats, skin, hair):
     return {"type": "pcard", "y": 1000, "w": 290, "h": 400, "shiftX": sx, "side": "left" if sx < 0 else "right", "at": word, "lag": lag,
-            "player": dict(kit=kt, skin=skin, hair=hair, name=""), "tag": tag, "caption": name, "stats": stats, "statsNote": "Championship · real stats", "clear": False}
+            "player": dict(kit=kt, skin=skin, hair=hair, name=""), "tag": tag, "caption": name, "stats": stats, "statsNote": "real stats", "clear": False}
 bw, cd, tn = RW['Jarrod Bowen'], RW['Amario Cozier-Duberry'], RW['Ollie Tanner']
 B.append({"kicker": "Next season · the Championship", "headline": "Going up. The weak spot: [right wing].", "cut": True, "transition": "whip", "scene": S_SIM, "accent": TEAL, "lights": 0.5, "focus": 0.35,
   "camFrom": {"pos": [-30, 26, -40], "tgt": [0, 0, 5]}, "camera": {"pos": [24, 20, -34], "tgt": [0, 0, 5]}, "move": 6, "moveEase": "linear", "players": [],
-  "card": [{"type": "lineup", "y": 1120, "delay": 0.0, "w": 640, "title": "City · the XI · sim ratings", "clear": False, "instant": True, "items": items,
+  "card": [{"type": "lineup", "y": 1080, "delay": 0.0, "w": 720, "title": "City · the XI · sim ratings", "clear": False, "instant": True, "items": items,
             "empty": {"x": 0.82, "y": 0.3, "label": "RIGHT WING", "at": "right wing", "lag": -0.15}},
-           stamp("PROMOTED", "going up", sub="to the Championship", color=GREEN, y=1690, size=96, lag=-0.1), hud("Season 3 · the Championship next", counter=False)],
-  "shots": [{"at": "Who should City", "lag": 0.32, "cut": True, "transition": "whip", "kicker": "Your vote · the right wing", "headline": "Who should City [sign]?", "scene": S_ETI, "accent": TEAL,
+           stamp("PROMOTED", "going up", sub="to the Championship", color=GREEN, y=1560, size=96, lag=-0.1), hud("Season 3 · the Championship next", counter=False)],
+  "shots": [{"at": "Bowen", "lag": -0.15, "cut": True, "transition": "whip", "kicker": "Your vote · the right wing", "headline": "Who should City [sign]?", "scene": S_ETI, "accent": TEAL,
      "lights": 0.6, "focus": 0.3, "camFrom": {"pos": [0, 1.6, -3.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0, 1.6, -1.8], "tgt": [0, 1.3, 10]}, "move": 4, "moveEase": "linear", "players": [], "hype": False,
-     "card": [cand("Jarrod Bowen", "WEST HAM", WHU, -335, "Who should City", -0.1, [[bw['starts'], "starts"], [f"{bw['goals']:.0f}+{bw['assists']:.0f}", "G + A"]], "#f0c8a8", "#4a3324"),
-              cand("Cozier-Duberry", "MIDDLESBROUGH", MID, 0, "Who should City", 0.2, [[cd['starts'], "starts"], [f"{cd['goals']:.0f}+{cd['assists']:.0f}", "G + A"]], "#8a5a3c", "#141010"),
-              cand("Ollie Tanner", "CARDIFF", CAR, 335, "Who should City", 0.5, [[tn['starts'], "starts"], [f"{tn['goals']:.0f}+{tn['assists']:.0f}", "G + A"]], "#f0c8a8", "#6a4a2a"),
-              {"type": "poll", "y": 1640, "at": "Who should City", "lag": 0.4, "question": "Who should City sign?", "clear": False,
+     "card": [cand("Jarrod Bowen", "WEST HAM", WHU, -335, "Bowen", -0.1, [[bw['starts'], "starts"], [f"{bw['goals']:.0f}+{bw['assists']:.0f}", "G + A"]], "#f0c8a8", "#4a3324"),
+              cand("Cozier-Duberry", "MIDDLESBROUGH", MID, 0, "Cozier-Duberry", -0.1, [[cd['starts'], "starts"], [f"{cd['goals']:.0f}+{cd['assists']:.0f}", "G + A"]], "#8a5a3c", "#141010"),
+              cand("Ollie Tanner", "CARDIFF", CAR, 335, "Tanner", -0.1, [[tn['starts'], "starts"], [f"{tn['goals']:.0f}+{tn['assists']:.0f}", "G + A"]], "#f0c8a8", "#6a4a2a"),
+              {"type": "poll", "y": 1560, "at": "Who should City", "lag": 0.4, "question": "Who should City sign?", "clear": False,
                "options": [{"label": "Bowen", "color": "#7a263a", "fill": 0.34}, {"label": "Cozier-Duberry", "color": "#e2231a", "fill": 0.33}, {"label": "Tanner", "color": "#0a4ea1", "fill": 0.33}]}]}]})
 
 # 13 the cliffhanger: Moylan's six-month loan is nearly up (a six-month calendar crosses off), "keep him?"

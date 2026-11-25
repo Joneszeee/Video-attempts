@@ -15,7 +15,7 @@ One file, lines in order, one clear pause between lines (blank line). Words must
 
 [deflated] Debut day. [dry] Stevenage win two–one. City fall to fifth.
 
-[building] Then three wins. Burnley, five–one. Wycombe, four–three. [excited] Burton, two–nil. City go top.
+[building] Three wins. Burnley, five–one. Wycombe, four–three. [excited] Burton, two–nil. City go top.
 
 [fired up] Salford. [awed] Six–nil. [amazed] Haaland didn't even play.
 
@@ -25,7 +25,7 @@ One file, lines in order, one clear pause between lines (blank line). Words must
 
 [proud] Eighty-two points. Ninety-seven goals, the most. Fifty-one against, the fewest. [awed] And Haaland: thirty-five.
 
-[steady] City are going up. The weak spot: right wing. [curious] Who should City sign?
+[steady] City are going up. The weak spot: right wing. [curious] Bowen, Cozier-Duberry or Tanner? Who should City sign?
 
 [wry] And Moylan's loan is nearly up. [curious] Keep him?
 ```

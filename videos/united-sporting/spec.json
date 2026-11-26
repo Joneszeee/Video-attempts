@@ -3692,7 +3692,7 @@
     "pos": [
      0,
      1.7,
-     -3.2
+     -4.0
     ],
     "tgt": [
      0,
@@ -3704,7 +3704,7 @@
     "pos": [
      0,
      1.7,
-     -2.0
+     -1.4
     ],
     "tgt": [
      0,
@@ -3712,7 +3712,7 @@
      10
     ]
    },
-   "move": 5,
+   "move": 6.4,
    "moveEase": "linear",
    "players": [
     {
@@ -3757,6 +3757,8 @@
      },
      "bracketAt": "still no win",
      "bracketLag": 0.0,
+     "nextAt": "Brentford",
+     "nextLabel": "NEXT · SAT",
      "clear": false
     },
     {

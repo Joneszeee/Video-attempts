@@ -218,7 +218,7 @@ def _resolve_beat(b, rel):
             if isinstance(c.get('teamAt'), str):
                 c['teamAt'] = round(max(0, rel(c['teamAt']) - base), 3)
         if c.get('type') == 'form':
-            for key, out in (('winAt', 'winT'), ('bracketAt', 'bracketT')):
+            for key, out in (('winAt', 'winT'), ('bracketAt', 'bracketT'), ('nextAt', 'nextT')):
                 if isinstance(c.get(key), str):
                     c[out] = round(max(0, rel(c.pop(key)) + c.pop(key[:-2] + 'Lag', 0) - base), 3)
         if c.get('type') == 'crossoff' and isinstance(c.get('crossAt'), str):

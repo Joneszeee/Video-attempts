@@ -211,10 +211,10 @@ B.append({"kicker": "Champions League table", "headline": "United: [19th]. Three
 
 # 12 Pochettino's second game, still no win (the form strip), Brentford next, and the question (the poll sticker: the real result is the user's to add)
 B.append({"kicker": "Pochettino · Man United", "headline": "Were the [officials] fair?", "cut": True, "transition": "whip", "scene": S_C, "accent": GOLD, "lights": 0.7, "focus": 0.4, "flashes": 8, "hype": False,
-  "camFrom": {"pos": [0, 1.7, -3.2], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0, 1.7, -2.0], "tgt": [0, 1.3, 10]}, "move": 5, "moveEase": "linear",
+  "camFrom": {"pos": [0, 1.7, -4.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0, 1.7, -1.4], "tgt": [0, 1.3, 10]}, "move": 6.4, "moveEase": "linear",
   "players": [P(kit=kit("#1b2a41", "#1b2a41", "#111111", text="#ffffff"), outfit="suit", tie="#d6283b", suitColor="#1b2a41", skin="#e7b593", hair="#3a2a1a", name="", x=0, z=2.0, front=True)],
   "card": [{"type": "form", "y": 760, "delay": 0.0, "w": 720, "h": 330, "title": "Pochettino · his games in charge", "results": "LD?", "opps": ["LIV · 0–4", "SPORTING · 2–2", "BRENTFORD · SAT"], "step": 0.5, "startT": 0.3,
-            "bracket": {"from": 0, "to": 1, "label": "NO WIN YET"}, "bracketAt": "still no win", "bracketLag": 0.0, "clear": False},
+            "bracket": {"from": 0, "to": 1, "label": "NO WIN YET"}, "bracketAt": "still no win", "bracketLag": 0.0, "nextAt": "Brentford", "nextLabel": "NEXT · SAT", "clear": False},
            {"type": "poll", "y": 1420, "at": "Were the officials", "lag": -0.2, "question": "Were the officials fair?", "clear": False,
             "options": [{"label": "Fair", "color": GREEN, "fill": 0.001, "pct": "?"}, {"label": "Not fair", "color": RED, "fill": 0.001, "pct": "?"}]}]})
 

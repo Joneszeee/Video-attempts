@@ -4875,7 +4875,7 @@ CARDS.shotline = function (c, ct, cx, cy) {
 CARDS.shotline.noSlide = true;
 
 // Form strip (built for videos/pochettino-debut): a run of results as chips (W green, D grey, L red) that pop one by one with the opponent under each; the last win
-// rings in gold with a label (winT / winLabel) and a bracket underlines the winless run (bracket: {from, to, label}, bracketT). A "?" is a dashed chip for the next match.
+// rings in gold with a label (winT / winLabel) and a bracket underlines the winless run (bracket: {from, to, label}, bracketT). A "?" is a dashed chip for the next match (nextAt: it pulses gold on the word, nextLabel: "NEXT · SAT").
 // results: "LWDLDDDLLDL", opps: ["HUL", ...], title, w, h, step, startT.
 CARDS.form = function (c, ct, cx, cy) {
   const R = (c.results || '').split(''), n = R.length; if (!n) return;
@@ -4897,6 +4897,14 @@ CARDS.form = function (c, ct, cx, cy) {
     font(900, r * 0.95, 'Inter'); ctx.fillStyle = ch === '?' ? 'rgba(255,255,255,0.6)' : '#fff'; ctx.textAlign = 'center'; ctx.fillText(ch, 0, 2); ctx.restore();
     if (c.opps && c.opps[i]) { ctx.save(); ctx.globalAlpha *= Math.min(1, a); font(600, 17, 'Mono', '1px'); ctx.fillStyle = '#8d94a1'; ctx.textAlign = 'center'; ctx.fillText(c.opps[i], x, yc + r + 26); ctx.restore(); }
   });
+  if (c.nextT != null) {   // the next match is named: its dashed "?" chip pulses gold and a pill says when (nextLabel)
+    const ni = R.lastIndexOf('?'), g = ct - c.nextT;
+    if (ni >= 0 && g > 0) {
+      const x = X(ni), a = eBack(pr(ct, c.nextT, 0.3)), pulse = 0.5 + 0.5 * Math.sin(g * 7);
+      ctx.save(); ctx.translate(x, yc); ctx.strokeStyle = '#f1c453'; ctx.shadowColor = '#f1c453'; ctx.shadowBlur = 24 * pulse; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(0, 0, r + 8 + 6 * pulse, 0, 7); ctx.stroke(); ctx.restore();
+      if (c.nextLabel) { font(800, 22, 'Inter', '1px'); const tw = ctx.measureText(c.nextLabel).width + 34; ctx.save(); ctx.translate(x, yc - r - 34); ctx.scale(a, a); ctx.fillStyle = '#f1c453'; rrect(-tw / 2, -20, tw, 40, 20); ctx.fill(); ctx.fillStyle = '#14110a'; ctx.textAlign = 'center'; ctx.fillText(c.nextLabel, 0, 1); ctx.restore(); }
+    }
+  }
   if (c.winLabel && c.winT != null && wi >= 0) {   // "LAST WIN · 30 AUG" above the last win
     const a = eBack(pr(ct, c.winT, 0.3)); if (a > 0) { font(800, 22, 'Inter', '1px'); const tw = ctx.measureText(c.winLabel).width + 34;
       ctx.save(); ctx.translate(X(wi), yc - r - 34); ctx.scale(a, a); ctx.fillStyle = '#f1c453'; rrect(-tw / 2, -20, tw, 40, 20); ctx.fill(); ctx.fillStyle = '#14110a'; ctx.textAlign = 'center'; ctx.fillText(c.winLabel, 0, 1); ctx.restore(); } }
@@ -5012,7 +5020,7 @@ function cardEvents(c) {
     case 'shotline': { const t0 = c.startT != null ? c.startT : 0.35, d = c.dur || 4, tot = c.total || 94; ev.push({ t: 0.05, type: 'swish' });
       (c.shots || []).forEach((sh, i) => { if (sh.kind === 'goal') ev.push({ t: t0 + sh.min / tot * d, type: 'impact' }); else if (i % 2 === 0) ev.push({ t: t0 + sh.min / tot * d, type: 'tick' }); });
       for (const e of c.events || []) ev.push({ t: t0 + e.min / tot * d, type: 'pop' }); break; }
-    case 'form': { const t0 = c.startT != null ? c.startT : 0.4, n = (c.results || '').length, st = c.step || 0.12; ticks(t0, Math.min(1.4, n * st)); if (c.bracketT != null) ev.push({ t: c.bracketT + 0.35, type: 'impact' }); break; }
+    case 'form': { const t0 = c.startT != null ? c.startT : 0.4, n = (c.results || '').length, st = c.step || 0.12; ticks(t0, Math.min(1.4, n * st)); if (c.bracketT != null) ev.push({ t: c.bracketT + 0.35, type: 'impact' }); if (c.nextT != null) ev.push({ t: c.nextT, type: 'pop' }); break; }
     case 'climb': (c.steps || []).forEach((st, i) => { if (i && st.t != null) ev.push({ t: st.t, type: 'whoosh' }, { t: st.t + (c.stepDur || 0.55), type: 'pop' }); }); break;
     case 'crown': ev.push({ t: 0.42, type: 'impact' }); for (const m of c.items || []) if (m.t != null) ev.push({ t: m.t, type: 'whoosh' }); break;
     case 'subboard': ev.push({ t: 0.05, type: 'swish' }, { t: 0.45, type: 'pop' }, { t: c.swapT != null ? c.swapT : (typeof c.swapAt === 'number' ? c.swapAt : 0.9), type: 'pop' }); break;

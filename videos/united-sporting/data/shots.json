@@ -1,0 +1,146 @@
+[
+ {
+  "min": 12,
+  "side": "home",
+  "kind": "missed",
+  "who": "Araújo",
+  "team": "Sporting Lisbon",
+  "penalty": false
+ },
+ {
+  "min": 13,
+  "side": "home",
+  "kind": "missed",
+  "who": "Catamo",
+  "team": "Sporting Lisbon",
+  "penalty": false
+ },
+ {
+  "min": 16,
+  "side": "away",
+  "kind": "missed",
+  "who": "Zirkzee",
+  "team": "Manchester United",
+  "penalty": false
+ },
+ {
+  "min": 30,
+  "side": "home",
+  "kind": "saved",
+  "who": "Suárez",
+  "team": "Sporting Lisbon",
+  "penalty": true
+ },
+ {
+  "min": 33,
+  "side": "home",
+  "kind": "goal",
+  "who": "Suárez",
+  "team": "Sporting Lisbon",
+  "penalty": true
+ },
+ {
+  "min": 36,
+  "side": "home",
+  "kind": "blocked",
+  "who": "Doumbia",
+  "team": "Sporting Lisbon",
+  "penalty": false
+ },
+ {
+  "min": 38,
+  "side": "home",
+  "kind": "missed",
+  "who": "Altimira",
+  "team": "Sporting Lisbon",
+  "penalty": false
+ },
+ {
+  "min": 43,
+  "side": "away",
+  "kind": "missed",
+  "who": "Diallo",
+  "team": "Manchester United",
+  "penalty": false
+ },
+ {
+  "min": 48,
+  "side": "away",
+  "kind": "goal",
+  "who": "Fernandes",
+  "team": "Manchester United",
+  "penalty": true
+ },
+ {
+  "min": 50,
+  "side": "away",
+  "kind": "goal",
+  "who": "Fernandes",
+  "team": "Manchester United",
+  "penalty": false
+ },
+ {
+  "min": 54,
+  "side": "away",
+  "kind": "missed",
+  "who": "Fernandes",
+  "team": "Manchester United",
+  "penalty": false
+ },
+ {
+  "min": 55,
+  "side": "home",
+  "kind": "missed",
+  "who": "Guilherme",
+  "team": "Sporting Lisbon",
+  "penalty": false
+ },
+ {
+  "min": 57,
+  "side": "away",
+  "kind": "missed",
+  "who": "Zirkzee",
+  "team": "Manchester United",
+  "penalty": false
+ },
+ {
+  "min": 58,
+  "side": "home",
+  "kind": "saved",
+  "who": "Altimira",
+  "team": "Sporting Lisbon",
+  "penalty": false
+ },
+ {
+  "min": 69,
+  "side": "away",
+  "kind": "blocked",
+  "who": "Dalot",
+  "team": "Manchester United",
+  "penalty": false
+ },
+ {
+  "min": 80,
+  "side": "home",
+  "kind": "goal",
+  "who": "Suárez",
+  "team": "Sporting Lisbon",
+  "penalty": false
+ },
+ {
+  "min": 87,
+  "side": "home",
+  "kind": "missed",
+  "who": "Araújo",
+  "team": "Sporting Lisbon",
+  "penalty": false
+ },
+ {
+  "min": 95,
+  "side": "home",
+  "kind": "missed",
+  "who": "Irankunda",
+  "team": "Sporting Lisbon",
+  "penalty": false
+ }
+]

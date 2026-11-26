@@ -239,6 +239,17 @@ def _resolve_beat(b, rel):
                                 ('pledge', 'likeAt', 'likeT'), ('pledge', 'shortAt', 'shortT'), ('pledge', 'resultAt', 'resultT')):
             if c.get('type') == typ and isinstance(c.get(key), str):
                 c[out] = round(max(0, rel(c.pop(key)) + c.pop(key[:-2] + 'Lag', 0) - base), 3)
+        if c.get('type') == 'pentrack':
+            for it in c.get('items') or []:
+                if 'at' in it:
+                    it['t'] = round(max(0, rel(it.pop('at')) + it.pop('lag', 0) - base), 3)
+        if c.get('type') == 'varcheck':
+            for st in c.get('steps') or []:
+                if 'at' in st:
+                    st['t'] = round(max(0, rel(st.pop('at')) + st.pop('lag', 0) - base), 3)
+            vd = c.get('verdict')
+            if isinstance(vd, dict) and 'at' in vd:
+                vd['t'] = round(max(0, rel(vd.pop('at')) + vd.pop('lag', 0) - base), 3)
         if c.get('type') == 'pace':
             for pin in c.get('pins') or []:
                 if 'at' in pin:

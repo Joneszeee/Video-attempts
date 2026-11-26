@@ -81,6 +81,27 @@ def glitch(gain=0.22):
     return x * np.linspace(1, 0.2, n) * gain
 
 
+def whistle(gain=0.32):
+    # a referee's pea whistle: a bright tone (about 2.9 kHz) with a fast warble from the pea, a breath of noise and a short fall-off
+    n = int(0.62 * SR); t = np.arange(n) / SR
+    warble = 1 + 0.55 * np.sin(2 * np.pi * 38 * t)
+    f = 2900 + 90 * np.sin(2 * np.pi * 5 * t) - 120 * np.minimum(1, t / 0.5)
+    tone = np.sin(2 * np.pi * np.cumsum(f) / SR) * warble
+    air = lowpass(rng.standard_normal(n), 6500) * 0.18
+    e = np.minimum(1, t / 0.015) * np.exp(-np.maximum(0, t - 0.42) * 14)
+    x = (tone + air) * e
+    return x / np.abs(x).max() * gain
+
+
+def thud(gain=0.4):
+    # turf thump: a short low body with a dull click
+    n = int(0.35 * SR); t = np.arange(n) / SR
+    body = np.sin(2 * np.pi * np.cumsum(np.linspace(120, 50, n)) / SR) * np.exp(-t * 14)
+    click = lowpass(rng.standard_normal(n), 1800) * np.exp(-t * 55) * 1.5
+    x = body + click
+    return x / np.abs(x).max() * gain
+
+
 def crowd(dur=4.0, gain=0.35):
     n = int(dur * SR)
     x = lowpass(rng.standard_normal(n), 1400)
@@ -112,6 +133,8 @@ def main():
         'impact': impact,
         'crowd': crowd,
         'glitch': glitch,
+        'whistle': whistle,
+        'thud': thud,
     }
     for e in data['events']:
         if e['type'] not in cache:

@@ -1,0 +1,3684 @@
+{
+ "title": "Sporting 2–2 Man United",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Sporting 2–2 Man United · Champions League",
+   "headline": "Suárez scored [twice] vs Man United. Not [that one].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111"
+    ],
+    "seed": 11
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.95,
+   "flashes": 14,
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     0,
+     1.4,
+     -3.1
+    ],
+    "tgt": [
+     0,
+     2.6,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.4,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     2.6,
+     10
+    ]
+   },
+   "move": 3.8,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "SUÁREZ",
+     "num": 97,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "x": 0.3,
+     "z": 0.0,
+     "front": true,
+     "chest": true,
+     "action": "celebrate",
+     "actionAt": "Not that one",
+     "actionLag": 0.0,
+     "tag": 2,
+     "tagLabel": "goals v Man United",
+     "tagDelay": -0.45,
+     "skin": "#c99b7a",
+     "hair": "#141010"
+    },
+    {
+     "name": "SUÁREZ",
+     "num": 9,
+     "kit": {
+      "shirt": "#7ab2e8",
+      "shorts": "#111111",
+      "socks": "#111111",
+      "text": "#111111"
+     },
+     "x": -0.72,
+     "z": 0.8,
+     "front": true,
+     "ghost": true,
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "label": "THE OTHER ONE",
+     "labelDelay": -0.3
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 1660,
+     "delay": -1.0,
+     "home": {
+      "name": "SCP",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#d6283b"
+     },
+     "score": [
+      2,
+      2
+     ],
+     "min": "FT",
+     "clear": false
+    },
+    {
+     "type": "pen",
+     "anchor": 1,
+     "strokes": [
+      {
+       "kind": "x",
+       "cx": 0,
+       "cy": -0.5,
+       "r": 0.46,
+       "at": "Not that one",
+       "lag": 0.0,
+       "dur": 0.45,
+       "color": "#ff4d5e",
+       "width": 16
+      }
+     ]
+    }
+   ],
+   "speedlines": [
+    {
+     "t": 0.0,
+     "dur": 0.9,
+     "amount": 0.7
+    }
+   ],
+   "shake": [
+    {
+     "at": "Not that one",
+     "amount": 12
+    }
+   ],
+   "vo": "Luis Suárez just scored twice against Manchester United. Not that one."
+  },
+  {
+   "kicker": "The craziest match",
+   "headline": "[3] penalties. [2] goals ruled out.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111"
+    ],
+    "seed": 23
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.8,
+   "focus": 0.25,
+   "flashes": 10,
+   "hype": false,
+   "orbit": {
+    "center": [
+     0,
+     1.2,
+     44.5
+    ],
+    "r": 17,
+    "from": -60,
+    "to": 60,
+    "h": 11,
+    "h2": 6,
+    "dur": 6.0
+   },
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#c99b7a",
+     "hair": "#141010",
+     "x": -3.6,
+     "z": 44.5,
+     "front": true,
+     "action": "idle"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "x": 2.8,
+     "z": 45.4,
+     "front": true,
+     "action": "idle"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 5.4,
+     "z": 42.0,
+     "front": true,
+     "action": "idle"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": -6.0,
+     "z": 41.2,
+     "front": true,
+     "action": "idle"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ff7a1a",
+      "shorts": "#111111",
+      "socks": "#ff7a1a",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "x": 0,
+     "z": 52.0,
+     "front": true,
+     "pose": "keeper"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "x": 0.6,
+     "z": 39.0,
+     "front": true,
+     "action": "idle"
+    }
+   ],
+   "card": [
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "SCP",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#d6283b"
+     },
+     "score": [
+      2,
+      2
+     ],
+     "min": "FT"
+    },
+    {
+     "type": "ball",
+     "point": [
+      0,
+      0.11,
+      41.5
+     ],
+     "delay": 0
+    },
+    {
+     "type": "stack",
+     "y": 1400,
+     "size": 170,
+     "delay": 0,
+     "items": [
+      {
+       "value": 3,
+       "label": "penalties",
+       "at": "three penalties"
+      },
+      {
+       "value": 2,
+       "label": "goals ruled out",
+       "at": "two disallowed"
+      },
+      {
+       "value": 1,
+       "label": "divot",
+       "at": "a divot"
+      },
+      {
+       "value": 1,
+       "label": "red card",
+       "at": "red card"
+      }
+     ]
+    }
+   ],
+   "vo": "The craziest match you'll ever see: three penalties, two disallowed goals, a divot, a red card."
+  },
+  {
+   "kicker": "Sporting 2–2 Man United · Champions League",
+   "headline": "30': [penalty] to Sporting.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111"
+    ],
+    "seed": 11
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.95,
+   "camFrom": {
+    "pos": [
+     -3.9,
+     3.4,
+     33.0
+    ],
+    "tgt": [
+     0.0,
+     0.8,
+     48.5
+    ]
+   },
+   "camera": {
+    "pos": [
+     -3.3,
+     3.1,
+     34.6
+    ],
+    "tgt": [
+     0.0,
+     0.8,
+     48.5
+    ]
+   },
+   "move": 7.0,
+   "moveEase": "linear",
+   "hype": false,
+   "punch": [
+    {
+     "at": "saves",
+     "lag": -0.69,
+     "amount": 0.1,
+     "dur": 1.1
+    }
+   ],
+   "shake": [
+    {
+     "at": "saves",
+     "lag": -0.15,
+     "amount": 9
+    }
+   ],
+   "speedlines": [
+    {
+     "at": "saves",
+     "lag": -0.7,
+     "dur": 0.6,
+     "amount": 0.35
+    }
+   ],
+   "flashes": 12,
+   "players": [
+    {
+     "name": "SUÁREZ",
+     "num": 97,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "foot": "right",
+     "path": [
+      [
+       -1.5,
+       38.4
+      ],
+      [
+       -1.5,
+       38.4
+      ],
+      [
+       -0.34,
+       40.9
+      ],
+      [
+       -0.34,
+       40.9
+      ]
+     ],
+     "pathT": [
+      0,
+      1.914,
+      2.764,
+      12.0
+     ],
+     "at": "saves",
+     "lag": -3.75,
+     "actions": [
+      {
+       "at": "saves",
+       "lag": -0.986,
+       "action": "kick",
+       "dur": 0.8,
+       "foot": "right"
+      }
+     ],
+     "skin": "#c99b7a",
+     "hair": "#141010",
+     "label": "Suárez",
+     "labelDelay": 0.25,
+     "labelUntilAt": "saves",
+     "labelUntilLag": 0.75
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ff7a1a",
+      "shorts": "#111111",
+      "socks": "#ff7a1a",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       0.0,
+       52.0
+      ],
+      [
+       -0.5,
+       52.0
+      ],
+      [
+       0.6,
+       52.0
+      ],
+      [
+       0.0,
+       52.0
+      ],
+      [
+       0.0,
+       52.0
+      ]
+     ],
+     "pathT": [
+      0,
+      0.9,
+      1.9,
+      2.8,
+      12.0
+     ],
+     "at": "saves",
+     "lag": -3.75,
+     "actions": [
+      {
+       "at": "saves",
+       "lag": -0.57,
+       "action": "lunge",
+       "dir": 1
+      }
+     ]
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "point": [
+      0.0,
+      0.11,
+      41.5
+     ],
+     "at": "saves",
+     "lag": -3.35,
+     "untilAt": "saves",
+     "untilLag": -0.65
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.5,
+     "points": [
+      [
+       0.0,
+       0.11,
+       41.5
+      ],
+      [
+       0.25,
+       0.4,
+       46.5
+      ],
+      [
+       0.5,
+       0.95,
+       52.0
+      ]
+     ],
+     "at": "saves",
+     "lag": -0.65,
+     "slowmo": false,
+     "flash": false,
+     "saveBy": 1
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "SCP",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#d6283b"
+     },
+     "score": [
+      0,
+      0
+     ],
+     "min": "30'"
+    },
+    {
+     "type": "sound",
+     "name": "whistle",
+     "at": "penalty",
+     "lag": -0.1
+    },
+    {
+     "type": "pentrack",
+     "y": 1625,
+     "delay": 0.0,
+     "title": "Penalties",
+     "items": [
+      {
+       "who": "Suárez",
+       "min": "30'",
+       "state": "miss",
+       "result": "SAVED",
+       "at": "saves",
+       "lag": -0.05
+      },
+      {
+       "who": "Suárez",
+       "min": "33'",
+       "state": "empty",
+       "result": ""
+      },
+      {
+       "who": "Bruno",
+       "min": "48'",
+       "state": "empty",
+       "result": ""
+      }
+     ],
+     "h": 340,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "SAVED",
+     "at": "saves",
+     "lag": -0.05,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 104,
+     "y": 800,
+     "sub": "Lammens"
+    }
+   ],
+   "vo": "Thirty minutes: penalty to Sporting. Suárez hits it down the middle. Lammens saves it."
+  },
+  {
+   "kicker": "Sporting 2–2 Man United · Champions League",
+   "headline": "Lammens [bundles] him. Penalty [two].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111"
+    ],
+    "seed": 23
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.95,
+   "camFrom": {
+    "pos": [
+     7.5,
+     1.7,
+     41.0
+    ],
+    "tgt": [
+     -1.0,
+     1.1,
+     48.0
+    ]
+   },
+   "camera": {
+    "pos": [
+     6.8,
+     1.65,
+     41.6
+    ],
+    "tgt": [
+     -1.4,
+     1.1,
+     48.2
+    ]
+   },
+   "move": 4.0,
+   "moveEase": "linear",
+   "hype": false,
+   "punch": [
+    {
+     "at": "bundles",
+     "lag": -0.1,
+     "amount": 0.12,
+     "dur": 1.0
+    }
+   ],
+   "shake": [
+    {
+     "at": "bundles",
+     "lag": 0.0,
+     "amount": 10
+    }
+   ],
+   "flashes": 10,
+   "players": [
+    {
+     "name": "ARAÚJO",
+     "num": 20,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "dribble": true,
+     "dribbleUntil": 2.58,
+     "path": [
+      [
+       -5.4,
+       43.7
+      ],
+      [
+       -2.6,
+       47.0
+      ],
+      [
+       -2.6,
+       47.0
+      ]
+     ],
+     "pathT": [
+      0,
+      2.58,
+      12.0
+     ],
+     "at": "bundles",
+     "lag": -2.6,
+     "actions": [
+      {
+       "at": "bundles",
+       "lag": 0.0,
+       "action": "fall"
+      }
+     ],
+     "skin": "#c99b7a",
+     "hair": "#141010",
+     "label": "Araújo",
+     "labelDelay": 0.3
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ff7a1a",
+      "shorts": "#111111",
+      "socks": "#ff7a1a",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       0.4,
+       52.0
+      ],
+      [
+       0.4,
+       52.0
+      ],
+      [
+       -0.9,
+       48.7
+      ],
+      [
+       -0.9,
+       48.7
+      ]
+     ],
+     "pathT": [
+      0,
+      0.5,
+      2.05,
+      12.0
+     ],
+     "at": "bundles",
+     "lag": -2.6,
+     "actions": [
+      {
+       "at": "bundles",
+       "lag": -0.5,
+       "action": "dive",
+       "dir": -1
+      }
+     ]
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "point": [
+      -2.173,
+      0.11,
+      47.231
+     ],
+     "at": "bundles",
+     "lag": -0.02,
+     "untilAt": "bundles",
+     "untilLag": 0.0
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 1.4,
+     "points": [
+      [
+       -2.173,
+       0.11,
+       47.231
+      ],
+      [
+       -1.7,
+       0.11,
+       49.0
+      ],
+      [
+       -0.6,
+       0.11,
+       51.6
+      ]
+     ],
+     "at": "bundles",
+     "lag": 0.0,
+     "slowmo": false,
+     "flash": false
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "SCP",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#d6283b"
+     },
+     "score": [
+      0,
+      0
+     ],
+     "min": "31'"
+    },
+    {
+     "type": "sound",
+     "name": "whistle",
+     "at": "bundles",
+     "lag": 0.15
+    },
+    {
+     "type": "redcard",
+     "color": "#f7d117",
+     "at": "bundles",
+     "lag": 0.25,
+     "label": "31' Lammens",
+     "dx": 260,
+     "y": 1450
+    }
+   ],
+   "shots": [
+    {
+     "at": "Second penalty",
+     "lag": 0.1,
+     "cut": true,
+     "transition": "whip",
+     "headline": "33': Suárez [scores]. 1–0.",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#0b8f4b",
+       "#ffffff",
+       "#0b8f4b",
+       "#111111"
+      ],
+      "seed": 11
+     },
+     "camFrom": {
+      "pos": [
+       -3.9,
+       3.4,
+       33.0
+      ],
+      "tgt": [
+       0.0,
+       0.8,
+       48.5
+      ]
+     },
+     "camera": {
+      "pos": [
+       -3.3,
+       3.1,
+       34.6
+      ],
+      "tgt": [
+       0.0,
+       0.8,
+       48.5
+      ]
+     },
+     "move": 7.0,
+     "moveEase": "linear",
+     "hype": false,
+     "punch": [
+      {
+       "at": "scores",
+       "lag": -0.59,
+       "amount": 0.1,
+       "dur": 1.1
+      }
+     ],
+     "shake": [
+      {
+       "at": "scores",
+       "lag": -0.05,
+       "amount": 14
+      }
+     ],
+     "speedlines": [
+      {
+       "at": "scores",
+       "lag": -0.6,
+       "dur": 0.6,
+       "amount": 0.35
+      }
+     ],
+     "flashes": 12,
+     "players": [
+      {
+       "name": "SUÁREZ",
+       "num": 97,
+       "kit": {
+        "shirt": "#0b8f4b",
+        "shorts": "#ffffff",
+        "socks": "#0b8f4b",
+        "text": "#ffffff",
+        "hoops": [
+         "#0b8f4b",
+         "#ffffff"
+        ]
+       },
+       "foot": "right",
+       "path": [
+        [
+         -1.5,
+         38.4
+        ],
+        [
+         -1.5,
+         38.4
+        ],
+        [
+         -0.34,
+         40.9
+        ],
+        [
+         -0.34,
+         40.9
+        ]
+       ],
+       "pathT": [
+        0,
+        1.914,
+        2.764,
+        12.0
+       ],
+       "at": "scores",
+       "lag": -3.65,
+       "actions": [
+        {
+         "at": "scores",
+         "lag": -0.886,
+         "action": "kick",
+         "dur": 0.8,
+         "foot": "right"
+        },
+        {
+         "at": "scores",
+         "lag": 0.2,
+         "loop": "celebrate"
+        }
+       ],
+       "skin": "#c99b7a",
+       "hair": "#141010",
+       "frontT": 3.8,
+       "label": "Suárez",
+       "labelDelay": 0.25,
+       "labelUntilAt": "scores",
+       "labelUntilLag": 0.85
+      },
+      {
+       "name": "",
+       "num": null,
+       "kit": {
+        "shirt": "#ff7a1a",
+        "shorts": "#111111",
+        "socks": "#ff7a1a",
+        "text": "#111111"
+       },
+       "skin": "#f0c8a8",
+       "hair": "#3a2a1a",
+       "gloves": "#f2f2f2",
+       "front": true,
+       "pose": "keeper",
+       "path": [
+        [
+         0.0,
+         52.0
+        ],
+        [
+         -0.5,
+         52.0
+        ],
+        [
+         0.6,
+         52.0
+        ],
+        [
+         0.0,
+         52.0
+        ],
+        [
+         0.0,
+         52.0
+        ]
+       ],
+       "pathT": [
+        0,
+        0.9,
+        1.9,
+        2.8,
+        12.0
+       ],
+       "at": "scores",
+       "lag": -3.65,
+       "actions": [
+        {
+         "at": "scores",
+         "lag": -0.45,
+         "action": "dive",
+         "dir": 1
+        },
+        {
+         "at": "scores",
+         "lag": 1.65,
+         "action": "getup",
+         "dir": 1
+        }
+       ]
+      }
+     ],
+     "card": [
+      {
+       "type": "ball",
+       "point": [
+        0.0,
+        0.11,
+        41.5
+       ],
+       "at": "scores",
+       "lag": -3.25,
+       "untilAt": "scores",
+       "untilLag": -0.55
+      },
+      {
+       "type": "ballpath",
+       "world": true,
+       "dur": 0.5,
+       "points": [
+        [
+         0.0,
+         0.11,
+         41.5
+        ],
+        [
+         -1.45,
+         0.518,
+         46.5
+        ],
+        [
+         -2.9,
+         0.42,
+         52.3
+        ]
+       ],
+       "at": "scores",
+       "lag": -0.55,
+       "slowmo": false
+      },
+      {
+       "type": "scorebug",
+       "y": 560,
+       "delay": 0,
+       "home": {
+        "name": "SCP",
+        "color": "#0b8f4b"
+       },
+       "away": {
+        "name": "MUN",
+        "color": "#d6283b"
+       },
+       "score": [
+        1,
+        0
+       ],
+       "min": "33'",
+       "from": [
+        0,
+        0
+       ],
+       "goalAt": "scores",
+       "goalLag": 0.2
+      },
+      {
+       "type": "pentrack",
+       "y": 1625,
+       "delay": 0.0,
+       "title": "Penalties",
+       "items": [
+        {
+         "who": "Suárez",
+         "min": "30'",
+         "state": "miss",
+         "result": "SAVED"
+        },
+        {
+         "who": "Suárez",
+         "min": "33'",
+         "state": "hit",
+         "result": "GOAL",
+         "at": "scores",
+         "lag": -0.05
+        },
+        {
+         "who": "Bruno",
+         "min": "48'",
+         "state": "empty",
+         "result": ""
+        }
+       ],
+       "h": 340,
+       "clear": false
+      },
+      {
+       "type": "sound",
+       "name": "whistle",
+       "at": "Second penalty",
+       "lag": -0.1
+      }
+     ]
+    }
+   ],
+   "vo": "Then Lammens charges out and bundles Araújo. Second penalty. Suárez scores this one."
+  },
+  {
+   "kicker": "Sporting 2–2 Man United · Champions League",
+   "headline": "40': Amad scores. [Whistle] first.",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "REWIND",
+   "vhsDur": 1.2,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111",
+     "#d6283b"
+    ],
+    "seed": 31
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.85,
+   "camFrom": {
+    "pos": [
+     -9.5,
+     1.6,
+     43.5
+    ],
+    "tgt": [
+     0.2,
+     1.5,
+     49.4
+    ]
+   },
+   "camera": {
+    "pos": [
+     -8.7,
+     1.6,
+     44.1
+    ],
+    "tgt": [
+     0.2,
+     1.5,
+     49.7
+    ]
+   },
+   "move": 5.0,
+   "moveEase": "linear",
+   "hype": false,
+   "punch": [
+    {
+     "at": "scores",
+     "lag": -1.5,
+     "amount": 0.1,
+     "dur": 1.0
+    },
+    {
+     "at": "scores",
+     "lag": -0.6,
+     "amount": 0.1,
+     "dur": 1.0
+    }
+   ],
+   "shake": [
+    {
+     "at": "scores",
+     "lag": -1.12,
+     "amount": 9
+    },
+    {
+     "at": "scores",
+     "lag": 0.0,
+     "amount": 14
+    }
+   ],
+   "flashes": 12,
+   "players": [
+    {
+     "name": "AMAD",
+     "num": 16,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "path": [
+      [
+       -5.4,
+       41.0
+      ],
+      [
+       -1.4,
+       45.4
+      ],
+      [
+       -1.4,
+       45.4
+      ],
+      [
+       -0.6,
+       49.1
+      ],
+      [
+       -0.6,
+       49.1
+      ]
+     ],
+     "pathT": [
+      0,
+      1.4,
+      2.2,
+      2.58,
+      12.0
+     ],
+     "at": "scores",
+     "lag": -3.2,
+     "hops": [
+      {
+       "at": "scores",
+       "lag": -0.78,
+       "dur": 0.55,
+       "height": 0.45
+      }
+     ],
+     "actions": [
+      {
+       "at": "scores",
+       "lag": -1.786,
+       "action": "kick",
+       "dur": 0.8,
+       "foot": "right"
+      },
+      {
+       "at": "scores",
+       "lag": 0.3,
+       "loop": "celebrate"
+      }
+     ],
+     "frontT": 3.55,
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "label": "Amad",
+     "labelDelay": 0.3,
+     "labelUntilAt": "scores",
+     "labelUntilLag": 0.9
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#7a4de0",
+      "shorts": "#111111",
+      "socks": "#7a4de0",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       0.0,
+       52.0
+      ],
+      [
+       0.0,
+       52.0
+      ],
+      [
+       0.3,
+       51.4
+      ],
+      [
+       0.3,
+       51.4
+      ]
+     ],
+     "pathT": [
+      0,
+      1.0,
+      1.8,
+      12.0
+     ],
+     "at": "scores",
+     "lag": -3.2,
+     "actions": [
+      {
+       "at": "scores",
+       "lag": -1.33,
+       "action": "dive",
+       "dir": -1
+      },
+      {
+       "at": "scores",
+       "lag": 0.9,
+       "action": "getup",
+       "dir": -1
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "front": true,
+     "x": 3.1,
+     "z": 49.0,
+     "action": "idle"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "front": true,
+     "x": 5.2,
+     "z": 46.0,
+     "action": "idle"
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 1.0,
+     "points": [
+      [
+       -9.0,
+       0.11,
+       41.2
+      ],
+      [
+       -5.0,
+       0.11,
+       43.6
+      ],
+      [
+       -1.4,
+       0.11,
+       45.4
+      ]
+     ],
+     "at": "scores",
+     "lag": -2.45,
+     "slowmo": false,
+     "flash": false
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.32999999999999985,
+     "points": [
+      [
+       -1.4,
+       0.11,
+       45.5
+      ],
+      [
+       -0.9,
+       1.6,
+       49.0
+      ],
+      [
+       -0.3,
+       2.44,
+       52.4
+      ]
+     ],
+     "at": "scores",
+     "lag": -1.45,
+     "slowmo": false,
+     "flash": false
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.6200000000000001,
+     "points": [
+      [
+       -0.3,
+       2.44,
+       52.4
+      ],
+      [
+       -0.5,
+       3.2,
+       51.4
+      ],
+      [
+       -0.55,
+       2.05,
+       49.7
+      ]
+     ],
+     "at": "scores",
+     "lag": -1.12,
+     "slowmo": false,
+     "flash": false
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.5,
+     "points": [
+      [
+       -0.55,
+       2.05,
+       49.7
+      ],
+      [
+       -0.2,
+       1.4,
+       51.0
+      ],
+      [
+       0.1,
+       0.8,
+       52.3
+      ]
+     ],
+     "at": "scores",
+     "lag": -0.5,
+     "slowmo": false
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "SCP",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#d6283b"
+     },
+     "score": [
+      1,
+      0
+     ],
+     "min": "40'"
+    },
+    {
+     "type": "varcheck",
+     "title": "VAR · 40'",
+     "y": 1330,
+     "w": 940,
+     "rowH": 84,
+     "verdictH": 200,
+     "source": "per ESPN match report",
+     "at": "referee",
+     "lag": 0.1,
+     "clear": false,
+     "steps": [
+      {
+       "text": "Amad's shot hits the bar",
+       "at": "referee",
+       "lag": 0.35,
+       "kind": "ball"
+      },
+      {
+       "text": "Referee blows his whistle",
+       "at": "already blown",
+       "lag": -0.1,
+       "kind": "whistle",
+       "tag": "TOO EARLY",
+       "tagColor": "#ff4d5e"
+      },
+      {
+       "text": "Amad heads in the rebound",
+       "at": "ESPN",
+       "lag": 0.0,
+       "kind": "goal"
+      }
+     ],
+     "verdict": {
+      "text": "NO GOAL",
+      "sub": "VAR could not review",
+      "color": "#ff4d5e",
+      "at": "VAR",
+      "lag": 0.05,
+      "size": 112
+     }
+    }
+   ],
+   "vo": "Forty minutes: Amad scores, but the referee had already blown. ESPN says too early, so VAR couldn't look."
+  },
+  {
+   "kicker": "Sporting 2–2 Man United · Champions League",
+   "headline": "48': [Bruno] scores. 1–1.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111"
+    ],
+    "seed": 47
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.95,
+   "camFrom": {
+    "pos": [
+     3.9,
+     3.4,
+     33.0
+    ],
+    "tgt": [
+     0.0,
+     0.8,
+     48.5
+    ]
+   },
+   "camera": {
+    "pos": [
+     3.3,
+     3.1,
+     34.6
+    ],
+    "tgt": [
+     0.0,
+     0.8,
+     48.5
+    ]
+   },
+   "move": 7.0,
+   "moveEase": "linear",
+   "hype": false,
+   "punch": [
+    {
+     "at": "scores",
+     "lag": -0.59,
+     "amount": 0.1,
+     "dur": 1.1
+    }
+   ],
+   "shake": [
+    {
+     "at": "scores",
+     "lag": -0.05,
+     "amount": 14
+    }
+   ],
+   "speedlines": [
+    {
+     "at": "scores",
+     "lag": -0.6,
+     "dur": 0.6,
+     "amount": 0.35
+    }
+   ],
+   "flashes": 12,
+   "players": [
+    {
+     "name": "FERNANDES",
+     "num": 8,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "foot": "right",
+     "path": [
+      [
+       1.5,
+       38.4
+      ],
+      [
+       1.5,
+       38.4
+      ],
+      [
+       0.34,
+       40.9
+      ],
+      [
+       0.34,
+       40.9
+      ]
+     ],
+     "pathT": [
+      0,
+      1.914,
+      2.764,
+      12.0
+     ],
+     "at": "scores",
+     "lag": -3.65,
+     "actions": [
+      {
+       "at": "scores",
+       "lag": -0.886,
+       "action": "kick",
+       "dur": 0.8,
+       "foot": "right"
+      },
+      {
+       "at": "scores",
+       "lag": 0.2,
+       "loop": "celebrate"
+      }
+     ],
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "frontT": 3.8,
+     "label": "Bruno",
+     "labelDelay": 0.25,
+     "labelUntilAt": "scores",
+     "labelUntilLag": 0.85
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#7a4de0",
+      "shorts": "#111111",
+      "socks": "#7a4de0",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       0.0,
+       52.0
+      ],
+      [
+       -0.5,
+       52.0
+      ],
+      [
+       0.6,
+       52.0
+      ],
+      [
+       0.0,
+       52.0
+      ],
+      [
+       0.0,
+       52.0
+      ]
+     ],
+     "pathT": [
+      0,
+      0.9,
+      1.9,
+      2.8,
+      12.0
+     ],
+     "at": "scores",
+     "lag": -3.65,
+     "actions": [
+      {
+       "at": "scores",
+       "lag": -0.45,
+       "action": "dive",
+       "dir": 1
+      },
+      {
+       "at": "scores",
+       "lag": 1.65,
+       "action": "getup",
+       "dir": 1
+      }
+     ]
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "point": [
+      0.0,
+      0.11,
+      41.5
+     ],
+     "at": "scores",
+     "lag": -3.25,
+     "untilAt": "scores",
+     "untilLag": -0.55
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.5,
+     "points": [
+      [
+       0.0,
+       0.11,
+       41.5
+      ],
+      [
+       -1.45,
+       0.518,
+       46.5
+      ],
+      [
+       -2.9,
+       0.42,
+       52.3
+      ]
+     ],
+     "at": "scores",
+     "lag": -0.55,
+     "slowmo": false
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "SCP",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#d6283b"
+     },
+     "score": [
+      1,
+      1
+     ],
+     "min": "48'",
+     "from": [
+      1,
+      0
+     ],
+     "goalAt": "scores",
+     "goalLag": 0.2
+    },
+    {
+     "type": "sound",
+     "name": "whistle",
+     "at": "Martínez",
+     "lag": 0.5
+    },
+    {
+     "type": "pentrack",
+     "y": 1625,
+     "delay": 0.0,
+     "title": "Penalties",
+     "items": [
+      {
+       "who": "Suárez",
+       "min": "30'",
+       "state": "miss",
+       "result": "SAVED"
+      },
+      {
+       "who": "Suárez",
+       "min": "33'",
+       "state": "hit",
+       "result": "GOAL"
+      },
+      {
+       "who": "Bruno",
+       "min": "48'",
+       "state": "hit",
+       "result": "GOAL",
+       "at": "scores",
+       "lag": -0.05
+      }
+     ],
+     "h": 340,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "EX-SPORTING",
+     "at": "old star",
+     "lag": 0.0,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 88,
+     "y": 770,
+     "sub": "Bruno Fernandes"
+    }
+   ],
+   "vo": "Second half: Martínez wins a penalty. Bruno Fernandes, Sporting's old star, scores."
+  },
+  {
+   "kicker": "Sporting 2–2 Man United · Champions League",
+   "headline": "50': Bruno [again].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111"
+    ],
+    "seed": 11
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.95,
+   "camFrom": {
+    "pos": [
+     -0.6,
+     2.4,
+     21.2
+    ],
+    "tgt": [
+     0.3,
+     1.2,
+     46.0
+    ]
+   },
+   "camera": {
+    "pos": [
+     -0.2,
+     2.3,
+     22.0
+    ],
+    "tgt": [
+     0.3,
+     1.2,
+     46.0
+    ]
+   },
+   "move": 5.0,
+   "moveEase": "linear",
+   "hype": false,
+   "punch": [
+    {
+     "at": "keeper",
+     "lag": -2.09,
+     "amount": 0.12,
+     "dur": 1.0
+    }
+   ],
+   "speedlines": [
+    {
+     "at": "keeper",
+     "lag": -2.1,
+     "dur": 0.6,
+     "amount": 0.35
+    }
+   ],
+   "flashes": 10,
+   "players": [
+    {
+     "name": "FERNANDES",
+     "num": 8,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "foot": "left",
+     "path": [
+      [
+       1.2,
+       28.5
+      ],
+      [
+       1.2,
+       28.5
+      ],
+      [
+       1.9,
+       33.0
+      ],
+      [
+       1.9,
+       33.0
+      ]
+     ],
+     "pathT": [
+      0,
+      0.264,
+      1.314,
+      12.0
+     ],
+     "at": "keeper",
+     "lag": -3.7,
+     "actions": [
+      {
+       "at": "keeper",
+       "lag": -2.386,
+       "action": "kick",
+       "dur": 0.8,
+       "foot": "left"
+      }
+     ],
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "label": "Bruno",
+     "labelDelay": 0.2,
+     "labelUntilAt": "keeper",
+     "labelUntilLag": -1.75
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#7a4de0",
+      "shorts": "#111111",
+      "socks": "#7a4de0",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       -0.3,
+       52.0
+      ],
+      [
+       0.5,
+       52.0
+      ],
+      [
+       -0.5,
+       52.0
+      ],
+      [
+       0.1,
+       52.0
+      ],
+      [
+       0.1,
+       52.0
+      ]
+     ],
+     "pathT": [
+      0,
+      1.0,
+      2.0,
+      3.0,
+      12.0
+     ],
+     "at": "keeper",
+     "lag": -3.7,
+     "actions": [
+      {
+       "at": "keeper",
+       "lag": -1.2,
+       "action": "lunge",
+       "dir": 1
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "front": true,
+     "x": -2.6,
+     "z": 49.2,
+     "action": "idle"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "front": true,
+     "x": 2.7,
+     "z": 48.7,
+     "action": "idle"
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "point": [
+      1.6,
+      0.11,
+      33.4
+     ],
+     "at": "keeper",
+     "lag": -3.4,
+     "untilAt": "keeper",
+     "untilLag": -2.05
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.95,
+     "points": [
+      [
+       1.6,
+       0.11,
+       33.4
+      ],
+      [
+       0.4,
+       0.55,
+       40.0
+      ],
+      [
+       -0.7,
+       0.04,
+       46.2
+      ]
+     ],
+     "at": "keeper",
+     "lag": -2.05,
+     "slowmo": false,
+     "flash": false
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 1.0,
+     "points": [
+      [
+       -0.7,
+       0.04,
+       46.2
+      ],
+      [
+       -0.55,
+       3.4,
+       49.4
+      ],
+      [
+       -0.15,
+       2.05,
+       52.3
+      ]
+     ],
+     "at": "keeper",
+     "lag": -1.1,
+     "slowmo": true
+    },
+    {
+     "type": "puff",
+     "point": [
+      -0.7,
+      0.04,
+      46.2
+     ],
+     "label": "DIVOT",
+     "labelDx": 210,
+     "labelDy": 200,
+     "at": "keeper",
+     "lag": -1.1
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "SCP",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#d6283b"
+     },
+     "score": [
+      1,
+      2
+     ],
+     "min": "50'",
+     "from": [
+      1,
+      1
+     ],
+     "goalAt": "keeper",
+     "goalLag": 0.3
+    }
+   ],
+   "shots": [
+    {
+     "at": "keeper",
+     "lag": -1.75,
+     "cut": true,
+     "camFrom": {
+      "pos": [
+       5.5,
+       1.0,
+       39.0
+      ],
+      "tgt": [
+       -0.9,
+       1.0,
+       48.0
+      ]
+     },
+     "camera": {
+      "pos": [
+       5.0,
+       1.0,
+       40.2
+      ],
+      "tgt": [
+       -0.5,
+       1.15,
+       49.0
+      ]
+     },
+     "move": 3.2,
+     "moveEase": "linear",
+     "hype": false,
+     "punch": [
+      {
+       "at": "keeper",
+       "lag": -1.15,
+       "amount": 0.12,
+       "dur": 1.2
+      }
+     ],
+     "shake": [
+      {
+       "at": "keeper",
+       "lag": -0.1,
+       "amount": 12
+      }
+     ],
+     "flashes": 12,
+     "headline": "50': a [divot]. 1–2.",
+     "card": "same"
+    }
+   ],
+   "vo": "Two minutes later, Bruno again. His shot hits a divot and flies over the keeper."
+  },
+  {
+   "kicker": "Sporting 2–2 Man United · Champions League",
+   "headline": "80': [Suárez] again. 2–2.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111"
+    ],
+    "seed": 23
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.95,
+   "camFrom": {
+    "pos": [
+     -9.5,
+     1.6,
+     43.5
+    ],
+    "tgt": [
+     0.4,
+     1.4,
+     49.5
+    ]
+   },
+   "camera": {
+    "pos": [
+     -8.6,
+     1.6,
+     44.2
+    ],
+    "tgt": [
+     0.4,
+     1.4,
+     49.7
+    ]
+   },
+   "move": 5.0,
+   "moveEase": "linear",
+   "hype": false,
+   "punch": [
+    {
+     "at": "scores",
+     "lag": -0.4,
+     "amount": 0.12,
+     "dur": 1.2
+    }
+   ],
+   "shake": [
+    {
+     "at": "scores",
+     "lag": -0.05,
+     "amount": 14
+    }
+   ],
+   "speedlines": [
+    {
+     "at": "scores",
+     "lag": -0.35,
+     "dur": 0.5,
+     "amount": 0.35
+    }
+   ],
+   "flashes": 14,
+   "players": [
+    {
+     "name": "SUÁREZ",
+     "num": 97,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "path": [
+      [
+       0.8,
+       45.9
+      ],
+      [
+       0.8,
+       45.9
+      ],
+      [
+       0.9,
+       48.8
+      ],
+      [
+       0.9,
+       48.8
+      ]
+     ],
+     "pathT": [
+      0,
+      2.15,
+      2.8,
+      12.0
+     ],
+     "at": "scores",
+     "lag": -3.45,
+     "hops": [
+      {
+       "at": "scores",
+       "lag": -0.5,
+       "dur": 0.5,
+       "height": 0.35
+      }
+     ],
+     "actions": [
+      {
+       "at": "scores",
+       "lag": -0.594,
+       "action": "kick",
+       "dur": 0.7,
+       "foot": "right"
+      },
+      {
+       "at": "scores",
+       "lag": 0.4,
+       "loop": "celebrate"
+      }
+     ],
+     "skin": "#c99b7a",
+     "hair": "#141010",
+     "frontT": 3.85,
+     "label": "Suárez",
+     "labelDelay": 0.3,
+     "labelUntilAt": "scores",
+     "labelUntilLag": 0.85
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#ff7a1a",
+      "shorts": "#111111",
+      "socks": "#ff7a1a",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       0.0,
+       52.0
+      ],
+      [
+       0.0,
+       52.0
+      ],
+      [
+       -0.5,
+       49.6
+      ],
+      [
+       -0.5,
+       49.6
+      ]
+     ],
+     "pathT": [
+      0,
+      1.0,
+      2.95,
+      12.0
+     ],
+     "at": "scores",
+     "lag": -3.45,
+     "hops": [
+      {
+       "at": "scores",
+       "lag": -0.6,
+       "dur": 0.5,
+       "height": 0.28
+      }
+     ],
+     "actions": [
+      {
+       "at": "scores",
+       "lag": -0.45,
+       "action": "fall",
+       "dir": 1
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "front": true,
+     "x": -2.7,
+     "z": 50.5,
+     "action": "idle"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "front": true,
+     "x": 3.2,
+     "z": 47.0,
+     "action": "idle"
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 1.5,
+     "points": [
+      [
+       -8.5,
+       3.0,
+       44.0
+      ],
+      [
+       -3.6,
+       6.0,
+       47.2
+      ],
+      [
+       0.4,
+       1.0,
+       49.5
+      ]
+     ],
+     "at": "scores",
+     "lag": -1.8,
+     "slowmo": false,
+     "flash": false
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.25,
+     "points": [
+      [
+       0.4,
+       1.0,
+       49.5
+      ],
+      [
+       0.3,
+       0.9,
+       51.0
+      ],
+      [
+       0.1,
+       0.8,
+       52.3
+      ]
+     ],
+     "at": "scores",
+     "lag": -0.3,
+     "slowmo": false
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "SCP",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#d6283b"
+     },
+     "score": [
+      2,
+      2
+     ],
+     "min": "80'",
+     "from": [
+      1,
+      2
+     ],
+     "goalAt": "scores",
+     "goalLag": 0.2
+    },
+    {
+     "type": "pen",
+     "anchor": 1,
+     "strokes": [
+      {
+       "kind": "ellipse",
+       "cx": 0.28,
+       "cy": -0.62,
+       "rx": 0.34,
+       "ry": 0.24,
+       "at": "nudges",
+       "lag": 0.0,
+       "dur": 0.5,
+       "color": "#e9b949",
+       "width": 8
+      },
+      {
+       "kind": "text",
+       "text": "NUDGE",
+       "x": 0.95,
+       "y": -1.38,
+       "size": 0.2,
+       "at": "nudges",
+       "lag": 0.25,
+       "dur": 0.6,
+       "color": "#e9b949",
+       "rot": -0.08
+      }
+     ]
+    },
+    {
+     "type": "pen",
+     "strokes": [
+      {
+       "kind": "arrow",
+       "points": [
+        [
+         110,
+         760
+        ],
+        [
+         280,
+         690
+        ],
+        [
+         400,
+         880
+        ]
+       ],
+       "at": "high ball",
+       "lag": -0.2,
+       "dur": 0.7,
+       "color": "#e9b949",
+       "width": 7,
+       "dashed": true
+      },
+      {
+       "kind": "text",
+       "text": "CROSS",
+       "x": 120,
+       "y": 690,
+       "size": 56,
+       "at": "high ball",
+       "lag": -0.1,
+       "dur": 0.5,
+       "color": "#e9b949",
+       "rot": -0.08
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "GOAL STANDS",
+     "at": "scores",
+     "lag": 0.45,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 92,
+     "y": 1480,
+     "sub": "after VAR review"
+    }
+   ],
+   "vo": "Eightieth minute: Lammens goes for a high ball, Suárez nudges him, and scores. Two–two."
+  },
+  {
+   "kicker": "Sporting 2–2 Man United · Champions League",
+   "headline": "82': own goal. [VAR] says no.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111",
+     "#d6283b"
+    ],
+    "seed": 31
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.85,
+   "camFrom": {
+    "pos": [
+     9.5,
+     1.6,
+     43.5
+    ],
+    "tgt": [
+     -0.4,
+     1.4,
+     49.5
+    ]
+   },
+   "camera": {
+    "pos": [
+     8.6,
+     1.6,
+     44.2
+    ],
+    "tgt": [
+     -0.4,
+     1.4,
+     49.7
+    ]
+   },
+   "move": 5.0,
+   "moveEase": "linear",
+   "hype": false,
+   "punch": [
+    {
+     "at": "scores",
+     "lag": -0.4,
+     "amount": 0.12,
+     "dur": 1.2
+    }
+   ],
+   "shake": [
+    {
+     "at": "scores",
+     "lag": -0.05,
+     "amount": 14
+    }
+   ],
+   "speedlines": [
+    {
+     "at": "scores",
+     "lag": -0.35,
+     "dur": 0.5,
+     "amount": 0.35
+    }
+   ],
+   "flashes": 14,
+   "players": [
+    {
+     "name": "DORGU",
+     "num": 13,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "path": [
+      [
+       -0.8,
+       45.9
+      ],
+      [
+       -0.8,
+       45.9
+      ],
+      [
+       -0.9,
+       48.8
+      ],
+      [
+       -0.9,
+       48.8
+      ]
+     ],
+     "pathT": [
+      0,
+      2.15,
+      2.8,
+      12.0
+     ],
+     "at": "scores",
+     "lag": -3.45,
+     "hops": [
+      {
+       "at": "scores",
+       "lag": -0.5,
+       "dur": 0.5,
+       "height": 0.35
+      }
+     ],
+     "actions": [],
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "label": "Dorgu",
+     "labelDelay": 0.3,
+     "labelUntilAt": "scores",
+     "labelUntilLag": 0.85
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#7a4de0",
+      "shorts": "#111111",
+      "socks": "#7a4de0",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       0.0,
+       52.0
+      ],
+      [
+       0.0,
+       52.0
+      ],
+      [
+       0.5,
+       49.6
+      ],
+      [
+       0.5,
+       49.6
+      ]
+     ],
+     "pathT": [
+      0,
+      1.0,
+      2.95,
+      12.0
+     ],
+     "at": "scores",
+     "lag": -3.45,
+     "hops": [
+      {
+       "at": "scores",
+       "lag": -0.6,
+       "dur": 0.5,
+       "height": 0.28
+      }
+     ],
+     "actions": [
+      {
+       "at": "scores",
+       "lag": -0.75,
+       "action": "lunge",
+       "dir": 1
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "front": true,
+     "x": 2.7,
+     "z": 50.5,
+     "action": "idle"
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#ffffff",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "front": true,
+     "x": -3.2,
+     "z": 47.0,
+     "action": "idle"
+    }
+   ],
+   "card": [
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 1.5,
+     "points": [
+      [
+       8.5,
+       3.0,
+       44.0
+      ],
+      [
+       3.6,
+       6.0,
+       47.2
+      ],
+      [
+       -0.4,
+       1.0,
+       49.5
+      ]
+     ],
+     "at": "scores",
+     "lag": -1.8,
+     "slowmo": false,
+     "flash": false
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.25,
+     "points": [
+      [
+       -0.4,
+       1.0,
+       49.5
+      ],
+      [
+       -0.3,
+       0.9,
+       51.0
+      ],
+      [
+       -0.1,
+       0.8,
+       52.3
+      ]
+     ],
+     "at": "scores",
+     "lag": -0.3,
+     "slowmo": false
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "SCP",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "MUN",
+      "color": "#d6283b"
+     },
+     "score": [
+      2,
+      2
+     ],
+     "min": "82'"
+    },
+    {
+     "type": "varcheck",
+     "title": "VAR · 82'",
+     "y": 1330,
+     "w": 940,
+     "rowH": 84,
+     "verdictH": 200,
+     "source": "per ESPN match report",
+     "at": "VAR",
+     "lag": -0.1,
+     "clear": false,
+     "steps": [
+      {
+       "text": "Keeper flaps: own goal",
+       "at": "VAR",
+       "lag": 0.1,
+       "kind": "ball"
+      },
+      {
+       "text": "Referee sent to the monitor",
+       "at": "rules",
+       "lag": 0.0,
+       "kind": "var"
+      },
+      {
+       "text": "Judged: Dorgu fouled the keeper",
+       "at": "Dorgu",
+       "lag": 0.0,
+       "kind": "foul"
+      }
+     ],
+     "verdict": {
+      "text": "NO GOAL",
+      "sub": "own goal ruled out",
+      "color": "#ff4d5e",
+      "at": "fouled",
+      "lag": 0.3,
+      "size": 112
+     },
+     "hideAt": "booked",
+     "hideLag": -0.4
+    }
+   ],
+   "shots": [
+    {
+     "at": "Tielemans",
+     "lag": -0.2,
+     "cut": true,
+     "transition": "whip",
+     "headline": "90'+3: Tielemans [sent off].",
+     "scene": {
+      "type": "stadium",
+      "crowd": [
+       "#0b8f4b",
+       "#ffffff",
+       "#0b8f4b",
+       "#111111"
+      ],
+      "seed": 47
+     },
+     "accent": "#ff4d5e",
+     "lights": 0.8,
+     "camFrom": {
+      "pos": [
+       7.2,
+       1.6,
+       30.0
+      ],
+      "tgt": [
+       1.0,
+       1.0,
+       35.5
+      ]
+     },
+     "camera": {
+      "pos": [
+       6.4,
+       1.6,
+       34.0
+      ],
+      "tgt": [
+       1.2,
+       1.0,
+       38.0
+      ]
+     },
+     "move": 2.6,
+     "moveEase": "linear",
+     "hype": false,
+     "players": [
+      {
+       "name": "ALTIMIRA",
+       "num": 5,
+       "kit": {
+        "shirt": "#0b8f4b",
+        "shorts": "#ffffff",
+        "socks": "#0b8f4b",
+        "text": "#ffffff",
+        "hoops": [
+         "#0b8f4b",
+         "#ffffff"
+        ]
+       },
+       "dribble": true,
+       "dribbleUntil": 3.55,
+       "x": 0.2,
+       "z": 17.5,
+       "path": [
+        [
+         0.2,
+         17.5
+        ],
+        [
+         0.5,
+         26.0
+        ],
+        [
+         0.9,
+         33.5
+        ],
+        [
+         1.2,
+         38.8
+        ]
+       ],
+       "pathDur": 3.85,
+       "at": "booked",
+       "lag": -3.6,
+       "action": "fall",
+       "actionAt": "booked",
+       "actionLag": 0.1,
+       "skin": "#e7b593",
+       "hair": "#3a2a1a",
+       "label": "Altimira",
+       "labelDelay": 2.4
+      },
+      {
+       "name": "TIELEMANS",
+       "num": 18,
+       "kit": {
+        "shirt": "#d6283b",
+        "shorts": "#ffffff",
+        "socks": "#111111",
+        "text": "#ffffff"
+       },
+       "x": -2.4,
+       "z": 11.0,
+       "path": [
+        [
+         -2.4,
+         11.0
+        ],
+        [
+         -1.7,
+         21.5
+        ],
+        [
+         -0.8,
+         30.0
+        ],
+        [
+         0.5,
+         36.0
+        ]
+       ],
+       "pathDur": 3.5,
+       "at": "booked",
+       "lag": -3.6,
+       "action": "slide",
+       "dir": 1,
+       "actionAt": "booked",
+       "actionLag": -0.5,
+       "actionDur": 1.1,
+       "skin": "#f0c8a8",
+       "hair": "#6a4a2a",
+       "label": "Tielemans",
+       "labelDelay": 3.2
+      }
+     ],
+     "card": [
+      {
+       "type": "ballpath",
+       "world": true,
+       "at": "booked",
+       "lag": 0.15,
+       "dur": 0.9,
+       "slowmo": true,
+       "flash": false,
+       "points": [
+        [
+         1.3,
+         0.11,
+         39.0
+        ],
+        [
+         2.4,
+         0.2,
+         41.5
+        ],
+        [
+         3.6,
+         0.11,
+         43.8
+        ]
+       ]
+      },
+      {
+       "type": "scorebug",
+       "y": 560,
+       "delay": 0,
+       "home": {
+        "name": "SCP",
+        "color": "#0b8f4b"
+       },
+       "away": {
+        "name": "MUN",
+        "color": "#d6283b"
+       },
+       "score": [
+        2,
+        2
+       ],
+       "min": "90'+3",
+       "red": "away"
+      },
+      {
+       "type": "redcard",
+       "at": "sent off",
+       "lag": -0.2,
+       "label": "90'+3 Tielemans · 2nd yellow",
+       "dx": -200,
+       "y": 1450
+      }
+     ]
+    }
+   ],
+   "vo": "Then Sporting's keeper flaps at a corner and scores an own goal. VAR rules it out: Dorgu fouled him. Tielemans, already booked, is sent off."
+  },
+  {
+   "kicker": "The match in numbers",
+   "headline": "[11] shots to [7].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111"
+    ],
+    "seed": 23
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.7,
+   "focus": 0.45,
+   "flashes": 8,
+   "hype": false,
+   "orbit": {
+    "center": [
+     0,
+     1.0,
+     40.0
+    ],
+    "r": 40,
+    "from": 70,
+    "to": 20,
+    "h": 26,
+    "h2": 20,
+    "dur": 5.0
+   },
+   "players": [],
+   "card": [
+    {
+     "type": "shotline",
+     "y": 1010,
+     "delay": 0.0,
+     "w": 940,
+     "h": 640,
+     "title": "Every shot · ESPN",
+     "home": {
+      "name": "SPORTING",
+      "color": "#0b8f4b"
+     },
+     "away": {
+      "name": "UNITED",
+      "color": "#d6283b"
+     },
+     "shots": [
+      {
+       "min": 12,
+       "side": "home",
+       "kind": "missed",
+       "who": "Araújo"
+      },
+      {
+       "min": 13,
+       "side": "home",
+       "kind": "missed",
+       "who": "Catamo"
+      },
+      {
+       "min": 16,
+       "side": "away",
+       "kind": "missed",
+       "who": "Zirkzee"
+      },
+      {
+       "min": 30,
+       "side": "home",
+       "kind": "saved",
+       "who": "Suárez"
+      },
+      {
+       "min": 33,
+       "side": "home",
+       "kind": "goal",
+       "who": "Suárez"
+      },
+      {
+       "min": 36,
+       "side": "home",
+       "kind": "blocked",
+       "who": "Doumbia"
+      },
+      {
+       "min": 38,
+       "side": "home",
+       "kind": "missed",
+       "who": "Altimira"
+      },
+      {
+       "min": 43,
+       "side": "away",
+       "kind": "missed",
+       "who": "Diallo"
+      },
+      {
+       "min": 48,
+       "side": "away",
+       "kind": "goal",
+       "who": "Fernandes"
+      },
+      {
+       "min": 50,
+       "side": "away",
+       "kind": "goal",
+       "who": "Fernandes"
+      },
+      {
+       "min": 54,
+       "side": "away",
+       "kind": "missed",
+       "who": "Fernandes"
+      },
+      {
+       "min": 55,
+       "side": "home",
+       "kind": "missed",
+       "who": "Guilherme"
+      },
+      {
+       "min": 57,
+       "side": "away",
+       "kind": "missed",
+       "who": "Zirkzee"
+      },
+      {
+       "min": 58,
+       "side": "home",
+       "kind": "saved",
+       "who": "Altimira"
+      },
+      {
+       "min": 69,
+       "side": "away",
+       "kind": "blocked",
+       "who": "Dalot"
+      },
+      {
+       "min": 80,
+       "side": "home",
+       "kind": "goal",
+       "who": "Suárez"
+      },
+      {
+       "min": 87,
+       "side": "home",
+       "kind": "missed",
+       "who": "Araújo"
+      },
+      {
+       "min": 95,
+       "side": "home",
+       "kind": "missed",
+       "who": "Irankunda"
+      }
+     ],
+     "events": [
+      {
+       "min": 93,
+       "side": "away",
+       "kind": "red",
+       "label": "TIELEMANS"
+      }
+     ],
+     "total": 96,
+     "ht": 45,
+     "dur": 2.6,
+     "startT": 0.3,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "0 SAVES",
+     "at": "no saves",
+     "lag": -0.1,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 100,
+     "y": 1560,
+     "sub": "Sporting's keeper"
+    }
+   ],
+   "vo": "Sporting had eleven shots, United seven. Sporting's keeper made no saves."
+  },
+  {
+   "kicker": "Champions League table",
+   "headline": "United: [19th]. Three games left.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111"
+    ],
+    "seed": 11
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.7,
+   "focus": 0.5,
+   "flashes": 8,
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -3.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.6,
+     -1.8
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "climb",
+     "y": 1110,
+     "delay": 0.0,
+     "w": 900,
+     "rowH": 62,
+     "show": 9,
+     "from": 17,
+     "stepDur": 0.8,
+     "title": "League phase · after matchday 5",
+     "focus": "Manchester United",
+     "zones": [
+      {
+       "from": 9,
+       "to": 24,
+       "color": "#e9b949"
+      },
+      {
+       "from": 25,
+       "to": 36,
+       "color": "#ff4d5e"
+      }
+     ],
+     "colors": {
+      "Manchester United": "#d6283b",
+      "Sporting CP": "#0b8f4b",
+      "VfB Stuttgart": "#e30613",
+      "Atlético Madrid": "#cb3524",
+      "Bodo/Glimt": "#f7d117",
+      "LASK Linz": "#cccccc",
+      "FC Porto": "#1b4fb5",
+      "RB Leipzig": "#dd0741",
+      "Villarreal": "#f9e000",
+      "Galatasaray": "#f9a01b",
+      "Fenerbahce": "#fcd116",
+      "Bayern Munich": "#dc052d",
+      "Club Brugge": "#1b4fb5",
+      "Internazionale": "#0068a8",
+      "Aston Villa": "#7b003c",
+      "Real Betis": "#00954c",
+      "Napoli": "#1e8dd2",
+      "Lille": "#dc2a2a",
+      "Lens": "#f7d117",
+      "Feyenoord Rotterdam": "#e2231a",
+      "PSV Eindhoven": "#e2231a",
+      "AS Roma": "#8e1f2f",
+      "Como": "#1b4fb5",
+      "Viking FK": "#1b4fb5"
+     },
+     "clear": false,
+     "steps": [
+      {
+       "rows": [
+        [
+         17,
+         "Manchester United",
+         6
+        ],
+        [
+         18,
+         "Galatasaray",
+         6
+        ],
+        [
+         19,
+         "Fenerbahce",
+         5
+        ],
+        [
+         20,
+         "AS Roma",
+         4
+        ],
+        [
+         21,
+         "Shakhtar Donetsk",
+         4
+        ],
+        [
+         22,
+         "Viking FK",
+         4
+        ],
+        [
+         23,
+         "Atlético Madrid",
+         4
+        ],
+        [
+         24,
+         "PSV Eindhoven",
+         4
+        ],
+        [
+         25,
+         "Bodo/Glimt",
+         4
+        ]
+       ]
+      },
+      {
+       "at": "dropped",
+       "lag": -0.1,
+       "rows": [
+        [
+         17,
+         "VfB Stuttgart",
+         7
+        ],
+        [
+         18,
+         "Atlético Madrid",
+         7
+        ],
+        [
+         19,
+         "Manchester United",
+         7
+        ],
+        [
+         20,
+         "Bodo/Glimt",
+         7
+        ],
+        [
+         21,
+         "LASK Linz",
+         6
+        ],
+        [
+         22,
+         "FC Porto",
+         6
+        ],
+        [
+         23,
+         "RB Leipzig",
+         6
+        ],
+        [
+         24,
+         "Villarreal",
+         6
+        ],
+        [
+         25,
+         "AS Roma",
+         5
+        ]
+       ],
+       "label": "D 2–2 Sporting"
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "3 LEFT",
+     "at": "three games left",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 96,
+     "y": 1630,
+     "sub": "8-game league phase"
+    }
+   ],
+   "vo": "United took a point and dropped two places. Nineteenth, three games left."
+  },
+  {
+   "kicker": "Pochettino · Man United",
+   "headline": "Were the [officials] fair?",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#111111",
+     "#d6283b"
+    ],
+    "seed": 31
+   },
+   "accent": "#e9b949",
+   "lights": 0.7,
+   "focus": 0.4,
+   "flashes": 8,
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     0,
+     1.7,
+     -3.2
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.7,
+     -2.0
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#1b2a41",
+      "shorts": "#1b2a41",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "outfit": "suit",
+     "tie": "#d6283b",
+     "suitColor": "#1b2a41",
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "x": 0,
+     "z": 2.0,
+     "front": true
+    }
+   ],
+   "card": [
+    {
+     "type": "form",
+     "y": 760,
+     "delay": 0.0,
+     "w": 720,
+     "h": 330,
+     "title": "Pochettino · his games in charge",
+     "results": "LD?",
+     "opps": [
+      "LIV · 0–4",
+      "SPORTING · 2–2",
+      "BRENTFORD · SAT"
+     ],
+     "step": 0.5,
+     "startT": 0.3,
+     "bracket": {
+      "from": 0,
+      "to": 1,
+      "label": "NO WIN YET"
+     },
+     "bracketAt": "still no win",
+     "bracketLag": 0.0,
+     "clear": false
+    },
+    {
+     "type": "poll",
+     "y": 1420,
+     "at": "Were the officials",
+     "lag": -0.2,
+     "question": "Were the officials fair?",
+     "clear": false,
+     "options": [
+      {
+       "label": "Fair",
+       "color": "#2ecc71",
+       "fill": 0.001,
+       "pct": "?"
+      },
+      {
+       "label": "Not fair",
+       "color": "#ff4d5e",
+       "fill": 0.001,
+       "pct": "?"
+      }
+     ]
+    }
+   ],
+   "vo": "Pochettino's second game, still no win. Brentford on Saturday. Were the officials fair?"
+  }
+ ],
+ "hookZoom": true,
+ "ballScale": 1.8
+}

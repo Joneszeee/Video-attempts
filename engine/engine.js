@@ -1156,7 +1156,7 @@ function drawPlayers(cam, lt, players) {
   for (const o of list) {
     if (o.ball) { ctx.save(); CARDS[o.ball.type](o.ball, o.ct, W / 2, 0, 0); ctx.restore(); continue; }
     if (o.dribbleBall) {
-      const s2 = proj(o.q), r = Math.max(3, FOC * 0.11 / o.q[2]);
+      const s2 = proj(o.q), r = Math.max(3, FOC * 0.11 / o.q[2]) * ballK();
       ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.ellipse(s2[0], s2[1] + r * 0.9, r * 1.3, r * 0.35, 0, 0, 7); ctx.fill();
       ctx.save(); ctx.translate(s2[0], s2[1]); ctx.rotate(o.spin); drawBall(0, 0, r); ctx.restore();
       continue;
@@ -1566,6 +1566,7 @@ function drawShirtIcon(x, y, s, c1, c2) {
   ctx.restore();
 }
 
+const ballK = () => (S.spec && S.spec.ballScale) || 1;   // spec "ballScale": a bigger ball in the world (resting, shots, dribbled) so it can be followed in a portrait frame
 function drawBall(x, y, r) {
   ctx.fillStyle = '#f4f4f2'; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
   ctx.fillStyle = '#1d1d22'; ctx.beginPath(); ctx.arc(x, y, r * 0.32, 0, 7); ctx.fill();
@@ -1925,7 +1926,7 @@ function drawUnderPens() {
   const b = S.cur;
   if (!b) return;
   for (const it of b.cards) {
-    const web = it.obj.type === 'passweb' || it.obj.type === 'varlines';
+    const web = it.obj.type === 'passweb' || it.obj.type === 'varlines' || it.obj.type === 'puff';
     if (!web && (it.obj.type !== 'pen' || !it.obj.strokes.some(s => s.layer === 'under'))) continue;
     const ct = S.t - it.start;
     if (ct < 0 || (it.obj.hideT != null && ct >= it.obj.hideT)) continue;   // hideAt applies to grass layers too
@@ -2723,6 +2724,142 @@ CARDS.varlines = function (c, ct, cx, cy) {
 CARDS.varlines.noSlide = true;
 
 
+
+// Dust puff on the pitch at a world point (a divot, a hard slide, a heavy landing): a scuffed turf patch stays on the grass (drawn under the players), brown dust flies up,
+// a ring spreads on the ground and an optional label pill points at it. Built for videos/united-sporting (Bruno Fernandes's shot that hit a divot).
+// {type: "puff", point: [x, 0, z], size (m, default 1), label: "DIVOT", labelColor, dur, seed}
+CARDS.puff = function (c, ct, cx, cy) {
+  if (!S.cam || !c.point) return;
+  const q = toCam(S.cam, [c.point[0], 0.03, c.point[2]]); if (q[2] < NEAR) return;
+  const s = proj(q), m = FOC / q[2], sz = c.size || 1;
+  if (c._under) {   // the scuffed patch stays on the grass from the first frame of the puff
+    const k = pr(ct, 0, 0.1); if (k <= 0) return;
+    ctx.save(); ctx.translate(s[0], s[1]);
+    ctx.fillStyle = 'rgba(62,38,20,0.96)'; ctx.beginPath(); ctx.ellipse(0, 0, m * 0.36 * sz * k, m * 0.36 * sz * 0.34 * k, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = 'rgba(122,86,50,0.95)'; ctx.beginPath(); ctx.ellipse(-m * 0.05 * sz, -m * 0.01 * sz, m * 0.2 * sz * k, m * 0.2 * sz * 0.32 * k, 0, 0, 7); ctx.fill();
+    ctx.restore(); return;
+  }
+  if (ct < 0) return;
+  const R = rng(c.seed || 11), life = 1.1;
+  ctx.save();
+  for (let i = 0; i < 30; i++) {   // dust: thrown up and out, falling back
+    const a = R() * 6.283, sp = 0.5 + R() * 1.5, vy = 1.4 + R() * 2.8, t = ct - R() * 0.05, r0 = 0.05 + R() * 0.07; if (t < 0 || t > life) continue;
+    const x = Math.cos(a) * sp * t, z = Math.sin(a) * sp * t * 0.35, y = vy * t - 4.4 * t * t; if (y < -0.02) continue;
+    ctx.globalAlpha = Math.max(0, 1 - t / life) * 0.9; ctx.fillStyle = i % 3 ? 'rgb(150,112,72)' : 'rgb(96,68,40)';
+    ctx.beginPath(); ctx.arc(s[0] + x * m * sz, s[1] + z * m * sz - y * m * sz, Math.max(1.5, m * r0 * sz * (1 - 0.5 * t / life)), 0, 7); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  const rk = pr(ct, 0, 0.7); if (rk > 0 && rk < 1) {   // the ring spreading over the turf
+    ctx.strokeStyle = `rgba(255,255,255,${0.9 * (1 - rk)})`; ctx.lineWidth = Math.max(2, 7 * (1 - rk)); ctx.beginPath(); ctx.ellipse(s[0], s[1], m * 1.7 * sz * rk, m * 1.7 * sz * rk * 0.34, 0, 0, 7); ctx.stroke();
+  }
+  if (c.label) {   // the pill, with a leader to the spot
+    const lk = eBack(pr(ct, 0.12, 0.3)); if (lk > 0) {
+      font(900, 40, 'Inter', '2px'); const tw = ctx.measureText(c.label).width + 56, px = s[0] + (c.labelDx != null ? c.labelDx : 170), py = s[1] - (c.labelDy != null ? c.labelDy : 190);
+      ctx.strokeStyle = c.labelColor || '#e9b949'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(px, py + 34 * lk); ctx.lineTo(s[0], s[1] - 8); ctx.stroke();
+      ctx.save(); ctx.translate(px, py); ctx.scale(lk, lk); ctx.fillStyle = '#0c0e14'; rrect(-tw / 2, -34, tw, 68, 18); ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = c.labelColor || '#e9b949'; rrect(-tw / 2, -34, tw, 68, 18); ctx.stroke();
+      ctx.fillStyle = c.labelColor || '#e9b949'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.label, 0, 3); ctx.restore();
+    }
+  }
+  ctx.restore();
+};
+CARDS.puff.noSlide = true;
+// Penalty tracker (built for videos/united-sporting): a row of penalty slots. Each slams in on its word as a green tick (scored) or a red cross (saved or missed) with the minute, the
+// taker and the result under it. {type: "pentrack", title: "PENALTIES", items: [{who: "SUÁREZ", min: "30'", state: "hit"|"miss"|"empty", result: "SAVED", t|at}], w, h}
+// An item with no `t` is already there (a follow-up beat: repeat the card with the earlier ones instant); state "empty" is a dashed slot still to come.
+CARDS.pentrack = function (c, ct, cx, cy) {
+  const it = c.items || [], n = it.length; if (!n) return;
+  const w = c.w || 900, h = c.h || 372, k0 = eOut(pr(ct, 0, 0.35)); if (k0 <= 0) return;
+  ctx.save(); ctx.globalAlpha *= k0; ctx.translate(cx, cy + (1 - k0) * 30);
+  ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 30; ctx.fillStyle = 'rgba(8,10,15,0.92)'; rrect(-w / 2, -h / 2, w, h, 28); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
+  if (c.title) { font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.fillText(c.title.toUpperCase(), 0, -h / 2 + 40); }
+  const gap = (w - 60) / n, X = i => -w / 2 + 30 + gap * (i + 0.5), r = 54, yc = -h / 2 + 136;
+  it.forEach((m, i) => {
+    const t = m.t != null ? m.t : -1, a0 = m.state === 'empty' || t >= 90 ? 0 : (t < 0 ? 1 : eBack(pr(ct, t, 0.32))), a = a0, empty = a0 < 0.02, ok = m.state === 'hit';
+    const col = ok ? '#1f9d55' : '#d6283b';
+    ctx.save(); ctx.translate(X(i), yc);
+    ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,0.25)'; if (empty) ctx.setLineDash([10, 9]); ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+    if (a > 0) {
+      ctx.save(); ctx.scale(a, a); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath();
+      if (ok) { ctx.moveTo(-18, 2); ctx.lineTo(-5, 16); ctx.lineTo(20, -14); } else { ctx.moveTo(-15, -15); ctx.lineTo(15, 15); ctx.moveTo(15, -15); ctx.lineTo(-15, 15); }
+      ctx.stroke(); ctx.restore();
+      const g = t >= 0 ? pr(ct, t, 0.5) : 1;
+      if (g > 0 && g < 1) { ctx.strokeStyle = col; ctx.globalAlpha = 1 - g; ctx.lineWidth = 8 * (1 - g) + 2; ctx.beginPath(); ctx.arc(0, 0, r + 6 + g * 40, 0, 7); ctx.stroke(); ctx.globalAlpha = 1; }
+    } else if (empty) { font(900, 44, 'Inter'); ctx.fillStyle = 'rgba(255,255,255,0.28)'; ctx.fillText('?', 0, 2); }
+    ctx.restore();
+    const ta = empty ? 0.4 : Math.min(1, a);
+    ctx.save(); ctx.globalAlpha *= ta;
+    font(600, 26, 'Mono', '2px'); ctx.fillStyle = '#8d94a1'; ctx.fillText(m.min || '', X(i), yc + r + 36);
+    font(800, 36, 'Inter', '-0.5px'); ctx.fillStyle = '#f4f2ec'; ctx.fillText((m.who || '').toUpperCase(), X(i), yc + r + 78);
+    if (m.result && !empty && a > 0.5) { font(800, 26, 'Inter', '1.5px'); const tw = ctx.measureText(m.result).width + 36; ctx.fillStyle = col; rrect(X(i) - tw / 2, yc + r + 100, tw, 42, 21); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(m.result, X(i), yc + r + 122); }
+    ctx.restore();
+  });
+  ctx.restore();
+};
+CARDS.pentrack.noSlide = true;
+// A sound with no picture: {type: "sound", name: "whistle"|"thud"|"impact"|"pop"|"crowd", at}.
+CARDS.sound = function () {};
+CARDS.sound.noSlide = true;
+
+// VAR / referee-decision replay (built for videos/united-sporting): a TV monitor that lists what happened, step by step on the words, then slams a verdict.
+// {type: "varcheck", title: "VAR · WHISTLE", steps: [{text, t|at, kind: "ball"|"whistle"|"goal"|"var"|"foul"|"card", color, tag}], verdict: {text: "NO GOAL", sub, color, t|at}, source, w, rowH, dx}
+// A "whistle" step blows a whistle (sound and spreading sound waves) and glows gold; `tag` is a small pill at the end of the row ("TOO EARLY"). Facts only: say where they come from in `source`.
+CARDS.varcheck = function (c, ct, cx, cy) {
+  const steps = c.steps || [], w = c.w || 920, rh = c.rowH || 112, head = 128, foot = c.source ? 66 : 30, vh = c.verdict ? (c.verdictH || 250) : 0, h = head + steps.length * rh + vh + foot;
+  const k = eBack(pr(ct, 0, 0.4)); if (k <= 0) return;
+  const y0 = -h / 2, pu = 1 + 0.012 * ct;
+  ctx.save(); ctx.translate(cx + (c.dx || 0), cy); ctx.scale(Math.min(1, k) * pu, Math.min(1, k) * pu); ctx.globalAlpha *= Math.min(1, k * 1.6);
+  ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 40; ctx.fillStyle = 'rgba(6,11,19,0.95)'; rrect(-w / 2, y0, w, h, 30); ctx.fill(); ctx.shadowColor = 'rgba(56,160,255,0.55)'; ctx.shadowBlur = 24;
+  ctx.lineWidth = 4; ctx.strokeStyle = '#38a0ff'; rrect(-w / 2, y0, w, h, 30); ctx.stroke(); ctx.shadowColor = 'transparent';
+  ctx.save(); rrect(-w / 2, y0, w, h, 30); ctx.clip(); ctx.fillStyle = 'rgba(255,255,255,0.035)'; for (let yy = y0 + ((ct * 30) % 8); yy < y0 + h; yy += 8) ctx.fillRect(-w / 2, yy, w, 2); ctx.restore();   // scanlines
+  // header: the VAR tag, the title, a blinking REVIEW dot
+  ctx.fillStyle = '#ffffff'; rrect(-w / 2 + 36, y0 + 34, 108, 60, 14); ctx.fill(); font(900, 40, 'Inter', '2px'); ctx.fillStyle = '#0a1f3a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('VAR', -w / 2 + 90, y0 + 66);
+  font(700, 28, 'Mono', '4px'); ctx.fillStyle = '#9ec9ff'; ctx.textAlign = 'left'; ctx.fillText(String(c.title || 'REVIEW').toUpperCase(), -w / 2 + 164, y0 + 66);
+  ctx.fillStyle = Math.sin(ct * 8) > 0 ? '#ff3b4a' : '#7a1c24'; ctx.beginPath(); ctx.arc(w / 2 - 50, y0 + 66, 12, 0, 7); ctx.fill();
+  ctx.strokeStyle = 'rgba(56,160,255,0.35)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-w / 2 + 30, y0 + head - 14); ctx.lineTo(w / 2 - 30, y0 + head - 14); ctx.stroke();
+  const colOf = st => st.color || (st.kind === 'whistle' ? '#f1c453' : st.kind === 'goal' ? '#2ecc71' : st.kind === 'foul' ? '#ff4d5e' : st.kind === 'card' ? '#f7d117' : '#38a0ff');
+  steps.forEach((st, i) => {
+    const t = st.t != null ? st.t : 0.5 + i * 0.7, a = eOut(pr(ct, t, 0.3)); if (a <= 0) return;
+    const y = y0 + head + i * rh + rh / 2, ix = -w / 2 + 84, col = colOf(st), isW = st.kind === 'whistle';
+    ctx.save(); ctx.globalAlpha *= a; ctx.translate((1 - a) * -70, 0);
+    if (i > 0) { ctx.strokeStyle = 'rgba(158,201,255,0.35)'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(ix, y - rh + 34); ctx.lineTo(ix, y - 34); ctx.stroke(); }
+    if (isW) { ctx.fillStyle = `rgba(241,196,83,${0.10 + 0.05 * Math.sin((ct - t) * 12)})`; rrect(-w / 2 + 20, y - rh / 2 + 8, w - 40, rh - 16, 22); ctx.fill(); }
+    ctx.fillStyle = col; ctx.beginPath(); ctx.arc(ix, y, 34, 0, 7); ctx.fill();
+    ctx.save(); ctx.translate(ix, y); ctx.strokeStyle = '#fff'; ctx.fillStyle = '#fff'; ctx.lineWidth = 4; ctx.lineCap = 'round';
+    if (st.kind === 'whistle') {   // the whistle: a round body, a mouthpiece and a ring, with sound waves spreading while it blows
+      ctx.fillStyle = '#10151f'; ctx.beginPath(); ctx.arc(-4, 4, 13, 0, 7); ctx.fill(); ctx.fillRect(4, -2, 20, 11); ctx.beginPath(); ctx.arc(-8, -10, 6, 0, 7); ctx.strokeStyle = '#10151f'; ctx.stroke();
+      const wv = pr(ct - t, 0, 0.9); for (let q = 0; q < 3; q++) { const f = (wv * 3 - q * 0.45); if (f > 0 && f < 1) { ctx.strokeStyle = `rgba(241,196,83,${1 - f})`; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(8, 2, 44 + f * 40, -0.7, 0.7); ctx.stroke(); } }
+    } else if (st.kind === 'goal') {   // a goal frame with a net
+      ctx.lineWidth = 3; ctx.strokeRect(-18, -14, 36, 26); ctx.lineWidth = 1.5; for (let g = -10; g <= 10; g += 7) { ctx.beginPath(); ctx.moveTo(g, -14); ctx.lineTo(g, 12); ctx.stroke(); } for (let g = -6; g <= 6; g += 6) { ctx.beginPath(); ctx.moveTo(-18, g); ctx.lineTo(18, g); ctx.stroke(); }
+    } else if (st.kind === 'foul') {   // a flag-like hand: a raised arm
+      ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(-12, 16); ctx.lineTo(-2, -4); ctx.lineTo(10, -14); ctx.stroke(); ctx.beginPath(); ctx.arc(12, -16, 6, 0, 7); ctx.fill();
+    } else if (st.kind === 'card') { ctx.fillStyle = '#f7d117'; rrect(-11, -17, 22, 34, 4); ctx.fill();
+    } else if (st.kind === 'var') { font(900, 20, 'Inter', '1px'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('VAR', 0, 2);
+    } else { ctx.restore(); ctx.save(); drawBall(ix, y, 20); }
+    ctx.restore();
+    font(700, 40, 'Inter'); let fs = 40; const maxW = w - 180 - (st.tag ? 210 : 0); const tw = ctx.measureText(st.text).width; if (tw > maxW) { fs = 40 * maxW / tw; font(700, fs, 'Inter'); }
+    ctx.fillStyle = isW ? '#f1c453' : '#f2f4f8'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(st.text, -w / 2 + 146, y + 2);
+    if (st.tag) { const tk = eBack(pr(ct, t + 0.25, 0.3)); if (tk > 0) { font(900, 26, 'Inter', '1px'); const gw = ctx.measureText(st.tag).width + 36; ctx.save(); ctx.translate(w / 2 - 40 - gw / 2, y); ctx.scale(tk, tk);
+      ctx.fillStyle = st.tagColor || '#d6283b'; rrect(-gw / 2, -24, gw, 48, 24); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(st.tag, 0, 2); ctx.restore(); } }
+    ctx.restore();
+  });
+  if (c.verdict) {   // the verdict slams down
+    const v = c.verdict, vt = v.t != null ? v.t : 0.5 + steps.length * 0.7 + 0.3, q = pr(ct, vt, 0.22); if (q > 0) {
+      const sc = 1 + 1.5 * (1 - eOut(q)), sh = ct - vt < 0.4 ? Math.sin(ct * 90) * 9 * (1 - (ct - vt) / 0.4) : 0, col = v.color || '#ff4d5e', vy = y0 + head + steps.length * rh + vh / 2;
+      ctx.save(); ctx.globalAlpha *= Math.min(1, q * 3); ctx.translate(sh, vy); ctx.rotate(-0.05); ctx.scale(sc, sc);
+      font(900, v.size || 118, 'Inter', '3px'); const vw = ctx.measureText(v.text).width + 90;
+      ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 24; ctx.fillStyle = '#0b0d12'; rrect(-vw / 2, -70, vw, 140, 24); ctx.fill(); ctx.shadowColor = 'transparent';
+      ctx.lineWidth = 10; ctx.strokeStyle = col; rrect(-vw / 2, -70, vw, 140, 24); ctx.stroke(); ctx.fillStyle = col; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(v.text, 0, 6);
+      if (v.sub) { font(800, 28, 'Inter', '2px'); const sw = ctx.measureText(v.sub.toUpperCase()).width + 44; ctx.fillStyle = 'rgba(8,10,15,0.92)'; rrect(-sw / 2, 74, sw, 52, 26); ctx.fill(); ctx.fillStyle = '#e6e8ec'; ctx.fillText(v.sub.toUpperCase(), 0, 101); }
+      ctx.restore();
+    }
+  }
+  if (c.source) { font(600, 20, 'Mono', '3px'); ctx.fillStyle = '#7d8ea6'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(c.source).toUpperCase(), 0, y0 + h - 34); }
+  ctx.restore();
+};
+CARDS.varcheck.noSlide = true;
+
 // Newspaper front page that spins in (archive / reaction beats). Masthead is fictional: never imitate a real paper.
 CARDS.newspaper = function (c, ct, cx, cy) {
   const k = eOut(pr(ct, 0, c.spin || 1.4)), sc = c.scale || 1;   // spin: seconds to spin in (user: 0.9 was too quick)
@@ -2778,13 +2915,13 @@ CARDS.ballpath = function (c, ct) {
     const q = c.points.map(p => toCam(S.cam, p));
     if (q.some(v => v[2] < NEAR)) return;
     P = q.map(proj);
-    r0 = Math.max(4, FOC * 0.11 / q[0][2]); r1 = Math.max(3, FOC * 0.11 / q[2][2]);
+    r0 = Math.max(4, FOC * 0.11 / q[0][2]) * ballK(); r1 = Math.max(3, FOC * 0.11 / q[2][2]) * ballK();
     const kp = c.saveBy != null && S.cur && S.cur.playersArr[c.saveBy], an = kp && S.anchors[c.saveBy];
     if (kp && an) {   // a real save: the ball ends in the keeper's gloves at the moment of contact, then stays held as he falls
       const lt = S.t - S.cur.playersStart, contact = lt - ct + dur;
       const hands = t => { const h = rigHands(an.u, kp, t); return [an.x + (h[0][0] + h[1][0]) / 2, an.y + (h[0][1] + h[1][1]) / 2]; };
       const end = hands(Math.min(lt, contact));
-      P = [P[0], P[1], end]; r1 = Math.max(3, an.u * 0.11 / 1.85 * 1.0);
+      P = [P[0], P[1], end]; r1 = Math.max(3, an.u * 0.11 / 1.85 * 1.0) * ballK();
       if (k0 >= 1) held = hands(lt);
     }
   }
@@ -3065,7 +3202,7 @@ CARDS.ball = function (c, ct) {
   if (q[2] < NEAR) return;
   const s = proj(q);
   ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.ellipse(s[0], s[1] + FOC * 0.1 / q[2], FOC * 0.14 / q[2], FOC * 0.04 / q[2], 0, 0, 7); ctx.fill();
-  drawBall(s[0], s[1], Math.max(3, FOC * 0.11 / q[2]));
+  drawBall(s[0], s[1], Math.max(3, FOC * 0.11 / q[2]) * ballK());
 };
 CARDS.ball.noSlide = true;
 
@@ -4602,10 +4739,10 @@ CARDS.seesaw.noSlide = true;
 // League-table climb (backlog item, built for videos/city-part-3): a table window whose rows re-order step by step. The focus club's row is gold and
 // slides up (or down) while the others shift and the points tick; a chip counts the places gained since the first step.
 // steps: [{t|at, rows: [[pos, name, pts], ...], label}] (the first step is the starting table), focus (club name), show (rows), zones: [{from, to, color}],
-// colors: {name: colour}, title, w, rowH, stepDur.
+// colors: {name: colour}, title, w, rowH, stepDur, from (the first position shown: a window in the middle of a long table, e.g. 14 of 36).
 CARDS.climb = function (c, ct, cx, cy) {
   const St = c.steps || []; if (!St.length) return;
-  const n = c.show || 10, rh = c.rowH || 62, w = c.w || 860, head = c.title ? 122 : 74, h = head + n * rh + 26, dur = c.stepDur || 0.55;
+  const p0 = c.from || 1, n = c.show || 10, rh = c.rowH || 62, w = c.w || 860, head = c.title ? 122 : 74, h = head + n * rh + 26, dur = c.stepDur || 0.55;
   const k0 = eOut(pr(ct, 0, 0.35)); if (k0 <= 0) return;
   const T = i => i === 0 ? -1 : (St[i].t != null ? St[i].t : 0.6 + i * 0.8);
   let k = 0; for (let i = 1; i < St.length; i++) if (ct >= T(i)) k = i;
@@ -4624,12 +4761,12 @@ CARDS.climb = function (c, ct, cx, cy) {
     ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(lab, 0, 1); ctx.restore();
   }
   ctx.save(); rrect(-w / 2 + 10, head - 4, w - 20, n * rh + 8, 14); ctx.clip();
-  for (const z of c.zones || []) { ctx.fillStyle = z.color || '#2ecc71'; ctx.fillRect(-w / 2 + 14, head + (z.from - 1) * rh + 4, 6, (z.to - z.from + 1) * rh - 8); }
+  for (const z of c.zones || []) { ctx.fillStyle = z.color || '#2ecc71'; ctx.fillRect(-w / 2 + 14, head + (z.from - p0) * rh + 4, 6, (z.to - z.from + 1) * rh - 8); }
   const names = [...new Set([...Object.keys(A), ...Object.keys(Bm)])];
   const rowAt = nm => { const pa = (A[nm] || [99])[0], pb = (Bm[nm] || [99])[0]; return { p: lerp(pa, pb, e), pa, pb,
     pts: Math.round(lerp((A[nm] || [0, 0, 0])[2], (Bm[nm] || [0, 0, 0])[2], e)) }; };
   const draw = (nm, focus) => {
-    const r = rowAt(nm), y = head + (r.p - 1) * rh; if (y > head + n * rh + 2 || y < head - rh) return;
+    const r = rowAt(nm), y = head + (r.p - p0) * rh; if (y > head + n * rh + 2 || y < head - rh) return;
     const moving = focus && Math.abs(r.pa - r.pb) > 0 && e < 1, s = moving ? 1 + 0.04 * Math.sin(Math.PI * e) : 1;
     ctx.save(); ctx.translate(0, y + rh / 2); ctx.scale(s, s);
     if (!focus && r.pa !== r.pb && e < 1) ctx.globalAlpha *= 1 - 0.75 * Math.sin(Math.PI * e);   // other clubs swapping places ghost as they cross
@@ -4718,7 +4855,7 @@ CARDS.shotline = function (c, ct, cx, cy) {
     const a = eBack(pr(ct, popT(e.min), 0.3)); if (a <= 0) continue;
     const sg = e.side === 'home' ? -1 : 1, x = X(e.min), y = axis + sg * 30;
     ctx.save(); ctx.translate(x, y); ctx.scale(a, a); ctx.shadowColor = '#e3132b'; ctx.shadowBlur = 24; ctx.fillStyle = '#e3132b'; rrect(-12, -17, 24, 34, 4); ctx.fill(); ctx.restore();
-    if (e.label) { ctx.save(); ctx.globalAlpha *= Math.min(1, a); font(800, 23, 'Inter'); ctx.fillStyle = '#ff6b78'; ctx.textAlign = 'left'; ctx.fillText(e.label, x - 14, axis + sg * 104); ctx.restore(); }
+    if (e.label) { ctx.save(); ctx.globalAlpha *= Math.min(1, a); font(800, 23, 'Inter'); ctx.fillStyle = '#ff6b78'; ctx.textAlign = 'left'; ctx.fillText(e.label, Math.min(x - 14, w / 2 - 30 - ctx.measureText(e.label).width), axis + sg * 104); ctx.restore(); }
   }
   // the playhead
   const fade = 1 - pr(ct, t0 + dur, 0.5);
@@ -4738,7 +4875,7 @@ CARDS.shotline = function (c, ct, cx, cy) {
 CARDS.shotline.noSlide = true;
 
 // Form strip (built for videos/pochettino-debut): a run of results as chips (W green, D grey, L red) that pop one by one with the opponent under each; the last win
-// rings in gold with a label (winT / winLabel) and a bracket underlines the winless run (bracket: {from, to, label}, bracketT).
+// rings in gold with a label (winT / winLabel) and a bracket underlines the winless run (bracket: {from, to, label}, bracketT). A "?" is a dashed chip for the next match.
 // results: "LWDLDDDLLDL", opps: ["HUL", ...], title, w, h, step, startT.
 CARDS.form = function (c, ct, cx, cy) {
   const R = (c.results || '').split(''), n = R.length; if (!n) return;
@@ -4753,9 +4890,11 @@ CARDS.form = function (c, ct, cx, cy) {
   R.forEach((ch, i) => {
     const a = eBack(pr(ct, t0 + i * step, 0.22)); if (a <= 0) return;
     const x = X(i);
-    ctx.save(); ctx.translate(x, yc); ctx.scale(a, a); ctx.fillStyle = colOf(ch); ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill();
+    ctx.save(); ctx.translate(x, yc); ctx.scale(a, a);
+    if (ch === '?') { ctx.setLineDash([9, 8]); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.stroke(); ctx.setLineDash([]); }   // a match still to come
+    else { ctx.fillStyle = colOf(ch); ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); }
     if (i === wi && c.winT != null) { const g = pr(ct, c.winT, 0.45); if (g > 0) { ctx.strokeStyle = '#f1c453'; ctx.lineWidth = 6; ctx.shadowColor = '#f1c453'; ctx.shadowBlur = 30 * Math.max(0, 1 - Math.abs(g - 0.5) * 1.6); ctx.beginPath(); ctx.arc(0, 0, r + 8, 0, 7); ctx.stroke(); ctx.shadowBlur = 0; } }
-    font(900, r * 0.95, 'Inter'); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.fillText(ch, 0, 2); ctx.restore();
+    font(900, r * 0.95, 'Inter'); ctx.fillStyle = ch === '?' ? 'rgba(255,255,255,0.6)' : '#fff'; ctx.textAlign = 'center'; ctx.fillText(ch, 0, 2); ctx.restore();
     if (c.opps && c.opps[i]) { ctx.save(); ctx.globalAlpha *= Math.min(1, a); font(600, 17, 'Mono', '1px'); ctx.fillStyle = '#8d94a1'; ctx.textAlign = 'center'; ctx.fillText(c.opps[i], x, yc + r + 26); ctx.restore(); }
   });
   if (c.winLabel && c.winT != null && wi >= 0) {   // "LAST WIN · 30 AUG" above the last win
@@ -4864,6 +5003,10 @@ function cardEvents(c) {
     case 'scard': { ev.push({ t: 0.02, type: 'whoosh' }, { t: 0.4, type: c.rarity === 'bronze' ? 'pop' : 'impact' }); ticks(0.4, 0.45); ev.push({ t: 1.0, type: 'swish' }); if (c.rarity === 'elite') ev.push({ t: 0.45, type: 'crowd' }); break; }
     case 'pace': { const t0 = c.startT != null ? c.startT : 0.4; ticks(t0, Math.min(1.4, c.dur || 3.2)); for (const pn of c.pins || []) if (pn.t != null) ev.push({ t: pn.t, type: 'pop' }); if (c.gapT != null) ev.push({ t: c.gapT + 0.1, type: 'impact' }); break; }
     case 'seesaw': for (const it of c.items || []) if (it.t != null) ev.push({ t: it.t, type: 'pop' }); break;
+    case 'varcheck': (c.steps || []).forEach(st => { if (st.t != null) ev.push({ t: st.t, type: st.kind === 'whistle' ? 'whistle' : 'pop' }); }); if (c.verdict && c.verdict.t != null) ev.push({ t: c.verdict.t, type: 'impact' }); break;
+    case 'puff': ev.push({ t: 0.0, type: 'thud' }); break;
+    case 'sound': ev.push({ t: 0.0, type: c.name || 'pop' }); break;
+    case 'pentrack': (c.items || []).forEach(m => { if (m.t != null && m.t < 90 && m.state !== 'empty') ev.push({ t: m.t, type: m.state === 'hit' ? 'pop' : 'thud' }); }); break;
     case 'pledge': { const lT = c.likeT != null ? c.likeT : 0.9, d = c.dur || 1.4, sT = c.shortT != null ? c.shortT : lT + d + 0.3; ev.push({ t: 0.02, type: 'pop' }); ticks(lT, Math.min(1.2, d * 0.85)); ev.push({ t: sT, type: 'impact' });
       if (c.result) ev.push({ t: c.resultT != null ? c.resultT : sT + 0.9, type: 'impact' }); break; }
     case 'shotline': { const t0 = c.startT != null ? c.startT : 0.35, d = c.dur || 4, tot = c.total || 94; ev.push({ t: 0.05, type: 'swish' });

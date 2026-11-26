@@ -1,0 +1,128 @@
+[
+ {
+  "date": "2026-11-24",
+  "home": "Bodo/Glimt",
+  "away": "LASK Linz",
+  "hg": 1,
+  "ag": 0
+ },
+ {
+  "date": "2026-11-24",
+  "home": "Galatasaray",
+  "away": "Aston Villa",
+  "hg": 1,
+  "ag": 0
+ },
+ {
+  "date": "2026-11-24",
+  "home": "Arsenal",
+  "away": "Borussia Dortmund",
+  "hg": 1,
+  "ag": 1
+ },
+ {
+  "date": "2026-11-24",
+  "home": "Como",
+  "away": "AEK Athens",
+  "hg": 1,
+  "ag": 0
+ },
+ {
+  "date": "2026-11-24",
+  "home": "Feyenoord Rotterdam",
+  "away": "FC Porto",
+  "hg": 0,
+  "ag": 1
+ },
+ {
+  "date": "2026-11-24",
+  "home": "Manchester City",
+  "away": "Napoli",
+  "hg": 2,
+  "ag": 2
+ },
+ {
+  "date": "2026-11-24",
+  "home": "RB Leipzig",
+  "away": "Lens",
+  "hg": 3,
+  "ag": 1
+ },
+ {
+  "date": "2026-11-24",
+  "home": "Real Madrid",
+  "away": "PSV Eindhoven",
+  "hg": 5,
+  "ag": 1
+ },
+ {
+  "date": "2026-11-24",
+  "home": "Slovan Bratislava",
+  "away": "Real Betis",
+  "hg": 0,
+  "ag": 2
+ },
+ {
+  "date": "2026-11-25",
+  "home": "Sabah FK",
+  "away": "Barcelona",
+  "hg": 1,
+  "ag": 4
+ },
+ {
+  "date": "2026-11-25",
+  "home": "Slavia Prague",
+  "away": "Villarreal",
+  "hg": 0,
+  "ag": 1
+ },
+ {
+  "date": "2026-11-25",
+  "home": "Atl\u00e9tico Madrid",
+  "away": "Viking FK",
+  "hg": 2,
+  "ag": 0
+ },
+ {
+  "date": "2026-11-25",
+  "home": "Club Brugge",
+  "away": "Liverpool",
+  "hg": 0,
+  "ag": 3
+ },
+ {
+  "date": "2026-11-25",
+  "home": "Internazionale",
+  "away": "VfB Stuttgart",
+  "hg": 2,
+  "ag": 0
+ },
+ {
+  "date": "2026-11-25",
+  "home": "Lille",
+  "away": "Bayern Munich",
+  "hg": 2,
+  "ag": 1
+ },
+ {
+  "date": "2026-11-25",
+  "home": "Paris Saint-Germain",
+  "away": "AS Roma",
+  "hg": 2,
+  "ag": 2
+ },
+ {
+  "date": "2026-11-25",
+  "home": "Shakhtar Donetsk",
+  "away": "Fenerbahce",
+  "hg": 0,
+  "ag": 1
+ },
+ {
+  "date": "2026-11-25",
+  "home": "Sporting CP",
+  "away": "Manchester United",
+  "hg": 2,
+  "ag": 2
+ }
+]

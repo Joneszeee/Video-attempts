@@ -104,3 +104,9 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
 - **Standing rule (user, 25 Nov 2026): a season-ending episode always says and shows who else went up (and who went down)**, the play-off winner included, so every season sim must play the play-offs for the other clubs too.
 - **Result (seed 2033):** semi-finals Stockport 4–2 Stevenage on aggregate (2–1 home, 2–1 away) and Reading 4–2 Luton (Luton 1–0 at home, Reading 4–1 at home); final Stockport 2–1 Reading.
   **Promoted: Manchester City (champions, 82), MK Dons (2nd, 78, automatic) and Stockport County (play-off winners).** Relegated: Huddersfield Town (21st), Walsall (22nd), Exeter City (23rd), Wimbledon (24th). `data/ep5_promotion.json`.
+
+## Part 5 comments and the right-wing poll (26 Nov 2026, 10 h after posting)
+- TikTok: 2,414 views, 101 likes, 30 comments. The right-wing poll (Bowen / Cozier-Duberry / Tanner) was open with 14 h left: 354 votes, Cozier-Duberry 42%, Tanner 6% (Bowen's bar was cut off in the screenshot, so about 52% if there
+  are only three options; **ask for the closing screenshot**).
+- Comments worth acting on: "keep moylan" (a vote to keep him), "tyler dibling" (a write-in: ESPN has him at **Everton, Premier League**, age 20, 4 appearances (3 as a sub), 0 goals and 0 assists, so he is not in the Championship / League One
+  pool the candidates come from), "what game is this" (new viewers think it is a video game: for Part 6 consider a "football simulation" tag in the opening kicker; not applied yet, ask the user).

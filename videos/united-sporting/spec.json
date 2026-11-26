@@ -2662,7 +2662,7 @@
        "cy": -0.62,
        "rx": 0.34,
        "ry": 0.24,
-       "at": "nudges",
+       "at": "nudged",
        "lag": 0.0,
        "dur": 0.5,
        "color": "#e9b949",
@@ -2670,11 +2670,11 @@
       },
       {
        "kind": "text",
-       "text": "NUDGE",
+       "text": "NUDGE · ESPN",
        "x": 0.95,
        "y": -1.38,
        "size": 0.2,
-       "at": "nudges",
+       "at": "nudged",
        "lag": 0.25,
        "dur": 0.6,
        "color": "#e9b949",
@@ -2734,7 +2734,7 @@
      "sub": "after VAR review"
     }
    ],
-   "vo": "Eightieth minute: Lammens goes for a high ball, Suárez nudges him, and scores. Two–two."
+   "vo": "Eightieth minute: Lammens goes for a high ball. ESPN says Suárez nudged him. Suárez scores. Two–two."
   },
   {
    "kicker": "Sporting 2–2 Man United · Champions League",
@@ -3052,7 +3052,7 @@
       },
       {
        "text": "Judged: Dorgu fouled the keeper",
-       "at": "Dorgu",
+       "at": "foul",
        "lag": 0.0,
        "kind": "foul"
       }
@@ -3061,18 +3061,16 @@
       "text": "NO GOAL",
       "sub": "own goal ruled out",
       "color": "#ff4d5e",
-      "at": "fouled",
-      "lag": 0.3,
+      "at": "foul",
+      "lag": 0.4,
       "size": 112
-     },
-     "hideAt": "booked",
-     "hideLag": -0.4
+     }
     }
    ],
    "shots": [
     {
      "at": "Tielemans",
-     "lag": -0.2,
+     "lag": 0.2,
      "cut": true,
      "transition": "whip",
      "headline": "90'+3: Tielemans [sent off].",
@@ -3262,7 +3260,7 @@
      ]
     }
    ],
-   "vo": "Then Sporting's keeper flaps at a corner and scores an own goal. VAR rules it out: Dorgu fouled him. Tielemans, already booked, is sent off."
+   "vo": "Then Sporting's keeper flaps at a corner and scores an own goal. VAR rules it out for a foul by Dorgu. Tielemans, already booked, is sent off."
   },
   {
    "kicker": "The match in numbers",
@@ -3510,7 +3508,7 @@
      "show": 9,
      "from": 17,
      "stepDur": 0.8,
-     "title": "League phase · after matchday 5",
+     "title": "League phase · matchday 5",
      "focus": "Manchester United",
      "zones": [
       {
@@ -3556,53 +3554,53 @@
        "rows": [
         [
          17,
-         "Manchester United",
+         "Internazionale",
          6
         ],
         [
          18,
-         "Galatasaray",
+         "LASK Linz",
          6
         ],
         [
          19,
+         "Manchester United",
+         6
+        ],
+        [
+         20,
+         "FC Porto",
+         6
+        ],
+        [
+         21,
+         "RB Leipzig",
+         6
+        ],
+        [
+         22,
          "Fenerbahce",
          5
         ],
         [
-         20,
+         23,
          "AS Roma",
          4
         ],
         [
-         21,
+         24,
          "Shakhtar Donetsk",
          4
         ],
         [
-         22,
-         "Viking FK",
-         4
-        ],
-        [
-         23,
-         "Atlético Madrid",
-         4
-        ],
-        [
-         24,
-         "PSV Eindhoven",
-         4
-        ],
-        [
          25,
-         "Bodo/Glimt",
+         "Viking FK",
          4
         ]
        ]
       },
       {
-       "at": "dropped",
+       "at": "point",
        "lag": -0.1,
        "rows": [
         [
@@ -3667,7 +3665,7 @@
      "sub": "8-game league phase"
     }
    ],
-   "vo": "United took a point and dropped two places. Nineteenth, three games left."
+   "vo": "United took a point. Nineteenth, three games left."
   },
   {
    "kicker": "Pochettino · Man United",

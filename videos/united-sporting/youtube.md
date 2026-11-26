@@ -19,7 +19,7 @@ Sporting 2–2 Man United: Were the Officials Fair?
 ```
 Luis Suárez just scored twice against Manchester United… not that one 😳 Sporting 2–2 Man United in the Champions League had three penalties, two goals ruled out, a divot and a red card.
 
-Lammens saved Suárez's 30th-minute penalty, then charged off his line and bundled over Araújo for a second penalty, which Suárez scored. Amad's equaliser was ruled out: ESPN says the referee blew his whistle too early, so VAR couldn't review it. Bruno Fernandes, Sporting's former star, levelled from the spot, then his shot hit a divot and flew over the keeper. Suárez made it 2–2 after nudging Lammens (the goal was confirmed after a VAR review), a Sporting own goal was ruled out for a foul by Dorgu, and Tielemans was sent off in stoppage time. United are 19th with three games left, and Pochettino is still waiting for his first win.
+Lammens saved Suárez's 30th-minute penalty, then charged off his line and bundled over Araújo for a second penalty, which Suárez scored. Amad's equaliser was ruled out: ESPN says the referee blew his whistle too early, so VAR couldn't review it. Bruno Fernandes, Sporting's former star, levelled from the spot, then his shot hit a divot and flew over the keeper. Suárez made it 2–2 (ESPN says he nudged Lammens; the goal was confirmed after a VAR review), a Sporting own goal was ruled out for a foul by Dorgu, and Tielemans was sent off in stoppage time. United are 19th with three games left, and Pochettino is still waiting for his first win.
 Facts from ESPN's match report and play-by-play, 25 Nov 2026.
 
 Were the officials fair? Fair or not fair, tell me below 👇

@@ -17,13 +17,13 @@ One file, lines in order, one clear pause between lines (blank line). Words must
 
 [amazed] Two minutes later, Bruno again. [disbelief] His shot hits a divot and flies over the keeper.
 
-[tense] Eightieth minute: Lammens goes for a high ball, Suárez nudges him, and scores. [deflated] Two–two.
+[tense] Eightieth minute: Lammens goes for a high ball. [dry] ESPN says Suárez nudged him. [matter-of-fact] Suárez scores. [deflated] Two–two.
 
-[incredulous] Then Sporting's keeper flaps at a corner and scores an own goal. [dry] VAR rules it out: Dorgu fouled him. [grave] Tielemans, already booked, is sent off.
+[incredulous] Then Sporting's keeper flaps at a corner and scores an own goal. [dry] VAR rules it out for a foul by Dorgu. [grave] Tielemans, already booked, is sent off.
 
 [matter-of-fact] Sporting had eleven shots, United seven. [amazed] Sporting's keeper made no saves.
 
-[serious] United took a point and dropped two places. [grave] Nineteenth, three games left.
+[serious] United took a point. [grave] Nineteenth, three games left.
 
 [steady] Pochettino's second game, still no win. Brentford on Saturday. [curious] Were the officials fair?
 ```

@@ -50,9 +50,19 @@ order = lambda d: sorted(d, key=lambda t: (-d[t]['pts'], -d[t]['gd'], -d[t]['gf'
 post_rank = {t: i + 1 for i, t in enumerate(order(tab))}; pre_rank = {t: i + 1 for i, t in enumerate(order(pre))}
 assert post_rank == {r['team']: r['rank'] for r in TB}                                                                                       # the rule reproduces ESPN's table exactly
 MU = 'Manchester United'
-assert (pre_rank[MU], pre[MU]['pts'], post_rank[MU], tab[MU]['pts']) == (17, 6, 19, 7) and post_rank[MU] - pre_rank[MU] == 2                  # "dropped two places. Nineteenth"
-pre_key = lambda t: (pre[t]['pts'], pre[t]['gd'], pre[t]['gf'])
-assert all(pre_key(order(pre)[i]) != pre_key(order(pre)[i + 1]) for i in range(14, 21))                                                      # no exact tie around United before the game: the order is not a guess
+def play(base, games):
+    d = {k: dict(v) for k, v in base.items()}
+    for m in games:
+        for t, f, c in ((m['home'], m['hg'], m['ag']), (m['away'], m['ag'], m['hg'])):
+            d[t]['p'] += 1; d[t]['gf'] += f; d[t]['gd'] += f - c; d[t]['pts'] += 3 if f > c else 1 if f == c else 0
+    return d
+kickoff = play(pre, [m for m in R5 if m['date'] == '2026-11-24'])                                                                            # the table when United kicked off: Tuesday's nine games are in
+assert len([m for m in R5 if m['date'] == '2026-11-24']) == 9 and [m for m in R5 if m['home'] == 'Sporting CP'][0]['date'] == '2026-11-25'
+rank_of = lambda d, t: order(d).index(t) + 1
+assert (pre_rank[MU], pre[MU]['pts']) == (17, 6) and (rank_of(kickoff, MU), kickoff[MU]['pts']) == (19, 6) and (post_rank[MU], tab[MU]['pts']) == (19, 7)   # United were already 19th at kick-off (Tuesday's results): the draw kept them there
+key_of = lambda d: (lambda t: (d[t]['pts'], d[t]['gd'], d[t]['gf']))
+assert all(key_of(kickoff)(order(kickoff)[i]) != key_of(kickoff)(order(kickoff)[i + 1]) for i in range(14, 21))                              # no exact tie around United: the order is not a guess
+assert all(key_of(tab)(order(tab)[i]) != key_of(tab)(order(tab)[i + 1]) for i in range(14, 21))
 LEAGUE_GAMES = 8; assert LEAGUE_GAMES - tab[MU]['p'] == 3                                                                                    # "three games left" (the league phase is 8 games)
 assert (UR[-1]['opp'], UR[-1]['score'], UR[-1]['res'], UR[-1]['venue']) == ('Sporting CP', '2-2', 'D', 'away') and (UR[-2]['opp'], UR[-2]['score'], UR[-2]['res']) == ('Liverpool', '0-4', 'L')
 assert art('first win in charge', 'chastening 4-0 loss at rivals', 'Brentford on Saturday')                                                  # "Pochettino's second game, still no win. Brentford on Saturday"
@@ -159,8 +169,8 @@ B.append({"kicker": KICK, "headline": "50': Bruno [again].", "cut": True, "trans
 pl, cards, camk = goal_cross("scores", SPT, GKM, MUN, lag=-0.05, label="Suárez", scorer=SUA, keeper_label="Lammens", keeper_label_at="Lammens")
 B.append({"kicker": KICK, "headline": "80': [Suárez] again. 2–2.", "cut": True, "transition": "whip", "scene": S_B, "accent": TEAL, "lights": 0.95, **camk, "players": pl,
   "card": cards + [mbug([2, 2], "80'", frm=[1, 2], goalAt="scores", lag=0.2),
-                   {"type": "pen", "anchor": 1, "strokes": [{"kind": "ellipse", "cx": 0.28, "cy": -0.62, "rx": 0.34, "ry": 0.24, "at": "nudges", "lag": 0.0, "dur": 0.5, "color": GOLD, "width": 8},
-                                                           {"kind": "text", "text": "NUDGE", "x": 0.95, "y": -1.38, "size": 0.2, "at": "nudges", "lag": 0.25, "dur": 0.6, "color": GOLD, "rot": -0.08}]},
+                   {"type": "pen", "anchor": 1, "strokes": [{"kind": "ellipse", "cx": 0.28, "cy": -0.62, "rx": 0.34, "ry": 0.24, "at": "nudged", "lag": 0.0, "dur": 0.5, "color": GOLD, "width": 8},
+                                                           {"kind": "text", "text": "NUDGE · ESPN", "x": 0.95, "y": -1.38, "size": 0.2, "at": "nudged", "lag": 0.25, "dur": 0.6, "color": GOLD, "rot": -0.08}]},
                    {"type": "pen", "strokes": [{"kind": "arrow", "points": [[110, 760], [280, 690], [400, 880]], "at": "high ball", "lag": -0.2, "dur": 0.7, "color": GOLD, "width": 7, "dashed": True},
                                                {"kind": "text", "text": "CROSS", "x": 120, "y": 690, "size": 56, "at": "high ball", "lag": -0.1, "dur": 0.5, "color": GOLD, "rot": -0.08}]},
                    stamp("GOAL STANDS", "scores", sub="after VAR review", color=GREEN, y=1480, size=92, lag=0.45)]})
@@ -174,9 +184,9 @@ B.append({"kicker": KICK, "headline": "82': own goal. [VAR] says no.", "cut": Tr
                    {"type": "varcheck", "title": "VAR · 82'", "y": 1330, "w": 940, "rowH": 84, "verdictH": 200, "source": "per ESPN match report", "at": "VAR", "lag": -0.1, "clear": False,
                     "steps": [{"text": "Keeper flaps: own goal", "at": "VAR", "lag": 0.1, "kind": "ball"},
                               {"text": "Referee sent to the monitor", "at": "rules", "lag": 0.0, "kind": "var"},
-                              {"text": "Judged: Dorgu fouled the keeper", "at": "Dorgu", "lag": 0.0, "kind": "foul"}],
-                    "verdict": {"text": "NO GOAL", "sub": "own goal ruled out", "color": RED, "at": "fouled", "lag": 0.3, "size": 112}, "hideAt": "booked", "hideLag": -0.4}],
-  "shots": [{"at": "Tielemans", "lag": -0.2, "cut": True, "transition": "whip", "headline": "90'+3: Tielemans [sent off].", "scene": S_D, "accent": RED, "lights": 0.8, **camk3, "players": pl3,
+                              {"text": "Judged: Dorgu fouled the keeper", "at": "foul", "lag": 0.0, "kind": "foul"}],
+                    "verdict": {"text": "NO GOAL", "sub": "own goal ruled out", "color": RED, "at": "foul", "lag": 0.4, "size": 112}}],
+  "shots": [{"at": "Tielemans", "lag": 0.2, "cut": True, "transition": "whip", "headline": "90'+3: Tielemans [sent off].", "scene": S_D, "accent": RED, "lights": 0.8, **camk3, "players": pl3,
              "card": cards3 + [mbug([2, 2], "90'+3", red="away"), {"type": "redcard", "at": "sent off", "lag": -0.2, "label": "90'+3 Tielemans · 2nd yellow", "dx": -200, "y": 1450}]}]})
 
 # 10 the shot timeline: every shot of the match (11 v 7), the red card marker, then Sporting's keeper: 0 saves
@@ -195,8 +205,8 @@ COLORS = {"Manchester United": "#d6283b", "Sporting CP": "#0b8f4b", "VfB Stuttga
 rowsOf = lambda d, lo, hi: [[i + 1, t, d[t]['pts']] for i, t in enumerate(order(d)) if lo <= i + 1 <= hi]
 B.append({"kicker": "Champions League table", "headline": "United: [19th]. Three games left.", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_A, "accent": RED, "lights": 0.7, "focus": 0.5, "flashes": 8, "hype": False,
   "camFrom": {"pos": [0, 1.6, -3.0], "tgt": [0, 1.3, 10]}, "camera": {"pos": [0, 1.6, -1.8], "tgt": [0, 1.3, 10]}, "move": 5, "moveEase": "linear", "players": [],
-  "card": [{"type": "climb", "y": 1110, "delay": 0.0, "w": 900, "rowH": 62, "show": 9, "from": 17, "stepDur": 0.8, "title": "League phase · after matchday 5", "focus": MU, "zones": ZONES, "colors": COLORS, "clear": False,
-            "steps": [{"rows": rows} for rows in [rowsOf(pre, 17, 25)]] + [{"at": "dropped", "lag": -0.1, "rows": rowsOf(tab, 17, 25), "label": "D 2–2 Sporting"}]},
+  "card": [{"type": "climb", "y": 1110, "delay": 0.0, "w": 900, "rowH": 62, "show": 9, "from": 17, "stepDur": 0.8, "title": "League phase · matchday 5", "focus": MU, "zones": ZONES, "colors": COLORS, "clear": False,
+            "steps": [{"rows": rowsOf(kickoff, 17, 25)}, {"at": "point", "lag": -0.1, "rows": rowsOf(tab, 17, 25), "label": "D 2–2 Sporting"}]},
            stamp("3 LEFT", "three games left", sub="8-game league phase", color=RED, y=1630, size=96, lag=-0.1)]})
 
 # 12 Pochettino's second game, still no win (the form strip), Brentford next, and the question (the poll sticker: the real result is the user's to add)

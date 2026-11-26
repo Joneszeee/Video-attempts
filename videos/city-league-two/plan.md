@@ -110,3 +110,9 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
   are only three options; **ask for the closing screenshot**).
 - Comments worth acting on: "keep moylan" (a vote to keep him), "tyler dibling" (a write-in: ESPN has him at **Everton, Premier League**, age 20, 4 appearances (3 as a sub), 0 goals and 0 assists, so he is not in the Championship / League One
   pool the candidates come from), "what game is this" (new viewers think it is a video game: for Part 6 consider a "football simulation" tag in the opening kicker; not applied yet, ask the user).
+
+## Right-wing poll closed (26 Nov 2026, the user's closing screenshot)
+- "Who should we sign next!": **Bowen 54%, Cozier-Duberry 41%, Tanner 5%, 616 votes, poll ended** (TikTok, about a day after Part 5). **Jarrod Bowen (West Ham United) signs for the Championship season (Part 6).**
+  Real numbers to refresh before use (ESPN, last fetched 25 Nov 2026, `right_wing.json` / `p5_real.json`): 17 starts, 7 goals, 7 assists.
+- Still open for Part 6: whether City keep Moylan (his six-month loan ends with the season; the comments said "keep moylan"), how much of season 4 the episode covers (the user decides episode by episode), and the
+  "football simulation" tag for the opening kicker (new viewers ask "what game is this").

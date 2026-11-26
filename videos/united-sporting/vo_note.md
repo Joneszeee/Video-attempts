@@ -1,0 +1,7 @@
+Voiceover: the user records on ElevenLabs from vo_elevenlabs.md (one file, one clear pause between lines); align it with engine/align_vo.py against the Kokoro read out/vo.wav (never sent: timing reference only).
+Build: `python3 build.py videos/united-sporting/spec.json --vo videos/united-sporting/out/voice.mp3 --out videos/united-sporting/out/united-sporting_final.mp4`
+(copy the upload to out/voice.mp3 first, then `python3 engine/align_vo.py videos/united-sporting/out/voice.mp3 videos/united-sporting/out/vo.wav`; out/ is gitignored, so re-run tts.py + align_vo.py if the reference or the alignment file is missing).
+Kokoro reference: `KOKORO_DIR=<folder with kokoro-v1.0.onnx and voices-v1.0.bin> python3 engine/tts.py videos/united-sporting/vo.txt videos/united-sporting/out/vo.wav --gap 0.45` (12 lines, 77 s at 1.0x).
+After the real voice is in, run `python3 engine/check.py videos/united-sporting --video <final mp4>` again: the cues move with the voice, so shots under 2 s can appear
+(watch beat 4's two shots, beat 7's two shots and the Tielemans shot at the end of beat 9: each is about 2.6-3.4 s now, and the voice speed-up of 1.08 shortens them).
+Timing words the picture is pinned to (say them clearly): "penalty" (whistle), "saves", "bundles", "Second penalty", "scores" (beats 4, 5, 6, 8, 9), "referee", "already blown", "ESPN", "VAR", "keeper" (the divot goal's net), "nudges", "Dorgu", "booked", "sent off", "dropped", "still no win".

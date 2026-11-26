@@ -1048,7 +1048,7 @@ function drawNameLabel0(u, p, t) {
   if (!p.label || (p.labelUntil != null && t >= p.labelUntil)) return;   // labelUntil: the name pill goes away (e.g. when the goal is scored)
   const k = eBack(pr(t, p.labelDelay != null ? p.labelDelay : (p.delay || 0) + 0.3, 0.3)); if (k <= 0.002) return;   // eBack(0) is a hair above 0: an invisible label was still registered (and audited) off-screen
   const fs = clamp(u * 0.075, 20, 40), y = -u * (p.tag != null ? 1.55 : 1.1);
-  ctx.save(); ctx.translate(0, y); ctx.scale(k, k); font(700, fs, 'Inter');
+  ctx.save(); if (p.ghost) ctx.globalAlpha = Math.min(1, ctx.globalAlpha * 2); ctx.translate(0, y); ctx.scale(k, k); font(700, fs, 'Inter');   // a ghost's name pill stays readable (the ghost itself is half see-through)
   const w = ctx.measureText(p.label).width + fs * 1.1;
   ctx.fillStyle = 'rgba(255,255,255,0.94)'; rrect(-w / 2, -fs * 0.8, w, fs * 1.6, fs * 0.8); ctx.fill();
   ctx.fillStyle = '#16181d'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(p.label, 0, fs * 0.06);
@@ -2775,7 +2775,7 @@ CARDS.pentrack = function (c, ct, cx, cy) {
   if (c.title) { font(600, 24, 'Mono', '4px'); ctx.fillStyle = '#e6e8ec'; ctx.fillText(c.title.toUpperCase(), 0, -h / 2 + 40); }
   const gap = (w - 60) / n, X = i => -w / 2 + 30 + gap * (i + 0.5), r = 54, yc = -h / 2 + 136;
   it.forEach((m, i) => {
-    const t = m.t != null ? m.t : -1, a0 = m.state === 'empty' || t >= 90 ? 0 : (t < 0 ? 1 : eBack(pr(ct, t, 0.32))), a = a0, empty = a0 < 0.02, ok = m.state === 'hit';
+    const t = m.t != null ? m.t : -1, a0 = m.state === 'empty' || t >= 90 ? 0 : (t < 0 ? 1 : eBack(pr(ct, t, 0.32))), empty = a0 < 0.02, a = empty ? 0 : a0, ok = m.state === 'hit';
     const col = ok ? '#1f9d55' : '#d6283b';
     ctx.save(); ctx.translate(X(i), yc);
     ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,0.25)'; if (empty) ctx.setLineDash([10, 9]); ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.stroke(); ctx.setLineDash([]);

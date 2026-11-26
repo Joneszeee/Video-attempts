@@ -58,7 +58,7 @@ assert (UR[-1]['opp'], UR[-1]['score'], UR[-1]['res'], UR[-1]['venue']) == ('Spo
 assert art('first win in charge', 'chastening 4-0 loss at rivals', 'Brentford on Saturday')                                                  # "Pochettino's second game, still no win. Brentford on Saturday"
 
 # --- kits and looks
-SPT = kit("#0b8f4b", "#ffffff", "#0b8f4b", text="#ffffff", hoops=["#0b8f4b", "#ffffff"])      # Sporting: green and white hoops
+SPT = kit("#0b8f4b", "#ffffff", "#0b8f4b", text="#111111", hoops=["#0b8f4b", "#ffffff"])      # Sporting: green and white hoops
 MUN = kit("#d6283b", "#ffffff", "#111111", text="#ffffff")                                   # United: red
 GKM = kit("#ff7a1a", "#111111", "#ff7a1a", text="#111111")                                   # Lammens (a keeper colour of our own, not the real kit)
 GKS = kit("#7a4de0", "#111111", "#7a4de0", text="#ffffff")                                   # Kaique
@@ -101,8 +101,8 @@ EMPTY = lambda who, mn: (who, mn, "empty", "", None)
 # the other Suárez (a ghost in a plain pale-blue shirt) stands beside him and gets crossed out on "Not that one"
 B.append({"kicker": KICK, "headline": "Suárez scored [twice] vs Man United. Not [that one].", "hookWords": True, "scene": S_A, "accent": TEAL, "lights": 0.95, "flashes": 14, "hype": False,
   "camFrom": {"pos": [0, 1.4, -3.1], "tgt": [0, 2.6, 10]}, "camera": {"pos": [0, 1.4, -2.6], "tgt": [0, 2.6, 10]}, "move": 3.8, "moveEase": "linear",
-  "players": [P(kit=SPT, x=0.3, z=0.0, front=True, chest=True, action="celebrate", actionAt="Not that one", actionLag=0.0, tag=2, tagLabel="goals v Man United", tagDelay=-0.45, **SUA),
-              P(kit=OLD, x=-0.72, z=0.8, front=True, ghost=True, name="SUÁREZ", num=9, skin="#e7b593", hair="#141010", label="THE OTHER ONE", labelDelay=-0.3)],
+  "players": [P(kit=SPT, x=0.42, z=0.0, front=True, chest=True, action="celebrate", actionAt="Not that one", actionLag=0.0, tag=2, tagLabel="goals v Man United", tagDelay=-0.45, **SUA),
+              P(kit=OLD, x=-0.55, z=0.8, front=True, ghost=True, name="SUÁREZ", num=9, skin="#e7b593", hair="#141010", label="THE OTHER ONE", labelDelay=-0.3)],
   "card": [mbug([2, 2], "FT", y=1660, delay=-1.0, clear=False),
            {"type": "pen", "anchor": 1, "strokes": [{"kind": "x", "cx": 0, "cy": -0.5, "r": 0.46, "at": "Not that one", "lag": 0.0, "dur": 0.45, "color": RED, "width": 16}]}],
   "speedlines": [{"t": 0.0, "dur": 0.9, "amount": 0.7}], "shake": [{"at": "Not that one", "amount": 12}]})
@@ -118,14 +118,14 @@ B.append({"kicker": "The craziest match", "headline": "[3] penalties. [2] goals 
                                                                            {"value": 1, "label": "divot", "at": "a divot"}, {"value": 1, "label": "red card", "at": "red card"}]}]})
 
 # 3 penalty one: Suárez hits it at the keeper's chest, Lammens stops it and holds it (the engine's saveBy puts the ball in his gloves); the tracker's first slot goes red on "saves"
-pl, cards, camk = penalty("saves", SPT, GKM, outcome="saved", save="lunge", save_dir=1, lag=-0.15, label="Suárez", kicker=SUA)
+pl, cards, camk = penalty("saves", SPT, GKM, outcome="saved", save="lunge", save_dir=1, lag=-0.15, label="Suárez", kicker=SUA, keeper_label="Lammens", keeper_label_at="Lammens")
 B.append({"kicker": KICK, "headline": "30': [penalty] to Sporting.", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_A, "accent": TEAL, "lights": 0.95, **camk, "players": pl,
   "card": cards + [mbug([0, 0], "30'"), {"type": "sound", "name": "whistle", "at": "penalty", "lag": -0.1},
                    tracker(("Suárez", "30'", "miss", "SAVED", "saves"), EMPTY("Suárez", "33'"), EMPTY("Bruno", "48'")),
                    stamp("SAVED", "saves", sub="Lammens", color=GOLD, y=800, size=104, lag=-0.05)]})
 
 # 4 the keeper charges out and bundles Araújo (yellow card), then penalty two: Suárez scores low into the left corner (the keeper goes the other way)
-pl, cards, camk = bundle("bundles", SPT, GKM, lag=0.0, label="Araújo", victim=ARA)
+pl, cards, camk = bundle("bundles", SPT, GKM, lag=0.0, label="Araújo", victim=ARA, keeper_label="Lammens", keeper_label_at="Lammens")
 pl2, cards2, camk2 = penalty("scores", SPT, GKM, outcome="scored", corner=-1, lag=-0.05, label="Suárez", kicker=SUA)
 B.append({"kicker": KICK, "headline": "Lammens [bundles] him. Penalty [two].", "cut": True, "transition": "whip", "scene": S_B, "accent": TEAL, "lights": 0.95, **camk, "players": pl,
   "card": cards + [mbug([0, 0], "31'"), {"type": "sound", "name": "whistle", "at": "bundles", "lag": 0.15}, {"type": "redcard", "color": YEL, "at": "bundles", "lag": 0.25, "label": "31' Lammens", "dx": 260, "y": 1450}],
@@ -156,7 +156,7 @@ B.append({"kicker": KICK, "headline": "50': Bruno [again].", "cut": True, "trans
   "card": cards + [mbug([1, 2], "50'", frm=[1, 1], goalAt="keeper", lag=0.3)], "shots": [cut2]})
 
 # 8 cross and finish: the high ball, the keeper goes for it, Suárez nudges him (ESPN's word), he flaps and the striker finishes; the pen marks the nudge, then GOAL STANDS (VAR review confirmed it)
-pl, cards, camk = goal_cross("scores", SPT, GKM, MUN, lag=-0.05, label="Suárez", scorer=SUA)
+pl, cards, camk = goal_cross("scores", SPT, GKM, MUN, lag=-0.05, label="Suárez", scorer=SUA, keeper_label="Lammens", keeper_label_at="Lammens")
 B.append({"kicker": KICK, "headline": "80': [Suárez] again. 2–2.", "cut": True, "transition": "whip", "scene": S_B, "accent": TEAL, "lights": 0.95, **camk, "players": pl,
   "card": cards + [mbug([2, 2], "80'", frm=[1, 2], goalAt="scores", lag=0.2),
                    {"type": "pen", "anchor": 1, "strokes": [{"kind": "ellipse", "cx": 0.28, "cy": -0.62, "rx": 0.34, "ry": 0.24, "at": "nudges", "lag": 0.0, "dur": 0.5, "color": GOLD, "width": 8},

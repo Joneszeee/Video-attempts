@@ -1,0 +1,119 @@
+{
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "outro": false,
+ "tail": 0,
+ "hookZoom": false,
+ "timings": [
+  3
+ ],
+ "beats": [
+  {
+   "kicker": "",
+   "headline": "",
+   "vo": "Thumbnail.",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0b8f4b",
+     "#ffffff",
+     "#0b8f4b",
+     "#d6283b"
+    ],
+    "seed": 11
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.85,
+   "flashes": 16,
+   "focus": 0.15,
+   "camFrom": {
+    "pos": [
+     0,
+     1.45,
+     -3.3
+    ],
+    "tgt": [
+     0,
+     1.6,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -3.3
+    ],
+    "tgt": [
+     0,
+     1.6,
+     10
+    ]
+   },
+   "move": 0.1,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "SUÁREZ",
+     "num": 97,
+     "kit": {
+      "shirt": "#0b8f4b",
+      "shorts": "#ffffff",
+      "socks": "#0b8f4b",
+      "text": "#111111",
+      "hoops": [
+       "#0b8f4b",
+       "#ffffff"
+      ]
+     },
+     "skin": "#c99b7a",
+     "hair": "#141010",
+     "x": -0.66,
+     "z": 0.4,
+     "front": true,
+     "chest": true,
+     "pose": "fists"
+    },
+    {
+     "name": "FERNANDES",
+     "num": 8,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "x": 0.66,
+     "z": 0.4,
+     "front": true,
+     "chest": true,
+     "pose": "fists"
+    }
+   ],
+   "card": [
+    {
+     "type": "shout",
+     "text": "SPORTING 2–2\nMAN UNITED",
+     "y": 470,
+     "size": 150,
+     "delay": -3,
+     "rot": -0.03,
+     "clear": false
+    },
+    {
+     "type": "shout",
+     "text": "3 PENALTIES · 1 DIVOT",
+     "y": 1745,
+     "size": 78,
+     "delay": -3,
+     "rot": 0.02,
+     "clear": false,
+     "color": "#3FE0C5",
+     "color2": "#2bb39c"
+    }
+   ]
+  }
+ ]
+}

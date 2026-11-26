@@ -381,12 +381,14 @@ def goal_curler(word, scorer_kit, keeper_kit, def_kit, mate_kit=None, foot="righ
 # relative to `word` (lib.When), players start mid-action, the cameras were placed with a projection check (the portrait frame is only ~25 degrees either side of the
 # aim, so anything standing beside the camera turns into a giant blob: keep other players out of the camera's cone). Screen-left is world -x for a camera looking toward +z.
 # ---------------------------------------------------------------------------------------------------------------------------------
-def penalty(word, kicker_kit, keeper_kit, outcome="scored", corner=-1, foot="right", flight=0.5, lag=0.0, label=None, kicker=None, save="lunge", save_dir=1, celebrate=True, side=-1):
+def penalty(word, kicker_kit, keeper_kit, outcome="scored", corner=-1, foot="right", flight=0.5, lag=0.0, label=None, kicker=None, save="lunge", save_dir=1, celebrate=True, side=-1, ref=True, keeper_label=None, keeper_label_at=None):
     """PENALTY (a three-quarter view from behind the taker, so his body never hides the ball). The taker stands back, then runs in and strikes; the keeper sways on his line and moves.
     The ball reaches the net (scored) or the keeper's gloves (saved) on `word`; the run-up is about 2.8 s long, so the clip needs its word >= 1.5 s into the beat.
     outcome="scored": a low shot into the corner (corner: -1 = screen-left, +1 = screen-right) while the keeper dives the other way, then the taker turns and celebrates.
     outcome="saved": a weak shot that the keeper stops (save="lunge": a reaching step, for a shot down the middle; save="dive": a full dive; save_dir = the screen side he goes) and holds
-    (the ball ends in his gloves via the engine's saveBy). side = which side of the taker the camera sits (-1 = screen-left).
+    (the ball ends in his gloves via the engine's saveBy). side = which side of the taker the camera sits (-1 = screen-left). The camera sits 33 m out and 3.5 m up so the taker's feet clear
+    a tracker card at y 1625. ref=True adds the referee (players[2]): he walks away from the spot and out of shot in the first 2 s of the shot (numeric delay, so he moves from the shot's
+    first frame and a penalty beat is never a statue). keeper_label (+ keeper_label_at = a phrase) puts a name pill over the keeper.
     Returns (players, cards, camera keys); players[0] = taker, players[1] = keeper."""
     W, L = When(word, lag), 3.6
     sc = dict(kicker or {})
@@ -394,7 +396,7 @@ def penalty(word, kicker_kit, keeper_kit, outcome="scored", corner=-1, foot="rig
     kick_len = 0.8
     t_arr = L + tau_s - 0.42 * kick_len
     sd = side
-    pts = [(sd * 1.5, 38.4), (sd * 1.5, 38.4), (sd * 0.34, 40.9), (sd * 0.34, 40.9)]   # he stands back (hands on hips), then runs in: a walk-back would look like running backwards (the body only ever faces one way)
+    pts = [(sd * 1.0, 39.2), (sd * 1.0, 39.2), (sd * 0.34, 40.9), (sd * 0.34, 40.9)]   # he stands back (hands on hips), then runs in: a walk-back would look like running backwards (the body only ever faces one way)
     pT = [0, round(t_arr - 0.85, 3), round(t_arr, 3), 12.0]
     b0 = [0.0, 0.11, 41.5]
     dk = 0.95 if save == "dive" else 0.6
@@ -418,13 +420,18 @@ def penalty(word, kicker_kit, keeper_kit, outcome="scored", corner=-1, foot="rig
         taker.update(label=label, labelDelay=0.25, **_label_until(word, lag, 0.9))
     keeper = P(kit=keeper_kit, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", front=True, pose="keeper", path=[[0.0, 52.0], [-0.5, 52.0], [0.6, 52.0], [0.0, 52.0], [0.0, 52.0]], pathT=[0, 0.9, 1.9, 2.8, 12.0],
                **W.start(-L), actions=kacts)
+    if keeper_label:
+        keeper.update(label=keeper_label, **({"labelAt": keeper_label_at} if keeper_label_at else {"labelDelay": 0.3}))
     cards = [W.rest(0.4 - L, tau_s, b0), shot]
-    camk = {"camFrom": {"pos": [sd * 3.9, 3.4, 33.0], "tgt": [0.0, 0.8, 48.5]}, "camera": {"pos": [sd * 3.3, 3.1, 34.6], "tgt": [0.0, 0.8, 48.5]}, "move": 7.0, "moveEase": "linear", "hype": False,
-            "punch": [W.item(tau_s - 0.04, amount=0.1, dur=1.1)], "shake": [W.item(0.0, amount=14 if outcome == "scored" else 9)], "speedlines": [W.item(tau_s - 0.05, dur=0.6, amount=0.35)], "flashes": 12}
-    return [taker, keeper], cards, camk
+    camk = {"camFrom": {"pos": [sd * 4.2, 3.7, 31.4], "tgt": [0.0, 0.8, 48.5]}, "camera": {"pos": [sd * 3.8, 3.5, 32.6], "tgt": [0.0, 0.8, 48.5]}, "move": 7.0, "moveEase": "linear", "hype": False,
+            "punch": [W.item(tau_s - 0.04, amount=0.22, dur=1.4, x=int(540 + sd * 45), y=1090)], "shake": [W.item(0.0, amount=14 if outcome == "scored" else 9)], "speedlines": [W.item(tau_s - 0.05, dur=0.6, amount=0.35)], "flashes": 12}   # the punch-in aims at the goal so the dive reads
+    players = [taker, keeper]
+    if ref:   # the referee points at the spot, then walks out of shot (away from the camera's side), starting on the shot's first frame
+        players.append(P(kit=kit("#f7d117", "#111111", "#111111", text="#111111"), skin="#e7b593", hair="#3a2a1a", path=[[-sd * 1.4, 42.6], [-sd * 5.6, 40.4], [-sd * 5.6, 40.4]], pathT=[0, 1.9, 12.0], delay=0.1))
+    return players, cards, camk
 
 
-def bundle(word, victim_kit, keeper_kit, lag=0.0, label=None, victim=None, hit=0.0):
+def bundle(word, victim_kit, keeper_kit, lag=0.0, label=None, victim=None, keeper_label=None, keeper_label_at=None):
     """THE KEEPER BUNDLES HIM OVER. A striker chases a loose ball into the box, the keeper charges off his line and dives at his feet; contact on `word`: the striker falls and stays
     down, the ball runs loose. Side-on camera from the right (the keeper comes in from the right of frame). Returns (players, cards, camera keys); players[0] = striker, players[1] = keeper."""
     W, L = When(word, lag), 2.6
@@ -437,6 +444,8 @@ def bundle(word, victim_kit, keeper_kit, lag=0.0, label=None, victim=None, hit=0
         v.update(label=label, labelDelay=0.3)
     k = P(kit=keeper_kit, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", front=True, pose="keeper", path=[[0.4, 52.0], [0.4, 52.0], [-0.9, 48.7], [-0.9, 48.7]], pathT=[0, 0.5, round(L - 0.55, 3), 12.0], **W.start(-L),
           actions=[W.action(-0.5, action="dive", dir=-1)])
+    if keeper_label:
+        k.update(label=keeper_label, **({"labelAt": keeper_label_at} if keeper_label_at else {"labelDelay": 0.3}))
     cards = [W.rest(-0.02, 0.0, ball_rest), W.shot(0.0, 1.4, [ball_rest, [-1.7, 0.11, 49.0], [-0.6, 0.11, 51.6]], slowmo=False, flash=False)]
     camk = {"camFrom": {"pos": [7.5, 1.7, 41.0], "tgt": [-1.0, 1.1, 48.0]}, "camera": {"pos": [6.8, 1.65, 41.6], "tgt": [-1.4, 1.1, 48.2]}, "move": 4.0, "moveEase": "linear", "hype": False,
             "punch": [W.item(-0.1, amount=0.12, dur=1.0)], "shake": [W.item(0.0, amount=10)], "flashes": 10}
@@ -479,7 +488,7 @@ def goal_divot(word, shooter_kit, keeper_kit, def_kit, foot="right", lag=0.0, la
     return [sh, k, d1, d2], cards, camk, cut2
 
 
-def goal_cross(word, scorer_kit, keeper_kit, def_kit, lag=0.0, label=None, scorer=None, own_goal=False, mirror=False):
+def goal_cross(word, scorer_kit, keeper_kit, def_kit, lag=0.0, label=None, scorer=None, own_goal=False, mirror=False, keeper_label=None, keeper_label_at=None):
     """CROSS AND FINISH (the keeper flaps). A high ball drops into the six-yard box from the top of the frame (a cross from the wing); the keeper comes off his line and jumps for it
     with a defender beside him, the striker arrives at the same moment and nudges him off balance (the keeper lands flat), the ball drops and the striker finishes from a yard with a
     leap and a volley into the net on `word`. One camera at the front-left of the box (mirror=True: front-right).
@@ -503,6 +512,8 @@ def goal_cross(word, scorer_kit, keeper_kit, def_kit, lag=0.0, label=None, score
     kact = [W.action(T_j - 0.25, action="lunge", dir=-sd)] if own_goal else [W.action(T_j + 0.05, action="fall", dir=sd)]
     kk = P(kit=keeper_kit, skin="#f0c8a8", hair="#3a2a1a", gloves="#f2f2f2", front=True, pose="keeper", path=[[0.0, 52.0], [0.0, 52.0], [X(-0.5), 49.6], [X(-0.5), 49.6]], pathT=[0, 1.0, round(L + T_j, 3), 12.0],
            **W.start(-L), hops=[W.item(T_j - 0.1, dur=0.5, height=0.28)], actions=kact)
+    if keeper_label:
+        kk.update(label=keeper_label, **({"labelAt": keeper_label_at} if keeper_label_at else {"labelDelay": 0.3}))
     d1 = P(kit=def_kit, skin="#e7b593", hair="#141010", front=True, x=X(-2.7), z=50.5, action="idle")      # keep other players out of the camera's cone: one standing beside it turns into a giant blob
     d2 = P(kit=def_kit, skin="#8a5a3c", hair="#141010", front=True, x=X(3.2), z=47.0, action="idle")
     vol, net = [X(0.4), 1.0, 49.5], [X(0.1), 0.8, 52.3]

@@ -406,6 +406,20 @@
      "counter": false
     },
     {
+     "type": "ballot",
+     "y": 920,
+     "delay": 0.0,
+     "title": "Right wing",
+     "sub": "616 votes",
+     "color": "#e9b949",
+     "n": 14,
+     "dur": 1.5,
+     "w": 420,
+     "hideAt": "Jarrod Bowen",
+     "hideLag": -0.3,
+     "clear": false
+    },
+    {
      "type": "pcard",
      "y": 860,
      "w": 300,

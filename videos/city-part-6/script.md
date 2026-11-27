@@ -26,7 +26,7 @@ So "Man United are in the Championship" is a statement about the simulation, nev
 |---|---|---|
 | 1 | Man City and Man United are in the same league. The Championship. | Hook A (above). |
 | 2 | In our simulation, the Premier League's bottom three come down: Sunderland, Man United, Crystal Palace. Up from League One: City, MK Dons, Stockport. | **New card `divisions`**: three bands (Premier League, Championship, League One); the three shields fall into the Championship on their names (red ▼), then City, MK Dons and Stockport rise (green ▲); stamps "19TH · in the real Premier League table today" and PROMOTED; speed lines and punches. |
-| 3 | You voted for the right wing: Jarrod Bowen. Fifty-four percent. | The poll bars fill (54 / 41 / 5, 616 votes); Bowen's drawn card with his real West Ham numbers (7 goals, 7 assists, 17 starts) slides in on his name. |
+| 3 | You voted for the right wing: Jarrod Bowen. Fifty-four percent. | The **ballot box** (voting slips drop in on "You voted for the right wing"); Bowen's drawn card with his real West Ham numbers (7 goals, 7 assists, 17 starts) slides in on his name; the poll bars fill on "Fifty-four percent" (54 / 41 / 5, 616 votes). |
 | 4 | And you said keep Moylan. So he stays: a permanent deal. | The shirt flips Cardiff → City ("MOYLAN") on "he stays"; PERMANENT stamp. |
 | 5 | Promotion odds: fifty-five percent. Your two picks add twenty-three. | Odds grid: 55 squares light; the last 23 turn gold ("your two picks: +23"). 10,000 seasons: 32% with neither pick, 55% with both. |
 | 6 | But Man United are the favourites: eighty-six percent to win the league. City: five. | Re-hook (VHS tear "BUT"): a giant UNITED flies across; bars: United 86, Sunderland 6, City 5 (title odds, pre-season). |

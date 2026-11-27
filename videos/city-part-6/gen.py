@@ -86,10 +86,11 @@ B.append({"kicker": "The new league · simulated", "headline": "Three come [down
            stamp("19TH", "Man United", sub="in the real Premier League table today", color=RED, y=1560, size=96, lag=0.1, hideAt="Up from", hideLag=-0.1),
            stamp("PROMOTED", "City,", sub="City · MK Dons · Stockport", color=GREEN, y=1560, size=96, lag=-0.3)]})
 
-# 3 the vote: the poll bars fill (54 / 41 / 5, 616 votes) and Bowen's drawn card (real West Ham numbers) slides in on his name
+# 3 the vote: voting slips drop into a ballot box on "You voted for the right wing", then Bowen's drawn card (real West Ham numbers) slides in on his name and the poll bars fill on "Fifty-four percent" (54 / 41 / 5, 616 votes)
 B.append({"kicker": f"Your vote · the TikTok poll · {VOTES} votes", "headline": "You voted: [Bowen].", "cut": True, "transition": "whip", "whipDir": -1, "scene": S_SIM, "accent": TEAL, "lights": 0.5, "focus": 0.3,
   "camFrom": {"pos": [26, 30, -40], "tgt": [0, 0, 6]}, "camera": {"pos": [-24, 16, -24], "tgt": [0, 0, 6]}, "move": 5, "moveEase": "linear", "players": [],
   "card": [hud("Season 4 · the summer", counter=False),
+           {"type": "ballot", "y": 920, "delay": 0.0, "title": "Right wing", "sub": f"{VOTES} votes", "color": GOLDBAR, "n": 14, "dur": 1.5, "w": 420, "hideAt": "Jarrod Bowen", "hideLag": -0.3, "clear": False},
            {"type": "pcard", "y": 860, "w": 300, "h": 420, "shiftX": 0, "side": "left", "at": "Jarrod Bowen", "lag": -0.2, "player": dict(kit=WHU, name="", num=None, **BOWEN),
             "tag": "WEST HAM", "caption": "Jarrod Bowen", "stats": [[int(BW['goals']), "goals"], [int(BW['assists']), "assists"]], "statsNote": f"{int(BW['starts'])} starts · Championship · real stats", "clear": False},
            {"type": "poll", "y": 1450, "at": "Fifty-four", "lag": -0.9, "question": "Who should we sign next?", "clear": False,

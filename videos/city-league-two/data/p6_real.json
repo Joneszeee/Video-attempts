@@ -1,0 +1,44 @@
+{
+ "asof": "2026-11-27",
+ "players": {
+  "James Ward-Prowse": {
+   "club": "Southampton",
+   "age": 32,
+   "pos": "M",
+   "apps": 15.0,
+   "subIns": 2.0,
+   "starts": 13.0,
+   "goals": 1.0,
+   "assists": 1.0,
+   "shots": 21.0,
+   "sot": 5.0,
+   "id": "163111"
+  },
+  "Jack Moylan": {
+   "club": "Cardiff City",
+   "age": 25,
+   "pos": "M",
+   "apps": 17.0,
+   "subIns": 0.0,
+   "starts": 17.0,
+   "goals": 10.0,
+   "assists": 3.0,
+   "shots": 60.0,
+   "sot": 22.0,
+   "id": "378638"
+  },
+  "Jarrod Bowen": {
+   "club": "West Ham United",
+   "age": 29,
+   "pos": "F",
+   "apps": 17.0,
+   "subIns": 0.0,
+   "starts": 17.0,
+   "goals": 7.0,
+   "assists": 7.0,
+   "shots": 65.0,
+   "sot": 22.0,
+   "id": "201089"
+  }
+ }
+}

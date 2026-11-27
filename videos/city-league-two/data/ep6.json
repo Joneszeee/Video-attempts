@@ -1,0 +1,4145 @@
+{
+ "seed": 2034,
+ "mds": 5,
+ "fixtures": [
+  [
+   [
+    "Manchester City",
+    "Cardiff City"
+   ],
+   [
+    "Charlton Athletic",
+    "Norwich City"
+   ],
+   [
+    "Bolton Wanderers",
+    "Portsmouth"
+   ],
+   [
+    "Blackburn Rovers",
+    "Southampton"
+   ],
+   [
+    "Sheffield United",
+    "Birmingham City"
+   ],
+   [
+    "Wrexham",
+    "Queens Park Rangers"
+   ],
+   [
+    "Bristol City",
+    "Manchester United"
+   ],
+   [
+    "Millwall",
+    "Swansea City"
+   ],
+   [
+    "West Bromwich Albion",
+    "Crystal Palace"
+   ],
+   [
+    "Sunderland",
+    "Watford"
+   ],
+   [
+    "Stockport County",
+    "Lincoln City"
+   ],
+   [
+    "West Ham United",
+    "MK Dons"
+   ]
+  ],
+  [
+   [
+    "Norwich City",
+    "Manchester City"
+   ],
+   [
+    "Cardiff City",
+    "Portsmouth"
+   ],
+   [
+    "Southampton",
+    "Charlton Athletic"
+   ],
+   [
+    "Birmingham City",
+    "Bolton Wanderers"
+   ],
+   [
+    "Queens Park Rangers",
+    "Blackburn Rovers"
+   ],
+   [
+    "Manchester United",
+    "Sheffield United"
+   ],
+   [
+    "Swansea City",
+    "Wrexham"
+   ],
+   [
+    "Crystal Palace",
+    "Bristol City"
+   ],
+   [
+    "Watford",
+    "Millwall"
+   ],
+   [
+    "Lincoln City",
+    "West Bromwich Albion"
+   ],
+   [
+    "MK Dons",
+    "Sunderland"
+   ],
+   [
+    "Stockport County",
+    "West Ham United"
+   ]
+  ],
+  [
+   [
+    "Portsmouth",
+    "Manchester City"
+   ],
+   [
+    "Norwich City",
+    "Southampton"
+   ],
+   [
+    "Cardiff City",
+    "Birmingham City"
+   ],
+   [
+    "Charlton Athletic",
+    "Queens Park Rangers"
+   ],
+   [
+    "Bolton Wanderers",
+    "Manchester United"
+   ],
+   [
+    "Blackburn Rovers",
+    "Swansea City"
+   ],
+   [
+    "Sheffield United",
+    "Crystal Palace"
+   ],
+   [
+    "Wrexham",
+    "Watford"
+   ],
+   [
+    "Bristol City",
+    "Lincoln City"
+   ],
+   [
+    "Millwall",
+    "MK Dons"
+   ],
+   [
+    "West Bromwich Albion",
+    "West Ham United"
+   ],
+   [
+    "Sunderland",
+    "Stockport County"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Southampton"
+   ],
+   [
+    "Birmingham City",
+    "Portsmouth"
+   ],
+   [
+    "Queens Park Rangers",
+    "Norwich City"
+   ],
+   [
+    "Manchester United",
+    "Cardiff City"
+   ],
+   [
+    "Swansea City",
+    "Charlton Athletic"
+   ],
+   [
+    "Crystal Palace",
+    "Bolton Wanderers"
+   ],
+   [
+    "Watford",
+    "Blackburn Rovers"
+   ],
+   [
+    "Lincoln City",
+    "Sheffield United"
+   ],
+   [
+    "MK Dons",
+    "Wrexham"
+   ],
+   [
+    "West Ham United",
+    "Bristol City"
+   ],
+   [
+    "Stockport County",
+    "Millwall"
+   ],
+   [
+    "West Bromwich Albion",
+    "Sunderland"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Birmingham City"
+   ],
+   [
+    "Southampton",
+    "Queens Park Rangers"
+   ],
+   [
+    "Portsmouth",
+    "Manchester United"
+   ],
+   [
+    "Norwich City",
+    "Swansea City"
+   ],
+   [
+    "Cardiff City",
+    "Crystal Palace"
+   ],
+   [
+    "Charlton Athletic",
+    "Watford"
+   ],
+   [
+    "Bolton Wanderers",
+    "Lincoln City"
+   ],
+   [
+    "Blackburn Rovers",
+    "MK Dons"
+   ],
+   [
+    "Sheffield United",
+    "West Ham United"
+   ],
+   [
+    "Wrexham",
+    "Stockport County"
+   ],
+   [
+    "Bristol City",
+    "Sunderland"
+   ],
+   [
+    "Millwall",
+    "West Bromwich Albion"
+   ]
+  ],
+  [
+   [
+    "Queens Park Rangers",
+    "Manchester City"
+   ],
+   [
+    "Birmingham City",
+    "Manchester United"
+   ],
+   [
+    "Swansea City",
+    "Southampton"
+   ],
+   [
+    "Crystal Palace",
+    "Portsmouth"
+   ],
+   [
+    "Watford",
+    "Norwich City"
+   ],
+   [
+    "Lincoln City",
+    "Cardiff City"
+   ],
+   [
+    "MK Dons",
+    "Charlton Athletic"
+   ],
+   [
+    "West Ham United",
+    "Bolton Wanderers"
+   ],
+   [
+    "Stockport County",
+    "Blackburn Rovers"
+   ],
+   [
+    "Sunderland",
+    "Sheffield United"
+   ],
+   [
+    "West Bromwich Albion",
+    "Wrexham"
+   ],
+   [
+    "Bristol City",
+    "Millwall"
+   ]
+  ],
+  [
+   [
+    "Manchester United",
+    "Manchester City"
+   ],
+   [
+    "Queens Park Rangers",
+    "Swansea City"
+   ],
+   [
+    "Birmingham City",
+    "Crystal Palace"
+   ],
+   [
+    "Southampton",
+    "Watford"
+   ],
+   [
+    "Portsmouth",
+    "Lincoln City"
+   ],
+   [
+    "Norwich City",
+    "MK Dons"
+   ],
+   [
+    "Cardiff City",
+    "West Ham United"
+   ],
+   [
+    "Charlton Athletic",
+    "Stockport County"
+   ],
+   [
+    "Bolton Wanderers",
+    "Sunderland"
+   ],
+   [
+    "Blackburn Rovers",
+    "West Bromwich Albion"
+   ],
+   [
+    "Sheffield United",
+    "Millwall"
+   ],
+   [
+    "Wrexham",
+    "Bristol City"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Swansea City"
+   ],
+   [
+    "Crystal Palace",
+    "Manchester United"
+   ],
+   [
+    "Watford",
+    "Queens Park Rangers"
+   ],
+   [
+    "Lincoln City",
+    "Birmingham City"
+   ],
+   [
+    "MK Dons",
+    "Southampton"
+   ],
+   [
+    "West Ham United",
+    "Portsmouth"
+   ],
+   [
+    "Stockport County",
+    "Norwich City"
+   ],
+   [
+    "Sunderland",
+    "Cardiff City"
+   ],
+   [
+    "West Bromwich Albion",
+    "Charlton Athletic"
+   ],
+   [
+    "Millwall",
+    "Bolton Wanderers"
+   ],
+   [
+    "Bristol City",
+    "Blackburn Rovers"
+   ],
+   [
+    "Sheffield United",
+    "Wrexham"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Crystal Palace"
+   ],
+   [
+    "Swansea City",
+    "Watford"
+   ],
+   [
+    "Manchester United",
+    "Lincoln City"
+   ],
+   [
+    "Queens Park Rangers",
+    "MK Dons"
+   ],
+   [
+    "Birmingham City",
+    "West Ham United"
+   ],
+   [
+    "Southampton",
+    "Stockport County"
+   ],
+   [
+    "Portsmouth",
+    "Sunderland"
+   ],
+   [
+    "Norwich City",
+    "West Bromwich Albion"
+   ],
+   [
+    "Cardiff City",
+    "Millwall"
+   ],
+   [
+    "Charlton Athletic",
+    "Bristol City"
+   ],
+   [
+    "Bolton Wanderers",
+    "Wrexham"
+   ],
+   [
+    "Blackburn Rovers",
+    "Sheffield United"
+   ]
+  ],
+  [
+   [
+    "Watford",
+    "Manchester City"
+   ],
+   [
+    "Crystal Palace",
+    "Lincoln City"
+   ],
+   [
+    "MK Dons",
+    "Swansea City"
+   ],
+   [
+    "West Ham United",
+    "Manchester United"
+   ],
+   [
+    "Stockport County",
+    "Queens Park Rangers"
+   ],
+   [
+    "Sunderland",
+    "Birmingham City"
+   ],
+   [
+    "West Bromwich Albion",
+    "Southampton"
+   ],
+   [
+    "Millwall",
+    "Portsmouth"
+   ],
+   [
+    "Bristol City",
+    "Norwich City"
+   ],
+   [
+    "Wrexham",
+    "Cardiff City"
+   ],
+   [
+    "Sheffield United",
+    "Charlton Athletic"
+   ],
+   [
+    "Bolton Wanderers",
+    "Blackburn Rovers"
+   ]
+  ],
+  [
+   [
+    "Lincoln City",
+    "Manchester City"
+   ],
+   [
+    "Watford",
+    "MK Dons"
+   ],
+   [
+    "Crystal Palace",
+    "West Ham United"
+   ],
+   [
+    "Swansea City",
+    "Stockport County"
+   ],
+   [
+    "Manchester United",
+    "Sunderland"
+   ],
+   [
+    "Queens Park Rangers",
+    "West Bromwich Albion"
+   ],
+   [
+    "Birmingham City",
+    "Millwall"
+   ],
+   [
+    "Southampton",
+    "Bristol City"
+   ],
+   [
+    "Portsmouth",
+    "Wrexham"
+   ],
+   [
+    "Norwich City",
+    "Sheffield United"
+   ],
+   [
+    "Cardiff City",
+    "Blackburn Rovers"
+   ],
+   [
+    "Charlton Athletic",
+    "Bolton Wanderers"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "MK Dons"
+   ],
+   [
+    "West Ham United",
+    "Lincoln City"
+   ],
+   [
+    "Stockport County",
+    "Watford"
+   ],
+   [
+    "Sunderland",
+    "Crystal Palace"
+   ],
+   [
+    "West Bromwich Albion",
+    "Swansea City"
+   ],
+   [
+    "Millwall",
+    "Manchester United"
+   ],
+   [
+    "Bristol City",
+    "Queens Park Rangers"
+   ],
+   [
+    "Wrexham",
+    "Birmingham City"
+   ],
+   [
+    "Sheffield United",
+    "Southampton"
+   ],
+   [
+    "Blackburn Rovers",
+    "Portsmouth"
+   ],
+   [
+    "Bolton Wanderers",
+    "Norwich City"
+   ],
+   [
+    "Cardiff City",
+    "Charlton Athletic"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "West Ham United"
+   ],
+   [
+    "MK Dons",
+    "Stockport County"
+   ],
+   [
+    "Lincoln City",
+    "Sunderland"
+   ],
+   [
+    "Watford",
+    "West Bromwich Albion"
+   ],
+   [
+    "Crystal Palace",
+    "Millwall"
+   ],
+   [
+    "Swansea City",
+    "Bristol City"
+   ],
+   [
+    "Manchester United",
+    "Wrexham"
+   ],
+   [
+    "Queens Park Rangers",
+    "Sheffield United"
+   ],
+   [
+    "Birmingham City",
+    "Blackburn Rovers"
+   ],
+   [
+    "Southampton",
+    "Bolton Wanderers"
+   ],
+   [
+    "Portsmouth",
+    "Charlton Athletic"
+   ],
+   [
+    "Norwich City",
+    "Cardiff City"
+   ]
+  ],
+  [
+   [
+    "Stockport County",
+    "Manchester City"
+   ],
+   [
+    "West Ham United",
+    "Sunderland"
+   ],
+   [
+    "West Bromwich Albion",
+    "MK Dons"
+   ],
+   [
+    "Millwall",
+    "Lincoln City"
+   ],
+   [
+    "Bristol City",
+    "Watford"
+   ],
+   [
+    "Wrexham",
+    "Crystal Palace"
+   ],
+   [
+    "Sheffield United",
+    "Swansea City"
+   ],
+   [
+    "Blackburn Rovers",
+    "Manchester United"
+   ],
+   [
+    "Bolton Wanderers",
+    "Queens Park Rangers"
+   ],
+   [
+    "Charlton Athletic",
+    "Birmingham City"
+   ],
+   [
+    "Cardiff City",
+    "Southampton"
+   ],
+   [
+    "Portsmouth",
+    "Norwich City"
+   ]
+  ],
+  [
+   [
+    "Sunderland",
+    "Manchester City"
+   ],
+   [
+    "Stockport County",
+    "West Bromwich Albion"
+   ],
+   [
+    "West Ham United",
+    "Millwall"
+   ],
+   [
+    "MK Dons",
+    "Bristol City"
+   ],
+   [
+    "Lincoln City",
+    "Wrexham"
+   ],
+   [
+    "Watford",
+    "Sheffield United"
+   ],
+   [
+    "Crystal Palace",
+    "Blackburn Rovers"
+   ],
+   [
+    "Swansea City",
+    "Bolton Wanderers"
+   ],
+   [
+    "Manchester United",
+    "Charlton Athletic"
+   ],
+   [
+    "Queens Park Rangers",
+    "Cardiff City"
+   ],
+   [
+    "Birmingham City",
+    "Norwich City"
+   ],
+   [
+    "Southampton",
+    "Portsmouth"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "West Bromwich Albion"
+   ],
+   [
+    "Millwall",
+    "Sunderland"
+   ],
+   [
+    "Bristol City",
+    "Stockport County"
+   ],
+   [
+    "Wrexham",
+    "West Ham United"
+   ],
+   [
+    "Sheffield United",
+    "MK Dons"
+   ],
+   [
+    "Blackburn Rovers",
+    "Lincoln City"
+   ],
+   [
+    "Bolton Wanderers",
+    "Watford"
+   ],
+   [
+    "Charlton Athletic",
+    "Crystal Palace"
+   ],
+   [
+    "Cardiff City",
+    "Swansea City"
+   ],
+   [
+    "Norwich City",
+    "Manchester United"
+   ],
+   [
+    "Portsmouth",
+    "Queens Park Rangers"
+   ],
+   [
+    "Southampton",
+    "Birmingham City"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Millwall"
+   ],
+   [
+    "West Bromwich Albion",
+    "Bristol City"
+   ],
+   [
+    "Sunderland",
+    "Wrexham"
+   ],
+   [
+    "Stockport County",
+    "Sheffield United"
+   ],
+   [
+    "West Ham United",
+    "Blackburn Rovers"
+   ],
+   [
+    "MK Dons",
+    "Bolton Wanderers"
+   ],
+   [
+    "Lincoln City",
+    "Charlton Athletic"
+   ],
+   [
+    "Watford",
+    "Cardiff City"
+   ],
+   [
+    "Crystal Palace",
+    "Norwich City"
+   ],
+   [
+    "Swansea City",
+    "Portsmouth"
+   ],
+   [
+    "Manchester United",
+    "Southampton"
+   ],
+   [
+    "Queens Park Rangers",
+    "Birmingham City"
+   ]
+  ],
+  [
+   [
+    "Bristol City",
+    "Manchester City"
+   ],
+   [
+    "Millwall",
+    "Wrexham"
+   ],
+   [
+    "Sheffield United",
+    "West Bromwich Albion"
+   ],
+   [
+    "Blackburn Rovers",
+    "Sunderland"
+   ],
+   [
+    "Bolton Wanderers",
+    "Stockport County"
+   ],
+   [
+    "Charlton Athletic",
+    "West Ham United"
+   ],
+   [
+    "Cardiff City",
+    "MK Dons"
+   ],
+   [
+    "Norwich City",
+    "Lincoln City"
+   ],
+   [
+    "Portsmouth",
+    "Watford"
+   ],
+   [
+    "Southampton",
+    "Crystal Palace"
+   ],
+   [
+    "Birmingham City",
+    "Swansea City"
+   ],
+   [
+    "Manchester United",
+    "Queens Park Rangers"
+   ]
+  ],
+  [
+   [
+    "Wrexham",
+    "Manchester City"
+   ],
+   [
+    "Bristol City",
+    "Sheffield United"
+   ],
+   [
+    "Millwall",
+    "Blackburn Rovers"
+   ],
+   [
+    "West Bromwich Albion",
+    "Bolton Wanderers"
+   ],
+   [
+    "Sunderland",
+    "Charlton Athletic"
+   ],
+   [
+    "Stockport County",
+    "Cardiff City"
+   ],
+   [
+    "West Ham United",
+    "Norwich City"
+   ],
+   [
+    "MK Dons",
+    "Portsmouth"
+   ],
+   [
+    "Lincoln City",
+    "Southampton"
+   ],
+   [
+    "Watford",
+    "Birmingham City"
+   ],
+   [
+    "Crystal Palace",
+    "Queens Park Rangers"
+   ],
+   [
+    "Swansea City",
+    "Manchester United"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Sheffield United"
+   ],
+   [
+    "Blackburn Rovers",
+    "Wrexham"
+   ],
+   [
+    "Bolton Wanderers",
+    "Bristol City"
+   ],
+   [
+    "Charlton Athletic",
+    "Millwall"
+   ],
+   [
+    "Cardiff City",
+    "West Bromwich Albion"
+   ],
+   [
+    "Norwich City",
+    "Sunderland"
+   ],
+   [
+    "Portsmouth",
+    "Stockport County"
+   ],
+   [
+    "Southampton",
+    "West Ham United"
+   ],
+   [
+    "Birmingham City",
+    "MK Dons"
+   ],
+   [
+    "Queens Park Rangers",
+    "Lincoln City"
+   ],
+   [
+    "Manchester United",
+    "Watford"
+   ],
+   [
+    "Swansea City",
+    "Crystal Palace"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Blackburn Rovers"
+   ],
+   [
+    "Sheffield United",
+    "Bolton Wanderers"
+   ],
+   [
+    "Wrexham",
+    "Charlton Athletic"
+   ],
+   [
+    "Bristol City",
+    "Cardiff City"
+   ],
+   [
+    "Millwall",
+    "Norwich City"
+   ],
+   [
+    "West Bromwich Albion",
+    "Portsmouth"
+   ],
+   [
+    "Sunderland",
+    "Southampton"
+   ],
+   [
+    "Stockport County",
+    "Birmingham City"
+   ],
+   [
+    "West Ham United",
+    "Queens Park Rangers"
+   ],
+   [
+    "MK Dons",
+    "Manchester United"
+   ],
+   [
+    "Lincoln City",
+    "Swansea City"
+   ],
+   [
+    "Watford",
+    "Crystal Palace"
+   ]
+  ],
+  [
+   [
+    "Bolton Wanderers",
+    "Manchester City"
+   ],
+   [
+    "Blackburn Rovers",
+    "Charlton Athletic"
+   ],
+   [
+    "Cardiff City",
+    "Sheffield United"
+   ],
+   [
+    "Norwich City",
+    "Wrexham"
+   ],
+   [
+    "Portsmouth",
+    "Bristol City"
+   ],
+   [
+    "Southampton",
+    "Millwall"
+   ],
+   [
+    "Birmingham City",
+    "West Bromwich Albion"
+   ],
+   [
+    "Queens Park Rangers",
+    "Sunderland"
+   ],
+   [
+    "Manchester United",
+    "Stockport County"
+   ],
+   [
+    "Swansea City",
+    "West Ham United"
+   ],
+   [
+    "Crystal Palace",
+    "MK Dons"
+   ],
+   [
+    "Lincoln City",
+    "Watford"
+   ]
+  ],
+  [
+   [
+    "Charlton Athletic",
+    "Manchester City"
+   ],
+   [
+    "Bolton Wanderers",
+    "Cardiff City"
+   ],
+   [
+    "Blackburn Rovers",
+    "Norwich City"
+   ],
+   [
+    "Sheffield United",
+    "Portsmouth"
+   ],
+   [
+    "Wrexham",
+    "Southampton"
+   ],
+   [
+    "Bristol City",
+    "Birmingham City"
+   ],
+   [
+    "Millwall",
+    "Queens Park Rangers"
+   ],
+   [
+    "West Bromwich Albion",
+    "Manchester United"
+   ],
+   [
+    "Sunderland",
+    "Swansea City"
+   ],
+   [
+    "Stockport County",
+    "Crystal Palace"
+   ],
+   [
+    "West Ham United",
+    "Watford"
+   ],
+   [
+    "MK Dons",
+    "Lincoln City"
+   ]
+  ],
+  [
+   [
+    "Cardiff City",
+    "Manchester City"
+   ],
+   [
+    "Norwich City",
+    "Charlton Athletic"
+   ],
+   [
+    "Portsmouth",
+    "Bolton Wanderers"
+   ],
+   [
+    "Southampton",
+    "Blackburn Rovers"
+   ],
+   [
+    "Birmingham City",
+    "Sheffield United"
+   ],
+   [
+    "Queens Park Rangers",
+    "Wrexham"
+   ],
+   [
+    "Manchester United",
+    "Bristol City"
+   ],
+   [
+    "Swansea City",
+    "Millwall"
+   ],
+   [
+    "Crystal Palace",
+    "West Bromwich Albion"
+   ],
+   [
+    "Watford",
+    "Sunderland"
+   ],
+   [
+    "Lincoln City",
+    "Stockport County"
+   ],
+   [
+    "MK Dons",
+    "West Ham United"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Norwich City"
+   ],
+   [
+    "Portsmouth",
+    "Cardiff City"
+   ],
+   [
+    "Charlton Athletic",
+    "Southampton"
+   ],
+   [
+    "Bolton Wanderers",
+    "Birmingham City"
+   ],
+   [
+    "Blackburn Rovers",
+    "Queens Park Rangers"
+   ],
+   [
+    "Sheffield United",
+    "Manchester United"
+   ],
+   [
+    "Wrexham",
+    "Swansea City"
+   ],
+   [
+    "Bristol City",
+    "Crystal Palace"
+   ],
+   [
+    "Millwall",
+    "Watford"
+   ],
+   [
+    "West Bromwich Albion",
+    "Lincoln City"
+   ],
+   [
+    "Sunderland",
+    "MK Dons"
+   ],
+   [
+    "West Ham United",
+    "Stockport County"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Portsmouth"
+   ],
+   [
+    "Southampton",
+    "Norwich City"
+   ],
+   [
+    "Birmingham City",
+    "Cardiff City"
+   ],
+   [
+    "Queens Park Rangers",
+    "Charlton Athletic"
+   ],
+   [
+    "Manchester United",
+    "Bolton Wanderers"
+   ],
+   [
+    "Swansea City",
+    "Blackburn Rovers"
+   ],
+   [
+    "Crystal Palace",
+    "Sheffield United"
+   ],
+   [
+    "Watford",
+    "Wrexham"
+   ],
+   [
+    "Lincoln City",
+    "Bristol City"
+   ],
+   [
+    "MK Dons",
+    "Millwall"
+   ],
+   [
+    "West Ham United",
+    "West Bromwich Albion"
+   ],
+   [
+    "Stockport County",
+    "Sunderland"
+   ]
+  ],
+  [
+   [
+    "Southampton",
+    "Manchester City"
+   ],
+   [
+    "Portsmouth",
+    "Birmingham City"
+   ],
+   [
+    "Norwich City",
+    "Queens Park Rangers"
+   ],
+   [
+    "Cardiff City",
+    "Manchester United"
+   ],
+   [
+    "Charlton Athletic",
+    "Swansea City"
+   ],
+   [
+    "Bolton Wanderers",
+    "Crystal Palace"
+   ],
+   [
+    "Blackburn Rovers",
+    "Watford"
+   ],
+   [
+    "Sheffield United",
+    "Lincoln City"
+   ],
+   [
+    "Wrexham",
+    "MK Dons"
+   ],
+   [
+    "Bristol City",
+    "West Ham United"
+   ],
+   [
+    "Millwall",
+    "Stockport County"
+   ],
+   [
+    "Sunderland",
+    "West Bromwich Albion"
+   ]
+  ],
+  [
+   [
+    "Birmingham City",
+    "Manchester City"
+   ],
+   [
+    "Queens Park Rangers",
+    "Southampton"
+   ],
+   [
+    "Manchester United",
+    "Portsmouth"
+   ],
+   [
+    "Swansea City",
+    "Norwich City"
+   ],
+   [
+    "Crystal Palace",
+    "Cardiff City"
+   ],
+   [
+    "Watford",
+    "Charlton Athletic"
+   ],
+   [
+    "Lincoln City",
+    "Bolton Wanderers"
+   ],
+   [
+    "MK Dons",
+    "Blackburn Rovers"
+   ],
+   [
+    "West Ham United",
+    "Sheffield United"
+   ],
+   [
+    "Stockport County",
+    "Wrexham"
+   ],
+   [
+    "Sunderland",
+    "Bristol City"
+   ],
+   [
+    "West Bromwich Albion",
+    "Millwall"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Queens Park Rangers"
+   ],
+   [
+    "Manchester United",
+    "Birmingham City"
+   ],
+   [
+    "Southampton",
+    "Swansea City"
+   ],
+   [
+    "Portsmouth",
+    "Crystal Palace"
+   ],
+   [
+    "Norwich City",
+    "Watford"
+   ],
+   [
+    "Cardiff City",
+    "Lincoln City"
+   ],
+   [
+    "Charlton Athletic",
+    "MK Dons"
+   ],
+   [
+    "Bolton Wanderers",
+    "West Ham United"
+   ],
+   [
+    "Blackburn Rovers",
+    "Stockport County"
+   ],
+   [
+    "Sheffield United",
+    "Sunderland"
+   ],
+   [
+    "Wrexham",
+    "West Bromwich Albion"
+   ],
+   [
+    "Millwall",
+    "Bristol City"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Manchester United"
+   ],
+   [
+    "Swansea City",
+    "Queens Park Rangers"
+   ],
+   [
+    "Crystal Palace",
+    "Birmingham City"
+   ],
+   [
+    "Watford",
+    "Southampton"
+   ],
+   [
+    "Lincoln City",
+    "Portsmouth"
+   ],
+   [
+    "MK Dons",
+    "Norwich City"
+   ],
+   [
+    "West Ham United",
+    "Cardiff City"
+   ],
+   [
+    "Stockport County",
+    "Charlton Athletic"
+   ],
+   [
+    "Sunderland",
+    "Bolton Wanderers"
+   ],
+   [
+    "West Bromwich Albion",
+    "Blackburn Rovers"
+   ],
+   [
+    "Millwall",
+    "Sheffield United"
+   ],
+   [
+    "Bristol City",
+    "Wrexham"
+   ]
+  ],
+  [
+   [
+    "Swansea City",
+    "Manchester City"
+   ],
+   [
+    "Manchester United",
+    "Crystal Palace"
+   ],
+   [
+    "Queens Park Rangers",
+    "Watford"
+   ],
+   [
+    "Birmingham City",
+    "Lincoln City"
+   ],
+   [
+    "Southampton",
+    "MK Dons"
+   ],
+   [
+    "Portsmouth",
+    "West Ham United"
+   ],
+   [
+    "Norwich City",
+    "Stockport County"
+   ],
+   [
+    "Cardiff City",
+    "Sunderland"
+   ],
+   [
+    "Charlton Athletic",
+    "West Bromwich Albion"
+   ],
+   [
+    "Bolton Wanderers",
+    "Millwall"
+   ],
+   [
+    "Blackburn Rovers",
+    "Bristol City"
+   ],
+   [
+    "Wrexham",
+    "Sheffield United"
+   ]
+  ],
+  [
+   [
+    "Crystal Palace",
+    "Manchester City"
+   ],
+   [
+    "Watford",
+    "Swansea City"
+   ],
+   [
+    "Lincoln City",
+    "Manchester United"
+   ],
+   [
+    "MK Dons",
+    "Queens Park Rangers"
+   ],
+   [
+    "West Ham United",
+    "Birmingham City"
+   ],
+   [
+    "Stockport County",
+    "Southampton"
+   ],
+   [
+    "Sunderland",
+    "Portsmouth"
+   ],
+   [
+    "West Bromwich Albion",
+    "Norwich City"
+   ],
+   [
+    "Millwall",
+    "Cardiff City"
+   ],
+   [
+    "Bristol City",
+    "Charlton Athletic"
+   ],
+   [
+    "Wrexham",
+    "Bolton Wanderers"
+   ],
+   [
+    "Sheffield United",
+    "Blackburn Rovers"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Watford"
+   ],
+   [
+    "Lincoln City",
+    "Crystal Palace"
+   ],
+   [
+    "Swansea City",
+    "MK Dons"
+   ],
+   [
+    "Manchester United",
+    "West Ham United"
+   ],
+   [
+    "Queens Park Rangers",
+    "Stockport County"
+   ],
+   [
+    "Birmingham City",
+    "Sunderland"
+   ],
+   [
+    "Southampton",
+    "West Bromwich Albion"
+   ],
+   [
+    "Portsmouth",
+    "Millwall"
+   ],
+   [
+    "Norwich City",
+    "Bristol City"
+   ],
+   [
+    "Cardiff City",
+    "Wrexham"
+   ],
+   [
+    "Charlton Athletic",
+    "Sheffield United"
+   ],
+   [
+    "Blackburn Rovers",
+    "Bolton Wanderers"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Lincoln City"
+   ],
+   [
+    "MK Dons",
+    "Watford"
+   ],
+   [
+    "West Ham United",
+    "Crystal Palace"
+   ],
+   [
+    "Stockport County",
+    "Swansea City"
+   ],
+   [
+    "Sunderland",
+    "Manchester United"
+   ],
+   [
+    "West Bromwich Albion",
+    "Queens Park Rangers"
+   ],
+   [
+    "Millwall",
+    "Birmingham City"
+   ],
+   [
+    "Bristol City",
+    "Southampton"
+   ],
+   [
+    "Wrexham",
+    "Portsmouth"
+   ],
+   [
+    "Sheffield United",
+    "Norwich City"
+   ],
+   [
+    "Blackburn Rovers",
+    "Cardiff City"
+   ],
+   [
+    "Bolton Wanderers",
+    "Charlton Athletic"
+   ]
+  ],
+  [
+   [
+    "MK Dons",
+    "Manchester City"
+   ],
+   [
+    "Lincoln City",
+    "West Ham United"
+   ],
+   [
+    "Watford",
+    "Stockport County"
+   ],
+   [
+    "Crystal Palace",
+    "Sunderland"
+   ],
+   [
+    "Swansea City",
+    "West Bromwich Albion"
+   ],
+   [
+    "Manchester United",
+    "Millwall"
+   ],
+   [
+    "Queens Park Rangers",
+    "Bristol City"
+   ],
+   [
+    "Birmingham City",
+    "Wrexham"
+   ],
+   [
+    "Southampton",
+    "Sheffield United"
+   ],
+   [
+    "Portsmouth",
+    "Blackburn Rovers"
+   ],
+   [
+    "Norwich City",
+    "Bolton Wanderers"
+   ],
+   [
+    "Charlton Athletic",
+    "Cardiff City"
+   ]
+  ],
+  [
+   [
+    "West Ham United",
+    "Manchester City"
+   ],
+   [
+    "Stockport County",
+    "MK Dons"
+   ],
+   [
+    "Sunderland",
+    "Lincoln City"
+   ],
+   [
+    "West Bromwich Albion",
+    "Watford"
+   ],
+   [
+    "Millwall",
+    "Crystal Palace"
+   ],
+   [
+    "Bristol City",
+    "Swansea City"
+   ],
+   [
+    "Wrexham",
+    "Manchester United"
+   ],
+   [
+    "Sheffield United",
+    "Queens Park Rangers"
+   ],
+   [
+    "Blackburn Rovers",
+    "Birmingham City"
+   ],
+   [
+    "Bolton Wanderers",
+    "Southampton"
+   ],
+   [
+    "Charlton Athletic",
+    "Portsmouth"
+   ],
+   [
+    "Cardiff City",
+    "Norwich City"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Stockport County"
+   ],
+   [
+    "Sunderland",
+    "West Ham United"
+   ],
+   [
+    "MK Dons",
+    "West Bromwich Albion"
+   ],
+   [
+    "Lincoln City",
+    "Millwall"
+   ],
+   [
+    "Watford",
+    "Bristol City"
+   ],
+   [
+    "Crystal Palace",
+    "Wrexham"
+   ],
+   [
+    "Swansea City",
+    "Sheffield United"
+   ],
+   [
+    "Manchester United",
+    "Blackburn Rovers"
+   ],
+   [
+    "Queens Park Rangers",
+    "Bolton Wanderers"
+   ],
+   [
+    "Birmingham City",
+    "Charlton Athletic"
+   ],
+   [
+    "Southampton",
+    "Cardiff City"
+   ],
+   [
+    "Norwich City",
+    "Portsmouth"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Sunderland"
+   ],
+   [
+    "West Bromwich Albion",
+    "Stockport County"
+   ],
+   [
+    "Millwall",
+    "West Ham United"
+   ],
+   [
+    "Bristol City",
+    "MK Dons"
+   ],
+   [
+    "Wrexham",
+    "Lincoln City"
+   ],
+   [
+    "Sheffield United",
+    "Watford"
+   ],
+   [
+    "Blackburn Rovers",
+    "Crystal Palace"
+   ],
+   [
+    "Bolton Wanderers",
+    "Swansea City"
+   ],
+   [
+    "Charlton Athletic",
+    "Manchester United"
+   ],
+   [
+    "Cardiff City",
+    "Queens Park Rangers"
+   ],
+   [
+    "Norwich City",
+    "Birmingham City"
+   ],
+   [
+    "Portsmouth",
+    "Southampton"
+   ]
+  ],
+  [
+   [
+    "West Bromwich Albion",
+    "Manchester City"
+   ],
+   [
+    "Sunderland",
+    "Millwall"
+   ],
+   [
+    "Stockport County",
+    "Bristol City"
+   ],
+   [
+    "West Ham United",
+    "Wrexham"
+   ],
+   [
+    "MK Dons",
+    "Sheffield United"
+   ],
+   [
+    "Lincoln City",
+    "Blackburn Rovers"
+   ],
+   [
+    "Watford",
+    "Bolton Wanderers"
+   ],
+   [
+    "Crystal Palace",
+    "Charlton Athletic"
+   ],
+   [
+    "Swansea City",
+    "Cardiff City"
+   ],
+   [
+    "Manchester United",
+    "Norwich City"
+   ],
+   [
+    "Queens Park Rangers",
+    "Portsmouth"
+   ],
+   [
+    "Birmingham City",
+    "Southampton"
+   ]
+  ],
+  [
+   [
+    "Millwall",
+    "Manchester City"
+   ],
+   [
+    "Bristol City",
+    "West Bromwich Albion"
+   ],
+   [
+    "Wrexham",
+    "Sunderland"
+   ],
+   [
+    "Sheffield United",
+    "Stockport County"
+   ],
+   [
+    "Blackburn Rovers",
+    "West Ham United"
+   ],
+   [
+    "Bolton Wanderers",
+    "MK Dons"
+   ],
+   [
+    "Charlton Athletic",
+    "Lincoln City"
+   ],
+   [
+    "Cardiff City",
+    "Watford"
+   ],
+   [
+    "Norwich City",
+    "Crystal Palace"
+   ],
+   [
+    "Portsmouth",
+    "Swansea City"
+   ],
+   [
+    "Southampton",
+    "Manchester United"
+   ],
+   [
+    "Birmingham City",
+    "Queens Park Rangers"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Bristol City"
+   ],
+   [
+    "Wrexham",
+    "Millwall"
+   ],
+   [
+    "West Bromwich Albion",
+    "Sheffield United"
+   ],
+   [
+    "Sunderland",
+    "Blackburn Rovers"
+   ],
+   [
+    "Stockport County",
+    "Bolton Wanderers"
+   ],
+   [
+    "West Ham United",
+    "Charlton Athletic"
+   ],
+   [
+    "MK Dons",
+    "Cardiff City"
+   ],
+   [
+    "Lincoln City",
+    "Norwich City"
+   ],
+   [
+    "Watford",
+    "Portsmouth"
+   ],
+   [
+    "Crystal Palace",
+    "Southampton"
+   ],
+   [
+    "Swansea City",
+    "Birmingham City"
+   ],
+   [
+    "Queens Park Rangers",
+    "Manchester United"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Wrexham"
+   ],
+   [
+    "Sheffield United",
+    "Bristol City"
+   ],
+   [
+    "Blackburn Rovers",
+    "Millwall"
+   ],
+   [
+    "Bolton Wanderers",
+    "West Bromwich Albion"
+   ],
+   [
+    "Charlton Athletic",
+    "Sunderland"
+   ],
+   [
+    "Cardiff City",
+    "Stockport County"
+   ],
+   [
+    "Norwich City",
+    "West Ham United"
+   ],
+   [
+    "Portsmouth",
+    "MK Dons"
+   ],
+   [
+    "Southampton",
+    "Lincoln City"
+   ],
+   [
+    "Birmingham City",
+    "Watford"
+   ],
+   [
+    "Queens Park Rangers",
+    "Crystal Palace"
+   ],
+   [
+    "Manchester United",
+    "Swansea City"
+   ]
+  ],
+  [
+   [
+    "Sheffield United",
+    "Manchester City"
+   ],
+   [
+    "Wrexham",
+    "Blackburn Rovers"
+   ],
+   [
+    "Bristol City",
+    "Bolton Wanderers"
+   ],
+   [
+    "Millwall",
+    "Charlton Athletic"
+   ],
+   [
+    "West Bromwich Albion",
+    "Cardiff City"
+   ],
+   [
+    "Sunderland",
+    "Norwich City"
+   ],
+   [
+    "Stockport County",
+    "Portsmouth"
+   ],
+   [
+    "West Ham United",
+    "Southampton"
+   ],
+   [
+    "MK Dons",
+    "Birmingham City"
+   ],
+   [
+    "Lincoln City",
+    "Queens Park Rangers"
+   ],
+   [
+    "Watford",
+    "Manchester United"
+   ],
+   [
+    "Crystal Palace",
+    "Swansea City"
+   ]
+  ],
+  [
+   [
+    "Blackburn Rovers",
+    "Manchester City"
+   ],
+   [
+    "Bolton Wanderers",
+    "Sheffield United"
+   ],
+   [
+    "Charlton Athletic",
+    "Wrexham"
+   ],
+   [
+    "Cardiff City",
+    "Bristol City"
+   ],
+   [
+    "Norwich City",
+    "Millwall"
+   ],
+   [
+    "Portsmouth",
+    "West Bromwich Albion"
+   ],
+   [
+    "Southampton",
+    "Sunderland"
+   ],
+   [
+    "Birmingham City",
+    "Stockport County"
+   ],
+   [
+    "Queens Park Rangers",
+    "West Ham United"
+   ],
+   [
+    "Manchester United",
+    "MK Dons"
+   ],
+   [
+    "Swansea City",
+    "Lincoln City"
+   ],
+   [
+    "Crystal Palace",
+    "Watford"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Bolton Wanderers"
+   ],
+   [
+    "Charlton Athletic",
+    "Blackburn Rovers"
+   ],
+   [
+    "Sheffield United",
+    "Cardiff City"
+   ],
+   [
+    "Wrexham",
+    "Norwich City"
+   ],
+   [
+    "Bristol City",
+    "Portsmouth"
+   ],
+   [
+    "Millwall",
+    "Southampton"
+   ],
+   [
+    "West Bromwich Albion",
+    "Birmingham City"
+   ],
+   [
+    "Sunderland",
+    "Queens Park Rangers"
+   ],
+   [
+    "Stockport County",
+    "Manchester United"
+   ],
+   [
+    "West Ham United",
+    "Swansea City"
+   ],
+   [
+    "MK Dons",
+    "Crystal Palace"
+   ],
+   [
+    "Watford",
+    "Lincoln City"
+   ]
+  ],
+  [
+   [
+    "Manchester City",
+    "Charlton Athletic"
+   ],
+   [
+    "Cardiff City",
+    "Bolton Wanderers"
+   ],
+   [
+    "Norwich City",
+    "Blackburn Rovers"
+   ],
+   [
+    "Portsmouth",
+    "Sheffield United"
+   ],
+   [
+    "Southampton",
+    "Wrexham"
+   ],
+   [
+    "Birmingham City",
+    "Bristol City"
+   ],
+   [
+    "Queens Park Rangers",
+    "Millwall"
+   ],
+   [
+    "Manchester United",
+    "West Bromwich Albion"
+   ],
+   [
+    "Swansea City",
+    "Sunderland"
+   ],
+   [
+    "Crystal Palace",
+    "Stockport County"
+   ],
+   [
+    "Watford",
+    "West Ham United"
+   ],
+   [
+    "Lincoln City",
+    "MK Dons"
+   ]
+  ]
+ ],
+ "derby_md": 7,
+ "pre": {
+  "neither": {
+   "title": 0.011,
+   "auto": 0.1447,
+   "playoffs": 0.6525,
+   "promoted": 0.3217,
+   "avg_pts": 81.4586,
+   "pts_10_90": [
+    70,
+    92
+   ],
+   "pos": {
+    "1": 0.011,
+    "2": 0.1337,
+    "3": 0.1846,
+    "4": 0.1857,
+    "5": 0.1637,
+    "6": 0.1185,
+    "7": 0.0754,
+    "8": 0.0483,
+    "9": 0.03,
+    "10": 0.02,
+    "11": 0.0108,
+    "12": 0.0061,
+    "13": 0.0059,
+    "14": 0.003,
+    "15": 0.0017,
+    "16": 0.0008,
+    "17": 0.0004,
+    "18": 0.0001,
+    "19": 0.0003
+   }
+  },
+  "moylan_only": {
+   "title": 0.0236,
+   "auto": 0.2076,
+   "playoffs": 0.6457,
+   "promoted": 0.3938,
+   "avg_pts": 83.6336,
+   "pts_10_90": [
+    72,
+    95
+   ],
+   "pos": {
+    "1": 0.0236,
+    "2": 0.184,
+    "3": 0.2098,
+    "4": 0.1893,
+    "5": 0.1475,
+    "6": 0.0991,
+    "7": 0.0571,
+    "8": 0.0363,
+    "9": 0.0237,
+    "10": 0.0126,
+    "11": 0.0073,
+    "12": 0.0047,
+    "13": 0.0021,
+    "14": 0.0015,
+    "15": 0.0008,
+    "16": 0.0002,
+    "17": 0.0001,
+    "18": 0.0002,
+    "19": 0.0001
+   }
+  },
+  "bowen_only": {
+   "title": 0.0333,
+   "auto": 0.2599,
+   "playoffs": 0.6428,
+   "promoted": 0.4663,
+   "avg_pts": 85.5327,
+   "pts_10_90": [
+    75,
+    96
+   ],
+   "pos": {
+    "1": 0.0333,
+    "2": 0.2266,
+    "3": 0.2325,
+    "4": 0.1915,
+    "5": 0.1372,
+    "6": 0.0816,
+    "7": 0.0441,
+    "8": 0.0248,
+    "9": 0.0118,
+    "10": 0.0077,
+    "11": 0.0044,
+    "12": 0.0017,
+    "13": 0.0015,
+    "14": 0.0007,
+    "15": 0.0001,
+    "16": 0.0002,
+    "17": 0.0002,
+    "19": 0.0001
+   }
+  },
+  "both": {
+   "title": 0.0519,
+   "auto": 0.3495,
+   "playoffs": 0.5941,
+   "promoted": 0.5499,
+   "avg_pts": 87.9671,
+   "pts_10_90": [
+    77,
+    99
+   ],
+   "pos": {
+    "1": 0.0519,
+    "2": 0.2976,
+    "3": 0.2499,
+    "4": 0.1695,
+    "5": 0.1122,
+    "6": 0.0625,
+    "7": 0.0304,
+    "8": 0.012,
+    "9": 0.0056,
+    "10": 0.0033,
+    "11": 0.0019,
+    "12": 0.0017,
+    "13": 0.0011,
+    "14": 0.0002,
+    "16": 0.0001,
+    "21": 0.0001
+   },
+   "clubs": {
+    "Birmingham City": {
+     "title": 0.0002,
+     "promoted": 0.051
+    },
+    "Blackburn Rovers": {
+     "title": 0.0,
+     "promoted": 0.0005
+    },
+    "Bolton Wanderers": {
+     "title": 0.0,
+     "promoted": 0.0
+    },
+    "Bristol City": {
+     "title": 0.0,
+     "promoted": 0.0002
+    },
+    "Cardiff City": {
+     "title": 0.0,
+     "promoted": 0.0022
+    },
+    "Charlton Athletic": {
+     "title": 0.0,
+     "promoted": 0.0
+    },
+    "Crystal Palace": {
+     "title": 0.0221,
+     "promoted": 0.3689
+    },
+    "Lincoln City": {
+     "title": 0.0,
+     "promoted": 0.0
+    },
+    "MK Dons": {
+     "title": 0.0,
+     "promoted": 0.0
+    },
+    "Manchester City": {
+     "title": 0.0519,
+     "promoted": 0.5499
+    },
+    "Manchester United": {
+     "title": 0.8592,
+     "promoted": 0.9852
+    },
+    "Millwall": {
+     "title": 0.0,
+     "promoted": 0.005
+    },
+    "Norwich City": {
+     "title": 0.0002,
+     "promoted": 0.0337
+    },
+    "Portsmouth": {
+     "title": 0.0,
+     "promoted": 0.0008
+    },
+    "Queens Park Rangers": {
+     "title": 0.0,
+     "promoted": 0.0048
+    },
+    "Sheffield United": {
+     "title": 0.0,
+     "promoted": 0.0086
+    },
+    "Southampton": {
+     "title": 0.0071,
+     "promoted": 0.2379
+    },
+    "Stockport County": {
+     "title": 0.0,
+     "promoted": 0.0026
+    },
+    "Sunderland": {
+     "title": 0.0558,
+     "promoted": 0.5819
+    },
+    "Swansea City": {
+     "title": 0.0001,
+     "promoted": 0.0065
+    },
+    "Watford": {
+     "title": 0.0,
+     "promoted": 0.0001
+    },
+    "West Bromwich Albion": {
+     "title": 0.0001,
+     "promoted": 0.0091
+    },
+    "West Ham United": {
+     "title": 0.0033,
+     "promoted": 0.1468
+    },
+    "Wrexham": {
+     "title": 0.0,
+     "promoted": 0.0043
+    }
+   }
+  }
+ },
+ "log": [
+  {
+   "md": 1,
+   "opp": "Cardiff City",
+   "venue": "H",
+   "score": "1-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 1,
+   "clean_sheets": 1,
+   "pos": 8,
+   "pts": 3
+  },
+  {
+   "md": 2,
+   "opp": "Norwich City",
+   "venue": "A",
+   "score": "2-0",
+   "res": "W",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 1,
+   "hg_total": 2,
+   "clean_sheets": 2,
+   "pos": 3,
+   "pts": 6
+  },
+  {
+   "md": 3,
+   "opp": "Portsmouth",
+   "venue": "A",
+   "score": "1-1",
+   "res": "D",
+   "haaland": true,
+   "foden": false,
+   "hgoals": 0,
+   "hg_total": 2,
+   "clean_sheets": 2,
+   "pos": 3,
+   "pts": 7
+  },
+  {
+   "md": 4,
+   "opp": "Southampton",
+   "venue": "H",
+   "score": "1-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 0,
+   "hg_total": 2,
+   "clean_sheets": 3,
+   "pos": 3,
+   "pts": 10
+  },
+  {
+   "md": 5,
+   "opp": "Birmingham City",
+   "venue": "H",
+   "score": "2-0",
+   "res": "W",
+   "haaland": true,
+   "foden": true,
+   "hgoals": 1,
+   "hg_total": 3,
+   "clean_sheets": 4,
+   "pos": 2,
+   "pts": 13
+  }
+ ],
+ "haaland": 3,
+ "clean_sheets": 4,
+ "results": {
+  "1": [
+   [
+    "Manchester City",
+    "Cardiff City",
+    1,
+    0
+   ],
+   [
+    "Charlton Athletic",
+    "Norwich City",
+    0,
+    0
+   ],
+   [
+    "Bolton Wanderers",
+    "Portsmouth",
+    1,
+    1
+   ],
+   [
+    "Blackburn Rovers",
+    "Southampton",
+    3,
+    0
+   ],
+   [
+    "Sheffield United",
+    "Birmingham City",
+    0,
+    2
+   ],
+   [
+    "Wrexham",
+    "Queens Park Rangers",
+    0,
+    1
+   ],
+   [
+    "Bristol City",
+    "Manchester United",
+    0,
+    2
+   ],
+   [
+    "Millwall",
+    "Swansea City",
+    0,
+    0
+   ],
+   [
+    "West Bromwich Albion",
+    "Crystal Palace",
+    2,
+    0
+   ],
+   [
+    "Sunderland",
+    "Watford",
+    3,
+    0
+   ],
+   [
+    "Stockport County",
+    "Lincoln City",
+    2,
+    1
+   ],
+   [
+    "West Ham United",
+    "MK Dons",
+    3,
+    1
+   ]
+  ],
+  "2": [
+   [
+    "Norwich City",
+    "Manchester City",
+    0,
+    2
+   ],
+   [
+    "Cardiff City",
+    "Portsmouth",
+    4,
+    3
+   ],
+   [
+    "Southampton",
+    "Charlton Athletic",
+    3,
+    0
+   ],
+   [
+    "Birmingham City",
+    "Bolton Wanderers",
+    0,
+    1
+   ],
+   [
+    "Queens Park Rangers",
+    "Blackburn Rovers",
+    0,
+    0
+   ],
+   [
+    "Manchester United",
+    "Sheffield United",
+    5,
+    0
+   ],
+   [
+    "Swansea City",
+    "Wrexham",
+    1,
+    3
+   ],
+   [
+    "Crystal Palace",
+    "Bristol City",
+    2,
+    3
+   ],
+   [
+    "Watford",
+    "Millwall",
+    1,
+    1
+   ],
+   [
+    "Lincoln City",
+    "West Bromwich Albion",
+    0,
+    3
+   ],
+   [
+    "MK Dons",
+    "Sunderland",
+    3,
+    0
+   ],
+   [
+    "Stockport County",
+    "West Ham United",
+    0,
+    0
+   ]
+  ],
+  "3": [
+   [
+    "Portsmouth",
+    "Manchester City",
+    1,
+    1
+   ],
+   [
+    "Norwich City",
+    "Southampton",
+    1,
+    2
+   ],
+   [
+    "Cardiff City",
+    "Birmingham City",
+    1,
+    2
+   ],
+   [
+    "Charlton Athletic",
+    "Queens Park Rangers",
+    2,
+    0
+   ],
+   [
+    "Bolton Wanderers",
+    "Manchester United",
+    2,
+    5
+   ],
+   [
+    "Blackburn Rovers",
+    "Swansea City",
+    1,
+    1
+   ],
+   [
+    "Sheffield United",
+    "Crystal Palace",
+    1,
+    2
+   ],
+   [
+    "Wrexham",
+    "Watford",
+    0,
+    0
+   ],
+   [
+    "Bristol City",
+    "Lincoln City",
+    0,
+    0
+   ],
+   [
+    "Millwall",
+    "MK Dons",
+    2,
+    2
+   ],
+   [
+    "West Bromwich Albion",
+    "West Ham United",
+    4,
+    2
+   ],
+   [
+    "Sunderland",
+    "Stockport County",
+    3,
+    0
+   ]
+  ],
+  "4": [
+   [
+    "Manchester City",
+    "Southampton",
+    1,
+    0
+   ],
+   [
+    "Birmingham City",
+    "Portsmouth",
+    0,
+    2
+   ],
+   [
+    "Queens Park Rangers",
+    "Norwich City",
+    2,
+    3
+   ],
+   [
+    "Manchester United",
+    "Cardiff City",
+    5,
+    1
+   ],
+   [
+    "Swansea City",
+    "Charlton Athletic",
+    4,
+    3
+   ],
+   [
+    "Crystal Palace",
+    "Bolton Wanderers",
+    3,
+    0
+   ],
+   [
+    "Watford",
+    "Blackburn Rovers",
+    3,
+    3
+   ],
+   [
+    "Lincoln City",
+    "Sheffield United",
+    1,
+    3
+   ],
+   [
+    "MK Dons",
+    "Wrexham",
+    3,
+    2
+   ],
+   [
+    "West Ham United",
+    "Bristol City",
+    0,
+    2
+   ],
+   [
+    "Stockport County",
+    "Millwall",
+    2,
+    2
+   ],
+   [
+    "West Bromwich Albion",
+    "Sunderland",
+    0,
+    0
+   ]
+  ],
+  "5": [
+   [
+    "Manchester City",
+    "Birmingham City",
+    2,
+    0
+   ],
+   [
+    "Southampton",
+    "Queens Park Rangers",
+    3,
+    3
+   ],
+   [
+    "Portsmouth",
+    "Manchester United",
+    2,
+    1
+   ],
+   [
+    "Norwich City",
+    "Swansea City",
+    2,
+    2
+   ],
+   [
+    "Cardiff City",
+    "Crystal Palace",
+    0,
+    1
+   ],
+   [
+    "Charlton Athletic",
+    "Watford",
+    1,
+    3
+   ],
+   [
+    "Bolton Wanderers",
+    "Lincoln City",
+    0,
+    3
+   ],
+   [
+    "Blackburn Rovers",
+    "MK Dons",
+    1,
+    2
+   ],
+   [
+    "Sheffield United",
+    "West Ham United",
+    1,
+    1
+   ],
+   [
+    "Wrexham",
+    "Stockport County",
+    0,
+    2
+   ],
+   [
+    "Bristol City",
+    "Sunderland",
+    0,
+    3
+   ],
+   [
+    "Millwall",
+    "West Bromwich Albion",
+    0,
+    5
+   ]
+  ]
+ },
+ "snaps": {
+  "1": [
+   [
+    1,
+    "Blackburn Rovers",
+    3,
+    3,
+    3
+   ],
+   [
+    2,
+    "Sunderland",
+    3,
+    3,
+    3
+   ],
+   [
+    3,
+    "West Ham United",
+    3,
+    2,
+    3
+   ],
+   [
+    4,
+    "Birmingham City",
+    3,
+    2,
+    2
+   ],
+   [
+    5,
+    "Manchester United",
+    3,
+    2,
+    2
+   ],
+   [
+    6,
+    "West Bromwich Albion",
+    3,
+    2,
+    2
+   ],
+   [
+    7,
+    "Stockport County",
+    3,
+    1,
+    2
+   ],
+   [
+    8,
+    "Manchester City",
+    3,
+    1,
+    1
+   ],
+   [
+    9,
+    "Queens Park Rangers",
+    3,
+    1,
+    1
+   ],
+   [
+    10,
+    "Bolton Wanderers",
+    1,
+    0,
+    1
+   ],
+   [
+    11,
+    "Portsmouth",
+    1,
+    0,
+    1
+   ],
+   [
+    12,
+    "Charlton Athletic",
+    1,
+    0,
+    0
+   ],
+   [
+    13,
+    "Millwall",
+    1,
+    0,
+    0
+   ],
+   [
+    14,
+    "Norwich City",
+    1,
+    0,
+    0
+   ],
+   [
+    15,
+    "Swansea City",
+    1,
+    0,
+    0
+   ],
+   [
+    16,
+    "Lincoln City",
+    0,
+    -1,
+    1
+   ],
+   [
+    17,
+    "Cardiff City",
+    0,
+    -1,
+    0
+   ],
+   [
+    18,
+    "Wrexham",
+    0,
+    -1,
+    0
+   ],
+   [
+    19,
+    "MK Dons",
+    0,
+    -2,
+    1
+   ],
+   [
+    20,
+    "Bristol City",
+    0,
+    -2,
+    0
+   ],
+   [
+    21,
+    "Crystal Palace",
+    0,
+    -2,
+    0
+   ],
+   [
+    22,
+    "Sheffield United",
+    0,
+    -2,
+    0
+   ],
+   [
+    23,
+    "Southampton",
+    0,
+    -3,
+    0
+   ],
+   [
+    24,
+    "Watford",
+    0,
+    -3,
+    0
+   ]
+  ],
+  "2": [
+   [
+    1,
+    "Manchester United",
+    6,
+    7,
+    7
+   ],
+   [
+    2,
+    "West Bromwich Albion",
+    6,
+    5,
+    5
+   ],
+   [
+    3,
+    "Manchester City",
+    6,
+    3,
+    3
+   ],
+   [
+    4,
+    "Blackburn Rovers",
+    4,
+    3,
+    3
+   ],
+   [
+    5,
+    "West Ham United",
+    4,
+    2,
+    3
+   ],
+   [
+    6,
+    "Bolton Wanderers",
+    4,
+    1,
+    2
+   ],
+   [
+    7,
+    "Stockport County",
+    4,
+    1,
+    2
+   ],
+   [
+    8,
+    "Queens Park Rangers",
+    4,
+    1,
+    1
+   ],
+   [
+    9,
+    "MK Dons",
+    3,
+    1,
+    4
+   ],
+   [
+    10,
+    "Wrexham",
+    3,
+    1,
+    3
+   ],
+   [
+    11,
+    "Birmingham City",
+    3,
+    1,
+    2
+   ],
+   [
+    12,
+    "Cardiff City",
+    3,
+    0,
+    4
+   ],
+   [
+    13,
+    "Southampton",
+    3,
+    0,
+    3
+   ],
+   [
+    14,
+    "Sunderland",
+    3,
+    0,
+    3
+   ],
+   [
+    15,
+    "Bristol City",
+    3,
+    -1,
+    3
+   ],
+   [
+    16,
+    "Millwall",
+    2,
+    0,
+    1
+   ],
+   [
+    17,
+    "Portsmouth",
+    1,
+    -1,
+    4
+   ],
+   [
+    18,
+    "Swansea City",
+    1,
+    -2,
+    1
+   ],
+   [
+    19,
+    "Norwich City",
+    1,
+    -2,
+    0
+   ],
+   [
+    20,
+    "Watford",
+    1,
+    -3,
+    1
+   ],
+   [
+    21,
+    "Charlton Athletic",
+    1,
+    -3,
+    0
+   ],
+   [
+    22,
+    "Crystal Palace",
+    0,
+    -3,
+    2
+   ],
+   [
+    23,
+    "Lincoln City",
+    0,
+    -4,
+    1
+   ],
+   [
+    24,
+    "Sheffield United",
+    0,
+    -7,
+    0
+   ]
+  ],
+  "3": [
+   [
+    1,
+    "Manchester United",
+    9,
+    10,
+    12
+   ],
+   [
+    2,
+    "West Bromwich Albion",
+    9,
+    7,
+    9
+   ],
+   [
+    3,
+    "Manchester City",
+    7,
+    3,
+    4
+   ],
+   [
+    4,
+    "Sunderland",
+    6,
+    3,
+    6
+   ],
+   [
+    5,
+    "Birmingham City",
+    6,
+    2,
+    4
+   ],
+   [
+    6,
+    "Southampton",
+    6,
+    1,
+    5
+   ],
+   [
+    7,
+    "Blackburn Rovers",
+    5,
+    3,
+    4
+   ],
+   [
+    8,
+    "MK Dons",
+    4,
+    1,
+    6
+   ],
+   [
+    9,
+    "Wrexham",
+    4,
+    1,
+    3
+   ],
+   [
+    10,
+    "West Ham United",
+    4,
+    0,
+    5
+   ],
+   [
+    11,
+    "Bristol City",
+    4,
+    -1,
+    3
+   ],
+   [
+    12,
+    "Charlton Athletic",
+    4,
+    -1,
+    2
+   ],
+   [
+    13,
+    "Queens Park Rangers",
+    4,
+    -1,
+    1
+   ],
+   [
+    14,
+    "Bolton Wanderers",
+    4,
+    -2,
+    4
+   ],
+   [
+    15,
+    "Stockport County",
+    4,
+    -2,
+    2
+   ],
+   [
+    16,
+    "Millwall",
+    3,
+    0,
+    3
+   ],
+   [
+    17,
+    "Cardiff City",
+    3,
+    -1,
+    5
+   ],
+   [
+    18,
+    "Crystal Palace",
+    3,
+    -2,
+    4
+   ],
+   [
+    19,
+    "Portsmouth",
+    2,
+    -1,
+    5
+   ],
+   [
+    20,
+    "Swansea City",
+    2,
+    -2,
+    2
+   ],
+   [
+    21,
+    "Watford",
+    2,
+    -3,
+    1
+   ],
+   [
+    22,
+    "Norwich City",
+    1,
+    -3,
+    1
+   ],
+   [
+    23,
+    "Lincoln City",
+    1,
+    -4,
+    1
+   ],
+   [
+    24,
+    "Sheffield United",
+    0,
+    -8,
+    1
+   ]
+  ],
+  "4": [
+   [
+    1,
+    "Manchester United",
+    12,
+    14,
+    17
+   ],
+   [
+    2,
+    "West Bromwich Albion",
+    10,
+    7,
+    9
+   ],
+   [
+    3,
+    "Manchester City",
+    10,
+    4,
+    5
+   ],
+   [
+    4,
+    "Sunderland",
+    7,
+    3,
+    6
+   ],
+   [
+    5,
+    "MK Dons",
+    7,
+    2,
+    9
+   ],
+   [
+    6,
+    "Bristol City",
+    7,
+    1,
+    5
+   ],
+   [
+    7,
+    "Blackburn Rovers",
+    6,
+    3,
+    7
+   ],
+   [
+    8,
+    "Crystal Palace",
+    6,
+    1,
+    7
+   ],
+   [
+    9,
+    "Southampton",
+    6,
+    0,
+    5
+   ],
+   [
+    10,
+    "Birmingham City",
+    6,
+    0,
+    4
+   ],
+   [
+    11,
+    "Portsmouth",
+    5,
+    1,
+    7
+   ],
+   [
+    12,
+    "Swansea City",
+    5,
+    -1,
+    6
+   ],
+   [
+    13,
+    "Stockport County",
+    5,
+    -2,
+    4
+   ],
+   [
+    14,
+    "Millwall",
+    4,
+    0,
+    5
+   ],
+   [
+    15,
+    "Wrexham",
+    4,
+    0,
+    5
+   ],
+   [
+    16,
+    "Charlton Athletic",
+    4,
+    -2,
+    5
+   ],
+   [
+    17,
+    "West Ham United",
+    4,
+    -2,
+    5
+   ],
+   [
+    18,
+    "Norwich City",
+    4,
+    -2,
+    4
+   ],
+   [
+    19,
+    "Queens Park Rangers",
+    4,
+    -2,
+    3
+   ],
+   [
+    20,
+    "Bolton Wanderers",
+    4,
+    -5,
+    4
+   ],
+   [
+    21,
+    "Watford",
+    3,
+    -3,
+    4
+   ],
+   [
+    22,
+    "Cardiff City",
+    3,
+    -5,
+    6
+   ],
+   [
+    23,
+    "Sheffield United",
+    3,
+    -6,
+    4
+   ],
+   [
+    24,
+    "Lincoln City",
+    1,
+    -6,
+    2
+   ]
+  ],
+  "5": [
+   [
+    1,
+    "West Bromwich Albion",
+    13,
+    12,
+    14
+   ],
+   [
+    2,
+    "Manchester City",
+    13,
+    6,
+    7
+   ],
+   [
+    3,
+    "Manchester United",
+    12,
+    13,
+    18
+   ],
+   [
+    4,
+    "Sunderland",
+    10,
+    6,
+    9
+   ],
+   [
+    5,
+    "MK Dons",
+    10,
+    3,
+    11
+   ],
+   [
+    6,
+    "Crystal Palace",
+    9,
+    2,
+    8
+   ],
+   [
+    7,
+    "Portsmouth",
+    8,
+    2,
+    9
+   ],
+   [
+    8,
+    "Stockport County",
+    8,
+    0,
+    6
+   ],
+   [
+    9,
+    "Southampton",
+    7,
+    0,
+    8
+   ],
+   [
+    10,
+    "Bristol City",
+    7,
+    -2,
+    5
+   ],
+   [
+    11,
+    "Blackburn Rovers",
+    6,
+    2,
+    8
+   ],
+   [
+    12,
+    "Swansea City",
+    6,
+    -1,
+    8
+   ],
+   [
+    13,
+    "Watford",
+    6,
+    -1,
+    7
+   ],
+   [
+    14,
+    "Birmingham City",
+    6,
+    -2,
+    4
+   ],
+   [
+    15,
+    "Norwich City",
+    5,
+    -2,
+    6
+   ],
+   [
+    16,
+    "Queens Park Rangers",
+    5,
+    -2,
+    6
+   ],
+   [
+    17,
+    "West Ham United",
+    5,
+    -2,
+    6
+   ],
+   [
+    18,
+    "Wrexham",
+    4,
+    -2,
+    5
+   ],
+   [
+    19,
+    "Lincoln City",
+    4,
+    -3,
+    5
+   ],
+   [
+    20,
+    "Charlton Athletic",
+    4,
+    -4,
+    6
+   ],
+   [
+    21,
+    "Millwall",
+    4,
+    -5,
+    5
+   ],
+   [
+    22,
+    "Sheffield United",
+    4,
+    -6,
+    5
+   ],
+   [
+    23,
+    "Bolton Wanderers",
+    4,
+    -8,
+    4
+   ],
+   [
+    24,
+    "Cardiff City",
+    3,
+    -6,
+    6
+   ]
+  ]
+ },
+ "table_md5": [
+  [
+   1,
+   "West Bromwich Albion",
+   13,
+   14,
+   2
+  ],
+  [
+   2,
+   "Manchester City",
+   13,
+   7,
+   1
+  ],
+  [
+   3,
+   "Manchester United",
+   12,
+   18,
+   5
+  ],
+  [
+   4,
+   "Sunderland",
+   10,
+   9,
+   3
+  ],
+  [
+   5,
+   "MK Dons",
+   10,
+   11,
+   8
+  ],
+  [
+   6,
+   "Crystal Palace",
+   9,
+   8,
+   6
+  ],
+  [
+   7,
+   "Portsmouth",
+   8,
+   9,
+   7
+  ],
+  [
+   8,
+   "Stockport County",
+   8,
+   6,
+   6
+  ],
+  [
+   9,
+   "Southampton",
+   7,
+   8,
+   8
+  ],
+  [
+   10,
+   "Bristol City",
+   7,
+   5,
+   7
+  ],
+  [
+   11,
+   "Blackburn Rovers",
+   6,
+   8,
+   6
+  ],
+  [
+   12,
+   "Swansea City",
+   6,
+   8,
+   9
+  ],
+  [
+   13,
+   "Watford",
+   6,
+   7,
+   8
+  ],
+  [
+   14,
+   "Birmingham City",
+   6,
+   4,
+   6
+  ],
+  [
+   15,
+   "Norwich City",
+   5,
+   6,
+   8
+  ],
+  [
+   16,
+   "Queens Park Rangers",
+   5,
+   6,
+   8
+  ],
+  [
+   17,
+   "West Ham United",
+   5,
+   6,
+   8
+  ],
+  [
+   18,
+   "Wrexham",
+   4,
+   5,
+   7
+  ],
+  [
+   19,
+   "Lincoln City",
+   4,
+   5,
+   8
+  ],
+  [
+   20,
+   "Charlton Athletic",
+   4,
+   6,
+   10
+  ],
+  [
+   21,
+   "Millwall",
+   4,
+   5,
+   10
+  ],
+  [
+   22,
+   "Sheffield United",
+   4,
+   5,
+   11
+  ],
+  [
+   23,
+   "Bolton Wanderers",
+   4,
+   4,
+   12
+  ],
+  [
+   24,
+   "Cardiff City",
+   3,
+   6,
+   12
+  ]
+ ],
+ "odds_after": {
+  "title": 0.0827,
+  "auto": 0.5172,
+  "playoffs": 0.4663,
+  "promoted": 0.6818,
+  "avg_pts": 91.3764,
+  "pts_10_90": [
+   81,
+   101
+  ],
+  "pos": {
+   "1": 0.0827,
+   "2": 0.4345,
+   "3": 0.2526,
+   "4": 0.134,
+   "5": 0.0582,
+   "6": 0.0215,
+   "7": 0.0094,
+   "8": 0.0039,
+   "9": 0.0018,
+   "10": 0.0011,
+   "11": 0.0002,
+   "12": 0.0001
+  },
+  "clubs": {
+   "Birmingham City": {
+    "title": 0.0002,
+    "promoted": 0.0411
+   },
+   "Blackburn Rovers": {
+    "title": 0.0,
+    "promoted": 0.0001
+   },
+   "Bolton Wanderers": {
+    "title": 0.0,
+    "promoted": 0.0
+   },
+   "Bristol City": {
+    "title": 0.0,
+    "promoted": 0.0005
+   },
+   "Cardiff City": {
+    "title": 0.0,
+    "promoted": 0.0015
+   },
+   "Charlton Athletic": {
+    "title": 0.0,
+    "promoted": 0.0
+   },
+   "Crystal Palace": {
+    "title": 0.0119,
+    "promoted": 0.3499
+   },
+   "Lincoln City": {
+    "title": 0.0,
+    "promoted": 0.0
+   },
+   "MK Dons": {
+    "title": 0.0,
+    "promoted": 0.0001
+   },
+   "Manchester City": {
+    "title": 0.0827,
+    "promoted": 0.6818
+   },
+   "Manchester United": {
+    "title": 0.8588,
+    "promoted": 0.9875
+   },
+   "Millwall": {
+    "title": 0.0,
+    "promoted": 0.0022
+   },
+   "Norwich City": {
+    "title": 0.0,
+    "promoted": 0.0254
+   },
+   "Portsmouth": {
+    "title": 0.0,
+    "promoted": 0.0016
+   },
+   "Queens Park Rangers": {
+    "title": 0.0,
+    "promoted": 0.0029
+   },
+   "Sheffield United": {
+    "title": 0.0,
+    "promoted": 0.0066
+   },
+   "Southampton": {
+    "title": 0.0043,
+    "promoted": 0.2102
+   },
+   "Stockport County": {
+    "title": 0.0,
+    "promoted": 0.0034
+   },
+   "Sunderland": {
+    "title": 0.0409,
+    "promoted": 0.5613
+   },
+   "Swansea City": {
+    "title": 0.0,
+    "promoted": 0.0066
+   },
+   "Watford": {
+    "title": 0.0,
+    "promoted": 0.0
+   },
+   "West Bromwich Albion": {
+    "title": 0.0003,
+    "promoted": 0.0307
+   },
+   "West Ham United": {
+    "title": 0.0009,
+    "promoted": 0.0841
+   },
+   "Wrexham": {
+    "title": 0.0,
+    "promoted": 0.0025
+   }
+  }
+ },
+ "model": {
+  "both": [
+   2.2436844699597684,
+   1.1608094768370416
+  ],
+  "neither": [
+   2.006687198697131,
+   1.1901562587432266
+  ]
+ },
+ "xi": [
+  "mccracken",
+  "city",
+  "watts",
+  "l2",
+  "city",
+  "pl",
+  "ward",
+  "bowen",
+  "city",
+  "moylan",
+  "city"
+ ]
+}

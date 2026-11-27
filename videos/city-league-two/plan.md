@@ -116,3 +116,18 @@ Options: José Sá (Wolves), Gavin Bazunu (Bolton, ex-City academy), Jon McCrack
   Real numbers to refresh before use (ESPN, last fetched 25 Nov 2026, `right_wing.json` / `p5_real.json`): 17 starts, 7 goals, 7 assists.
 - Still open for Part 6: whether City keep Moylan (his six-month loan ends with the season; the comments said "keep moylan"), how much of season 4 the episode covers (the user decides episode by episode), and the
   "football simulation" tag for the opening kicker (new viewers ask "what game is this").
+
+## Part 6 (season 4, Championship 2029/30: the summer and the first five matchdays): decisions and seeds, fixed before running (27 Nov 2026)
+- User's answers: **just the summer and the first few games** (a short opener: Bowen arrives, the new league, then a cliffhanger); **Moylan is kept on a permanent deal** (left wing; Samba stays on the bench); the opening kicker says
+  **"a football simulation"** (new viewers keep asking "what game is this").
+- The league (stand-ins are today's real tables, Part 4's convention; `data/c6model.py` -> `citymodel_c6.json`): the real Championship positions 4-21 stay (Birmingham, West Brom, Southampton, QPR, Swansea, Sheffield United, Portsmouth, Norwich, Blackburn,
+  West Ham, Wrexham, Charlton, Bristol City, Cardiff, Millwall, Bolton, Watford, Lincoln); the real top three (Middlesbrough, Stoke, Wolves) are the clubs that went up to the Premier League; the real bottom three (Preston, Burnley, Derby) are already in League One (Part 4);
+  **the real Premier League bottom three today come down: Sunderland, Manchester United (19th), Crystal Palace**; Man City, MK Dons and Stockport County come up from League One (Part 5 + the play-offs, seed 2033). 18 + 3 + 3 = 24.
+  Ratings: Championship clubs from the Championship's real results (as in Part 4); the three relegated clubs from the Premier League's real results (`fetch_pl.py`, `espn_pl.json`, this season 1.0 / last season 0.5) moved onto the Championship scale with the 295 real
+  Premier League v Championship cup ties (`gap_pl.py`); MK Dons and Stockport from their League One ratings with Part 4's Championship v League One bridge. City's own PL-level tier comes from City's 19 real cup ties v Championship clubs blended with the PL average (the same blend as l1model.py).
+- City's XI = Part 5's second half with the fans' picks: **Jarrod Bowen on the right wing (West Ham's Championship level)** and **Jack Moylan on the left (Cardiff's Championship level, permanent)**, Ward-Prowse at Southampton's level; the kids' third year of growth (0.20 compounds to 0.488).
+  Real numbers (ESPN, 27 Nov 2026, `p6_real.json`): Bowen age 29, 17 starts, 7 goals, 7 assists; Moylan 17 starts, 10 goals, 3 assists; Ward-Prowse 15 apps, 1 goal, 1 assist.
+- Odds: 10,000 seasons from the empty table, four versions of the XI on the same seeds (neither fan pick / Moylan only / Bowen only / both), seed 7 as in Part 4. Promotion = top two or the play-off winner (3rd-6th).
+- **Official run: seed 2034** (the fixture list is `fixtures(2034)`: the club order is shuffled with 2034 + 1 = 2035, as sim_l4.py does), **matchdays 1-5 only**, played once (N = 5 fixed before looking at any result). Haaland and Foden are available 90% / 85% of games, Haaland takes 38% of City's goals when he plays (as in every season).
+- **Scorers: seed 2036** (written here before running; 2035 is already the fixture shuffle): each City goal in the five games goes to a slot in proportion to the model's attack weights (Haaland's own goals are the sim's), 67% of goals carry an assist, exactly as `squad5.py` did it; no score changes. Fix the names only after this is run.
+

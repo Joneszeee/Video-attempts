@@ -92,7 +92,7 @@ B.append({"kicker": f"Your vote · the TikTok poll · {VOTES} votes", "headline"
   "card": [hud("Season 4 · the summer", counter=False),
            {"type": "pcard", "y": 860, "w": 300, "h": 420, "shiftX": 0, "side": "left", "at": "Jarrod Bowen", "lag": -0.2, "player": dict(kit=WHU, name="", num=None, **BOWEN),
             "tag": "WEST HAM", "caption": "Jarrod Bowen", "stats": [[int(BW['goals']), "goals"], [int(BW['assists']), "assists"]], "statsNote": f"{int(BW['starts'])} starts · Championship · real stats", "clear": False},
-           {"type": "poll", "y": 1450, "delay": 0.0, "question": "Who should we sign next?", "clear": False,
+           {"type": "poll", "y": 1450, "at": "Fifty-four", "lag": -0.9, "question": "Who should we sign next?", "clear": False,
             "options": [{"label": "Bowen", "color": "#7a263a", "fill": 0.54, "pct": "54%"}, {"label": "Cozier-Duberry", "color": "#e2231a", "fill": 0.41, "pct": "41%"}, {"label": "Tanner", "color": "#0a4ea1", "fill": 0.05, "pct": "5%"}]}]})
 
 # 4 Moylan stays: the shirt flips Cardiff -> City on "he stays", PERMANENT slams

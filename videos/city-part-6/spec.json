@@ -444,7 +444,8 @@
     {
      "type": "poll",
      "y": 1450,
-     "delay": 0.0,
+     "at": "Fifty-four",
+     "lag": -0.9,
      "question": "Who should we sign next?",
      "clear": false,
      "options": [

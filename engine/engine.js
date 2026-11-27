@@ -2622,10 +2622,10 @@ CARDS.ballot = function (c, ct, cx, cy) {
   let bounce = 0; const R = rng(c.seed || 12);
   ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k);
   const slips = [];
-  for (let i = 0; i < n; i++) { const t0 = 0.35 + i / n * dur, a = (ct - t0) / 0.55, sx = (R() - 0.5) * 700, sy = -520 - R() * 260, rot = (R() - 0.5) * 2;
+  for (let i = 0; i < n; i++) { const t0 = 0.35 + i / n * dur, a = (ct - t0) / 0.55, sx = (R() - 0.5) * 700, sy = -(c.drop != null ? c.drop : 520) - R() * 260, rot = (R() - 0.5) * 2;
     if (a > 0 && a < 1) slips.push({ a, sx, sy, rot }); if (a >= 1 && a < 1.3) bounce = Math.max(bounce, 1 - (a - 1) / 0.3); }
   for (const sl of slips) { const e = sl.a * sl.a, x = lerp(sl.sx, 0, eOut(sl.a)), y = lerp(sl.sy, -bh / 2 - 6, e);
-    ctx.save(); ctx.translate(x, y); ctx.rotate(sl.rot * (1 - sl.a)); ctx.scale(1, lerp(1, 0.35, pr(sl.a, 0.8, 0.2)));
+    ctx.save(); if (c.drop != null) ctx.globalAlpha *= pr(sl.a, 0, 0.25); ctx.translate(x, y); ctx.rotate(sl.rot * (1 - sl.a)); ctx.scale(1, lerp(1, 0.35, pr(sl.a, 0.8, 0.2)));
     ctx.fillStyle = '#f7f3e8'; rrect(-52, -36, 104, 72, 8); ctx.fill();
     ctx.strokeStyle = col; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-20, 0); ctx.lineTo(-6, 14); ctx.lineTo(22, -16); ctx.stroke(); ctx.restore(); }
   ctx.translate(0, bounce * 8);

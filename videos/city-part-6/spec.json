@@ -407,7 +407,8 @@
     },
     {
      "type": "ballot",
-     "y": 920,
+     "y": 1100,
+     "drop": 300,
      "delay": 0.0,
      "title": "Right wing",
      "sub": "616 votes",

@@ -371,7 +371,7 @@ Built so far from the idea list (reuse them):
   `items: [{name, x, y, color, at}]` (x, y 0–1, attack at the top; an item with `at` pops on its word with a gold ring), `title`, `w`, `instant: true`
   (all there at once), `empty: {x, y, label, at|t}` = a pulsing red dashed "?" slot for the man left out.
 - **Ballot box** (built): the `ballot` card. Voting slips fly in and drop through the slot while the box bounces: `title`, `sub`, `color`, `n`, `dur`, `w`,
-  `shiftX` (two side by side for "who voted for what").
+  `shiftX` (two side by side for "who voted for what"), `drop` (how far above the box the slips start, default 520 px; when set they also fade in, so they can start below a headline: used in `videos/city-part-6`).
 - **Photo finish** (built): the `photofinish` card. Two bars race to a chequered line while the numbers count; the loser stops short and a red badge
   calls out the gap: `rows: [{name, value, color}]`, `floor` (exaggerates a small gap), `dur`, `gap: "0.8%"`, `gapAt`, `suffix`, `decimals`.
 - **Faster switches (user):** cut or whip-pan about every 2–3s (never under 2s), and give long lines a second shot. Alternate transition types.

@@ -1,0 +1,208 @@
+{
+ "seed": 2036,
+ "p_assist": 0.67,
+ "ratings": {
+  "McCracken": {
+   "impact": 0.0319,
+   "ovr": 63,
+   "pos": "GK"
+  },
+  "Lewis": {
+   "impact": 0.1966,
+   "ovr": 76,
+   "pos": "RB"
+  },
+  "Watts": {
+   "impact": -0.0569,
+   "ovr": 55,
+   "pos": "CB"
+  },
+  "Scarr": {
+   "impact": -0.0766,
+   "ovr": 54,
+   "pos": "CB"
+  },
+  "O'Reilly": {
+   "impact": 0.1966,
+   "ovr": 76,
+   "pos": "LB"
+  },
+  "Iroegbunam": {
+   "impact": 0.1313,
+   "ovr": 71,
+   "pos": "DM"
+  },
+  "Ward-Prowse": {
+   "impact": 0.067,
+   "ovr": 65,
+   "pos": "DM"
+  },
+  "Bowen": {
+   "impact": 0.1461,
+   "ovr": 72,
+   "pos": "RW"
+  },
+  "Foden": {
+   "impact": 0.2414,
+   "ovr": 79,
+   "pos": "AM"
+  },
+  "Moylan": {
+   "impact": 0.0591,
+   "ovr": 65,
+   "pos": "LW"
+  },
+  "Haaland": {
+   "impact": 0.3328,
+   "ovr": 87,
+   "pos": "ST"
+  }
+ },
+ "upgrade_to_premier_league_average": {
+  "McCracken": 0.0708,
+  "Lewis": -0.0693,
+  "Watts": 0.1635,
+  "Scarr": 0.1821,
+  "O'Reilly": -0.0693,
+  "Iroegbunam": 0.0,
+  "Ward-Prowse": 0.064,
+  "Bowen": 0.0341,
+  "Foden": -0.072,
+  "Moylan": 0.1275,
+  "Haaland": -0.0977
+ },
+ "stats_five_games": {
+  "McCracken": {
+   "apps": 5,
+   "goals": 0,
+   "assists": 0,
+   "cs": 4,
+   "conceded": 1
+  },
+  "Lewis": {
+   "apps": 5,
+   "goals": 0,
+   "assists": 0,
+   "cs": 4,
+   "conceded": 0
+  },
+  "Watts": {
+   "apps": 5,
+   "goals": 0,
+   "assists": 0,
+   "cs": 4,
+   "conceded": 0
+  },
+  "Scarr": {
+   "apps": 5,
+   "goals": 0,
+   "assists": 0,
+   "cs": 4,
+   "conceded": 0
+  },
+  "O'Reilly": {
+   "apps": 5,
+   "goals": 0,
+   "assists": 1,
+   "cs": 4,
+   "conceded": 0
+  },
+  "Iroegbunam": {
+   "apps": 5,
+   "goals": 0,
+   "assists": 0,
+   "cs": 0,
+   "conceded": 0
+  },
+  "Ward-Prowse": {
+   "apps": 5,
+   "goals": 1,
+   "assists": 0,
+   "cs": 0,
+   "conceded": 0
+  },
+  "Bowen": {
+   "apps": 5,
+   "goals": 2,
+   "assists": 2,
+   "cs": 0,
+   "conceded": 0
+  },
+  "Foden": {
+   "apps": 3,
+   "goals": 0,
+   "assists": 1,
+   "cs": 0,
+   "conceded": 0
+  },
+  "Moylan": {
+   "apps": 5,
+   "goals": 1,
+   "assists": 0,
+   "cs": 0,
+   "conceded": 0
+  },
+  "Haaland": {
+   "apps": 5,
+   "goals": 3,
+   "assists": 0,
+   "cs": 0,
+   "conceded": 0
+  }
+ },
+ "stand_in": {
+  "apps": 2,
+  "goals": 0,
+  "assists": 0,
+  "cs": 0,
+  "conceded": 0
+ },
+ "goals": [
+  {
+   "md": 1,
+   "opp": "Cardiff City",
+   "scorer": "Haaland",
+   "assist": null
+  },
+  {
+   "md": 2,
+   "opp": "Norwich City",
+   "scorer": "Haaland",
+   "assist": "Bowen"
+  },
+  {
+   "md": 2,
+   "opp": "Norwich City",
+   "scorer": "Moylan",
+   "assist": "Bowen"
+  },
+  {
+   "md": 3,
+   "opp": "Portsmouth",
+   "scorer": "Ward-Prowse",
+   "assist": null
+  },
+  {
+   "md": 4,
+   "opp": "Southampton",
+   "scorer": "Bowen",
+   "assist": null
+  },
+  {
+   "md": 5,
+   "opp": "Birmingham City",
+   "scorer": "Haaland",
+   "assist": "Foden"
+  },
+  {
+   "md": 5,
+   "opp": "Birmingham City",
+   "scorer": "Bowen",
+   "assist": "O'Reilly"
+  }
+ ],
+ "team": {
+  "gf": 2.2436844699597684,
+  "ga": 1.1608094768370416
+ }
+}

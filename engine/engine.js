@@ -1252,9 +1252,12 @@ function drawKicker(text, a) {
   if (!text) return;
   ctx.save();
   ctx.globalAlpha = a;
+  const full = '— ' + text.toUpperCase();
   font(500, 23, 'Mono', '5px');
+  const tw = ctx.measureText(full).width;
+  if (tw > HL.maxW) { const k = HL.maxW / tw; font(500, Math.max(14, 23 * k), 'Mono', Math.max(0.5, 5 * k) + 'px'); }   // a long label shrinks to fit the headline's width (it was cut off at the edge)
   ctx.fillStyle = '#8b919c'; ctx.textAlign = 'left';
-  ctx.fillText('— ' + text.toUpperCase(), HL.x, HL.y - 92);
+  ctx.fillText(full, HL.x, HL.y - 92);
   ctx.restore();
 }
 // The channel's shirt logo: a blue shirt with yellow trim and a yellow 6 (user's choice). spec.brandShirt: [body, trim] overrides.
@@ -2327,6 +2330,53 @@ CARDS.trapdoor = function (c, ct, cx, cy) {
   ctx.restore();
 };
 CARDS.trapdoor.noSlide = true;
+
+// League lift (built for Part 6, "who is in the new league"): division bands stacked top to bottom (highest division first); club shields fall (red arrow) or rise (green arrow)
+// into the focus band, each on its word. Dashed slots in the focus band wait for them.
+// {type: "divisions", tiers: ["PREMIER LEAGUE", "CHAMPIONSHIP", "LEAGUE ONE"], focus: 1, note: "+ 18 clubs stay", w, bandH, shield, cols, accent,
+//  moves: [{name, badge: {colors, text, style}, from, to (band indexes), col (column, default = its index), t|at, dur}]}   (no t = 0.7 s + 0.55 s per move)
+CARDS.divisions = function (c, ct, cx, cy) {
+  const T = c.tiers || ['PREMIER LEAGUE', 'CHAMPIONSHIP', 'LEAGUE ONE'], nT = T.length, M = c.moves || [], w = c.w || 940, bh = c.bandH || 270, gap = 16, foc = c.focus != null ? c.focus : 1;
+  const cols = c.cols || M.length, cw = (w - 40) / cols, sh = c.shield || 104, acc = c.accent || '#3FE0C5', k = eOut(pr(ct, 0, 0.4));
+  const bandY = i => (i - (nT - 1) / 2) * (bh + gap), colX = j => (j - (cols - 1) / 2) * cw, restY = i => bandY(i) + 8, colOf = (m, i) => m.col != null ? m.col : i;
+  const ghost = (x, y, a, fill) => {
+    const gw = sh * 0.82; ctx.save(); ctx.translate(x, y); ctx.globalAlpha *= a; ctx.setLineDash([9, 9]); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+    ctx.beginPath(); ctx.moveTo(-gw / 2, -sh / 2); ctx.lineTo(gw / 2, -sh / 2); ctx.lineTo(gw / 2, sh * 0.05); ctx.quadraticCurveTo(gw / 2, sh * 0.35, 0, sh / 2); ctx.quadraticCurveTo(-gw / 2, sh * 0.35, -gw / 2, sh * 0.05); ctx.closePath();
+    if (fill) { ctx.fillStyle = 'rgba(255,255,255,0.10)'; ctx.fill(); } ctx.stroke(); ctx.restore();
+  };
+  ctx.save(); ctx.globalAlpha *= k; ctx.translate(cx, cy + (1 - k) * 40);
+  for (let i = 0; i < nT; i++) {
+    const y = bandY(i), f = i === foc;
+    ctx.save(); if (f) { ctx.shadowColor = acc; ctx.shadowBlur = 34; }
+    ctx.fillStyle = f ? 'rgba(10,26,30,0.9)' : 'rgba(8,10,15,0.74)'; rrect(-w / 2, y - bh / 2, w, bh, 22); ctx.fill(); ctx.restore();
+    ctx.lineWidth = f ? 4 : 2; ctx.strokeStyle = f ? acc : 'rgba(255,255,255,0.16)'; rrect(-w / 2, y - bh / 2, w, bh, 22); ctx.stroke();
+    font(700, 24, 'Mono', '5px'); ctx.fillStyle = f ? acc : 'rgba(230,232,236,0.55)'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(T[i], -w / 2 + 30, y - bh / 2 + 34);
+    if (f && c.note) { ctx.textAlign = 'right'; ctx.fillStyle = 'rgba(230,232,236,0.7)'; ctx.fillText(String(c.note).toUpperCase(), w / 2 - 30, y - bh / 2 + 34); }
+    for (let j = 0; j < cols; j++) {   // waiting slots / the clubs that are not moving
+      const mv = M.findIndex((m, q) => colOf(m, q) === j && (m.to === i || m.from === i)); if (mv >= 0 && M[mv].from === i) continue;
+      if (mv >= 0) { const m = M[mv], t = m.t != null ? m.t : 0.7 + mv * 0.55; ghost(colX(j), restY(i), 1 - pr(ct, t + (m.dur || 0.55), 0.2), false); } else ghost(colX(j), restY(i), f ? 0.22 : 0.3, !f);
+    }
+  }
+  M.forEach((m, i) => {
+    const x = colX(colOf(m, i)), t = m.t != null ? m.t : 0.7 + i * 0.55, d = m.dur || 0.55, u = pr(ct, t, d), down = m.to > m.from, y0 = restY(m.from), y1 = restY(m.to), ap = eBack(pr(ct, 0.15 + i * 0.07, 0.35));
+    const mov = p => down ? p * p : eOut(p), land = ct - (t + d), fy = lerp(y0, y1, mov(u)) + (u < 1 ? Math.sin(ct * 2.6 + i * 1.3) * 3 * (1 - u) : -Math.exp(-Math.max(0, land) * 8) * Math.sin(Math.max(0, land) * 26) * 9);
+    if (ap <= 0) return;
+    ctx.save(); ctx.translate(x, 0);
+    if (u > 0 && u < 1) for (let q = 3; q >= 1; q--) { ctx.save(); ctx.globalAlpha *= 0.3 / q; drawBadge(0, lerp(y0, y1, mov(clamp(u - 0.09 * q, 0, 1))), sh * ap, { ...m.badge, text: '' }); ctx.restore(); }   // the trail has no initials (they would pile up over the name)
+    if (land > 0 && land < 0.5) { ctx.save(); ctx.globalAlpha *= 1 - land / 0.5; ctx.strokeStyle = down ? '#ff4d5e' : '#2ecc71'; ctx.lineWidth = 6; ctx.beginPath(); ctx.ellipse(0, y1 + sh * 0.5, 40 + land * 240, 10 + land * 50, 0, 0, 7); ctx.stroke(); ctx.restore(); }
+    drawBadge(0, fy, sh * ap, m.badge);
+    const lines = String(m.label || m.name).split(' ').length > 1 ? String(m.label || m.name).split(' ') : [String(m.label || m.name)], fs = lines.length > 1 ? 25 : 24, ph = lines.length > 1 ? 64 : 40, py = fy + sh / 2 + 30 + (lines.length > 1 ? 4 : 0) * ap;
+    font(800, fs, 'Inter'); const tw = Math.min(cw - 6, Math.max(...lines.map(s => ctx.measureText(s).width)) + 26);
+    ctx.save(); ctx.globalAlpha *= clamp(ap, 0, 1); ctx.fillStyle = 'rgba(8,10,15,0.88)'; rrect(-tw / 2, py - ph / 2 + 8, tw, ph, 20); ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    lines.forEach((s, q) => ctx.fillText(s, 0, py + 8 + (q - (lines.length - 1) / 2) * 27)); ctx.restore();
+    if (land > 0) { const ck = eBack(pr(ct, t + d - 0.05, 0.3)), ax = sh * 0.42 + 6, ay = fy - sh * 0.42; ctx.save(); ctx.translate(ax, ay); ctx.scale(ck, ck);
+      ctx.fillStyle = down ? '#d6283b' : '#1f8a4c'; ctx.beginPath(); ctx.arc(0, 0, 23, 0, 7); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 3; ctx.stroke();
+      ctx.fillStyle = '#fff'; ctx.beginPath(); if (down) { ctx.moveTo(-10, -6); ctx.lineTo(10, -6); ctx.lineTo(0, 10); } else { ctx.moveTo(-10, 6); ctx.lineTo(10, 6); ctx.lineTo(0, -10); } ctx.closePath(); ctx.fill(); ctx.restore(); }
+    ctx.restore();
+  });
+  ctx.restore();
+};
+CARDS.divisions.noSlide = true;
 
 // Coin flip: a gold coin spins in the air and lands showing a number, for "it's close to 50/50" odds.
 // {type: "coin", text: "42%", label, landT|landAt, sub}
@@ -5052,6 +5102,7 @@ function cardEvents(c) {
     case 'stamp': ev.push({ t: 0.16, type: 'impact' }); break;
     case 'fates': (c.items || []).forEach(it => { if (it.t != null && it.t < 90) ev.push({ t: it.t, type: 'swipe' }, { t: it.t + 0.5, type: it.fate === 'up' || it.fate === 'win' ? 'pop' : 'impact' }); }); break;
     case 'trapdoor': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.8; ev.push({ t, type: it.stay ? 'pop' : 'impact' }); if (!it.stay) ev.push({ t: t + 0.15, type: 'whoosh' }); }); break;
+    case 'divisions': (c.moves || []).forEach((m, i) => { const t = m.t != null ? m.t : 0.7 + i * 0.55; ev.push({ t, type: 'whoosh' }, { t: t + (m.dur || 0.55), type: m.to > m.from ? 'impact' : 'pop' }); }); break;
     case 'sinking': (c.steps || []).forEach(st => { if (st.t != null && st.t < 90) ev.push({ t: st.t, type: 'impact' }); }); break;
     case 'ladder': (c.items || []).forEach(it => { const t = it.t != null ? it.t : 0.3; if (t < 90) ev.push({ t, type: 'whoosh' }, { t: t + (it.dur || 0.9), type: it.done ? 'pop' : 'impact' }); }); break;
     case 'timeline': (c.events || []).forEach(e => { const t = e.t != null ? e.t : 0.4; ev.push({ t: t + 0.35, type: 'impact' }); }); if (c.bracket && c.bracket.t != null) ev.push({ t: c.bracket.t, type: 'whoosh' }, { t: c.bracket.t + 0.5, type: 'impact' }); break;

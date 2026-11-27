@@ -1,0 +1,1998 @@
+{
+ "title": "Man City in League Two · Part 6",
+ "brand": "theo6k",
+ "accent": "#3FE0C5",
+ "voSpeed": 1.08,
+ "beats": [
+  {
+   "kicker": "Man City in League Two, Part 6 · a football simulation",
+   "headline": "City v United. In the [Championship].",
+   "hookWords": true,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#d6283b",
+     "#ffffff",
+     "#1c2c5b"
+    ],
+    "seed": 14
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.85,
+   "flashes": 12,
+   "hype": false,
+   "camFrom": {
+    "pos": [
+     0,
+     1.45,
+     -2.2
+    ],
+    "tgt": [
+     0,
+     1.1,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -1.3
+    ],
+    "tgt": [
+     0,
+     1.1,
+     10
+    ]
+   },
+   "move": 4.8,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": -0.62,
+     "z": 1.0,
+     "front": true,
+     "chest": true,
+     "label": "Man City",
+     "labelDelay": -0.45,
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "foot": "left"
+    },
+    {
+     "name": "",
+     "num": 7,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0.62,
+     "z": 1.0,
+     "front": true,
+     "chest": true,
+     "label": "Man United",
+     "labelDelay": -0.25
+    }
+   ],
+   "card": [
+    {
+     "type": "stamp",
+     "text": "RELEGATED",
+     "at": "Man United",
+     "lag": -0.1,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 78,
+     "y": 1290,
+     "sub": "in our simulation",
+     "dx": 205
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 4 · a football simulation",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    }
+   ],
+   "speedlines": [
+    {
+     "t": 0.0,
+     "dur": 0.9,
+     "amount": 0.7
+    }
+   ],
+   "shake": [
+    {
+     "at": "Man United",
+     "lag": -0.1,
+     "amount": 14
+    }
+   ],
+   "vo": "Man City and Man United are in the same league. The Championship."
+  },
+  {
+   "kicker": "The new league · simulated",
+   "headline": "Three come [down]. Three come [up].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     -24,
+     26,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     22,
+     14,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 9.5,
+   "moveEase": "linear",
+   "players": [],
+   "speedlines": [
+    {
+     "at": "bottom three",
+     "lag": -0.4,
+     "dur": 1.2,
+     "amount": 0.5
+    }
+   ],
+   "punch": [
+    {
+     "at": "In our simulation",
+     "lag": 0.5,
+     "amount": 0.1,
+     "dur": 1.4
+    },
+    {
+     "at": "bottom three",
+     "lag": -0.3,
+     "amount": 0.14,
+     "dur": 1.5
+    }
+   ],
+   "shake": [
+    {
+     "at": "bottom three",
+     "lag": 0.0,
+     "amount": 8
+    }
+   ],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 4 · simulated",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "divisions",
+     "y": 1010,
+     "w": 940,
+     "delay": 0.0,
+     "tiers": [
+      "PREMIER LEAGUE · BOTTOM 3 NOW",
+      "CHAMPIONSHIP",
+      "LEAGUE ONE"
+     ],
+     "focus": 1,
+     "note": "+ 18 clubs stay",
+     "cols": 6,
+     "clear": false,
+     "moves": [
+      {
+       "name": "Sunderland",
+       "badge": {
+        "colors": [
+         "#d6283b",
+         "#ffffff",
+         "#111111"
+        ],
+        "text": "SUN",
+        "style": "stripes"
+       },
+       "from": 0,
+       "to": 1,
+       "col": 0,
+       "at": "Sunderland",
+       "lag": -0.15
+      },
+      {
+       "name": "Man United",
+       "badge": {
+        "colors": [
+         "#d6283b",
+         "#111111",
+         "#f7d117"
+        ],
+        "text": "MUN"
+       },
+       "from": 0,
+       "to": 1,
+       "col": 1,
+       "at": "Man United",
+       "lag": -0.15
+      },
+      {
+       "name": "Crystal Palace",
+       "badge": {
+        "colors": [
+         "#1b458f",
+         "#c4122e",
+         "#ffffff"
+        ],
+        "text": "CRY",
+        "style": "stripes"
+       },
+       "from": 0,
+       "to": 1,
+       "col": 2,
+       "at": "Crystal Palace",
+       "lag": -0.15
+      },
+      {
+       "name": "Man City",
+       "badge": {
+        "colors": [
+         "#6cabdd",
+         "#1c2c5b",
+         "#ffffff"
+        ],
+        "text": "MCI"
+       },
+       "from": 2,
+       "to": 1,
+       "col": 3,
+       "at": "City,",
+       "lag": -0.15
+      },
+      {
+       "name": "MK Dons",
+       "badge": {
+        "colors": [
+         "#1a1a1a",
+         "#ffffff",
+         "#d6283b"
+        ],
+        "text": "MKD"
+       },
+       "from": 2,
+       "to": 1,
+       "col": 4,
+       "at": "MK Dons",
+       "lag": -0.15
+      },
+      {
+       "name": "Stockport",
+       "badge": {
+        "colors": [
+         "#1b4fb5",
+         "#ffffff",
+         "#ffffff"
+        ],
+        "text": "STK"
+       },
+       "from": 2,
+       "to": 1,
+       "col": 5,
+       "at": "Stockport",
+       "lag": -0.15
+      }
+     ]
+    },
+    {
+     "type": "stamp",
+     "text": "19TH",
+     "at": "Man United",
+     "lag": 0.1,
+     "color": "#ff4d5e",
+     "rot": -0.07,
+     "size": 96,
+     "y": 1560,
+     "sub": "in the real Premier League table today",
+     "hideAt": "Up from",
+     "hideLag": -0.1
+    },
+    {
+     "type": "stamp",
+     "text": "PROMOTED",
+     "at": "City,",
+     "lag": -0.3,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 96,
+     "y": 1560,
+     "sub": "City · MK Dons · Stockport"
+    }
+   ],
+   "vo": "In our simulation, the Premier League's bottom three come down: Sunderland, Man United, Crystal Palace. Up from League One: City, MK Dons, Stockport."
+  },
+  {
+   "kicker": "Your vote · the TikTok poll · 616 votes",
+   "headline": "You voted: [Bowen].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     26,
+     30,
+     -40
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     -24,
+     16,
+     -24
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 5,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 4 · the summer",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "pcard",
+     "y": 860,
+     "w": 300,
+     "h": 420,
+     "shiftX": 0,
+     "side": "left",
+     "at": "Jarrod Bowen",
+     "lag": -0.2,
+     "player": {
+      "kit": {
+       "shirt": "#7a263a",
+       "shorts": "#ffffff",
+       "socks": "#7a263a",
+       "text": "#1bb1e7"
+      },
+      "name": "",
+      "num": null,
+      "skin": "#f0c8a8",
+      "hair": "#4a3324"
+     },
+     "tag": "WEST HAM",
+     "caption": "Jarrod Bowen",
+     "stats": [
+      [
+       7,
+       "goals"
+      ],
+      [
+       7,
+       "assists"
+      ]
+     ],
+     "statsNote": "17 starts · Championship · real stats",
+     "clear": false
+    },
+    {
+     "type": "poll",
+     "y": 1450,
+     "delay": 0.0,
+     "question": "Who should we sign next?",
+     "clear": false,
+     "options": [
+      {
+       "label": "Bowen",
+       "color": "#7a263a",
+       "fill": 0.54,
+       "pct": "54%"
+      },
+      {
+       "label": "Cozier-Duberry",
+       "color": "#e2231a",
+       "fill": 0.41,
+       "pct": "41%"
+      },
+      {
+       "label": "Tanner",
+       "color": "#0a4ea1",
+       "fill": 0.05,
+       "pct": "5%"
+      }
+     ]
+    }
+   ],
+   "vo": "You voted for the right wing: Jarrod Bowen. Fifty-four percent."
+  },
+  {
+   "kicker": "The comment vote · keep him",
+   "headline": "Moylan [stays].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#0a4ea1",
+     "#ffffff",
+     "#0a4ea1",
+     "#d6283b"
+    ],
+    "seed": 33
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.7,
+   "focus": 0.35,
+   "flashes": 8,
+   "camFrom": {
+    "pos": [
+     0,
+     1.6,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0.8,
+     1.6,
+     -1.8
+    ],
+    "tgt": [
+     0,
+     1.3,
+     10
+    ]
+   },
+   "move": 4.2,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 4 · the summer",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "shirtflip",
+     "y": 820,
+     "delay": 0.0,
+     "size": 420,
+     "from": {
+      "color": "#0a4ea1",
+      "color2": "#ffffff",
+      "name": "CARDIFF"
+     },
+     "to": {
+      "color": "#6cabdd",
+      "color2": "#1c2c5b",
+      "name": "MOYLAN"
+     },
+     "flipAt": "So he stays",
+     "flipLag": -0.15,
+     "clear": false
+    },
+    {
+     "type": "stamp",
+     "text": "PERMANENT",
+     "at": "a permanent deal",
+     "lag": -0.35,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 96,
+     "y": 1500,
+     "sub": "no more loan · left wing"
+    }
+   ],
+   "vo": "And you said keep Moylan. So he stays: a permanent deal."
+  },
+  {
+   "kicker": "10,000 seasons simulated · pre-season",
+   "headline": "Promotion: [55%].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#2a2f3a",
+     "#3a4356",
+     "#1c2029",
+     "#2c5a66"
+    ],
+    "seed": 21
+   },
+   "accent": "#3FE0C5",
+   "lights": 0.5,
+   "focus": 0.3,
+   "camFrom": {
+    "pos": [
+     -26,
+     22,
+     -38
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "camera": {
+    "pos": [
+     24,
+     14,
+     -22
+    ],
+    "tgt": [
+     0,
+     0,
+     6
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 4 · 10,000 runs",
+     "dur": 1.6,
+     "clear": false
+    },
+    {
+     "type": "odds",
+     "y": 1030,
+     "cell": 60,
+     "title": "City · chance of promotion",
+     "lit": 55,
+     "litStep": 0.016,
+     "litAt": "fifty-five percent",
+     "litLag": -0.35,
+     "label": "{n}%",
+     "clear": false,
+     "extra": {
+      "n": 23,
+      "color": "#e9b949",
+      "at": "Your two picks add",
+      "lag": 0.0,
+      "label": "your two picks: +23"
+     }
+    }
+   ],
+   "vo": "Promotion odds: fifty-five percent. Your two picks add twenty-three."
+  },
+  {
+   "kicker": "The title race · pre-season",
+   "headline": "But the favourites are [United].",
+   "cut": true,
+   "transition": "vhs",
+   "vhsLabel": "BUT",
+   "vhsDur": 1.0,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#111111",
+     "#d6283b"
+    ],
+    "seed": 41
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.55,
+   "focus": 0.35,
+   "camFrom": {
+    "pos": [
+     -4.0,
+     2.4,
+     20.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     40
+    ]
+   },
+   "camera": {
+    "pos": [
+     5.0,
+     3.0,
+     22.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     40
+    ]
+   },
+   "move": 6,
+   "moveEase": "linear",
+   "players": [],
+   "hype": false,
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Season 4 · 10,000 runs",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "flytext",
+     "text": "UNITED",
+     "size": 300,
+     "endScale": 0.42,
+     "y": 640,
+     "at": "Man United",
+     "lag": -0.35,
+     "color": "#ff4d5e",
+     "clear": false
+    },
+    {
+     "type": "bars",
+     "y": 1180,
+     "label": "chance to win the league",
+     "at": "eighty-six",
+     "lag": -1.2,
+     "max": 100,
+     "clear": false,
+     "rows": [
+      {
+       "name": "United",
+       "value": 86,
+       "suffix": "%",
+       "color": "#d6283b"
+      },
+      {
+       "name": "Sunderland",
+       "value": 6,
+       "suffix": "%",
+       "color": "#9aa1ad"
+      },
+      {
+       "name": "City",
+       "value": 5,
+       "suffix": "%",
+       "color": "#6cabdd"
+      }
+     ]
+    }
+   ],
+   "vo": "But Man United are the favourites: eighty-six percent to win the league. City: five."
+  },
+  {
+   "kicker": "Matchday 1 · at home",
+   "headline": "Day one: [1–0] v Cardiff.",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#6cabdd",
+     "#ffffff",
+     "#6cabdd",
+     "#1c2c5b"
+    ],
+    "seed": 6
+   },
+   "accent": "#3FE0C5",
+   "camTrack": {
+    "player": 0,
+    "off": [
+     2.2,
+     1.55,
+     -5.4
+    ],
+    "tgt": [
+     -0.7,
+     1.0,
+     9.0
+    ],
+    "look": [
+     0.0,
+     1.0,
+     50.0
+    ],
+    "lookW": 0.3,
+    "smooth": 0.35,
+    "to": {
+     "at": "scores",
+     "lag": 0.25,
+     "dur": 0.8,
+     "off": [
+      4.7,
+      1.3,
+      -2.1
+     ],
+     "tgt": [
+      0.0,
+      1.25,
+      0.0
+     ],
+     "lookW": 0.0
+    }
+   },
+   "hype": false,
+   "punch": [
+    {
+     "at": "scores",
+     "lag": -0.59,
+     "amount": 0.12,
+     "dur": 1.1,
+     "anchor": 0
+    }
+   ],
+   "shake": [
+    {
+     "at": "scores",
+     "lag": 0.0,
+     "amount": 14
+    }
+   ],
+   "speedlines": [
+    {
+     "at": "scores",
+     "lag": -0.6,
+     "dur": 0.6,
+     "amount": 0.4
+    }
+   ],
+   "flashes": 12,
+   "confetti": false,
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "foot": "left",
+     "dribble": true,
+     "dribbleUntil": 3.3,
+     "path": [
+      [
+       7.5,
+       20.0
+      ],
+      [
+       5.4,
+       26.0
+      ],
+      [
+       3.4,
+       31.5
+      ],
+      [
+       1.8,
+       34.2
+      ],
+      [
+       -0.1,
+       36.7
+      ],
+      [
+       -0.1,
+       36.7
+      ],
+      [
+       2.8,
+       35.4
+      ],
+      [
+       5.9,
+       33.6
+      ],
+      [
+       8.2,
+       32.0
+      ]
+     ],
+     "pathT": [
+      0,
+      1.0,
+      2.0,
+      2.6,
+      3.3,
+      4.65,
+      5.65,
+      6.65,
+      7.3500000000000005
+     ],
+     "at": "scores",
+     "lag": -4.4,
+     "frontT": 4.65,
+     "actions": [
+      {
+       "at": "scores",
+       "lag": -0.886,
+       "action": "kick",
+       "dur": 0.8,
+       "foot": "left"
+      },
+      {
+       "at": "scores",
+       "lag": 0.0,
+       "loop": "celebrate"
+      }
+     ],
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "hops": [
+      {
+       "at": "scores",
+       "lag": -2.05,
+       "dur": 0.5,
+       "height": 0.22
+      }
+     ],
+     "label": "Haaland",
+     "labelDelay": 0.2,
+     "labelUntilAt": "scores",
+     "labelUntilLag": 0.25
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#2ecc71",
+      "shorts": "#111111",
+      "socks": "#2ecc71",
+      "text": "#111111"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#3a2a1a",
+     "gloves": "#f2f2f2",
+     "front": true,
+     "pose": "keeper",
+     "path": [
+      [
+       -0.0,
+       52.0
+      ],
+      [
+       -0.0,
+       52.0
+      ],
+      [
+       -0.15,
+       50.4
+      ],
+      [
+       -0.15,
+       50.4
+      ]
+     ],
+     "pathT": [
+      0,
+      2.9,
+      3.75,
+      9.0
+     ],
+     "at": "scores",
+     "lag": -4.4,
+     "actions": [
+      {
+       "at": "scores",
+       "lag": -0.43,
+       "action": "dive",
+       "dir": 1
+      },
+      {
+       "at": "scores",
+       "lag": 1.55,
+       "action": "getup",
+       "dir": 1
+      }
+     ]
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0a4ea1",
+      "shorts": "#ffffff",
+      "socks": "#0a4ea1",
+      "text": "#ffffff"
+     },
+     "skin": "#e7b593",
+     "hair": "#141010",
+     "front": true,
+     "path": [
+      [
+       -3.8,
+       37.8
+      ],
+      [
+       -1.6,
+       34.8
+      ],
+      [
+       0.6,
+       33.4
+      ]
+     ],
+     "pathT": [
+      0,
+      1.75,
+      2.55
+     ],
+     "at": "scores",
+     "lag": -4.4,
+     "action": "slide",
+     "dir": -1,
+     "actionAt": "scores",
+     "actionLag": -2.35,
+     "actionDur": 1.1
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0a4ea1",
+      "shorts": "#ffffff",
+      "socks": "#0a4ea1",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "path": [
+      [
+       4.7,
+       17.0
+      ],
+      [
+       2.6,
+       23.0
+      ],
+      [
+       0.6,
+       28.6
+      ],
+      [
+       -0.9,
+       33.6
+      ],
+      [
+       -1.5,
+       36.2
+      ]
+     ],
+     "pathT": [
+      0,
+      1.0,
+      2.0,
+      3.0,
+      3.6
+     ],
+     "at": "scores",
+     "lag": -4.4,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "scores",
+     "actionLag": -0.4
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#0a4ea1",
+      "shorts": "#ffffff",
+      "socks": "#0a4ea1",
+      "text": "#ffffff"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "front": true,
+     "path": [
+      [
+       2.6,
+       44.2
+      ],
+      [
+       1.5,
+       43.4
+      ],
+      [
+       0.9,
+       44.0
+      ]
+     ],
+     "pathT": [
+      0,
+      3.0,
+      3.9
+     ],
+     "at": "scores",
+     "lag": -4.4,
+     "action": "dive",
+     "dir": -1,
+     "actionAt": "scores",
+     "actionLag": -0.45,
+     "actionDur": 0.7
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#e7b593",
+     "hair": "#3a2a1a",
+     "path": [
+      [
+       -5.6,
+       19.0
+      ],
+      [
+       -5.0,
+       29.0
+      ],
+      [
+       -4.4,
+       37.5
+      ],
+      [
+       -4.0,
+       42.5
+      ],
+      [
+       -4.0,
+       42.5
+      ],
+      [
+       -1.0,
+       40.0
+      ],
+      [
+       3.2,
+       37.4
+      ],
+      [
+       6.4,
+       34.8
+      ]
+     ],
+     "pathT": [
+      0,
+      2.0,
+      3.4,
+      4.0,
+      4.6000000000000005,
+      5.65,
+      6.65,
+      7.3500000000000005
+     ],
+     "at": "scores",
+     "lag": -4.4,
+     "action": "celebrate",
+     "actionAt": "scores",
+     "actionLag": 2.95,
+     "frontT": 4.65
+    },
+    {
+     "name": "",
+     "num": null,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "skin": "#f0c8a8",
+     "hair": "#6a4a2a",
+     "path": [
+      [
+       12.0,
+       27.5
+      ],
+      [
+       12.0,
+       27.5
+      ],
+      [
+       10.6,
+       29.0
+      ],
+      [
+       9.6,
+       30.2
+      ],
+      [
+       9.0,
+       30.8
+      ]
+     ],
+     "pathT": [
+      0,
+      4.6000000000000005,
+      5.550000000000001,
+      6.550000000000001,
+      7.3500000000000005
+     ],
+     "at": "scores",
+     "lag": -4.4,
+     "action": "celebrate",
+     "actionAt": "scores",
+     "actionLag": 2.95,
+     "frontT": 4.65
+    }
+   ],
+   "card": [
+    {
+     "type": "ball",
+     "point": [
+      -0.516,
+      0.11,
+      36.949
+     ],
+     "at": "scores",
+     "lag": -1.1,
+     "untilAt": "scores",
+     "untilLag": -0.55
+    },
+    {
+     "type": "ballpath",
+     "world": true,
+     "dur": 0.55,
+     "points": [
+      [
+       -0.516,
+       0.11,
+       36.949
+      ],
+      [
+       -1.827,
+       0.9,
+       45.392
+      ],
+      [
+       -2.9,
+       0.5,
+       52.3
+      ]
+     ],
+     "at": "scores",
+     "lag": -0.55,
+     "slowmo": false
+    },
+    {
+     "type": "scorebug",
+     "y": 560,
+     "delay": 0,
+     "home": {
+      "name": "MCI",
+      "color": "#6cabdd"
+     },
+     "away": {
+      "name": "CAR",
+      "color": "#0a4ea1"
+     },
+     "score": [
+      1,
+      0
+     ],
+     "min": "MD1",
+     "from": [
+      0,
+      0
+     ],
+     "goalAt": "scores",
+     "goalLag": 0.25
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Championship · matchday 1",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "stamp",
+     "text": "OLD CLUB",
+     "at": "Moylan's old club",
+     "lag": -0.1,
+     "color": "#4aa3ff",
+     "rot": -0.07,
+     "size": 84,
+     "y": 1520,
+     "sub": "Cardiff City",
+     "hideAt": "Haaland scores",
+     "hideLag": -0.3
+    },
+    {
+     "type": "stamp",
+     "text": "1–0",
+     "at": "One–nil",
+     "lag": -0.1,
+     "color": "#2ecc71",
+     "rot": -0.07,
+     "size": 110,
+     "y": 1520,
+     "sub": "Haaland · day one"
+    }
+   ],
+   "vo": "Day one: Cardiff, Moylan's old club. Haaland scores. One–nil."
+  },
+  {
+   "kicker": "Matchdays 2–5",
+   "headline": "Then four more. City climb to [second].",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#1c2c5b",
+     "#6cabdd"
+    ],
+    "seed": 9
+   },
+   "accent": "#e9b949",
+   "lights": 0.8,
+   "fans": true,
+   "flashes": 10,
+   "camFrom": {
+    "pos": [
+     9.0,
+     1.6,
+     22.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     40
+    ]
+   },
+   "camera": {
+    "pos": [
+     -7.0,
+     2.2,
+     24.0
+    ],
+    "tgt": [
+     0,
+     1.2,
+     40
+    ]
+   },
+   "move": 6.5,
+   "moveEase": "linear",
+   "hype": false,
+   "players": [],
+   "card": [
+    {
+     "type": "climb",
+     "y": 1110,
+     "w": 900,
+     "rowH": 70,
+     "delay": 0.0,
+     "show": 8,
+     "stepDur": 0.8,
+     "title": "Championship · the top eight",
+     "focus": "Manchester City",
+     "zones": [
+      {
+       "from": 1,
+       "to": 2,
+       "color": "#2ecc71"
+      },
+      {
+       "from": 3,
+       "to": 6,
+       "color": "#3FE0C5"
+      }
+     ],
+     "colors": {
+      "Manchester City": "#6cabdd",
+      "Manchester United": "#d6283b",
+      "Sunderland": "#d6283b",
+      "West Bromwich Albion": "#1c3f8a",
+      "MK Dons": "#e8e8ea",
+      "Crystal Palace": "#1b458f",
+      "Portsmouth": "#1d4fa8",
+      "Stockport County": "#1b4fb5",
+      "Blackburn Rovers": "#2d6cc0",
+      "West Ham United": "#7a263a",
+      "Birmingham City": "#1d4fa8",
+      "Southampton": "#d71920",
+      "Bristol City": "#d6283b"
+     },
+     "clear": false,
+     "steps": [
+      {
+       "rows": [
+        [
+         1,
+         "Blackburn Rovers",
+         3
+        ],
+        [
+         2,
+         "Sunderland",
+         3
+        ],
+        [
+         3,
+         "West Ham United",
+         3
+        ],
+        [
+         4,
+         "Birmingham City",
+         3
+        ],
+        [
+         5,
+         "Manchester United",
+         3
+        ],
+        [
+         6,
+         "West Bromwich Albion",
+         3
+        ],
+        [
+         7,
+         "Stockport County",
+         3
+        ],
+        [
+         8,
+         "Manchester City",
+         3
+        ]
+       ],
+       "label": "MD1 · W 1–0 Cardiff"
+      },
+      {
+       "at": "Norwich",
+       "lag": -0.1,
+       "rows": [
+        [
+         1,
+         "Manchester United",
+         6
+        ],
+        [
+         2,
+         "West Bromwich Albion",
+         6
+        ],
+        [
+         3,
+         "Manchester City",
+         6
+        ],
+        [
+         4,
+         "Blackburn Rovers",
+         4
+        ],
+        [
+         5,
+         "West Ham United",
+         4
+        ],
+        [
+         6,
+         "Bolton Wanderers",
+         4
+        ],
+        [
+         7,
+         "Stockport County",
+         4
+        ],
+        [
+         8,
+         "Queens Park Rangers",
+         4
+        ]
+       ],
+       "label": "MD2 · W 2–0 Norwich"
+      },
+      {
+       "at": "Portsmouth",
+       "lag": -0.1,
+       "rows": [
+        [
+         1,
+         "Manchester United",
+         9
+        ],
+        [
+         2,
+         "West Bromwich Albion",
+         9
+        ],
+        [
+         3,
+         "Manchester City",
+         7
+        ],
+        [
+         4,
+         "Sunderland",
+         6
+        ],
+        [
+         5,
+         "Birmingham City",
+         6
+        ],
+        [
+         6,
+         "Southampton",
+         6
+        ],
+        [
+         7,
+         "Blackburn Rovers",
+         5
+        ],
+        [
+         8,
+         "MK Dons",
+         4
+        ]
+       ],
+       "label": "MD3 · D 1–1 Portsmouth"
+      },
+      {
+       "at": "Southampton",
+       "lag": -0.1,
+       "rows": [
+        [
+         1,
+         "Manchester United",
+         12
+        ],
+        [
+         2,
+         "West Bromwich Albion",
+         10
+        ],
+        [
+         3,
+         "Manchester City",
+         10
+        ],
+        [
+         4,
+         "Sunderland",
+         7
+        ],
+        [
+         5,
+         "MK Dons",
+         7
+        ],
+        [
+         6,
+         "Bristol City",
+         7
+        ],
+        [
+         7,
+         "Blackburn Rovers",
+         6
+        ],
+        [
+         8,
+         "Crystal Palace",
+         6
+        ]
+       ],
+       "label": "MD4 · W 1–0 Southampton"
+      },
+      {
+       "at": "Birmingham",
+       "lag": -0.1,
+       "rows": [
+        [
+         1,
+         "West Bromwich Albion",
+         13
+        ],
+        [
+         2,
+         "Manchester City",
+         13
+        ],
+        [
+         3,
+         "Manchester United",
+         12
+        ],
+        [
+         4,
+         "Sunderland",
+         10
+        ],
+        [
+         5,
+         "MK Dons",
+         10
+        ],
+        [
+         6,
+         "Crystal Palace",
+         9
+        ],
+        [
+         7,
+         "Portsmouth",
+         8
+        ],
+        [
+         8,
+         "Stockport County",
+         8
+        ]
+       ],
+       "label": "MD5 · W 2–0 Birmingham"
+      }
+     ]
+    },
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Championship · matchdays 1–5",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    }
+   ],
+   "vo": "Then Norwich, two–nil. Portsmouth, one–one. Southampton, one–nil. Birmingham, two–nil."
+  },
+  {
+   "kicker": "After five games · simulated",
+   "headline": "Five games: [13 points].",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#ffffff",
+     "#1c2c5b",
+     "#6cabdd"
+    ],
+    "seed": 9
+   },
+   "accent": "#e9b949",
+   "lights": 0.8,
+   "flashes": 10,
+   "camFrom": {
+    "pos": [
+     0,
+     1.45,
+     -4.6
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.45,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     1.35,
+     10
+    ]
+   },
+   "move": 5.0,
+   "moveEase": "linear",
+   "players": [
+    {
+     "name": "BOWEN",
+     "num": 20,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": -0.55,
+     "z": 0,
+     "front": true,
+     "chest": true,
+     "label": "Bowen",
+     "at": "And Bowen",
+     "lag": -0.3,
+     "enter": "fade",
+     "skin": "#f0c8a8",
+     "hair": "#4a3324"
+    }
+   ],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Championship · after matchday 5",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "stack",
+     "y": 1480,
+     "dx": 250,
+     "size": 130,
+     "clear": false,
+     "items": [
+      {
+       "value": 13,
+       "label": "points",
+       "at": "Thirteen points",
+       "lag": -0.1
+      },
+      {
+       "value": 1,
+       "label": "against · the fewest",
+       "at": "One goal conceded",
+       "lag": -0.1
+      },
+      {
+       "value": 2,
+       "label": "Bowen · sim goals",
+       "at": "two goals",
+       "lag": -0.2
+      },
+      {
+       "value": 2,
+       "label": "Bowen · sim assists",
+       "at": "two assists",
+       "lag": -0.25,
+       "gold": true
+      }
+     ]
+    }
+   ],
+   "vo": "Thirteen points. One goal conceded. And Bowen: two goals, two assists."
+  },
+  {
+   "kicker": "Next: Old Trafford",
+   "headline": "United: [18 goals] in five.",
+   "cut": true,
+   "transition": "whip",
+   "whipDir": -1,
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#111111",
+     "#d6283b"
+    ],
+    "seed": 41
+   },
+   "accent": "#ff4d5e",
+   "lights": 0.7,
+   "flashes": 12,
+   "camFrom": {
+    "pos": [
+     0,
+     2.2,
+     -3.8
+    ],
+    "tgt": [
+     0,
+     -2.4,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     2.2,
+     -3.4
+    ],
+    "tgt": [
+     0,
+     -2.4,
+     10
+    ]
+   },
+   "move": 5.0,
+   "moveEase": "linear",
+   "hype": false,
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": -0.62,
+     "z": 1.0,
+     "front": true,
+     "chest": true,
+     "label": "Man City",
+     "labelDelay": 0.1,
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "foot": "left"
+    },
+    {
+     "name": "",
+     "num": 7,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0.62,
+     "z": 1.0,
+     "front": true,
+     "chest": true,
+     "label": "Man United",
+     "labelDelay": 0.2
+    }
+   ],
+   "card": [
+    {
+     "type": "simhud",
+     "delay": 0,
+     "sub": "Championship · after matchday 5",
+     "dur": 0,
+     "clear": false,
+     "counter": false
+    },
+    {
+     "type": "tape",
+     "y": 1450,
+     "w": 900,
+     "rowH": 118,
+     "left": {
+      "name": "MAN CITY",
+      "color": "#6cabdd"
+     },
+     "right": {
+      "name": "MAN UNITED",
+      "color": "#d6283b"
+     },
+     "clear": false,
+     "rows": [
+      {
+       "label": "points",
+       "left": 13,
+       "right": 12,
+       "at": "Old Trafford",
+       "lag": -0.1
+      },
+      {
+       "label": "goals scored",
+       "left": 7,
+       "right": 18,
+       "at": "eighteen goals",
+       "lag": -0.2
+      },
+      {
+       "label": "clean sheets",
+       "left": 4,
+       "right": 2,
+       "at": "in five games",
+       "lag": 0.1
+      }
+     ]
+    }
+   ],
+   "vo": "Next: Old Trafford. United have scored eighteen goals in five games."
+  },
+  {
+   "kicker": "Matchday 7 · Old Trafford",
+   "headline": "United v City. Who [wins]?",
+   "cut": true,
+   "transition": "whip",
+   "scene": {
+    "type": "stadium",
+    "crowd": [
+     "#d6283b",
+     "#ffffff",
+     "#111111",
+     "#d6283b"
+    ],
+    "seed": 41
+   },
+   "accent": "#e9b949",
+   "lights": 0.6,
+   "flashes": 14,
+   "camFrom": {
+    "pos": [
+     0,
+     1.5,
+     -2.6
+    ],
+    "tgt": [
+     0,
+     0.6,
+     10
+    ]
+   },
+   "camera": {
+    "pos": [
+     0,
+     1.5,
+     -1.7
+    ],
+    "tgt": [
+     0,
+     0.6,
+     10
+    ]
+   },
+   "move": 4.6,
+   "moveEase": "linear",
+   "hype": false,
+   "players": [
+    {
+     "name": "HAALAND",
+     "num": 9,
+     "kit": {
+      "shirt": "#6cabdd",
+      "shorts": "#ffffff",
+      "socks": "#6cabdd",
+      "text": "#1c2c5b"
+     },
+     "x": -0.62,
+     "z": 1.0,
+     "front": true,
+     "chest": true,
+     "skin": "#f1d3bd",
+     "hair": "#d9b46a",
+     "foot": "left"
+    },
+    {
+     "name": "",
+     "num": 7,
+     "kit": {
+      "shirt": "#d6283b",
+      "shorts": "#ffffff",
+      "socks": "#111111",
+      "text": "#ffffff"
+     },
+     "skin": "#8a5a3c",
+     "hair": "#141010",
+     "x": 0.62,
+     "z": 1.0,
+     "front": true,
+     "chest": true
+    }
+   ],
+   "card": [
+    {
+     "type": "stamp",
+     "text": "MD 7",
+     "at": "Matchday seven",
+     "lag": -0.1,
+     "color": "#e9b949",
+     "rot": -0.07,
+     "size": 100,
+     "y": 690,
+     "sub": "Man United v Man City · Old Trafford"
+    },
+    {
+     "type": "poll",
+     "y": 1560,
+     "at": "Who wins",
+     "lag": -0.6,
+     "question": "Who wins the derby?",
+     "clear": false,
+     "options": [
+      {
+       "label": "City",
+       "color": "#6cabdd",
+       "fill": 0.34
+      },
+      {
+       "label": "Draw",
+       "color": "#9aa1ad",
+       "fill": 0.33
+      },
+      {
+       "label": "United",
+       "color": "#d6283b",
+       "fill": 0.33
+      }
+     ]
+    }
+   ],
+   "vo": "Matchday seven. Man United against Man City. Who wins?"
+  }
+ ]
+}
